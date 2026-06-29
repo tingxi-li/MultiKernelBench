@@ -12,11 +12,12 @@ gaps, both with TileLang as the laggard:**
 | gather | 1.22x | 1.11x | 1.12x | 1.07x | 1.14× |
 | (cumsum / activations / lstm) | — | — | — | — | ≤1.05× |
 
-Both gaps trace to **one structural choice — the idiomatic TileLang mapping of "one
-block per batch-row"** — but they fail through **two different mechanisms**, which the
-benchmark's small batch dimension (M = Rr = 64) exposes. Each cause was isolated with a
-controlled single-variable experiment (`--num-warmup 200`, same reference golden), not
-assumed.
+Both gaps surface only because of the benchmark's small batch dimension (M = Rr = 64) —
+but they have **two independent causes**: a grid/occupancy mistake (scatter) and a dtype
+mistake (layer_norm). The tempting single-root-cause story ("the per-row mapping starves
+the GPU") is **refuted by layer_norm's own data below** — there the per-row mapping is
+*optimal*. Each cause was isolated with a controlled single-variable experiment
+(`--num-warmup 200`, same reference golden), not assumed.
 
 ---
 
@@ -107,25 +108,36 @@ leaner `red.global.max.s32` (a no-return reduction-atomic) and grid-stride loop.
 cleanly separable without a profiler (`ncu` is unavailable on this host), so we report it
 as "launch + codegen" rather than over-attributing.
 
-**Fix shipped:** `scatter/tilelang` element-tiled ⇒ **3.80x → 5.88x**.
+**Fix shipped:** `scatter/tilelang` element-tiled ⇒ **3.80x → 5.88x**. *(Shape caveat: the
+tiled kernel hardcodes KS=16 / WS=32 and indexes `K//KS`, `W//WS`, so it assumes K and W
+divide evenly by the tile — true here (4096/16, 8192/32) and the kernels are shape-cached, but
+unlike the original per-row `T.Parallel(K)` it is not general for arbitrary shapes.)*
 
 ---
 
-## The unifying thesis
+## Two distinct pitfalls, one shared context
 
-> **Idiomatic TileLang maps the batch dimension to the grid (one block per row); idiomatic
-> CUDA grid-strides over flattened elements.** When the batch is small (64 here), the
-> per-row mapping under-uses a 142-SM GPU — but the *symptom* depends on the op's arithmetic
-> intensity:
-> - **scatter** (compute-light): 64 blocks literally starve the SMs → **occupancy** gap.
-> - **layer_norm** (memory-heavy, huge rows): 64 blocks are *fine* (per-thread MLP hides
->   latency), but the per-row mapping forced a whole-row reduction → long accumulation
->   chains → an **fp64** choice → a 1/64-rate arithmetic tax.
+It is tempting to unify these as "the per-row mapping starves a 142-SM GPU" — but the
+**layer_norm data refutes that**: variant B is per-row *and* the fastest of all variants
+(1.61x, beating CUDA's split-row). For layer_norm the per-row mapping is **optimal**. So the
+two gaps are **not** one root cause; they are independent bugs that merely share a context
+(this benchmark's small batch = 64, which is what made each one *visible*):
 
-The same root structural choice; two distinct failure modes; both invisible until you vary
-one factor at a time. The lesson for porting to a tile DSL on this hardware: **don't map a
-small batch dim to the grid**, and **keep reduction accumulators in fp32** unless a
-*short-chain* numerical argument demands otherwise.
+> - **scatter — a grid/occupancy mistake.** Compute-light, so it genuinely needs thousands
+>   of blocks; mapping the 64-row batch to the grid starved the SMs. The *mapping* was wrong;
+>   element-tiling the inner dim fixes it (3.80x → 5.88x).
+> - **layer_norm — a dtype mistake.** Memory-bound with huge rows, so one block per row is
+>   the *right* mapping (a single fused launch, no global atomics; each thread's ~16384
+>   independent loads saturate HBM even at 64 blocks). The gap was an unrelated **precision**
+>   choice — fp64 accumulators at 1/64 rate. fp32 per-row works and is fastest, so the
+>   per-row layout never "forced" fp64; that was an independent — and misdiagnosed — decision.
+
+Two separate bugs ⇒ two separate lessons for porting to a tile DSL on this hardware:
+(1) **don't map a small batch dim to the grid for compute-light ops** — tile the inner dim;
+(2) **keep reduction accumulators in fp32** on AD102 unless a *short-chain* precision
+argument truly demands fp64. The diagnostic that unifies them is the *method*, not the
+cause: occupancy and precision both present as "TileLang is slow" until you vary one factor
+at a time.
 
 ### What did NOT have a large gap (and why)
 - **group_norm** (1.17× spread): all four are ~roofline against torch's own tuned
@@ -136,10 +148,16 @@ small batch dim to the grid**, and **keep reduction accumulators in fp32** unles
 
 ---
 
-## Independent verification
+## Independent review (partial)
 
 Two independent reviewers re-derived each conclusion from the source + grid arithmetic
-(no shared reasoning); both returned **supports**, and each sharpened a residual:
+(no shared reasoning) and both returned **supports**, each sharpening a residual (below).
+**Caveat on what this covers:** these two were *residual-explainers* — prompted to assume the
+headline claim and account for the leftover — so they are confirmatory by construction, not
+adversarial. The two genuinely adversarial passes I queued (a refuter tasked to break each
+claim, and a completeness/thesis critic) **stalled on a hung web-search and never returned**,
+so the adversarial check did not complete. The empirical backing for the two causes is the
+**controlled single-variable experiments** in Gaps 1–2, not this review.
 
 - **layer_norm (fp64, not occupancy) — confirmed.** LayerNorm here is **DRAM-bound**:
   ~3.0 GiB of unavoidable traffic / 960 GB/s ⇒ a ~3.3 ms floor; per-row fp32 (B) hits
@@ -171,5 +189,7 @@ Each cause was isolated with a **single-variable controlled experiment** through
 `AKO4ALL/bench/kernelbench/bench.py` harness (`--num-warmup 200`, relative-1e-4 correctness,
 `--deterministic` for scatter) on one dedicated GPU. Decomposition variants live in the
 session tmp dir; the two fixes are shipped into the live `tilelang` solutions and re-benched
-(`layer_norm/tilelang` 1.61x, `scatter/tilelang` 5.88x). Conclusions independently verified
-by two adversarial reviewers (both "supports"). See `RESULTS.md` for the full table.
+(`layer_norm/tilelang` 1.61x, `scatter/tilelang` 5.88x). The proof is the controlled
+experiments, not opinion; two independent residual-explainer reviews concurred (the
+adversarial pass stalled — see "Independent review (partial)"). See `RESULTS.md` for the
+full table.
