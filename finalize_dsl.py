@@ -149,11 +149,15 @@ def main():
     lines.append("- **scatter** (deterministic last-wins, scored `--deterministic`): both CUDA tracks land "
                  "**~6.5x — above the Triton baseline (5.3x)** — via the atomicMax / inline-PTX "
                  "`red.global.max.s32` winner pass. noptx vs unlimited are within run-to-run noise on this "
-                 "~27µs kernel. TileLang's atomicMax two-pass is correct at ~3.8x.")
+                 "~27µs kernel. TileLang's atomicMax two-pass, **element-tiled to 1024/2048 blocks, reaches "
+                 "5.88x** (one-block-per-row starved the 142 SMs at 3.80x — see `GAP_ANALYSIS.md`).")
     lines.append("- **cumsum**: the chunked scan-with-carry reproduces ~1.2x in every DSL (TileLang uses "
                  "its built-in `T.cumsum` per chunk; CUDA uses a coalesced block-scan).")
-    lines.append("- **layer_norm**: the CUDA split-row reduction (double-accumulated partials) wins; the "
-                 "TileLang one-block-per-row port is correct but lower-occupancy (64 rows).")
+    lines.append("- **layer_norm**: TileLang per-row **fp32** is now the FASTEST (1.61x), edging CUDA's "
+                 "split-row (1.49x) and matching Triton — with N=4.19M per row, one block/row streams enough "
+                 "independent loads to saturate HBM and avoids the split's atomic + multi-kernel overhead. "
+                 "(The kernel originally shipped fp64 accumulators = 0.65x; fp64 runs at 1/64 fp32 rate on "
+                 "AD102 — that, not occupancy, was the gap. Full decomposition in `GAP_ANALYSIS.md`.)")
     lines.append("- **group_norm**: torch's GroupNorm is already near the HBM roofline on the 8.6GB tensors; "
                  "all three ports land ~0.8–0.92x (correct, near-roofline).")
     lines.append("- **lstm**: cuDNN's fused multi-layer LSTM is the floor; `nn.LSTM` is retained (allowed by "
