@@ -21,3 +21,11 @@ Triton speedup 5.3079x); benched against the same `reference/index/scatter.py` g
   in the kernel (CUDA kernel body / TileLang prim_func reached only via a
   subscript-dispatch, mirroring Triton's `kernel[grid](...)` exemption).
 - **vs Triton baseline 5.3079x:** see ako_dsl_runs/RESULTS.md for the cross-DSL table.
+
+## Iter 1 (new) — read int64 indices directly, drop idx.to(int32)
+
+- **Hypothesis (advice):** the `idx.contiguous().to(torch.int32)` cast launches an
+  extra kernel; reading int64 IDX directly in pass1 removes one launch.
+- **Change:** pass1 IDX tensor dtype int32 -> int64; forward() drops `.to(torch.int32)`.
+- **Bench:** COMPILED=True, CORRECT=True, RUNTIME=0.0286 ms (was 0.0317),
+  **SPEEDUP=6.3986x**. ~10% kernel-time reduction (one fewer launch). KEEP.

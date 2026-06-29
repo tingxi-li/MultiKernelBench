@@ -21,3 +21,9 @@ Triton speedup 1.0000x); benched against the same `reference/arch/lstm.py` golde
   in the kernel (CUDA kernel body / TileLang prim_func reached only via a
   subscript-dispatch, mirroring Triton's `kernel[grid](...)` exemption).
 - **vs Triton baseline 1.0000x:** see ako_dsl_runs/RESULTS.md for the cross-DSL table.
+
+## Re-bench (this session)
+- baseline: SPEEDUP 1.0000x, RUNTIME 14.4ms, CORRECT=True
+- final: SPEEDUP 1.0000x, RUNTIME 13.9ms, CORRECT=True
+- Analysis: runtime dominated by 6-layer cuDNN LSTM (~14ms); projection GEMM is tiny.
+  cuDNN fused multi-layer LSTM is the physical floor; matches ref exactly. AT FLOOR, no iters.

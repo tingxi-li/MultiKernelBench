@@ -21,3 +21,7 @@ Triton speedup 0.9938x); benched against the same `reference/activation/elu.py` 
   in the kernel (CUDA kernel body / TileLang prim_func reached only via a
   subscript-dispatch, mirroring Triton's `kernel[grid](...)` exemption).
 - **vs Triton baseline 0.9938x:** see ako_dsl_runs/RESULTS.md for the cross-DSL table.
+
+## Re-bench (baseline, this session) — at floor
+- COMPILED=True, CORRECT=True, RUNTIME=16.0000 ms, REF=16.0000 ms, SPEEDUP=1.0000x.
+- ELU is memory-bound elementwise; read+write of full tensor = HBM roofline. Already float4-vectorized + st.global.cs streaming store. Math (expf) is free under the bandwidth ceiling. No lever > 3%. Status: at_floor.

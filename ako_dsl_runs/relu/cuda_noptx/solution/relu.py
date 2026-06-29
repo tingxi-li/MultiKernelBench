@@ -11,8 +11,17 @@ _CUDA = r"""
 __device__ __forceinline__ float actf(float a){
     return fmaxf(a, 0.0f);
 }
-__global__ void relu_k(const float* __restrict__ x, float* __restrict__ y, long n){
+__global__ void relu_k4(const float4* __restrict__ x, float4* __restrict__ y, long n4){
     long i = (long)blockIdx.x * blockDim.x + threadIdx.x;
+    long stride = (long)gridDim.x * blockDim.x;
+    for(; i < n4; i += stride){
+        float4 v = x[i];
+        v.x = actf(v.x); v.y = actf(v.y); v.z = actf(v.z); v.w = actf(v.w);
+        y[i] = v;
+    }
+}
+__global__ void relu_k(const float* __restrict__ x, float* __restrict__ y, long start, long n){
+    long i = start + (long)blockIdx.x * blockDim.x + threadIdx.x;
     long stride = (long)gridDim.x * blockDim.x;
     for(; i < n; i += stride) y[i] = actf(x[i]);
 }
@@ -20,9 +29,18 @@ torch::Tensor relu_cuda(torch::Tensor x){
     auto y = torch::empty_like(x);
     long n = x.numel();
     int threads = 256;
-    long want = (n + threads - 1) / threads;
-    int blocks = (int)(want < 131072 ? want : 131072);
-    relu_k<<<blocks, threads>>>(x.data_ptr<float>(), y.data_ptr<float>(), n);
+    long n4 = n / 4;
+    if(n4 > 0){
+        long want = (n4 + threads - 1) / threads;
+        int blocks = (int)(want < 131072 ? want : 131072);
+        relu_k4<<<blocks, threads>>>(
+            reinterpret_cast<const float4*>(x.data_ptr<float>()),
+            reinterpret_cast<float4*>(y.data_ptr<float>()), n4);
+    }
+    long rem_start = n4 * 4;
+    if(rem_start < n){
+        relu_k<<<1, threads>>>(x.data_ptr<float>(), y.data_ptr<float>(), rem_start, n);
+    }
     return y;
 }
 """

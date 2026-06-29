@@ -21,3 +21,8 @@ Triton speedup 5.3079x); benched against the same `reference/index/scatter.py` g
   in the kernel (CUDA kernel body / TileLang prim_func reached only via a
   subscript-dispatch, mirroring Triton's `kernel[grid](...)` exemption).
 - **vs Triton baseline 5.3079x:** see ako_dsl_runs/RESULTS.md for the cross-DSL table.
+
+## Re-bench 2026-06-29
+- baseline: 6.4643x CORRECT, 0.0280ms
+- final (unchanged): 6.3604x CORRECT, 0.0283ms
+- At deterministic-scatter floor (~27us); beats Triton 5.31x. No edit attempted; run-to-run noise <3%. at_floor.

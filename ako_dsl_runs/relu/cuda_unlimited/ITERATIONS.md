@@ -21,3 +21,8 @@ Triton speedup 1.0000x); benched against the same `reference/activation/relu.py`
   in the kernel (CUDA kernel body / TileLang prim_func reached only via a
   subscript-dispatch, mirroring Triton's `kernel[grid](...)` exemption).
 - **vs Triton baseline 1.0000x:** see ako_dsl_runs/RESULTS.md for the cross-DSL table.
+
+## baseline (re-bench, GPU0)
+- unchanged solution: float4 + st.global.cs.v4 streaming store
+- SPEEDUP 1.0000x, RUNTIME 16.0ms == REF 16.0ms, CORRECT True
+- ReLU is pure read+write elementwise => HBM bandwidth bound. Already vectorized 128-bit + streaming store. At physical floor. No iter attempted.

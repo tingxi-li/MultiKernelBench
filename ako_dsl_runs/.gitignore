@@ -3,3 +3,4 @@
 *.pyc
 **/.torch_ext/
 **/_bench_output.txt
+**/trajectory/

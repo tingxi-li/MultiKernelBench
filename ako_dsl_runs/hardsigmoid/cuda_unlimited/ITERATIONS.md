@@ -21,3 +21,8 @@ Triton speedup 1.0127x); benched against the same `reference/activation/hardsigm
   in the kernel (CUDA kernel body / TileLang prim_func reached only via a
   subscript-dispatch, mirroring Triton's `kernel[grid](...)` exemption).
 - **vs Triton baseline 1.0127x:** see ako_dsl_runs/RESULTS.md for the cross-DSL table.
+
+## Re-bench (this session)
+- baseline: SPEEDUP 1.0000x, RUNTIME 16.0ms, CORRECT True. Mean==ref 16.0ms.
+- Analysis: HBM-bound elementwise; already float4 loads + st.global.cs.v4 streaming store, __launch_bounds__(256,6). Read+write of full tensor = HBM bandwidth floor. ref also hits same bandwidth -> 1.00x is the floor.
+- No iteration: at floor. final re-bench 1.0000x CORRECT True.

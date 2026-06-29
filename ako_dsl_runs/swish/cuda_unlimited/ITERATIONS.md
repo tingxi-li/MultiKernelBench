@@ -21,3 +21,17 @@ Triton speedup 2.5253x); benched against the same `reference/activation/swish.py
   in the kernel (CUDA kernel body / TileLang prim_func reached only via a
   subscript-dispatch, mirroring Triton's `kernel[grid](...)` exemption).
 - **vs Triton baseline 2.5253x:** see ako_dsl_runs/RESULTS.md for the cross-DSL table.
+
+## Iter 1 — streaming vectorized load (ld.global.cs.v4.f32)
+
+- **Hypothesis:** input is read-once; ld.global.cs streaming load avoids L2 pollution like the store does.
+- **Result:** SPEEDUP=2.3879x, RUNTIME=16.5ms (noisy, max 32.1ms), CORRECT=True. **SLOWER** than __ldg baseline (2.4472x). __ldg's cached path schedules better. **REVERTED.**
+
+## Iter 2 — fast intrinsic __expf
+
+- **Hypothesis:** fewer ALU instrs in actf could help.
+- **Result:** SPEEDUP=2.4472x, RUNTIME=16.1ms, CORRECT=True. **Identical** to baseline — compute is fully latency-hidden behind HBM (memory-bound). No win; reverted to expf (more accurate, same speed).
+
+## Conclusion — AT FLOOR
+
+16.1ms == ref/2.45x, HBM-bandwidth-bound elementwise. float4 + streaming store already in place; streaming load regressed; fast expf gave 0%. Kept baseline verbatim as best.

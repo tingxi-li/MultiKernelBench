@@ -21,3 +21,8 @@ Triton speedup 0.9938x); benched against the same `reference/activation/elu.py` 
   in the kernel (CUDA kernel body / TileLang prim_func reached only via a
   subscript-dispatch, mirroring Triton's `kernel[grid](...)` exemption).
 - **vs Triton baseline 0.9938x:** see ako_dsl_runs/RESULTS.md for the cross-DSL table.
+
+## Re-bench session (GPU3)
+- baseline: SPEEDUP 1.0256x, RUNTIME 15.6ms, CORRECT True
+- Analysis: memory-bound elementwise ELU (read N + write N floats), already coalesced contiguous access; at HBM bandwidth floor. ref 16.0ms.
+- final: SPEEDUP 1.0256x, RUNTIME 15.6ms, CORRECT True. status=at_floor (no iters attempted; obvious floor).

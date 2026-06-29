@@ -21,3 +21,8 @@ Triton speedup 1.0063x); benched against the same `reference/activation/gelu.py`
   in the kernel (CUDA kernel body / TileLang prim_func reached only via a
   subscript-dispatch, mirroring Triton's `kernel[grid](...)` exemption).
 - **vs Triton baseline 1.0063x:** see ako_dsl_runs/RESULTS.md for the cross-DSL table.
+
+## Re-bench (this run)
+- baseline (GPU1): SPEEDUP 1.0323x, RUNTIME 15.5ms, REF 16.0ms, CORRECT=True
+- Analysis: exact-erf GELU, pure elementwise read N + write N floats => HBM-bandwidth bound. std ~0.46ms (3%) is noise. Already above ref via float32 erf path.
+- No edit attempted: at physical HBM floor. final == baseline. status=at_floor.

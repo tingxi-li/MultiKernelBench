@@ -21,3 +21,12 @@ Triton speedup 1.0063x); benched against the same `reference/activation/gelu.py`
   in the kernel (CUDA kernel body / TileLang prim_func reached only via a
   subscript-dispatch, mirroring Triton's `kernel[grid](...)` exemption).
 - **vs Triton baseline 1.0063x:** see ako_dsl_runs/RESULTS.md for the cross-DSL table.
+
+## Iter 2 — float4 vectorize (KEEP)
+
+- **Hypothesis:** HBM-bound elementwise; vectorized float4 loads/stores improve
+  memory throughput vs scalar grid-stride.
+- **Change:** gelu_k4 processes float4 (4 elems/thread), scalar tail kernel for n%4.
+- **Bench (--num-warmup 200):** COMPILED=True, CORRECT=True (5/5),
+  RUNTIME=16.0000 ms, REF=16.0000 ms, **SPEEDUP=1.0000x** (was 0.9697x baseline).
+- **Verdict:** KEEP. ~3% gain, now matches ref exactly = HBM roofline floor.

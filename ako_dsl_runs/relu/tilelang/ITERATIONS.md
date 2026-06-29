@@ -21,3 +21,8 @@ Triton speedup 1.0000x); benched against the same `reference/activation/relu.py`
   in the kernel (CUDA kernel body / TileLang prim_func reached only via a
   subscript-dispatch, mirroring Triton's `kernel[grid](...)` exemption).
 - **vs Triton baseline 1.0000x:** see ako_dsl_runs/RESULTS.md for the cross-DSL table.
+
+## iter-1 (vectorized T.copy)
+- Change: VEC=4 inner T.vectorized loop over BLK//4 (float4-style coalesced access)
+- SPEEDUP: 1.0323x  RUNTIME: 15.5ms  CORRECT: True
+- vs baseline 0.9938x/16.1ms -> ~3.8% faster. KEEP.

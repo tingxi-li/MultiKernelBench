@@ -21,3 +21,6 @@ Triton speedup 1.0000x); benched against the same `reference/arch/lstm.py` golde
   in the kernel (CUDA kernel body / TileLang prim_func reached only via a
   subscript-dispatch, mirroring Triton's `kernel[grid](...)` exemption).
 - **vs Triton baseline 1.0000x:** see ako_dsl_runs/RESULTS.md for the cross-DSL table.
+
+## Final session (at_floor verify)
+- baseline re-bench: SPEEDUP 1.0070x, RUNTIME 14.3ms, REF 14.4ms, CORRECT=True. cuDNN LSTM floor; runtime == ref within noise (std 0.47). No edit attempted; no lever beats tuned cuDNN recurrent op. Status: at_floor.

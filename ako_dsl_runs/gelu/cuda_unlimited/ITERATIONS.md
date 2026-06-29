@@ -21,3 +21,9 @@ Triton speedup 1.0063x); benched against the same `reference/activation/gelu.py`
   in the kernel (CUDA kernel body / TileLang prim_func reached only via a
   subscript-dispatch, mirroring Triton's `kernel[grid](...)` exemption).
 - **vs Triton baseline 1.0063x:** see ako_dsl_runs/RESULTS.md for the cross-DSL table.
+
+## Re-bench (this session)
+- baseline: SPEEDUP 1.0000x, RUNTIME 16.0ms (ref 16.0ms), CORRECT=True.
+  Solution already float4-vectorized + st.global.cs.v4 streaming store + __launch_bounds__(256,6).
+  GELU is pure elementwise: reads N + writes N = 2*numel*4 bytes, HBM-bound. 16.0ms == ref => HBM floor.
+  No cheap lever remains (already 128-bit coalesced, streaming write). Status: at_floor.

@@ -6,25 +6,29 @@ from torch.utils.cpp_extension import load_inline
 _CUDA = r"""
 #include <torch/extension.h>
 #include <cuda_runtime.h>
+#define KPT 8
 __global__ void gather_k(const float* __restrict__ x, const long* __restrict__ idx,
-                         float* __restrict__ out, long n, long Cin, long Cout){
-    long i = (long)blockIdx.x * blockDim.x + threadIdx.x;
-    long stride = (long)gridDim.x * blockDim.x;
-    for(; i < n; i += stride){
-        long r = i / Cout;
-        long col = idx[i];
-        out[i] = x[r * Cin + col];
-    }
+                         float* __restrict__ out, long Cin, long Cout){
+    long r = blockIdx.y;
+    const float* xr = x + r * Cin;
+    long base = r * Cout + (long)blockIdx.x * blockDim.x * KPT + threadIdx.x;
+    long ci[KPT];
+    long col[KPT];
+    #pragma unroll
+    for(int k=0;k<KPT;k++) ci[k] = base + (long)k * blockDim.x;
+    #pragma unroll
+    for(int k=0;k<KPT;k++) if(ci[k] < (r+1)*Cout) col[k] = idx[ci[k]];
+    #pragma unroll
+    for(int k=0;k<KPT;k++) if(ci[k] < (r+1)*Cout) out[ci[k]] = xr[col[k]];
 }
 torch::Tensor gather_cuda(torch::Tensor x, torch::Tensor idx){
     long M = x.size(0), Cin = x.size(1), Cout = idx.size(1);
     auto out = torch::empty({M, Cout}, x.options());
-    long n = out.numel();
     int threads = 256;
-    long want = (n + threads - 1) / threads;
-    int blocks = (int)(want < 65535 ? want : 65535);
+    long gx = (Cout + (long)threads * KPT - 1) / ((long)threads * KPT);
+    dim3 blocks((unsigned)gx, (unsigned)M);
     gather_k<<<blocks, threads>>>(x.data_ptr<float>(), idx.data_ptr<long>(),
-                                  out.data_ptr<float>(), n, Cin, Cout);
+                                  out.data_ptr<float>(), Cin, Cout);
     return out;
 }
 """

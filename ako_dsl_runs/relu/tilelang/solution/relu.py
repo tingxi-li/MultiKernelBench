@@ -8,12 +8,15 @@ import tilelang.language as T
 def _build(N, BLK=8192, TH=256, dtype="float32"):
     @T.prim_func
     def main(X: T.Tensor((N,), dtype), Y: T.Tensor((N,), dtype)):
+        VEC = 4
         with T.Kernel(T.ceildiv(N, BLK), threads=TH) as bx:
-            for i in T.Parallel(BLK):
-                idx = bx * BLK + i
-                if idx < N:
-                    x = X[idx]
-                    Y[idx] = T.max(x, T.Cast(dtype, 0))
+            for i in T.Parallel(BLK // VEC):
+                base = bx * BLK + i * VEC
+                for v in T.vectorized(VEC):
+                    idx = base + v
+                    if idx < N:
+                        x = X[idx]
+                        Y[idx] = T.max(x, T.Cast(dtype, 0))
     return main
 
 

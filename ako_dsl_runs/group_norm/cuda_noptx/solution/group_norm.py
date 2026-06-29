@@ -10,7 +10,9 @@ __global__ void gn_stats(const float* __restrict__ x, float* __restrict__ mean,
                          float* __restrict__ rstd, long gnum, double eps){
     int ng = blockIdx.x; long base = (long)ng * gnum;
     float ls = 0.f, lss = 0.f;
-    for(long k = threadIdx.x; k < gnum; k += blockDim.x){ float v = x[base + k]; ls += v; lss += v * v; }
+    const float4* x4 = reinterpret_cast<const float4*>(x + base); long gnum4 = gnum >> 2;
+    for(long k = threadIdx.x; k < gnum4; k += blockDim.x){ float4 v = x4[k];
+        ls += v.x + v.y + v.z + v.w; lss += v.x*v.x + v.y*v.y + v.z*v.z + v.w*v.w; }
     __shared__ float ss[TPB], sq[TPB]; int t = threadIdx.x; ss[t] = ls; sq[t] = lss; __syncthreads();
     for(int s = blockDim.x / 2; s > 0; s >>= 1){ if(t < s){ ss[t] += ss[t+s]; sq[t] += sq[t+s]; } __syncthreads(); }
     if(t == 0){ double mu = (double)ss[0] / (double)gnum, var = (double)sq[0] / (double)gnum - mu * mu;
@@ -21,7 +23,10 @@ __global__ void gn_apply(const float* __restrict__ x, const float* __restrict__ 
                          long HW, int C, int GPC, int G){
     int nc = blockIdx.x, n = nc / C, c = nc % C, g = n * G + c / GPC;
     float sc = rstd[g] * w[c], sh = b[c] - mean[g] * sc; long base = (long)nc * HW;
-    for(long k = threadIdx.x; k < HW; k += blockDim.x) y[base + k] = x[base + k] * sc + sh;
+    const float4* x4 = reinterpret_cast<const float4*>(x + base);
+    float4* y4 = reinterpret_cast<float4*>(y + base); long HW4 = HW >> 2;
+    for(long k = threadIdx.x; k < HW4; k += blockDim.x){ float4 v = x4[k];
+        v.x = v.x*sc + sh; v.y = v.y*sc + sh; v.z = v.z*sc + sh; v.w = v.w*sc + sh; y4[k] = v; }
 }
 torch::Tensor groupnorm_cuda(torch::Tensor x, torch::Tensor w, torch::Tensor b, long G, double eps){
     long N = x.size(0), C = x.size(1), HW = x.numel() / (N * C), GPC = C / G, gnum = GPC * HW;

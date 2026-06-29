@@ -74,6 +74,14 @@ robust fallback at 1.31x.
 **Fix shipped:** `layer_norm/tilelang` fp64 → fp32 (one-line change) ⇒ **0.65x → 1.61x**,
 now the fastest layer_norm of all four abstractions.
 
+**Follow-up (AKO optimization pass).** The two CUDA layer_norm tracks were still at ~1.47–1.49x
+(the 3-launch split-row design). Porting the same structural win — one fused per-row **fp32**
+kernel (block-reduce mean/rstd in shared memory, apply in the same launch, dropping the separate
+`ln_final` launch and the global mean/rstd round-trip) — lifted `cuda_noptx` **1.49 → 1.61x** and
+`cuda_unlimited` **1.47 → 1.60x**. All four abstractions now agree at ~1.6x: the layer_norm gap is
+fully closed, and the decisive lever in every case was the per-row mapping kept in fp32 (never the
+1/64-rate fp64). See the optimization-pass section of `RESULTS.md`.
+
 ---
 
 ## Gap 2 — scatter: the cause **is** occupancy (with a small launch/codegen residual)

@@ -21,3 +21,8 @@ Triton speedup 1.0127x); benched against the same `reference/activation/hardsigm
   in the kernel (CUDA kernel body / TileLang prim_func reached only via a
   subscript-dispatch, mirroring Triton's `kernel[grid](...)` exemption).
 - **vs Triton baseline 1.0127x:** see ako_dsl_runs/RESULTS.md for the cross-DSL table.
+
+## iter-1: float4 vectorized load/store (+ scalar tail kernel)
+- Changed scalar grid-stride to float4 vectorized (4 elems/thread) with a scalar tail kernel for n%4.
+- SPEEDUP: 0.9938x  RUNTIME: 16.1ms  CORRECT: True  -> KEEP (best)
+- Baseline was 0.9697x/16.5ms. float4 reaches ref parity (HBM bandwidth floor). Memory-bound clamp; no further headroom.

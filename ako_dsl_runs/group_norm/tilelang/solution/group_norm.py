@@ -17,21 +17,33 @@ def _build(NG, gnum, G, GPC, HW, eps, TH=256, dtype="float32"):
             tid = T.get_thread_binding(0)
             ls = T.alloc_local((1,), "float32")
             lq = T.alloc_local((1,), "float32")
+            vec = T.alloc_local((4,), "float32")
             ls[0] = T.Cast("float32", 0)
             lq[0] = T.Cast("float32", 0)
-            for j in T.serial(tid, gnum, TH):
-                v = X[ng, j]
-                ls[0] += v
-                lq[0] += v * v
+            # float4-vectorized reduction
+            for i in T.serial(tid, gnum // 4, TH):
+                base = i * 4
+                for k in T.vectorized(4):
+                    vec[k] = X[ng, base + k]
+                for k in T.serial(4):
+                    ls[0] += vec[k]
+                    lq[0] += vec[k] * vec[k]
             T.atomic_add(red[0], ls[0])
             T.atomic_add(red[1], lq[0])
             T.sync_threads()
             mean = red[0] / gnum
             rstd = T.rsqrt(red[1] / gnum - mean * mean + eps)
             base_c = (ng % G) * GPC
-            for j in T.serial(tid, gnum, TH):
-                c = base_c + j // HW
-                Y[ng, j] = (X[ng, j] - mean) * rstd * Wt[c] + Bs[c]
+            # float4-vectorized affine apply; HW % 4 == 0 so a float4 stays in one channel
+            for i in T.serial(tid, gnum // 4, TH):
+                base = i * 4
+                c = base_c + base // HW
+                wc = Wt[c]
+                bc = Bs[c]
+                for k in T.vectorized(4):
+                    vec[k] = X[ng, base + k]
+                for k in T.vectorized(4):
+                    Y[ng, base + k] = (vec[k] - mean) * rstd * wc + bc
     return main
 
 

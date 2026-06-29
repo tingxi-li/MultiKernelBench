@@ -9,6 +9,14 @@ Triton speedup 1.0190x); benched against the same `reference/activation/sigmoid.
 | Iter | Title | Speedup | Runtime | Ref | Status |
 |------|-------|---------|---------|-----|--------|
 | 1 | cuda_noptx port of sigmoid | 1.0000x | 16.1000 ms | 16.1000 ms | correct |
+| AKO iter-1 | float4 vectorized load/store | 1.0000x | 16.0000 ms | 16.0000 ms | correct (kept) |
+
+## AKO4ALL run (GPU3)
+
+- baseline (scalar grid-stride): SPEEDUP=0.9938x, RUNTIME=16.1ms, CORRECT=True.
+- iter-1 (float4 vectorize, scalar tail kernel): SPEEDUP=1.0000x, RUNTIME=16.0ms, CORRECT=True.
+- **Verdict: AT FLOOR.** Unary elementwise sigmoid is HBM-bandwidth bound. float4
+  vectorization changed nothing measurable (<1% = noise); both match ref. Kept iter-1.
 
 ## Iter 1 — cuda_noptx port
 

@@ -3,13 +3,14 @@ import torch.nn as nn
 from torch.utils.cpp_extension import load_inline
 
 # CUDA UNLIMITED row cumsum: float4 (128-bit) coalesced loads + inline-PTX
-# streaming vectorized store (st.global.cs.v4.f32). Same block-scan+carry.
+# streaming vectorized store. Block scan = register-resident per-thread segment
+# (halves shared traffic) + warp-shuffle inter-thread scan (fewer syncs).
 _CUDA = r"""
 #include <torch/extension.h>
 #include <cuda_runtime.h>
-#define CHK 4096
+#define CHK 2048
 #define TT  256
-#define EPT 16   /* CHK/TT */
+#define EPT 8    /* CHK/TT */
 __device__ __forceinline__ void stcs_v4(float* p, float4 v){
     asm volatile("st.global.cs.v4.f32 [%4], {%0,%1,%2,%3};"
                  :: "f"(v.x),"f"(v.y),"f"(v.z),"f"(v.w),"l"(p));
@@ -20,30 +21,43 @@ __global__ void cumsum_k(const float* __restrict__ x, float* __restrict__ y, lon
     const float* xr = x + row * N;
     float* yr = y + row * N;
     __shared__ __align__(16) float buf[CHK];
-    __shared__ float sdata[TT];
+    __shared__ float wsum[TT/32];
     int tid = threadIdx.x;
+    int lane = tid & 31;
+    int wid  = tid >> 5;
     float carry = 0.0f;
     for(long base = 0; base < N; base += CHK){
         for(int k = tid; k < CHK/4; k += TT) ((float4*)buf)[k] = __ldg((const float4*)(xr + base) + k);
         __syncthreads();
         int s = tid * EPT;
+        // per-thread inclusive scan of contiguous segment, kept in registers
+        float r[EPT];
         float acc = 0.0f;
         #pragma unroll
-        for(int j = 0; j < EPT; j++){ acc += buf[s + j]; buf[s + j] = acc; }
-        sdata[tid] = acc;
-        __syncthreads();
-        for(int off = 1; off < TT; off <<= 1){
-            float v = (tid >= off) ? sdata[tid - off] : 0.0f;
-            __syncthreads();
-            sdata[tid] += v;
-            __syncthreads();
-        }
-        float add = carry + (sdata[tid] - acc);
+        for(int j = 0; j < EPT; j++){ acc += buf[s + j]; r[j] = acc; }
+        // warp-shuffle inclusive scan of segment totals
+        float val = acc;
         #pragma unroll
-        for(int j = 0; j < EPT; j++) buf[s + j] += add;
+        for(int d = 1; d < 32; d <<= 1){
+            float n = __shfl_up_sync(0xffffffff, val, d);
+            if(lane >= d) val += n;
+        }
+        if(lane == 31) wsum[wid] = val;     // warp total
+        __syncthreads();
+        // exclusive prefix of warps 0..wid-1 + full block total (8-way, broadcast reads)
+        float warp_excl = 0.0f, blockTotal = 0.0f;
+        #pragma unroll
+        for(int w = 0; w < TT/32; w++){
+            float wv = wsum[w];
+            if(w < wid) warp_excl += wv;
+            blockTotal += wv;
+        }
+        float add = carry + warp_excl + (val - acc);   // exclusive block prefix + carry
+        #pragma unroll
+        for(int j = 0; j < EPT; j++) buf[s + j] = r[j] + add;
         __syncthreads();
         for(int k = tid; k < CHK/4; k += TT) stcs_v4(yr + base + k*4, ((float4*)buf)[k]);
-        carry += sdata[TT - 1];
+        carry += blockTotal;
         __syncthreads();
     }
 }

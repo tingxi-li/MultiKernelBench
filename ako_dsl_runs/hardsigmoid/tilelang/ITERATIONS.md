@@ -21,3 +21,8 @@ Triton speedup 1.0127x); benched against the same `reference/activation/hardsigm
   in the kernel (CUDA kernel body / TileLang prim_func reached only via a
   subscript-dispatch, mirroring Triton's `kernel[grid](...)` exemption).
 - **vs Triton baseline 1.0127x:** see ako_dsl_runs/RESULTS.md for the cross-DSL table.
+
+## Re-bench (2026-06-29)
+- baseline: SPEEDUP 0.9938x, RUNTIME 16.1ms, REF 16.0ms, CORRECT=True.
+- Analysis: pure elementwise hardsigmoid = read N + write N fp32, memory-bound at HBM bandwidth. Runtime == ref within run-to-run noise (std 0.46ms). No arithmetic to optimize; float4 vectorization on this load pattern offers nothing over the compiler's coalesced 256-thread access. At physical floor.
+- Verdict: at_floor. No iters attempted (no lever exists).

@@ -18,8 +18,11 @@ __global__ void cumsum_k(const float* __restrict__ x, float* __restrict__ y, lon
     __shared__ float sdata[TT];
     int tid = threadIdx.x;
     float carry = 0.0f;
+    const int CHK4 = CHK / 4;
     for(long base = 0; base < N; base += CHK){
-        for(int k = tid; k < CHK; k += TT) buf[k] = xr[base + k];
+        const float4* xr4 = reinterpret_cast<const float4*>(xr + base);
+        float4* buf4 = reinterpret_cast<float4*>(buf);
+        for(int k = tid; k < CHK4; k += TT) buf4[k] = xr4[k];
         __syncthreads();
         int s = tid * EPT;
         float acc = 0.0f;
@@ -37,7 +40,8 @@ __global__ void cumsum_k(const float* __restrict__ x, float* __restrict__ y, lon
         #pragma unroll
         for(int j = 0; j < EPT; j++) buf[s + j] += add;
         __syncthreads();
-        for(int k = tid; k < CHK; k += TT) yr[base + k] = buf[k];
+        float4* yr4 = reinterpret_cast<float4*>(yr + base);
+        for(int k = tid; k < CHK4; k += TT) yr4[k] = buf4[k];
         carry += sdata[TT - 1];
         __syncthreads();
     }

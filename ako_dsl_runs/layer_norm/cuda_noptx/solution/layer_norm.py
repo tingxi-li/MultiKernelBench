@@ -6,38 +6,50 @@ _CUDA = r"""
 #include <torch/extension.h>
 #include <cuda_runtime.h>
 #define TPB 256
-__global__ void ln_stats(const float* __restrict__ x, double* __restrict__ sum_acc,
-                         double* __restrict__ sq_acc, long N, int S){
-    int m = blockIdx.x / S, sc = blockIdx.x % S;
-    long chunk = N / S, start = (long)m * N + (long)sc * chunk;
+// Fused LayerNorm: one block per row. Phase 1 reduces fp32 sum/sumsq with
+// float4 loads + shared-mem tree reduction; phase 2 re-reads the row (float4)
+// and writes the affine result. No fp64, no cross-block atomics, no 64-bit
+// div/mod in the hot loop (m = blockIdx, col = vectorized loop index).
+__global__ void ln_fused(const float* __restrict__ x, const float* __restrict__ w,
+                         const float* __restrict__ b, float* __restrict__ y,
+                         long N, float eps){
+    int m = blockIdx.x, t = threadIdx.x;
+    const float4* __restrict__ x4 = reinterpret_cast<const float4*>(x + (long)m * N);
+    const float4* __restrict__ w4 = reinterpret_cast<const float4*>(w);
+    const float4* __restrict__ b4 = reinterpret_cast<const float4*>(b);
+    float4* __restrict__ y4 = reinterpret_cast<float4*>(y + (long)m * N);
+    long N4 = N >> 2;
     float ls = 0.f, lss = 0.f;
-    for(long k = threadIdx.x; k < chunk; k += blockDim.x){ float v = x[start + k]; ls += v; lss += v * v; }
+    for(long k = t; k < N4; k += blockDim.x){
+        float4 v = x4[k];
+        ls  += v.x + v.y + v.z + v.w;
+        lss += v.x*v.x + v.y*v.y + v.z*v.z + v.w*v.w;
+    }
     __shared__ float ss[TPB], sq[TPB];
-    int t = threadIdx.x; ss[t] = ls; sq[t] = lss; __syncthreads();
+    ss[t] = ls; sq[t] = lss; __syncthreads();
     for(int s = blockDim.x / 2; s > 0; s >>= 1){ if(t < s){ ss[t] += ss[t+s]; sq[t] += sq[t+s]; } __syncthreads(); }
-    if(t == 0){ atomicAdd(sum_acc + m, (double)ss[0]); atomicAdd(sq_acc + m, (double)sq[0]); }
-}
-__global__ void ln_final(const double* sum_acc, const double* sq_acc, float* mean, float* rstd, long N, double eps, int M){
-    int m = blockIdx.x * blockDim.x + threadIdx.x; if(m >= M) return;
-    double mu = sum_acc[m] / (double)N, var = sq_acc[m] / (double)N - mu * mu;
-    mean[m] = (float)mu; rstd[m] = (float)(1.0 / sqrt(var + eps));
-}
-__global__ void ln_apply(const float* __restrict__ x, const float* __restrict__ w, const float* __restrict__ b,
-                         const float* __restrict__ mean, const float* __restrict__ rstd,
-                         float* __restrict__ y, long N, long total){
-    long i = (long)blockIdx.x * blockDim.x + threadIdx.x, stride = (long)gridDim.x * blockDim.x;
-    for(; i < total; i += stride){ long m = i / N, col = i - m * N; y[i] = (x[i] - mean[m]) * rstd[m] * w[col] + b[col]; }
+    __shared__ float s_mean, s_rstd;
+    if(t == 0){
+        float mu = ss[0] / (float)N;
+        float var = sq[0] / (float)N - mu * mu;
+        s_mean = mu; s_rstd = rsqrtf(var + eps);
+    }
+    __syncthreads();
+    float mean = s_mean, rstd = s_rstd;
+    for(long k = t; k < N4; k += blockDim.x){
+        float4 v = x4[k], wv = w4[k], bv = b4[k], o;
+        o.x = (v.x - mean) * rstd * wv.x + bv.x;
+        o.y = (v.y - mean) * rstd * wv.y + bv.y;
+        o.z = (v.z - mean) * rstd * wv.z + bv.z;
+        o.w = (v.w - mean) * rstd * wv.w + bv.w;
+        y4[k] = o;
+    }
 }
 torch::Tensor layernorm_cuda(torch::Tensor x, torch::Tensor w, torch::Tensor b, double eps){
-    long N = w.numel(), M = x.numel() / N; int S = 128;
-    auto od = x.options().dtype(torch::kFloat64);
-    auto sum_acc = torch::zeros({M}, od), sq_acc = torch::zeros({M}, od);
-    auto mean = torch::empty({M}, x.options()), rstd = torch::empty({M}, x.options());
+    long N = w.numel(), M = x.numel() / N;
     auto y = torch::empty_like(x);
-    ln_stats<<<(int)(M * S), TPB>>>(x.data_ptr<float>(), sum_acc.data_ptr<double>(), sq_acc.data_ptr<double>(), N, S);
-    ln_final<<<(int)((M + 255) / 256), 256>>>(sum_acc.data_ptr<double>(), sq_acc.data_ptr<double>(), mean.data_ptr<float>(), rstd.data_ptr<float>(), N, eps, (int)M);
-    long total = M * N; int t = 256; long wnt = (total + t - 1) / t; int blk = (int)(wnt < 131072 ? wnt : 131072);
-    ln_apply<<<blk, t>>>(x.data_ptr<float>(), w.data_ptr<float>(), b.data_ptr<float>(), mean.data_ptr<float>(), rstd.data_ptr<float>(), y.data_ptr<float>(), N, total);
+    ln_fused<<<(int)M, TPB>>>(x.data_ptr<float>(), w.data_ptr<float>(), b.data_ptr<float>(),
+                              y.data_ptr<float>(), N, (float)eps);
     return y;
 }
 """
