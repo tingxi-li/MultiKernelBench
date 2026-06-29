@@ -8,7 +8,7 @@ Triton speedup 1.6050x); benched against the same `reference/normalization/layer
 
 | Iter | Title | Speedup | Runtime | Ref | Status |
 |------|-------|---------|---------|-----|--------|
-| 1 | cuda_unlimited port of layer_norm | 1.2686x | 5.1000 ms | 6.4700 ms | correct |
+| 1 | cuda_unlimited port of layer_norm | 1.4713x | 4.3500 ms | 6.4000 ms | correct |
 
 ## Iter 1 — cuda_unlimited port
 
@@ -16,7 +16,7 @@ Triton speedup 1.6050x); benched against the same `reference/normalization/layer
   reproduce its correctness and approach its speedup, with DSL-specific levers
   (vectorized/streaming memory for CUDA-unlimited; tile primitives for TileLang).
 - **Bench (verdict, --num-warmup 200):** COMPILED=True, CORRECT=True,
-  RUNTIME=5.1000 ms, REF=6.4700 ms, **SPEEDUP=1.2686x**.
+  RUNTIME=4.3500 ms, REF=6.4000 ms, **SPEEDUP=1.4713x**.
 - **forward() is glue-only** (passes utils/cheating_detection.py); all compute is
   in the kernel (CUDA kernel body / TileLang prim_func reached only via a
   subscript-dispatch, mirroring Triton's `kernel[grid](...)` exemption).

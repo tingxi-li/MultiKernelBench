@@ -18,7 +18,7 @@ Verdict runs use `--num-warmup 200` (the GPUs idle at 210MHz; an identity kernel
 | **elu** | activation | 0.9938x | 0.9697x | 1.0000x | 1.0256x |
 | **gelu** | activation | 1.0063x | 0.9639x | 1.0000x | 1.0323x |
 | **swish** | activation | 2.5253x | 2.4472x | 2.4472x | 2.4321x |
-| **layer_norm** | normalization | 1.6050x | 1.4862x | 1.2686x | 0.6528x |
+| **layer_norm** | normalization | 1.6050x | 1.4862x | 1.4713x | 0.6528x |
 | **group_norm** | normalization | 0.9904x | 0.8988x | 0.9172x | 0.8470x |
 | **gather** | index | 1.2217x | 1.1130x | 1.1203x | 1.0675x |
 | **scatter** | index | 5.3079x | 6.5580x | 6.4621x | 3.7978x |
@@ -37,7 +37,7 @@ Verdict runs use `--num-warmup 200` (the GPUs idle at 210MHz; an identity kernel
 | elu | runtime | 16.5000 | 16.0000 | 15.6000 | 16.0000 |
 | gelu | runtime | 16.6000 | 16.0000 | 15.5000 | 16.0000 |
 | swish | runtime | 16.1000 | 16.1000 | 16.2000 | 39.4000 |
-| layer_norm | runtime | 4.3400 | 5.1000 | 9.8800 | 6.4500 |
+| layer_norm | runtime | 4.3400 | 4.3500 | 9.8800 | 6.4500 |
 | group_norm | runtime | 34.6000 | 33.8000 | 36.6000 | 31.0000 |
 | gather | runtime | 0.0239 | 0.0241 | 0.0252 | 0.0269 |
 | scatter | runtime | 0.0276 | 0.0277 | 0.0445 | 0.1690 |
