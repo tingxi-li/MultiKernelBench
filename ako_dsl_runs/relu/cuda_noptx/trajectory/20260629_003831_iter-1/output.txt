@@ -1,0 +1,60 @@
+============================================================
+REFERENCE SOURCE:
+============================================================
+import torch
+import torch.nn as nn
+
+class Model(nn.Module):
+    """
+    Simple model that performs a ReLU activation.
+    """
+    def __init__(self):
+        super(Model, self).__init__()
+    
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        """
+        Applies ReLU activation to the input tensor.
+
+        Args:
+            x (torch.Tensor): Input tensor of any shape.
+
+        Returns:
+            torch.Tensor: Output tensor with ReLU applied, same shape as input.
+        """
+     ...
+
+============================================================
+MODIFIED SOLUTION SOURCE:
+============================================================
+import torch
+import torch.nn as nn
+from torch.utils.cpp_extension import load_inline
+
+# CUDA (no inline PTX) — plain CUDA C++ grid-stride elementwise ReLU.
+# All compute is in the kernel; forward() is allocate/launch glue only.
+_CUDA = r"""
+#include <torch/extension.h>
+#include <cuda_runtime.h>
+__global__ void relu_k(const float* __restrict__ x, float* __restrict__ y, long n){
+    long i = (long)blockIdx.x * blockDim.x + threadIdx.x;
+    long stride = (long)gridDim.x * blockDim.x;
+    for(; i <  ...
+
+[Eval] Start Evaluation! on device: 0
+[Eval] Loading Original Model
+[Eval] Original Model Loaded
+[Eval] Loading and Compiling New Model with Custom CUDA Kernel
+Failed to compile custom CUDA kernel: Record as compilation failure.
+Error: [Errno 13] Permission denied: '/.torch_ext'
+COMPILED: False
+CORRECT: False
+BACKEND: cuda (auto)
+RUNTIME: -1
+REF_RUNTIME: -1
+SPEEDUP: -1
+
+--- Details ---
+  hardware: NVIDIA RTX 6000 Ada Generation
+  device: 0
+  compilation_error_name: builtins.PermissionError
+  compilation_error: [Errno 13] Permission denied: '/.torch_ext'

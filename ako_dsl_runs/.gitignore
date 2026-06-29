@@ -1,0 +1,5 @@
+# Build / cache artifacts produced during benching — never tracked.
+**/__pycache__/
+*.pyc
+**/.torch_ext/
+**/_bench_output.txt
