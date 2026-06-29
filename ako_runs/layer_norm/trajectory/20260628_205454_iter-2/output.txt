@@ -1,0 +1,282 @@
+============================================================
+REFERENCE SOURCE:
+============================================================
+import torch
+import torch.nn as nn
+
+class Model(nn.Module):
+    """
+    Simple model that performs Layer Normalization.
+    """
+    def __init__(self, normalized_shape: tuple):
+        """
+        Initializes the LayerNorm layer.
+
+        Args:
+            normalized_shape (tuple): Shape of the input tensor to be normalized.
+        """
+        super(Model, self).__init__()
+        self.ln = nn.LayerNorm(normalized_shape=normalized_shape)
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+ ...
+
+============================================================
+MODIFIED SOLUTION SOURCE:
+============================================================
+import torch
+import torch.nn as nn
+import triton
+import triton.language as tl
+
+
+@triton.jit
+def _stats_kernel(x_ptr, psum_ptr, psumsq_ptr,
+                  N, S,
+                  CHUNK: tl.constexpr, BLOCK: tl.constexpr, NS: tl.constexpr):
+    row = tl.program_id(0)
+    chunk = tl.program_id(1)
+    base = row * N + chunk * CHUNK
+    acc = tl.zeros([BLOCK], dtype=tl.float32)
+    accsq = tl.zeros([BLOCK], dtype=tl.float32)
+    for i in tl.range(0, CHUNK, BLOCK, num_stages=NS):
+        offs = bas ...
+
+[Eval] Start Evaluation! on device: 0
+[Eval] Loading Original Model
+[Eval] Original Model Loaded
+[Eval] Loading and Compiling New Model with Custom CUDA Kernel
+[Eval] New Model with Custom CUDA Kernel Loaded
+[Eval] Checking Correctness
+[Eval] Generating Random Input with seed 734796314
+[PASS] trial 0: New Model matches Model
+[Eval] Generating Random Input with seed 576165995
+[PASS] trial 1: New Model matches Model
+[Eval] Generating Random Input with seed 2197670066
+[PASS] trial 2: New Model matches Model
+[Eval] Generating Random Input with seed 839703249
+[PASS] trial 3: New Model matches Model
+[Eval] Generating Random Input with seed 2584932063
+[PASS] trial 4: New Model matches Model
+[Eval] Pass count: 5, num_correct_trials: 5
+[Eval] Measuring Performance as Sample is Correct
+[Profiling] Using timing method: cuda_event
+[Profiling] Using device: 0 NVIDIA RTX 6000 Ada Generation, warm up 200, trials 100
+Trial 1: 5.99 ms
+Trial 2: 4.22 ms
+Trial 3: 4.23 ms
+Trial 4: 4.23 ms
+Trial 5: 4.19 ms
+Trial 6: 4.2 ms
+Trial 7: 4.24 ms
+Trial 8: 4.22 ms
+Trial 9: 4.23 ms
+Trial 10: 4.21 ms
+Trial 11: 4.22 ms
+Trial 12: 4.21 ms
+Trial 13: 4.22 ms
+Trial 14: 4.18 ms
+Trial 15: 4.23 ms
+Trial 16: 4.23 ms
+Trial 17: 4.04 ms
+Trial 18: 3.99 ms
+Trial 19: 4.04 ms
+Trial 20: 4.03 ms
+Trial 21: 4.01 ms
+Trial 22: 4 ms
+Trial 23: 4.03 ms
+Trial 24: 4.03 ms
+Trial 25: 4.04 ms
+Trial 26: 4.01 ms
+Trial 27: 4.02 ms
+Trial 28: 4.02 ms
+Trial 29: 4 ms
+Trial 30: 3.98 ms
+Trial 31: 4.03 ms
+Trial 32: 4.04 ms
+Trial 33: 3.99 ms
+Trial 34: 4 ms
+Trial 35: 4.01 ms
+Trial 36: 3.98 ms
+Trial 37: 4 ms
+Trial 38: 4.02 ms
+Trial 39: 3.98 ms
+Trial 40: 4.05 ms
+Trial 41: 4.03 ms
+Trial 42: 4.02 ms
+Trial 43: 4.05 ms
+Trial 44: 4.03 ms
+Trial 45: 4 ms
+Trial 46: 3.99 ms
+Trial 47: 4.03 ms
+Trial 48: 4.02 ms
+Trial 49: 4.03 ms
+Trial 50: 4.02 ms
+Trial 51: 4.03 ms
+Trial 52: 4.02 ms
+Trial 53: 3.98 ms
+Trial 54: 4.02 ms
+Trial 55: 4.02 ms
+Trial 56: 4.03 ms
+Trial 57: 4.02 ms
+Trial 58: 4.02 ms
+Trial 59: 4.02 ms
+Trial 60: 4.01 ms
+Trial 61: 4.03 ms
+Trial 62: 4.05 ms
+Trial 63: 4.04 ms
+Trial 64: 4 ms
+Trial 65: 4.04 ms
+Trial 66: 4.04 ms
+Trial 67: 4.01 ms
+Trial 68: 3.99 ms
+Trial 69: 4.04 ms
+Trial 70: 4.04 ms
+Trial 71: 4.02 ms
+Trial 72: 3.99 ms
+Trial 73: 4.03 ms
+Trial 74: 4.03 ms
+Trial 75: 4.01 ms
+Trial 76: 4.03 ms
+Trial 77: 4.04 ms
+Trial 78: 4.04 ms
+Trial 79: 4.01 ms
+Trial 80: 3.99 ms
+Trial 81: 4.04 ms
+Trial 82: 4.01 ms
+Trial 83: 4.03 ms
+Trial 84: 4.03 ms
+Trial 85: 3.99 ms
+Trial 86: 4 ms
+Trial 87: 4.04 ms
+Trial 88: 4.01 ms
+Trial 89: 4.01 ms
+Trial 90: 3.99 ms
+Trial 91: 4.01 ms
+Trial 92: 4.04 ms
+Trial 93: 4.03 ms
+Trial 94: 3.99 ms
+Trial 95: 4.03 ms
+Trial 96: 3.97 ms
+Trial 97: 4.01 ms
+Trial 98: 4 ms
+Trial 99: 4 ms
+Trial 100: 3.99 ms
+[Eval] Performance Stats: {'mean': 4.07, 'std': 0.208, 'min': 3.97, 'max': 5.99, 'num_trials': 100}
+[Eval] Additional checks to flag excessive speedup
+[Profiling] Using timing method: cuda_event
+[Profiling] Using device: 0 NVIDIA RTX 6000 Ada Generation, warm up 200, trials 100
+Trial 1: 8.09 ms
+Trial 2: 6.66 ms
+Trial 3: 6.67 ms
+Trial 4: 6.41 ms
+Trial 5: 6.37 ms
+Trial 6: 6.37 ms
+Trial 7: 6.38 ms
+Trial 8: 6.38 ms
+Trial 9: 6.37 ms
+Trial 10: 6.39 ms
+Trial 11: 6.41 ms
+Trial 12: 6.37 ms
+Trial 13: 6.39 ms
+Trial 14: 6.38 ms
+Trial 15: 6.38 ms
+Trial 16: 6.39 ms
+Trial 17: 6.38 ms
+Trial 18: 6.39 ms
+Trial 19: 6.38 ms
+Trial 20: 6.37 ms
+Trial 21: 6.38 ms
+Trial 22: 6.37 ms
+Trial 23: 6.38 ms
+Trial 24: 6.37 ms
+Trial 25: 6.38 ms
+Trial 26: 6.38 ms
+Trial 27: 6.39 ms
+Trial 28: 6.37 ms
+Trial 29: 6.37 ms
+Trial 30: 6.37 ms
+Trial 31: 6.38 ms
+Trial 32: 6.36 ms
+Trial 33: 6.4 ms
+Trial 34: 6.37 ms
+Trial 35: 6.39 ms
+Trial 36: 6.39 ms
+Trial 37: 6.39 ms
+Trial 38: 6.38 ms
+Trial 39: 6.37 ms
+Trial 40: 6.37 ms
+Trial 41: 6.38 ms
+Trial 42: 6.39 ms
+Trial 43: 6.37 ms
+Trial 44: 6.37 ms
+Trial 45: 6.37 ms
+Trial 46: 6.39 ms
+Trial 47: 6.39 ms
+Trial 48: 6.37 ms
+Trial 49: 6.37 ms
+Trial 50: 6.37 ms
+Trial 51: 6.38 ms
+Trial 52: 6.37 ms
+Trial 53: 6.39 ms
+Trial 54: 6.38 ms
+Trial 55: 6.38 ms
+Trial 56: 6.37 ms
+Trial 57: 6.37 ms
+Trial 58: 6.38 ms
+Trial 59: 6.38 ms
+Trial 60: 6.38 ms
+Trial 61: 6.38 ms
+Trial 62: 6.37 ms
+Trial 63: 6.38 ms
+Trial 64: 6.38 ms
+Trial 65: 6.37 ms
+Trial 66: 6.38 ms
+Trial 67: 6.37 ms
+Trial 68: 6.38 ms
+Trial 69: 6.37 ms
+Trial 70: 6.38 ms
+Trial 71: 6.37 ms
+Trial 72: 6.38 ms
+Trial 73: 6.37 ms
+Trial 74: 6.37 ms
+Trial 75: 6.38 ms
+Trial 76: 6.39 ms
+Trial 77: 6.38 ms
+Trial 78: 6.37 ms
+Trial 79: 6.37 ms
+Trial 80: 6.38 ms
+Trial 81: 6.37 ms
+Trial 82: 6.38 ms
+Trial 83: 6.37 ms
+Trial 84: 6.37 ms
+Trial 85: 6.36 ms
+Trial 86: 6.39 ms
+Trial 87: 6.39 ms
+Trial 88: 6.38 ms
+Trial 89: 6.38 ms
+Trial 90: 6.38 ms
+Trial 91: 6.38 ms
+Trial 92: 6.39 ms
+Trial 93: 6.38 ms
+Trial 94: 6.38 ms
+Trial 95: 6.38 ms
+Trial 96: 6.38 ms
+Trial 97: 6.38 ms
+Trial 98: 6.39 ms
+Trial 99: 6.38 ms
+Trial 100: 6.38 ms
+[Eval] Effective Speedup is 1.57x using timing method cuda_event
+COMPILED: True
+CORRECT: True
+BACKEND: triton (auto)
+RUNTIME: 4.0700
+REF_RUNTIME: 6.4000
+SPEEDUP: 1.5725x
+
+--- Details ---
+Runtime stats: {'mean': 4.07, 'std': 0.208, 'min': 3.97, 'max': 5.99, 'num_trials': 100}
+Ref runtime stats: {'mean': 6.4, 'std': 0.176, 'min': 6.36, 'max': 8.09, 'num_trials': 100}
+  hardware: NVIDIA RTX 6000 Ada Generation
+  device: 0
+  correctness_trials: (5 / 5)
