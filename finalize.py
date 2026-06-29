@@ -18,7 +18,7 @@ OPS = [
  ("layer_norm","normalization","L1","10_layer_norm","fused reduction, split-row"),
  ("group_norm","normalization","L1","11_group_norm","fused reduction per (batch,group)"),
  ("gather","index","L1","20_gather","Triton gather dim=1"),
- ("scatter","index","L1","21_scatter","UNWINNABLE: torch scatter nondeterministic at dup idx"),
+ ("scatter","index","L1","21_scatter","deterministic last-wins kernel; scored --deterministic (vs torch's deterministic scatter)"),
  ("cumsum","math","L1","5_cumsum","row-wise chunked scan with carry"),
  ("lstm","arch","L4","1_lstm","cuDNN floor"),
 ]
@@ -29,9 +29,13 @@ def bench(op, gpu):
     ref = f"{ROOT}/reference/{CAT[op]}/{op}.py"
     sol = f"{ROOT}/ako_runs/{op}/solution/{op}.py"
     warm = "50" if op in ("gather","scatter") else "200"
+    # scatter's reference (overwrite-scatter at duplicate indices) is order-
+    # nondeterministic, so it can only be scored under deterministic mode where
+    # both sides compute the well-defined last-index-wins result.
+    det = ["--deterministic"] if op == "scatter" else []
     env = dict(os.environ, CUDA_VISIBLE_DEVICES=str(gpu), PYTORCH_ALLOC_CONF="expandable_segments:True")
     p = subprocess.run(["python", BENCH, "--ref", ref, "--solution", sol,
-                        "--num-perf-trials","100","--num-warmup",warm,"--num-correct-trials","5"],
+                        "--num-perf-trials","100","--num-warmup",warm,"--num-correct-trials","5"] + det,
                        env=env, text=True, capture_output=True, timeout=900)
     out = p.stdout + p.stderr
     def g(k):
@@ -70,13 +74,14 @@ lines.append("")
 lines.append("## Notes\n")
 lines.append("- **swish** is the headline: eager `x*sigmoid(x)` runs sigmoid+mul as two memory passes; the fused Triton kernel does one pass.")
 lines.append("- The 5 unary activations (relu/sigmoid/hardsigmoid/elu/gelu) are HBM-bandwidth bound — ~1.0x **is** the physical roofline (they match torch, which is already at peak bandwidth).")
-lines.append("- **scatter** cannot pass correctness under any kernel: `torch.scatter`-overwrite with random duplicate indices is order-nondeterministic, so even an identity copy disagrees with the reference across trials.")
+lines.append("- **scatter**: `torch.scatter`-overwrite with random duplicate indices (~868/row) is order-nondeterministic on CUDA — even an *exact identity copy* of the reference scores CORRECT=False under the default harness (the reference disagrees with itself run-to-run). The op is only well-defined as last-index-wins, so it is scored with bench `--deterministic` (both sides compute the deterministic result). Our atomicMax-based kernel matches torch's deterministic scatter exactly (max diff 0.0) and runs it 5.4x faster than torch's deterministic path (33us vs 181us). Caveat: torch's *fast nondeterministic* scatter is ~10us, so the kernel does not beat the racy path — it beats the only path that is actually correct/reproducible.")
 lines.append("- **lstm** sits at the cuDNN floor; a hand-written kernel cannot beat cuDNN's fused multi-layer LSTM. The recurrence uses `nn.LSTM` (permitted by the anti-hack detector — LSTM is not a forbidden module); the output projection is a custom Triton GEMM (so a real generated kernel runs), not `nn.Linear`.")
-lines.append("- Each op is a self-contained AKO4ALL workspace under `ako_runs/<op>/` with `solution/`, `scripts/bench.sh` (GPU-pinned), `ITERATIONS.md`, and isolated git history.")
+lines.append("- Each op is a self-contained AKO4ALL workspace under `ako_runs/<op>/` with `solution/`, `scripts/bench.sh` (GPU-pinned), `ITERATIONS.md`, and `trajectory/` (per-iteration code + bench output). The full optimization narrative lives in `ITERATIONS.md` + `trajectory/`.")
 lines.append("\n## Bench harness fixes (AKO4ALL/bench/kernelbench/bench.py)")
 lines.append("- Preserve integer index dtype (was casting int64 indices to float32 → crashed gather/scatter reference).")
 lines.append("- Chunked correctness compare + free inputs before compare (was OOMing on group_norm's 8.6GB tensors).")
 lines.append("- Added `--num-warmup` and no-grad timing (idle-clock ramp was biasing identity to 0.74x).")
+lines.append("- Added `--deterministic` (`use_deterministic_algorithms(True, warn_only=True)` for the whole eval) so order-nondeterministic-reference ops like scatter can be scored fairly against their well-defined (last-index-wins) result.")
 with open(f"{ROOT}/ako_runs/RESULTS.md","w") as f:
     f.write("\n".join(lines)+"\n")
 print("\nWrote ako_runs/RESULTS.md")
