@@ -4,7 +4,7 @@ from torch.utils.cpp_extension import load_inline
 
 # CUDA UNLIMITED deterministic scatter: inline-PTX red.global.max.s32 (a reduction
 # atomic with NO return value -> cheaper than atomicMax when the old value is
-# unused) for the winner pass; vectorized .nc loads for the gather pass.
+# unused) for the winner pass; a scalar grid-stride gather for the apply pass.
 _CUDA = r"""
 #include <torch/extension.h>
 #include <cuda_runtime.h>

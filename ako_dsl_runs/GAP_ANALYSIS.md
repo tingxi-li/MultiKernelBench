@@ -136,9 +136,40 @@ small batch dim to the grid**, and **keep reduction accumulators in fp32** unles
 
 ---
 
+## Independent verification
+
+Two independent reviewers re-derived each conclusion from the source + grid arithmetic
+(no shared reasoning); both returned **supports**, and each sharpened a residual:
+
+- **layer_norm (fp64, not occupancy) — confirmed.** LayerNorm here is **DRAM-bound**:
+  ~3.0 GiB of unavoidable traffic / 960 GB/s ⇒ a ~3.3 ms floor; per-row fp32 (B) hits
+  3.97 ms = **~83% of peak bandwidth**. The decisive point: B is the **lowest-occupancy**
+  variant (64 blocks) yet the **fastest** — that alone refutes occupancy. B also wins by
+  being a **single fused launch** (stats + apply in one `T.Kernel`, only intra-block shared
+  atomics), whereas CUDA/split-row pay a kernel boundary + global atomics with **128-way
+  contention** into 64 accumulators (8192 blocks / 64 rows), plus (C) a `torch.zeros(M)`
+  every forward. Ordering 3.97 (B) < 4.34 (CUDA) < 4.88 (C) tracks fused-1-launch <
+  split-C++ < split-TileLang+allocs.
+- **scatter (occupancy primary; residual = launch/codegen) — confirmed.** At the tiled
+  point the grids are **byte-identical** to CUDA (1024 / 2048 blocks, 1 element/thread), so
+  the ~12% residual is host-side, not occupancy. Concrete residual components found:
+  (1) the TileLang `Model` casts `idx.to(int32)` → an **extra 262144-element cast kernel**
+  (4 launches vs CUDA's 3, which reads `int64` directly); (2) TileLang's per-call JIT
+  wrapper vs `load_inline`'s thin pybind; (3) `atomicMax` (returns old) vs the guaranteed
+  fire-and-forget `red.global.max.s32` — though `-O3` *may* downgrade the unused-return
+  `atomicMax` to a `RED` in SASS, so this component is compiler-dependent. Identified but
+  **not** chased (sub-µs, scope): dropping the `int32` cast (read `int64` in-kernel) would
+  remove one launch. The review also caught a stale comment in `scatter/cuda_unlimited`
+  ("vectorized .nc loads") — the gather pass is scalar; comment corrected.
+
+Both reviewers' caveats agree: without a profiler (`ncu` unavailable) the residual
+*components* are attributed by static code+grid+arithmetic analysis, not per-kernel measured
+durations — so the residual is reported as a "launch + codegen" bucket, not over-split.
+
 ## Method
 Each cause was isolated with a **single-variable controlled experiment** through the same
 `AKO4ALL/bench/kernelbench/bench.py` harness (`--num-warmup 200`, relative-1e-4 correctness,
 `--deterministic` for scatter) on one dedicated GPU. Decomposition variants live in the
 session tmp dir; the two fixes are shipped into the live `tilelang` solutions and re-benched
-(`layer_norm/tilelang` 1.61x, `scatter/tilelang` 5.88x). See `RESULTS.md` for the full table.
+(`layer_norm/tilelang` 1.61x, `scatter/tilelang` 5.88x). Conclusions independently verified
+by two adversarial reviewers (both "supports"). See `RESULTS.md` for the full table.
