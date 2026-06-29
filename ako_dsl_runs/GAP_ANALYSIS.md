@@ -75,12 +75,24 @@ robust fallback at 1.31x.
 now the fastest layer_norm of all four abstractions.
 
 **Follow-up (AKO optimization pass).** The two CUDA layer_norm tracks were still at ~1.47–1.49x
-(the 3-launch split-row design). Porting the same structural win — one fused per-row **fp32**
-kernel (block-reduce mean/rstd in shared memory, apply in the same launch, dropping the separate
-`ln_final` launch and the global mean/rstd round-trip) — lifted `cuda_noptx` **1.49 → 1.61x** and
-`cuda_unlimited` **1.47 → 1.60x**. All four abstractions now agree at ~1.6x: the layer_norm gap is
-fully closed, and the decisive lever in every case was the per-row mapping kept in fp32 (never the
-1/64-rate fp64). See the optimization-pass section of `RESULTS.md`.
+(the 3-launch split-row design). The optimization loop lifted both to ~1.6x — but, instructively,
+via **two opposite structural routes**, not one shared lever:
+
+- `cuda_noptx` **1.49 → 1.61x** by **fusing** to one per-row **fp32** kernel (one block per row,
+  block-reduce mean/rstd in shared memory, apply in the same launch), dropping the separate
+  `ln_final` launch and the global mean/rstd round-trip.
+- `cuda_unlimited` **1.47 → 1.60x** by **keeping the split-row layout** (more blocks → better
+  stats-pass occupancy; the one-block-per-row fusion was profiled and *ruled out* as
+  occupancy-starved — 64 blocks underutilize 142 SMs and still read `x` twice) and instead
+  **column-blocking the apply pass** so each thread owns 4 columns and fetches `w`/`b` once,
+  reusing them across all 64 rows from registers.
+
+So all four abstractions now agree at ~1.6x because all four hit the same irreducible ~3.9 ms HBM
+read floor — *not* because they converged on the same kernel shape. The one constant lever is fp32
+(never the 1/64-rate fp64) accumulation; the structural choice (fused vs split-row) is
+**regime-dependent**, which directly reinforces the thesis above: once the apply pass is optimized,
+split-row becomes competitive again for the inline-PTX track. See the optimization-pass section of
+`RESULTS.md`.
 
 ---
 
