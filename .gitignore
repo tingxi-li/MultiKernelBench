@@ -1,0 +1,7 @@
+# Python bytecode / caches
+__pycache__/
+*.pyc
+*.pyo
+
+# AKO4ALL skill tooling — vendored as its own separate git repo, not part of this project
+AKO4ALL/
