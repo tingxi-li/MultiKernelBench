@@ -1,0 +1,16 @@
+# Merged AKO all-DSL runs (triton + cuda_noptx + cuda_unlimited + tilelang).
+# Build/cache artifacts and per-iteration bench logs are not tracked going
+# forward; tracked loop outputs are solution/, scripts/, ITERATIONS.md, HINTS.md.
+# (Historical trajectory/ snapshots committed before the merge stay tracked;
+# this rule only stops NEW trajectory logs from being added.)
+**/__pycache__/
+*.pyc
+**/.torch_ext/
+**/_bench_output.txt
+**/trajectory/
+# Ad-hoc per-cell diagnostic/scratch scripts left by the optimization agents.
+# The findings they produced are captured in each cell's ITERATIONS.md; the
+# scripts themselves are not part of the tracked loop outputs.
+**/scratchpad/
+**/scratch_*.py
+**/scripts/sweep.py
