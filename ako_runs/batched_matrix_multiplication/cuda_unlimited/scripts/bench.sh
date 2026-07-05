@@ -1,0 +1,28 @@
+#!/bin/bash
+# AKO4ALL bench wrapper — op=batched_matrix_multiplication dsl=cuda_unlimited
+set -eo pipefail
+cd "$(dirname "$0")/.."
+# GPU pin is OVERRIDABLE: orchestrator may pre-set CUDA_VISIBLE_DEVICES to fan
+# benches across GPUs; fall back to the per-workspace default 1 otherwise.
+export CUDA_VISIBLE_DEVICES="${CUDA_VISIBLE_DEVICES:-1}"
+export CUDA_HOME=/usr/local/cuda-13.1
+export PATH="/usr/local/cuda-13.1/bin:$PATH"
+export TORCH_CUDA_ARCH_LIST="8.9"
+# per-workspace build dir (script already cd'd into the workspace) so the
+# load_inline extensions never collide on build lock under parallel benches
+export TORCH_EXTENSIONS_DIR="$(pwd)/.torch_ext"
+
+LABEL="${1:-}"
+TIMESTAMP=$(date +%Y%m%d_%H%M%S)
+
+set +e
+python /home/lxt230026/MultiKernelBench/AKO4ALL/bench/kernelbench/bench.py --ref /home/lxt230026/MultiKernelBench/reference/matmul/batched_matrix_multiplication.py --solution solution/batched_matrix_multiplication.py --num-warmup 200 --verbose 2>&1 | tee _bench_output.txt
+BENCH_EXIT=$?
+set -e
+
+if [ -n "$LABEL" ]; then TRAJ_DIR="trajectory/${TIMESTAMP}_${LABEL}"; else TRAJ_DIR="trajectory/${TIMESTAMP}"; fi
+mkdir -p "$TRAJ_DIR"
+cp -r solution/* "$TRAJ_DIR/" 2>/dev/null || true
+[ -f _bench_output.txt ] && mv _bench_output.txt "$TRAJ_DIR/output.txt"
+echo "Trajectory saved to: $TRAJ_DIR"
+exit $BENCH_EXIT
