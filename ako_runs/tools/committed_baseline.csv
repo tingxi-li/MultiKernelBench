@@ -28,7 +28,7 @@ layer_norm,cuda_noptx,1.9541,1.9541,1.9541,serial-gpu3 (promoted P2 lever)
 layer_norm,cuda_unlimited,2.1616,2.1616,2.1622,serial-gpu3  capped@seed
 layer_norm,tilelang,2.0984,2.1013,2.0984,serial-gpu3
 group_norm,triton,1.3294,1.3537,1.3294,serial-gpu3
-group_norm,cuda_noptx,0.9172,0.9174,0.9172,serial-gpu3
+group_norm,cuda_noptx,1.2863,1.2863,1.2863,serial-gpu3 (promoted P2 lever)
 group_norm,cuda_unlimited,1.2810,1.2810,1.2810,serial-gpu3
 group_norm,tilelang,1.3234,1.3234,1.3248,serial-gpu3  capped@seed
 gather,triton,1.4961,1.5000,1.4961,serial-gpu3

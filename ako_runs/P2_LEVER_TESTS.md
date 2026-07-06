@@ -180,12 +180,14 @@ torch ops, no scalar for-loops) and use **no inline PTX** (layer_norm: `__ldg`; 
 is correct + detector-clean + PTX-free + measurably the winner-cluster mechanism — no reward-hack
 escape hatch.
 
-**PROMOTED to the committed solutions (this session):** layer_norm/cuda_noptx v2 → **1.95×**
-(2-pass, was 1.64×) and scatter/cuda_noptx fused → **10.65×** (was 6.56×), both re-verified
-serial on GPU3, gated (`tools/check_gate.py`), and detector-clean. The other two lever kernels
-(group_norm gn_v2, gather gh_v2) remain in `p2_lever_kernels/` as evidence — group_norm/cuda_noptx
-stayed at its 0.92× committed form (the gn_v2 win is a candidate for the redo), and gather's tilelang
-route reaches only unlimited's staging point, not triton's faster evict_last route.
+**PROMOTED to the committed solutions (this session):** all three cuda_noptx lever kernels —
+layer_norm/cuda_noptx v2 → **1.95×** (2-pass, was 1.64×), scatter/cuda_noptx fused → **10.65×**
+(was 6.56×), and group_norm/cuda_noptx gn_v2 → **1.29× mean** (2-pass, was 0.92×; ~1.44× steady) —
+each re-verified serial on GPU3, gated (`tools/check_gate.py`), and detector-clean, with the gate
+floors bumped to the new kernels. Only **gh_v2 (gather/tilelang)** stays in `p2_lever_kernels/` as
+evidence and is *not* promoted: it reaches unlimited's shared-staging point (0.0183 ms), not
+triton's faster evict_last route (0.0127 ms), so the win is smaller and route-ambiguous — left to
+the ncu-in-loop redo. So three of the four phantom-cell levers are now the committed noptx solutions.
 
 **Thesis CONFIRMED — with layer_norm graded distinctly, not flattened into the two ~100% cases.**
 Every gap the report called a search artifact is one: the missed lever is expressible in the
