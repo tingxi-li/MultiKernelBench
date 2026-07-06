@@ -1,49 +1,49 @@
-op,dsl,committed_speedup,source
-relu,triton,1.0000,RESULTS.md
-relu,cuda_noptx,0.9938,RESULTS.md
-relu,cuda_unlimited,1.0000,RESULTS.md
-relu,tilelang,1.0323,RESULTS.md
-sigmoid,triton,1.0190,RESULTS.md
-sigmoid,cuda_noptx,1.0063,RESULTS.md
-sigmoid,cuda_unlimited,1.0063,RESULTS.md
-sigmoid,tilelang,1.0000,RESULTS.md
-hardsigmoid,triton,1.0127,RESULTS.md
-hardsigmoid,cuda_noptx,0.9938,RESULTS.md
-hardsigmoid,cuda_unlimited,1.0000,RESULTS.md
-hardsigmoid,tilelang,0.9877,RESULTS.md
-elu,triton,0.9938,RESULTS.md
-elu,cuda_noptx,1.0000,RESULTS.md
-elu,cuda_unlimited,1.0000,RESULTS.md
-elu,tilelang,1.0256,RESULTS.md
-gelu,triton,1.0063,RESULTS.md
-gelu,cuda_noptx,1.0000,RESULTS.md
-gelu,cuda_unlimited,1.0000,RESULTS.md
-gelu,tilelang,1.0323,RESULTS.md
-swish,triton,2.5253,RESULTS.md
-swish,cuda_noptx,2.4472,RESULTS.md
-swish,cuda_unlimited,2.5256,RESULTS.md
-swish,tilelang,2.4321,RESULTS.md
-layer_norm,triton,2.0951,RESULTS.md
-layer_norm,cuda_noptx,1.6368,RESULTS.md
-layer_norm,cuda_unlimited,2.1616,RESULTS.md
-layer_norm,tilelang,2.1013,RESULTS.md
-group_norm,triton,1.3537,RESULTS.md
-group_norm,cuda_noptx,0.9174,RESULTS.md
-group_norm,cuda_unlimited,1.2810,RESULTS.md
-group_norm,tilelang,1.3234,RESULTS.md
-gather,triton,1.5000,RESULTS.md
-gather,cuda_noptx,1.3267,RESULTS.md
-gather,cuda_unlimited,1.5084,RESULTS.md
-gather,tilelang,1.3107,RESULTS.md
-scatter,triton,6.7925,RESULTS.md
-scatter,cuda_noptx,6.5580,RESULTS.md
-scatter,cuda_unlimited,10.0000,RESULTS.md
-scatter,tilelang,7.6339,RESULTS.md
-cumsum,triton,1.2264,RESULTS.md
-cumsum,cuda_noptx,1.2130,RESULTS.md
-cumsum,cuda_unlimited,1.2404,RESULTS.md
-cumsum,tilelang,1.1944,RESULTS.md
-lstm,triton,1.0000,RESULTS.md
-lstm,cuda_noptx,1.0000,RESULTS.md
-lstm,cuda_unlimited,0.9742,RESULTS.md
-lstm,tilelang,0.9869,RESULTS.md
+op,dsl,committed_speedup,seed_results_md,rebench,method
+relu,triton,1.0000,1.0000,1.0063,concurrent(ratio-robust)  capped@seed
+relu,cuda_noptx,0.9938,0.9938,0.9938,concurrent(ratio-robust)
+relu,cuda_unlimited,1.0000,1.0000,1.0000,concurrent(ratio-robust)
+relu,tilelang,1.0256,1.0323,1.0256,concurrent(ratio-robust)
+sigmoid,triton,1.0125,1.0190,1.0125,concurrent(ratio-robust)
+sigmoid,cuda_noptx,1.0062,1.0063,1.0062,concurrent(ratio-robust)
+sigmoid,cuda_unlimited,1.0062,1.0063,1.0062,concurrent(ratio-robust)
+sigmoid,tilelang,1.0000,1.0000,1.0000,concurrent(ratio-robust)
+hardsigmoid,triton,1.0063,1.0127,1.0063,concurrent(ratio-robust)
+hardsigmoid,cuda_noptx,0.9938,0.9938,0.9938,concurrent(ratio-robust)
+hardsigmoid,cuda_unlimited,1.0000,1.0000,1.0000,concurrent(ratio-robust)
+hardsigmoid,tilelang,0.9877,0.9877,0.9938,concurrent(ratio-robust)  capped@seed
+elu,triton,0.9938,0.9938,1.0063,concurrent(ratio-robust)  capped@seed
+elu,cuda_noptx,1.0000,1.0000,1.0000,concurrent(ratio-robust)
+elu,cuda_unlimited,1.0000,1.0000,1.0000,concurrent(ratio-robust)
+elu,tilelang,1.0256,1.0256,1.0256,concurrent(ratio-robust)
+gelu,triton,1.0063,1.0063,1.0063,concurrent(ratio-robust)
+gelu,cuda_noptx,1.0000,1.0000,1.0000,concurrent(ratio-robust)
+gelu,cuda_unlimited,1.0000,1.0000,1.0062,concurrent(ratio-robust)  capped@seed
+gelu,tilelang,1.0323,1.0323,1.0323,concurrent(ratio-robust)
+swish,triton,2.4625,2.5253,2.4625,serial-gpu3
+swish,cuda_noptx,2.4472,2.4472,2.4472,serial-gpu3
+swish,cuda_unlimited,2.5256,2.5256,2.5256,serial-gpu3
+swish,tilelang,2.4321,2.4321,2.4321,serial-gpu3
+layer_norm,triton,2.0951,2.0951,2.1367,serial-gpu3  capped@seed
+layer_norm,cuda_noptx,1.6368,1.6368,1.6394,serial-gpu3  capped@seed
+layer_norm,cuda_unlimited,2.1616,2.1616,2.1622,serial-gpu3  capped@seed
+layer_norm,tilelang,2.0984,2.1013,2.0984,serial-gpu3
+group_norm,triton,1.3294,1.3537,1.3294,serial-gpu3
+group_norm,cuda_noptx,0.9172,0.9174,0.9172,serial-gpu3
+group_norm,cuda_unlimited,1.2810,1.2810,1.2810,serial-gpu3
+group_norm,tilelang,1.3234,1.3234,1.3248,serial-gpu3  capped@seed
+gather,triton,1.4961,1.5000,1.4961,serial-gpu3
+gather,cuda_noptx,1.3267,1.3267,1.3366,serial-gpu3  capped@seed
+gather,cuda_unlimited,1.4807,1.5084,1.4807,serial-gpu3
+gather,tilelang,1.3058,1.3107,1.3058,serial-gpu3
+scatter,triton,6.7925,6.7925,10.4192,serial-gpu3  capped@seed
+scatter,cuda_noptx,6.5217,6.5580,6.5217,serial-gpu3
+scatter,cuda_unlimited,10.0000,10.0000,10.5848,serial-gpu3  capped@seed
+scatter,tilelang,7.6339,7.6339,8.1250,serial-gpu3  capped@seed
+cumsum,triton,1.2264,1.2264,1.3945,serial-gpu3  capped@seed
+cumsum,cuda_noptx,1.2037,1.2130,1.2037,serial-gpu3
+cumsum,cuda_unlimited,1.2404,1.2404,1.2500,serial-gpu3  capped@seed
+cumsum,tilelang,1.1944,1.1944,1.1944,serial-gpu3
+lstm,triton,1.0000,1.0000,1.0113,concurrent(ratio-robust)  capped@seed
+lstm,cuda_noptx,1.0000,1.0000,1.0112,concurrent(ratio-robust)  capped@seed
+lstm,cuda_unlimited,0.9742,0.9742,1.0056,concurrent(ratio-robust)  capped@seed
+lstm,tilelang,0.9796,0.9869,0.9796,concurrent(ratio-robust)

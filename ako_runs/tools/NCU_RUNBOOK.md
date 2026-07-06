@@ -43,14 +43,35 @@ python ako_runs/tools/check_gate.py --op <op> --dsl <dsl> --speedup <verdict>
 # exit 1 => KEEP COMMITTED (git checkout the prior bytes); do not accept a slower redo
 ```
 
-The floor seed is from `RESULTS.md` (mixed clock states). Before a redo, refresh
-each cell's floor with an **agent-free** re-bench of the committed bytes:
-
-```
-python ako_runs/tools/record_committed_baseline.py --op <op> --dsl <dsl> --gpu <g> --write
-```
-
 The 28 new ops have no floor — the gate passes them (nothing to protect).
+
+`committed_baseline.csv` carries `committed_speedup` (the gate floor) plus
+`seed_results_md`, `rebench`, and `method` for provenance. The floor is
+**`min(seed, rebench)`** — never gate above the validated documented result, so
+measurement noise can't falsely reject a valid redo (drops to the achievable
+number if the host is genuinely slower).
+
+### Discipline 4 — CLOCK: verdict benches for memory-bound ops run SERIAL on GPU3
+
+This host's **memory P-state is unstable under load**. Running 4 memory-bound
+benches at once caught the *reference* in the slow P-state (ref 11.1 ms vs the
+fast 6.4 ms) while the *solution* got the fast clock — and because ref and sol
+have different clock sensitivity, the **SPEEDUP RATIO is contaminated** (a floor
+refresh read layer_norm/cuda_noptx at a false **2.60x** concurrent; **1.63x**
+serial on GPU3 = the true committed floor). Clock locking needs root (denied).
+
+Rules that follow:
+- **A cell's VERDICT bench (the number that gates / gets reported) must run on a
+  quiet GPU — GPU3, the stable fast-clock card — with nothing else memory-heavy
+  running.** `refresh_all_floors.py --gpus 3` does this; a single-lane refresh of
+  the 6 memory-bound ops (swish/layer_norm/group_norm/gather/scatter/cumsum) is
+  the trustworthy path. Elementwise + lstm (~1.0x, ref/sol scale identically) are
+  ratio-robust and may fan out.
+- **Never judge a memory-bound cell by absolute SPEEDUP from a concurrent lane.**
+  Per-iteration *ranking* by the solution's own RUNTIME during the 4-lane fan-out
+  is fine (you're comparing a solution to itself); the SPEEDUP verdict is not.
+- Refresh one cell (agent-free) with:
+  `python ako_runs/tools/record_committed_baseline.py --op <op> --dsl <dsl> --gpu 3 --write`
 
 ## Per-cell loop (what each agent does during the redo)
 

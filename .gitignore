@@ -5,3 +5,6 @@ __pycache__/
 
 # AKO4ALL skill tooling — vendored as its own separate git repo, not part of this project
 AKO4ALL/
+
+# AKO tooling run logs
+ako_runs/tools/_*.log

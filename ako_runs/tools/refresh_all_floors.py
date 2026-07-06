@@ -23,7 +23,15 @@ import time
 TOOLS = os.path.dirname(os.path.abspath(__file__))
 AKO = os.path.dirname(TOOLS)
 BASELINE = os.path.join(TOOLS, "committed_baseline.csv")
-NGPU = 4
+
+# NOTE: on this host the memory P-state is UNSTABLE under load. Running 4
+# memory-bound benches at once caught the reference in the slow P-state
+# (ref 11.1ms vs fast 6.4ms), and since ref/sol have different clock
+# sensitivity the SPEEDUP RATIO gets contaminated (layer_norm read a false
+# 2.60x concurrent, 1.63x serial-on-GPU3 = the true committed floor). Clock
+# locking needs root (denied). So for clock-sensitive (memory-bound) ops use
+# `--gpus 3` (a single serial lane on the stable fast-clock GPU). Elementwise
+# and lstm (~1.0x, ref/sol scale identically) are ratio-robust and can fan out.
 
 
 def run_cell(op, dsl, gpu):
@@ -50,6 +58,10 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--ops", nargs="*", default=None,
                     help="restrict to these ops (default: all in the CSV)")
+    ap.add_argument("--gpus", nargs="*", type=int, default=[0, 1, 2, 3],
+                    help="GPU device ids to fan across; pass a single id "
+                         "(e.g. --gpus 3) for a SERIAL, clock-stable refresh of "
+                         "memory-bound ops")
     args = ap.parse_args()
 
     with open(BASELINE) as f:
@@ -57,9 +69,10 @@ def main():
         fields = list(rows[0].keys())
     cells = [r for r in rows if args.ops is None or r["op"] in args.ops]
 
-    lanes = [[] for _ in range(NGPU)]
+    gpus = args.gpus
+    lanes = [[] for _ in gpus]
     for i, r in enumerate(cells):
-        lanes[i % NGPU].append(r)
+        lanes[i % len(gpus)].append(r)
 
     results = {}
     lock = threading.Lock()
@@ -77,8 +90,8 @@ def main():
                       f"{sp if sp else '-'}x correct={ok} ({time.time()-t0:.0f}s)",
                       flush=True)
 
-    threads = [threading.Thread(target=worker, args=(lanes[g], g))
-               for g in range(NGPU)]
+    threads = [threading.Thread(target=worker, args=(lanes[i], gpus[i]))
+               for i in range(len(gpus))]
     for t in threads:
         t.start()
     for t in threads:
