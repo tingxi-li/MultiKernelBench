@@ -24,7 +24,7 @@ swish,cuda_noptx,2.4472,2.4472,2.4472,serial-gpu3
 swish,cuda_unlimited,2.5256,2.5256,2.5256,serial-gpu3
 swish,tilelang,2.4321,2.4321,2.4321,serial-gpu3
 layer_norm,triton,2.0951,2.0951,2.1367,serial-gpu3  capped@seed
-layer_norm,cuda_noptx,1.6368,1.6368,1.6394,serial-gpu3  capped@seed
+layer_norm,cuda_noptx,1.9541,1.9541,1.9541,serial-gpu3 (promoted P2 lever)
 layer_norm,cuda_unlimited,2.1616,2.1616,2.1622,serial-gpu3  capped@seed
 layer_norm,tilelang,2.0984,2.1013,2.0984,serial-gpu3
 group_norm,triton,1.3294,1.3537,1.3294,serial-gpu3
@@ -36,7 +36,7 @@ gather,cuda_noptx,1.3267,1.3267,1.3366,serial-gpu3  capped@seed
 gather,cuda_unlimited,1.4807,1.5084,1.4807,serial-gpu3
 gather,tilelang,1.3058,1.3107,1.3058,serial-gpu3
 scatter,triton,6.7925,6.7925,10.4192,serial-gpu3  capped@seed
-scatter,cuda_noptx,6.5217,6.5580,6.5217,serial-gpu3
+scatter,cuda_noptx,10.6471,10.6471,10.6471,serial-gpu3 (promoted P2 lever)
 scatter,cuda_unlimited,10.0000,10.0000,10.5848,serial-gpu3  capped@seed
 scatter,tilelang,7.6339,7.6339,8.1250,serial-gpu3  capped@seed
 cumsum,triton,1.2264,1.2264,1.3945,serial-gpu3  capped@seed

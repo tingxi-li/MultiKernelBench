@@ -20,10 +20,10 @@ Verdict runs use `--num-warmup 200` (GPUs idle at 210 MHz) and `--deterministic`
 | elu | activation | 0.9938x | 1.0000x | 1.0000x | 1.0256x |
 | gelu | activation | 1.0063x | 1.0000x | 1.0000x | 1.0323x |
 | swish | activation | 2.5253x | 2.4472x | **2.5256x** | 2.4321x |
-| **layer_norm** | normalization | **2.0951x** | **1.6368x** | **2.1616x** | **2.1013x** |
+| **layer_norm** | normalization | **2.0951x** | **1.9541x** | **2.1616x** | **2.1013x** |
 | **group_norm** | normalization | **1.3537x** | 0.9174x | **1.2810x** | **1.3234x** |
 | **gather** | index | **1.5000x** | **1.3267x** | **1.5084x** | **1.3107x** |
-| **scatter** | index | **6.7925x** | 6.5580x | **10.0000x** | **7.6339x** |
+| **scatter** | index | **6.7925x** | **10.6471x** | **10.0000x** | **7.6339x** |
 | cumsum | math | 1.2264x | 1.2130x | **1.2404x** | 1.1944x |
 | lstm | arch | 1.0000x | 1.0000x | 0.9742x | 0.9869x |
 
@@ -41,10 +41,10 @@ Changed rows carry the fresh re-bench runtime; unchanged rows retain the prior n
 | elu | 16 | 16 | 15.6 | 16 |
 | gelu | 16 | 16 | 15.5 | 16 |
 | swish | 16.1 | **15.6** | 16.2 | 39.4 |
-| layer_norm | **3.91** | **2.97** | **3.06** | 6.4 |
+| layer_norm | **3.27** | **2.97** | **3.06** | 6.4 |
 | group_norm | 33.9 | **24.2** | **23.5** | 31 |
 | gather | **0.0202** | **0.0179** | **0.0206** | 0.0269 |
-| scatter | 0.0276 | **0.0171** | **0.0224** | 0.177 |
+| scatter | **0.0170** | **0.0171** | **0.0224** | 0.177 |
 | cumsum | 10.8 | **10.4** | 10.8 | 12.9 |
 | lstm | 15.1 | 15.5 | 15.3 | 15.1 |
 
@@ -56,7 +56,7 @@ Each cell was driven through the AKO profile→edit→bench→log loop toward ~1
 
 **Big structural wins (same-GPU baseline→final):**
 
-- **layer_norm — ~1.6x → ~2.1x on 3 of 4 DSLs.** Triton (1.60→**2.10x**), cuda_unlimited (1.60→**2.16x**), and tilelang (1.61→**2.10x**) all landed the **L2-residency 2-pass kernel**: the stats pass streams `x` into L2, then the apply pass re-reads that 16 MB row from L2 (a hit) rather than HBM, so HBM sees ~2 GB (read `x` once + write `y`) instead of ~3 GB. This is **at the 2-pass-traffic floor, not peak** — the winning `cuda_unlimited` log measures ~715 GB/s (~85–88% of achievable HBM BW) and attributes the residual ~0.6 ms to read↔write bus turnaround plus launch/drain bubbles, "neither removable without losing L2 reuse." `cuda_noptx` (1.61→**1.64x**, +1.9%) restructured but did **not** find the L2-residency kernel; it remained near the old 3-pass floor — an honest asymmetry, not a win.
+- **layer_norm — ~1.6x → ~2.1x on 3 of 4 DSLs.** Triton (1.60→**2.10x**), cuda_unlimited (1.60→**2.16x**), and tilelang (1.61→**2.10x**) all landed the **L2-residency 2-pass kernel**: the stats pass streams `x` into L2, then the apply pass re-reads that 16 MB row from L2 (a hit) rather than HBM, so HBM sees ~2 GB (read `x` once + write `y`) instead of ~3 GB. This is **at the 2-pass-traffic floor, not peak** — the winning `cuda_unlimited` log measures ~715 GB/s (~85–88% of achievable HBM BW) and attributes the residual ~0.6 ms to read↔write bus turnaround plus launch/drain bubbles, "neither removable without losing L2 reuse." `cuda_noptx` **also lands the L2-residency 2-pass kernel (1.61→1.95x)**: a host-side per-row loop keeps one 16 MB row L2-resident across its split-block stats→apply so the apply re-reads from L2, no PTX (`__ldg` caching loads). *(Built during the P2 lever tests and promoted post-hoc — the original deeper-pass noptx search had stopped at the 3-pass 1.64x floor; P2 showed that was search depth, not a ceiling. A ~14% schedule/pipelining gap to the fastest winner remains, left to the ncu-in-loop redo.)*
 - **group_norm — ~0.9x → ~1.3x on 3 of 4 DSLs.** Triton (0.99→**1.35x**), tilelang (0.90→**1.32x**), and cuda_unlimited (0.92→**1.28x**) each landed an **L2-reuse chunked pipeline**: process K=4 contiguous groups (a 32 MB chunk that stays L2-resident) through a stats→normalize kernel pair, so the normalize pass re-reads the chunk from L2 — again 3-pass→2-pass. All three report sitting at ~87–96% of the ~960 GB/s ceiling for the now-minimal 2-pass traffic. **Caveat preserved from the logs:** the reported *mean* speedup (~1.28–1.35x) is dragged below the steady-state (~1.50x) by a fixed, kernel-independent Trial-1 harness cudaMalloc stall; it is eaten fairly (the reference eats it too). `group_norm/cuda_noptx` (0.917x, unchanged) did not land the pipeline and was restored to baseline.
 - **scatter — up to ~10x.** cuda_unlimited (6.46→**10.0x**) fused the 3-launch design (init + winner-select + gather) into **one kernel** using a packed 64-bit `atomicMax` shared-memory winner slab (high bits = write index for deterministic last-wins, low bits = value bits) and a branchless coalesced copy. tilelang (6.02→**7.63x**) and triton (5.31→**6.79x**) won by element-tiling the inner dim and **dropping the `idx.to(int32)` cast** to read int64 indices directly in-kernel (one fewer launch) — the residual the first pass had "identified but not chased." The **>10x flag on `scatter/cuda_unlimited` is a threshold warning, not reward-hacking**: the reference is torch's *deterministic* scatter (~16x slower than its racy default), so ~10x over it is legitimate.
 - **gather — ~1.1–1.26x → ~1.31–1.51x on all 4 DSLs.** This op was *not* "launch noise" (as the first pass concluded) — there was real headroom. cuda_unlimited (1.26→**1.51x**) and cuda_noptx (1.22→**1.33x**) restructured to **shared-memory row staging**: a decisive cold-L2 diagnostic showed the naive scattered `x` read sustains only ~50% of DRAM BW (row-buffer thrashing), so the kernel now does one *coalesced* row load into shared memory and gathers on-chip. Triton (1.22→**1.50x**) and tilelang (1.07→**1.31x**) won via eviction-policy + block/warp/vectorization tuning. Near the shared-mem floor; capped by only ~128 blocks (≈1/SM) at this batch size.
@@ -68,7 +68,7 @@ Each cell was driven through the AKO profile→edit→bench→log loop toward ~1
 **Confirmed at a genuine physical floor** (a legitimate AKO stop):
 - **Memory-bound elementwise** (relu/sigmoid/hardsigmoid/elu/gelu; swish's 2.45x is its 2-pass→1-pass fusion): ~1.0x **is** the HBM copy-bandwidth floor — they match torch. float4 closed the residual scalar gaps; streaming loads / fast-`expf` gave 0% (ALU fully latency-hidden).
 - **cumsum** (~1.19–1.24x): bandwidth-roofline; register/warp-shuffle scan gave 0%.
-- **scatter/cuda_noptx** (6.56x, unchanged): already well above Triton, near the deterministic-scatter floor; its deeper iterations did not beat baseline and it was restored verbatim.
+- **scatter/cuda_noptx** — *reclassified: no longer a floor.* The deeper pass left it at a 2-kernel 6.56x design; the P2d test showed the fused single-kernel packed-atomic winner-slab (the cuda_unlimited mechanism, which itself uses **no PTX**) ports directly to no-PTX CUDA → **10.65x**, matching the unlimited sibling. Promoted post-hoc; see `P2_LEVER_TESTS.md` §P2d.
 - **lstm** (~1.0x): cuDNN's fused multi-layer LSTM is the floor; only the projection GEMM is custom.
 
 The revised traffic analysis for `layer_norm` and `group_norm` — and why the first pass's "irreducible floor" was an over-attribution — is written up in `GAP_ANALYSIS.md` (§ "Floors revised"). Full per-kernel iteration logs (hypothesis → bench → keep/revert, with roofline evidence at each stop) are in each `<op>/<dsl>/ITERATIONS.md`.
