@@ -26,7 +26,7 @@ PTX, tilelang) on RTX 6000 Ada, benched against the same PyTorch golden.
 | elu | 0.99 | 1.00 | 1.00 | **1.03** | tilelang | none |
 | gelu | 1.01 | 1.00 | 1.00 | **1.03** | tilelang | none |
 | swish | 2.46 | 2.45 | **2.53** | 2.43 | unlim | ≤4% (tie) |
-| layer_norm | 2.10 | 1.95 | **2.16** | 2.10 | unlim | **noptx −10%** |
+| layer_norm | 2.17 | 2.15 | **2.29** | 2.19 | unlim | noptx −6% |
 | group_norm | **1.33** | 1.29 | 1.28 | 1.32 | triton | ≤4% (tie) |
 | gather | **1.50** | 1.33 | 1.48 | 1.31 | triton | **noptx/tilelang −12%** |
 | scatter | 6.79 | **10.65** | 10.0–10.6 | 7.63 | noptx≈unlim | **triton/tilelang −28%** |
@@ -35,6 +35,22 @@ PTX, tilelang) on RTX 6000 Ada, benched against the same PyTorch golden.
 
 Winner tally: triton 4–5, tilelang 3, cuda_unlimited 3, cuda_noptx 1 — **every DSL
 is the sole top performer on ≥1 op.**
+
+> **2026-07-07 update (6-op convergence redo, branch `cross-dsl-6op-ncu-redo`).** The
+> `layer_norm` row above is refreshed: all four cells were re-optimized from an identity
+> baseline through the ncu-in-loop convergence scaffold and **all four beat their prior
+> floors** (triton 2.17, cuda_noptx 2.15, cuda_unlimited 2.29, tilelang 2.19x — each
+> serial-GPU3 verified, gated, detector-clean, noptx PTX-free). Two consequences for the
+> analysis below: **(1) Q1's one surviving residual shrinks** — the noptx gap to the
+> unlimited winner narrows from ~10% to ~6%, and all four now sit in a tight 2.15–2.29
+> band; still no capability wall (unlimited's edge is the async/residency schedule, now
+> also holding weight+bias L2-resident). **(2) Q3 is reinforced** — the L2-residency lever
+> was independently re-derived from the roofline in all four DSLs, confirming ~100% transfer
+> as an algorithmic lever, and the PTX-null finding reproduced again (unlimited's inline
+> `st.global.cs.v4` tied `__stcs` byte-for-byte). Convergence (compute_s → 95% ceiling):
+> tilelang 25s < triton 40s < unlimited 57s < noptx 69s — but the lever was **hinted** here
+> (this is the calibration op), so it reflects realize-cost (nvcc ~40s/variant vs JIT), not
+> discovery-cost. The five un-hinted ops are the real convergence read.
 
 ## Q1 — Is any DSL's ceiling higher? **No universal ceiling — demonstrated.**
 

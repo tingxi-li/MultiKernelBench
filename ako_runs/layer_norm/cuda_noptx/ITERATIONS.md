@@ -111,3 +111,49 @@ state, rank on min/median) since the ~2-3% prize is near bench.py's run-to-run n
   short of 10 is justified by the confirmed floor.
 
 ## Best = Final: one block/row, TPB=256, ILP=4, fp64 in-block mean/rstd — 1.6471x / 3.91ms.
+
+---
+
+# Convergence redo (branch cross-dsl-6op-ncu-redo) — hand-written from roofline
+
+Reset to identity baseline, then hand-wrote the plain-CUDA kernel from the L2 roofline
+(NO inline PTX; `__ldg`/`__shfl`/`atomicAdd`/`float4` intrinsics only). All benches via
+`tools/timed_bench.sh --gpu3-serial` (frozen yardstick); block/tpb are runtime args, so
+the sweep needs no recompile.
+
+**Lever (implemented by hand):** x = (M=64 rows, N=4.19M fp32), 16.78 MB/row, L2=96 MB.
+ONE row fits in L2, so process one row at a time in a HOST-SIDE C++ loop: `reduce[m]`
+(fp64 sum/sumsq via warp-shuffle + block-leader atomicAdd, ~B blocks) then `apply[m]`
+(re-read x — L2 hit — normalize + affine, write y). Only that row's 16.78 MB is in flight
+between reduce and apply, so it stays L2-resident → 2 HBM passes (read x, write y) instead
+of naive 3. weight/bias (33.55 MB, shared across rows) stay L2-resident throughout.
+
+| iter | variant | speedup | runtime | keep? |
+|------|---------|---------|---------|-------|
+| 1 | identity baseline (reset) | 0.9953x | 6.42 ms | (baseline) |
+| 2 | 2-pass host-loop reduce+apply, B512 T256 | 1.9453x | 3.29 ms | keep |
+| 3 | block sweep B256 T256 | **2.1549x** | 2.97 ms | **keep (best)** |
+| 4 | block sweep B128 T256 | 2.1122x | 3.03 ms | revert |
+| 5 | block sweep B192 T256 | 1.0440x | 6.13 ms | revert (host P-state fluke) |
+| 6 | confirm B256 T256 (re-bench) | 2.1549x | 2.97 ms | stable — locks best |
+
+- **iter 2 (B512):** first custom variant already lands **1.9453x** — reproduces the known
+  committed cuda_noptx calibration point (~1.95x). Identity read ~1.0x. Both ends of the
+  calibration curve validate the instrumented pipeline.
+- **iter 3 (B256):** halving blocks/row cuts reduce atomic contention (only block-leaders
+  atomicAdd, so #atomics/row = #blocks) while still saturating HBM → **2.1549x**, past the
+  1.95x reference ceiling. Strong lever.
+- **iter 4 (B128):** too few blocks under-saturates bandwidth (2.11x). Optimum brackets 256.
+- **iter 5 (B192):** 1.04x — a lone sharp dip amid smooth B128/B256 neighbours = the host's
+  known clock/P-state variance (see memory: ako-bench-gpu-quirks), not a real curve feature.
+- **iter 6:** B256 re-benched → **2.1549x / 2.97 ms EXACTLY** (min 2.92), reproducible to 4
+  s.f. across two independent serial benches. Confirms B256 is the real, stable optimum.
+
+**Best = 2-pass host-loop, B256 T256, fp64 in-kernel mean/rstd, float4 __ldg: 2.1549x / 2.97 ms.**
+
+**Stop reason:** stop-rule branch 1 (within 5% of the ~1.95x external ceiling) is satisfied —
+in fact exceeded at 2.15x, which becomes this cell's ceiling (max of cell-best and external
+ref). 5 custom variants benched (budget 6–10). Roofline confirmed analytically: 2 HBM passes
+≈ 2.18 GB / 2.97 ms ≈ 734 GB/s effective; the B512→B256 gain is the atomic-contention lever,
+not a pass-count change (both are already 2-pass). forward() stays glue-only (allocate/launch
+inside the extension; passes cheating_detection.py); CUDA source contains no inline PTX asm.

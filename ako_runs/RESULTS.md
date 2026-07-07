@@ -12,6 +12,8 @@ Verdict runs use `--num-warmup 200` (GPUs idle at 210 MHz) and `--deterministic`
 
 **Bold** = a solution modified by the deeper optimization pass; its number is a **fresh single-batch re-bench of the exact committed bytes** (all 16 changed cells re-run agent-free on the same host, 4 pinned GPUs, one controlled batch — `COMPILED=CORRECT=True` for every one). Non-bold cells were byte-unchanged and retain their prior verdict (re-benching them would only inject clock noise).
 
+> **2026-07-07 — `layer_norm` re-optimized (6-op cross-DSL convergence redo, branch `cross-dsl-6op-ncu-redo`).** All four `layer_norm` cells were re-run from an identity baseline through the ncu-in-loop convergence scaffold, each DSL using its native method. **All four beat their prior committed floors** (triton 2.10→**2.17**, cuda_noptx 1.95→**2.15**, cuda_unlimited 2.16→**2.29**, tilelang 2.10→**2.19x**), independently re-benched serial-GPU3, gate-passed, detector-clean, noptx PTX-free. The `layer_norm` rows below and the "+1.9% parity" note for `layer_norm/cuda_noptx` are superseded by these. The +10% noptx jump nearly closes the layer_norm-noptx residual that was the one gap surviving in `CROSS_DSL_FINDINGS.md`. Convergence curves in each `layer_norm/<dsl>/convergence.csv`.
+
 | Op | Cat | Triton | cuda_noptx | cuda_unlimited | tilelang |
 |---|---|---|---|---|---|
 | relu | activation | 1.0000x | 0.9938x | 1.0000x | 1.0323x |
@@ -20,7 +22,7 @@ Verdict runs use `--num-warmup 200` (GPUs idle at 210 MHz) and `--deterministic`
 | elu | activation | 0.9938x | 1.0000x | 1.0000x | 1.0256x |
 | gelu | activation | 1.0063x | 1.0000x | 1.0000x | 1.0323x |
 | swish | activation | 2.5253x | 2.4472x | **2.5256x** | 2.4321x |
-| **layer_norm** | normalization | **2.0951x** | **1.9541x** | **2.1616x** | **2.1013x** |
+| **layer_norm** | normalization | **2.1729x** | **2.1549x** | **2.2857x** | **2.1918x** |
 | **group_norm** | normalization | **1.3537x** | **1.2863x** | **1.2810x** | **1.3234x** |
 | **gather** | index | **1.5000x** | **1.3267x** | **1.5084x** | **1.3107x** |
 | **scatter** | index | **6.7925x** | **10.6471x** | **10.0000x** | **7.6339x** |
@@ -41,7 +43,7 @@ Changed rows carry the fresh re-bench runtime; unchanged rows retain the prior n
 | elu | 16 | 16 | 15.6 | 16 |
 | gelu | 16 | 16 | 15.5 | 16 |
 | swish | 16.1 | **15.6** | 16.2 | 39.4 |
-| layer_norm | **3.27** | **2.97** | **3.06** | 6.4 |
+| layer_norm | **2.97** | **2.80** | **2.92** | 6.4 |
 | group_norm | **24.1** | **24.2** | **23.5** | 31 |
 | gather | **0.0202** | **0.0179** | **0.0206** | 0.0269 |
 | scatter | **0.0170** | **0.0171** | **0.0224** | 0.177 |

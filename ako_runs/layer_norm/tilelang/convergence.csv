@@ -1,2 +1,5 @@
 iter,cum_compute_s,variant_desc,runtime_ms,speedup,ncu_key,kept,agent_s
 1,12.33,identity baseline (reset),6.4300,0.9969,,1,
+2,25.26,L2-resident cooperative single-read TH=64 G=640,2.9200,2.1918,,1,
+3,38.41,cooperative single-read TH=64 G=768 (near cap),2.9200,2.1918,,0,
+4,50.82,final: cooperative single-read TH=64 G=640 (ncu 2-pass confirmed),2.9200,2.1884,passes=2.06,0,

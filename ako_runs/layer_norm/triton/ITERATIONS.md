@@ -121,3 +121,43 @@ passes (2.15 GB, 2.69 ms floor). Baseline on THIS gpu: mean 4.05 / min 3.95 ms,
 - **Bench:** Compiled: True; Correct: True; Runtime 4.00 ms; Reference 6.39 ms; Speedup 1.60x.
 - **Anti-hack:** `utils/cheating_detection.py` -> OK (was regression_type=3 in iter 1).
 - **Next:** Compliant and at/above the iter-1 speedup — stop.
+
+---
+
+## Convergence redo (branch cross-dsl-6op-ncu-redo) — kernel written fresh from roofline
+
+Frozen yardstick = `tools/timed_bench.sh ... --gpu3-serial` (rows in `convergence.csv`).
+Roofline: (M=64 rows, N=4,194,304 fp32), 16.78 MB/row, L2=96 MB. One row fits L2, so a
+2-pass design (stats streams a row into L2 -> apply re-reads that row from L2 -> write y)
+beats torch's ~3-pass. Target ceiling ~2.10x.
+
+| Iter | Variant | Speedup (GPU3-serial) | Keep | Note |
+|------|---------|-----------------------|------|------|
+| 1 | identity baseline (torch nn.LayerNorm) | 0.9953x | — | scaffold anchor (~1.0x, as expected) |
+| 2 | 2-kernel per-row L2-resident (stats atomic-free partials; apply reduces GS partials + re-reads x); fp32 elemwise, fp64 combine; GS256 BLK2048 nw4 | **1.7855x** | kept | first real kernel |
+| 3 | 3-kernel per-row: stats + tiny 1-block reduce (mean/rstd once, fp64) + apply(load scalars, re-read x from L2); GS128 BLK2048 nw8 | **2.1729x** | kept | reduce-once refinement → reached ceiling |
+
+- **Iter 2 hypothesis→result:** process ONE row per launch group so the apply pass re-reads
+  x from L2 instead of HBM (3-pass→2-pass). Correct (max_abs_diff 3.3e-6 vs 1e-4 tol) and
+  1.79x. **ncu (baseline of real kernels):** apply `L2hit=99%`, `DRAM read = 1.04x tensor`
+  → the L2-residency lever works; bytes are already at the 2-pass floor. Gap to 2.10x is
+  therefore *overhead*, not bytes: the apply kernel redundantly re-reduced the GS fp64
+  partials in every one of its 2048 blocks (Ada fp64 ≈ 1/64 rate), and stats occupancy was
+  only ~15%.
+- **Iter 3 hypothesis→result:** move the GS-partial combine into a tiny 1-block `reduce`
+  kernel that computes mean/rstd ONCE (fp64, cancellation-safe) and writes 2 fp32 scalars;
+  apply then just loads the scalars — no per-block fp64. Also nw8 for stats. Result **2.1729x
+  (2.95 ms vs 6.41 ms ref)** — exceeds the ~2.10x ceiling. Correct (max_abs_diff 3.3e-6).
+- **Precision design:** all per-element work is fp32 (Ada fp64 elemwise was the 0.62x trap in
+  an early draft); only the GS-way partial combine + scalar var (E[x²]−E[x]² cancellation)
+  are fp64, in the 1-block reduce. Each stats lane sums only N/(GS·BLOCK) values so the fp32
+  partials stay ~1e-6 accurate after the fp64 fold.
+- **Final ncu (winning design):** `DRAM read = 1.04x tensor`, apply `L2hit=99.0%`, reduce
+  kernel ≈ 0 DRAM → confirmed 2-pass floor (read x once + write y once). stats is the sole
+  HBM-read consumer (dram%=82.5, saturated).
+- **STOP reason:** primary stop condition met — **within 5% of (and above) the ~2.10x
+  external ceiling** at 2.1729x — with the 2-pass L2-residency roofline ncu-confirmed and
+  correctness ≤1e-4. 3 variants benched (2 real kernels). forward() is allocate+launch glue
+  only (passes `utils/cheating_detection.py`); all math lives in the @triton.jit kernels.
+
+**Final kept result (this redo): 2.1729x** — 3-kernel per-row L2-resident LayerNorm.

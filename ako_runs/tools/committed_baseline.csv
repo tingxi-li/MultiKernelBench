@@ -23,10 +23,10 @@ swish,triton,2.4625,2.5253,2.4625,serial-gpu3
 swish,cuda_noptx,2.4472,2.4472,2.4472,serial-gpu3
 swish,cuda_unlimited,2.5256,2.5256,2.5256,serial-gpu3
 swish,tilelang,2.4321,2.4321,2.4321,serial-gpu3
-layer_norm,triton,2.0951,2.0951,2.1367,serial-gpu3  capped@seed
-layer_norm,cuda_noptx,1.9541,1.9541,1.9541,serial-gpu3 (promoted P2 lever)
-layer_norm,cuda_unlimited,2.1616,2.1616,2.1622,serial-gpu3  capped@seed
-layer_norm,tilelang,2.0984,2.1013,2.0984,serial-gpu3
+layer_norm,triton,2.1655,2.1729,2.1655,serial-gpu3 (redo6op cross-dsl; min-capped)
+layer_norm,cuda_noptx,2.1549,2.1549,2.1549,serial-gpu3 (redo6op cross-dsl; was 1.95 P2)
+layer_norm,cuda_unlimited,2.2857,2.2857,2.2857,serial-gpu3 (redo6op cross-dsl)
+layer_norm,tilelang,2.1884,2.1918,2.1884,serial-gpu3 (redo6op cross-dsl; min-capped)
 group_norm,triton,1.3294,1.3537,1.3294,serial-gpu3
 group_norm,cuda_noptx,1.2863,1.2863,1.2863,serial-gpu3 (promoted P2 lever)
 group_norm,cuda_unlimited,1.2810,1.2810,1.2810,serial-gpu3

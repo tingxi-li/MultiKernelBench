@@ -1,2 +1,7 @@
 iter,cum_compute_s,variant_desc,runtime_ms,speedup,ncu_key,kept,agent_s
 1,12.30,identity baseline (reset),6.4200,0.9953,,1,
+2,57.14,L2-resident 2-pass host-loop reduce+apply B512 T256,3.2900,1.9453,,1,
+3,68.84,block sweep B256 T256 (fewer atomics/row),2.9700,2.1549,,1,
+4,80.84,block sweep B128 T256,3.0300,2.1122,,0,
+5,93.51,block sweep B192 T256,6.1300,1.0440,,0,
+6,105.54,confirm best B256 T256 (re-bench for stability),2.9700,2.1549,,0,

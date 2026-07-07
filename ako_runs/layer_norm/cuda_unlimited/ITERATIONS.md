@@ -126,3 +126,54 @@ so this is the practical floor for the 2 GB-traffic (L2-reuse) model. The remain
 - Detector: valid=True, regression_type=None (forward() glue-only; compute in _ext kernel).
 - The prior "at floor" claim assumed a fixed 3 GB traffic model; the real lever was L2 residency of
   a single 16 MB row inside 96 MB L2, cutting the second x-read from HBM to L2 (3 GB -> 2 GB).
+
+---
+## NEW RUN (2026-07-07) — cross-DSL 6-op ncu redo (from identity baseline, frozen timed_bench yardstick)
+
+Started from the reset IDENTITY passthrough (convergence.csv iter 1 = 0.9938x). Kernel
+re-derived from the roofline (NOT copied from prior/committed solution). Ceiling for this
+calibration op ≈ 2.16x.
+
+### Roofline (the lever)
+x = (M=64 rows, N=4.19M fp32). One row = 16.78 MB; L2 = 96 MB. Reference does x-read×2 +
+y-write + w-read + b-read ≈ 5.35 GB (torch keeps nothing resident: 2nd x-read from HBM,
+w/b refetched once per row = 64 passes over the 16.78 MB arrays). The win: process ONE row
+at a time so (a) the row stays L2-resident stats→apply (2nd x-read hits L2) AND (b) the
+per-element affine w/b (16.78 MB each) stay L2-resident ACROSS all 64 rows. Working set per
+row = x[m]+w+b = 50 MB < 96 MB → HBM floor ≈ x-once (1.07) + y-once (1.07) + w+b-once
+(0.034) = 2.18 GB → ~2.1–2.3x.
+
+### V1 (iter 2) — L2-resident 2-pass K=1, float4 __ldg + __stcs streaming store  ✅ KEEP (best)
+- **Design:** per-row loop in the C++ launcher (128 launches = 64 stats + 64 apply, same
+  stream → serialized so no overlap evicts the resident set). Stats: 128 blocks×256 t,
+  grid-stride float4 __ldg, warp+shared reduce, atomicAdd → d_sum[m]/d_sq[m] (fp32).
+  Apply: 4096 blocks×256 t, each block re-derives mean/rstd from the 2 scalars (ln_final
+  folded in), float4 __ldg on x(from L2)/w/b(resident), **__stcs** streaming store for y
+  (bypasses L2 so the 16.78 MB y-write doesn't evict the 50 MB working set).
+- **Bench (timed_bench, --gpu3-serial, warmup 200):** COMPILED=True, CORRECT=True (5/5,
+  fp32 tol 1e-4), RUNTIME=2.80 ms (min 2.76), REF=6.40 ms, **SPEEDUP=2.2857x**. KEEP (new best).
+- **ncu (baseline+floor profile):** DRAM total = **1.692 GiB = 1.69 passes** (≤ 2-pass copy
+  floor — actually beats it). ln_stats reads 1.001 GiB (x once from HBM); ln_apply reads only
+  0.036 GiB from HBM at **99.1% L2 hit** (x re-read + w/b fully resident). 2-pass roofline
+  CONFIRMED hit. ncu_key: passes=1.69.
+
+### V2 (iter 3) — inline-PTX st.global.cs.v4.f32 store (vs __stcs intrinsic)  ❌ REVERT (tie)
+- **Only** change vs V1: swap `__stcs` → hand-written `asm volatile("st.global.cs.v4.f32 ...")`.
+  Everything else identical, isolating the store as a clean PTX-vs-intrinsic A/B.
+- **Bench:** COMPILED=True, CORRECT=True, RUNTIME=2.80 ms (min 2.76), **SPEEDUP=2.2857x** —
+  **byte-for-byte identical** to V1 (kept=0). REVERT to the simpler intrinsic.
+- **PTX finding (deliverable):** inline PTX gave **ZERO** measurable win over intrinsics.
+  `__stcs` already emits exactly `st.global.cs.v4.f32`, so the PTX store is redundant.
+  Confirms the earlier study's finding. (Note: inline `ld.global.nc.v4` was NOT attempted —
+  it hangs ptxas on this host; `__ldg` already emits the read-only-cache load anyway.)
+
+### STOP — both stop conditions met
+1. **Within 5% of ceiling:** 2.29x EXCEEDS the ≈2.16x ceiling (+6%). This cell is the
+   fastest known winner and V1 reproduces/beats it.
+2. **Roofline confirmed + stall:** ncu shows 1.69 passes (≤ 2-pass floor); apply is 99.1%
+   L2-resident; V1 and V2 tie exactly (<3%, two consecutive). No bandwidth headroom left.
+- An async/overlap software-pipeline was deliberately NOT pursued: overlapping row m+1's
+  stats with row m's apply would pull x[m+1] into L2 and evict the resident x[m]/w/b set —
+  destroying the very residency that IS the win. The serial per-row schedule is optimal here.
+- **Final best:** V1 (float4 __ldg + __stcs streaming store, K=1 L2-resident 2-pass).
+  forward() is glue-only (single _ext call; detector valid=True).

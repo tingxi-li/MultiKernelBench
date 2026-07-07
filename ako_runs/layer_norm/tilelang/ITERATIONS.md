@@ -101,3 +101,63 @@ single-read, TH=64, G=780, 2 barriers/row, scalar, single accumulator.
   roofline); the persistent cooperative-grid kernel reads X ONCE by keeping each
   16 MB row L2-resident across its stats->apply passes (2.15 GB @ ~707 GB/s).
   Micro-opts on top of the single-read structure are exhausted (see iters 3-6).
+
+---
+
+# Convergence redo (branch cross-dsl-6op-ncu-redo) — rewritten from roofline
+
+Fresh run from the IDENTITY reset baseline (0.9969x). Kernel written from scratch
+via the roofline argument below; benched ONLY through `tools/timed_bench.sh
+... --gpu3-serial` (frozen yardstick, GPU3 serial lock). convergence.csv is the
+authoritative log; this is the narrative.
+
+### Roofline (the lever)
+x = (M=64 rows, N=4,194,304 fp32). One row = 16.78 MB; whole tensor = 1.07 GB;
+L2 = 96 MB. A naive kernel reads x for stats, reads x AGAIN to normalize, writes y
+= 3 HBM passes. ONE row (16.78 MB) fits L2, so a 2-pass design keeps the row
+L2-resident across stats->apply (2nd read hits L2). weight/bias (16 MB each) are
+reused every row and stay L2-resident too. TileLang's mechanism: a SINGLE
+cooperative-grid launch (`T.sync_grid` = `cooperative_groups::this_grid().sync()`).
+All G blocks process ONE row at a time -> only that row's 16 MB is in flight ->
+stays L2-hot. Per row: grid-stride stats -> [grid barrier A: make cross-block
+atomic reduction visible] -> compute mean/rstd -> grid-stride apply -> [grid
+barrier B: keep row m resident until every block finishes apply]. All reductions
+fp32 (AD102 runs fp64 at 1/64 rate); short per-thread chains (~iters=N/(G*TH)).
+
+## Iter 2 — L2-resident cooperative single-read, TH=64 G=640 (KEEP, new best)
+- **Hypothesis:** cut 3 HBM passes -> 2 by reading x once (L2 residency via the
+  cooperative single-row loop). Per-thread fp32 sum/sumsq, shared-mem tree
+  reduction (log2(TH) barriers), one global atomic/block into a per-row [M,2]
+  scratch (zeroed once in glue), `T.sync_grid` between phases.
+- **Result:** COMPILED=True, CORRECT=5/5, **RUNTIME 2.92 ms, SPEEDUP 2.1918x**
+  (ref 6.40 ms). max_abs_diff 9.9e-6 (tol 1e-4). forward() glue-only (detector
+  valid=True, subscript-dispatch `_KB[0]`). **KEEP.** Already above the ≈2.10x
+  ceiling on the first custom variant.
+
+## Iter 3 — grid-count push, TH=64 G=768 (near cooperative cap) (REVERT, tie)
+- **Hypothesis:** more blocks -> better DRAM saturation. GPU0 launch/timing sweep
+  (idle-clock, so only relative) showed all (G,TH) in {32,64,128}x{256..1300}
+  launch cooperatively, correct, and flat within 0.4% -> config is insensitive.
+- **Result:** **RUNTIME 2.92 ms, SPEEDUP 2.1918x** — identical to G=640 (0% delta).
+  kept=0 (tie, didn't beat). **REVERT to G=640.** -> a 2-variant stall.
+
+## Iter 4 — final confirm + ncu, TH=64 G=640 (REVERT, tie; ncu-anchored)
+- Re-bench of the kept best carrying the ncu steering key. **2.1884x** (2.92 ms),
+  5/5 correct — 3rd bench within 0.16% of the others (stable).
+- **ncu (application replay, cache-control none):** DRAM total **2.057 GiB =
+  2.06 passes** (2 = copy floor, 3 = un-reused re-read); DRAM read 1.046 GiB =
+  **1.05x tensor** (x read ONCE), DRAM write 1.012 GiB = 1.0x (y written once);
+  single `kernel_kernel` launch; L2 hit 79.4% (apply re-read hits L2). The
+  weight+bias 32 MB fold into the 0.05x read overhead -> also L2-resident.
+  **ncu_key = passes=2.06 -> the 2-pass binding roofline is confirmed hit.**
+
+## STOP
+Stopped after 3 custom variants (cum_compute_s = 50.82 s). **Reason:** stop-rule
+branch 1 met — 2.1918x is ABOVE the ≈2.10x calibration ceiling (+4.3%, well
+within 5%). Independently, branch 2 is also satisfied: 2 consecutive variants at
+2.1918x (0% delta) = a stall, AND ncu confirms the 2-pass floor (2.06 passes,
+read 1.05x / write 1.0x). Traffic ~2.06 GB @ 2.92 ms ~= 720 GB/s; the ~0.2 ms gap
+to the ~2.7 ms bandwidth ideal is the grid-barrier bubbles + read-then-write phase
+separation that L2 residency *requires* — the intrinsic floor of this structure
+(matches the pre-reset winner's iters 3-6 analysis). Best variant left in
+`solution/`: cooperative single-read, TH=64, G=640, fp32, 2 grid barriers/row.
