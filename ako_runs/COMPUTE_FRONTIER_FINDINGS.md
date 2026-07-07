@@ -18,12 +18,14 @@ detector, and no cuda_noptx solution contains inline PTX.
 |---|---|---|---|---|---|
 | sum_reduction | 1.01 | 1.01 | 1.01 | 1.01 | **tie** — HBM 1-read roofline |
 | conv_depthwise_2d | 1.41 | 1.46 | 1.46 | **1.53** | **tie** — memory-bound tiling |
-| **standard_matmul** | 0.79 | **0.59** | 1.11 | **3.86** | **wide** — tensor-core |
-| **matmul_gelu_softmax** | 2.36 | 1.05 | 1.24 | **4.71** | **wide** — tensor-core + fusion |
+| **standard_matmul** | 0.79 | **0.59** | 1.11 | **4.13** | **wide** — tensor-core |
+| **matmul_gelu_softmax** | 2.36 | 1.05 | 1.24 | **5.04** | **wide** — tensor-core + fusion |
 | **scaled_dot_product_attention** | 1.27 | 1.73 | 1.71 | **3.41** | **wide** — tensor-core (flash) |
 
 (speedup vs the same PyTorch golden; conv row re-benched all-four-on-GPU3 against one
-cuDNN reference — see caveat C4.)
+cuDNN reference — see caveat C4. tilelang standard_matmul/matmul_gelu_softmax reflect the
+logged convergence re-run, which improved on the first run's 3.86/4.71 — its in-block
+split-K flush beat the earlier grid-z atomic; independent 2× re-bench 4.0–4.25 / 4.9–5.15.)
 
 ## The answer: two regimes
 
@@ -34,7 +36,7 @@ capability ceiling — this **extends the 12-op finding** to two more op familie
 inline PTX again bought ≤0.6% (reconfirmed on the unlimited lane): still a red herring.
 
 **Tensor-core ops (matmul, matmul_gelu_softmax, sdpa): a real, wide capability ceiling —
-and the compiler DSL (tilelang) owns it.** The GEMM ordering 0.59 → 0.79 → 1.11 → 3.86 is
+and the compiler DSL (tilelang) owns it.** The GEMM ordering 0.59 → 0.79 → 1.11 → 4.13 is
 set by two independent factors:
 
 1. **Precision-managed tensor cores under the 1e-4 gate.** `torch.matmul` at fp32 runs
@@ -48,7 +50,7 @@ set by two independent factors:
    - **triton:** tf32 `tl.dot` failed the gate; never found fp16+split-K → fp32 **0.79×**.
    - **cuda_unlimited:** raw `mma.sync` PTX gives exact tf32-bit + split-K control → clears
      the gate, **1.11×** (beats cuBLAS-fp32) but only ~25 TFLOP/s (44% of tf32 peak).
-   - **tilelang:** fp16 `T.gemm` + split-K → **3.86×** at ~118 TFLOP/s.
+   - **tilelang:** fp16 `T.gemm` + in-block split-K flush → **4.13×** at ~120 TFLOP/s.
 2. **Pipelining for free vs by hand.** tilelang's compiler auto-emits the cp.async / ldmatrix
    software pipeline that feeds the tensor cores; it also chose fp16 over tf32. That is why a
    **compiler DSL beat the hand-PTX lane ~3×** — the unlimited lane explicitly ran out of
@@ -87,13 +89,36 @@ set by two independent factors:
   unlimited readings to ~2.1–2.2×. The table row above is the corrected all-on-GPU3 number
   (~1.4–1.5×, a tie). Even GPU3's cuDNN ref may be mildly elevated; the robust statement is
   "all four land ~2.6 ms, a modest tie over cuDNN."
-- **C5 — convergence-time for tilelang is not yet comparable.** The tilelang lane autotuned
-  *off-wrapper* (only 2 logged benches/op), so its `compute_s` understates its true search
-  cost. Its *ceilings* above are verified-solid; its *convergence rate* is being re-measured
-  with every config logged (see the Convergence section, being finalized).
+- **C5 — RESOLVED.** The first tilelang lane autotuned *off-wrapper* (2 logged benches/op),
+  so a logged re-run from identity was done with every config through the wrapper (34 logged
+  variants, ~1157 s). It re-reached the two ties and *improved* matmul (3.86→4.13) and the
+  fused op (4.71→5.04) via an in-block split-K flush; sdpa's fresh search landed ~6% short
+  (3.12 vs 3.44), so the committed 3.44 kernel is kept as the shipped sdpa while its
+  convergence curve is the logged run's (to 3.12). See the Convergence section.
 
-## Convergence (compute_s → within 5% of each cell's ceiling)
-Wrapper-logged lanes (comparable): per-op `cum_compute_s` and variant counts are in each
-`<op>/<dsl>/convergence.csv`. triton logged 26 variants across the 5 ops, cuda_noptx 20,
-cuda_unlimited 23. **tilelang is being re-run with full logging** to make its curve
-comparable; this section is finalized once that completes.
+## Convergence — all four lanes wrapper-logged (compute_s = compile+bench, DSL-attributable)
+Every benched config went through `timed_bench.sh` (the tilelang re-run closes C5). Per-op
+cumulative `compute_s` to each cell's ceiling / logged-variant count:
+
+| op | triton | cuda_noptx | cuda_unlimited | tilelang |
+|---|---|---|---|---|
+| sum_reduction | 193s / 3 | 349s / 4 | 354s / 4 | 325s / 5 |
+| standard_matmul | 55s / 5 | 296s / 8 | 407s / 11 | 85s / 10 |
+| matmul_gelu_softmax | 58s / 5 | 48s / 2 | 48s / 2 | 41s / 5 |
+| conv_depthwise | 60s / 5 | 150s / 4 | 153s / 4 | 65s / 5 |
+| sdpa | 779s / 8 | 212s / 2 | 210s / 2 | 641s / 9 |
+| **total** | **~1145s / 26** | **~1055s / 20** | **~1172s / 23** | **~1157s / 34** |
+
+Reading it:
+- **Per-variant cost is the DSL convergence story.** Compiler DSLs (triton, tilelang) recompile
+  a config in seconds (JIT); the nvcc lanes (noptx, unlimited) pay ~30–50 s/variant. On
+  `standard_matmul`, tilelang explored 10 configs in **85 s** and reached **4.13×**, while
+  unlimited spent **407 s** over 11 configs to reach only **1.11×** — the compiler DSL converged
+  to a *far higher* ceiling in ~5× less compute. This is the practical convergence advantage the
+  12-op study hypothesized, now measured with all lanes logged.
+- **compute_s is reference-dominated on slow-ref ops.** sdpa's 641–779 s totals are the ~60–80 ms
+  torch reference timed every bench, not DSL search — compare variant counts there, not seconds.
+- **Still a *practical/native-workflow* read, not a controlled one (C1–C3):** variant counts,
+  stopping points, and discovery differ per lane. But it is now comparable in *kind* — every
+  config is wrapper-logged. (tilelang sdpa's curve is the logged re-run to 3.12×; the shipped
+  sdpa kernel is the committed 3.44× from a luckier prior run.)

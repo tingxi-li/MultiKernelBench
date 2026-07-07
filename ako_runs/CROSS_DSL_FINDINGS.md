@@ -157,8 +157,8 @@ where both the ceiling and the convergence-rate questions have the highest infor
 > 12-op finding extends), but tensor-core ops (matmul, matmul_gelu_softmax, sdpa) show the
 > **real, wide capability ceiling** this section predicted. Raw GEMM orders the DSLs
 > 0.59 (noptx/WMMA-C++, structurally can't clear the 1e-4 gate) → 0.79 (triton fp32) → 1.11
-> (unlimited `mma.sync` tf32+split-K, beats cuBLAS-fp32) → **3.86 (tilelang fp16 `T.gemm`
-> +split-K, ~118 TFLOP/s)**. Two-factor cause: **precision-managed tensor cores under the
+> (unlimited `mma.sync` tf32+split-K, beats cuBLAS-fp32) → **4.13 (tilelang fp16 `T.gemm`
+> +split-K, ~120 TFLOP/s)**. Two-factor cause: **precision-managed tensor cores under the
 > 1e-4 gate** (fp16/tf32 + split-K accuracy recovery) × **compiler auto-pipelining vs
 > hand-built**. **PTX's role splits by op class:** still a red herring on memory-bound, but on
 > GEMM it is *decisive for noptx→parity* (WMMA-C++ can't, `mma.sync` can) yet *not sufficient

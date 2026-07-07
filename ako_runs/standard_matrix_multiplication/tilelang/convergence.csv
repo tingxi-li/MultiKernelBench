@@ -1,3 +1,11 @@
 iter,cum_compute_s,variant_desc,runtime_ms,speedup,ncu_key,kept,agent_s
-1,6.31,identity baseline (torch.matmul),4.1100,1.0876,,1,
-2,12.77,split-K(4) fp16 tensorcore gemm bM128 bN128 bK64 ns3 (fp32-accum atomics),1.1800,3.3983,,1,
+1,5.50,identity baseline (torch.matmul fp32),4.4600,1.0112,,1,
+2,14.22,fp16 T.gemm BM128 BN128 BK32 st3 t256,,,,0,
+3,22.71,fp16(.half RTN) T.gemm BM128 BN128 BK32 st3 t256,,,,0,
+4,29.28,fp16 splitK-flush KC1024 BM128 BN128 BK32 st3 t256,1.1400,3.9386,,1,
+5,39.25,fp16 splitK-flush KC2048 BM128 BN128 BK32 st3 t256,1.1300,3.9735,,1,
+6,48.58,fp16 splitK-flush KC2048 BM128 BN256 BK32 st3 t256,1.0700,4.1869,,1,
+7,58.72,fp16 splitK-flush KC2048 BM128 BN256 BK32 st3 t512,1.1700,3.8205,,0,
+8,65.28,fp32-in cast-on-load (no .half kernels) KC2048 BM128 BN256 BK32 st3 t256,1.1700,3.8291,,0,
+9,74.78,fp16 KC2048 BM128 BN256 BK64 st2 t256,1.1000,4.0636,,0,
+10,84.61,fp16 KC2048 BM64 BN256 BK32 st3 t256 (occupancy),1.2000,3.7250,,0,

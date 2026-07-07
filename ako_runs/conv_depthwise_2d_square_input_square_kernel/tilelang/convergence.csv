@@ -1,3 +1,6 @@
 iter,cum_compute_s,variant_desc,runtime_ms,speedup,ncu_key,kept,agent_s
-1,11.60,identity baseline (cuDNN depthwise conv2d),3.3400,1.0150,,1,
-2,24.07,smem-halo depthwise conv bh6 bw170 (fp32; divisor-tiled; genexpr taps),2.5800,2.4419,,1,
+1,11.71,identity baseline (nn.Conv2d depthwise cuDNN),3.3900,1.0472,,1,
+2,24.06,direct coalesced 9-tap TW256 (L2 halo reuse),2.6600,1.4699,,1,
+3,38.61,direct 9-tap TW=128,2.6800,1.4627,,0,
+4,53.21,direct 9-tap TW=512,4.0900,0.9707,,0,
+5,65.39,shared-tiled BH8 BW64 TH512,2.6700,1.4532,,0,
