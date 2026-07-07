@@ -2,6 +2,54 @@
 
 A benchmark for evaluating LLMs' ability to generate kernels for various platform. Now supporting CUDA and triton kernels for GPUs, MUSA kernels for Moore Threads GPUs, Ascendc and TileLang kernels for NPUs, pallas kernels for TPUs and SYCL kernels for Intel GPUs.
 
+---
+
+## 📌 This branch — `cross-dsl-6op-ncu-redo`: AKO4ALL cross-DSL kernel optimization study
+
+A research fork that ports and optimizes kernels across **four GPU DSLs** and asks *where each DSL's performance ceiling actually lies.* Each op is optimized in every DSL on one host (NVIDIA **RTX 6000 Ada**, nvcc 13.1, torch 2.10+cu128, TileLang 0.1.11) via the **AKO4ALL** profile→edit→bench→log loop, benched against the **same PyTorch golden**. All artifacts live under [`ako_runs/`](ako_runs/).
+
+The four DSLs: **triton** · **cuda_noptx** (plain CUDA, no inline PTX) · **cuda_unlimited** (CUDA + inline PTX) · **tilelang**. Correctness is the harness fp32 1e-4 oracle; every solution's `forward()` is allocate/launch glue only and passes the anti-hack detector ([`utils/cheating_detection.py`](utils/cheating_detection.py)).
+
+**Questions:** (1) does any DSL have a higher performance ceiling? (2) what is DSL-unique in the optimization trajectory? (3) do trajectories transfer between DSLs?
+
+### Headline findings — two regimes
+
+- **Memory-bound / index / elementwise / low-arithmetic-intensity ops** (reduction, depthwise conv, layer_norm, group_norm, gather, scatter, …): **no capability ceiling.** Every DSL reaches the roofline; the winning lever is algorithmic and transfers ~100% across DSLs. Inline PTX is a **red herring** (≤0.6% on every memory-bound op).
+- **Tensor-core ops** (matmul, matmul+gelu+softmax, attention): a **real, wide capability ceiling — owned by the compiler DSL.**
+
+**Verified compute-bound results** (speedup vs the PyTorch golden; all CORRECT @ fp32 1e-4, detector-clean, independently re-benched):
+
+| op | triton | cuda_noptx | cuda_unlimited | tilelang |
+|---|---|---|---|---|
+| sum_reduction | 1.01 | 1.01 | 1.01 | 1.01 |
+| conv_depthwise | 1.41 | 1.46 | 1.46 | 1.53 |
+| **standard_matmul** | 0.79 | 0.59 | 1.11 | **4.13** |
+| **matmul_gelu_softmax** | 2.36 | 1.05 | 1.24 | **5.04** |
+| **scaled_dot_product_attention** | 1.27 | 1.73 | 1.71 | **3.44** |
+
+The GEMM ceiling is set by two factors: **precision-managed tensor cores under the 1e-4 gate** (fp16/tf32 + split-K accuracy recovery) × **compiler auto-pipelining vs hand-built**. **PTX's role splits by op class:** a red herring on memory-bound ops, *decisive for `cuda_noptx`→parity* but *not sufficient for the frontier* on GEMM — `tilelang`'s compiler beat the hand-PTX lane ~3–4× with **zero PTX**.
+
+**Convergence:** with every benched config logged through the wrapper, the compiler DSLs (triton/tilelang, JIT) converge to *higher* ceilings in **~5× less compute** than the nvcc lanes (matmul: tilelang 85 s → 4.13× vs cuda_unlimited 407 s → 1.11×).
+
+### Reproducibility tooling ([`ako_runs/tools/`](ako_runs/tools/))
+
+- `timed_bench.sh` — wraps a cell's bench, times compile+bench only, appends one row/variant to that cell's `convergence.csv` (`--gpu N` pins a card; `--serialize` GPU-lock keeps concurrent memory-bound benches from contaminating the ratio).
+- `ncu_driver.py` / `ncu_profile.sh` — Nsight Compute in the loop; steer by DRAM bytes/passes, never `%peak`.
+- `check_gate.py` + `committed_baseline.csv` — regression gate vs committed speedup floors.
+- `convergence_log.py` — post-hoc `compute_s`-to-ceiling.
+
+### Documents ([`ako_runs/`](ako_runs/))
+
+- [`RESULTS.md`](ako_runs/RESULTS.md) — the 12 memory-bound / index / elementwise ops × 4 DSLs.
+- [`CROSS_DSL_FINDINGS.md`](ako_runs/CROSS_DSL_FINDINGS.md) — Q1/Q2/Q3 answers + transferability rules.
+- [`COMPUTE_FRONTIER_FINDINGS.md`](ako_runs/COMPUTE_FRONTIER_FINDINGS.md) — the 5 compute-bound ops, the tensor-core ceiling, and convergence.
+- [`CONVERGENCE_PROTOCOL.md`](ako_runs/CONVERGENCE_PROTOCOL.md) — the frozen measurement protocol.
+- [`GAP_ANALYSIS.md`](ako_runs/GAP_ANALYSIS.md) · [`P2_LEVER_TESTS.md`](ako_runs/P2_LEVER_TESTS.md) · [`NCU_VALIDATION.md`](ako_runs/NCU_VALIDATION.md) — supporting analyses and ncu ground truth.
+
+*(The rest of this README describes the upstream MultiKernelBench harness.)*
+
+---
+
 ## Directory Structure
 
 ```text
