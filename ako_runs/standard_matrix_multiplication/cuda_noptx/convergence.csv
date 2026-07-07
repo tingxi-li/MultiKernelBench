@@ -1,0 +1,9 @@
+iter,cum_compute_s,variant_desc,runtime_ms,speedup,ncu_key,kept,agent_s
+1,6.77,identity baseline (torch.matmul=cuBLAS),6.0900,1.0000,,1,
+2,44.80,v1 WMMA tf32 64x64 tile 4warp,,,,0,
+3,83.54,v2 3xTF32 WMMA 64x64 tile,,,,0,
+4,125.86,v3 tf32 64x64 + 4 accum banks,10.5000,0.5800,,0,
+5,167.98,v4 tf32 128x128 8warp 4x2 frags 2banks,12.0000,0.5075,,0,
+6,211.48,v5 tf32 128x128 16warp 2x2frags load-round 2banks,14.7000,0.4143,,0,
+7,253.71,v6 tf32 128x128 4warp 4x4frags 2banks,10.4000,0.5856,,0,
+8,295.54,v6 final renamed gemm (detector-clean),10.4000,0.5856,l1tex=83% tensor=20% cuBLAS ref 6.09ms,0,

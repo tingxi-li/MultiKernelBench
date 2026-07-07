@@ -1,0 +1,6 @@
+iter,cum_compute_s,variant_desc,runtime_ms,speedup,ncu_key,kept,agent_s
+1,7.44,identity baseline (torch.matmul cuBLAS fp32),6.0800,1.0000,,1,
+2,20.36,triton tl.dot fp32 IEEE; autotune BLOCK_M/N/K nw ns; 2D grid,7.7000,0.7909,,0,
+3,34.91,tf32x3 tensor-core + L2 swizzle; autotune 6 cfg to 256x256,11.1000,0.5477,,0,
+4,42.18,single-pass tf32 tensor-core + L2 swizzle (reduced precision),,,,0,
+5,55.00,fp32 IEEE + L2 swizzle; fp32-sized tiles autotune,7.7800,0.7815,,0,

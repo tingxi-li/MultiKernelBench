@@ -1,0 +1,5 @@
+iter,cum_compute_s,variant_desc,runtime_ms,speedup,ncu_key,kept,agent_s
+1,62.65,identity baseline (torch.sum),9.8300,1.0000,,1,
+2,158.25,v1 coalesced col-sum thread/col; ldg,9.9100,0.9919,,0,
+3,253.11,v2 float4 4-col/thread; 4 accums,9.7600,1.0072,,1,
+4,349.13,v3 float4 + 4-deep row unroll,9.7600,1.0072,,0,

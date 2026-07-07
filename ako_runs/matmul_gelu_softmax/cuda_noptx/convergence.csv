@@ -1,0 +1,3 @@
+iter,cum_compute_s,variant_desc,runtime_ms,speedup,ncu_key,kept,agent_s
+1,7.07,identity baseline (Linear+gelu+softmax),6.8800,1.0000,,1,
+2,47.65,v1 WMMA-tf32 gemm(x@Wt) + fused bias-gelu-softmax row,6.5700,1.0472,,1,

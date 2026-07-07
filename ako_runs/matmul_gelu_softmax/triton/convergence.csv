@@ -1,0 +1,6 @@
+iter,cum_compute_s,variant_desc,runtime_ms,speedup,ncu_key,kept,agent_s
+1,6.82,identity baseline (torch Linear+gelu+softmax eager),6.8800,1.0000,,1,
+2,22.52,fused fp32 GEMM+bias+gelu kernel + 2-pass row-softmax kernel,14.5000,0.4745,,0,
+3,38.31,fp32 fused: coalesced W load + tl.trans dot,14.5000,0.4745,,0,
+4,47.32,tf32 tensor-core GEMM+gelu fused + row-softmax (tol forgiving via softmax),2.9100,2.3643,,1,
+5,57.69,tf32 GEMM larger tensor-core tiles (up to 256; BLOCK_K64),2.9100,2.3643,,0,

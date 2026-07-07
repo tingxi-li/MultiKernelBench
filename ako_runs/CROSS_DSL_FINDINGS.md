@@ -150,3 +150,19 @@ lever is algorithmic and expressible everywhere. The 28 compute-bound tensor-cor
 async copy, warp specialization — have genuinely different expressibility across the DSLs, so
 that is where a **real capability ceiling** (not an ergonomic one) is most likely to appear, and
 where both the ceiling and the convergence-rate questions have the highest information value.
+
+> **2026-07-07 — frontier probed (5 ops), and the prediction holds. See
+> `COMPUTE_FRONTIER_FINDINGS.md`.** Five ops × 4 DSLs, verified. There ARE two regimes:
+> memory-bound / low-AI ops (sum_reduction, conv_depthwise) stay **ties** at the roofline (the
+> 12-op finding extends), but tensor-core ops (matmul, matmul_gelu_softmax, sdpa) show the
+> **real, wide capability ceiling** this section predicted. Raw GEMM orders the DSLs
+> 0.59 (noptx/WMMA-C++, structurally can't clear the 1e-4 gate) → 0.79 (triton fp32) → 1.11
+> (unlimited `mma.sync` tf32+split-K, beats cuBLAS-fp32) → **3.86 (tilelang fp16 `T.gemm`
+> +split-K, ~118 TFLOP/s)**. Two-factor cause: **precision-managed tensor cores under the
+> 1e-4 gate** (fp16/tf32 + split-K accuracy recovery) × **compiler auto-pipelining vs
+> hand-built**. **PTX's role splits by op class:** still a red herring on memory-bound, but on
+> GEMM it is *decisive for noptx→parity* (WMMA-C++ can't, `mma.sync` can) yet *not sufficient
+> for the frontier* — tilelang beat the hand-PTX lane ~3× with zero PTX. So the frontier
+> belongs to compiler-emitted, precision-managed, pipelined tensor cores. Caveats (uneven
+> precision-discovery / effort; conv ref instability; tilelang off-wrapper convergence) in
+> `COMPUTE_FRONTIER_FINDINGS.md`.

@@ -1,0 +1,12 @@
+iter,cum_compute_s,variant_desc,runtime_ms,speedup,ncu_key,kept,agent_s
+1,6.53,identity baseline (torch.matmul),6.0900,1.0000,,1,
+2,47.50,v1 sgemm 128x128 8x8 BK8 float4,8.1200,0.7500,,0,
+3,88.67,v2 sgemm double-buffered vec-smem BK8,7.4600,0.8164,,0,
+4,127.45,v3 WMMA tf32 round-nearest 128x128 BK32,,,,0,
+5,165.91,v3b WMMA tf32 SW round-nearest 128x128 BK32,,,,0,
+6,205.48,v3c WMMA tf32 round-in-smem 128x128 BK32,,,,0,
+7,245.35,v4 3xTF32 WMMA hi/lo split 128x128 BK16,,,,0,
+8,283.95,v5 mma.sync 1xTF32 PTX round-nearest 64x64,,,,0,
+9,325.05,v6 mma.sync 1xTF32 split-K=4 atomic accum,7.7100,0.7899,,0,
+10,366.30,v7 mma.sync 1xTF32 split-K=4 128x128 tile,6.6200,0.9199,,0,
+11,406.91,v8 mma.sync 1xTF32 splitK4 dbl-buf round-in-smem,5.4800,1.1113,,1,

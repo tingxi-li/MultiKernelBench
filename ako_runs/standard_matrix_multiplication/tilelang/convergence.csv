@@ -1,0 +1,3 @@
+iter,cum_compute_s,variant_desc,runtime_ms,speedup,ncu_key,kept,agent_s
+1,6.31,identity baseline (torch.matmul),4.1100,1.0876,,1,
+2,12.77,split-K(4) fp16 tensorcore gemm bM128 bN128 bK64 ns3 (fp32-accum atomics),1.1800,3.3983,,1,

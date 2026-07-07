@@ -1,0 +1,9 @@
+iter,cum_compute_s,variant_desc,runtime_ms,speedup,ncu_key,kept,agent_s
+1,93.98,identity baseline (torch F.scaled_dot_product_attention),80.6000,1.0000,,1,
+2,283.67,triton flash-attn fp32 IEEE; online softmax; BLOCK_D=1024; autotune,,,,0,
+3,355.23,flash fp32 num_stages=1 small blocks (fix smem OOM),,,,0,
+4,455.29,3-kernel attn: batched QK^T + row-softmax + PV; fp32 tensor-tiled,79.7000,1.0113,,1,
+5,525.50,3-kernel attn tf32 tensor-core (QK+PV),,,,0,
+6,593.34,mixed precision: QK fp32-ieee + PV tf32 tensor-core,,,,0,
+7,686.03,mixed: QK tf32 (softmax-absorbed) + PV fp32-ieee (exact output),63.7000,1.2653,,1,
+8,779.06,QK tf32 + PV tf32x3 (fp32-accurate tensor-core PV),67.5000,1.1941,,0,
