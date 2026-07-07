@@ -33,6 +33,10 @@ while [ $# -gt 0 ]; do
     # speedup ratio). The compute-timer sits INSIDE the lock so lock-wait never
     # inflates compute_s.
     --gpu3-serial) GPUPIN=3; SERIAL3=1; shift 1;;
+    # --serialize: acquire the shared bench lock WITHOUT forcing GPU3 — combine with
+    # --gpu N to keep a memory-bound op on its own dedicated card while still preventing
+    # its timed bench from overlapping another lane's (cross-GPU memory-P-state contamination).
+    --serialize) SERIAL3=1; shift 1;;
     -h|--help) usage;;
     *) POS+=("$1"); shift;;
   esac
