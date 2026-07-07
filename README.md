@@ -40,6 +40,7 @@ The GEMM ceiling is set by two factors: **precision-managed tensor cores under t
 
 ### Documents ([`ako_runs/`](ako_runs/))
 
+- [`SIX_OP_ANSWERS.md`](ako_runs/SIX_OP_ANSWERS.md) — **start here:** the 6-op redo answering all four questions (ceiling / unique levers / transferability / convergence rate).
 - [`RESULTS.md`](ako_runs/RESULTS.md) — the 12 memory-bound / index / elementwise ops × 4 DSLs.
 - [`CROSS_DSL_FINDINGS.md`](ako_runs/CROSS_DSL_FINDINGS.md) — Q1/Q2/Q3 answers + transferability rules.
 - [`COMPUTE_FRONTIER_FINDINGS.md`](ako_runs/COMPUTE_FRONTIER_FINDINGS.md) — the 5 compute-bound ops, the tensor-core ceiling, and convergence.
