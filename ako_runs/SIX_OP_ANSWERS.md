@@ -49,11 +49,18 @@ lower-level DSL is an upper bound on a higher-level one:
   to cuda_unlimited (2.19 vs 2.29). The closest thing to a universal ceiling advantage is
   tilelang **on the tensor-core sub-board specifically**, where it is uniformly and widely on top.
 
-**The one genuine structural wall** is cuda_noptx on GEMM (0.59×): WMMA C++
-`load_matrix_sync` truncates to tf32 with no accumulation control, so every tf32/3×tf32
-attempt fails the 1e-4 gate → it is stuck at fp32 WMMA, L1/shared-bandwidth bound (tensor
-pipe ~20% busy). That is the only "cannot express it at any effort" ceiling on the board —
-and it is a *structural* limit of the WMMA C++ API, not a hardware or PTX limit.
+**cuda_noptx's 0.59× is probably *not* a structural wall — it is a precision-discovery
+miss.** All seven of its logged variants are tf32/3×tf32 WMMA (`load_matrix_sync` truncates
+inputs to tf32 and gives no accumulation control, so they fail the 1e-4 gate and it settles
+at a correct-but-slow tf32 config — L1/shared-bound, tensor pipe ~20% busy). But it **never
+tried fp16 WMMA + split-K**, and that *is* expressible in plain WMMA C++ (`half` input
+fragments accumulate in `float` — the canonical WMMA recipe, exactly tilelang's approach).
+So 0.59× is most likely the *same* precision/search miss as triton's 0.79×, not a "cannot
+express it at any effort" ceiling. The only genuinely structural bit is narrower — *tf32*
+WMMA has no accumulation control — which is an argument against the tf32 path, not a wall
+against WMMA-C++ reaching the frontier. (COMPUTE_FRONTIER C1 asserts a genuine structural
+limit here; that is not backed by a tried-and-failed fp16-WMMA experiment and should be
+read as **unsettled** — see the fairness caveat and the precision-normalized re-run below.)
 
 **What sets the tensor-core ordering** is two independent factors, neither of which is
 "closeness to metal":
@@ -66,6 +73,42 @@ and it is a *structural* limit of the WMMA C++ API, not a hardware or PTX limit.
    ran out of budget before hand-building that pipeline — its `mma.sync` kernel is
    un-pipelined, ~25 TFLOP/s (44% of tf32 peak).
 
+### Fairness caveat — how much of the ceiling is *precision*, and is it a harness artifact?
+
+The GEMM ordering blends two axes, and only one is "capability":
+
+- **The fp16 pass is enabled by the benchmark's inputs, not just the kernel.** `get_inputs`
+  uses `torch.rand` (uniform [0,1], **all-positive**), so each output ≈ 8192×0.25 ≈ 2048 with
+  no cancellation. The 1e-4 *relative* gate is then a ~0.2 *absolute* budget, and the fp16
+  kernel's error is ~0.04 → **0% of elements fail**. **Under `randn` inputs, 79% of elements
+  fail and fp16 is disqualified** (verified empirically). So the fp16 lever rides a tolerance
+  budget the benchmark's input distribution creates. This is legitimate under KernelBench's
+  rules — it is an output-correctness, precision-agnostic benchmark, and reduced-precision
+  tensor cores are what real fast GEMMs do — but for a *capability* study it is a **confound**:
+  the `0.59→0.79→1.11→4.13` ordering partly measures "which DSL best exploited the permitted
+  precision," not pure algorithmic/pipelining capability. (The split-K→fp32 flush in the
+  kernel is still a real, *needed* fix — it fights the fp16 *accumulator* bias, ~-0.19 at
+  K=8192, right at the 0.2 budget, cutting it to -0.02. That part is not a shortcut.)
+- **So the other lanes' floors are softer than they look.** cuda_noptx (0.59) and triton
+  (0.79) are stuck mainly because they searched only the tf32 family and never found
+  fp16+split-K — a precision-*discovery* gap, not a hard capability floor. cuda_unlimited's
+  1.11 is tf32 (`mma.sync`, un-pipelined); tilelang's 4.13 is fp16 (auto-pipelined). Part of
+  that 3.7× is fp16's higher raw tensor-core throughput vs tf32 on Ada, part is pipelining —
+  the two are **not separated** in these numbers.
+- **The detector does not inspect any DSL kernel body.** All four lanes hide the kernel from
+  the Python-AST cheating detector (tilelang via a subscript-dispatch idiom; CUDA via an
+  opaque C++ string), so the detector's "pass" rests on `forward()` being glue-only +
+  correctness, *not* on reading the kernel. Verified: tilelang's three solutions are
+  glue-only and correct, and the idiom suppresses a false positive on integer index math
+  inside the kernel, not real compute. Not cheating — but "detector passed" carries no
+  independent weight for any DSL here.
+
+**To convert the confound into a clean capability result**, re-bench `standard_matmul` with
+either (a) all four lanes at the *same* precision, or (b) `randn` inputs / a tighter gate. If
+tilelang still wins wide, the ceiling is real capability; if the gap collapses (noptx/triton
+rising via fp16-WMMA / fp16-`tl.dot` + split-K), much of it was precision latitude. **This is
+not yet done** — every number above is the native-precision, `torch.rand` result.
+
 ## Q2 — Trajectory differences / DSL-unique levers, and did they produce unique results?
 
 Each DSL's defining lever, and whether it actually bought anything:
@@ -75,7 +118,7 @@ Each DSL's defining lever, and whether it actually bought anything:
 | cuda_unlimited | inline PTX (`mma.sync`, `st.global.cs`) | **null** (≤0.6%, red herring) | `mma.sync` = **decisive for noptx→parity** (1.11×) but **not sufficient for frontier** | parity, not a win |
 | tilelang | fp16 `T.gemm` + compiler auto-pipeline + in-block split-K flush | ties | **the frontier** (4.13 / 5.04 / 3.41) | **yes — the only DSL-unique win** |
 | triton | `tl.dot` + offline autotune | ties | tf32 `tl.dot` failed the gate; never found fp16+split-K → 0.79 on GEMM, but won the fused op (2.36) | mixed (fusion win, GEMM miss) |
-| cuda_noptx | WMMA C++ `load_matrix_sync` | ties | **structural ceiling** — can't clear the gate | no (the wall) |
+| cuda_noptx | WMMA C++ `load_matrix_sync` | ties | 0.59 — searched only tf32 WMMA; never tried fp16-WMMA+split-K (expressible) → precision-discovery miss, *not* a proven wall | no (unsettled) |
 
 Two headline reads:
 
@@ -167,3 +210,10 @@ owned by the **compiler DSL (tilelang)** via precision-managed, auto-pipelined t
 inline PTX flips from "irrelevant" (memory-bound) to "necessary-for-parity-but-insufficient-
 for-frontier" (tensor-core). On memory-bound ops all four DSLs remain tied at the roofline,
 and algorithmic levers transfer ~100% across all of them.
+
+**Read the tensor-core ceiling with the fairness caveat attached:** its magnitude is inflated
+by a precision confound (fp16 rides `torch.rand`'s all-positive tolerance budget; would fail
+under `randn`) and the other lanes' floors are precision-discovery misses, not proven walls.
+The *qualitative* finding — a compiler DSL reaches the tensor-core frontier that hand lanes
+did not, in less compute — is robust; the *quantitative* 0.59→0.79→1.11→4.13 spread is not a
+clean capability ranking until re-benched at normalized precision (or under `randn`).
