@@ -182,3 +182,9 @@ Status values: improved / no-change / regression / failed.
 - **Analysis:** Catastrophically worse. The 20.6KB smem + 54 register slots (18 input values x 3 rows) causes severe register spilling. __launch_bounds__(256,3) forces only 3 blocks/SM → very low occupancy. The large smem is the killer. Iter-1 (NVEC=8, 10.4KB smem) is best.
 - **FINAL CONCLUSION:** All 6 new iters tried. Best = new iter-1 (commit 0e7105d) at 2.59ms / 1.56x. Restoring for final commit.
 
+## Final verdict
+
+- **Best iter:** iter-1 (new) — NVEC=8, 256x8 output tile, float4 smem loads, scalar outputs
+- **Final speedup:** 1.57x (2.59ms vs 4.06ms ref), min 2.54ms (96% of ~2.5ms HBM floor)
+- **Key insight:** Widening from NVEC=4 (128 cols) to NVEC=8 (256 cols) was the only effective optimization. All other approaches (RPTS=2, dual-channel, register-only, ld.cs, NVEC=16) hit register spill or occupancy limits.
+
