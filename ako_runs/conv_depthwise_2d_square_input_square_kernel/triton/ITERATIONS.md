@@ -24,6 +24,7 @@ Status values: improved / no-change / regression / failed.
 | Iter | Title | Speedup(mean) | Runtime(mean) | Status |
 |------|-------|---------|--------------|--------|
 | 1 | Custom Triton depthwise kernel (autotune) | 1.12x | 3.25 ms | improved |
+| 2 | Refined autotune configs, constexpr N/C | 1.35x | 2.68 ms | improved |
 
 ## Iterations
 
@@ -38,4 +39,17 @@ Status values: improved / no-change / regression / failed.
   - Speedup: 1.12x
 - **Analysis:** First pass beats cuDNN by 12%. The BLOCK_H=4, BLOCK_W=64 or similar tile configs are likely winning. The kernel is memory-bound (depthwise convs have very low arithmetic intensity). Room to improve by better memory access patterns and coalescing.
 - **Next:** Improve memory coalescing — try packing output rows or using wider loads. Consider having one warp handle a full channel row to maximize coalescing. Also try vectorized loads (float4) if the output width aligns.
+
+### Iter 2 — Refined autotune configs with N, C as constexpr
+
+- **Hypothesis:** Making N and C constexpr allows better register allocation and specialization. Refined tile configs to favor wider OW tiles for better coalescing.
+- **Changes:** Refactored kernel with BLOCK_OH/BLOCK_OW naming, made N and C constexpr. Added wider OW configs (256, 512). Cleaner grid computation.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 2.68 ms (mean), 2.62 ~ 3.79 ms (min ~ max)
+  - Speedup: 1.35x
+- **Analysis:** Significant improvement (+0.57ms, +0.23x). The constexpr N/C and better configs allowed triton to generate better code. 1.35x > the target "beat PyTorch" threshold.
+- **Next:** Try further improvements: (1) vectorized float4 loads along W dimension, (2) preload kernel weights into registers before the spatial loop, (3) try persistent kernels that avoid reloading weights.
+
 
