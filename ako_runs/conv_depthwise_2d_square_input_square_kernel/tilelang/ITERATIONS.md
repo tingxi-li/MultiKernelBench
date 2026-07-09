@@ -32,6 +32,7 @@ Status values: improved / no-change / regression / failed.
 | NEW-1 | 3 output rows per block (5 shmem rows, reduce DRAM 44%) | 1.48x | 2.71 ms | regression |
 | NEW-2 | 2 output pixels per thread, TH=255 | 1.45x | 2.69 ms | regression |
 | NEW-3 | 2 output rows per block (4 shmem rows, reduce DRAM 33%) | 1.47x | 2.69 ms | regression |
+| NEW-4 | TH=256 wider occupancy test — FAILED (wrong, TH<W_out) | N/A | — | failed |
 
 ## Iterations
 
@@ -117,6 +118,18 @@ Status values: improved / no-change / regression / failed.
   - Speedup: 1.48x (mean)
 - **Analysis:** 2.71ms is slightly worse than 2.65ms baseline (iter-6). Despite 44% fewer global reads, having 5 shmem arrays takes more registers and bank pressure. The RTX 6000 Ada has very fast L1/L2, making the shmem savings less valuable. The extra shmem overhead (5 arrays vs 3) adds latency.
 - **Next:** Try reducing shmem usage — only 2 shmem rows (shift-register style), or try vectorized float4 loads.
+
+### NEW-Iter 4 — TH=256 occupancy test — FAILED
+
+- **Hypothesis:** TH=256 would double SM occupancy (more blocks per SM). shmem stays 3*512*4=6KB.
+- **Changes:** _TH = 256
+- **Bench:**
+  - Compiled: True
+  - Correct: False (output mismatch, columns 256..509 not written)
+  - Runtime: N/A
+  - Speedup: N/A
+- **Analysis:** Bug: each thread only writes tid-th output column. With TH=256, columns 256..509 never get written. Fix: either handle 2 columns per thread (loop), or must ensure TH >= W_out.
+- **Next:** Restore TH=512 to fix correctness. Try to use bias conv path or check if filter weights need special handling.
 
 ### NEW-Iter 3 — 2 output rows per block (4 shmem rows)
 

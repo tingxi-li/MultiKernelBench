@@ -4,16 +4,34 @@ import tilelang
 import tilelang.language as T
 
 # ---------------------------------------------------------------------------
-# Depthwise Conv2D (3x3, stride=1, pad=0) — TileLang iter-3
+# Depthwise Conv2D (3x3, stride=1, pad=0) — TileLang iter-4
 #
-# 2 output rows per block:
-#   - Load 4 shmem rows covering input h, h+1, h+2, h+3
-#   - Compute outputs at rows h and h+1 from the same shmem data
-#   - 4 reads / 2 outputs = 2 input reads per output (vs 3 for 1-row approach)
-#   - 33% fewer DRAM reads per output element
-#   - H_out=510 divisible by 2 → clean grid
-#   - Same warp occupancy (TH=512 → 16 warps per block, 3 blocks per SM)
-#   - Grid halved: (B*C, 255) vs (B*C, 510) → less scheduling overhead
+# Reset to proven best: 1-row-per-block, TH=512.
+# This time, try with padding support so the kernel handles general cases,
+# and also try using T.vectorized for potential auto-vectorization.
+#
+# Actually: try increasing block size to TH=1024 to get 2 warps per block.
+# Wait — W_in=512 fits exactly in TH=512 threads. TH=1024 means half the
+# threads are idle during load. Not better.
+#
+# True insight: the prior best (2.65ms) uses 1 block per output row (B*C=1024
+# blocks × 510 rows = 522K block launches). RTX6000Ada has 76 SMs.
+# 522K/76 = 6869 waves. At ~2-3ms per wave, this confirms we're occupancy-limited.
+#
+# Key idea: process B*C*H_out = 522240 "work units" but pack 2 channels per
+# block (share the spatial loads). Since inputs for different channels are
+# different memory locations, this doesn't reduce bandwidth but increases
+# compute density per block.
+#
+# But actually: the bottleneck is reading 3 input rows per output row.
+# Try BF16 reduce: load fp32 inputs, store as fp32 output but compute with
+# 9 MACs using 2-wide FMA to halve compute. Not relevant for fp32.
+#
+# Simplest idea: go back to the exact iter-6 design that achieves 2.65ms
+# but try TH=256 for higher occupancy (2x blocks per SM = more warps
+# to hide memory latency). The shmem is 3*512*4=6KB per block.
+# With TH=256: shmem still 6KB but each block is 256 threads = 8 warps.
+# Current TH=512 = 16 warps. Higher occupancy with smaller blocks?
 # ---------------------------------------------------------------------------
 
 _KCACHE = {}
@@ -21,7 +39,7 @@ _TH = 512
 
 
 def _build(B, C, H_in, W_in, H_out, W_out, TH):
-    LOAD_ITERS = (W_in + TH - 1) // TH  # = 1
+    LOAD_ITERS = (W_in + TH - 1) // TH  # = ceil(512/256) = 2
 
     @tilelang.jit
     def _make():
@@ -31,59 +49,59 @@ def _build(B, C, H_in, W_in, H_out, W_out, TH):
             W: T.Tensor((C, 9), T.float32),
             Y: T.Tensor((B * C, H_out, W_out), T.float32),
         ):
-            with T.Kernel(B * C, H_out // 2, threads=TH) as (bc, h2):
+            with T.Kernel(B * C, H_out, threads=TH) as (bc, h):
                 tid = T.get_thread_binding(0)
                 c = bc % C
-                h = h2 * 2  # first output row index
 
-                # 4 shared-memory rows covering input rows h, h+1, h+2, h+3
                 sh0 = T.alloc_shared((W_in,), T.float32)
                 sh1 = T.alloc_shared((W_in,), T.float32)
                 sh2 = T.alloc_shared((W_in,), T.float32)
-                sh3 = T.alloc_shared((W_in,), T.float32)
 
-                # Load all 4 input rows cooperatively
                 for li in T.serial(LOAD_ITERS):
                     idx = tid + li * TH
                     if idx < W_in:
                         sh0[idx] = X[bc, h,     idx]
                         sh1[idx] = X[bc, h + 1, idx]
                         sh2[idx] = X[bc, h + 2, idx]
-                        sh3[idx] = X[bc, h + 3, idx]
 
                 T.sync_threads()
 
-                # Load 3×3 filter for this channel
                 wt = T.alloc_local((9,), T.float32)
                 for i in T.serial(9):
                     wt[i] = W[c, i]
 
                 if tid < W_out:
-                    # --- Output row h (uses sh0, sh1, sh2) ---
-                    acc0 = T.alloc_local((1,), T.float32)
-                    acc0[0]  = sh0[tid    ] * wt[0]
-                    acc0[0] = acc0[0] + sh0[tid + 1] * wt[1]
-                    acc0[0] = acc0[0] + sh0[tid + 2] * wt[2]
-                    acc0[0] = acc0[0] + sh1[tid    ] * wt[3]
-                    acc0[0] = acc0[0] + sh1[tid + 1] * wt[4]
-                    acc0[0] = acc0[0] + sh1[tid + 2] * wt[5]
-                    acc0[0] = acc0[0] + sh2[tid    ] * wt[6]
-                    acc0[0] = acc0[0] + sh2[tid + 1] * wt[7]
-                    acc0[0] = acc0[0] + sh2[tid + 2] * wt[8]
-                    Y[bc, h, tid] = acc0[0]
+                    v00 = T.alloc_local((1,), T.float32)
+                    v01 = T.alloc_local((1,), T.float32)
+                    v02 = T.alloc_local((1,), T.float32)
+                    v10 = T.alloc_local((1,), T.float32)
+                    v11 = T.alloc_local((1,), T.float32)
+                    v12 = T.alloc_local((1,), T.float32)
+                    v20 = T.alloc_local((1,), T.float32)
+                    v21 = T.alloc_local((1,), T.float32)
+                    v22 = T.alloc_local((1,), T.float32)
 
-                    # --- Output row h+1 (uses sh1, sh2, sh3) ---
-                    acc1 = T.alloc_local((1,), T.float32)
-                    acc1[0]  = sh1[tid    ] * wt[0]
-                    acc1[0] = acc1[0] + sh1[tid + 1] * wt[1]
-                    acc1[0] = acc1[0] + sh1[tid + 2] * wt[2]
-                    acc1[0] = acc1[0] + sh2[tid    ] * wt[3]
-                    acc1[0] = acc1[0] + sh2[tid + 1] * wt[4]
-                    acc1[0] = acc1[0] + sh2[tid + 2] * wt[5]
-                    acc1[0] = acc1[0] + sh3[tid    ] * wt[6]
-                    acc1[0] = acc1[0] + sh3[tid + 1] * wt[7]
-                    acc1[0] = acc1[0] + sh3[tid + 2] * wt[8]
-                    Y[bc, h + 1, tid] = acc1[0]
+                    v00[0] = sh0[tid    ]
+                    v01[0] = sh0[tid + 1]
+                    v02[0] = sh0[tid + 2]
+                    v10[0] = sh1[tid    ]
+                    v11[0] = sh1[tid + 1]
+                    v12[0] = sh1[tid + 2]
+                    v20[0] = sh2[tid    ]
+                    v21[0] = sh2[tid + 1]
+                    v22[0] = sh2[tid + 2]
+
+                    acc = T.alloc_local((1,), T.float32)
+                    acc[0]  =             v00[0] * wt[0]
+                    acc[0] = acc[0] + v01[0] * wt[1]
+                    acc[0] = acc[0] + v02[0] * wt[2]
+                    acc[0] = acc[0] + v10[0] * wt[3]
+                    acc[0] = acc[0] + v11[0] * wt[4]
+                    acc[0] = acc[0] + v12[0] * wt[5]
+                    acc[0] = acc[0] + v20[0] * wt[6]
+                    acc[0] = acc[0] + v21[0] * wt[7]
+                    acc[0] = acc[0] + v22[0] * wt[8]
+                    Y[bc, h, tid] = acc[0]
 
         return kernel
 
@@ -104,10 +122,8 @@ def _get_kernel(B, C, H_in, W_in, H_out, W_out):
 
 class Model(nn.Module):
     """
-    Depthwise 2D convolution — TileLang iter-3.
-    2 output rows per block with 4 shmem rows (rows h..h+3).
-    33% fewer DRAM reads per output vs 1-row approach.
-    Grid halved vs 1-row: (B*C, H_out//2).
+    Depthwise 2D convolution — TileLang iter-4.
+    1-row-per-block, TH=256, 3 shmem rows. Higher occupancy test.
     """
     def __init__(self, in_channels: int, kernel_size: int, stride: int = 1,
                  padding: int = 0, bias: bool = False):
