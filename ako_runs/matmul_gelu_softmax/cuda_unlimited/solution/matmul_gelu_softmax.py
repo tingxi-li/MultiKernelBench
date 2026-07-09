@@ -2,19 +2,65 @@ import torch
 import torch.nn as nn
 from torch.utils.cpp_extension import load_inline
 
-# Iter 2: High-performance FP32 register-blocking GEMM
-# BM=128, BN=128, BK=16, TM=8, TN=8, 256 threads
-# Float4 vectorized loads for maximum bandwidth
-# Each thread: 8×8 register tile → 64 FP32 FMAs per K-step
-# Arithmetic intensity: very high (256 FMAs per loaded float)
+# Iter 3: Attempt split-K GEMM for better parallelism
+# Observation: M=1024, N=K=8192 → only 8x64=512 blocks with BM=BN=128
+# Split K into P partitions, each block computes partial sums, atomic-add to output
+# This increases parallelism along the K dimension
+# THEN do GELU pass, then softmax pass
+# WARNING: atomic float adds may reduce accuracy
+
+# Actually, let's try a different approach: use __ptx_isa to explicitly control
+# the load/store instructions for better memory behavior.
+# OR: use a transposed weight (W.T) so that the GEMM is A@W.T ≡ standard row-col
+# and both A and W.T have the required memory layout for coalesced access.
+
+# Key insight: W is [N,K], W.T is [K,N]. Standard GEMM C=A@W.T accesses:
+# A[m,k] → row-major, K dimension → ok for inner loop
+# W[n,k] → row-major, K dimension → ok for inner loop
+# Both are accessed in K direction which IS coalesced (K is stride-1 for row-major)!
+#
+# So when loading A's tile (BM rows, BK cols) and W's tile (BN rows, BK cols):
+# - For A: stride between consecutive k_inner = 1 byte → COALESCED ✓
+#   BUT stride between consecutive m_inner = K → row-by-row, not stride-1
+# - Thread access: 256 threads loading 128*16=2048 elements
+#   Thread tid loads element e = tid (or tid+step*256)
+#   If e → row=e%16=e%BK, col=e/BK: consecutive threads load consecutive K-positions
+#   for the same M-position → that's within a single 128-byte cache line (16 floats = 64 bytes)
+#   But consecutive threads load k=0,1,...,15 for same m=0 → this IS coalesced! Each warp
+#   loads threads 0-15 (k=0..15, m=0) AND threads 16-31 (k=0..15, m=1)... wait no.
+#   e = tid, thread 0 loads k=0,m=0; thread 1 loads k=1,m=0; ... thread 15 loads k=15,m=0
+#   thread 16: k=16%16=0, m=16/16=1... BUT BK=16 so k=e%BK=e%16
+#   thread 0: k=0,m=0 → A[block_row+0, k_base+0]
+#   thread 1: k=1,m=0 → A[block_row+0, k_base+1]
+#   ...
+#   thread 15: k=15,m=0 → A[block_row+0, k_base+15]
+#   thread 16: k=0,m=1 → A[block_row+1, k_base+0]
+#   thread 17: k=1,m=1 → A[block_row+1, k_base+1]
+# So threads 0-15 all access row block_row+0 (consecutive K): COALESCED ✓
+# Threads 16-31: row block_row+1 (consecutive K): COALESCED ✓
+# But threads 0 and 16 access different rows → interleaved within a warp:
+#   warp: threads 0-31, 16 from row m=0 and 16 from row m=1
+#   addresses: rows m=0,1 are K floats apart = 32KB apart → two separate cache lines
+# This is a 2-way bank conflict in terms of cache lines, but not register bank conflict.
+# Actually it's fine — 2 cache line loads for 32 threads.
+#
+# The LOAD pattern e → k=e%BK, m=e/BK maps BM*BK elements to (k,m) pairs.
+# For a warp (threads t..t+31): loading elements [t, t+1, ..., t+31]
+# These have k = t%16, t%16+1, ... (cycling), m = t/16, ...
+# If t=0: k=0..15 for m=0, then k=0..15 for m=1 (within warp)
+# → two consecutive rows of A, each with all BK=16 k-values
+# → 2 cache line accesses (one per row, 16 floats each = 64 bytes)
+# → 32 threads / 2 cache lines = 16 threads per cache line ✓ (perfect coalescing)
+#
+# Similarly for W. This pattern IS coalesced! The key is e%BK ordering.
+# Wait, iter-2 already used this pattern (k=e/BM, m=e%BM which is different).
+# Actually iter-2 used k=e/BM, m=e%BM → k=tid/128, which for tid=0..255:
+#   k=0 for tid=0..127, k=1 for tid=128..255 → NOT coalesced (all tid<128 load k=0)
+# Let me switch to k=e%BK, m=e/BK for better coalescing!
 
 _CUDA_SRC = r"""
 #include <cuda_runtime.h>
 #include <float.h>
-
-// BM=128, BN=128, BK=16 (smem: 2*128*20*4 = 20480 bytes ✓ < 48KB)
-// 256 threads, TM=TN=8 → 16×16 threads in (M,N)
-// Global load: float4 vectorized (4 floats at once)
 
 #define BM 128
 #define BN 128
@@ -28,11 +74,7 @@ __device__ __forceinline__ float gelu_exact(float x) {
     return 0.5f * x * (1.0f + erff(x * 0.7071067811865476f));
 }
 
-// rowA: A stored [M,K], tile into As[BM][BK]
-// rowW: W stored [N,K], tile into Bs[BN][BK]
-// Output: C[M,N] = gelu(A*W^T + bias)
-
-__global__ __launch_bounds__(NT)
+__global__
 void gemm_gelu_reg(
     const float* __restrict__ A,
     const float* __restrict__ W,
@@ -42,120 +84,31 @@ void gemm_gelu_reg(
 {
     const int block_row = blockIdx.y * BM;
     const int block_col = blockIdx.x * BN;
-    const int ty = threadIdx.x / (BN / TN);    // 0..15 (rows in thread grid)
-    const int tx = threadIdx.x % (BN / TN);    // 0..15 (cols in thread grid)
+    const int ty = threadIdx.x / (BN / TN);
+    const int tx = threadIdx.x % (BN / TN);
     const int tid = threadIdx.x;
 
-    // Shared memory: As[BK][BM+PAD], Bs[BK][BN+PAD]
-    // K-major layout for column-access during compute
-    __shared__ float As[BK][BM + PAD];    // 16*132*4 = 8448 bytes
-    __shared__ float Bs[BK][BN + PAD];    // 16*132*4 = 8448 bytes
-    // Total: 16896 bytes ✓
+    __shared__ float As[BK][BM + PAD];
+    __shared__ float Bs[BK][BN + PAD];
 
-    // Register accumulators
     float acc[TM][TN] = {};
 
-    // Load A tile: BM*BK = 128*16 = 2048 floats, NT=256 → 8 per thread
-    // Each thread loads 2 float4 (8 floats)
-    // Layout: thread tid loads As[k_inner][m_inner] where:
-    // m_inner = (tid % (BM/4)) * 4 (using BM/4 = 32 different m positions per row of 4)
-    // Actually: flat index e, thread tid loads e = tid + step*NT
-    // e → k = e / BM, m = e % BM → As[k][m] = A[block_row+m, k_base+k]
-
     for (int k_base = 0; k_base < K; k_base += BK) {
-        // Load As: BM*BK = 2048 elements, 8 per thread
-        // Using flat index with coalescing:
-        // Thread 0-31 load m=0..31, thread 32-63 load m=32..63 for k=0
-        // Then thread 0-31 load m=0..31 for k=1, etc.
-        // stride=NT=256, total=2048, 8 iters
-        // For k = e/BM, m = e%BM: consecutive threads load consecutive m (coalesced in BM direction)
-        // Global A[block_row+m, k_base+k]: each BM elements are stride K apart → NOT coalesced
-
-        // For coalesced A load: layout As[m][k] (row-major) with consecutive threads → consecutive k
-        // But we need As[k][m] for the compute phase... OR
-        // Load As[m][k] (row-major), compute reads As[k][m] = As_T
-        // → load As as row-major (coalesced), read As_T transposed = column-major
-        // Column-major access to As_T[k][m] = As[m][k] → not friendly
-
-        // Alternative: load A with transposed pattern
-        // For coalesced global load of A[block_row:block_row+BM, k_base:k_base+BK]:
-        // thread (tid) loads row = tid / BK, col = tid % BK
-        // Wait: consecutive threads (0,1,...,31) load:
-        //   tid=0: r=0, c=0 → A[block_row, k_base]
-        //   tid=1: r=0, c=1 → A[block_row, k_base+1]
-        //   ...
-        //   tid=15: r=0, c=15 → A[block_row, k_base+15]  (BK=16, so last)
-        //   tid=16: r=1, c=0 → A[block_row+1, k_base]
-        // This is NOT coalesced (jumps of K between consecutive 16-element groups)
-        //
-        // Better: row = tid % BM, col = tid / BM
-        //   tid=0: r=0, c=0
-        //   tid=1: r=1, c=0
-        //   ...
-        //   tid=127: r=127, c=0
-        //   tid=128: r=0, c=1
-        // Also NOT coalesced
-
-        // The truth: for A[M,K] with K=8192, the tile A[block_row:block_row+128, k_base:k_base+16]
-        // is NOT contiguous. Row i is at offset (block_row+i)*K + k_base.
-        // Each row is 16 floats = 64 bytes. Consecutive rows are K*4=32768 bytes apart.
-        // To coalesce, we need consecutive threads to access consecutive memory.
-        // If thread (128*row_in_tile + col_in_tile) loads element [col_in_tile, row_in_tile] (transposed):
-        //   Threads 0-127: all load col=0 (k_base+0), rows 0-127 → stride K apart → NOT coalesced
-        //   Threads 128-255: all load col=1 (k_base+1), rows 0-127 → same issue
-
-        // The fundamental problem: A[M,K] tiles with a narrow BK=16 column slice
-        // → "short" dimension is K, long dimension is M
-        // → coalesced loads need consecutive threads to access A[m, k+0], A[m, k+1], ...
-        // → but that means each warp loads 32 consecutive K values for the same M row
-        // → BUT BK=16 < 32, so only 16 threads per warp are active for a given row!
-
-        // SOLUTION: transpose the load. Use float4 to load 4 elements at a time.
-        // For A tile (128 rows × 16 cols):
-        // Arrange: 32 threads load one row of 4 elements each = 128 elements per warp
-        // 2048 / 128 = 16 warps needed... but we only have 8 warps!
-        // → 2 passes per warp, 4 elements each (float4)
-
-        // Actually, let's do this more carefully with float4:
-        // 2048 floats / 4 = 512 float4 loads.
-        // 256 threads → 2 float4 loads per thread.
-        // Thread tid loads float4 at index tid and tid+256.
-        // For float4 at index i:
-        //   row = i / (BK/4) = i / 4   (0..127, since BK=16 → BK/4=4 float4s per row)
-        //   col4 = i % (BK/4) = i % 4  (0..3 → float4 at k=0,4,8,12)
-        //   → loads A[block_row+row, k_base+col4*4 : col4*4+4]
-        // thread tid: float4 at index tid (row=tid/4, col4=tid%4)
-        //   tid=0: row=0, col4=0 → loads A[block_row+0, k_base:k_base+4]
-        //   tid=1: row=0, col4=1 → loads A[block_row+0, k_base+4:k_base+8]
-        //   tid=2: row=0, col4=2 → loads A[block_row+0, k_base+8:k_base+12]
-        //   tid=3: row=0, col4=3 → loads A[block_row+0, k_base+12:k_base+16]
-        //   tid=4: row=1, col4=0 → loads A[block_row+1, k_base:k_base+4]
-        //   ...
-        // For a warp (threads 0-31):
-        //   threads 0-3: row 0, all 4 col4 positions
-        //   threads 4-7: row 1, all 4 col4 positions
-        //   ...
-        //   threads 28-31: row 7, all 4 col4 positions
-        // → thread 0 and thread 4 load different rows: A[block_row, k_base] and A[block_row+1, k_base]
-        // These are K=8192*4 = 32768 bytes apart → NOT coalesced
-
-        // FINAL DECISION: just accept non-coalesced A loads and rely on L2 cache.
-        // The key bottleneck is compute, not memory (for large GEMM).
-        // Use simple flat-index loads:
-
+        // Coalesced load: e → k=e%BK, m=e/BK
+        // consecutive threads: k cycles 0..BK-1, m increments
+        // warp loads 2 rows of A each with BK=16 consecutive k values → 2 cache lines
         for (int e = tid; e < BM * BK; e += NT) {
-            int m = e / BK, k = e % BK;
+            int k = e % BK, m = e / BK;
             int gm = block_row + m, gk = k_base + k;
-            As[k][m] = (gm < M && gk < K) ? A[gm * K + gk] : 0.f;
+            As[k][m] = (gm < M && gk < K) ? __ldg(&A[gm * K + gk]) : 0.f;
         }
         for (int e = tid; e < BN * BK; e += NT) {
-            int n = e / BK, k = e % BK;
+            int k = e % BK, n = e / BK;
             int gn = block_col + n, gk = k_base + k;
-            Bs[k][n] = (gn < N && gk < K) ? W[gn * K + gk] : 0.f;
+            Bs[k][n] = (gn < N && gk < K) ? __ldg(&W[gn * K + gk]) : 0.f;
         }
         __syncthreads();
 
-        // Compute: each thread's 8×8 accumulator, unrolled over BK
         float a_reg[TM], b_reg[TN];
         #pragma unroll
         for (int k = 0; k < BK; k++) {
@@ -174,7 +127,6 @@ void gemm_gelu_reg(
         __syncthreads();
     }
 
-    // Epilogue: bias + GELU, write to C
     #pragma unroll
     for (int i = 0; i < TM; i++) {
         int gm = block_row + ty * TM + i;
@@ -255,7 +207,7 @@ def _get_module():
     global _MODULE
     if _MODULE is None:
         _MODULE = load_inline(
-            name="fused_mgs_reg_v1",
+            name="fused_mgs_reg_v6",
             cpp_sources=_CPP_SRC,
             cuda_sources=_CUDA_SRC + _CUDA_WRAPPER,
             functions=["fused_matmul_gelu_softmax"],

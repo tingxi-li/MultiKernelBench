@@ -25,8 +25,21 @@ Status values: improved / no-change / regression / failed.
 |------|-------|---------|--------------|--------|
 | 1 | TF32 WMMA GEMM + fused GELU + softmax | 0.86x | 7.19 ms | regression |
 | 2 | FP32 register-blocking BM=BN=128, BK=16, TM=TN=8 | 0.99x | 6.26 ms | improved |
+| 3 | FP32 coalesced loads (k=e%BK,m=e/BK) + __ldg | 0.90x | 6.82 ms | regression |
 
 ## Iterations
+
+### Iter 3 — FP32 coalesced loads (k=e%BK) + __ldg hints
+
+- **Hypothesis:** Switching load pattern to k=e%BK, m=e/BK should improve coalescing since consecutive threads load consecutive K-positions (same row of A).
+- **Changes:** Load pattern changed from k=e/BM,m=e%BM to k=e%BK,m=e/BK. Added `__ldg()` hints. Removed __launch_bounds__ min-blocks hint that caused register spill.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 6.82 ms (mean), 5.77~7.39 ms (min~max)
+  - Speedup: 0.90x (mean)
+- **Analysis:** Worse than iter 2 (6.26ms). The changed load pattern apparently reduces performance. The iter-2 load pattern (k=e/BM, m=e%BM) gives better coalescing for the shared memory stores (stores consecutive m values for same k, which is column-major into As[k][m]).
+- **Next:** Restore iter-2 load pattern. Try to increase arithmetic intensity by using TF32 PTX for inner loop while keeping FP32 memory operations.
 
 ### Iter 2 — FP32 register-blocking GEMM, BM=BN=128, BK=16, TM=TN=8
 
