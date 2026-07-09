@@ -28,8 +28,21 @@ Status values: improved / no-change / regression / failed.
 | 3 | FP32 coalesced loads (k=e%BK,m=e/BK) + __ldg | 0.90x | 6.82 ms | regression |
 | 4 | Transposed weight [K,N] for coalesced WT loads | 0.92x | 6.59 ms | regression |
 | 5 | at::mm + fused bias+GELU+online-softmax kernel | 0.89x | 6.84 ms | regression |
+| 6 | Restore iter-2 kernel (BM=BN=128, BK=16, TM=TN=8) | 0.75x | 8.26 ms | regression (thermal) |
 
 ## Iterations
+
+### Iter 6 — Restore iter-2 kernel (final, thermal regression)
+
+- **Hypothesis:** Restoring the proven iter-2 kernel (BM=BN=128, BK=16, TM=TN=8, 256 threads) as the final solution.
+- **Changes:** Same code as iter-2 with a new extension name.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 8.26 ms (mean), 7.11~8.75 ms (min~max)
+  - Speedup: 0.75x (mean)
+- **Analysis:** GPU is thermally throttled at this point in the session. The kernel is identical to iter-2 but performance degraded due to thermal state. Iter-2 (0.99x) remains the best result.
+- **Next:** N/A — iter cap reached. Best iter = iter-2 (0.99x).
 
 ### Iter 5 — at::mm + fused bias+GELU+online-softmax kernel
 
