@@ -4,25 +4,19 @@ import tilelang
 import tilelang.language as T
 
 # ---------------------------------------------------------------------------
-# Depthwise Conv2D (3x3, stride=1, pad=0) — TileLang iter-5
+# Depthwise Conv2D (3x3, stride=1, pad=0) — TileLang iter-6
 #
-# No shared memory: direct global reads via L2 cache.
-# The NVIDIA Ada L2 cache is 96MB; 3 input rows per channel = 3*512*4 = 6KB,
-# fitting 16384 row-triples simultaneously. Consecutive output rows share
-# 2/3 of their input rows, so L2 reuse is high.
-#
-# By removing shmem:
-#  - No sync_threads barrier overhead
-#  - Less shmem register pressure
-#  - Allow more blocks per SM (higher occupancy)
-#  - Each thread reads 9 global locations directly (3 for each of 3 rows)
-#
-# Grid: (B*C, H_out), TH=510 (one thread per output column).
-# Each thread independently accesses 9 L2-cached global locations.
+# Building on iter-5 (no shmem = 2.64ms best):
+# Process 2 output rows per thread to reuse global reads.
+# Thread i computes output (bc, h, i) and (bc, h+1, i).
+#  - Row h output needs input rows h, h+1, h+2
+#  - Row h+1 output needs input rows h+1, h+2, h+3
+#  - Shared rows h+1, h+2 loaded ONCE = 12 loads for 2 outputs vs 18 (33% less)
+# Grid: (B*C, H_out//2), TH=510 (W_out=510, no boundary check needed)
 # ---------------------------------------------------------------------------
 
 _KCACHE = {}
-_TH = 510  # exactly W_out: no idle threads, no boundary check needed
+_TH = 510  # = W_out, no boundary checks
 
 
 def _build(B, C, H_in, W_in, H_out, W_out, TH):
@@ -35,50 +29,72 @@ def _build(B, C, H_in, W_in, H_out, W_out, TH):
             W: T.Tensor((C, 9), T.float32),
             Y: T.Tensor((B * C, H_out, W_out), T.float32),
         ):
-            with T.Kernel(B * C, H_out, threads=TH) as (bc, h):
+            with T.Kernel(B * C, H_out // 2, threads=TH) as (bc, h2):
                 tid = T.get_thread_binding(0)
                 c = bc % C
+                h = h2 * 2  # first output row
 
-                # Load filter into registers (9 floats)
+                # Load filter into registers
                 wt = T.alloc_local((9,), T.float32)
                 for i in T.serial(9):
                     wt[i] = W[c, i]
 
-                # Direct global reads — rely on L2 cache for row reuse
+                # Load 4 input rows × 3 columns each (12 total vs 18 for 2 separate)
                 # Row h
-                x00 = T.alloc_local((1,), T.float32)
-                x01 = T.alloc_local((1,), T.float32)
-                x02 = T.alloc_local((1,), T.float32)
-                # Row h+1
-                x10 = T.alloc_local((1,), T.float32)
-                x11 = T.alloc_local((1,), T.float32)
-                x12 = T.alloc_local((1,), T.float32)
-                # Row h+2
-                x20 = T.alloc_local((1,), T.float32)
-                x21 = T.alloc_local((1,), T.float32)
-                x22 = T.alloc_local((1,), T.float32)
+                r0_c0 = T.alloc_local((1,), T.float32)
+                r0_c1 = T.alloc_local((1,), T.float32)
+                r0_c2 = T.alloc_local((1,), T.float32)
+                # Row h+1 (shared between both output rows)
+                r1_c0 = T.alloc_local((1,), T.float32)
+                r1_c1 = T.alloc_local((1,), T.float32)
+                r1_c2 = T.alloc_local((1,), T.float32)
+                # Row h+2 (shared between both output rows)
+                r2_c0 = T.alloc_local((1,), T.float32)
+                r2_c1 = T.alloc_local((1,), T.float32)
+                r2_c2 = T.alloc_local((1,), T.float32)
+                # Row h+3 (only used by second output row)
+                r3_c0 = T.alloc_local((1,), T.float32)
+                r3_c1 = T.alloc_local((1,), T.float32)
+                r3_c2 = T.alloc_local((1,), T.float32)
 
-                x00[0] = X[bc, h,     tid    ]
-                x01[0] = X[bc, h,     tid + 1]
-                x02[0] = X[bc, h,     tid + 2]
-                x10[0] = X[bc, h + 1, tid    ]
-                x11[0] = X[bc, h + 1, tid + 1]
-                x12[0] = X[bc, h + 1, tid + 2]
-                x20[0] = X[bc, h + 2, tid    ]
-                x21[0] = X[bc, h + 2, tid + 1]
-                x22[0] = X[bc, h + 2, tid + 2]
+                r0_c0[0] = X[bc, h,     tid    ]
+                r0_c1[0] = X[bc, h,     tid + 1]
+                r0_c2[0] = X[bc, h,     tid + 2]
+                r1_c0[0] = X[bc, h + 1, tid    ]
+                r1_c1[0] = X[bc, h + 1, tid + 1]
+                r1_c2[0] = X[bc, h + 1, tid + 2]
+                r2_c0[0] = X[bc, h + 2, tid    ]
+                r2_c1[0] = X[bc, h + 2, tid + 1]
+                r2_c2[0] = X[bc, h + 2, tid + 2]
+                r3_c0[0] = X[bc, h + 3, tid    ]
+                r3_c1[0] = X[bc, h + 3, tid + 1]
+                r3_c2[0] = X[bc, h + 3, tid + 2]
 
-                acc = T.alloc_local((1,), T.float32)
-                acc[0]  =              x00[0] * wt[0]
-                acc[0] = acc[0] + x01[0] * wt[1]
-                acc[0] = acc[0] + x02[0] * wt[2]
-                acc[0] = acc[0] + x10[0] * wt[3]
-                acc[0] = acc[0] + x11[0] * wt[4]
-                acc[0] = acc[0] + x12[0] * wt[5]
-                acc[0] = acc[0] + x20[0] * wt[6]
-                acc[0] = acc[0] + x21[0] * wt[7]
-                acc[0] = acc[0] + x22[0] * wt[8]
-                Y[bc, h, tid] = acc[0]
+                # Output row h: uses rows h, h+1, h+2
+                acc0 = T.alloc_local((1,), T.float32)
+                acc0[0]  =               r0_c0[0] * wt[0]
+                acc0[0] = acc0[0] + r0_c1[0] * wt[1]
+                acc0[0] = acc0[0] + r0_c2[0] * wt[2]
+                acc0[0] = acc0[0] + r1_c0[0] * wt[3]
+                acc0[0] = acc0[0] + r1_c1[0] * wt[4]
+                acc0[0] = acc0[0] + r1_c2[0] * wt[5]
+                acc0[0] = acc0[0] + r2_c0[0] * wt[6]
+                acc0[0] = acc0[0] + r2_c1[0] * wt[7]
+                acc0[0] = acc0[0] + r2_c2[0] * wt[8]
+                Y[bc, h, tid] = acc0[0]
+
+                # Output row h+1: uses rows h+1, h+2, h+3
+                acc1 = T.alloc_local((1,), T.float32)
+                acc1[0]  =               r1_c0[0] * wt[0]
+                acc1[0] = acc1[0] + r1_c1[0] * wt[1]
+                acc1[0] = acc1[0] + r1_c2[0] * wt[2]
+                acc1[0] = acc1[0] + r2_c0[0] * wt[3]
+                acc1[0] = acc1[0] + r2_c1[0] * wt[4]
+                acc1[0] = acc1[0] + r2_c2[0] * wt[5]
+                acc1[0] = acc1[0] + r3_c0[0] * wt[6]
+                acc1[0] = acc1[0] + r3_c1[0] * wt[7]
+                acc1[0] = acc1[0] + r3_c2[0] * wt[8]
+                Y[bc, h + 1, tid] = acc1[0]
 
         return kernel
 
@@ -99,9 +115,9 @@ def _get_kernel(B, C, H_in, W_in, H_out, W_out):
 
 class Model(nn.Module):
     """
-    Depthwise 2D convolution — TileLang iter-5.
-    No shared memory: direct L2-cached global reads.
-    TH=510 threads: one per output column.
+    Depthwise 2D convolution — TileLang iter-6.
+    2 output rows per thread, 4 shared input rows (no shmem, direct L2-cached reads).
+    33% fewer global reads than single-row approach. Grid: (B*C, H_out//2).
     """
     def __init__(self, in_channels: int, kernel_size: int, stride: int = 1,
                  padding: int = 0, bias: bool = False):

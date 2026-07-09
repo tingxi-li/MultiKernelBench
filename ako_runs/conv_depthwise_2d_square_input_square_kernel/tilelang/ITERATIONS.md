@@ -34,6 +34,7 @@ Status values: improved / no-change / regression / failed.
 | NEW-3 | 2 output rows per block (4 shmem rows, reduce DRAM 33%) | 1.47x | 2.69 ms | regression |
 | NEW-4 | TH=256 wider occupancy test — FAILED (wrong, TH<W_out) | N/A | — | failed |
 | NEW-5 | No shmem, direct L2-cached global reads, TH=510 | 1.36x* | 2.64 ms | improved |
+| NEW-6 | 2 output rows per thread (no shmem, 4 input rows) | 1.34x* | 2.69 ms | regression |
 
 ## Iterations
 
@@ -119,6 +120,18 @@ Status values: improved / no-change / regression / failed.
   - Speedup: 1.48x (mean)
 - **Analysis:** 2.71ms is slightly worse than 2.65ms baseline (iter-6). Despite 44% fewer global reads, having 5 shmem arrays takes more registers and bank pressure. The RTX 6000 Ada has very fast L1/L2, making the shmem savings less valuable. The extra shmem overhead (5 arrays vs 3) adds latency.
 - **Next:** Try reducing shmem usage — only 2 shmem rows (shift-register style), or try vectorized float4 loads.
+
+### NEW-Iter 6 — 2 output rows per thread, 4 input rows (no shmem)
+
+- **Hypothesis:** Combining iter-5's no-shmem approach with 2 output rows per thread should reuse 2/4 loaded rows, cutting DRAM reads by 33% vs iter-5.
+- **Changes:** Grid (B*C, H_out//2). Each thread loads rows h, h+1, h+2, h+3 for tid col triple. Two output accumulators reusing rows h+1 and h+2.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 2.69 ms (mean), 2.62 ~ 3.86 ms (min ~ max)
+  - Speedup: 1.34x (mean) [ref 3.61ms]
+- **Analysis:** 2.69ms vs 2.64ms for iter-5. The extra register pressure from 12 registers for input values + 9 filter + 2 accumulators reduces occupancy enough to negate the bandwidth savings. With 24 local vars per thread, register pressure is high.
+- **Best iter: NEW-5** (2.64ms mean, iter-5 in this session).
 
 ### NEW-Iter 5 — No shmem, direct L2-cached global reads, TH=510
 
