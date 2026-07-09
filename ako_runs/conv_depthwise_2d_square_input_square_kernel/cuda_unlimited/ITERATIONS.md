@@ -23,6 +23,7 @@ Status values: improved / no-change / regression / failed.
 
 | Iter | Title | Speedup(mean) | Runtime(mean) | Status |
 |------|-------|---------|--------------|--------|
+| final | v3 row-strip TH4 float4 coalesced | 1.52x | 2.68 ms | final |
 
 ## Iterations
 
