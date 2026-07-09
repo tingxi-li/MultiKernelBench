@@ -4,16 +4,34 @@ import triton
 import triton.language as tl
 
 
-# Iter 2: Expanded config search, including larger tiles and num_warps=16
-# to increase work-per-CTA and reduce grid launch overhead.
-# Also adds num_stages=3 for larger tiles to hide memory latency.
-# All shape params constexpr (from iter-1).
+# Iter 3: Exploit the fact that this op is purely memory-bandwidth bound.
+# Use a tight config set (iter-1's set) but also try to further improve
+# by processing multiple H rows in the innermost loop without extra load overhead.
+# Specifically: when loading input row ih for (kh, kw), the SAME input row
+# is used across all BLOCK_OW output positions for the SAME kh.
+# So we can transpose the loop order: outer kw, inner kh—to maximise row reuse.
+# Also, we try separate load/compute scheduling.
+#
+# Actually this IS what iter-1 does already. Let me try a genuinely different
+# approach: dual-output-row fused kernel — one CTA processes 2 consecutive
+# output rows but BOTH use the same input data (offset by stride_h).
+# This can halve the number of CTAs (reducing launch overhead) while sharing
+# the same weight loads across both rows.
+#
+# For stride=1, pad=0, KH=3: row r uses input rows r, r+1, r+2.
+#                             row r+1 uses input rows r+1, r+2, r+3.
+# They share rows r+1 and r+2! So we save 2/3 of the per-kh input loads.
+#
+# We implement this by making BLOCK_OH larger (e.g. 16, 32) which already
+# achieves this sharing implicitly via the 2D tile. The issue is the autotuner
+# may not pick the best BLOCK_OH.
+#
+# Better iter: FORCE the autotuner to only consider BLOCK_OH >= 8 and
+# BLOCK_OW >= 128 since those are the sweet-spot from iter-1 analysis.
 @triton.autotune(
     configs=[
-        # iter-1 best configs
-        triton.Config({'BLOCK_OH': 4,  'BLOCK_OW': 64},  num_warps=4, num_stages=2),
+        # Only the well-performing region from iter-1
         triton.Config({'BLOCK_OH': 4,  'BLOCK_OW': 128}, num_warps=4, num_stages=2),
-        triton.Config({'BLOCK_OH': 4,  'BLOCK_OW': 256}, num_warps=8, num_stages=2),
         triton.Config({'BLOCK_OH': 8,  'BLOCK_OW': 64},  num_warps=4, num_stages=2),
         triton.Config({'BLOCK_OH': 8,  'BLOCK_OW': 128}, num_warps=4, num_stages=2),
         triton.Config({'BLOCK_OH': 8,  'BLOCK_OW': 256}, num_warps=8, num_stages=2),
@@ -21,19 +39,6 @@ import triton.language as tl
         triton.Config({'BLOCK_OH': 16, 'BLOCK_OW': 128}, num_warps=8, num_stages=2),
         triton.Config({'BLOCK_OH': 32, 'BLOCK_OW': 32},  num_warps=4, num_stages=2),
         triton.Config({'BLOCK_OH': 32, 'BLOCK_OW': 64},  num_warps=8, num_stages=2),
-        triton.Config({'BLOCK_OH': 2,  'BLOCK_OW': 256}, num_warps=4, num_stages=2),
-        triton.Config({'BLOCK_OH': 2,  'BLOCK_OW': 512}, num_warps=8, num_stages=2),
-        # new: larger tiles, more warps
-        triton.Config({'BLOCK_OH': 4,  'BLOCK_OW': 512}, num_warps=16, num_stages=2),
-        triton.Config({'BLOCK_OH': 8,  'BLOCK_OW': 512}, num_warps=16, num_stages=2),
-        triton.Config({'BLOCK_OH': 16, 'BLOCK_OW': 256}, num_warps=16, num_stages=2),
-        triton.Config({'BLOCK_OH': 64, 'BLOCK_OW': 64},  num_warps=16, num_stages=2),
-        triton.Config({'BLOCK_OH': 1,  'BLOCK_OW': 512}, num_warps=8,  num_stages=2),
-        triton.Config({'BLOCK_OH': 1,  'BLOCK_OW': 1024}, num_warps=16, num_stages=2),
-        # stages=3 for larger tiles
-        triton.Config({'BLOCK_OH': 4,  'BLOCK_OW': 256}, num_warps=8, num_stages=3),
-        triton.Config({'BLOCK_OH': 8,  'BLOCK_OW': 256}, num_warps=8, num_stages=3),
-        triton.Config({'BLOCK_OH': 8,  'BLOCK_OW': 128}, num_warps=4, num_stages=3),
     ],
     key=['NC', 'H', 'W', 'H_out', 'W_out', 'KH', 'KW'],
 )

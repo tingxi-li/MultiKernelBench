@@ -31,6 +31,7 @@ Status values: improved / no-change / regression / failed.
 | 6 | 2D tile with NC on grid axis 0 (clean refactor) | 1.37x | 2.67 ms | improved |
 | B1 | All shape params constexpr + tl.math.fma | 1.50x | 2.74 ms | improved |
 | B2 | Expanded configs: larger tiles, num_warps=16, stages=3 | 1.22x | 3.40 ms | regression |
+| B3 | Narrowed config set (only BLOCK_OH>=4, BLOCK_OW>=64) | 1.14x | 3.21 ms | regression |
 
 ## Iterations
 
@@ -129,6 +130,18 @@ Status values: improved / no-change / regression / failed.
   - Speedup: 1.22x
 - **Analysis:** Regression. The expanded config space led the autotuner to pick a worse config. Large tiles may OOM register file or reduce occupancy. The 2.71ms min suggests the RIGHT config is still in the set but it's not consistently picked.
 - **Next:** Restore iter-1's tight 12-config set and try a different angle: use FP16 computation path (cast to fp16 for loads/multiply, accumulate in fp32). This doubles bandwidth throughput.
+
+### Iter B3 — Narrowed config set (only best-performing region)
+
+- **Hypothesis:** Restricting the config set to BLOCK_OH>=4, BLOCK_OW>=64 prevents the autotuner from picking bad large-tile configs.
+- **Changes:** Removed small/large outlier configs, kept 8 well-performing ones.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 3.21 ms (mean), 3.13 ~ 4.86 ms (min ~ max)
+  - Speedup: 1.14x
+- **Analysis:** Major regression — removing configs (esp. small ones like BLOCK_OH=2,4 BLOCK_OW=64) removed the winning config from iter-1.
+- **Next:** Restore iter-1 as baseline. Try a different axis: check what config iter-1 actually selected (it likely picked BLOCK_OW=64 or 128, BLOCK_OH=4-8), then build around that.
 
 
 
