@@ -26,6 +26,7 @@ Status values: improved / no-change / regression / failed.
 | 1 | Flash-Attn2 fp16 BM=16 BN=32 | 1.6541x | 37.0 ms | improved |
 | 2 | Autotune BM/BN/warps/stages | 1.6240x | 38.3 ms | no-change (regression) |
 | 3 | allow_tf32=True + 8 warps + cache hints | 1.6373x | 37.5 ms | no-change (near BW wall) |
+| 4 | D-tiled D_TILE=256, 4 separate dot calls | 1.7235x | 35.8 ms | improved |
 
 ## Iterations
 
@@ -64,4 +65,16 @@ Status values: improved / no-change / regression / failed.
   - Speedup: 1.6373x
 - **Analysis:** Essentially same as iter 1 (37.0ms). The kernel is near the theoretical memory-bandwidth ceiling: K/V read amplification = N/BM * N * D * 2B = 32*512*1024*2 = 33.5 MB per (b,h), total 34 GB at 960 GB/s = ~35ms theoretical minimum. We're at 37ms = ~95% of HBM bandwidth limit. allow_tf32 and 8 warps had negligible impact on this BW-bound workload.
 - **Next:** Try a different algorithmic approach: split-K parallel flash attention (Flash-Decoding) where each CTA handles a subset of K/V tiles and partial results are merged. This could improve parallelism across SMs at the cost of a second reduction pass.
+
+### Iter 4 — D-tiled Flash-Attention 2 (D_TILE=256, 4 separate dot calls)
+
+- **Hypothesis:** Loading Q as 4 separate [BM=16, D_TILE=256] tiles (instead of one [16,1024] tile) reduces per-CTA register pressure from ~128 regs/thread to ~32 regs/thread for the Q tile portion. This allows more CTAs per SM (higher occupancy) and better latency hiding for HBM loads.
+- **Changes:** Load Q as 4 separate fp16 tiles (q0..q3), each [BM, D_TILE=256]. Similarly tile K and V. QK accumulates sum of 4 partial dot products. Output accumulates in 4 separate [BM, D_TILE] fp32 arrays (a0..a3). Final 4 separate tl.store calls. Otherwise BM=16, BN=32, 4 warps, fp16 inputs.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 35.8 ms (mean), 31.8~37.6 ms (min~max)
+  - Speedup: 1.7235x
+- **Analysis:** Better than iter 1 (37.0ms) and iter 3 (37.5ms). The D-tiling reduces register pressure, allowing higher SM occupancy. With 4x D_TILE=256 sub-tiles: SMEM per K/V tile = 32*256*2 = 16 KB, total SMEM ≈ (16+16)*256*2=16 KB vs previous 96 KB. This leaves more L1/SMEM for thread context switching. Min latency of 31.8ms is 9% better than iter 1's 35.1ms min.
+- **Next:** Try varying D_TILE (512, 128) or tuning BN to see if further improvement is possible. Also try 2 warps to reduce occupancy trade-off.
 
