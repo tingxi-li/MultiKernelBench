@@ -25,6 +25,7 @@ Status values: improved / no-change / regression / failed.
 |------|-------|---------|--------------|--------|
 | 1 | Flash-Attn2 fp16 BM=16 BN=32 | 1.6541x | 37.0 ms | improved |
 | 2 | Autotune BM/BN/warps/stages | 1.6240x | 38.3 ms | no-change (regression) |
+| 3 | allow_tf32=True + 8 warps + cache hints | 1.6373x | 37.5 ms | no-change (near BW wall) |
 
 ## Iterations
 
@@ -51,4 +52,16 @@ Status values: improved / no-change / regression / failed.
   - Speedup: 1.6240x
 - **Analysis:** Slightly worse than iter 1 (37.0ms). The autotune overhead during warm-up phases and slightly less stable timing accounts for the difference. The best autotune config apparently chose BM=16, BN=32 (same as iter 1) but with different warps/stages that are slightly worse on this hardware. Autotune benchmark results are noisy and may have picked a suboptimal config.
 - **Next:** Go back to fixed BM=16, BN=32, but try to optimize the inner loop: use tl.dot with allow_tf32=True for faster tensor cores, add num_stages=2 for better pipelining, or try fp16 accumulation inside the softmax-rescale path.
+
+### Iter 3 — allow_tf32=True + 8 warps + cache hints
+
+- **Hypothesis:** allow_tf32=True enables tensor core acceleration on Ada (TF32 mode). 8 warps doubles SM occupancy for better latency hiding. Cache hints (evict_last for Q, evict_first for K/V) optimize L1/L2 use.
+- **Changes:** allow_tf32=True for both QK and pV dots. num_warps=8. eviction hints. Otherwise same as iter 1 (BM=16, BN=32).
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 37.5 ms (mean), 33.9~39.5 ms (min~max)
+  - Speedup: 1.6373x
+- **Analysis:** Essentially same as iter 1 (37.0ms). The kernel is near the theoretical memory-bandwidth ceiling: K/V read amplification = N/BM * N * D * 2B = 32*512*1024*2 = 33.5 MB per (b,h), total 34 GB at 960 GB/s = ~35ms theoretical minimum. We're at 37ms = ~95% of HBM bandwidth limit. allow_tf32 and 8 warps had negligible impact on this BW-bound workload.
+- **Next:** Try a different algorithmic approach: split-K parallel flash attention (Flash-Decoding) where each CTA handles a subset of K/V tiles and partial results are merged. This could improve parallelism across SMs at the cost of a second reduction pass.
 
