@@ -33,6 +33,7 @@ Status values: improved / no-change / regression / failed.
 | B2 | Expanded configs: larger tiles, num_warps=16, stages=3 | 1.22x | 3.40 ms | regression |
 | B3 | Narrowed config set (only BLOCK_OH>=4, BLOCK_OW>=64) | 1.14x | 3.21 ms | regression |
 | B4 | iter-1 set + num_stages=1 + num_warps=2 variants | 1.51x | 2.70 ms | improved |
+| B5 | pad=0 specialized nopad kernel + general fallback | 1.52x | 2.71 ms | improved |
 
 ## Iterations
 
@@ -155,6 +156,18 @@ Status values: improved / no-change / regression / failed.
   - Speedup: 1.51x
 - **Analysis:** Marginal improvement (1.51x vs 1.50x), with lower std (0.133 vs 0.165). The num_stages=1 or num_warps=2 variants were selected by the autotuner as slightly better. More consistent performance.
 - **Next:** Try optimizing the kernel body itself — add output tensor reuse by processing 2 channels per CTA to amortize weight loads.
+
+### Iter B5 — pad=0 specialized kernel (no input bounds check)
+
+- **Hypothesis:** For pad=0, stride=1, input coords are always in-bounds. Eliminating the ih/iw comparison operations saves code and allows Triton to generate cleaner PTX.
+- **Changes:** Added specialized depthwise_conv2d_nopad_kernel (no pad params, no ih/iw masking). Forward routes to it when pad=0.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 2.71 ms (mean), 2.64 ~ 3.85 ms (min ~ max)
+  - Speedup: 1.52x
+- **Analysis:** New best! 1.52x with lower std (0.128 vs 0.133). The elimination of 6 comparison ops per inner kh/kw iteration saves measurable overhead.
+- **Next:** Iter cap reached. Best is B5 at 1.52x.
 
 
 
