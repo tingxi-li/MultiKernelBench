@@ -27,8 +27,21 @@ Status values: improved / no-change / regression / failed.
 | 2 | FP32 register-blocking BM=BN=128, BK=16, TM=TN=8 | 0.99x | 6.26 ms | improved |
 | 3 | FP32 coalesced loads (k=e%BK,m=e/BK) + __ldg | 0.90x | 6.82 ms | regression |
 | 4 | Transposed weight [K,N] for coalesced WT loads | 0.92x | 6.59 ms | regression |
+| 5 | at::mm + fused bias+GELU+online-softmax kernel | 0.89x | 6.84 ms | regression |
 
 ## Iterations
+
+### Iter 5 — at::mm + fused bias+GELU+online-softmax kernel
+
+- **Hypothesis:** Use PyTorch's highly optimized at::mm (cuBLAS) for the GEMM, then apply a custom CUDA kernel that fuses bias+GELU+online-softmax in 2 passes (compute+max simultaneously, then normalize). This should give cuBLAS GEMM speed + some fusion benefit.
+- **Changes:** GEMM via `at::mm(A, W.t())`. New `bias_gelu_softmax_kernel` using true online softmax algorithm (maintains running (max, sum) pair in single pass, then 1 normalize pass).
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 6.84 ms (mean), 5.64~7.36 ms (min~max)
+  - Speedup: 0.89x (mean)
+- **Analysis:** Surprisingly slower than ref (6.84ms vs 6.11ms). The at::mm dispatch overhead + creating 2 tensors (gemm + out) adds latency. PyTorch's native pipeline is more efficient.
+- **Next:** Return to hand-rolled GEMM approach (iter-2 was best at 0.99x) and try double-buffered smem to reduce sync stalls.
 
 ### Iter 4 — Transposed weight for coalesced WT loads
 
