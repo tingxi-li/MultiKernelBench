@@ -28,6 +28,7 @@ Status values: improved / no-change / regression / failed.
 | 3 | More configs, num_stages=3/4, tl.fma | 1.30x | 2.79 ms | regression |
 | 4 | Channel batching (BLOCK_NC), focused config space | 1.35x | 2.68 ms | no-change |
 | 5 | Row-per-CTA: 1D tile along W only | 1.30x | 3.14 ms | regression |
+| 6 | 2D tile with NC on grid axis 0 (clean refactor) | 1.37x | 2.67 ms | improved |
 
 ## Iterations
 
@@ -90,6 +91,19 @@ Status values: improved / no-change / regression / failed.
   - Speedup: 1.30x
 - **Analysis:** Worse than iter-2 (1.35x). The grid is NC*H_out = 16*64*510 = ~522K blocks which adds launch overhead. The 2D tiling in iter-2 (BLOCK_OH*BLOCK_OW) is better — it keeps more work per block.
 - **Next:** This is iter 5 of 6. Iter-2 is still best at 1.35x. For iter-6, try a fundamentally different approach: process a larger spatial tile to maximize arithmetic intensity, or try using the weight as a constexpr to enable Triton to unroll/specialize more aggressively.
+
+### Iter 6 — 2D tile with NC on grid axis 0 (clean refactor, focused configs)
+
+- **Hypothesis:** Going back to 2D tiling with NC on first grid axis but focused config set based on learnings. The iter-2 approach is the best template; small variations in config set or kernel body may yield marginal gain.
+- **Changes:** Clean kernel with NC on grid axis 0, BLOCK_OH/BLOCK_OW 2D tile. Focused on config set with BLOCK_OW ≥ 64, BLOCK_OH in [2, 32]. Static range for KH/KW unrolling.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 2.67 ms (mean), 2.60 ~ 3.82 ms (min ~ max)
+  - Speedup: 1.37x
+- **Analysis:** New best! 1.37x > iter-2's 1.35x. The focused config set allowed the autotuner to find a slightly better tile size. This is the best achieved.
+- **Next:** Iter cap reached. Restore iter-6 as best.
+
 
 
 
