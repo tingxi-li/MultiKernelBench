@@ -28,8 +28,20 @@ Status values: improved / no-change / regression / failed.
 | 3 | Autotuned multi-chunk softmax | 4.93x | 1.26 ms | improved |
 | 4 | Pre-cast weight+input to fp16, native fp16 loads | 5.02x | 1.27 ms | improved |
 | 5 | Expanded autotune configs (deep pipeline, large BLOCK_K) | 5.02x | 1.25 ms | no-change |
+| 6 | GEMM output as fp16 → halve softmax load BW | 5.14x | 1.22 ms | improved |
 
 ## Iterations
+
+### Iter 6 — GEMM output stored as fp16 to halve softmax load bandwidth
+
+- **Hypothesis:** The GEMM epilogue currently writes fp32 (32MB for 1024×8192), and the softmax kernel reads that 32MB back. If we store as fp16 (16MB) and load fp16 in the softmax kernel, we halve the memory traffic for the softmax pass.
+- **Changes:** Changed `_matmul_gelu_fp16_kernel` to store `acc_gelu.to(tl.float16)`. Changed output buffer to `torch.float16`. Added `_softmax_fp16_to_fp32_kernel` that reads fp16, computes in fp32, writes fp32. Softmax arithmetic stays fp32 for correctness.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 1.22 ms (mean), 1.19 ~ 1.34 ms (min ~ max)
+  - Speedup: 5.14x (mean)
+- **Analysis:** Best result — 5.14x speedup, 1.22ms mean. Small but consistent improvement over iter 4/5 from halved softmax BW. Iteration cap reached.
 
 ### Iter 5 — Expanded autotune configs for better GEMM tile coverage
 
