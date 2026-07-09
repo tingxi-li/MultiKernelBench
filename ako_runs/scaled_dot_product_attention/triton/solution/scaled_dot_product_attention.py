@@ -1,13 +1,12 @@
 """
-Flash-Attention 2 for HEAD_DIM=1024 in Triton — iter 1 (blind run).
+Flash-Attention 2 for HEAD_DIM=1024 in Triton — iter 2 (blind run).
 
-Optimization: BN=64 (larger KV block, fewer loop iters) + num_stages=2
-(software pipelining overlaps K/V loads with QK/pV compute).
+Optimization: BM=32 (was 16) with D_TILE=256, 8 warps (was 4).
+- BM=32 doubles Q rows per CTA → each K/V tile amortized over 2x more Q rows
+- Grid size halves (16 vs 32 Q-blocks per head), reducing total K/V reads
+- 8 warps → better occupancy on Ada
 
-Baseline was BN=32, num_stages=1 → 1.71x.
-Hypothesis: BN=64 halves the inner loop count (8 vs 16), and num_stages=2
-prefetches next K/V tile while computing with current → better memory
-latency hiding on RTX 6000 Ada.
+Prior best: BM=16, BN=32, D_TILE=256, 4 warps → 1.72x (35.8ms).
 """
 
 import math
@@ -18,7 +17,7 @@ import triton.language as tl
 
 
 @triton.jit
-def _flash_fwd_v1(
+def _flash_fwd_v2(
     Q, K, V, Out,
     stride_qb, stride_qh, stride_qm, stride_qk,
     stride_kb, stride_kh, stride_kn, stride_kk,
@@ -28,8 +27,8 @@ def _flash_fwd_v1(
     N_CTX:    tl.constexpr,
     D:        tl.constexpr,   # 1024
     D_TILE:   tl.constexpr,   # 256
-    BM:       tl.constexpr,   # 16
-    BN:       tl.constexpr,   # 64
+    BM:       tl.constexpr,   # 32
+    BN:       tl.constexpr,   # 32
     SCALE:    tl.constexpr,
 ):
     pid_m  = tl.program_id(0)
@@ -138,12 +137,12 @@ class Model(nn.Module):
         Kh = K.to(torch.float16)
         Vh = V.to(torch.float16)
 
-        BM = 16
-        BN = 64
+        BM = 32
+        BN = 32
         D_TILE = 256
 
         grid = (triton.cdiv(N, BM), B * H)
-        _flash_fwd_v1[grid](
+        _flash_fwd_v2[grid](
             Qh, Kh, Vh, Out,
             Qh.stride(0), Qh.stride(1), Qh.stride(2), Qh.stride(3),
             Kh.stride(0), Kh.stride(1), Kh.stride(2), Kh.stride(3),
@@ -156,7 +155,7 @@ class Model(nn.Module):
             BM=BM,
             BN=BN,
             SCALE=sm_scale,
-            num_warps=4,
-            num_stages=2,
+            num_warps=8,
+            num_stages=1,
         )
         return Out
