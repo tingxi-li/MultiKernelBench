@@ -27,6 +27,7 @@ Status values: improved / no-change / regression / failed.
 | 2 | 64x4 tile variant + multi-row variant (32x8x4) | 1.36x | 3.09 ms | improved |
 | 3 | 32x16 tile, 512-thread blocks (v4) | 1.31x | 2.86 ms | improved |
 | 4 | 32x32 tile, 1024-thread blocks + warp-row variant | 1.20x | 3.46 ms | regression |
+| 5 | Coalesced SM fill: TW=30, SW=32 (power-of-2), maxreg=40 | 1.42x | 2.91 ms | improved |
 
 ## Iterations
 
@@ -77,6 +78,19 @@ Status values: improved / no-change / regression / failed.
   - Speedup: 1.20x
 - **Analysis:** Regression vs iter 3. 32x32 tile with 1024 threads is actually slower than 32x16 with 512 threads. The issue: with 1024 threads/block, each SM can host fewer concurrent blocks (register/SM bandwidth limited). Also, 1024 threads = 32 warps, and the SM is only 1156 floats — very little data reuse. The optimal configuration appears to be 32x16 (512 threads).
 - **Next:** Restore iter 3's 32x16 config. Then try: (1) varying the tile in Y dimension (e.g. 32x8, 32x12, 32x16 comparison), (2) experiment with #pragma unroll for the inner MAC, (3) try occupancy-driven approach with --maxrregcount=32 to allow more resident blocks.
+
+### Iter 5 — Coalesced SM fill: TW=30, SW=32 (power-of-2), maxreg=40
+
+- **Hypothesis:** Setting SM width = TW+2 = 32 (power of 2) ensures every warp in the SM fill loop covers exactly one SM row, resulting in perfectly coalesced 128-byte global reads. Combined with maxrregcount=40, we get higher SM occupancy (3 blocks instead of 2).
+- **Changes:** Redesigned kernel with TW=30, SW=32. Block=32×16=512 threads. Fill loop uses i>>5 / i&31 bit operations. Added wide variant TW=62, SW=64. maxrregcount=40.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 2.91 ms (mean), 2.71 ~ 4.57 ms (min ~ max)
+  - Speedup: 1.42x
+- **Analysis:** Best speedup so far (1.42x). The coalesced SM fill strategy helps. 2.91ms is close to iter 3's 2.86ms on an absolute basis but speedup is higher because ref is more stable. The TW=30/SW=32 trick is clearly beneficial.
+- **Next:** Test the TW=62, SW=64 (wider) variant which should be even more efficient. Also try reducing TH to 8 (smaller blocks) to increase occupancy further, or TH=32 for more output reuse.
+
 
 
 

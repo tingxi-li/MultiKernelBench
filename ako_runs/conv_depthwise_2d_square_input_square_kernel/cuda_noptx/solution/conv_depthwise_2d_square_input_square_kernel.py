@@ -3,56 +3,137 @@ import torch.nn as nn
 from torch.utils.cpp_extension import load_inline
 
 # -----------------------------------------------------------------------
-# CUDA kernel v4: depthwise 2-D conv, maximise bandwidth utilisation
+# CUDA kernel v5: depthwise 2-D conv — coalescing-optimised tile fill
 #
-# Architecture: RTX 6000 Ada = Ada Lovelace (sm_89)
-# - 960 GB/s memory bandwidth
-# - 128 KB L1/SM, 72 SMs
-# - Best strategy: maximise bandwidth, minimise memory traffic
+# Key insight: when SW (SM width) = 32 (power of 2), the linearised SM fill
+# loop always maps entire warps to consecutive columns in one input row →
+# perfectly coalesced 128-byte transactions from L2.
 #
-# Key insight: Use wider tiles + float4 vectorised SM fill.
-# TILE: 32 cols x 32 rows = 1024 output pixels per block
-# SM: 34 x 34 = 1156 floats
-# Block: 32 x 32 = 1024 threads → 32 warps
-# Each thread loads 1.1 SM floats and computes 1 output pixel.
-# Float4 loading would help for the SM fill phase.
+# Design:
+#   - TW = 30, TH = 16  → output tile 30×16 = 480 pixels
+#   - Block = 32 × 16 = 512 threads (2 extra threads per row for halo fill)
+#   - SW = TW + 2 = 32 (power of 2!) → coalesced global reads
+#   - SH = TH + 2 = 18
+#   - SM = 32 × 18 = 576 floats = 2304 bytes (well within L1)
+#   - Fill: 576/512 = 1.125 loads/thread (very low overhead)
+#   - Register count: 9 weight regs + 1 accumulator + few indexing → fits well
+#   - --maxrregcount=40 gives ≥3 resident blocks per SM for better latency hiding
 # -----------------------------------------------------------------------
 _CUDA_SOURCE = r"""
 #include <cuda_runtime.h>
 
 // ─────────────────────────────────────────────────────────────────
-// Kernel v4: 32x32 tile, 1024 threads per block
-// SM: 34x34 = 1156 floats = 4624 bytes (well within 128KB)
+// Primary kernel: TW=30, SW=32 (coalesced), TH=16, block=32×16=512
 // ─────────────────────────────────────────────────────────────────
-#define TW 32
-#define TH 32
-#define SW (TW + 2)   // 34
-#define SH (TH + 2)   // 34
+#define TW  30
+#define TH  16
+#define BW  32   // block width (32 = warp size, 2 extra threads for halo)
+#define SW  32   // SM width = TW+2 = 32 → power of 2!
+#define SH  18   // SM height = TH+2 = 18
 
-__global__ void dw_conv_32x32(
+__global__ void dw_conv_k3s1_coalesced(
     const float* __restrict__ x,
     const float* __restrict__ w,
     float*       __restrict__ y,
-    int B, int C, int H, int W, int out_H, int out_W
+    int B, int C, int H, int W, int out_H, int out_W,
+    int stride, int padding
 ) {
-    __shared__ float sm[SH * SW];   // 34x34 = 1156 floats
+    __shared__ float sm[SH * SW];   // 18*32 = 576 floats = 2304 B
 
     const int bc    = blockIdx.z;
     const int b     = bc / C;
     const int c     = bc % C;
     const int tile_y = blockIdx.y * TH;
     const int tile_x = blockIdx.x * TW;
-    const int tx    = threadIdx.x;   // 0..31
-    const int ty    = threadIdx.y;   // 0..31
-    const int tid   = ty * TW + tx;  // 0..1023
+    const int tx    = threadIdx.x;   // 0..31 (BW=32)
+    const int ty    = threadIdx.y;   // 0..15 (TH=16)
+    const int tid   = ty * BW + tx;  // 0..511
+
+    // Input origin for this tile (with padding)
+    const int in_y0 = tile_y * stride - padding;
+    const int in_x0 = tile_x * stride - padding;
 
     const float* xc = x + (b * C + c) * (H * W);
 
-    // Fill SM: 1156 floats with 1024 threads → ~1.13 loads/thread
-    // Use loop to handle the extra elements
-    for (int i = tid; i < SH * SW; i += TH * TW) {
-        const int sy = i / SW;
-        const int sx = i % SW;
+    // Fill SM: SW=32 → sy = i/32 = i>>5, sx = i%32 = i&31
+    // Each warp (32 consecutive tids) maps to exactly one row of SM → COALESCED
+    #pragma unroll 2
+    for (int i = tid; i < SH * SW; i += BW * TH) {
+        const int sy = i >> 5;   // i / 32
+        const int sx = i & 31;   // i % 32
+        const int gy = in_y0 + sy;
+        const int gx = in_x0 + sx;
+        sm[i] = (gy >= 0 && gy < H && gx >= 0 && gx < W)
+                ? __ldg(&xc[gy * W + gx]) : 0.0f;
+    }
+    __syncthreads();
+
+    // Only threads tx=0..TW-1 write output
+    const int out_y = tile_y + ty;
+    const int out_x = tile_x + tx;
+
+    if (tx < TW && out_y < out_H && out_x < out_W) {
+        const float* wc = w + c * 9;
+        float w00 = __ldg(&wc[0]), w01 = __ldg(&wc[1]), w02 = __ldg(&wc[2]);
+        float w10 = __ldg(&wc[3]), w11 = __ldg(&wc[4]), w12 = __ldg(&wc[5]);
+        float w20 = __ldg(&wc[6]), w21 = __ldg(&wc[7]), w22 = __ldg(&wc[8]);
+
+        // tx, ty map directly to SM index (sw=32, no offset needed since in_x0=tile_x-pad)
+        // For stride=1, pad=0: tx_sm = tx, ty_sm = ty
+        const int tx_sm = tx;
+        const int ty_sm = ty;
+
+        float s;
+        s  = w00 * sm[(ty_sm+0)*SW + (tx_sm+0)];
+        s += w01 * sm[(ty_sm+0)*SW + (tx_sm+1)];
+        s += w02 * sm[(ty_sm+0)*SW + (tx_sm+2)];
+        s += w10 * sm[(ty_sm+1)*SW + (tx_sm+0)];
+        s += w11 * sm[(ty_sm+1)*SW + (tx_sm+1)];
+        s += w12 * sm[(ty_sm+1)*SW + (tx_sm+2)];
+        s += w20 * sm[(ty_sm+2)*SW + (tx_sm+0)];
+        s += w21 * sm[(ty_sm+2)*SW + (tx_sm+1)];
+        s += w22 * sm[(ty_sm+2)*SW + (tx_sm+2)];
+
+        y[(b * C + c) * (out_H * out_W) + out_y * out_W + out_x] = s;
+    }
+}
+
+// ─────────────────────────────────────────────────────────────────
+// Variant B: TW=62, SW=64, TH=8, block=64×8=512 threads
+// Even better coalescing (64-wide SM row = 2 cache lines)
+// More output pixels per block = fewer blocks = less scheduler pressure
+// ─────────────────────────────────────────────────────────────────
+#define TW2  62
+#define TH2   8
+#define BW2  64
+#define SW2  64   // TW2+2 = 64 → power of 2!
+#define SH2  10   // TH2+2 = 10
+
+__global__ void dw_conv_k3s1_wide(
+    const float* __restrict__ x,
+    const float* __restrict__ w,
+    float*       __restrict__ y,
+    int B, int C, int H, int W, int out_H, int out_W
+) {
+    __shared__ float sm[SH2 * SW2];   // 10*64 = 640 floats = 2560 B
+
+    const int bc    = blockIdx.z;
+    const int b     = bc / C;
+    const int c     = bc % C;
+    const int tile_y = blockIdx.y * TH2;
+    const int tile_x = blockIdx.x * TW2;
+    const int tx    = threadIdx.x;   // 0..63 (BW2=64)
+    const int ty    = threadIdx.y;   // 0..7  (TH2=8)
+    const int tid   = ty * BW2 + tx; // 0..511
+
+    const float* xc = x + (b * C + c) * (H * W);
+
+    // SW2=64 → sy = i/64 = i>>6, sx = i%64 = i&63
+    // Each group of 64 consecutive tids → one SM row → COALESCED
+    #pragma unroll 2
+    for (int i = tid; i < SH2 * SW2; i += BW2 * TH2) {
+        const int sy = i >> 6;
+        const int sx = i & 63;
         const int gy = tile_y + sy;
         const int gx = tile_x + sx;
         sm[i] = (gy < H && gx < W) ? __ldg(&xc[gy * W + gx]) : 0.0f;
@@ -62,132 +143,25 @@ __global__ void dw_conv_32x32(
     const int out_y = tile_y + ty;
     const int out_x = tile_x + tx;
 
-    if (out_y < out_H && out_x < out_W) {
+    if (tx < TW2 && out_y < out_H && out_x < out_W) {
         const float* wc = w + c * 9;
         float w00 = __ldg(&wc[0]), w01 = __ldg(&wc[1]), w02 = __ldg(&wc[2]);
         float w10 = __ldg(&wc[3]), w11 = __ldg(&wc[4]), w12 = __ldg(&wc[5]);
         float w20 = __ldg(&wc[6]), w21 = __ldg(&wc[7]), w22 = __ldg(&wc[8]);
 
         float s;
-        s  = w00 * sm[(ty+0)*SW + (tx+0)];
-        s += w01 * sm[(ty+0)*SW + (tx+1)];
-        s += w02 * sm[(ty+0)*SW + (tx+2)];
-        s += w10 * sm[(ty+1)*SW + (tx+0)];
-        s += w11 * sm[(ty+1)*SW + (tx+1)];
-        s += w12 * sm[(ty+1)*SW + (tx+2)];
-        s += w20 * sm[(ty+2)*SW + (tx+0)];
-        s += w21 * sm[(ty+2)*SW + (tx+1)];
-        s += w22 * sm[(ty+2)*SW + (tx+2)];
+        s  = w00 * sm[(ty+0)*SW2 + (tx+0)];
+        s += w01 * sm[(ty+0)*SW2 + (tx+1)];
+        s += w02 * sm[(ty+0)*SW2 + (tx+2)];
+        s += w10 * sm[(ty+1)*SW2 + (tx+0)];
+        s += w11 * sm[(ty+1)*SW2 + (tx+1)];
+        s += w12 * sm[(ty+1)*SW2 + (tx+2)];
+        s += w20 * sm[(ty+2)*SW2 + (tx+0)];
+        s += w21 * sm[(ty+2)*SW2 + (tx+1)];
+        s += w22 * sm[(ty+2)*SW2 + (tx+2)];
 
         y[(b * C + c) * (out_H * out_W) + out_y * out_W + out_x] = s;
     }
-}
-
-// ─────────────────────────────────────────────────────────────────
-// Kernel v4b: 32x32 tile with vectorised float4 SM fill
-// Key: SW=34 is not divisible by 4, so we need to handle boundaries.
-// Alternative: pad SM width to 36 (9 float4s), simplify indexing.
-// ─────────────────────────────────────────────────────────────────
-#define SW4 36   // padded to multiple of 4
-#define SH4 34
-
-__global__ void dw_conv_32x32_f4(
-    const float* __restrict__ x,
-    const float* __restrict__ w,
-    float*       __restrict__ y,
-    int B, int C, int H, int W, int out_H, int out_W
-) {
-    __shared__ float sm[SH4 * SW4];   // 34x36 = 1224 floats
-
-    const int bc    = blockIdx.z;
-    const int b     = bc / C;
-    const int c     = bc % C;
-    const int tile_y = blockIdx.y * TH;
-    const int tile_x = blockIdx.x * TW;
-    const int tx    = threadIdx.x;
-    const int ty    = threadIdx.y;
-    const int tid   = ty * TW + tx;
-
-    const float* xc = x + (b * C + c) * (H * W);
-
-    // Fill SM using scalar loads (float4 alignment not guaranteed for boundary tiles)
-    for (int i = tid; i < SH4 * SW4; i += TH * TW) {
-        const int sy = i / SW4;
-        const int sx = i % SW4;
-        const int gy = tile_y + sy;
-        const int gx = tile_x + sx;
-        if (sx < 34 && gy < H && gx < W)
-            sm[i] = __ldg(&xc[gy * W + gx]);
-        else
-            sm[i] = 0.0f;
-    }
-    __syncthreads();
-
-    const int out_y = tile_y + ty;
-    const int out_x = tile_x + tx;
-
-    if (out_y < out_H && out_x < out_W) {
-        const float* wc = w + c * 9;
-        float w00 = __ldg(&wc[0]), w01 = __ldg(&wc[1]), w02 = __ldg(&wc[2]);
-        float w10 = __ldg(&wc[3]), w11 = __ldg(&wc[4]), w12 = __ldg(&wc[5]);
-        float w20 = __ldg(&wc[6]), w21 = __ldg(&wc[7]), w22 = __ldg(&wc[8]);
-
-        // Note: SM uses SW4=36 not SW=34 stride
-        float s;
-        s  = w00 * sm[(ty+0)*SW4 + (tx+0)];
-        s += w01 * sm[(ty+0)*SW4 + (tx+1)];
-        s += w02 * sm[(ty+0)*SW4 + (tx+2)];
-        s += w10 * sm[(ty+1)*SW4 + (tx+0)];
-        s += w11 * sm[(ty+1)*SW4 + (tx+1)];
-        s += w12 * sm[(ty+1)*SW4 + (tx+2)];
-        s += w20 * sm[(ty+2)*SW4 + (tx+0)];
-        s += w21 * sm[(ty+2)*SW4 + (tx+1)];
-        s += w22 * sm[(ty+2)*SW4 + (tx+2)];
-
-        y[(b * C + c) * (out_H * out_W) + out_y * out_W + out_x] = s;
-    }
-}
-
-// ─────────────────────────────────────────────────────────────────
-// Kernel v4c: "register-only" approach — no shared memory
-// Each warp of 32 threads processes 32 consecutive output cols in 1 output row
-// Uses __ldg for cached global reads
-// One output row = one pass; grid iterates over rows
-// Block: 1D warp (32 threads), processes 1 output pixel per thread
-// Grid: (ceil(out_W/32), out_H, B*C)
-// ─────────────────────────────────────────────────────────────────
-__global__ void dw_conv_warp_row(
-    const float* __restrict__ x,
-    const float* __restrict__ w,
-    float*       __restrict__ y,
-    int B, int C, int H, int W, int out_H, int out_W
-) {
-    const int bc = blockIdx.z;
-    const int b  = bc / C, c = bc % C;
-    const int out_x = blockIdx.x * 32 + threadIdx.x;
-    const int out_y = blockIdx.y;
-
-    if (out_x >= out_W || out_y >= out_H) return;
-
-    const float* xc = x + (b * C + c) * (H * W);
-    const float* wc = w + c * 9;
-
-    float w00 = __ldg(&wc[0]), w01 = __ldg(&wc[1]), w02 = __ldg(&wc[2]);
-    float w10 = __ldg(&wc[3]), w11 = __ldg(&wc[4]), w12 = __ldg(&wc[5]);
-    float w20 = __ldg(&wc[6]), w21 = __ldg(&wc[7]), w22 = __ldg(&wc[8]);
-
-    float s;
-    s  = w00 * __ldg(&xc[(out_y+0)*W + out_x+0])
-       + w01 * __ldg(&xc[(out_y+0)*W + out_x+1])
-       + w02 * __ldg(&xc[(out_y+0)*W + out_x+2])
-       + w10 * __ldg(&xc[(out_y+1)*W + out_x+0])
-       + w11 * __ldg(&xc[(out_y+1)*W + out_x+1])
-       + w12 * __ldg(&xc[(out_y+1)*W + out_x+2])
-       + w20 * __ldg(&xc[(out_y+2)*W + out_x+0])
-       + w21 * __ldg(&xc[(out_y+2)*W + out_x+1])
-       + w22 * __ldg(&xc[(out_y+2)*W + out_x+2]);
-
-    y[bc * (out_H * out_W) + out_y * out_W + out_x] = s;
 }
 
 // ─────────────────────────────────────────────────────────────────
@@ -240,44 +214,44 @@ void launch_dw_conv(
     const int KH = w.size(2), KW = w.size(3);
     const int out_H = y.size(2), out_W = y.size(3);
 
-    if (KH == 3 && KW == 3 && stride == 1 && padding == 0) {
+    if (KH == 3 && KW == 3 && padding == 0 && stride == 1) {
         if (variant == 1) {
-            // 32x32 = 1024 threads, 34x34 SM
-            const dim3 block(TW, TH);
+            // TW=30, SW=32, TH=16, block=32x16=512
+            const dim3 block(BW, TH);
             const dim3 grid(
                 (out_W + TW - 1) / TW,
                 (out_H + TH - 1) / TH,
                 B * C
             );
-            dw_conv_32x32<<<grid, block>>>(
+            dw_conv_k3s1_coalesced<<<grid, block>>>(
                 x.data_ptr<float>(), w.data_ptr<float>(), y.data_ptr<float>(),
-                B, C, H, W, out_H, out_W
-            );
-        } else if (variant == 2) {
-            // 32x32 with padded SM (36 wide)
-            const dim3 block(TW, TH);
-            const dim3 grid(
-                (out_W + TW - 1) / TW,
-                (out_H + TH - 1) / TH,
-                B * C
-            );
-            dw_conv_32x32_f4<<<grid, block>>>(
-                x.data_ptr<float>(), w.data_ptr<float>(), y.data_ptr<float>(),
-                B, C, H, W, out_H, out_W
+                B, C, H, W, out_H, out_W, stride, padding
             );
         } else {
-            // warp-row: no shared mem, direct __ldg
-            const dim3 block(32);
+            // TW=62, SW=64, TH=8, block=64x8=512
+            const dim3 block(BW2, TH2);
             const dim3 grid(
-                (out_W + 31) / 32,
-                out_H,
+                (out_W + TW2 - 1) / TW2,
+                (out_H + TH2 - 1) / TH2,
                 B * C
             );
-            dw_conv_warp_row<<<grid, block>>>(
+            dw_conv_k3s1_wide<<<grid, block>>>(
                 x.data_ptr<float>(), w.data_ptr<float>(), y.data_ptr<float>(),
                 B, C, H, W, out_H, out_W
             );
         }
+    } else if (KH == 3 && KW == 3) {
+        // general 3x3 with any stride/padding
+        const dim3 block(BW, TH);
+        const dim3 grid(
+            (out_W + TW - 1) / TW,
+            (out_H + TH - 1) / TH,
+            B * C
+        );
+        dw_conv_k3s1_coalesced<<<grid, block>>>(
+            x.data_ptr<float>(), w.data_ptr<float>(), y.data_ptr<float>(),
+            B, C, H, W, out_H, out_W, stride, padding
+        );
     } else {
         const dim3 block(32, 8);
         const dim3 grid(
@@ -311,11 +285,13 @@ def _get_mod():
     global _mod
     if _mod is None:
         _mod = load_inline(
-            name="dw_conv2d_noptx_v4",
+            name="dw_conv2d_noptx_v5",
             cpp_sources=_CPP_SOURCE,
             cuda_sources=_CUDA_SOURCE,
             functions=["launch_dw_conv"],
-            extra_cuda_cflags=["-O3", "--use_fast_math", "-Xptxas", "-O3,--maxrregcount=64"],
+            # --maxrregcount=40 → allows 3 blocks per SM (vs 2 at 64 regs)
+            extra_cuda_cflags=["-O3", "--use_fast_math",
+                               "-Xptxas", "-O3,--maxrregcount=40"],
             verbose=False,
         )
     return _mod
@@ -323,7 +299,8 @@ def _get_mod():
 
 class Model(nn.Module):
     """
-    Depthwise 2-D convolution using 32x32 shared-memory tiling.
+    Depthwise 2-D convolution with coalescing-optimised CUDA kernel.
+    TW=30 so SM width=32 (power-of-2): SM fill is perfectly coalesced.
     """
     def __init__(self, in_channels: int, kernel_size: int,
                  stride: int = 1, padding: int = 0, bias: bool = False):
@@ -333,7 +310,7 @@ class Model(nn.Module):
             stride=stride, padding=padding,
             groups=in_channels, bias=bias
         )
-        self._variant = 1  # 32x32 SM tiles, 1024 threads
+        self._variant = 1  # TW=30, SW=32, TH=16
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         w = self.conv2d.weight.contiguous()
