@@ -24,8 +24,21 @@ Status values: improved / no-change / regression / failed.
 | Iter | Title | Speedup(mean) | Runtime(mean) | Status |
 |------|-------|---------|--------------|--------|
 | 1 | TF32 WMMA GEMM + fused GELU + softmax | 0.86x | 7.19 ms | regression |
+| 2 | FP32 register-blocking BM=BN=128, BK=16, TM=TN=8 | 0.99x | 6.26 ms | improved |
 
 ## Iterations
+
+### Iter 2 — FP32 register-blocking GEMM, BM=BN=128, BK=16, TM=TN=8
+
+- **Hypothesis:** Large register tiles (8×8 per thread) with K-major shared memory layout should maximize arithmetic intensity and reach closer to cuBLAS performance.
+- **Changes:** Replaced TF32 WMMA with a standard FP32 register-blocking GEMM. BM=BN=128, BK=16, TM=TN=8, 256 threads per block. Shared memory stores As[BK][BM+PAD] and Bs[BK][BN+PAD] for column-access during compute.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 6.26 ms (mean), 4.21~6.81 ms (min~max), std=0.884ms
+  - Speedup: 0.99x (mean)
+- **Analysis:** High variance (std=0.884ms) suggests clock ramp issues. Min of 4.21ms is very promising (speedup ~1.44x at min). Mean just under ref. The register-blocking approach is more competitive than WMMA TF32.
+- **Next:** Reduce variance via warm-up (already --num-warmup 200 in bench.sh), try to stabilize. Also try BK=32 or larger to increase arithmetic intensity per smem load.
 
 ### Iter 1 — TF32 WMMA GEMM + fused bias/GELU + online softmax
 
