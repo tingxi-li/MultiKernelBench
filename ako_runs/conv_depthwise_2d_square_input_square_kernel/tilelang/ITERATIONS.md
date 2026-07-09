@@ -103,4 +103,13 @@ Status values: improved / no-change / regression / failed.
   - Speedup: 1.54x (mean) — ref at 4.10ms
 - **Analysis:** 1.54x speedup, best measured. Runtime still 2.66ms mean but min improved to 2.55ms. The reference was 4.10ms on this run. The design converges to the same ~2.66ms mean. The iteration cap (6) is reached.
 
+## Final Bench (confirming iter-6)
+
+Final bench run on iter-6 (latest = best):
+- Runtime: 2.65 ms (mean), 2.58 ~ 3.86 ms (min ~ max)
+- Ref runtime: 4.11 ms (mean)
+- Speedup: 1.55x
+
+**Winner: iter-6** (1.54-1.55x, 2.65-2.66ms). The row-per-block design with TileLang, 3 shmem input rows, staged local registers for 9 input values, and unrolled 3x3 FMA is the optimal design for this op on RTX 6000 Ada.
+
 
