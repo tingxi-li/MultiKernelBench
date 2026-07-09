@@ -30,6 +30,7 @@ Status values: improved / no-change / regression / failed.
 | 5 | Float4 vectorized smem loads (128x8 tile, NVEC=4) | 1.34x* | 2.62 ms | improved |
 | 6 | NVX=4+NVY=2 combined with float4 loads (128x16 tile) | 1.52x | 2.64 ms | no-change |
 | 7 (new-1) | NVEC=8 wider tile (256 cols/block), float4 smem loads | 1.56x | 2.59 ms | improved |
+| 8 (new-2) | NVEC=8 RPTS=2 (256x16 tile), float4 smem loads | 1.53x | 2.61 ms | regression |
 
 ## Iterations
 
@@ -116,4 +117,16 @@ Status values: improved / no-change / regression / failed.
   - Speedup: 1.56x (mean)
 - **Analysis:** 2.59ms vs prior best 2.62ms. Small but real improvement. Wider tiles reduce grid overhead and improve ILP. Min 2.54ms hints at a floor around 2.50ms.
 - **Next:** Try NVEC=16 to push even further, or try 2-row coarsening with NVEC=8 (RPTS=2, 16 outputs/thread) with a 256x16 tile.
+
+### Iter 8 (new iter 2) — NVEC=8 x RPTS=2 (256x16 output tile), 256 threads
+
+- **Hypothesis:** Combining 8x wide X tile with 2x Y coarsening further reduces grid size (half Y blocks) and amortizes smem barrier cost. 16 outputs per thread maximizes ILP.
+- **Changes:** T2_OUT_H=16 (via RPTS=2), T2_IN_H=18, smem 260x18=18.7KB. Float4 smem loads. Macro COMPUTE8 for both rows.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 2.61 ms (mean), 2.55 ~ 3.85 ms (min ~ max)
+  - Speedup: 1.53x (mean)
+- **Analysis:** 2.61ms - slightly worse than iter-1's 2.59ms. The larger smem footprint (18.7KB) limits occupancy: Ada has 100KB smem/SM, but with 256 threads we can fit ~5 blocks; at 18.7KB, only ~5 blocks (OK); however the main issue is more smem load iterations without proportional speedup. Grid is half in Y dimension vs iter-1 but savings are smaller than register/smem overhead.
+- **Next:** Try a different optimization: warp-level parallelism where each warp handles all 64 channels for a single spatial position (channel-fused). Or try L1 prefetch with cp.async.
 

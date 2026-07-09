@@ -2,13 +2,12 @@ import torch
 import torch.nn as nn
 from torch.utils.cpp_extension import load_inline
 
-# Depthwise conv2d optimized CUDA kernel - Iter 1
-# Strategy: NVEC=8 wider tile (256 output cols per block) to halve grid size in X
-#   - 256-wide tile: 2 blocks in X (vs 4 for 128-wide), half the grid → less launch overhead
-#   - Each thread computes 8 outputs (vs 4) → better ILP with same smem size
-#   - smem: 258 x 10 = 2580 floats = 10.3KB (vs prior 130x10=5.1KB but different NVEC)
-#   - Scalar output stores: safe for any OW alignment (float4 output stores need 16B alignment)
-#   - __ldg for smem loads (L1 texture cache bypass L2 if stride > cache_line)
+# Depthwise conv2d optimized CUDA kernel - Iter 2
+# Strategy: NVEC=8, RPTS=2 (256x16 output tile)
+#   - Each thread computes 2 rows x 8 cols = 16 outputs → better ILP, better smem reuse
+#   - smem: 258 x 18 = 4644 floats = 18.6KB (fits in 48KB smem/SM on Ada)
+#   - Y-smem overlap ratio: 18/16 = 1.125 vs 10/8 = 1.25 → 10% less Y-overlap reads
+#   - Grid: (OW+255)/256 x (OH+15)/16 x N*C → fewer blocks, lower overhead
 
 _depthwise_conv_src = r"""
 #include <cuda.h>
@@ -16,32 +15,30 @@ _depthwise_conv_src = r"""
 #include <stdexcept>
 
 // ===========================================================================
-// Iter 1: NVEC=8 (256 output cols/block), THX=32, THY=8, 256 threads
-//   smem: 258 x 10 = 2580 floats = 10.3KB
-//   Grid: (OW+255)/256 x (OH+7)/8 x N*C  (half the X blocks vs NVEC=4)
+// Iter 2: NVEC=8 x RPTS=2 (256x16 output tile), 256 threads, float4 smem loads
 // ===========================================================================
-#define T1_THX   32
-#define T1_THY    8
-#define T1_NVEC   8                        // output cols per thread
-#define T1_OUT_W (T1_THX * T1_NVEC)       // 256
-#define T1_OUT_H  T1_THY                   // 8
-#define T1_IN_W  (T1_OUT_W + 2)            // 258
-#define T1_IN_H  (T1_OUT_H + 2)            // 10
-// smem: 10 x 260 (260 = 258 + 2 for bank alignment) = 2600 floats = 10.4KB
-// Padding to 260 avoids bank conflicts for stride-1 access
+#define T2_THX   32
+#define T2_THY    8
+#define T2_NVEC   8                         // output cols per thread
+#define T2_RPTS   2                         // output rows per thread
+#define T2_OUT_W (T2_THX * T2_NVEC)        // 256
+#define T2_OUT_H (T2_THY * T2_RPTS)        // 16
+#define T2_IN_W  (T2_OUT_W + 2)             // 258
+#define T2_IN_H  (T2_OUT_H + 2)             // 18
+// smem: 18 x 260 (260 = 258+2 padding) = 4680 floats = 18.7KB
 
-__global__ void depthwise_conv2d_3x3_v1(
+__global__ void depthwise_conv2d_3x3_v2(
     const float* __restrict__ input,
     const float* __restrict__ weight,
     const float* __restrict__ bias,
     float* __restrict__ output,
     int N, int C, int H, int W, int OH, int OW
 ) {
-    __shared__ float sdata[T1_IN_H][T1_IN_W + 2];  // 10 x 260, 10.4KB
+    __shared__ float sdata[T2_IN_H][T2_IN_W + 2];  // 18 x 260
 
     int tx = threadIdx.x, ty = threadIdx.y;
-    int ow_base = blockIdx.x * T1_OUT_W;  // 0, 256, ...
-    int oh_base = blockIdx.y * T1_OUT_H;  // 0, 8, 16, ...
+    int ow_base = blockIdx.x * T2_OUT_W;  // 0, 256, ...
+    int oh_base = blockIdx.y * T2_OUT_H;  // 0, 16, 32, ...
     int nc = blockIdx.z, n = nc / C, c = nc % C;
 
     const float* wp = weight + c * 9;
@@ -50,16 +47,14 @@ __global__ void depthwise_conv2d_3x3_v1(
           w20=wp[6],w21=wp[7],w22=wp[8];
     const float* inp = input + (n * C + c) * (H * W);
 
-    int flat_tid = ty * T1_THX + tx;  // 0..255
+    int flat_tid = ty * T2_THX + tx;  // 0..255
 
-    // Fill smem: T1_IN_H=10 rows x T1_IN_W=258 cols = 2580 floats
-    // 256 threads, ~10.1 floats per thread → 2 iterations: first 11 threads do 11, rest do 10
-    // Use float4 loads for first 256 cols (64 float4 per row), then 2 scalar for cols 256-257
-    // 10 rows x 64 float4 = 640 float4 loads; 256 threads → 2-3 each
-    #pragma unroll 3
-    for (int i = flat_tid; i < T1_IN_H * 64; i += T1_THX * T1_THY) {
-        int row  = i / 64;    // 0..9
-        int col4 = i % 64;    // 0..63 (float4 index = cols 0..255)
+    // Fill smem: 18 rows x 258 cols via float4 (64 float4 per row) + 2 scalar per row
+    // 18 x 64 = 1152 float4 loads; 256 threads → 4-5 each
+    #pragma unroll 5
+    for (int i = flat_tid; i < T2_IN_H * 64; i += T2_THX * T2_THY) {
+        int row  = i / 64;
+        int col4 = i % 64;
         int ih = oh_base + row;
         int iw = ow_base + col4 * 4;
         float4 val = make_float4(0.f, 0.f, 0.f, 0.f);
@@ -77,7 +72,114 @@ __global__ void depthwise_conv2d_3x3_v1(
         sdata[row][col4*4+3] = val.w;
     }
 
-    // Load last 2 cols (256, 257) for each row: 10 * 2 = 20 scalar loads
+    // Load trailing 2 cols (256, 257) for each of the 18 rows: 18*2=36 scalar
+    if (flat_tid < T2_IN_H * 2) {
+        int row = flat_tid / 2;
+        int col = 256 + (flat_tid & 1);
+        int ih  = oh_base + row;
+        int iw  = ow_base + col;
+        sdata[row][col] = ((unsigned)ih < (unsigned)H && (unsigned)iw < (unsigned)W)
+                          ? __ldg(&inp[ih*W+iw]) : 0.f;
+    }
+
+    __syncthreads();
+
+    // Each thread computes 2 rows x 8 cols = 16 outputs
+    // Thread (tx, ty) handles rows [ty*2, ty*2+1] and cols [tx*8..tx*8+7]
+    int sy0 = ty * T2_RPTS;  // 0,2,4,6,8,10,12,14
+    int sx  = tx * T2_NVEC;  // 0,8,16,...,248
+    int oh0 = oh_base + sy0;
+    int ow0 = ow_base + sx;
+    float* out0 = output + ((n*C+c)*OH+oh0)*OW + ow0;
+    float* out1 = out0 + OW;
+    int rem = OW - ow0;
+
+#define COMPUTE8(sr, outp, oh_val) \
+    if ((oh_val) < OH) { \
+        float r0_0=sdata[sr  ][sx  ],r0_1=sdata[sr  ][sx+1],r0_2=sdata[sr  ][sx+2]; \
+        float r0_3=sdata[sr  ][sx+3],r0_4=sdata[sr  ][sx+4],r0_5=sdata[sr  ][sx+5]; \
+        float r0_6=sdata[sr  ][sx+6],r0_7=sdata[sr  ][sx+7],r0_8=sdata[sr  ][sx+8],r0_9=sdata[sr  ][sx+9]; \
+        float r1_0=sdata[sr+1][sx  ],r1_1=sdata[sr+1][sx+1],r1_2=sdata[sr+1][sx+2]; \
+        float r1_3=sdata[sr+1][sx+3],r1_4=sdata[sr+1][sx+4],r1_5=sdata[sr+1][sx+5]; \
+        float r1_6=sdata[sr+1][sx+6],r1_7=sdata[sr+1][sx+7],r1_8=sdata[sr+1][sx+8],r1_9=sdata[sr+1][sx+9]; \
+        float r2_0=sdata[sr+2][sx  ],r2_1=sdata[sr+2][sx+1],r2_2=sdata[sr+2][sx+2]; \
+        float r2_3=sdata[sr+2][sx+3],r2_4=sdata[sr+2][sx+4],r2_5=sdata[sr+2][sx+5]; \
+        float r2_6=sdata[sr+2][sx+6],r2_7=sdata[sr+2][sx+7],r2_8=sdata[sr+2][sx+8],r2_9=sdata[sr+2][sx+9]; \
+        float s0=w00*r0_0+w01*r0_1+w02*r0_2+w10*r1_0+w11*r1_1+w12*r1_2+w20*r2_0+w21*r2_1+w22*r2_2; \
+        float s1=w00*r0_1+w01*r0_2+w02*r0_3+w10*r1_1+w11*r1_2+w12*r1_3+w20*r2_1+w21*r2_2+w22*r2_3; \
+        float s2=w00*r0_2+w01*r0_3+w02*r0_4+w10*r1_2+w11*r1_3+w12*r1_4+w20*r2_2+w21*r2_3+w22*r2_4; \
+        float s3=w00*r0_3+w01*r0_4+w02*r0_5+w10*r1_3+w11*r1_4+w12*r1_5+w20*r2_3+w21*r2_4+w22*r2_5; \
+        float s4=w00*r0_4+w01*r0_5+w02*r0_6+w10*r1_4+w11*r1_5+w12*r1_6+w20*r2_4+w21*r2_5+w22*r2_6; \
+        float s5=w00*r0_5+w01*r0_6+w02*r0_7+w10*r1_5+w11*r1_6+w12*r1_7+w20*r2_5+w21*r2_6+w22*r2_7; \
+        float s6=w00*r0_6+w01*r0_7+w02*r0_8+w10*r1_6+w11*r1_7+w12*r1_8+w20*r2_6+w21*r2_7+w22*r2_8; \
+        float s7=w00*r0_7+w01*r0_8+w02*r0_9+w10*r1_7+w11*r1_8+w12*r1_9+w20*r2_7+w21*r2_8+w22*r2_9; \
+        if (bias) { float b=bias[c]; s0+=b;s1+=b;s2+=b;s3+=b;s4+=b;s5+=b;s6+=b;s7+=b; } \
+        if (rem >= 8) { (outp)[0]=s0;(outp)[1]=s1;(outp)[2]=s2;(outp)[3]=s3; \
+                        (outp)[4]=s4;(outp)[5]=s5;(outp)[6]=s6;(outp)[7]=s7; } \
+        else { if(rem>0)(outp)[0]=s0;if(rem>1)(outp)[1]=s1;if(rem>2)(outp)[2]=s2; \
+               if(rem>3)(outp)[3]=s3;if(rem>4)(outp)[4]=s4;if(rem>5)(outp)[5]=s5; \
+               if(rem>6)(outp)[6]=s6; } \
+    }
+
+    COMPUTE8(sy0,     out0, oh0)
+    COMPUTE8(sy0 + 1, out1, oh0 + 1)
+#undef COMPUTE8
+}
+
+// ===========================================================================
+// Best prior: NVEC=8, 256x8 tile, float4 smem loads, scalar outputs
+// ===========================================================================
+#define T1_THX   32
+#define T1_THY    8
+#define T1_NVEC   8
+#define T1_OUT_W (T1_THX * T1_NVEC)    // 256
+#define T1_OUT_H  T1_THY                // 8
+#define T1_IN_W  (T1_OUT_W + 2)         // 258
+#define T1_IN_H  (T1_OUT_H + 2)         // 10
+
+__global__ void depthwise_conv2d_3x3_v1(
+    const float* __restrict__ input,
+    const float* __restrict__ weight,
+    const float* __restrict__ bias,
+    float* __restrict__ output,
+    int N, int C, int H, int W, int OH, int OW
+) {
+    __shared__ float sdata[T1_IN_H][T1_IN_W + 2];  // 10 x 260
+
+    int tx = threadIdx.x, ty = threadIdx.y;
+    int ow_base = blockIdx.x * T1_OUT_W;
+    int oh_base = blockIdx.y * T1_OUT_H;
+    int nc = blockIdx.z, n = nc / C, c = nc % C;
+
+    const float* wp = weight + c * 9;
+    float w00=wp[0],w01=wp[1],w02=wp[2],
+          w10=wp[3],w11=wp[4],w12=wp[5],
+          w20=wp[6],w21=wp[7],w22=wp[8];
+    const float* inp = input + (n * C + c) * (H * W);
+
+    int flat_tid = ty * T1_THX + tx;
+
+    #pragma unroll 3
+    for (int i = flat_tid; i < T1_IN_H * 64; i += T1_THX * T1_THY) {
+        int row  = i / 64;
+        int col4 = i % 64;
+        int ih = oh_base + row;
+        int iw = ow_base + col4 * 4;
+        float4 val = make_float4(0.f, 0.f, 0.f, 0.f);
+        if ((unsigned)ih < (unsigned)H) {
+            if ((unsigned)(iw + 3) < (unsigned)W) {
+                val = __ldg((const float4*)(inp + ih * W + iw));
+            } else {
+                for (int k = 0; k < 4 && iw+k < W; k++)
+                    ((float*)&val)[k] = __ldg(&inp[ih*W+iw+k]);
+            }
+        }
+        sdata[row][col4*4  ] = val.x;
+        sdata[row][col4*4+1] = val.y;
+        sdata[row][col4*4+2] = val.z;
+        sdata[row][col4*4+3] = val.w;
+    }
+
     if (flat_tid < T1_IN_H * 2) {
         int row = flat_tid / 2;
         int col = 256 + (flat_tid & 1);
@@ -91,139 +193,39 @@ __global__ void depthwise_conv2d_3x3_v1(
 
     int oh = oh_base + ty;
     if (oh >= OH) return;
-
-    int sx  = tx * T1_NVEC;    // 0,8,16,...,248
+    int sx  = tx * T1_NVEC;
     int ow0 = ow_base + sx;
 
-    // Compute 8 outputs per thread
-    // Load 3 rows x 10 values from smem (indices sx..sx+9)
-    // Row 0
     float r0_0=sdata[ty  ][sx  ],r0_1=sdata[ty  ][sx+1],r0_2=sdata[ty  ][sx+2];
     float r0_3=sdata[ty  ][sx+3],r0_4=sdata[ty  ][sx+4],r0_5=sdata[ty  ][sx+5];
     float r0_6=sdata[ty  ][sx+6],r0_7=sdata[ty  ][sx+7],r0_8=sdata[ty  ][sx+8],r0_9=sdata[ty  ][sx+9];
-    // Row 1
     float r1_0=sdata[ty+1][sx  ],r1_1=sdata[ty+1][sx+1],r1_2=sdata[ty+1][sx+2];
     float r1_3=sdata[ty+1][sx+3],r1_4=sdata[ty+1][sx+4],r1_5=sdata[ty+1][sx+5];
     float r1_6=sdata[ty+1][sx+6],r1_7=sdata[ty+1][sx+7],r1_8=sdata[ty+1][sx+8],r1_9=sdata[ty+1][sx+9];
-    // Row 2
     float r2_0=sdata[ty+2][sx  ],r2_1=sdata[ty+2][sx+1],r2_2=sdata[ty+2][sx+2];
     float r2_3=sdata[ty+2][sx+3],r2_4=sdata[ty+2][sx+4],r2_5=sdata[ty+2][sx+5];
     float r2_6=sdata[ty+2][sx+6],r2_7=sdata[ty+2][sx+7],r2_8=sdata[ty+2][sx+8],r2_9=sdata[ty+2][sx+9];
 
-    float s0 = w00*r0_0+w01*r0_1+w02*r0_2 + w10*r1_0+w11*r1_1+w12*r1_2 + w20*r2_0+w21*r2_1+w22*r2_2;
-    float s1 = w00*r0_1+w01*r0_2+w02*r0_3 + w10*r1_1+w11*r1_2+w12*r1_3 + w20*r2_1+w21*r2_2+w22*r2_3;
-    float s2 = w00*r0_2+w01*r0_3+w02*r0_4 + w10*r1_2+w11*r1_3+w12*r1_4 + w20*r2_2+w21*r2_3+w22*r2_4;
-    float s3 = w00*r0_3+w01*r0_4+w02*r0_5 + w10*r1_3+w11*r1_4+w12*r1_5 + w20*r2_3+w21*r2_4+w22*r2_5;
-    float s4 = w00*r0_4+w01*r0_5+w02*r0_6 + w10*r1_4+w11*r1_5+w12*r1_6 + w20*r2_4+w21*r2_5+w22*r2_6;
-    float s5 = w00*r0_5+w01*r0_6+w02*r0_7 + w10*r1_5+w11*r1_6+w12*r1_7 + w20*r2_5+w21*r2_6+w22*r2_7;
-    float s6 = w00*r0_6+w01*r0_7+w02*r0_8 + w10*r1_6+w11*r1_7+w12*r1_8 + w20*r2_6+w21*r2_7+w22*r2_8;
-    float s7 = w00*r0_7+w01*r0_8+w02*r0_9 + w10*r1_7+w11*r1_8+w12*r1_9 + w20*r2_7+w21*r2_8+w22*r2_9;
+    float s0=w00*r0_0+w01*r0_1+w02*r0_2+w10*r1_0+w11*r1_1+w12*r1_2+w20*r2_0+w21*r2_1+w22*r2_2;
+    float s1=w00*r0_1+w01*r0_2+w02*r0_3+w10*r1_1+w11*r1_2+w12*r1_3+w20*r2_1+w21*r2_2+w22*r2_3;
+    float s2=w00*r0_2+w01*r0_3+w02*r0_4+w10*r1_2+w11*r1_3+w12*r1_4+w20*r2_2+w21*r2_3+w22*r2_4;
+    float s3=w00*r0_3+w01*r0_4+w02*r0_5+w10*r1_3+w11*r1_4+w12*r1_5+w20*r2_3+w21*r2_4+w22*r2_5;
+    float s4=w00*r0_4+w01*r0_5+w02*r0_6+w10*r1_4+w11*r1_5+w12*r1_6+w20*r2_4+w21*r2_5+w22*r2_6;
+    float s5=w00*r0_5+w01*r0_6+w02*r0_7+w10*r1_5+w11*r1_6+w12*r1_7+w20*r2_5+w21*r2_6+w22*r2_7;
+    float s6=w00*r0_6+w01*r0_7+w02*r0_8+w10*r1_6+w11*r1_7+w12*r1_8+w20*r2_6+w21*r2_7+w22*r2_8;
+    float s7=w00*r0_7+w01*r0_8+w02*r0_9+w10*r1_7+w11*r1_8+w12*r1_9+w20*r2_7+w21*r2_8+w22*r2_9;
 
-    if (bias) {
-        float b = bias[c];
-        s0+=b; s1+=b; s2+=b; s3+=b; s4+=b; s5+=b; s6+=b; s7+=b;
-    }
+    if (bias) { float b=bias[c]; s0+=b;s1+=b;s2+=b;s3+=b;s4+=b;s5+=b;s6+=b;s7+=b; }
 
     float* outp = output + ((n*C+c)*OH+oh)*OW + ow0;
     int rem = OW - ow0;
     if (rem >= 8) {
-        outp[0]=s0; outp[1]=s1; outp[2]=s2; outp[3]=s3;
-        outp[4]=s4; outp[5]=s5; outp[6]=s6; outp[7]=s7;
+        outp[0]=s0;outp[1]=s1;outp[2]=s2;outp[3]=s3;
+        outp[4]=s4;outp[5]=s5;outp[6]=s6;outp[7]=s7;
     } else {
-        if(rem>0)outp[0]=s0; if(rem>1)outp[1]=s1; if(rem>2)outp[2]=s2;
-        if(rem>3)outp[3]=s3; if(rem>4)outp[4]=s4; if(rem>5)outp[5]=s5;
+        if(rem>0)outp[0]=s0;if(rem>1)outp[1]=s1;if(rem>2)outp[2]=s2;
+        if(rem>3)outp[3]=s3;if(rem>4)outp[4]=s4;if(rem>5)outp[5]=s5;
         if(rem>6)outp[6]=s6;
-    }
-}
-
-// ===========================================================================
-// Fallback: best prior kernel (NVEC=4, 128x8 tile, float4 smem loads)
-// ===========================================================================
-#define THX  32
-#define THY   8
-#define NVEC  4
-#define OUT_W (THX * NVEC)  // 128
-#define OUT_H THY            // 8
-#define IN_W  (OUT_W + 2)    // 130
-#define IN_H  (OUT_H + 2)    // 10
-
-__global__ void depthwise_conv2d_3x3_f4load(
-    const float* __restrict__ input,
-    const float* __restrict__ weight,
-    const float* __restrict__ bias,
-    float* __restrict__ output,
-    int N, int C, int H, int W, int OH, int OW
-) {
-    __shared__ float sdata[IN_H][IN_W + 2];  // 10 x 132
-
-    int tx = threadIdx.x, ty = threadIdx.y;
-    int ow_base = blockIdx.x * OUT_W;
-    int oh_base = blockIdx.y * OUT_H;
-    int nc = blockIdx.z, n = nc / C, c = nc % C;
-
-    const float* wp = weight + c * 9;
-    float w00=wp[0],w01=wp[1],w02=wp[2],w10=wp[3],w11=wp[4],w12=wp[5],w20=wp[6],w21=wp[7],w22=wp[8];
-    const float* inp = input + (n * C + c) * (H * W);
-
-    int flat_tid = ty * THX + tx;  // 0..255
-    int total_f4 = IN_H * 32;      // 10 * 32 = 320
-    for (int i = flat_tid; i < total_f4; i += THX * THY) {
-        int row = i / 32;
-        int col4 = i % 32;
-        int ih = oh_base + row;
-        int iw = ow_base + col4 * 4;
-        float4 val = {0,0,0,0};
-        if ((unsigned)ih < (unsigned)H) {
-            if ((unsigned)(iw + 3) < (unsigned)W) {
-                val = *((const float4*)(inp + ih * W + iw));
-            } else {
-                for (int k = 0; k < 4 && iw+k < W; k++)
-                    ((float*)&val)[k] = inp[ih*W+iw+k];
-            }
-        }
-        sdata[row][col4*4    ] = val.x;
-        sdata[row][col4*4 + 1] = val.y;
-        sdata[row][col4*4 + 2] = val.z;
-        sdata[row][col4*4 + 3] = val.w;
-    }
-
-    if (flat_tid < IN_H * 2) {
-        int row = flat_tid / 2;
-        int col = 128 + (flat_tid % 2);
-        int ih = oh_base + row;
-        int iw = ow_base + col;
-        float val = ((unsigned)ih < (unsigned)H && (unsigned)iw < (unsigned)W)
-                    ? inp[ih*W+iw] : 0.f;
-        sdata[row][col] = val;
-    }
-
-    __syncthreads();
-
-    int oh = oh_base + ty, ow0 = ow_base + tx * NVEC;
-    if (oh < OH) {
-        int sy = ty, sx = tx * NVEC;
-        float s0=0,s1=0,s2=0,s3=0;
-
-        float r0_0=sdata[sy  ][sx  ],r0_1=sdata[sy  ][sx+1],r0_2=sdata[sy  ][sx+2];
-        float r0_3=sdata[sy  ][sx+3],r0_4=sdata[sy  ][sx+4],r0_5=sdata[sy  ][sx+5];
-        s0+=w00*r0_0+w01*r0_1+w02*r0_2; s1+=w00*r0_1+w01*r0_2+w02*r0_3;
-        s2+=w00*r0_2+w01*r0_3+w02*r0_4; s3+=w00*r0_3+w01*r0_4+w02*r0_5;
-
-        float r1_0=sdata[sy+1][sx  ],r1_1=sdata[sy+1][sx+1],r1_2=sdata[sy+1][sx+2];
-        float r1_3=sdata[sy+1][sx+3],r1_4=sdata[sy+1][sx+4],r1_5=sdata[sy+1][sx+5];
-        s0+=w10*r1_0+w11*r1_1+w12*r1_2; s1+=w10*r1_1+w11*r1_2+w12*r1_3;
-        s2+=w10*r1_2+w11*r1_3+w12*r1_4; s3+=w10*r1_3+w11*r1_4+w12*r1_5;
-
-        float r2_0=sdata[sy+2][sx  ],r2_1=sdata[sy+2][sx+1],r2_2=sdata[sy+2][sx+2];
-        float r2_3=sdata[sy+2][sx+3],r2_4=sdata[sy+2][sx+4],r2_5=sdata[sy+2][sx+5];
-        s0+=w20*r2_0+w21*r2_1+w22*r2_2; s1+=w20*r2_1+w21*r2_2+w22*r2_3;
-        s2+=w20*r2_2+w21*r2_3+w22*r2_4; s3+=w20*r2_3+w21*r2_4+w22*r2_5;
-
-        if (bias) { float b=bias[c];s0+=b;s1+=b;s2+=b;s3+=b; }
-        float* outp = output+((n*C+c)*OH+oh)*OW+ow0;
-        int rem = OW - ow0;
-        if(rem>=4){outp[0]=s0;outp[1]=s1;outp[2]=s2;outp[3]=s3;}
-        else{if(rem>0)outp[0]=s0;if(rem>1)outp[1]=s1;if(rem>2)outp[2]=s2;}
     }
 }
 
@@ -290,10 +292,10 @@ torch::Tensor depthwise_conv2d_forward(
     if(bias.has_value()&&bias.value().defined()){bt=bias.value().contiguous();bp=bt.data_ptr<float>();}
 
     if(KH==3&&KW==3&&sh==1&&sw==1&&ph==0&&pw==0){
-        // Iter 1: NVEC=8 wider tile (256 cols), 256 threads, float4 smem loads, scalar outputs
-        dim3 block(T1_THX, T1_THY);
-        dim3 grid((OW+T1_OUT_W-1)/T1_OUT_W, (OH+T1_OUT_H-1)/T1_OUT_H, N*C);
-        depthwise_conv2d_3x3_v1<<<grid,block>>>(
+        // Iter 2: NVEC=8 x RPTS=2, 256x16 output tile, 256 threads, float4 smem loads
+        dim3 block(T2_THX, T2_THY);
+        dim3 grid((OW+T2_OUT_W-1)/T2_OUT_W, (OH+T2_OUT_H-1)/T2_OUT_H, N*C);
+        depthwise_conv2d_3x3_v2<<<grid,block>>>(
             input.data_ptr<float>(),w.data_ptr<float>(),bp,out.data_ptr<float>(),N,C,H,W,OH,OW);
     } else if(KH==3&&KW==3){
         dim3 block(32,8);dim3 grid((OW+31)/32,(OH+7)/8,N*C);
@@ -322,7 +324,7 @@ torch::Tensor depthwise_conv2d_forward(
 """
 
 _depthwise_ext = load_inline(
-    name="depthwise_conv2d_ext_v11",
+    name="depthwise_conv2d_ext_v12",
     cpp_sources=_depthwise_conv_decl,
     cuda_sources=_depthwise_conv_src,
     functions=["depthwise_conv2d_forward"],
