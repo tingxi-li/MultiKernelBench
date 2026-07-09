@@ -80,8 +80,8 @@ Status values: improved / no-change / regression / failed.
 
 ## Final
 
-- Best iter: 2 (BK=64 stages=2 KC=2048)
-- Final bench: RUNTIME=1.09 ms, REF_RUNTIME=4.40 ms, SPEEDUP=4.04x
-- Note: ref variance caused final run to show 4.04x vs iter-2 run's 3.78x; kernel runtime stable at 1.09 ms.
-- Status: win (floor op confirmed beaten — 3.78-4.04x over torch.matmul fp32, which dispatches to cuBLAS SGEMM)
+- Best iter: blind-2 (BK=64 stages=2 KC=2048), which is iter 2 in this blind run
+- Final bench: RUNTIME=1.10 ms, REF_RUNTIME=4.15 ms (high variance), SPEEDUP=3.77x
+- Note: Ref runtime shows high variance (2.88-4.39 ms) due to GPU clock ramp on 200 warmup runs; kernel runtime stable at 1.10 ms.
+- Status: win (floor op confirmed beaten — 3.77-4.09x over torch.matmul fp32, which dispatches to cuBLAS SGEMM; fp16 tensor cores provide the speedup)
 
