@@ -2,60 +2,63 @@ import torch
 import torch.nn as nn
 from torch.utils.cpp_extension import load_inline
 
-# Iter 4: ld.lu (last-use, aggressive eviction) + st.wt (write-through output)
-#         + 2-accumulator ILP for moderate register pressure
-# Input: (N=128, M=4096, K=4096), reduce dim=1, output: (N,1,K)
-# Key idea: ld.lu frees cache lines as soon as loaded (they're never reused);
-#           st.wt bypasses L2 for the output (output is write-only here),
-#           preserving L2 capacity for input reads.
+# Iter 5: Warp-cooperative reduction along M dimension
+# Each warp of 32 threads handles ONE float4 output (4 K-values),
+# with each thread summing M/32 = 128 rows, then warp-shuffle reduces.
+# This multiplies the number of outstanding loads by 32x per output element,
+# significantly improving memory-level parallelism for the DRAM scheduler.
 
 cuda_src = r"""
 #include <cuda_runtime.h>
 
+// One warp (32 threads) computes one float4 output (4 K-elements)
+// Thread t sums rows [t, t+32, t+64, ..., t+4064] (= 128 rows)
+// Then horizontal warp-reduce via shuffle
 template<int BLOCK>
-__global__ __launch_bounds__(BLOCK, 6)
-void sum_reduce_dim1_lu_wt(
+__global__ __launch_bounds__(BLOCK, 4)
+void sum_reduce_warp_coop(
     const float* __restrict__ x,   // [N, M, K]
     float*       __restrict__ out, // [N, K]
     int N, int M, int K)
 {
-    const int tid = blockIdx.x * BLOCK + threadIdx.x;
-    const int k4  = tid * 4;
-    const int n   = blockIdx.y;
+    // 1 warp = 32 threads handles 4 K-elements (one float4 output)
+    const int warp_id = (blockIdx.x * BLOCK + threadIdx.x) / 32;
+    const int lane    = threadIdx.x % 32;
+    const int n       = blockIdx.y;
 
+    // Each warp maps to one float4 in the output
+    const int k4 = warp_id * 4;
     if (k4 >= K) return;
 
-    // Two independent accumulator chains for light ILP
-    float4 acc0 = {0.f, 0.f, 0.f, 0.f};
-    float4 acc1 = {0.f, 0.f, 0.f, 0.f};
+    float4 acc = {0.f, 0.f, 0.f, 0.f};
 
     const float* base = x + (long)n * M * K + k4;
     const long stride = K;
 
-    // M=4096 divisible by 2; unroll by 2 with independent accumulators
-    for (int i = 0; i < M; i += 2) {
-        float4 v0, v1;
-        // ld.lu: "last use" hint — evict cache line immediately after load.
-        // Ideal for streaming patterns with no temporal reuse.
-        asm volatile("ld.lu.v4.f32 {%0,%1,%2,%3},[%4];"
-            : "=f"(v0.x),"=f"(v0.y),"=f"(v0.z),"=f"(v0.w)
-            : "l"(base + (i+0)*stride));
-        asm volatile("ld.lu.v4.f32 {%0,%1,%2,%3},[%4];"
-            : "=f"(v1.x),"=f"(v1.y),"=f"(v1.z),"=f"(v1.w)
-            : "l"(base + (i+1)*stride));
-        acc0.x += v0.x; acc0.y += v0.y; acc0.z += v0.z; acc0.w += v0.w;
-        acc1.x += v1.x; acc1.y += v1.y; acc1.z += v1.z; acc1.w += v1.w;
+    // Each lane sums M/32 rows with stride-32 stepping
+    // M=4096, so each lane handles 128 rows
+    for (int i = lane; i < M; i += 32) {
+        float4 v;
+        asm volatile("ld.cs.v4.f32 {%0,%1,%2,%3},[%4];"
+            : "=f"(v.x),"=f"(v.y),"=f"(v.z),"=f"(v.w)
+            : "l"(base + (long)i * stride));
+        acc.x += v.x; acc.y += v.y; acc.z += v.z; acc.w += v.w;
     }
 
-    // Merge
-    acc0.x += acc1.x; acc0.y += acc1.y;
-    acc0.z += acc1.z; acc0.w += acc1.w;
+    // Warp-level reduction via shuffle down
+    #pragma unroll
+    for (int delta = 16; delta >= 1; delta >>= 1) {
+        acc.x += __shfl_down_sync(0xffffffff, acc.x, delta);
+        acc.y += __shfl_down_sync(0xffffffff, acc.y, delta);
+        acc.z += __shfl_down_sync(0xffffffff, acc.z, delta);
+        acc.w += __shfl_down_sync(0xffffffff, acc.w, delta);
+    }
 
-    // st.wt: write-through. Output is never read in this pass; skip L2 for writes.
-    asm volatile("st.wt.v4.f32 [%0],{%1,%2,%3,%4};"
-        :
-        : "l"(out + (long)n * K + k4),
-          "f"(acc0.x),"f"(acc0.y),"f"(acc0.z),"f"(acc0.w));
+    // Lane 0 writes the result
+    if (lane == 0) {
+        float4* dst = reinterpret_cast<float4*>(out + (long)n * K + k4);
+        *dst = acc;
+    }
 }
 
 torch::Tensor sum_reduce_cuda(torch::Tensor x, int dim)
@@ -64,15 +67,20 @@ torch::Tensor sum_reduce_cuda(torch::Tensor x, int dim)
     TORCH_CHECK(dim == 1 && x.dim() == 3);
 
     const int N = x.size(0), M = x.size(1), K = x.size(2);
-    TORCH_CHECK(K % 4 == 0 && M % 2 == 0);
+    TORCH_CHECK(K % 4 == 0 && M % 32 == 0);
 
     auto out = torch::empty({N, 1, K}, x.options());
 
+    // Each warp (32 threads) handles one float4 output
+    // # warps needed = K/4
+    // Use BLOCK=256 = 8 warps; grid_x = ceil(K/4 / 8)
     constexpr int BLOCK = 256;
-    const int grid_x = (K / 4 + BLOCK - 1) / BLOCK;
+    const int warps_per_block = BLOCK / 32;
+    const int num_warps = K / 4;  // K=4096, so 1024 warps per n
+    const int grid_x = (num_warps + warps_per_block - 1) / warps_per_block;
     dim3 grid(grid_x, N);
 
-    sum_reduce_dim1_lu_wt<BLOCK><<<grid, BLOCK>>>(
+    sum_reduce_warp_coop<BLOCK><<<grid, BLOCK>>>(
         x.data_ptr<float>(),
         out.data_ptr<float>(),
         N, M, K);
@@ -86,7 +94,7 @@ torch::Tensor sum_reduce_cuda(torch::Tensor x, int dim);
 """
 
 _mod = load_inline(
-    name="sum_reduce_lu_wt_v4",
+    name="sum_reduce_warp_coop_v5",
     cpp_sources=cpp_src,
     cuda_sources=cuda_src,
     functions=["sum_reduce_cuda"],
@@ -97,8 +105,8 @@ _mod = load_inline(
 
 class Model(nn.Module):
     """
-    Optimized sum reduction: ld.lu (last-use eviction) + st.wt (write-through)
-    to minimize L2 cache pollution from streaming reads and writes.
+    Optimized sum reduction: warp-cooperative reduction along M.
+    32 threads per output float4, each handling M/32 rows; then warp shuffle.
     """
     def __init__(self, dim: int):
         super().__init__()

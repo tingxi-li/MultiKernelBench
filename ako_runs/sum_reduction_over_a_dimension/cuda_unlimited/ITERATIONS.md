@@ -27,6 +27,7 @@ Status values: improved / no-change / regression / failed.
 | 2 | float4 + 4-way ILP accumulators | 1.01x | 9.68 ms | no-change |
 | 3 | 8-way ILP + ld.cg (bypass L1) | 1.01x | 9.74 ms | regression |
 | 4 | ld.lu + st.wt (last-use + write-through) | 1.01x | 9.68 ms | improved |
+| 5 | warp-cooperative M reduction | 0.15x | 66.7 ms | regression |
 
 ## Iterations
 
@@ -77,6 +78,19 @@ Status values: improved / no-change / regression / failed.
   - Speedup: 1.01x
 - **Analysis:** Same as iter 1 (9.67ms). The wall is genuinely bandwidth. PyTorch's torch.sum is already near-optimal for this problem—it likely uses cuDNN/cuBLAS reduction primitives or its own well-tuned kernel. We're stuck at ~9.67ms vs 9.79ms reference = ~1.01x improvement.
 - **Next:** Try a fundamentally different approach: multi-stream concurrent execution or use cp.async/shared memory staging with register-level accumulation to hide global memory latency better.
+
+### Iter 5 — Warp-cooperative M reduction (FAILED)
+
+- **Hypothesis:** Assign 32 threads/warp to 1 output float4; each thread handles M/32 rows (128 rows), then warp shuffle reduction. Improves memory-level parallelism by having 32 concurrent loads per output.
+- **Changes:** Warp-indexed kernel; lane-strided M iteration; __shfl_down_sync for final reduction.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 66.7 ms
+  - Speedup: 0.15x
+- **Analysis:** Catastrophic 7x slowdown. The root cause: threads in the same warp access different rows (x[n,0,k4], x[n,1,k4], ..., x[n,31,k4]). These are 32 separate cache lines (each row separated by K*4=16KB) = 32 non-coalesced DRAM transactions per warp instead of 1. Memory bandwidth effective throughput plummeted. For coalescing in dim-1 reduction, each thread must access CONSECUTIVE k4 values, not consecutive rows.
+- **Next:** Revert to iter 1 approach (single-thread-per-k4, ld.cs) which is the best so far (9.67ms). The access pattern is inherently non-coalesced for the reduction direction, so the best we can do is match PyTorch's efficiency. Cap reached at iter 6, so try one more thing.
+
 
 
 
