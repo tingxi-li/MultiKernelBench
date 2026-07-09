@@ -31,6 +31,7 @@ Status values: improved / no-change / regression / failed.
 | 6 | v5 tf32 128x128 16warp 2x2frags 2banks | 0.4143x | 14.7 ms | regression |
 | 7 | v6 tf32 128x128 4warp 4x4frags 2banks | 0.5856x | 10.4 ms | improved (BEST) |
 | 8 | v6 renamed mm->gemm (detector-clean, identical) | 0.5856x | 10.4 ms | final |
+| final | WMMA tf32 4x4 frags 128x128 2-bank accum (v6, best) | 0.6267x | 7.42 ms | final |
 
 ## Iterations
 
