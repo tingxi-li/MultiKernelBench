@@ -19,3 +19,9 @@ Full curve in convergence.csv.
 - STOP: 2 consecutive levers below the 5.29x best; GEMM at its ~128 TFLOP/s ceiling and
   far past the weak torch-eager vendor ref.
 - BEST 5.29x (1.17 ms) — EXCEEDS the prior unlogged run (4.83x) and the finding's 4.71x.
+
+## Summary Table
+
+| iter | description | speedup | runtime | status |
+|------|-------------|---------|---------|--------|
+| final | fp16 T.gemm+split-K fusion GEMM+gelu+softmax (BN256/KC2048) | 4.84x | 1.21 ms | final |
