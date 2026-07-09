@@ -52,3 +52,10 @@ Status values: improved / no-change / regression / failed.
 - **Analysis:** BK=64 st=2 is faster than BK=32 st=3 (1.09 vs 1.12 ms). The wider BK tile reduces the number of Pipelined iterations (KC//BK = 32 vs 64), cutting launch overhead and improving L2 utilization. 3.78x vs 3.63x improvement confirms this is the better config. Ref runtime 4.12 ms mean.
 - **Next:** Cap reached at 2 iters per HINTS.md. iter-2 is best.
 
+## Final
+
+- Best iter: 2 (BK=64 stages=2 KC=2048)
+- Final bench: RUNTIME=1.09 ms, REF_RUNTIME=4.40 ms, SPEEDUP=4.04x
+- Note: ref variance caused final run to show 4.04x vs iter-2 run's 3.78x; kernel runtime stable at 1.09 ms.
+- Status: win (floor op confirmed beaten — 3.78-4.04x over torch.matmul fp32, which dispatches to cuBLAS SGEMM)
+
