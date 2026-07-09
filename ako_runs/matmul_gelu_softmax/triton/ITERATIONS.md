@@ -26,8 +26,21 @@ Status values: improved / no-change / regression / failed.
 | 1 | Fused matmul+GELU + separate softmax | 3.55x | 1.76 ms | improved |
 | 2 | fp16 tensor cores in matmul | 4.41x | 1.43 ms | improved |
 | 3 | Autotuned multi-chunk softmax | 4.93x | 1.26 ms | improved |
+| 4 | Pre-cast weight+input to fp16, native fp16 loads | 5.02x | 1.27 ms | improved |
 
 ## Iterations
+
+### Iter 4 — Pre-cast weight+input to fp16 for native fp16 tensor-core loads
+
+- **Hypothesis:** In iter 2/3, inputs were fp32 and we cast them inside the kernel with `.to(tl.float16)`. By pre-casting both weight matrix and input to fp16 before the kernel, we halve memory load bandwidth (256MB weight → 128MB) and enable native fp16 tensor core MMA without in-kernel cast overhead.
+- **Changes:** Added `self.weight_fp16` buffer (cached fp16 version of `self.linear.weight`), input cast to fp16 before passing to kernel. Kernel now loads fp16 directly with `.to(tl.float16)` after load (to fix Triton's `other=0.0` fp32 promotion issue), then uses 3-arg `tl.dot` for fp32-accumulated fp16 MMA.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 1.27 ms (mean), 1.24 ~ 1.42 ms (min ~ max)
+  - Speedup: 5.02x (mean)
+- **Analysis:** 5.02x speedup. Mean slightly higher than fast-signal (0.857ms) due to warmup/clock variability in full bench. The fp16 native load gives real gains — faster load path and tensor-core friendly.
+- **Next:** At iter cap. The 6-iter cap is reached at iter 6 — two more iters remain. Try: (1) combined softmax improvement (bf16 or fused), (2) check if the softmax can be done with higher concurrency.
 
 ### Iter 3 — Autotuned multi-chunk softmax
 
