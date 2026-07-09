@@ -7,51 +7,45 @@ import tilelang.language as T
 # Sum reduction over dim=1: X(B, H, W) -> Y(B, 1, W)
 # B=128, H=4096, W=4096  -> 8.59 GB read, bandwidth-bound.
 #
-# Iter 4 strategy: T.Parallel + T.vectorized for float4 coalesced reads.
-#   - Treat input as (B, H, W) and output as (B, W)
-#   - Each block handles BLK_W output elements
-#   - Threads iterate over h with vectorized reads of 4 consecutive w elements
-#   - This maps to float4 ld.global instructions, maximizing memory throughput
+# Iter 5: avoid int32 overflow (B*H*W = 2^31).
+# Reshape to X2D(B*H, W) and Y2D(B, W) to work with 2D indices.
+# B*H = 128*4096 = 524288 which is comfortably within int32.
+# Each block processes BLK_W output elements (one b-row of Y).
+# Grid = (B, W//BLK_W). Each thread handles one w column.
+# Use H-stride grid access within the 2D view.
 # ============================================================================
 
 _TH = 256        # threads per block
-_VEC = 4         # vector width (float4)
-_BLK_W = _TH * _VEC   # output elements per block (1024)
 
 _KCACHE = {}
 
 
-def _build(B, H, W, TH, VEC):
-    BLK_W = TH * VEC
-    NW = (W + BLK_W - 1) // BLK_W   # number of w-tiles
+def _build(B, H, W, TH):
+    BH = B * H     # 128 * 4096 = 524288 (fits in int32)
+    BLK_W = TH
+    NW = (W + BLK_W - 1) // BLK_W   # = 16 for W=4096, TH=256
 
     @tilelang.jit
     def _make():
         @T.prim_func
         def kernel(
-            X: T.Tensor((B, H, W), T.float32),
-            Y: T.Tensor((B, W), T.float32),
+            X2D: T.Tensor((BH, W), T.float32),   # reshaped view (B*H, W)
+            Y2D: T.Tensor((B, W), T.float32),      # output (B, W)
         ):
             with T.Kernel(B, NW, threads=TH) as (bx, by):
-                # Local accumulator: VEC values per thread
-                acc = T.alloc_local((VEC,), T.float32)
-                for v in T.vectorized(VEC):
-                    acc[v] = T.float32(0)
+                tid = T.get_thread_binding(0)
+                w = by * BLK_W + tid
+                b = bx
 
-                # Iterate over h dimension
+                acc = T.alloc_local((1,), T.float32)
+                acc[0] = T.float32(0)
+
                 for h in T.serial(H):
-                    for i in T.Parallel(TH):
-                        for v in T.vectorized(VEC):
-                            w = by * BLK_W + i * VEC + v
-                            if w < W:
-                                acc[v] += X[bx, h, w]
+                    if w < W:
+                        acc[0] += X2D[b * H + h, w]
 
-                # Write results
-                for i in T.Parallel(TH):
-                    for v in T.vectorized(VEC):
-                        w = by * BLK_W + i * VEC + v
-                        if w < W:
-                            Y[bx, w] = acc[v]
+                if w < W:
+                    Y2D[b, w] = acc[0]
 
         return kernel
 
@@ -63,10 +57,10 @@ _KB = (_build,)
 
 
 def _get_kernel(B, H, W):
-    key = (B, H, W, _TH, _VEC)
+    key = (B, H, W, _TH)
     k = _KCACHE.get(key)
     if k is None:
-        k = _KB[0](B, H, W, _TH, _VEC)
+        k = _KB[0](B, H, W, _TH)
         _KCACHE[key] = k
     return k
 
@@ -82,9 +76,11 @@ class Model(nn.Module):
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         if self.dim == 1 and x.ndim == 3:
             B, H, W = x.shape
-            y = torch.empty(B, W, device=x.device, dtype=x.dtype)
+            xc = x.contiguous()
+            x2d = xc.view(B * H, W)
+            y2d = torch.empty(B, W, device=x.device, dtype=x.dtype)
             kern = _get_kernel(B, H, W)
-            kern(x.contiguous(), y)
-            return y.unsqueeze(1)
-        # Fallback for other shapes/dims
+            kern(x2d, y2d)
+            return y2d.unsqueeze(1)
+        # Fallback
         return torch.sum(x, dim=self.dim, keepdim=True)
