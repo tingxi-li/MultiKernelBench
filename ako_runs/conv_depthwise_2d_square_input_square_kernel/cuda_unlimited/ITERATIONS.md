@@ -25,6 +25,7 @@ Status values: improved / no-change / regression / failed.
 |------|-------|---------|--------------|--------|
 | 1 | Shared-mem tiling 3x3 kernel | 1.34x | 2.91 ms | improved |
 | 2 | Wide-tile: 4 outputs/thread, 128x8 tile | 1.54x | 2.63 ms | improved |
+| 3 | PTX ld.cs streaming loads + st.cs stores | 1.35x | 2.63 ms | no-change |
 
 ## Iterations
 
@@ -51,4 +52,16 @@ Status values: improved / no-change / regression / failed.
   - Speedup: 1.54x (mean)
 - **Analysis:** 1.54x speedup, improved from iter-1 (1.34x). The wide tile reduces overhead per output and improves instruction-level parallelism. The min of 2.58ms is very close to the theoretical bandwidth limit of ~2.48ms.
 - **Next:** Try PTX streaming loads (ld.cs) to reduce cache pressure, or cp.async for latency hiding. Also try larger NVEC (8 per thread).
+
+### Iter 3 — PTX ld.cs streaming loads + st.cs stores
+
+- **Hypothesis:** Since each input element is only used by a small number of output elements (in neighboring blocks), streaming loads that bypass L2 might reduce cache pressure and allow more bandwidth.
+- **Changes:** Replaced __ldg with PTX ld.cs.global.f32 for smem loading. Added PTX st.cs.global.f32 for output stores.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 2.63 ms (mean), 2.56 ~ 3.81 ms (min ~ max)
+  - Speedup: 1.35x (mean) - ref was lower this run at 3.56ms
+- **Analysis:** Same runtime as iter-2 (2.63ms). The ld.cs approach doesn't help - the L2 cache on Ada Lovelace (96MB) is not helping much at this scale anyway, but bypassing it doesn't hurt either. The solution runtime has converged at ~2.63ms. The speedup variation (1.35x vs 1.54x) is due to reference runtime variance.
+- **Next:** Try a completely different approach - use cp.async for double-buffered pipeline, or try processing multiple channels per block (channel-fused), or try half-precision intermediate computation.
 
