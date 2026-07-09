@@ -27,8 +27,21 @@ Status values: improved / no-change / regression / failed.
 | 2 | Clean autotune configs focused on best BLOCK_C | 1.0082x | 9.71 ms | improved |
 | 3 | Fixed optimal config BLOCK_C=4096 nw=16 ns=3 | 1.0082x | 9.71 ms | no-change |
 | 4 | evict_first cache policy for streaming loads | 1.0135x | 9.66 ms | improved |
+| 5 | 2D tiling BLOCK_R=2 with evict_first | 1.0135x | 9.66 ms | no-change |
 
 ## Iterations
+
+### Iter 5 — 2D tiling BLOCK_R=2 with evict_first
+
+- **Hypothesis:** Loading 2 rows simultaneously (BLOCK_R=2) as a 2D [2, BLOCK_C] tile might improve memory coalescing by having consecutive threads issue back-to-back loads from consecutive rows, reducing the number of independent transaction requests.
+- **Changes:** Changed to 2D tiling with BLOCK_R=2, using tl.load on [BLOCK_R, BLOCK_C] tile. evict_first still applied. Reduced num_stages from 3 to 2 (2D tile is larger, less stages needed).
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 9.66 ms (mean), 9.65 ~ 9.66 ms (min ~ max)
+  - Speedup: 1.0135x
+- **Analysis:** Identical to iter-4. The 2D tiling shows no measurable benefit vs. the 1D loop at 100-trial precision. The micro-benchmark showed 9.656 vs 9.660ms (marginal). The bench.py rounds to 2 decimal places so both appear as 9.66ms.
+- **Next:** Try autotune over BLOCK_R to find if any BLOCK_R > 1 helps. Or explore whether the reference is getting lucky with clock state — worth a 200-trial run for the final.
 
 ### Iter 4 — evict_first cache policy for streaming loads
 
