@@ -33,8 +33,21 @@ Status values: improved / no-change / regression / failed.
 | 8 | cp.async double-buffer BKK=16, WMMA TF32 + fused epilogue | 1.32x | 4.56 ms | no-change (noisy) |
 | 9 | BM=64 BN=128 BKK=32, 4 warps (2M×2N), __ldg hints | 1.47x | 4.14 ms | improved |
 | 10 | BM=64 BN=128 BKK=16 cp.async double-buffer, 4 warps | 1.15x | 5.30 ms | regression |
+| 11 | BM=64 BN=128 BKK=32 N-swizzled grid (M fastest) | 1.44x | 4.22 ms | no-change |
 
 ## Iterations
+
+### Iter 11 — BM=64 BN=128 BKK=32 N-swizzled grid
+
+- **Hypothesis:** Swizzling the grid so M-blocks cycle fastest (blockIdx.x=M, blockIdx.y=N) should improve L2 reuse of WT[K,N] slices by processing all M-blocks for a given N-slice before moving to the next N-slice.
+- **Changes:** Same kernel as iter-9 (BM=64, BKK=32, 4 warps). Grid dim3 changed from (N/BN, M/BM) to (M/BM, N/BN). Kernel reads bm=blockIdx.x*BMv, bn=blockIdx.y*BNv.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 4.22 ms (mean), 4.0~4.33 ms (min~max)
+  - Speedup: 1.44x (mean)
+- **Analysis:** Marginally worse than iter-9 (1.44x vs 1.47x). CUDA scheduler already handles block ordering well, and the L2 cache is not the primary bottleneck. Iter-9 remains best.
+- **Next:** Reached extended iter cap. Best = iter-9 (1.47x). Restore and finalize.
 
 ### Iter 10 — BM=64 BN=128 BKK=16 cp.async double-buffer, 4 warps
 

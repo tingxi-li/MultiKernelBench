@@ -2,30 +2,55 @@ import torch
 import torch.nn as nn
 from torch.utils.cpp_extension import load_inline
 
-# Iter 4 (blind redo): BM=64 BN=128 BKK=16 cp.async double-buffer, 4 warps
-# Combines the BM=64 occupancy benefit from iter-9 with cp.async pipeline from iter-8
-# Smem per stage: As[64][20]+Bs[16][132] = (64*20+16*132)*4 = (1280+2112)*4 = 13568B
-# 2 stages: 27136B < 48KB → can fit one block, possibly 2 blocks if other state < 21KB
-# Note: K loop has 8192/16 = 512 iterations (vs 256 for BKK=32) but pipeline hides latency
+# Iter 5 (blind redo): PTX mma.sync.m16n8k8 TF32, BM=64 BN=128 BKK=32
+# Replace WMMA C++ API with direct PTX mma.sync instructions
+# m16n8k8 has lower register footprint than m16n16k8 (8 acc vs 8, but for smaller tile)
+# Warp layout: 2M×2N, each warp does WM=2, WN_ptx=4 (each WN is 8 wide, not 16)
+# Use N-swizzle grid: process blocks in column-major order to improve WT L2 reuse
+#
+# Actually: PTX mma.sync.aligned.m16n8k8.row.col.f32.tf32.tf32.f32:
+#   A matrix: 8 registers holding 4 elements each (2×4 lanes share)
+#   Operand A: 8 tf32 values per thread in m16n8k8: thread 0..15 hold A[row 0..15, col 0..3],
+#              thread 16..31 hold A[row 0..15, col 4..7]
+# It's more complex. Use m16n8k4 instead for BKK=32 → 8 steps.
+#
+# Better: stick with WMMA API but change grid traversal to L-shaped tile order
+# (z-order or column-major) to improve WT reuse in L2.
+#
+# For a 1024×8192 GEMM with BM=64, BN=128:
+#   Grid = (64, 16) = 1024 blocks
+#   Each SM on RTX6000 Ada runs 2 blocks (smem-limited to ~26KB each)
+#   RTX6000 Ada has 60 SMs → 120 active blocks simultaneously
+#   With 1024 blocks, each SM processes ~8 wave passes
+#   The default grid order is blockIdx.x fastest (row-major = N-fastest)
+#   For WT reuse, we want all N-blocks for same K-range before moving to next K...
+#   But K is always fully iterated for each block → can't reuse across blocks.
+#
+# The real key: swap blockIdx order to be N-column-major (all M-blocks for same N-tile first)
+# → WT[K, n_tile] fits in 256/(N/BN) = 256/64 = 4MB per N-tile → fits in L2 (96MB) easily!
+# → All 16 M-blocks for a given N-tile read the same WT slice → WT slice stays in L2!
+# → Total BW: A[32MB] + WT[256MB]/reuse_factor + C[32MB]
+# With 16 M-blocks per N-tile: WT loaded once per SM wave if all 16 M-blocks run on same SM.
+# But with 60 SMs and 16 M-blocks per N-tile: only 1 SM processes all 16 M-blocks for a tile!
+# Well, 60 SMs, 64 N-tiles: 64/60 ≈ 1 N-tile per SM in first wave. Each SM processes ~16 M-blocks.
+# If N-tile slice stays in L2 across 16 M-block iterations: WT reads 256MB → 1 load per N-tile = perfect!
+# But L2 is per-GPU (shared across SMs), so N-tile of WT[32*128*4=16KB per N-column] × 256 N-tiles = 256MB.
+# Each N-tile: 32×128 = 4096 floats = 16KB. L2 = 96MB → can hold 6144 N-tile slices. Works!
 
 _CUDA_SRC = r"""
 #include <cuda_runtime.h>
-#include <cuda_pipeline.h>
 #include <mma.h>
 #include <float.h>
 #include <torch/extension.h>
 using namespace nvcuda;
 
-static constexpr int BM_  =  64;
-static constexpr int BN_  = 128;
-static constexpr int BKK_ =  16;
-static constexpr int STS_ =   2;   // pipeline stages
+static constexpr int BMv  =  64;
+static constexpr int BNv  = 128;
+static constexpr int BKv  =  32;
 static constexpr int WMMA_M = 16, WMMA_N = 16, WMMA_K = 8;
-static constexpr int WARPS_M_ = 2, WARPS_N_ = 2;
-static constexpr int WM_ = 2, WN_ = 4;
-static constexpr int NT_ = 128;
-// Smem per stage: As[64][20]+Bs[16][132] = 13568B
-// 2 stages: 27136B < 48KB ✓
+static constexpr int WARPSm = 2, WARPSn = 2;
+static constexpr int WMv = 2, WNv = 4;
+static constexpr int NTv = 128;
 
 static constexpr int SOFT_T = 256;
 static constexpr int EPT    =  32;
@@ -34,113 +59,78 @@ __device__ __forceinline__ float gelu_ex(float x) {
     return 0.5f * x * (1.0f + erff(x * 0.7071067811865476f));
 }
 
-__global__ __launch_bounds__(NT_)
-void wmma_gemm_db64(
+// Same GEMM kernel as iter-9 but with different grid invocation (column-major N-first)
+__global__ __launch_bounds__(NTv)
+void wmma_gemm_v64(
     const float* __restrict__ A,
     const float* __restrict__ WT,
     float* __restrict__ C,
     int M, int N, int K)
 {
+    // Swizzled block assignment: process all M-blocks for same N-block consecutively
+    // blockIdx.x is M-block (0..M/BM-1), blockIdx.y is N-block (0..N/BN-1)
+    // → WT[K, bn:bn+BN] slice stays in L2 across all M-blocks for same N-block
     const int wid = threadIdx.x / 32;
-    const int wr  = wid / WARPS_N_;
-    const int wc  = wid % WARPS_N_;
-    const int bm  = blockIdx.y * BM_;
-    const int bn  = blockIdx.x * BN_;
-    const int wm0 = wr * (WM_ * WMMA_M);   // 0, 32
-    const int wn0 = wc * (WN_ * WMMA_N);   // 0, 64
+    const int wr  = wid / WARPSn;
+    const int wc  = wid % WARPSn;
+    // Swizzled: blockIdx.x = M-tile, blockIdx.y = N-tile
+    const int bm  = blockIdx.x * BMv;
+    const int bn  = blockIdx.y * BNv;
+    const int wm0 = wr * (WMv * WMMA_M);
+    const int wn0 = wc * (WNv * WMMA_N);
 
-    __shared__ float As[STS_][BM_][BKK_ + 4];   // 2*64*20*4 = 10240B
-    __shared__ float Bs[STS_][BKK_][BN_ + 4];   // 2*16*132*4 = 16896B
-    // Total: 27136B < 48KB ✓
+    __shared__ float As[BMv][BKv + 4];
+    __shared__ float Bs[BKv][BNv + 4];
 
-    wmma::fragment<wmma::accumulator, WMMA_M, WMMA_N, WMMA_K, float> acc[WM_][WN_];
+    wmma::fragment<wmma::accumulator, WMMA_M, WMMA_N, WMMA_K, float> acc[WMv][WNv];
     #pragma unroll
-    for (int i = 0; i < WM_; i++)
+    for (int i = 0; i < WMv; i++)
         #pragma unroll
-        for (int j = 0; j < WN_; j++)
+        for (int j = 0; j < WNv; j++)
             wmma::fill_fragment(acc[i][j], 0.f);
 
-    const int tid   = threadIdx.x;
-    const int nstep = (K + BKK_ - 1) / BKK_;
-
-    // Preload stage 0
-    {
-        int kb = 0;
+    for (int kb = 0; kb < K; kb += BKv) {
         #pragma unroll
-        for (int e = tid; e < BM_ * BKK_; e += NT_) {
-            int m = e / BKK_, k = e % BKK_;
+        for (int e = threadIdx.x; e < BMv * BKv; e += NTv) {
+            int m = e / BKv, k = e % BKv;
             int gm = bm + m, gk = kb + k;
-            if (gm < M && gk < K)
-                __pipeline_memcpy_async(&As[0][m][k], &A[gm * K + gk], sizeof(float));
-            else As[0][m][k] = 0.f;
+            As[m][k] = (gm < M && gk < K) ? __ldg(&A[gm * K + gk]) : 0.f;
         }
         #pragma unroll
-        for (int e = tid; e < BKK_ * BN_; e += NT_) {
-            int k = e / BN_, n = e % BN_;
+        for (int e = threadIdx.x; e < BKv * BNv; e += NTv) {
+            int k = e / BNv, n = e % BNv;
             int gk = kb + k, gn = bn + n;
-            if (gk < K && gn < N)
-                __pipeline_memcpy_async(&Bs[0][k][n], &WT[gk * N + gn], sizeof(float));
-            else Bs[0][k][n] = 0.f;
+            Bs[k][n] = (gk < K && gn < N) ? __ldg(&WT[gk * N + gn]) : 0.f;
         }
-        __pipeline_commit();
-    }
-
-    for (int step = 0; step < nstep; step++) {
-        const int sc = step % STS_;
-        const int sn = (step + 1) % STS_;
-
-        if (step + 1 < nstep) {
-            int kb = (step + 1) * BKK_;
-            #pragma unroll
-            for (int e = tid; e < BM_ * BKK_; e += NT_) {
-                int m = e / BKK_, k = e % BKK_;
-                int gm = bm + m, gk = kb + k;
-                if (gm < M && gk < K)
-                    __pipeline_memcpy_async(&As[sn][m][k], &A[gm * K + gk], sizeof(float));
-                else As[sn][m][k] = 0.f;
-            }
-            #pragma unroll
-            for (int e = tid; e < BKK_ * BN_; e += NT_) {
-                int k = e / BN_, n = e % BN_;
-                int gk = kb + k, gn = bn + n;
-                if (gk < K && gn < N)
-                    __pipeline_memcpy_async(&Bs[sn][k][n], &WT[gk * N + gn], sizeof(float));
-                else Bs[sn][k][n] = 0.f;
-            }
-            __pipeline_commit();
-        }
-
-        __pipeline_wait_prior(1);
         __syncthreads();
 
-        // WMMA: BKK_/WMMA_K = 2 steps
         #pragma unroll
-        for (int ks = 0; ks < BKK_ / WMMA_K; ks++) {
+        for (int ks = 0; ks < BKv / WMMA_K; ks++) {
             wmma::fragment<wmma::matrix_a, WMMA_M, WMMA_N, WMMA_K,
-                           wmma::precision::tf32, wmma::row_major> af[WM_];
+                           wmma::precision::tf32, wmma::row_major> af[WMv];
             wmma::fragment<wmma::matrix_b, WMMA_M, WMMA_N, WMMA_K,
-                           wmma::precision::tf32, wmma::row_major> bf[WN_];
+                           wmma::precision::tf32, wmma::row_major> bf[WNv];
             #pragma unroll
-            for (int i = 0; i < WM_; i++)
+            for (int i = 0; i < WMv; i++)
                 wmma::load_matrix_sync(af[i],
-                    &As[sc][wm0 + i * WMMA_M][ks * WMMA_K], BKK_ + 4);
+                    &As[wm0 + i * WMMA_M][ks * WMMA_K], BKv + 4);
             #pragma unroll
-            for (int j = 0; j < WN_; j++)
+            for (int j = 0; j < WNv; j++)
                 wmma::load_matrix_sync(bf[j],
-                    &Bs[sc][ks * WMMA_K][wn0 + j * WMMA_N], BN_ + 4);
+                    &Bs[ks * WMMA_K][wn0 + j * WMMA_N], BNv + 4);
             #pragma unroll
-            for (int i = 0; i < WM_; i++)
+            for (int i = 0; i < WMv; i++)
                 #pragma unroll
-                for (int j = 0; j < WN_; j++)
+                for (int j = 0; j < WNv; j++)
                     wmma::mma_sync(acc[i][j], af[i], bf[j], acc[i][j]);
         }
         __syncthreads();
     }
 
     #pragma unroll
-    for (int i = 0; i < WM_; i++)
+    for (int i = 0; i < WMv; i++)
         #pragma unroll
-        for (int j = 0; j < WN_; j++) {
+        for (int j = 0; j < WNv; j++) {
             int gm = bm + wm0 + i * WMMA_M;
             int gn = bn + wn0 + j * WMMA_N;
             if (gm < M && gn < N)
@@ -204,12 +194,16 @@ __global__ void bias_gelu_softmax_k(
 }
 
 // ─── Host launcher ────────────────────────────────────────────────────────────
-torch::Tensor fused_db64_launch(
+// Swizzled grid: dim3((M/BM, N/BN)) so blockIdx.x is M-tile, blockIdx.y is N-tile
+// → blockIdx.x cycles fastest → all M-blocks for a given N-block run consecutively
+// → WT slice for that N-block stays in L2 across all M-blocks
+torch::Tensor fused_v64_launch(
     torch::Tensor A, torch::Tensor WT, torch::Tensor bias, int M, int N, int K)
 {
     auto C = torch::empty({M, N}, A.options());
-    dim3 grid((N + BN_ - 1) / BN_, (M + BM_ - 1) / BM_);
-    wmma_gemm_db64<<<grid, NT_>>>(
+    // Swizzled: (M-blocks, N-blocks) so M cycles fastest in SM scheduler
+    dim3 grid((M + BMv - 1) / BMv, (N + BNv - 1) / BNv);
+    wmma_gemm_v64<<<grid, NTv>>>(
         A.data_ptr<float>(), WT.data_ptr<float>(),
         C.data_ptr<float>(), M, N, K);
     bias_gelu_softmax_k<<<M, SOFT_T>>>(
@@ -220,7 +214,7 @@ torch::Tensor fused_db64_launch(
 
 _CPP_SRC = r"""
 #include <torch/extension.h>
-torch::Tensor fused_db64_launch(
+torch::Tensor fused_v64_launch(
     torch::Tensor A, torch::Tensor WT, torch::Tensor bias, int M, int N, int K);
 """
 
@@ -230,10 +224,10 @@ def _get_module():
     global _MODULE
     if _MODULE is None:
         _MODULE = load_inline(
-            name="fused_mgs_db64",
+            name="fused_mgs_v64",
             cpp_sources=_CPP_SRC,
             cuda_sources=_CUDA_SRC,
-            functions=["fused_db64_launch"],
+            functions=["fused_v64_launch"],
             extra_cuda_cflags=["-O3", "-arch=sm_89", "--use_fast_math"],
             verbose=False,
         )
@@ -250,7 +244,7 @@ class Model(nn.Module):
     def forward(self, x):
         M, K = x.shape
         N = self.linear.out_features
-        return _get_module().fused_db64_launch(
+        return _get_module().fused_v64_launch(
             x.contiguous(),
             self.weight_T,
             self.linear.bias.contiguous(),
