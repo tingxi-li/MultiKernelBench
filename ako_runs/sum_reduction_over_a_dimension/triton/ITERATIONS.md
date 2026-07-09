@@ -24,8 +24,21 @@ Status values: improved / no-change / regression / failed.
 | Iter | Title | Speedup(mean) | Runtime(mean) | Status |
 |------|-------|---------|--------------|--------|
 | 1 | Triton autotune streaming reduction | 1.0072x | 9.72 ms | improved |
+| 2 | Clean autotune configs focused on best BLOCK_C | 1.0082x | 9.71 ms | improved |
 
 ## Iterations
+
+### Iter 2 — Clean autotune configs focused on best BLOCK_C
+
+- **Hypothesis:** Based on manual profiling of all BLOCK_C values (64-4096) and num_warps (2-32) with various num_stages, the sweet spot is BLOCK_C=1024-4096 with num_warps=4-16 and num_stages=2-4. Reduce the autotune search space to avoid waste.
+- **Changes:** Cleaned up autotune configs to focus on the best-performing range. Removed unrolling experiments (no benefit). Kept fallback to torch.sum.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 9.71 ms (mean), 9.71 ~ 9.71 ms (min ~ max)
+  - Speedup: 1.0082x
+- **Analysis:** Marginally better than iter-1 (1.0082x vs 1.0072x), consistent 9.71ms. The 100-trial run shows extremely low variance (std=0.001ms). This confirms we're at the DRAM bandwidth ceiling (~884 GB/s). The autotune selects BLOCK_C=4096 (128 programs, each scanning all 4096 rows for 4096 columns) or BLOCK_C=1024 (512 programs, each scanning 1024 columns). Both achieve ~884 GB/s.
+- **Next:** Try to approach the theoretical limit of 960 GB/s = 8.33ms. Need ~8% more throughput. Ideas: (1) Persistent kernel with better SM saturation, (2) Fewer kernel launch overheads, (3) Non-temporal stores for output.
 
 ### Iter 1 — Triton autotune streaming reduction
 

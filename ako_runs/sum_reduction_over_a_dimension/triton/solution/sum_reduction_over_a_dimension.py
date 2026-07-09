@@ -6,27 +6,21 @@ import triton.language as tl
 
 @triton.autotune(
     configs=[
-        # BLOCK_C controls output elements per program
-        # We want many small programs for SM saturation
-        # but BLOCK_C must be large enough for coalescing
-        triton.Config({'BLOCK_C': 64}, num_warps=2, num_stages=4),
-        triton.Config({'BLOCK_C': 128}, num_warps=4, num_stages=4),
-        triton.Config({'BLOCK_C': 128}, num_warps=2, num_stages=4),
-        triton.Config({'BLOCK_C': 256}, num_warps=4, num_stages=4),
-        triton.Config({'BLOCK_C': 256}, num_warps=8, num_stages=4),
-        triton.Config({'BLOCK_C': 512}, num_warps=8, num_stages=4),
-        triton.Config({'BLOCK_C': 512}, num_warps=16, num_stages=4),
+        # Based on manual profiling: BLOCK_C=1024-4096 at 9.71ms are best
+        # Keep a range to ensure autotune handles shape variations
+        triton.Config({'BLOCK_C': 1024}, num_warps=4, num_stages=2),
+        triton.Config({'BLOCK_C': 2048}, num_warps=8, num_stages=2),
+        triton.Config({'BLOCK_C': 4096}, num_warps=8, num_stages=2),
+        triton.Config({'BLOCK_C': 4096}, num_warps=16, num_stages=4),
+        triton.Config({'BLOCK_C': 4096}, num_warps=8, num_stages=4),
+        triton.Config({'BLOCK_C': 2048}, num_warps=8, num_stages=4),
+        triton.Config({'BLOCK_C': 2048}, num_warps=4, num_stages=4),
         triton.Config({'BLOCK_C': 1024}, num_warps=8, num_stages=4),
-        triton.Config({'BLOCK_C': 1024}, num_warps=16, num_stages=4),
-        triton.Config({'BLOCK_C': 2048}, num_warps=16, num_stages=4),
-        triton.Config({'BLOCK_C': 2048}, num_warps=32, num_stages=4),
-        triton.Config({'BLOCK_C': 4096}, num_warps=32, num_stages=4),
-        triton.Config({'BLOCK_C': 128}, num_warps=4, num_stages=2),
-        triton.Config({'BLOCK_C': 256}, num_warps=8, num_stages=2),
-        triton.Config({'BLOCK_C': 512}, num_warps=8, num_stages=2),
-        triton.Config({'BLOCK_C': 1024}, num_warps=8, num_stages=2),
-        triton.Config({'BLOCK_C': 2048}, num_warps=16, num_stages=2),
-        triton.Config({'BLOCK_C': 4096}, num_warps=32, num_stages=2),
+        triton.Config({'BLOCK_C': 1024}, num_warps=4, num_stages=4),
+        triton.Config({'BLOCK_C': 512}, num_warps=4, num_stages=2),
+        triton.Config({'BLOCK_C': 512}, num_warps=4, num_stages=4),
+        triton.Config({'BLOCK_C': 256}, num_warps=4, num_stages=2),
+        triton.Config({'BLOCK_C': 256}, num_warps=4, num_stages=4),
     ],
     key=['B', 'R', 'C'],
 )
@@ -39,8 +33,8 @@ def _sum_reduce_dim1(
 ):
     """
     Sum-reduce x[B, R, C] over R → out[B, C].
-    Uses float32 accumulation for correctness, but loads from input dtype.
-    Aggressive unrolling: 4 rows per loop iteration to hide memory latency.
+    Each program handles BLOCK_C contiguous columns for one batch.
+    Streaming access: x[b, r, c:c+BLOCK_C] is contiguous (stride_c=1).
     """
     pid_b = tl.program_id(0)
     pid_c = tl.program_id(1)
@@ -52,21 +46,10 @@ def _sum_reduce_dim1(
     acc = tl.zeros([BLOCK_C], dtype=tl.float32)
     base = x_ptr + pid_b * stride_b + col_start + offs_c
 
-    # Unroll 4 rows per iteration to better hide memory latency
-    R4 = (R // 4) * 4
-    for r in tl.range(0, R4, 4):
-        a0 = tl.load(base + (r + 0) * stride_r, mask=mask_c, other=0.0)
-        a1 = tl.load(base + (r + 1) * stride_r, mask=mask_c, other=0.0)
-        a2 = tl.load(base + (r + 2) * stride_r, mask=mask_c, other=0.0)
-        a3 = tl.load(base + (r + 3) * stride_r, mask=mask_c, other=0.0)
-        acc += a0 + a1 + a2 + a3
-
-    # Tail
-    for r in range(R4, R):
+    for r in tl.range(0, R):
         acc += tl.load(base + r * stride_r, mask=mask_c, other=0.0)
 
-    out = out_ptr + pid_b * C + col_start + offs_c
-    tl.store(out, acc, mask=mask_c)
+    tl.store(out_ptr + pid_b * C + col_start + offs_c, acc, mask=mask_c)
 
 
 class Model(nn.Module):
