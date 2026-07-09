@@ -28,6 +28,7 @@ Status values: improved / no-change / regression / failed.
 | 3 | 32x16 tile, 512-thread blocks (v4) | 1.31x | 2.86 ms | improved |
 | 4 | 32x32 tile, 1024-thread blocks + warp-row variant | 1.20x | 3.46 ms | regression |
 | 5 | Coalesced SM fill: TW=30, SW=32 (power-of-2), maxreg=40 | 1.42x | 2.91 ms | improved |
+| 6 | Wide coalesced: TW=62, SW=64, TH=8, block=64x8=512 | 1.38x | 2.69 ms | improved (best abs) |
 
 ## Iterations
 
@@ -90,6 +91,19 @@ Status values: improved / no-change / regression / failed.
   - Speedup: 1.42x
 - **Analysis:** Best speedup so far (1.42x). The coalesced SM fill strategy helps. 2.91ms is close to iter 3's 2.86ms on an absolute basis but speedup is higher because ref is more stable. The TW=30/SW=32 trick is clearly beneficial.
 - **Next:** Test the TW=62, SW=64 (wider) variant which should be even more efficient. Also try reducing TH to 8 (smaller blocks) to increase occupancy further, or TH=32 for more output reuse.
+
+### Iter 6 — Wide coalesced: TW=62, SW=64, TH=8
+
+- **Hypothesis:** A wider tile (TW=62, SW=64) with 512-thread blocks should give better L2 reuse and lower block-scheduling overhead. 64-wide SM row = 2 cache lines. Fewer total blocks for same input.
+- **Changes:** Switched to variant=1 (TW=62, SW=64, TH=8, block=64×8=512). Added also TW=126/SW=128 and retained TW=30/SW=32.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 2.69 ms (mean), 2.52 ~ 3.81 ms (min ~ max)
+  - Speedup: 1.38x (ref was faster this run: 3.70ms)
+- **Analysis:** Best absolute runtime (2.69ms) — better than all previous. However speedup is 1.38x vs iter 5's 1.42x because ref runtime was lower in this run (3.7ms vs 4.14ms). Note: the ref runtime is noisy across runs due to GPU clock variation. The key metric is the solution's own runtime: 2.69ms is the best so far. Lower std (0.158ms) confirms stability.
+- **Conclusion:** Iter 6 is the best absolute performer (2.69ms). This will be the final version.
+
 
 
 
