@@ -28,6 +28,7 @@ Status values: improved / no-change / regression / failed.
 | 3 | PTX ld.cs streaming loads + st.cs stores | 1.35x | 2.63 ms | no-change |
 | 4 | Y-direction coarsening (NVEC_Y=2, 128x16 tile) | 1.53x | 2.63 ms | no-change |
 | 5 | Float4 vectorized smem loads (128x8 tile, NVEC=4) | 1.34x* | 2.62 ms | improved |
+| 6 | NVX=4+NVY=2 combined with float4 loads (128x16 tile) | 1.52x | 2.64 ms | no-change |
 
 ## Iterations
 
@@ -90,4 +91,16 @@ Status values: improved / no-change / regression / failed.
   - Speedup: 1.34x (mean) - *ref was 3.51ms this run; raw runtime is best so far
 - **Analysis:** 2.62ms, marginally better than iter-2/3/4 (2.63ms). Float4 vectorized loads give a tiny improvement. The solution is essentially at the memory bandwidth floor (~2.48ms theoretical).
 - **Next (iter 6 = last): try combining float4 stores with float4 loads, or revert to the cleaner scalar version. The solution is converged.
+
+### Iter 6 — NVX=4 + NVY=2, 128x16 tile, float4 smem loads (FINAL iter)
+
+- **Hypothesis:** Combining X-coarsening (NVX=4) with Y-coarsening (NVY=2) AND float4 smem loads should give the best of both worlds.
+- **Changes:** 32x8 block, each thread computes 2 Y rows x 4 X cols = 8 outputs. 128x16 output tile with smem 130x18. Float4 vectorized smem loads.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 2.64 ms (mean), 2.59 ~ 3.83 ms (min ~ max)
+  - Speedup: 1.52x (mean)
+- **Analysis:** 2.64ms - marginally worse than iter-5 (2.62ms). The larger smem (9.5KB vs 5.3KB) slightly reduces occupancy/performance. Iter-5 (float4 loads, NVY=1) is the best.
+- **Conclusion:** Solution is at ~94% of theoretical bandwidth floor. Iter-5 is the best at 2.62ms mean.
 
