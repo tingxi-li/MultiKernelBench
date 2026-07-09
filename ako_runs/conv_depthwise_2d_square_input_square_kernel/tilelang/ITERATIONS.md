@@ -18,3 +18,9 @@ convergence.csv.
 - STOP: at the 1.95-pass roofline (ncu-confirmed) + last 2 levers didn't beat 2.66 ms.
 - BEST 1.47x (2.66 ms). Matches the prior tie runtime (~2.58 ms); the prior's "2.44x" used
   the inflated GPU0/1/2 cuDNN ref (findings caveat C4) — on the honest GPU3 ref it's ~1.5x.
+
+## Summary
+
+| iter | title | speedup | runtime | status |
+|------|-------|---------|---------|--------|
+| final | direct coalesced 9-tap TW256 | 1.34x | 2.68 ms | final |
