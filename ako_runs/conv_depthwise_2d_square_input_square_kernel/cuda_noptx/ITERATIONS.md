@@ -104,6 +104,19 @@ Status values: improved / no-change / regression / failed.
 - **Analysis:** Best absolute runtime (2.69ms) — better than all previous. However speedup is 1.38x vs iter 5's 1.42x because ref runtime was lower in this run (3.7ms vs 4.14ms). Note: the ref runtime is noisy across runs due to GPU clock variation. The key metric is the solution's own runtime: 2.69ms is the best so far. Lower std (0.158ms) confirms stability.
 - **Conclusion:** Iter 6 is the best absolute performer (2.69ms). This will be the final version.
 
+---
+## Final Bench (iter 6 = latest = best)
+
+- COMPILED: True, CORRECT: True
+- RUNTIME: 2.88 ms (mean), 2.71 ~ 3.85 ms
+- REF_RUNTIME: 4.20 ms
+- SPEEDUP: **1.46x**
+- Status: **win** (beat PyTorch eager cuDNN depthwise)
+
+Best direction: coalesced SM fill with power-of-2 SM width (SW=64, TW=62).
+Each warp covers exactly one SM row → 128-byte coalesced transactions. Combined
+with --maxrregcount=40 for higher SM occupancy (3 blocks/SM instead of 2).
+
 
 
 
