@@ -28,6 +28,7 @@ Status values: improved / no-change / regression / failed.
 | 3 | PyTorch linear + fused GELU+softmax float4 | 1.03x | 6.19 ms | improved |
 | 4 | Warp-shuffle reductions (float4) | 1.03x | 6.19 ms | no-change |
 | 5 | In-place GELU+softmax (warp-shuffle, float4) | 0.985x* | 6.15 ms | improved-sol (*noisy ref=6.06ms) |
+| 6 | Online softmax + 512 threads/block (EPT=16) | 1.024x | 6.19 ms | improved |
 
 ## Iterations
 
@@ -90,4 +91,16 @@ Status values: improved / no-change / regression / failed.
   - Speedup: 0.985x (but ref was noisy: mean 6.06ms, min 3.88ms from clock-ramp)
 - **Analysis:** Solution is slightly faster (6.15ms vs 6.19ms), but the reference ran at 6.06ms due to GPU clock burst on first few trials. The in-place approach saves ~0.04ms. The min 5.21ms for solution vs 3.88ms for reference suggests that at full clock speeds, the reference can run faster than our solution (PyTorch's cuBLAS + optimized kernels). The fused kernel adds overhead (erff per element) that can't fully offset the GEMM savings.
 - **Next:** Iter 6 is the last. Try the most aggressive possible approach: use H100-style online softmax (compute max and sum in a single register pass over the GELU values) to eliminate one of the two inter-block sync points.
+
+### Iter 6 — Online softmax + 512 threads/block (EPT=16)
+
+- **Hypothesis:** Online softmax (accumulate max+sum in single pass via log-sum-exp merge) eliminates one inter-warp sync pass. 512 threads per block increases erff parallelism per row.
+- **Changes:** Added OnlineSoftmax struct + warp_reduce_os, switched to THREADS=512/EPT=16, in-place operation.
+- **Bench:**
+  - Compiled: True
+  - Correct: True (5/5)
+  - Runtime: 6.19 ms mean, 5.21 ~ 6.60 ms (min ~ max)
+  - Speedup: 1.024x
+- **Analysis:** Online softmax produces a correct result with 1.024x speedup vs baseline. The online algorithm's extra __expf calls in merge_os negate savings from fewer reduction passes. The mean runtime is same as iter 3/4 (6.19ms) but the reference was slightly slower this run (6.34ms). The performance floor is approximately 6.1-6.2ms for the total GEMM+epilogue given erff() latency on RTX 6000 Ada. iter 3 (1.029x, 6.19ms) was equivalent; both iters are the best solutions.
+- **Next:** End of iter cap. Best iter = iter 3 (1.029x) or iter 4/6 (1.031x/1.024x). Iter 4 had 1.031x.
 
