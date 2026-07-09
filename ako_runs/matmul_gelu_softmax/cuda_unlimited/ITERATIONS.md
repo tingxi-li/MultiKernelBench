@@ -31,8 +31,21 @@ Status values: improved / no-change / regression / failed.
 | 6 | Restore iter-2 kernel (BM=BN=128, BK=16, TM=TN=8) | 0.75x | 8.26 ms | regression (thermal) |
 | 7 | WMMA TF32 BKK=32 + precomputed WT + fused GELU+softmax | 1.35x | 4.58 ms | improved |
 | 8 | cp.async double-buffer BKK=16, WMMA TF32 + fused epilogue | 1.32x | 4.56 ms | no-change (noisy) |
+| 9 | BM=64 BN=128 BKK=32, 4 warps (2M×2N), __ldg hints | 1.47x | 4.14 ms | improved |
 
 ## Iterations
+
+### Iter 9 — BM=64, BN=128, BKK=32, 4 warps, __ldg hints
+
+- **Hypothesis:** Smaller M tile (BM=64 vs 128) reduces smem from 35KB to 26KB, allowing two blocks to co-reside per SM. This doubles SM occupancy, hiding latency through more warps in flight.
+- **Changes:** BM=64, 4 warps (2M×2N), NT2=128, smem=26112B (allows 2 blocks/SM). Each warp still handles 2×4 WMMA tiles (32×64 region). Added `__ldg` hints for global loads.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 4.14 ms (mean), 3.83~4.21 ms (min~max)
+  - Speedup: 1.47x (mean)
+- **Analysis:** Clear improvement over iter-7 (1.35x → 1.47x). The BM=64 occupancy boost (2 blocks/SM) is the key factor. Low std=0.074ms shows stable performance.
+- **Next:** Try BM=64 + double-buffered pipeline (smem=2*26112=52224B > 48KB — won't fit). Try BKK=16 with double-buffer: 2*(64*(16+4)+16*(128+4))*4 = 2*(5120+8448) = 27136B — fits! Or try BN=256 to test wider warp-N tile.
 
 ### Iter 8 — cp.async double-buffer BKK=16, WMMA TF32 + fused GELU+softmax
 
