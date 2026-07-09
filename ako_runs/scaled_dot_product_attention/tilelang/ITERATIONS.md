@@ -22,3 +22,9 @@ convergence.csv.
 - BEST 3.21x (18.4 ms). Slightly under the prior unlogged 3-kernel run (3.44x) and the
   finding's 3.41x — my 3-kernel retry needed fp32 scores for correctness, which cost more
   HBM than it saved; a true fused-flash kernel is blocked by the D=1024 O-accumulator.
+
+## Summary
+
+| iter  | title                                     | speedup | runtime    | status |
+|-------|-------------------------------------------|---------|------------|--------|
+| final | 3-kernel fp16 T.gemm QK+softmax+PV split  | 3.40x   | 17.6 ms    | final  |
