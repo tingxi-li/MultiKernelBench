@@ -23,6 +23,7 @@ Status values: improved / no-change / regression / failed.
 
 | Iter | Title | Speedup(mean) | Runtime(mean) | Status |
 |------|-------|---------|--------------|--------|
+| final | mma.sync TF32 split-K=4 128x128 double-buf (v8) | 1.8333x | 2.46 ms | final |
 
 ## Iterations
 
