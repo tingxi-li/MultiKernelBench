@@ -26,6 +26,7 @@ Status values: improved / no-change / regression / failed.
 | 1 | TileLang 1-pixel-per-thread, register-cached filter | 1.47x | 2.70 ms | improved |
 | 2 | Row-per-block shared-mem, unrolled 3x3 kernel | 1.50x | 2.66 ms | improved |
 | 3 | 2D shared-mem (3,W), fused row-load loop | 1.44x | 2.66 ms | no-change |
+| 4 | Filter in shared-mem (broadcast), parallel row+filter load | 1.39x | 2.66 ms | no-change |
 
 ## Iterations
 
@@ -64,5 +65,17 @@ Status values: improved / no-change / regression / failed.
   - Speedup: 1.44x (mean) [note: ref measured 3.82ms vs 3.99ms in iter-2]
 - **Analysis:** Same 2.66ms runtime as iter-2. The speedup difference (1.44 vs 1.50) is due to reference jitter (3.82ms vs 3.99ms). The design is equivalent to iter-2. The performance is stable.
 - **Next:** Try a fundamentally different approach — use the row-per-block design but load fewer rows or try different block sizes. The kernel is at ~2.66ms consistently.
+
+### Iter 4 — Filter in shared-mem (broadcast), parallel row+filter load
+
+- **Hypothesis:** Loading filter weights into shared memory (broadcast to all threads) instead of registers might avoid per-thread register pressure and improve occupancy. First 9 threads load the filter while all threads load the input rows in the same __syncthreads phase.
+- **Changes:** Added shw[9] shared mem for filter. First 9 threads load filter. All threads load input rows. Same unrolled 3x3 compute from shmem.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 2.66 ms (mean), 2.59 ~ 3.83 ms (min ~ max)
+  - Speedup: 1.39x (mean) [note: ref measured 3.69ms, fluctuating]
+- **Analysis:** Same 2.66ms runtime. Reference at 3.69ms this run (vs 3.99ms in iter-2). The kernel has converged to 2.66ms regardless of shmem vs register storage for the filter. The design space appears exhausted for single-row approaches.
+- **Next:** Final 2 iters remain. Will try to push with BF16 accumulation or different H_tiles.
 
 
