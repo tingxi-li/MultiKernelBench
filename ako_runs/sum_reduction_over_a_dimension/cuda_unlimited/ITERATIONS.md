@@ -25,6 +25,7 @@ Status values: improved / no-change / regression / failed.
 |------|-------|---------|--------------|--------|
 | 1 | float4 PTX ld.cs streaming | 1.01x | 9.67 ms | improved |
 | 2 | float4 + 4-way ILP accumulators | 1.01x | 9.68 ms | no-change |
+| 3 | 8-way ILP + ld.cg (bypass L1) | 1.01x | 9.74 ms | regression |
 
 ## Iterations
 
@@ -51,5 +52,18 @@ Status values: improved / no-change / regression / failed.
   - Speedup: 1.01x
 - **Analysis:** No improvement over iter 1 (still ~1.01x). The GPU is already achieving ~95%+ bandwidth utilization with the simple iter-1 kernel. The bottleneck isn't ILP/latency hiding—it's pure bandwidth saturation. Need a different angle: consider shared memory, warp-level parallelism across the M dimension, or a different block decomposition.
 - **Next:** Try parallelizing the M dimension within a thread block using warp shuffles / shared memory. Split M across threads, then reduce. This increases occupancy and might help with memory access patterns.
+
+### Iter 3 — 8-way ILP + ld.cg (bypass L1)
+
+- **Hypothesis:** 8 independent accumulators with ld.cg (L1-bypass, L2 cache) would allow 8 in-flight requests per thread and better L2 bandwidth, since L1 has no reuse for stride-K access.
+- **Changes:** 8-way loop unrolling with independent accumulator chains; switched to ld.cg; reduced block size to 128 for higher occupancy.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 9.74 ms
+  - Speedup: 1.01x
+- **Analysis:** Slightly worse than iter 1. Too many registers (8 float4 accumulators = 32 regs just for accumulators) reduces occupancy. Also ld.cg may be less optimal than ld.cs here as L2 is being polluted by many warps at once. The PyTorch baseline (torch.sum) is already very well optimized—likely using similar tricks.
+- **Next:** Try a different architectural approach: use cooperative thread arrays where multiple threads accumulate one output element via warp-level reduction (shuffle). This is better for smaller K values but may help here too.
+
 
 
