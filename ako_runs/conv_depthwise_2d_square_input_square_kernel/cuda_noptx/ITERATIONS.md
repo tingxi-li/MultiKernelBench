@@ -25,6 +25,7 @@ Status values: improved / no-change / regression / failed.
 |------|-------|---------|--------------|--------|
 | 1 | Shared-mem tiled CUDA (32x8, KS=3 specialised) | 1.35x | 3.12 ms | improved |
 | 2 | 64x4 tile variant + multi-row variant (32x8x4) | 1.36x | 3.09 ms | improved |
+| 3 | 32x16 tile, 512-thread blocks (v4) | 1.31x | 2.86 ms | improved |
 
 ## Iterations
 
@@ -51,5 +52,18 @@ Status values: improved / no-change / regression / failed.
   - Speedup: 1.36x (mean)
 - **Analysis:** Marginal improvement over iter 1 (3.09 vs 3.12ms). The wider tile improves memory coalescing slightly. SM load pattern still dominates. Need to think differently about the bottleneck.
 - **Next:** The kernel is likely memory-bandwidth bound. Strategy: reduce SM occupancy to increase L2 cache hits, or try processing multiple channels per block to amortise weight loading. Also try 1D blocks for better warp utilisation.
+
+### Iter 3 — Multiple kernel variants (stream, 32x16, multi-channel)
+
+- **Hypothesis:** Larger tiles (32x16=512 threads) would give better occupancy and reduce block-scheduler overhead. Per-channel streaming with __ldg would hit L1 better. Multi-channel blocks would amortise SM load overhead.
+- **Changes:** Added v3 (streaming 1-blk-per-channel), v4 (32x16 512-thread), v5 (multi-channel 4ch/block). Using v4 (32x16) as primary.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 2.86 ms (mean), 2.61 ~ 3.82 ms (min ~ max)
+  - Speedup: 1.31x (mean) — lower speedup due to variable ref time
+- **Analysis:** Best absolute runtime so far at 2.86ms. Note the ref runtime was only 3.74ms this run (vs 4.2ms before), so speedup ratio looks lower but actual kernel latency improved. The 32x16 tile gives better SM utilisation. Low std (0.135ms) means more stable measurements.
+- **Next:** Try pushing further with: (1) reducing register usage for higher occupancy, (2) loop over rows for the stream variant to reduce block count, (3) try direct global memory reads with __ldg and no shared memory to test if SM overhead isn't worth it for this problem size.
+
 
 
