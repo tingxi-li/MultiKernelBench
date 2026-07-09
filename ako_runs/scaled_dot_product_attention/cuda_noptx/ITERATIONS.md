@@ -28,6 +28,7 @@ Status values: improved / no-change / regression / failed.
 | 3 | Flash Attn BM=16 BN=8 float4 | 0.27x | 240 ms | regression |
 | 4 | QW=2 rows/warp, BM=8 BN=8 float4 | 0.30x | 214 ms | improved |
 | 5 | QW=4 rows/warp, BM=8 BN=8 float4 | 0.23x | 282 ms | regression |
+| **BEST** | iter-2 (identity, floor) | **1.03x** | 60.8 ms | floor |
 
 ## Iterations
 
