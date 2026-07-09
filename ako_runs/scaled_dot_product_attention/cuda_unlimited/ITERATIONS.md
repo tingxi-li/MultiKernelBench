@@ -23,6 +23,7 @@ Status values: improved / no-change / regression / failed.
 
 | Iter | Title | Speedup(mean) | Runtime(mean) | Status |
 |------|-------|---------|--------------|--------|
+| final | 3-kernel tensor-core attention (TF32 mma.sync) | 1.8616x | 31.8 ms | final |
 
 ## Iterations
 
