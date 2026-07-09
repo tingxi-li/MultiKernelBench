@@ -32,8 +32,21 @@ Status values: improved / no-change / regression / failed.
 | 7 | WMMA TF32 BKK=32 + precomputed WT + fused GELU+softmax | 1.35x | 4.58 ms | improved |
 | 8 | cp.async double-buffer BKK=16, WMMA TF32 + fused epilogue | 1.32x | 4.56 ms | no-change (noisy) |
 | 9 | BM=64 BN=128 BKK=32, 4 warps (2M×2N), __ldg hints | 1.47x | 4.14 ms | improved |
+| 10 | BM=64 BN=128 BKK=16 cp.async double-buffer, 4 warps | 1.15x | 5.30 ms | regression |
 
 ## Iterations
+
+### Iter 10 — BM=64 BN=128 BKK=16 cp.async double-buffer, 4 warps
+
+- **Hypothesis:** Combine BM=64 occupancy benefit with cp.async pipeline hiding memory latency.
+- **Changes:** BKK=16 with 2-stage async pipeline. Smem: 2*(As[64][20]+Bs[16][132])*4=27136B.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 5.30 ms (mean), 3.56~5.55 ms (min~max)
+  - Speedup: 1.15x (mean)
+- **Analysis:** High variance (std=0.523ms) and slower than iter-9. The BKK=16 pipeline has 512 K-loop iterations, each needing a pipeline barrier. The pipeline overhead dominates over the latency hiding benefit. Iter-9 BKK=32 without pipeline is clearly better.
+- **Next:** Best = iter-9 (1.47x). Try to improve on that with different warp layout or BM=64 BN=256.
 
 ### Iter 9 — BM=64, BN=128, BKK=32, 4 warps, __ldg hints
 
