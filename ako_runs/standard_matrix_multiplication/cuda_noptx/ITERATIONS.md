@@ -24,7 +24,9 @@ Status values: improved / no-change / regression / failed.
 | Iter | Title | Speedup(mean) | Runtime(mean) | Status |
 |------|-------|---------|--------------|--------|
 | 1 | Tiled SGEMM BK=16, float4 loads | 0.81x | 5.70 ms | floor |
-| 2 | Double-buffered SGEMM BK=16, float4 | 0.85x | 5.44 ms | floor |
+| 2 | Double-buffered SGEMM BK=16, float4 | 0.85x | 5.44 ms | floor (best) |
+
+**Best iter: 2** (0.85x). FLOOR op — cuBLAS TF32 tensor cores (Ada Lovelace) unbeatable by pure FP32 FMA in cuda_noptx DSL without inline PTX mma.sync. Final confirmed at iter-2 (0.78x on final run due to clock ramp, mean 0.85x on iter bench).
 
 ## Iterations
 
