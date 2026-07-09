@@ -25,6 +25,7 @@ Status values: improved / no-change / regression / failed.
 |------|-------|---------|--------------|--------|
 | 1 | identity baseline (Linear+gelu+softmax) | 1.0000x | 6.88 ms | baseline (ref) |
 | 2 | v1 WMMA-tf32 gemm(x@Wt) + fused bias-gelu-softmax | 1.0472x | 6.57 ms | improved (BEST) |
+| final | v1 WMMA-tf32 gemm(x@Wt) + fused bias-gelu-softmax | 1.6799x | 3.78 ms | final |
 
 ## Iterations
 
