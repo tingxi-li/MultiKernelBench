@@ -2,63 +2,52 @@ import torch
 import torch.nn as nn
 from torch.utils.cpp_extension import load_inline
 
-# Iter 5: Warp-cooperative reduction along M dimension
-# Each warp of 32 threads handles ONE float4 output (4 K-values),
-# with each thread summing M/32 = 128 rows, then warp-shuffle reduces.
-# This multiplies the number of outstanding loads by 32x per output element,
-# significantly improving memory-level parallelism for the DRAM scheduler.
+# Iter 6: 2 float4 per thread (8 K-elements each thread) + ld.cs
+# Back to basics: single accumulator per float4, but each thread handles 8 K-elements
+# (2 float4 loads per row instead of 1). This halves grid size, reducing
+# scheduling overhead and potentially improving L2 re-use of neighboring cache lines
+# (2 consecutive float4 = 32 bytes = one full cache line).
 
 cuda_src = r"""
 #include <cuda_runtime.h>
 
-// One warp (32 threads) computes one float4 output (4 K-elements)
-// Thread t sums rows [t, t+32, t+64, ..., t+4064] (= 128 rows)
-// Then horizontal warp-reduce via shuffle
 template<int BLOCK>
-__global__ __launch_bounds__(BLOCK, 4)
-void sum_reduce_warp_coop(
+__global__ __launch_bounds__(BLOCK, 8)
+void sum_reduce_dim1_2f4(
     const float* __restrict__ x,   // [N, M, K]
     float*       __restrict__ out, // [N, K]
     int N, int M, int K)
 {
-    // 1 warp = 32 threads handles 4 K-elements (one float4 output)
-    const int warp_id = (blockIdx.x * BLOCK + threadIdx.x) / 32;
-    const int lane    = threadIdx.x % 32;
-    const int n       = blockIdx.y;
+    // Each thread handles 8 consecutive K-elements (two float4)
+    const int tid = blockIdx.x * BLOCK + threadIdx.x;
+    const int k8  = tid * 8;
+    const int n   = blockIdx.y;
 
-    // Each warp maps to one float4 in the output
-    const int k4 = warp_id * 4;
-    if (k4 >= K) return;
+    if (k8 >= K) return;
 
-    float4 acc = {0.f, 0.f, 0.f, 0.f};
+    float4 acc0 = {0.f, 0.f, 0.f, 0.f};
+    float4 acc1 = {0.f, 0.f, 0.f, 0.f};
 
-    const float* base = x + (long)n * M * K + k4;
+    const float* base = x + (long)n * M * K + k8;
     const long stride = K;
 
-    // Each lane sums M/32 rows with stride-32 stepping
-    // M=4096, so each lane handles 128 rows
-    for (int i = lane; i < M; i += 32) {
-        float4 v;
+    for (int i = 0; i < M; i++) {
+        float4 v0, v1;
+        const float* row = base + (long)i * stride;
         asm volatile("ld.cs.v4.f32 {%0,%1,%2,%3},[%4];"
-            : "=f"(v.x),"=f"(v.y),"=f"(v.z),"=f"(v.w)
-            : "l"(base + (long)i * stride));
-        acc.x += v.x; acc.y += v.y; acc.z += v.z; acc.w += v.w;
+            : "=f"(v0.x),"=f"(v0.y),"=f"(v0.z),"=f"(v0.w)
+            : "l"(row));
+        asm volatile("ld.cs.v4.f32 {%0,%1,%2,%3},[%4];"
+            : "=f"(v1.x),"=f"(v1.y),"=f"(v1.z),"=f"(v1.w)
+            : "l"(row + 4));
+        acc0.x += v0.x; acc0.y += v0.y; acc0.z += v0.z; acc0.w += v0.w;
+        acc1.x += v1.x; acc1.y += v1.y; acc1.z += v1.z; acc1.w += v1.w;
     }
 
-    // Warp-level reduction via shuffle down
-    #pragma unroll
-    for (int delta = 16; delta >= 1; delta >>= 1) {
-        acc.x += __shfl_down_sync(0xffffffff, acc.x, delta);
-        acc.y += __shfl_down_sync(0xffffffff, acc.y, delta);
-        acc.z += __shfl_down_sync(0xffffffff, acc.z, delta);
-        acc.w += __shfl_down_sync(0xffffffff, acc.w, delta);
-    }
-
-    // Lane 0 writes the result
-    if (lane == 0) {
-        float4* dst = reinterpret_cast<float4*>(out + (long)n * K + k4);
-        *dst = acc;
-    }
+    // Write 8 floats (two float4) to output
+    float4* dst = reinterpret_cast<float4*>(out + (long)n * K + k8);
+    dst[0] = acc0;
+    dst[1] = acc1;
 }
 
 torch::Tensor sum_reduce_cuda(torch::Tensor x, int dim)
@@ -67,20 +56,15 @@ torch::Tensor sum_reduce_cuda(torch::Tensor x, int dim)
     TORCH_CHECK(dim == 1 && x.dim() == 3);
 
     const int N = x.size(0), M = x.size(1), K = x.size(2);
-    TORCH_CHECK(K % 4 == 0 && M % 32 == 0);
+    TORCH_CHECK(K % 8 == 0);
 
     auto out = torch::empty({N, 1, K}, x.options());
 
-    // Each warp (32 threads) handles one float4 output
-    // # warps needed = K/4
-    // Use BLOCK=256 = 8 warps; grid_x = ceil(K/4 / 8)
     constexpr int BLOCK = 256;
-    const int warps_per_block = BLOCK / 32;
-    const int num_warps = K / 4;  // K=4096, so 1024 warps per n
-    const int grid_x = (num_warps + warps_per_block - 1) / warps_per_block;
+    const int grid_x = (K / 8 + BLOCK - 1) / BLOCK;
     dim3 grid(grid_x, N);
 
-    sum_reduce_warp_coop<BLOCK><<<grid, BLOCK>>>(
+    sum_reduce_dim1_2f4<BLOCK><<<grid, BLOCK>>>(
         x.data_ptr<float>(),
         out.data_ptr<float>(),
         N, M, K);
@@ -94,7 +78,7 @@ torch::Tensor sum_reduce_cuda(torch::Tensor x, int dim);
 """
 
 _mod = load_inline(
-    name="sum_reduce_warp_coop_v5",
+    name="sum_reduce_2f4_v6",
     cpp_sources=cpp_src,
     cuda_sources=cuda_src,
     functions=["sum_reduce_cuda"],
@@ -105,8 +89,8 @@ _mod = load_inline(
 
 class Model(nn.Module):
     """
-    Optimized sum reduction: warp-cooperative reduction along M.
-    32 threads per output float4, each handling M/32 rows; then warp shuffle.
+    Optimized sum reduction: 2 float4 per thread (8 K-elements each),
+    single accumulator chain, ld.cs streaming loads.
     """
     def __init__(self, dim: int):
         super().__init__()
