@@ -25,6 +25,7 @@ Status values: improved / no-change / regression / failed.
 |------|-------|---------|--------------|--------|
 | 1 | float4 loads + 8-unroll | 1.006x | 9.73 ms | improved |
 | 2 | 2x float4 per thread + 2 accumulators | 1.008x | 9.71 ms | improved |
+| 3 | 2 float4/thread + 8-unroll + BLOCK_X=128 | 1.008x | 9.71 ms | no-change |
 
 ## Iterations
 
@@ -50,6 +51,19 @@ Status values: improved / no-change / regression / failed.
   - Runtime: 9.71 ms (mean), 9.71 ~ 9.72 ms (min ~ max)
   - Speedup: 1.008x
 - **Analysis:** Marginal improvement over iter-1. We are at the memory bandwidth limit (8.59GB / 900GB/s ≈ 9.54ms). PyTorch and our kernel are both near the ceiling. The float4 coalescing and ILP provide only tiny wins.
-- **Next:** Try L2-cache-friendly tiling with shared memory: partial reduction over D-slices to reduce global memory write pressure. Also try per-thread processing more rows.
+- **Next:** Try BLOCK_X=128 and 8-step unroll to see if better register allocation helps.
+
+### Iter 3 — 2 float4/thread + 8-unroll + BLOCK_X=128
+
+- **Hypothesis:** Larger 8-step unroll + smaller BLOCK_X (higher occupancy) should allow the GPU to hide more memory latency.
+- **Changes:** BLOCK_X=128, explicit 8-step unroll of the D-loop with all 16 loads in flight before adds. Two float4 per thread retained.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 9.71 ms (mean), 9.71 ~ 9.71 ms (min ~ max)
+  - Speedup: 1.008x
+- **Analysis:** No improvement vs iter-2. We're firmly at the memory bandwidth ceiling. The kernel is already reading data at near-peak bandwidth. RTX 6000 Ada peak: ~900 GB/s, this op reads 8.59 GB -> 9.54 ms minimum. We're at 9.71ms, only 1.8% above theoretical minimum.
+- **Next:** Try processing multiple B elements per thread, or explore a transpose+columnwise-sum that might have better cache behavior.
+
 
 
