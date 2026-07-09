@@ -14,6 +14,8 @@ def _sum_reduce_dim1(
     """
     Sum-reduce x[B, R, C] over R → out[B, C].
     Each program handles BLOCK_C contiguous columns for one batch element.
+    Uses evict_first policy: streaming data is immediately evicted from L2
+    after use, avoiding cache pollution that would otherwise reduce effective bandwidth.
     """
     pid_b = tl.program_id(0)
     pid_c = tl.program_id(1)
@@ -26,7 +28,8 @@ def _sum_reduce_dim1(
     base = x_ptr + pid_b * stride_b + col_start + offs_c
 
     for r in tl.range(0, R):
-        acc += tl.load(base + r * stride_r, mask=mask_c, other=0.0)
+        acc += tl.load(base + r * stride_r, mask=mask_c, other=0.0,
+                       eviction_policy='evict_first')
 
     tl.store(out_ptr + pid_b * C + col_start + offs_c, acc, mask=mask_c)
 
@@ -35,7 +38,7 @@ class Model(nn.Module):
     """
     Performs sum reduction over a specified dimension using a Triton kernel.
     Optimized for dim=1 reduction over 3D contiguous tensors.
-    Fixed to best config: BLOCK_C=4096, num_warps=16, num_stages=3.
+    Config: BLOCK_C=4096, num_warps=16, num_stages=3 + evict_first policy.
     """
     def __init__(self, dim: int):
         super().__init__()
@@ -45,7 +48,6 @@ class Model(nn.Module):
         if self.dim == 1 and x.dim() == 3 and x.is_contiguous():
             B, R, C = x.shape
 
-            # Optimal config from profiling: BLOCK_C=4096, nw=16, ns=3
             BLOCK_C = 4096
             out = torch.empty(B, C, dtype=x.dtype, device=x.device)
 
