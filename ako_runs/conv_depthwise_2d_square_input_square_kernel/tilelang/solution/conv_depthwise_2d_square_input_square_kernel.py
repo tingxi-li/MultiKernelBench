@@ -4,21 +4,16 @@ import tilelang
 import tilelang.language as T
 
 # ---------------------------------------------------------------------------
-# Depthwise Conv2D (3x3, stride=1, pad=0) — TileLang fp32 iter-6: FINAL.
+# Depthwise Conv2D (3x3, stride=1, pad=0) — TileLang iter-1
 #
-# All 5 previous iters show the kernel runs at 2.65-2.66ms consistently.
-# The design space has been thoroughly explored:
-#  - iter-1: per-pixel register-only (2.70ms)
-#  - iter-2/5: row-per-block 3-shmem rows (2.65-2.66ms) ← BEST
-#  - iter-3: 2D shmem variant (2.66ms)
-#  - iter-4: filter-in-shmem (2.66ms)
+# Key optimization: 3 output rows per block.
+# For N output rows per block using a 3×3 kernel (stride=1, pad=0):
+#   - Need N+2 input rows (e.g., N=3 → 5 rows)
+#   - Memory reads = (N+2)/(3N) relative to N=1 baseline
+#   - N=3: (3+2)/(3*3) = 0.556 → 44% fewer global reads
+#   - H_out=510 is divisible by 3 → clean tiling
 #
-# For the final iter, attempt one last thing:
-# Load 3 rows together with a single T.serial over (3, W_in) using a 2D index.
-# This might enable better instruction pipelining.
-#
-# Also: use T.vectorized(2) for adjacent element pairs if the DSL supports it.
-# If not better, confirm iter-2/5 is the floor.
+# Shared memory layout: 5 rows of width W_in, one write-back per active thread.
 # ---------------------------------------------------------------------------
 
 _KCACHE = {}
@@ -26,7 +21,7 @@ _TH = 512
 
 
 def _build(B, C, H_in, W_in, H_out, W_out, TH):
-    LOAD_ITERS = (W_in + TH - 1) // TH   # = 1
+    LOAD_ITERS = (W_in + TH - 1) // TH  # = 1 when W_in=512, TH=512
 
     @tilelang.jit
     def _make():
@@ -36,61 +31,75 @@ def _build(B, C, H_in, W_in, H_out, W_out, TH):
             W: T.Tensor((C, 9), T.float32),
             Y: T.Tensor((B * C, H_out, W_out), T.float32),
         ):
-            with T.Kernel(B * C, H_out, threads=TH) as (bc, h):
+            # Grid: (B*C, H_out//3) — each block processes 3 consecutive output rows
+            with T.Kernel(B * C, H_out // 3, threads=TH) as (bc, h3):
                 tid = T.get_thread_binding(0)
                 c = bc % C
+                h = h3 * 3  # first output row index (= input row h..h+4)
 
+                # 5 shared-memory rows covering input rows h..h+4
                 sh0 = T.alloc_shared((W_in,), T.float32)
                 sh1 = T.alloc_shared((W_in,), T.float32)
                 sh2 = T.alloc_shared((W_in,), T.float32)
+                sh3 = T.alloc_shared((W_in,), T.float32)
+                sh4 = T.alloc_shared((W_in,), T.float32)
 
-                # Load with explicit register for each thread's slot
+                # Load all 5 input rows cooperatively
                 for li in T.serial(LOAD_ITERS):
                     idx = tid + li * TH
                     if idx < W_in:
                         sh0[idx] = X[bc, h,     idx]
                         sh1[idx] = X[bc, h + 1, idx]
                         sh2[idx] = X[bc, h + 2, idx]
+                        sh3[idx] = X[bc, h + 3, idx]
+                        sh4[idx] = X[bc, h + 4, idx]
 
                 T.sync_threads()
 
+                # Load 3×3 filter for this channel into registers
                 wt = T.alloc_local((9,), T.float32)
                 for i in T.serial(9):
                     wt[i] = W[c, i]
 
                 if tid < W_out:
-                    # Load 9 input values into registers before FMA
-                    v00 = T.alloc_local((1,), T.float32)
-                    v01 = T.alloc_local((1,), T.float32)
-                    v02 = T.alloc_local((1,), T.float32)
-                    v10 = T.alloc_local((1,), T.float32)
-                    v11 = T.alloc_local((1,), T.float32)
-                    v12 = T.alloc_local((1,), T.float32)
-                    v20 = T.alloc_local((1,), T.float32)
-                    v21 = T.alloc_local((1,), T.float32)
-                    v22 = T.alloc_local((1,), T.float32)
+                    # --- Output row h (uses sh0, sh1, sh2) ---
+                    acc0 = T.alloc_local((1,), T.float32)
+                    acc0[0]  = sh0[tid    ] * wt[0]
+                    acc0[0] = acc0[0] + sh0[tid + 1] * wt[1]
+                    acc0[0] = acc0[0] + sh0[tid + 2] * wt[2]
+                    acc0[0] = acc0[0] + sh1[tid    ] * wt[3]
+                    acc0[0] = acc0[0] + sh1[tid + 1] * wt[4]
+                    acc0[0] = acc0[0] + sh1[tid + 2] * wt[5]
+                    acc0[0] = acc0[0] + sh2[tid    ] * wt[6]
+                    acc0[0] = acc0[0] + sh2[tid + 1] * wt[7]
+                    acc0[0] = acc0[0] + sh2[tid + 2] * wt[8]
+                    Y[bc, h, tid] = acc0[0]
 
-                    v00[0] = sh0[tid    ]
-                    v01[0] = sh0[tid + 1]
-                    v02[0] = sh0[tid + 2]
-                    v10[0] = sh1[tid    ]
-                    v11[0] = sh1[tid + 1]
-                    v12[0] = sh1[tid + 2]
-                    v20[0] = sh2[tid    ]
-                    v21[0] = sh2[tid + 1]
-                    v22[0] = sh2[tid + 2]
+                    # --- Output row h+1 (uses sh1, sh2, sh3) ---
+                    acc1 = T.alloc_local((1,), T.float32)
+                    acc1[0]  = sh1[tid    ] * wt[0]
+                    acc1[0] = acc1[0] + sh1[tid + 1] * wt[1]
+                    acc1[0] = acc1[0] + sh1[tid + 2] * wt[2]
+                    acc1[0] = acc1[0] + sh2[tid    ] * wt[3]
+                    acc1[0] = acc1[0] + sh2[tid + 1] * wt[4]
+                    acc1[0] = acc1[0] + sh2[tid + 2] * wt[5]
+                    acc1[0] = acc1[0] + sh3[tid    ] * wt[6]
+                    acc1[0] = acc1[0] + sh3[tid + 1] * wt[7]
+                    acc1[0] = acc1[0] + sh3[tid + 2] * wt[8]
+                    Y[bc, h + 1, tid] = acc1[0]
 
-                    acc = T.alloc_local((1,), T.float32)
-                    acc[0] =       v00[0] * wt[0]
-                    acc[0] = acc[0] + v01[0] * wt[1]
-                    acc[0] = acc[0] + v02[0] * wt[2]
-                    acc[0] = acc[0] + v10[0] * wt[3]
-                    acc[0] = acc[0] + v11[0] * wt[4]
-                    acc[0] = acc[0] + v12[0] * wt[5]
-                    acc[0] = acc[0] + v20[0] * wt[6]
-                    acc[0] = acc[0] + v21[0] * wt[7]
-                    acc[0] = acc[0] + v22[0] * wt[8]
-                    Y[bc, h, tid] = acc[0]
+                    # --- Output row h+2 (uses sh2, sh3, sh4) ---
+                    acc2 = T.alloc_local((1,), T.float32)
+                    acc2[0]  = sh2[tid    ] * wt[0]
+                    acc2[0] = acc2[0] + sh2[tid + 1] * wt[1]
+                    acc2[0] = acc2[0] + sh2[tid + 2] * wt[2]
+                    acc2[0] = acc2[0] + sh3[tid    ] * wt[3]
+                    acc2[0] = acc2[0] + sh3[tid + 1] * wt[4]
+                    acc2[0] = acc2[0] + sh3[tid + 2] * wt[5]
+                    acc2[0] = acc2[0] + sh4[tid    ] * wt[6]
+                    acc2[0] = acc2[0] + sh4[tid + 1] * wt[7]
+                    acc2[0] = acc2[0] + sh4[tid + 2] * wt[8]
+                    Y[bc, h + 2, tid] = acc2[0]
 
         return kernel
 
@@ -111,8 +120,9 @@ def _get_kernel(B, C, H_in, W_in, H_out, W_out):
 
 class Model(nn.Module):
     """
-    Depthwise 2D convolution — TileLang final iteration.
-    Row-per-block, 3 shmem rows, shmem values staged to local registers, unrolled 3x3 FMA.
+    Depthwise 2D convolution — TileLang iter-1.
+    3 output rows per block: 5 shmem rows covering input rows h..h+4,
+    reducing global memory reads by 44% vs. the 1-row baseline.
     """
     def __init__(self, in_channels: int, kernel_size: int, stride: int = 1,
                  padding: int = 0, bias: bool = False):

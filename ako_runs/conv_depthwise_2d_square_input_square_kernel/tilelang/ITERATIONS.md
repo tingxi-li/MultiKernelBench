@@ -29,6 +29,7 @@ Status values: improved / no-change / regression / failed.
 | 4 | Filter in shared-mem (broadcast), parallel row+filter load | 1.39x | 2.66 ms | no-change |
 | 5 | Restored iter-2 exact design (canonical best) | 1.52x | 2.65 ms | improved |
 | 6 | shmem values staged to 9 local regs before FMA | 1.54x | 2.66 ms | improved |
+| NEW-1 | 3 output rows per block (5 shmem rows, reduce DRAM 44%) | 1.48x | 2.71 ms | regression |
 
 ## Iterations
 
@@ -102,6 +103,18 @@ Status values: improved / no-change / regression / failed.
   - Runtime: 2.66 ms (mean), 2.55 ~ 3.86 ms (min ~ max)
   - Speedup: 1.54x (mean) — ref at 4.10ms
 - **Analysis:** 1.54x speedup, best measured. Runtime still 2.66ms mean but min improved to 2.55ms. The reference was 4.10ms on this run. The design converges to the same ~2.66ms mean. The iteration cap (6) is reached.
+
+### NEW-Iter 1 — 3 output rows per block (5 shmem rows, reduce DRAM 44%)
+
+- **Hypothesis:** Loading 5 shmem rows to cover 3 output rows reduces global memory reads by 44% vs 1-row-per-block approach (5 rows / 3 outputs vs 3 rows / 1 output). H_out=510 is divisible by 3, clean tiling.
+- **Changes:** Grid (B*C, H_out//3). 5 shmem rows (sh0..sh4). 3 output accumulators (acc0, acc1, acc2) computing rows h, h+1, h+2.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 2.71 ms (mean), 2.63 ~ 3.85 ms (min ~ max)
+  - Speedup: 1.48x (mean)
+- **Analysis:** 2.71ms is slightly worse than 2.65ms baseline (iter-6). Despite 44% fewer global reads, having 5 shmem arrays takes more registers and bank pressure. The RTX 6000 Ada has very fast L1/L2, making the shmem savings less valuable. The extra shmem overhead (5 arrays vs 3) adds latency.
+- **Next:** Try reducing shmem usage — only 2 shmem rows (shift-register style), or try vectorized float4 loads.
 
 ## Final Bench (confirming iter-6)
 
