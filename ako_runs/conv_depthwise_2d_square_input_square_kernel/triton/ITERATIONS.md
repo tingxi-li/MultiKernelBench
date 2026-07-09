@@ -28,6 +28,7 @@ Status values: improved / no-change / regression / failed.
 | 3 | wider tiles BLOCK_W up to 512 | 2.1471x | 2.72 ms | best (kept) |
 | 4 | all-BLOCK_W=512 sweep (BLOCK_H 4-32) | FAIL | - | incorrect config (revert) |
 | 5 | restore iter-3 config set (final confirm) | 2.1392x | 2.73 ms | verified best (noise vs iter3) |
+| final | wider tiles BLOCK_W 512 (best from iter3/5) | 1.3235x | 2.72 ms | final |
 
 ## Iterations
 
