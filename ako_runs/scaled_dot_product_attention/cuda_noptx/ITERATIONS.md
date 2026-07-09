@@ -25,6 +25,7 @@ Status values: improved / no-change / regression / failed.
 |------|-------|---------|--------------|--------|
 | 1 | Flash Attn FP32 BM=8 BN=8 | 0.14x | 474 ms | regression |
 | 2 | Identity (floor analysis) | 1.03x | 60.8 ms | no-change |
+| 3 | Flash Attn BM=16 BN=8 float4 | 0.27x | 240 ms | regression |
 
 ## Iterations
 
@@ -50,5 +51,17 @@ Status values: improved / no-change / regression / failed.
   - Runtime: 60.8 ms (mean), 59.8~63.2 ms (min~max)
   - Speedup: 1.03x (mean)
 - **Analysis:** The floor analysis shows: 1) Flash attention re-reads K/V 64x → 256GB vs 9GB for cuBLAS → 28x slower. 2) 2-pass (scores in smem) re-reads K: S²×D per head = same 1TB issue. 3) FP16 computation fails at atol=1e-4 for D=1024. 4) Without tensor cores (no PTX), scalar FP32 achieves ~20 TFLOP/s vs reference cuBLAS ~100+ TFLOP/s. The GEMM operations (bmm1=28ms + bmm2=28ms) dominate the 60ms total; softmax is only 2.7ms. No custom scalar CUDA kernel can match cuBLAS GEMM on tensor cores. The identity achieves 1.03x (noise floor). This is the practical floor for cuda_noptx on this workload.
-- **Next:** Try one more direction: chunked attention with CUDA streams for overlap, or different tile sizes. However, given the theoretical analysis, speedup is unlikely. Cap reached after iter-2; restore iter-2 (identity) as best.
+- **Next:** Try flash attention with larger BM (32) and float4 loads to reduce K/V re-reads.
+
+### Iter 3 — Flash Attention BM=16 BN=8 float4 loads
+
+- **Hypothesis:** float4 vectorized loads for K/V smem fills should improve memory bandwidth utilization. BM=16 with 512 threads gives more registers per thread (128) vs BM=32 (64) which may have been register-spilling.
+- **Changes:** BM=16, BN=8, float4 loads for K/V smem cooperative load. Grid: (1024, 32), Block: (32, 16)=512 threads, smem=64KB.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 240 ms (mean), 234~244 ms (min~max)
+  - Speedup: 0.27x (mean)
+- **Analysis:** Better than iter-1 (474ms → 240ms = 1.97x improvement). float4 loads improved bandwidth utilization. However, still 3.8x slower than reference. The bottleneck analysis: smem bandwidth is the limit (~256 smem reads per warp per K row × 32 passes × 43 KV tiles = 350K smem ops per warp per Q-tile). Arithmetic intensity at smem level is ~1:1 (compute-smem balanced). Multiple tile sizes tried: BM=8(474ms), BM=32(296ms), BM=16(240ms) - optimal around BM=16. Scalar FP32 at ~5% of peak due to smem bandwidth limits.
+- **Next:** Try proper GEMM-like tiled kernel that uses register blocking for Q rows × K rows, potentially achieving higher arithmetic intensity.
 
