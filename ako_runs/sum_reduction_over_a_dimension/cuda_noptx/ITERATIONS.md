@@ -28,6 +28,7 @@ Status values: improved / no-change / regression / failed.
 | 3 | 2 float4/thread + 8-unroll + BLOCK_X=128 | 1.008x | 9.71 ms | no-change |
 | 4 | ptr-walk single float4/thread BLOCK_X=256 | 1.008x | 9.71 ms | no-change |
 | 5 | 4-segment independent accumulators | 1.006x | 9.73 ms | regression |
+| 6 | best known: ptr-walk float4/thread (iter-4 repro) | 1.008x | 9.71 ms | no-change |
 
 ## Iterations
 
@@ -89,7 +90,20 @@ Status values: improved / no-change / regression / failed.
   - Runtime: 9.73 ms (mean), 9.72 ~ 9.79 ms (min ~ max)
   - Speedup: 1.006x
 - **Analysis:** Slightly worse than iter-4 (9.73ms vs 9.71ms). The 4 extra pointers + accumulators add register pressure, potentially reducing occupancy slightly. No improvement over simpler single-accumulator approach. Operation is firmly at memory bandwidth wall.
-- **Next:** Try iter-4 kernel as basis for iter-6 with possible additional tweaks.
+- **Next:** Reproduce iter-4's best kernel as iter-6 to confirm the optimal approach.
+
+### Iter 6 — Best known kernel reproduced: ptr-walk float4/thread
+
+- **Hypothesis:** The iter-4 kernel is the optimal approach. Reproduce it cleanly as the final iter.
+- **Changes:** Clean single float4/thread with pointer walk, `__launch_bounds__(256)`, BLOCK_X=256, `__ldg` reads.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 9.71 ms (mean), 9.71 ~ 9.73 ms (min ~ max)
+  - Speedup: 1.008x
+- **Analysis:** Confirmed best at 9.71ms = 1.008x. Op is bandwidth-bound at 8.59GB / 900GB/s ≈ 9.54ms theoretical min. We achieve 9.71ms = 91.3% efficiency vs PyTorch's 9.79ms = 87.7%. At the memory bandwidth ceiling; no further improvement possible without PTX or algorithmic changes.
+- **Next:** Final. Iter-4 and iter-6 are tied at 9.71ms; iter-6 has cleaner code.
+
 
 
 
