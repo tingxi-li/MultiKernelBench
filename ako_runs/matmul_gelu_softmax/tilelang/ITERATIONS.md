@@ -104,3 +104,8 @@ Status values: improved / no-change / regression / failed.
 - **Analysis:** Best result yet: 4.78x. Eliminating the redundant exp() pass saves ~0.03ms per forward. Combined with the cached weight from iter 4, we're at 1.30ms vs 6.21ms reference. Iter cap reached (6 iterations).
 - **Final:** iter 6 is the best with 4.7769x speedup.
 
+### Final bench (2026-07-09)
+
+- Final bench confirms: COMPILED=True, CORRECT=True, RUNTIME=1.30ms, REF_RUNTIME=6.12ms, SPEEDUP=4.7077x
+- Best iter confirmed: iter 6 (online softmax with cached-exp + cached fp16 transposed weight)
+
