@@ -24,6 +24,7 @@ Status values: improved / no-change / regression / failed.
 | Iter | Title | Speedup(mean) | Runtime(mean) | Status |
 |------|-------|---------|--------------|--------|
 | 1 | Tiled SGEMM (BM=128,BN=128,BK=8,TM=8,TN=8) | 0.68x | 5.98 ms | regression |
+| 2 | WMMA TF32 tensor cores (no inline PTX) | INCORRECT | - | failed |
 
 ## Iterations
 
@@ -38,4 +39,16 @@ Status values: improved / no-change / regression / failed.
   - Speedup: 0.68x (mean)
 - **Analysis:** As expected for a FLOOR op, the custom float32 SGEMM without tensor cores (no PTX mma.sync available in cuda_noptx DSL) is slower than cuBLAS which uses TF32 tensor cores on Ada Lovelace. cuBLAS achieves ~4.1 ms while our pure FMA kernel takes ~6.0 ms. Without access to mma.sync or wmma intrinsics (which require PTX or CUDA C++ wmma headers, but still benefit from vectorized memory access), a custom kernel cannot beat cuBLAS on this hardware for large GEMM.
 - **Next:** Iter 2: Try WMMA (Warp Matrix Multiply-Accumulate) C++ API headers which are available without inline PTX — these provide tensor core access. This is the primary lever for potentially approaching cuBLAS performance.
+
+### Iter 2 — WMMA TF32 tensor cores via C++ wmma API (no inline PTX)
+
+- **Hypothesis:** CUDA C++ `wmma::precision::tf32` uses the Ada tensor cores without inline PTX `asm()`. TF32 has float inputs/outputs with FP32 accumulator, same as cuBLAS default. This could approach cuBLAS performance within the no-PTX constraint.
+- **Changes:** Replaced tiled float32 FMA kernel with WMMA TF32 SGEMM. 8 warps (256 threads), 4x2 warp arrangement, BM=64 BN=32 BK=8. Each warp computes one 16x16 WMMA tile. Shared memory staging in float32 for BM*BK + BK*BN elements.
+- **Bench:**
+  - Compiled: True
+  - Correct: False
+  - Runtime: N/A (incorrect)
+  - Speedup: N/A
+- **Analysis:** TF32 precision (~10-bit mantissa) yields ~1.5 avg absolute error accumulated over K=8192 iterations. This exceeds the float32 tolerance (1e-4). With torch.rand inputs in [0,1] and K=8192, TF32 rounding errors accumulate to ~1.5 vs required tolerance 1e-4. This is a fundamental precision issue — there is no correctness-preserving path to tensor cores in the no-PTX CUDA DSL at this precision/K size. The floor is confirmed: cuBLAS can pass tolerance checks because it uses a precision-aware path; a naively implemented WMMA kernel cannot match that without inline PTX to implement split-accumulation tricks.
+- **Next:** FLOOR CONFIRMED. Iter cap = 2 reached. Best iter is iter 1 (0.68x, correct but slower). The reference torch.matmul dispatches to cuBLAS which is optimally tuned with tensor cores, multi-stage pipelining, and prefetching that no hand-written no-PTX kernel can replicate within float32 correctness tolerances at K=8192.
 
