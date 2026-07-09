@@ -26,6 +26,7 @@ Status values: improved / no-change / regression / failed.
 | 1 | identity (torch.sum) baseline | 1.0000x | 9.84 ms | baseline |
 | 2 | triton 2D-tile reduce dim1, autotune BLOCK_M/N,nw | 1.0061x | 9.77 ms | improved (best) |
 | 3 | pipelined loads num_stages 3-4, BLOCK_N up to 1024 | 1.0031x | 9.80 ms | regression (revert) |
+| final | triton 2D-tile reduce dim1 (iter-2 best) | 1.0062x | 9.73 ms | final |
 
 ## Iterations
 
