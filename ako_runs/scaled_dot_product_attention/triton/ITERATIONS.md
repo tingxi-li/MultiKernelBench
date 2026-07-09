@@ -23,11 +23,12 @@ Status values: improved / no-change / regression / failed.
 
 | Iter | Title | Speedup(mean) | Runtime(mean) | Status |
 |------|-------|---------|--------------|--------|
-| 1 | Flash-Attn2 fp16 BM=16 BN=32 | 1.6541x | 37.0 ms | improved |
-| 2 | Autotune BM/BN/warps/stages | 1.6240x | 38.3 ms | no-change (regression) |
-| 3 | allow_tf32=True + 8 warps + cache hints | 1.6373x | 37.5 ms | no-change (near BW wall) |
-| 4 | D-tiled D_TILE=256, 4 separate dot calls | 1.7235x | 35.8 ms | improved |
-| 5 | D_TILE=512, 2 chunks (larger K-dim for QKT) | 1.6877x | 36.5 ms | no-change (regression vs iter4) |
+| [prior] 1 | Flash-Attn2 fp16 BM=16 BN=32 | 1.6541x | 37.0 ms | improved |
+| [prior] 2 | Autotune BM/BN/warps/stages | 1.6240x | 38.3 ms | no-change (regression) |
+| [prior] 3 | allow_tf32=True + 8 warps + cache hints | 1.6373x | 37.5 ms | no-change (near BW wall) |
+| [prior] 4 | D-tiled D_TILE=256, 4 separate dot calls | 1.7235x | 35.8 ms | improved |
+| [prior] 5 | D_TILE=512, 2 chunks (larger K-dim for QKT) | 1.6877x | 36.5 ms | no-change (regression vs iter4) |
+| 1 | BN=64 num_stages=2 (OOM) | N/A | N/A | failed (OOM) |
 
 ## Iterations
 
@@ -79,7 +80,19 @@ Status values: improved / no-change / regression / failed.
 - **Analysis:** Better than iter 1 (37.0ms) and iter 3 (37.5ms). The D-tiling reduces register pressure, allowing higher SM occupancy. With 4x D_TILE=256 sub-tiles: SMEM per K/V tile = 32*256*2 = 16 KB, total SMEM ≈ (16+16)*256*2=16 KB vs previous 96 KB. This leaves more L1/SMEM for thread context switching. Min latency of 31.8ms is 9% better than iter 1's 35.1ms min.
 - **Next:** Try varying D_TILE (512, 128) or tuning BN to see if further improvement is possible. Also try 2 warps to reduce occupancy trade-off.
 
-### Iter 5 — D_TILE=512 (2 chunks, larger K-dim for QKT)
+### Iter 1 (blind run) — BN=64 num_stages=2 (OOM)
+
+- **Hypothesis:** BN=64 reduces inner loop count from 16 to 8; num_stages=2 pipelining hides K/V load latency.
+- **Changes:** BN=32→64, num_stages=1→2.
+- **Bench:**
+  - Compiled: False (OOM)
+  - Correct: N/A
+  - Runtime: N/A
+  - Speedup: N/A
+- **Analysis:** SMEM required 296960B vs 101376B HW limit. BN=64 × 4 D-tiles × fp16 exceeded SMEM budget.
+- **Next:** Try BM=32 (larger Q-tile, fewer K/V re-reads per SM) with D_TILE=256 and 8 warps. Or try split-K decoding approach to parallelize over N dimension.
+
+### Iter 5 (prior run) — D_TILE=512 (2 chunks, larger K-dim for QKT)
 
 - **Hypothesis:** Halving the number of D-tiles (2 vs 4) reduces loop overhead for the D iteration. Larger D_TILE=512 means K-dim=512 for QKT dot products → better tensor core utilization. SMEM: 2*(16+32)*512*2 = 96 KB ✓.
 - **Changes:** D_TILE=512 (was 256), so 2 separate q0/q1, k0/k1, v0/v1, a0/a1 tensors instead of 4. Otherwise same as iter 4.
