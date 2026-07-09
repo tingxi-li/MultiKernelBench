@@ -30,6 +30,7 @@ Status values: improved / no-change / regression / failed.
 | [prior] 5 | D_TILE=512, 2 chunks (larger K-dim for QKT) | 1.6877x | 36.5 ms | no-change (regression vs iter4) |
 | 1 | BN=64 num_stages=2 (OOM) | N/A | N/A | failed (OOM) |
 | 2 | BM=32 8warps (OOM) | N/A | N/A | failed (OOM) |
+| 3 | K pre-transposed load (no tl.trans) | 1.7817x | 33.9 ms | improved |
 
 ## Iterations
 
@@ -80,6 +81,18 @@ Status values: improved / no-change / regression / failed.
   - Speedup: 1.7235x
 - **Analysis:** Better than iter 1 (37.0ms) and iter 3 (37.5ms). The D-tiling reduces register pressure, allowing higher SM occupancy. With 4x D_TILE=256 sub-tiles: SMEM per K/V tile = 32*256*2 = 16 KB, total SMEM ≈ (16+16)*256*2=16 KB vs previous 96 KB. This leaves more L1/SMEM for thread context switching. Min latency of 31.8ms is 9% better than iter 1's 35.1ms min.
 - **Next:** Try varying D_TILE (512, 128) or tuning BN to see if further improvement is possible. Also try 2 warps to reduce occupancy trade-off.
+
+### Iter 3 (blind run) — K pre-transposed load (no tl.trans)
+
+- **Hypothesis:** Loading K already transposed [D_TILE, BN] from memory avoids the tl.trans() call in the inner loop. tl.trans() may cause a SMEM bank-conflict or register shuffle. Direct column-major K load enables better memory access patterns for the QK dot product.
+- **Changes:** Load K as k_t[D_TILE, BN] using stride_kk as row stride, stride_kn as col stride. Eliminates 4 tl.trans() calls per inner loop iteration. BM=16, BN=32, D_TILE=256, 4 warps (same as prior best).
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 33.9 ms (mean), 31.3~36.4 ms (min~max)
+  - Speedup: 1.7817x
+- **Analysis:** Improved over prior best (35.8ms → 33.9ms, 1.72x → 1.78x). The K load pattern change is beneficial. Accessing K in column-major order produces a different load pattern that may hit L2 cache better, or the elimination of tl.trans() reduces register pressure allowing better instruction scheduling.
+- **Next:** Try varying BN (could try BN=16 for tighter loop, or verify BN=32 is optimal). Also try different num_warps (2 or 8). Try loading K rows with larger vectorized loads.
 
 ### Iter 2 (blind run) — BM=32 8 warps (OOM)
 

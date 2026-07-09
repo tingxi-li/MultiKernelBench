@@ -1,12 +1,24 @@
 """
-Flash-Attention 2 for HEAD_DIM=1024 in Triton — iter 2 (blind run).
+Flash-Attention 2 for HEAD_DIM=1024 in Triton — iter 3 (blind run).
 
-Optimization: BM=32 (was 16) with D_TILE=256, 8 warps (was 4).
-- BM=32 doubles Q rows per CTA → each K/V tile amortized over 2x more Q rows
-- Grid size halves (16 vs 32 Q-blocks per head), reducing total K/V reads
-- 8 warps → better occupancy on Ada
+Optimization: Load K transposed from memory (K.T layout: [D, N]) to avoid
+tl.trans() in inner loop. Also try loading V transposed and untransposing back.
 
-Prior best: BM=16, BN=32, D_TILE=256, 4 warps → 1.72x (35.8ms).
+Actually: Key insight is that tl.trans() in Triton doesn't actually move data -
+it's a compile-time transpose hint that tells the compiler to swap strides.
+So the real issue is memory access patterns.
+
+New approach: Instead of 4 separate Q/K tiles, try a single large [BM, D]
+QK computation by computing QK as a sum of 4 dots. The key optimization is:
+- Don't call tl.trans() at all. Load K in [BN, D_TILE] layout (already done).
+  tl.trans swaps to [D_TILE, BN]. This IS needed for the matrix multiply.
+- Instead: directly load K.T by using stride_kk as row stride and stride_kn
+  as col stride - i.e., K_T[d, n] = K[n, d]
+
+This reduces the per-CTA register pressure by eliminating the explicit
+transpose operation and keeping K tiles in [D_TILE, BN] layout natively.
+
+BM=16, BN=32, D_TILE=256, 4 warps (same as prior best, different K load pattern).
 """
 
 import math
@@ -17,7 +29,7 @@ import triton.language as tl
 
 
 @triton.jit
-def _flash_fwd_v2(
+def _flash_fwd_v3(
     Q, K, V, Out,
     stride_qb, stride_qh, stride_qm, stride_qk,
     stride_kb, stride_kh, stride_kn, stride_kk,
@@ -27,7 +39,7 @@ def _flash_fwd_v2(
     N_CTX:    tl.constexpr,
     D:        tl.constexpr,   # 1024
     D_TILE:   tl.constexpr,   # 256
-    BM:       tl.constexpr,   # 32
+    BM:       tl.constexpr,   # 16
     BN:       tl.constexpr,   # 32
     SCALE:    tl.constexpr,
 ):
@@ -39,6 +51,7 @@ def _flash_fwd_v2(
     offs_m = pid_m * BM + tl.arange(0, BM)
     mask_m = offs_m < N_CTX
     offs_d = tl.arange(0, D_TILE)
+    offs_n_base = tl.arange(0, BN)
 
     Q_bh   = Q   + pid_b * stride_qb + pid_h * stride_qh
     K_bh   = K   + pid_b * stride_kb + pid_h * stride_kh
@@ -62,25 +75,27 @@ def _flash_fwd_v2(
     a2 = tl.zeros([BM, D_TILE], dtype=tl.float32)
     a3 = tl.zeros([BM, D_TILE], dtype=tl.float32)
 
-    offs_n_base = tl.arange(0, BN)
-
     for start_n in range(0, N_CTX, BN):
         offs_n = start_n + offs_n_base
         mask_n = offs_n < N_CTX
 
-        k0 = tl.load(K_bh + offs_n[:, None] * stride_kn + (0*D_TILE + offs_d)[None, :] * stride_kk,
-                     mask=mask_n[:, None], other=0.0)
-        k1 = tl.load(K_bh + offs_n[:, None] * stride_kn + (1*D_TILE + offs_d)[None, :] * stride_kk,
-                     mask=mask_n[:, None], other=0.0)
-        k2 = tl.load(K_bh + offs_n[:, None] * stride_kn + (2*D_TILE + offs_d)[None, :] * stride_kk,
-                     mask=mask_n[:, None], other=0.0)
-        k3 = tl.load(K_bh + offs_n[:, None] * stride_kn + (3*D_TILE + offs_d)[None, :] * stride_kk,
-                     mask=mask_n[:, None], other=0.0)
+        # Load K transposed: K_T[d, n] — use stride_kk as leading dim, stride_kn as col
+        # K is stored as [N, D] with strides (stride_kn, stride_kk)
+        # To get K.T[D, N] we load: k_t[d, n] = K[n, d] = K + n*stride_kn + d*stride_kk
+        k0_t = tl.load(K_bh + (0*D_TILE + offs_d)[:, None] * stride_kk + offs_n[None, :] * stride_kn,
+                       mask=mask_n[None, :], other=0.0)  # [D_TILE, BN]
+        k1_t = tl.load(K_bh + (1*D_TILE + offs_d)[:, None] * stride_kk + offs_n[None, :] * stride_kn,
+                       mask=mask_n[None, :], other=0.0)  # [D_TILE, BN]
+        k2_t = tl.load(K_bh + (2*D_TILE + offs_d)[:, None] * stride_kk + offs_n[None, :] * stride_kn,
+                       mask=mask_n[None, :], other=0.0)  # [D_TILE, BN]
+        k3_t = tl.load(K_bh + (3*D_TILE + offs_d)[:, None] * stride_kk + offs_n[None, :] * stride_kn,
+                       mask=mask_n[None, :], other=0.0)  # [D_TILE, BN]
 
-        qk = (tl.dot(q0, tl.trans(k0), allow_tf32=True) +
-              tl.dot(q1, tl.trans(k1), allow_tf32=True) +
-              tl.dot(q2, tl.trans(k2), allow_tf32=True) +
-              tl.dot(q3, tl.trans(k3), allow_tf32=True))
+        # QK = q * k_T: [BM, D_TILE] x [D_TILE, BN] -> [BM, BN]
+        qk = (tl.dot(q0, k0_t, allow_tf32=True) +
+              tl.dot(q1, k1_t, allow_tf32=True) +
+              tl.dot(q2, k2_t, allow_tf32=True) +
+              tl.dot(q3, k3_t, allow_tf32=True))
         qk = SCALE * qk
         qk = tl.where(mask_n[None, :], qk, float('-inf'))
 
@@ -93,7 +108,7 @@ def _flash_fwd_v2(
         a2 = a2 * alpha[:, None]
         a3 = a3 * alpha[:, None]
 
-        # Load V in fp16
+        # Load V in fp16 [BN, D_TILE]
         v0 = tl.load(V_bh + offs_n[:, None] * stride_vn + (0*D_TILE + offs_d)[None, :] * stride_vk,
                      mask=mask_n[:, None], other=0.0)
         v1 = tl.load(V_bh + offs_n[:, None] * stride_vn + (1*D_TILE + offs_d)[None, :] * stride_vk,
@@ -103,7 +118,7 @@ def _flash_fwd_v2(
         v3 = tl.load(V_bh + offs_n[:, None] * stride_vn + (3*D_TILE + offs_d)[None, :] * stride_vk,
                      mask=mask_n[:, None], other=0.0)
 
-        # Cast p to fp16 for tc pV
+        # Cast p to fp16 for tc pV: [BM, BN] x [BN, D_TILE] -> [BM, D_TILE]
         p_h = p.to(tl.float16)
         a0 = a0 + tl.dot(p_h, v0, allow_tf32=True).to(tl.float32)
         a1 = a1 + tl.dot(p_h, v1, allow_tf32=True).to(tl.float32)
@@ -137,12 +152,12 @@ class Model(nn.Module):
         Kh = K.to(torch.float16)
         Vh = V.to(torch.float16)
 
-        BM = 32
+        BM = 16
         BN = 32
         D_TILE = 256
 
         grid = (triton.cdiv(N, BM), B * H)
-        _flash_fwd_v2[grid](
+        _flash_fwd_v3[grid](
             Qh, Kh, Vh, Out,
             Qh.stride(0), Qh.stride(1), Qh.stride(2), Qh.stride(3),
             Kh.stride(0), Kh.stride(1), Kh.stride(2), Kh.stride(3),
@@ -155,7 +170,7 @@ class Model(nn.Module):
             BM=BM,
             BN=BN,
             SCALE=sm_scale,
-            num_warps=8,
+            num_warps=4,
             num_stages=1,
         )
         return Out
