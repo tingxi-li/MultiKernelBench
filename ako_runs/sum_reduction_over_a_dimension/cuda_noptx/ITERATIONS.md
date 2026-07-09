@@ -27,6 +27,7 @@ Status values: improved / no-change / regression / failed.
 | 2 | v1 scalar coalesced col-sum (thread/col, __ldg) | 0.9919x | 9.91 ms | regression |
 | 3 | v2 float4 4-col/thread, 4 accums | 1.0072x | 9.76 ms | improved (BEST) |
 | 4 | v3 float4 + 4-deep row unroll | 1.0072x | 9.76 ms | no-change |
+| final | v2 float4 4-col/thread (best) | 1.0072x | 9.72 ms | final |
 
 ## Iterations
 

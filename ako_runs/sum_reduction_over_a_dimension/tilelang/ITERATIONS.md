@@ -15,3 +15,9 @@ Op: sum_reduction over dim=1 of (128,4096,4096) fp32 = read 8.59 GB once, write 
 - STOP: within 5% of ceiling (I am the ceiling; torch ref 9.79) AND ncu confirms the
   1.00-pass HBM roofline is hit; last 2 variants <0.3% apart. Detector-clean.
 - Re-reached the prior unlogged run's ceiling (also 9.72 ms / 1.0072x), independently.
+
+## Summary Table
+
+| iter | description | speedup | runtime | notes |
+|------|-------------|---------|---------|-------|
+| final | single-pass column reduction, float4 vectorized, BK=256 | 1.0062x | 9.73 ms | final |
