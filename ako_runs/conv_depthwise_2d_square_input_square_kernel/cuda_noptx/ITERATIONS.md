@@ -27,6 +27,7 @@ Status values: improved / no-change / regression / failed.
 | 2 | v1 dw3x3s1 thread/out, coalesced, __ldg | 2.0709x | 2.82 ms | improved |
 | 3 | v2 dw3x3s1 RPT=4 OH row-reuse in regs | 2.2375x | 2.61 ms | improved (BEST) |
 | 4 | v3 RPT=8 | 2.2121x | 2.64 ms | no-change |
+| final | v2 dw3x3s1 RPT=4 OH row-reuse in regs | 1.5909x | 2.64 ms | final |
 
 ## Iterations
 
