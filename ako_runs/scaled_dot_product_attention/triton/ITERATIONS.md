@@ -31,6 +31,7 @@ Status values: improved / no-change / regression / failed.
 | 1 | BN=64 num_stages=2 (OOM) | N/A | N/A | failed (OOM) |
 | 2 | BM=32 8warps (OOM) | N/A | N/A | failed (OOM) |
 | 3 | K pre-transposed load (no tl.trans) | 1.7817x | 33.9 ms | improved |
+| 4 | Explicit K.T contiguous transpose in wrapper | 1.2893x | 47.7 ms | regression |
 
 ## Iterations
 
@@ -81,6 +82,18 @@ Status values: improved / no-change / regression / failed.
   - Speedup: 1.7235x
 - **Analysis:** Better than iter 1 (37.0ms) and iter 3 (37.5ms). The D-tiling reduces register pressure, allowing higher SM occupancy. With 4x D_TILE=256 sub-tiles: SMEM per K/V tile = 32*256*2 = 16 KB, total SMEM ≈ (16+16)*256*2=16 KB vs previous 96 KB. This leaves more L1/SMEM for thread context switching. Min latency of 31.8ms is 9% better than iter 1's 35.1ms min.
 - **Next:** Try varying D_TILE (512, 128) or tuning BN to see if further improvement is possible. Also try 2 warps to reduce occupancy trade-off.
+
+### Iter 4 (blind run) — Explicit K.T contiguous transpose in wrapper
+
+- **Hypothesis:** Pre-transposing K to [B,H,D,N] contiguous before kernel launch gives fully coalesced reads in N-dimension (stride=1).
+- **Changes:** K.transpose(-2,-1).contiguous() in forward(), pass KTh with [B,H,D,N] strides to kernel.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 47.7 ms (mean), 46.3~50.3 ms (min~max)
+  - Speedup: 1.2893x
+- **Analysis:** Regression from 33.9ms to 47.7ms. The K.T transpose itself takes ~14ms, overwhelming the savings. For Q/K/V each 6.4GB total, a separate transpose is expensive.
+- **Next:** Revert to iter3 approach (column-major K load from [N,D] layout). Iter 3 is best. Try different BN values or explore Flash-Decoding split-K.
 
 ### Iter 3 (blind run) — K pre-transposed load (no tl.trans)
 

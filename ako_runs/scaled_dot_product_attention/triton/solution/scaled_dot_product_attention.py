@@ -1,24 +1,16 @@
 """
-Flash-Attention 2 for HEAD_DIM=1024 in Triton — iter 3 (blind run).
+Flash-Attention 2 for HEAD_DIM=1024 in Triton — iter 4 (blind run).
 
-Optimization: Load K transposed from memory (K.T layout: [D, N]) to avoid
-tl.trans() in inner loop. Also try loading V transposed and untransposing back.
+Iter 3 insight: Loading K transposed from [N,D] (column-major) was 1.78x.
+But K[n,d] has strides (D=1024, 1). Column-major access K[d,n] has stride
+(1, 1024) - accessing columns stride 1024 apart is NOT coalesced.
 
-Actually: Key insight is that tl.trans() in Triton doesn't actually move data -
-it's a compile-time transpose hint that tells the compiler to swap strides.
-So the real issue is memory access patterns.
+Iter 4 idea: Pre-transpose K to contiguous K_T = K.transpose(-2,-1).contiguous()
+in the Python wrapper. K_T is [B,H,D,N] with strides (H*D*N, D*N, N, 1).
+Then loading K_T[d_chunk, n_block] is fully contiguous (stride=1 along N).
+This should give better HBM bandwidth utilization for K reads.
 
-New approach: Instead of 4 separate Q/K tiles, try a single large [BM, D]
-QK computation by computing QK as a sum of 4 dots. The key optimization is:
-- Don't call tl.trans() at all. Load K in [BN, D_TILE] layout (already done).
-  tl.trans swaps to [D_TILE, BN]. This IS needed for the matrix multiply.
-- Instead: directly load K.T by using stride_kk as row stride and stride_kn
-  as col stride - i.e., K_T[d, n] = K[n, d]
-
-This reduces the per-CTA register pressure by eliminating the explicit
-transpose operation and keeping K tiles in [D_TILE, BN] layout natively.
-
-BM=16, BN=32, D_TILE=256, 4 warps (same as prior best, different K load pattern).
+Same kernel structure as iter 3 but K is accessed via contiguous K_T.
 """
 
 import math
@@ -29,10 +21,10 @@ import triton.language as tl
 
 
 @triton.jit
-def _flash_fwd_v3(
-    Q, K, V, Out,
+def _flash_fwd_v4(
+    Q, KT, V, Out,
     stride_qb, stride_qh, stride_qm, stride_qk,
-    stride_kb, stride_kh, stride_kn, stride_kk,
+    stride_ktb, stride_kth, stride_ktk, stride_ktn,   # KT: [B,H,D,N]
     stride_vb, stride_vh, stride_vn, stride_vk,
     stride_ob, stride_oh, stride_om, stride_ok,
     H,
@@ -53,10 +45,10 @@ def _flash_fwd_v3(
     offs_d = tl.arange(0, D_TILE)
     offs_n_base = tl.arange(0, BN)
 
-    Q_bh   = Q   + pid_b * stride_qb + pid_h * stride_qh
-    K_bh   = K   + pid_b * stride_kb + pid_h * stride_kh
-    V_bh   = V   + pid_b * stride_vb + pid_h * stride_vh
-    Out_bh = Out + pid_b * stride_ob + pid_h * stride_oh
+    Q_bh   = Q   + pid_b * stride_qb  + pid_h * stride_qh
+    KT_bh  = KT  + pid_b * stride_ktb + pid_h * stride_kth
+    V_bh   = V   + pid_b * stride_vb  + pid_h * stride_vh
+    Out_bh = Out + pid_b * stride_ob  + pid_h * stride_oh
 
     # Pre-load Q tiles [BM, D_TILE] x 4 in fp16
     q0 = tl.load(Q_bh + offs_m[:, None] * stride_qm + (0*D_TILE + offs_d)[None, :] * stride_qk,
@@ -79,23 +71,21 @@ def _flash_fwd_v3(
         offs_n = start_n + offs_n_base
         mask_n = offs_n < N_CTX
 
-        # Load K transposed: K_T[d, n] — use stride_kk as leading dim, stride_kn as col
-        # K is stored as [N, D] with strides (stride_kn, stride_kk)
-        # To get K.T[D, N] we load: k_t[d, n] = K[n, d] = K + n*stride_kn + d*stride_kk
-        k0_t = tl.load(K_bh + (0*D_TILE + offs_d)[:, None] * stride_kk + offs_n[None, :] * stride_kn,
-                       mask=mask_n[None, :], other=0.0)  # [D_TILE, BN]
-        k1_t = tl.load(K_bh + (1*D_TILE + offs_d)[:, None] * stride_kk + offs_n[None, :] * stride_kn,
-                       mask=mask_n[None, :], other=0.0)  # [D_TILE, BN]
-        k2_t = tl.load(K_bh + (2*D_TILE + offs_d)[:, None] * stride_kk + offs_n[None, :] * stride_kn,
-                       mask=mask_n[None, :], other=0.0)  # [D_TILE, BN]
-        k3_t = tl.load(K_bh + (3*D_TILE + offs_d)[:, None] * stride_kk + offs_n[None, :] * stride_kn,
-                       mask=mask_n[None, :], other=0.0)  # [D_TILE, BN]
+        # Load KT[d_chunk, n_block]: contiguous along N (stride=1)
+        kt0 = tl.load(KT_bh + (0*D_TILE + offs_d)[:, None] * stride_ktk + offs_n[None, :] * stride_ktn,
+                      mask=mask_n[None, :], other=0.0)  # [D_TILE, BN]
+        kt1 = tl.load(KT_bh + (1*D_TILE + offs_d)[:, None] * stride_ktk + offs_n[None, :] * stride_ktn,
+                      mask=mask_n[None, :], other=0.0)
+        kt2 = tl.load(KT_bh + (2*D_TILE + offs_d)[:, None] * stride_ktk + offs_n[None, :] * stride_ktn,
+                      mask=mask_n[None, :], other=0.0)
+        kt3 = tl.load(KT_bh + (3*D_TILE + offs_d)[:, None] * stride_ktk + offs_n[None, :] * stride_ktn,
+                      mask=mask_n[None, :], other=0.0)
 
-        # QK = q * k_T: [BM, D_TILE] x [D_TILE, BN] -> [BM, BN]
-        qk = (tl.dot(q0, k0_t, allow_tf32=True) +
-              tl.dot(q1, k1_t, allow_tf32=True) +
-              tl.dot(q2, k2_t, allow_tf32=True) +
-              tl.dot(q3, k3_t, allow_tf32=True))
+        # QK = q * kt: [BM, D_TILE] x [D_TILE, BN] -> [BM, BN]
+        qk = (tl.dot(q0, kt0, allow_tf32=True) +
+              tl.dot(q1, kt1, allow_tf32=True) +
+              tl.dot(q2, kt2, allow_tf32=True) +
+              tl.dot(q3, kt3, allow_tf32=True))
         qk = SCALE * qk
         qk = tl.where(mask_n[None, :], qk, float('-inf'))
 
@@ -149,7 +139,9 @@ class Model(nn.Module):
         Out = torch.empty_like(Q)
 
         Qh = Q.to(torch.float16)
+        # Pre-transpose K to [B, H, D, N] for contiguous N-reads in kernel
         Kh = K.to(torch.float16)
+        KTh = Kh.transpose(-2, -1).contiguous()  # [B, H, D, N]
         Vh = V.to(torch.float16)
 
         BM = 16
@@ -157,10 +149,10 @@ class Model(nn.Module):
         D_TILE = 256
 
         grid = (triton.cdiv(N, BM), B * H)
-        _flash_fwd_v3[grid](
-            Qh, Kh, Vh, Out,
+        _flash_fwd_v4[grid](
+            Qh, KTh, Vh, Out,
             Qh.stride(0), Qh.stride(1), Qh.stride(2), Qh.stride(3),
-            Kh.stride(0), Kh.stride(1), Kh.stride(2), Kh.stride(3),
+            KTh.stride(0), KTh.stride(1), KTh.stride(2), KTh.stride(3),
             Vh.stride(0), Vh.stride(1), Vh.stride(2), Vh.stride(3),
             Out.stride(0), Out.stride(1), Out.stride(2), Out.stride(3),
             H,
