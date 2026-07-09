@@ -26,6 +26,7 @@ Status values: improved / no-change / regression / failed.
 | 1 | cuBLAS GEMM + fused bias+GELU+softmax | -1 (INCORRECT) | N/A | failed |
 | 2 | at::mm + fused GELU+softmax (correct) | 0.96x | 6.62 ms | regression |
 | 3 | PyTorch linear + fused GELU+softmax float4 | 1.03x | 6.19 ms | improved |
+| 4 | Warp-shuffle reductions (float4) | 1.03x | 6.19 ms | no-change |
 
 ## Iterations
 
@@ -64,4 +65,16 @@ Status values: improved / no-change / regression / failed.
   - Speedup: 1.03x
 - **Analysis:** The fused GELU+softmax saves ~0.2ms over baseline (avoids one extra HBM round-trip for GELU output). The min 5.42ms shows the fused kernel is hitting ~0.3ms for GELU+softmax vs ~0.5ms for two passes. Float4 vectorization is working. Main bottleneck: GEMM itself (≈5.5ms at best clock). The erff() is still slow; could try tanh approximation for GELU or use online softmax.
 - **Next:** Try online softmax (single-pass: compute max+sum+normalize in one kernel pass) with tanh GELU approximation. Also try eliminating the extra allocations in fused kernel.
+
+### Iter 4 — Warp-shuffle reductions (float4)
+
+- **Hypothesis:** Replacing __syncthreads()-based tree reductions with warp-shuffle reductions reduces synchronization overhead and pipeline stalls.
+- **Changes:** Added warp_reduce_max/warp_reduce_sum using __shfl_xor_sync, inter-warp reduction via shared mem (only WARPS=8 elements vs 256).
+- **Bench:**
+  - Compiled: True
+  - Correct: True (5/5)
+  - Runtime: 6.19 ms mean, 5.34 ~ 6.62 ms (min ~ max)
+  - Speedup: 1.031x
+- **Analysis:** No improvement over iter 3. The synchronization overhead was not the bottleneck — the kernel is dominated by erff() computation (transcendental function). The GEMM takes ~5.5ms and fused epilogue ~0.3ms; further reductions in softmax overhead have diminishing returns.
+- **Next:** Try using in-place output (no extra allocation) and see if the output tensor reuse helps. Also try 512 threads per block with EPT=16 for better occupancy.
 
