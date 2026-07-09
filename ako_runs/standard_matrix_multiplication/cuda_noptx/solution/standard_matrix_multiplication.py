@@ -3,7 +3,9 @@ import torch.nn as nn
 from torch.utils.cpp_extension import load_inline
 
 # Tiled SGEMM — BM=128 BN=128 BK=16 TM=8 TN=8 256-thread block
+# Double-buffered shared memory to overlap GMEM loads with compute
 # float4 vectorised loads, bank-conflict-free shared mem (padded)
+# Shared mem per block: 2*(128*17 + 16*132)*4 = 34304 bytes < 49152 max
 _SGEMM_CUDA = r"""
 #include <cuda_runtime.h>
 #include <torch/extension.h>
@@ -19,7 +21,8 @@ _SGEMM_CUDA = r"""
 #define BLOCK_ROWS (BM/TM)   // 16
 #define BLOCK_COLS (BN/TN)   // 16
 
-__global__ void sgemm_v2(
+__global__ __launch_bounds__(256, 2)
+void sgemm_doublebuf(
     const float* __restrict__ A,
     const float* __restrict__ B,
     float* __restrict__ C,
@@ -31,7 +34,7 @@ __global__ void sgemm_v2(
     const int ty = threadIdx.y;        // 0..15
     const int tid = ty * BLOCK_COLS + tx;  // 0..255
 
-    // Accumulators
+    // Accumulators in registers
     float acc[TM][TN];
     #pragma unroll
     for (int i = 0; i < TM; i++)
@@ -39,86 +42,124 @@ __global__ void sgemm_v2(
         for (int j = 0; j < TN; j++)
             acc[i][j] = 0.0f;
 
-    // Shared memory with padding to avoid bank conflicts
-    __shared__ float As[BM][BK + 4];   // 128×20, padded by 4
-    __shared__ float Bs[BK][BN + 4];   // 16×132, padded by 4
+    // Double-buffered shared memory
+    // As: BM×BK each buffer = 128×16 = 2048 floats, padded to 128×17 = 2176 floats
+    // Bs: BK×BN each buffer = 16×128 = 2048 floats, padded to 16×132 = 2112 floats
+    // Total: 2 * (2176 + 2112) * 4 = 34304 bytes < 49152 max
+    __shared__ float As[2][BM][BK + 1];   // 128×17
+    __shared__ float Bs[2][BK][BN + 4];   // 16×132
 
-    // ── Load A tile ──────────────────────────────────────────────────────────
-    // 256 threads load BM×BK = 128×16 = 2048 floats
-    // Each thread loads 8 floats (2 iterations × 4-wide = float4)
-    // Layout: tid → row = tid / (BK/4), col_f4 = (tid % (BK/4)) * 4
-    //   BK/4 = 4  → row stride = 256 / 4 = 64, so each of 4 loads covers 64 rows
-    //   We need ceil(128 / 64) = 2 passes
+    // A load layout: BM×BK = 128×16 = 2048 elements, 256 threads → 8 per thread
+    //   float4: 2 loads per thread
+    //   Row: tid / (BK/4) = tid / 4 → 0..63, stride 64
+    //   Col: (tid % 4) * 4 → 0,4,8,12
     const int As_col_f4 = (tid & 3) * 4;      // 0,4,8,12
     const int As_row_base = tid >> 2;          // 0..63
 
-    // ── Load B tile ──────────────────────────────────────────────────────────
-    // 256 threads load BK×BN = 16×128 = 2048 floats
-    // Each thread loads 8 floats (2 iterations)
-    // Layout: row = tid / (BN/4), col_f4 = (tid % (BN/4)) * 4
-    //   BN/4 = 32 → row stride = 256 / 32 = 8 → 2 rows per pass
+    // B load layout: BK×BN = 16×128 = 2048 elements, 256 threads → 8 per thread
+    //   float4: 2 loads per thread
+    //   Row: tid / (BN/4) = tid / 32 → 0..7
+    //   Col: (tid % 32) * 4 → 0,4,...,124
     const int Bs_col_f4 = (tid & 31) * 4;     // 0,4,...,124
     const int Bs_row_base = tid >> 5;          // 0..7
 
     const int num_k_tiles = (K + BK - 1) / BK;
 
-    for (int kt = 0; kt < num_k_tiles; ++kt) {
-        const int k_base = kt * BK;
-
-        // Load A (BM×BK) — 2 passes of 64 rows
+    // Load first tile into buffer 0
+    {
+        const int k_base = 0;
         #pragma unroll
         for (int s = 0; s < 2; ++s) {
             int row = As_row_base + s * 64;
-            int gr = bm + row;
-            int gk = k_base + As_col_f4;
+            int gr  = bm + row;
+            int gk  = k_base + As_col_f4;
             if (gr < M && gk + 3 < K) {
                 float4 v = *reinterpret_cast<const float4*>(&A[gr * K + gk]);
-                As[row][As_col_f4 + 0] = v.x;
-                As[row][As_col_f4 + 1] = v.y;
-                As[row][As_col_f4 + 2] = v.z;
-                As[row][As_col_f4 + 3] = v.w;
+                As[0][row][As_col_f4+0] = v.x;
+                As[0][row][As_col_f4+1] = v.y;
+                As[0][row][As_col_f4+2] = v.z;
+                As[0][row][As_col_f4+3] = v.w;
             } else if (gr < M) {
-                // Scalar fallback for boundary
                 for (int d = 0; d < 4; d++)
-                    As[row][As_col_f4 + d] = (gk + d < K) ? A[gr * K + gk + d] : 0.0f;
+                    As[0][row][As_col_f4+d] = (gk+d < K) ? A[gr*K+gk+d] : 0.0f;
             } else {
-                for (int d = 0; d < 4; d++)
-                    As[row][As_col_f4 + d] = 0.0f;
+                for (int d = 0; d < 4; d++) As[0][row][As_col_f4+d] = 0.0f;
             }
         }
-
-        // Load B (BK×BN) — 2 passes of 8 rows
         #pragma unroll
         for (int s = 0; s < 2; ++s) {
             int row = Bs_row_base + s * 8;
-            int gk = k_base + row;
-            int gn = bn + Bs_col_f4;
+            int gk  = k_base + row;
+            int gn  = bn + Bs_col_f4;
             if (gk < K && gn + 3 < N) {
                 float4 v = *reinterpret_cast<const float4*>(&B[gk * N + gn]);
-                Bs[row][Bs_col_f4 + 0] = v.x;
-                Bs[row][Bs_col_f4 + 1] = v.y;
-                Bs[row][Bs_col_f4 + 2] = v.z;
-                Bs[row][Bs_col_f4 + 3] = v.w;
+                Bs[0][row][Bs_col_f4+0] = v.x;
+                Bs[0][row][Bs_col_f4+1] = v.y;
+                Bs[0][row][Bs_col_f4+2] = v.z;
+                Bs[0][row][Bs_col_f4+3] = v.w;
             } else if (gk < K) {
                 for (int d = 0; d < 4; d++)
-                    Bs[row][Bs_col_f4 + d] = (gn + d < N) ? B[gk * N + gn + d] : 0.0f;
+                    Bs[0][row][Bs_col_f4+d] = (gn+d < N) ? B[gk*N+gn+d] : 0.0f;
             } else {
-                for (int d = 0; d < 4; d++)
-                    Bs[row][Bs_col_f4 + d] = 0.0f;
+                for (int d = 0; d < 4; d++) Bs[0][row][Bs_col_f4+d] = 0.0f;
+            }
+        }
+    }
+    __syncthreads();
+
+    for (int kt = 0; kt < num_k_tiles; ++kt) {
+        int next_buf = 1 - (kt & 1);
+        int cur_buf  = kt & 1;
+        int next_k   = (kt + 1) * BK;
+
+        // Prefetch next tile
+        if (kt + 1 < num_k_tiles) {
+            #pragma unroll
+            for (int s = 0; s < 2; ++s) {
+                int row = As_row_base + s * 64;
+                int gr  = bm + row;
+                int gk  = next_k + As_col_f4;
+                if (gr < M && gk + 3 < K) {
+                    float4 v = *reinterpret_cast<const float4*>(&A[gr * K + gk]);
+                    As[next_buf][row][As_col_f4+0] = v.x;
+                    As[next_buf][row][As_col_f4+1] = v.y;
+                    As[next_buf][row][As_col_f4+2] = v.z;
+                    As[next_buf][row][As_col_f4+3] = v.w;
+                } else if (gr < M) {
+                    for (int d = 0; d < 4; d++)
+                        As[next_buf][row][As_col_f4+d] = (gk+d < K) ? A[gr*K+gk+d] : 0.0f;
+                } else {
+                    for (int d = 0; d < 4; d++) As[next_buf][row][As_col_f4+d] = 0.0f;
+                }
+            }
+            #pragma unroll
+            for (int s = 0; s < 2; ++s) {
+                int row = Bs_row_base + s * 8;
+                int gk  = next_k + row;
+                int gn  = bn + Bs_col_f4;
+                if (gk < K && gn + 3 < N) {
+                    float4 v = *reinterpret_cast<const float4*>(&B[gk * N + gn]);
+                    Bs[next_buf][row][Bs_col_f4+0] = v.x;
+                    Bs[next_buf][row][Bs_col_f4+1] = v.y;
+                    Bs[next_buf][row][Bs_col_f4+2] = v.z;
+                    Bs[next_buf][row][Bs_col_f4+3] = v.w;
+                } else if (gk < K) {
+                    for (int d = 0; d < 4; d++)
+                        Bs[next_buf][row][Bs_col_f4+d] = (gn+d < N) ? B[gk*N+gn+d] : 0.0f;
+                } else {
+                    for (int d = 0; d < 4; d++) Bs[next_buf][row][Bs_col_f4+d] = 0.0f;
+                }
             }
         }
 
-        __syncthreads();
-
-        // Compute: each thread works on ty*TM .. ty*TM+TM-1 rows
-        //                                   tx*TN .. tx*TN+TN-1 cols
+        // Compute current tile from cur_buf
         #pragma unroll
         for (int ki = 0; ki < BK; ++ki) {
             float a_reg[TM], b_reg[TN];
             #pragma unroll
-            for (int i = 0; i < TM; ++i) a_reg[i] = As[ty * TM + i][ki];
+            for (int i = 0; i < TM; ++i) a_reg[i] = As[cur_buf][ty * TM + i][ki];
             #pragma unroll
-            for (int j = 0; j < TN; ++j) b_reg[j] = Bs[ki][tx * TN + j];
+            for (int j = 0; j < TN; ++j) b_reg[j] = Bs[cur_buf][ki][tx * TN + j];
             #pragma unroll
             for (int i = 0; i < TM; ++i)
                 #pragma unroll
@@ -149,7 +190,7 @@ torch::Tensor sgemm_launch(torch::Tensor A, torch::Tensor B) {
     auto C = torch::empty({M, N}, A.options());
     dim3 block(BLOCK_COLS, BLOCK_ROWS);  // (16, 16) = 256 threads
     dim3 grid((N + BN - 1) / BN, (M + BM - 1) / BM);
-    sgemm_v2<<<grid, block>>>(
+    sgemm_doublebuf<<<grid, block>>>(
         A.data_ptr<float>(), B.data_ptr<float>(), C.data_ptr<float>(),
         M, K, N
     );
@@ -163,7 +204,7 @@ torch::Tensor sgemm_launch(torch::Tensor A, torch::Tensor B);
 """
 
 _ext = load_inline(
-    name="sgemm_noptx_bk16_f4",
+    name="sgemm_noptx_bk16_db",
     cpp_sources=_SGEMM_CPP,
     cuda_sources=_SGEMM_CUDA,
     functions=["sgemm_launch"],
@@ -173,7 +214,7 @@ _ext = load_inline(
 
 
 class Model(nn.Module):
-    """Matrix multiplication C = A @ B via tiled SGEMM (float32, no PTX, BK=16 float4 loads)."""
+    """Matrix multiplication C = A @ B via double-buffered tiled SGEMM (float32, no PTX, BK=16)."""
 
     def __init__(self):
         super().__init__()
