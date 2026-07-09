@@ -21,3 +21,9 @@ convergence.csv.
 - STOP: 4 consecutive levers below the 4.19x best (plateau); far past cuBLAS external ref.
 - BEST 4.19x (1.07 ms) — EXCEEDS the prior unlogged run (3.40x split-K-atomic) and the
   finding's 3.86x, because the in-block fp32 flush avoids grid-z atomic contention.
+
+## Summary
+
+| iter  | title                                      | speedup | runtime  | status |
+|-------|--------------------------------------------|---------|----------|--------|
+| final | fp16 T.gemm split-K flush BM128 BN256 KC2048 | 3.89x   | 1.14 ms  | final  |
