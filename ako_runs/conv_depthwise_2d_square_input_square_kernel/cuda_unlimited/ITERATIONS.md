@@ -26,6 +26,7 @@ Status values: improved / no-change / regression / failed.
 | 1 | Shared-mem tiling 3x3 kernel | 1.34x | 2.91 ms | improved |
 | 2 | Wide-tile: 4 outputs/thread, 128x8 tile | 1.54x | 2.63 ms | improved |
 | 3 | PTX ld.cs streaming loads + st.cs stores | 1.35x | 2.63 ms | no-change |
+| 4 | Y-direction coarsening (NVEC_Y=2, 128x16 tile) | 1.53x | 2.63 ms | no-change |
 
 ## Iterations
 
@@ -64,4 +65,16 @@ Status values: improved / no-change / regression / failed.
   - Speedup: 1.35x (mean) - ref was lower this run at 3.56ms
 - **Analysis:** Same runtime as iter-2 (2.63ms). The ld.cs approach doesn't help - the L2 cache on Ada Lovelace (96MB) is not helping much at this scale anyway, but bypassing it doesn't hurt either. The solution runtime has converged at ~2.63ms. The speedup variation (1.35x vs 1.54x) is due to reference runtime variance.
 - **Next:** Try a completely different approach - use cp.async for double-buffered pipeline, or try processing multiple channels per block (channel-fused), or try half-precision intermediate computation.
+
+### Iter 4 — Y-direction coarsening (NVEC_Y=2, 128x16 output tile)
+
+- **Hypothesis:** Having each thread handle 2 output rows (via Y coarsening) doubles the data reuse for each smem row read, reduces the number of smem load loops per block, and amortizes __syncthreads cost.
+- **Changes:** 32x8 block, each thread computes NVEC_Y=2 output rows * NVEC_X=4 cols = 8 outputs. Tile 128x16, smem 130x18.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 2.63 ms (mean), 2.57 ~ 3.83 ms (min ~ max)
+  - Speedup: 1.53x (mean)
+- **Analysis:** Same 2.63ms as iter-2. Y-coarsening doesn't help. The solution is at the memory bandwidth ceiling. Three consecutive iters at ~2.63ms with different tile sizes.
+- **Next:** Re-assess - try a fundamentally different approach. Consider: (1) Warp-level reduction with direct HBM reads (no smem), (2) Persistent kernel with circular buffer, (3) Process 2 NC-planes per block simultaneously to better utilize instruction-level parallelism.
 
