@@ -30,6 +30,7 @@ Status values: improved / no-change / regression / failed.
 | 5 | Restored iter-2 exact design (canonical best) | 1.52x | 2.65 ms | improved |
 | 6 | shmem values staged to 9 local regs before FMA | 1.54x | 2.66 ms | improved |
 | NEW-1 | 3 output rows per block (5 shmem rows, reduce DRAM 44%) | 1.48x | 2.71 ms | regression |
+| NEW-2 | 2 output pixels per thread, TH=255 | 1.45x | 2.69 ms | regression |
 
 ## Iterations
 
@@ -115,6 +116,18 @@ Status values: improved / no-change / regression / failed.
   - Speedup: 1.48x (mean)
 - **Analysis:** 2.71ms is slightly worse than 2.65ms baseline (iter-6). Despite 44% fewer global reads, having 5 shmem arrays takes more registers and bank pressure. The RTX 6000 Ada has very fast L1/L2, making the shmem savings less valuable. The extra shmem overhead (5 arrays vs 3) adds latency.
 - **Next:** Try reducing shmem usage — only 2 shmem rows (shift-register style), or try vectorized float4 loads.
+
+### NEW-Iter 2 — 2 output pixels per thread, TH=255
+
+- **Hypothesis:** W_out=510 → TH=255 threads each computing 2 adjacent output pixels reuses 7/9 input values from shmem for the adjacent pixel, increasing ILP and reducing grid launch overhead (510/512 → 510/255 = same blocks but each does double work).
+- **Changes:** TH=255. Each thread computes col0=tid*2 and col1=tid*2+1. Two accumulators. Same 3 shmem rows.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 2.69 ms (mean), 2.63 ~ 3.86 ms (min ~ max)
+  - Speedup: 1.45x (mean) [ref at 3.90ms]
+- **Analysis:** 2.69ms, slightly worse than 2.65ms. Having fewer threads (255 vs 512) reduces the number of warps that can hide memory latency. The shmem load phase takes 3 iterations (ceil(512/255)=3) vs 1 iteration with TH=512, causing more serialization. The bandwidth saving from reusing 7/9 values doesn't compensate.
+- **Next:** Try half-precision (fp16) accumulators with fp32 inputs but fp16 arithmetic.
 
 ## Final Bench (confirming iter-6)
 
