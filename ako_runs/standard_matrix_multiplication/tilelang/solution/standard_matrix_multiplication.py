@@ -13,9 +13,9 @@ import tilelang.language as T
 
 _BM = 128
 _BN = 256
-_BK = 32
+_BK = 64
 _KC = 2048      # K-chunk accumulated per T.gemm before fp32 flush
-_STAGES = 3
+_STAGES = 2
 _THREADS = 256
 
 

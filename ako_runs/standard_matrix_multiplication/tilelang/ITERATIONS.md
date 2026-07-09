@@ -24,6 +24,7 @@ Status values: improved / no-change / regression / failed.
 | Iter | Title | Speedup(mean) | Runtime(mean) | Status |
 |------|-------|---------|--------------|--------|
 | 1 | fp16 TC split-K flush BM128 BN256 BK32 KC2048 st3 t256 | 3.63x | 1.12 ms | improved |
+| 2 | BK=64 stages=2 KC2048 BM128 BN256 t256 | 3.78x | 1.09 ms | improved |
 
 ## Iterations
 
@@ -38,4 +39,16 @@ Status values: improved / no-change / regression / failed.
   - Speedup: 3.63x (mean)
 - **Analysis:** fp16 TC split-K flush works correctly (5/5 seeds). 3.63x vs baseline 1x (torch.matmul fp32 on CUDA cores). Correctness confirmed: KC=2048 limits accumulator bias to ~-0.02, within the 1e-4 gate with 3x margin. Ref runtime variance is high (min 2.84 ms / mean 4.07 ms) due to GPU clock ramp; actual solution is 1.12 ms stable.
 - **Next:** Try KC=1024 or different tile configs to see if more or fewer pipeline stages help. BK=64 may improve memory throughput.
+
+### Iter 2 — BK=64 stages=2 KC=2048 (wider K-fetch, fewer stages)
+
+- **Hypothesis:** BK=64 doubles the memory throughput per Pipelined iteration (wider load). Reducing stages from 3 to 2 avoids overloading the software pipeline for BK=64. KC=2048 retained (correctness margin confirmed in iter-1).
+- **Changes:** BK changed from 32→64, STAGES from 3→2. KC=2048, BM=128, BN=256, threads=256 remain unchanged.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 1.09 ms (mean), 1.06 ~ 1.23 ms (min ~ max)
+  - Speedup: 3.78x (mean)
+- **Analysis:** BK=64 st=2 is faster than BK=32 st=3 (1.09 vs 1.12 ms). The wider BK tile reduces the number of Pipelined iterations (KC//BK = 32 vs 64), cutting launch overhead and improving L2 utilization. 3.78x vs 3.63x improvement confirms this is the better config. Ref runtime 4.12 ms mean.
+- **Next:** Cap reached at 2 iters per HINTS.md. iter-2 is best.
 
