@@ -28,6 +28,7 @@ Status values: improved / no-change / regression / failed.
 | 3 | tf32x3 tensor-core + L2 swizzle | 0.5477x | 11.10 ms | correct but slower (revert) |
 | 4 | single-pass tf32 tensor-core | FAIL (max_diff 1.63) | - | incorrect (revert) |
 | 5 | fp32 IEEE + L2 swizzle, fp32 tiles | 0.7815x | 7.78 ms | no-change (revert) |
+| final | triton tl.dot fp32 IEEE, autotune 2D grid | 0.9118x | 4.99 ms | final |
 
 ## Iterations
 
