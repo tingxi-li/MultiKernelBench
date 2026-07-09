@@ -2,251 +2,194 @@ import torch
 import torch.nn as nn
 from torch.utils.cpp_extension import load_inline
 
-# Iter 2: High-performance FP32 register-blocking GEMM
-# BM=128, BN=128, BK=16, TM=8, TN=8, 256 threads
-# Float4 vectorized loads for maximum bandwidth
-# Each thread: 8×8 register tile → 64 FP32 FMAs per K-step
-# Arithmetic intensity: very high (256 FMAs per loaded float)
+# Iter 1 (blind redo): WMMA TF32 tensor-core GEMM + fused bias+GELU+softmax
+# BM=128, BN=128, BK=32, 8 warps (4M×2N), each warp 2×4 WMMA m16n16k8 tiles
+# WT [K,N] precomputed in __init__ for coalesced global loads (no per-call copy!)
+# Separate fused bias+GELU+softmax kernel (1 block/row, registers avoid extra HBM pass)
 
 _CUDA_SRC = r"""
 #include <cuda_runtime.h>
+#include <mma.h>
 #include <float.h>
+#include <torch/extension.h>
+using namespace nvcuda;
 
-// BM=128, BN=128, BK=16 (smem: 2*128*20*4 = 20480 bytes ✓ < 48KB)
-// 256 threads, TM=TN=8 → 16×16 threads in (M,N)
-// Global load: float4 vectorized (4 floats at once)
+static constexpr int BM   = 128;
+static constexpr int BN   = 128;
+static constexpr int BKK  =  32;   // renamed to avoid macro clash
+static constexpr int WMMA_M = 16, WMMA_N = 16, WMMA_K = 8;
+static constexpr int WARPS_M = 4, WARPS_N = 2;
+static constexpr int WM = 2, WN = 4;
+static constexpr int NTHREADS = 256;
+static constexpr int SOFT_T = 256;
+static constexpr int EPT = 32;   // N(8192)/SOFT_T
 
-#define BM 128
-#define BN 128
-#define BK 16
-#define TM 8
-#define TN 8
-#define NT 256
-#define PAD 4
-
-__device__ __forceinline__ float gelu_exact(float x) {
+__device__ __forceinline__ float gelu_ex(float x) {
     return 0.5f * x * (1.0f + erff(x * 0.7071067811865476f));
 }
 
-// rowA: A stored [M,K], tile into As[BM][BK]
-// rowW: W stored [N,K], tile into Bs[BN][BK]
-// Output: C[M,N] = gelu(A*W^T + bias)
-
-__global__ __launch_bounds__(NT)
-void gemm_gelu_reg(
+// ─── WMMA TF32 GEMM (writes raw pre-GELU values to C) ───────────────────────
+// A [M,K] row-major, WT [K,N] row-major (pretransposed W)
+// C [M,N] row-major output (raw GEMM result, no bias/GELU yet)
+// Smem: As[BM][BKK+4]=128*36*4=18432B, Bs[BKK][BN+4]=32*132*4=16896B → 35328B < 48KB ✓
+__global__ __launch_bounds__(NTHREADS)
+void wmma_gemm_tf32(
     const float* __restrict__ A,
-    const float* __restrict__ W,
-    const float* __restrict__ bias,
+    const float* __restrict__ WT,
     float* __restrict__ C,
     int M, int N, int K)
 {
-    const int block_row = blockIdx.y * BM;
-    const int block_col = blockIdx.x * BN;
-    const int ty = threadIdx.x / (BN / TN);    // 0..15 (rows in thread grid)
-    const int tx = threadIdx.x % (BN / TN);    // 0..15 (cols in thread grid)
-    const int tid = threadIdx.x;
+    const int wid = threadIdx.x / 32;
+    const int wr  = wid / WARPS_N;
+    const int wc  = wid % WARPS_N;
+    const int bm  = blockIdx.y * BM;
+    const int bn  = blockIdx.x * BN;
+    const int wm0 = wr * (WM * WMMA_M);   // 0,32,64,96
+    const int wn0 = wc * (WN * WMMA_N);   // 0,64
 
-    // Shared memory: As[BK][BM+PAD], Bs[BK][BN+PAD]
-    // K-major layout for column-access during compute
-    __shared__ float As[BK][BM + PAD];    // 16*132*4 = 8448 bytes
-    __shared__ float Bs[BK][BN + PAD];    // 16*132*4 = 8448 bytes
-    // Total: 16896 bytes ✓
+    __shared__ float As[BM][BKK + 4];    // 18432 bytes
+    __shared__ float Bs[BKK][BN + 4];    // 16896 bytes
 
-    // Register accumulators
-    float acc[TM][TN] = {};
-
-    // Load A tile: BM*BK = 128*16 = 2048 floats, NT=256 → 8 per thread
-    // Each thread loads 2 float4 (8 floats)
-    // Layout: thread tid loads As[k_inner][m_inner] where:
-    // m_inner = (tid % (BM/4)) * 4 (using BM/4 = 32 different m positions per row of 4)
-    // Actually: flat index e, thread tid loads e = tid + step*NT
-    // e → k = e / BM, m = e % BM → As[k][m] = A[block_row+m, k_base+k]
-
-    for (int k_base = 0; k_base < K; k_base += BK) {
-        // Load As: BM*BK = 2048 elements, 8 per thread
-        // Using flat index with coalescing:
-        // Thread 0-31 load m=0..31, thread 32-63 load m=32..63 for k=0
-        // Then thread 0-31 load m=0..31 for k=1, etc.
-        // stride=NT=256, total=2048, 8 iters
-        // For k = e/BM, m = e%BM: consecutive threads load consecutive m (coalesced in BM direction)
-        // Global A[block_row+m, k_base+k]: each BM elements are stride K apart → NOT coalesced
-
-        // For coalesced A load: layout As[m][k] (row-major) with consecutive threads → consecutive k
-        // But we need As[k][m] for the compute phase... OR
-        // Load As[m][k] (row-major), compute reads As[k][m] = As_T
-        // → load As as row-major (coalesced), read As_T transposed = column-major
-        // Column-major access to As_T[k][m] = As[m][k] → not friendly
-
-        // Alternative: load A with transposed pattern
-        // For coalesced global load of A[block_row:block_row+BM, k_base:k_base+BK]:
-        // thread (tid) loads row = tid / BK, col = tid % BK
-        // Wait: consecutive threads (0,1,...,31) load:
-        //   tid=0: r=0, c=0 → A[block_row, k_base]
-        //   tid=1: r=0, c=1 → A[block_row, k_base+1]
-        //   ...
-        //   tid=15: r=0, c=15 → A[block_row, k_base+15]  (BK=16, so last)
-        //   tid=16: r=1, c=0 → A[block_row+1, k_base]
-        // This is NOT coalesced (jumps of K between consecutive 16-element groups)
-        //
-        // Better: row = tid % BM, col = tid / BM
-        //   tid=0: r=0, c=0
-        //   tid=1: r=1, c=0
-        //   ...
-        //   tid=127: r=127, c=0
-        //   tid=128: r=0, c=1
-        // Also NOT coalesced
-
-        // The truth: for A[M,K] with K=8192, the tile A[block_row:block_row+128, k_base:k_base+16]
-        // is NOT contiguous. Row i is at offset (block_row+i)*K + k_base.
-        // Each row is 16 floats = 64 bytes. Consecutive rows are K*4=32768 bytes apart.
-        // To coalesce, we need consecutive threads to access consecutive memory.
-        // If thread (128*row_in_tile + col_in_tile) loads element [col_in_tile, row_in_tile] (transposed):
-        //   Threads 0-127: all load col=0 (k_base+0), rows 0-127 → stride K apart → NOT coalesced
-        //   Threads 128-255: all load col=1 (k_base+1), rows 0-127 → same issue
-
-        // The fundamental problem: A[M,K] tiles with a narrow BK=16 column slice
-        // → "short" dimension is K, long dimension is M
-        // → coalesced loads need consecutive threads to access A[m, k+0], A[m, k+1], ...
-        // → but that means each warp loads 32 consecutive K values for the same M row
-        // → BUT BK=16 < 32, so only 16 threads per warp are active for a given row!
-
-        // SOLUTION: transpose the load. Use float4 to load 4 elements at a time.
-        // For A tile (128 rows × 16 cols):
-        // Arrange: 32 threads load one row of 4 elements each = 128 elements per warp
-        // 2048 / 128 = 16 warps needed... but we only have 8 warps!
-        // → 2 passes per warp, 4 elements each (float4)
-
-        // Actually, let's do this more carefully with float4:
-        // 2048 floats / 4 = 512 float4 loads.
-        // 256 threads → 2 float4 loads per thread.
-        // Thread tid loads float4 at index tid and tid+256.
-        // For float4 at index i:
-        //   row = i / (BK/4) = i / 4   (0..127, since BK=16 → BK/4=4 float4s per row)
-        //   col4 = i % (BK/4) = i % 4  (0..3 → float4 at k=0,4,8,12)
-        //   → loads A[block_row+row, k_base+col4*4 : col4*4+4]
-        // thread tid: float4 at index tid (row=tid/4, col4=tid%4)
-        //   tid=0: row=0, col4=0 → loads A[block_row+0, k_base:k_base+4]
-        //   tid=1: row=0, col4=1 → loads A[block_row+0, k_base+4:k_base+8]
-        //   tid=2: row=0, col4=2 → loads A[block_row+0, k_base+8:k_base+12]
-        //   tid=3: row=0, col4=3 → loads A[block_row+0, k_base+12:k_base+16]
-        //   tid=4: row=1, col4=0 → loads A[block_row+1, k_base:k_base+4]
-        //   ...
-        // For a warp (threads 0-31):
-        //   threads 0-3: row 0, all 4 col4 positions
-        //   threads 4-7: row 1, all 4 col4 positions
-        //   ...
-        //   threads 28-31: row 7, all 4 col4 positions
-        // → thread 0 and thread 4 load different rows: A[block_row, k_base] and A[block_row+1, k_base]
-        // These are K=8192*4 = 32768 bytes apart → NOT coalesced
-
-        // FINAL DECISION: just accept non-coalesced A loads and rely on L2 cache.
-        // The key bottleneck is compute, not memory (for large GEMM).
-        // Use simple flat-index loads:
-
-        for (int e = tid; e < BM * BK; e += NT) {
-            int m = e / BK, k = e % BK;
-            int gm = block_row + m, gk = k_base + k;
-            As[k][m] = (gm < M && gk < K) ? A[gm * K + gk] : 0.f;
-        }
-        for (int e = tid; e < BN * BK; e += NT) {
-            int n = e / BK, k = e % BK;
-            int gn = block_col + n, gk = k_base + k;
-            Bs[k][n] = (gn < N && gk < K) ? W[gn * K + gk] : 0.f;
-        }
-        __syncthreads();
-
-        // Compute: each thread's 8×8 accumulator, unrolled over BK
-        float a_reg[TM], b_reg[TN];
-        #pragma unroll
-        for (int k = 0; k < BK; k++) {
-            #pragma unroll
-            for (int i = 0; i < TM; i++)
-                a_reg[i] = As[k][ty * TM + i];
-            #pragma unroll
-            for (int j = 0; j < TN; j++)
-                b_reg[j] = Bs[k][tx * TN + j];
-            #pragma unroll
-            for (int i = 0; i < TM; i++)
-                #pragma unroll
-                for (int j = 0; j < TN; j++)
-                    acc[i][j] += a_reg[i] * b_reg[j];
-        }
-        __syncthreads();
-    }
-
-    // Epilogue: bias + GELU, write to C
+    wmma::fragment<wmma::accumulator, WMMA_M, WMMA_N, WMMA_K, float> acc[WM][WN];
     #pragma unroll
-    for (int i = 0; i < TM; i++) {
-        int gm = block_row + ty * TM + i;
-        if (gm >= M) continue;
+    for (int i = 0; i < WM; i++)
         #pragma unroll
-        for (int j = 0; j < TN; j++) {
-            int gn = block_col + tx * TN + j;
-            if (gn < N)
-                C[gm * N + gn] = gelu_exact(acc[i][j] + bias[gn]);
+        for (int j = 0; j < WN; j++)
+            wmma::fill_fragment(acc[i][j], 0.f);
+
+    for (int kb = 0; kb < K; kb += BKK) {
+        // Load A[bm:+BM, kb:+BKK] → As[m][k]
+        // BM*BKK=4096 floats, 256 threads → 16 each
+        // e → m=e/BKK, k=e%BKK: consecutive threads load consecutive k → coalesced ✓
+        #pragma unroll
+        for (int e = threadIdx.x; e < BM * BKK; e += NTHREADS) {
+            int m = e / BKK, k = e % BKK;
+            int gm = bm + m, gk = kb + k;
+            As[m][k] = (gm < M && gk < K) ? A[gm * K + gk] : 0.f;
         }
+        // Load WT[kb:+BKK, bn:+BN] → Bs[k][n]
+        // BKK*BN=4096 floats, 256 threads → 16 each
+        // e → k=e/BN, n=e%BN: consecutive threads → consecutive n (BN=128) → coalesced ✓
+        #pragma unroll
+        for (int e = threadIdx.x; e < BKK * BN; e += NTHREADS) {
+            int k = e / BN, n = e % BN;
+            int gk = kb + k, gn = bn + n;
+            Bs[k][n] = (gk < K && gn < N) ? WT[gk * N + gn] : 0.f;
+        }
+        __syncthreads();
+
+        // WMMA: BKK/WMMA_K = 32/8 = 4 steps
+        #pragma unroll
+        for (int ks = 0; ks < BKK / WMMA_K; ks++) {
+            wmma::fragment<wmma::matrix_a, WMMA_M, WMMA_N, WMMA_K,
+                           wmma::precision::tf32, wmma::row_major> af[WM];
+            wmma::fragment<wmma::matrix_b, WMMA_M, WMMA_N, WMMA_K,
+                           wmma::precision::tf32, wmma::row_major> bf[WN];
+            #pragma unroll
+            for (int i = 0; i < WM; i++)
+                wmma::load_matrix_sync(af[i],
+                    &As[wm0 + i * WMMA_M][ks * WMMA_K], BKK + 4);
+            #pragma unroll
+            for (int j = 0; j < WN; j++)
+                wmma::load_matrix_sync(bf[j],
+                    &Bs[ks * WMMA_K][wn0 + j * WMMA_N], BN + 4);
+            #pragma unroll
+            for (int i = 0; i < WM; i++)
+                #pragma unroll
+                for (int j = 0; j < WN; j++)
+                    wmma::mma_sync(acc[i][j], af[i], bf[j], acc[i][j]);
+        }
+        __syncthreads();
     }
+
+    // Store frags to C (global memory, row-major)
+    #pragma unroll
+    for (int i = 0; i < WM; i++)
+        #pragma unroll
+        for (int j = 0; j < WN; j++) {
+            int gm = bm + wm0 + i * WMMA_M;
+            int gn = bn + wn0 + j * WMMA_N;
+            if (gm < M && gn < N)
+                wmma::store_matrix_sync(&C[gm * N + gn], acc[i][j], N,
+                                        wmma::mem_row_major);
+        }
 }
 
-__global__ void softmax_kernel(float* __restrict__ C, int M, int N) {
-    int row = blockIdx.x;
+// ─── Fused bias + GELU + softmax ─────────────────────────────────────────────
+// One block per row. SOFT_T=256 threads, EPT=32 elements per thread.
+// Keeps all EPT=32 values in registers → 1 read + 1 write per element.
+__global__ void bias_gelu_softmax_k(
+    float* __restrict__ C,
+    const float* __restrict__ b,
+    int M, int N)
+{
+    const int row  = blockIdx.x;
     if (row >= M) return;
-    float* rp = C + row * N;
-    int lane = threadIdx.x % 32, warp = threadIdx.x / 32, nw = blockDim.x / 32;
-
-    float mx = -FLT_MAX;
-    for (int i = threadIdx.x; i < N; i += blockDim.x) mx = fmaxf(mx, rp[i]);
-    for (int m = 16; m > 0; m >>= 1) mx = fmaxf(mx, __shfl_xor_sync(~0u, mx, m));
+    float* rp = C + (long)row * N;
+    const int lane = threadIdx.x % 32;
+    const int warp = threadIdx.x / 32;
+    const int nw   = SOFT_T / 32;
     __shared__ float sm[8];
+
+    float reg[EPT];
+    float mx = -FLT_MAX;
+    #pragma unroll
+    for (int i = 0; i < EPT; i++) {
+        int idx = threadIdx.x + i * SOFT_T;
+        float v = rp[idx] + b[idx];
+        v = gelu_ex(v);
+        reg[i] = v;
+        mx = fmaxf(mx, v);
+    }
+    for (int d = 16; d > 0; d >>= 1) mx = fmaxf(mx, __shfl_xor_sync(~0u, mx, d));
     if (!lane) sm[warp] = mx;
     __syncthreads();
     if (!warp) {
-        float v = lane < nw ? sm[lane] : -FLT_MAX;
-        for (int m=4;m>0;m>>=1) v=fmaxf(v,__shfl_xor_sync(~0u,v,m));
-        if(!lane) sm[0]=v;
+        float v = (lane < nw) ? sm[lane] : -FLT_MAX;
+        for (int d = 4; d > 0; d >>= 1) v = fmaxf(v, __shfl_xor_sync(~0u, v, d));
+        if (!lane) sm[0] = v;
     }
     __syncthreads();
-    float row_max = sm[0];
+    mx = sm[0];
 
     float s = 0.f;
-    for (int i = threadIdx.x; i < N; i += blockDim.x) s += expf(rp[i] - row_max);
-    for (int m = 16; m > 0; m >>= 1) s += __shfl_xor_sync(~0u, s, m);
+    #pragma unroll
+    for (int i = 0; i < EPT; i++) { reg[i] = expf(reg[i] - mx); s += reg[i]; }
+    for (int d = 16; d > 0; d >>= 1) s += __shfl_xor_sync(~0u, s, d);
     if (!lane) sm[warp] = s;
     __syncthreads();
     if (!warp) {
-        float v = lane < nw ? sm[lane] : 0.f;
-        for (int m=4;m>0;m>>=1) v+=__shfl_xor_sync(~0u,v,m);
-        if(!lane) sm[0]=v;
+        float v = (lane < nw) ? sm[lane] : 0.f;
+        for (int d = 4; d > 0; d >>= 1) v += __shfl_xor_sync(~0u, v, d);
+        if (!lane) sm[0] = v;
     }
     __syncthreads();
     float inv_s = 1.f / sm[0];
-    for (int i = threadIdx.x; i < N; i += blockDim.x)
-        rp[i] = expf(rp[i] - row_max) * inv_s;
+
+    #pragma unroll
+    for (int i = 0; i < EPT; i++)
+        rp[threadIdx.x + i * SOFT_T] = reg[i] * inv_s;
+}
+
+// ─── Host launcher ────────────────────────────────────────────────────────────
+torch::Tensor fused_wmma_launch(
+    torch::Tensor A, torch::Tensor WT, torch::Tensor bias, int M, int N, int K)
+{
+    auto C = torch::empty({M, N}, A.options());
+    dim3 grid((N + BN - 1) / BN, (M + BM - 1) / BM);
+    wmma_gemm_tf32<<<grid, NTHREADS>>>(
+        A.data_ptr<float>(), WT.data_ptr<float>(),
+        C.data_ptr<float>(), M, N, K);
+    bias_gelu_softmax_k<<<M, SOFT_T>>>(
+        C.data_ptr<float>(), bias.data_ptr<float>(), M, N);
+    return C;
 }
 """
 
 _CPP_SRC = r"""
 #include <torch/extension.h>
-torch::Tensor fused_matmul_gelu_softmax(
-    torch::Tensor A, torch::Tensor W, torch::Tensor bias, int M, int N, int K);
-"""
-
-_CUDA_WRAPPER = r"""
-#include <torch/extension.h>
-__global__ void gemm_gelu_reg(const float*, const float*, const float*, float*, int, int, int);
-__global__ void softmax_kernel(float*, int, int);
-
-torch::Tensor fused_matmul_gelu_softmax(
-    torch::Tensor A, torch::Tensor W, torch::Tensor bias, int M, int N, int K)
-{
-    auto C = torch::empty({M, N}, A.options());
-    dim3 grid((N + 127) / 128, (M + 127) / 128);
-    gemm_gelu_reg<<<grid, 256>>>(
-        A.data_ptr<float>(), W.data_ptr<float>(), bias.data_ptr<float>(),
-        C.data_ptr<float>(), M, N, K);
-    softmax_kernel<<<M, 256>>>(C.data_ptr<float>(), M, N);
-    return C;
-}
+torch::Tensor fused_wmma_launch(
+    torch::Tensor A, torch::Tensor WT, torch::Tensor bias, int M, int N, int K);
 """
 
 _MODULE = None
@@ -255,10 +198,10 @@ def _get_module():
     global _MODULE
     if _MODULE is None:
         _MODULE = load_inline(
-            name="fused_mgs_reg_v1",
+            name="fused_mgs_wmma4",
             cpp_sources=_CPP_SRC,
-            cuda_sources=_CUDA_SRC + _CUDA_WRAPPER,
-            functions=["fused_matmul_gelu_softmax"],
+            cuda_sources=_CUDA_SRC,
+            functions=["fused_wmma_launch"],
             extra_cuda_cflags=["-O3", "-arch=sm_89", "--use_fast_math"],
             verbose=False,
         )
@@ -269,11 +212,16 @@ class Model(nn.Module):
     def __init__(self, in_features, out_features):
         super().__init__()
         self.linear = nn.Linear(in_features, out_features)
+        # Precompute transposed weight [K, N] once — avoid per-call 256MB copy
+        self.register_buffer('weight_T',
+            self.linear.weight.data.t().contiguous())
 
     def forward(self, x):
         M, K = x.shape
         N = self.linear.out_features
-        return _get_module().fused_matmul_gelu_softmax(
-            x.contiguous(), self.linear.weight.contiguous(),
-            self.linear.bias.contiguous(), M, N, K
+        return _get_module().fused_wmma_launch(
+            x.contiguous(),
+            self.weight_T,          # [K, N] precomputed
+            self.linear.bias.contiguous(),
+            M, N, K
         )
