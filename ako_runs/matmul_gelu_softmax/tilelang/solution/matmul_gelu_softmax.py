@@ -5,39 +5,38 @@ import tilelang.language as T
 
 # matmul_gelu_softmax: x(1024,8192) -> Linear(8192,8192) -> GELU -> softmax(dim=1)
 #
-# Iter 5: Store weight as W (N,K) fp16 (no transpose copy at runtime).
-# The nn.Linear weight is already (N, K) = (8192, 8192) in row-major.
-# Use T.gemm(As, Bs, Acc, transpose_B=True) to compute x @ W^T in-place.
-# This avoids the contiguous() copy needed for .t().
-# Also tune KC=1024 for more SM wave overlap.
+# Iter 6: Restore iter 4's best config + add online softmax (single exp() pass).
+# Store exp values in local buffer to avoid recomputing exp() in the output pass.
+# Also use stages=3 pipeline in the GEMM.
 
 _BM    = 128
 _BN    = 128
 _BK    = 64
-_KC    = 1024   # smaller chunks -> more CTAs -> better SM utilization
+_KC    = 2048
 _STAGES = 2
 _GEMM_TH = 256
 
 _SOFT_TH  = 256
-_SOFT_EPT = 8192 // 256
+_SOFT_EPT = 8192 // 256   # = 32
+_NWARPS   = 8
+_NLEVELS  = 3
 
 sqrt2inv = 0.7071067811865476
 
 
-def _build_splitk_gemm_gelu_transB(M, N, K, BM, BN, BK, KC, stages, th):
-    """GEMM with W stored as (N, K) using transpose_B=True."""
+def _build_splitk_gemm_gelu(M, N, K, BM, BN, BK, KC, stages, th):
     NC = K // KC
 
     @tilelang.jit(out_idx=[-1])
     def _make():
         @T.prim_func
         def main(A:    T.Tensor((M, K), "float16"),
-                 W:    T.Tensor((N, K), "float16"),   # (N, K) stored row-major
+                 WT:   T.Tensor((K, N), "float16"),
                  Bias: T.Tensor((N,),   "float32"),
                  Out:  T.Tensor((M, N), "float32")):
             with T.Kernel(T.ceildiv(N, BN), T.ceildiv(M, BM), threads=th) as (bx, by):
                 As     = T.alloc_shared((BM, BK), "float16")
-                Bs     = T.alloc_shared((BN, BK), "float16")   # (BN, BK) for transposed B
+                Bs     = T.alloc_shared((BK, BN), "float16")
                 Cchunk = T.alloc_fragment((BM, BN), "float32")
                 Cacc   = T.alloc_fragment((BM, BN), "float32")
                 T.clear(Cacc)
@@ -45,8 +44,8 @@ def _build_splitk_gemm_gelu_transB(M, N, K, BM, BN, BK, KC, stages, th):
                     T.clear(Cchunk)
                     for ko in T.Pipelined(KC // BK, num_stages=stages):
                         T.copy(A[by * BM, kc * KC + ko * BK], As)
-                        T.copy(W[bx * BN, kc * KC + ko * BK], Bs)
-                        T.gemm(As, Bs, Cchunk, transpose_B=True)
+                        T.copy(WT[kc * KC + ko * BK, bx * BN], Bs)
+                        T.gemm(As, Bs, Cchunk)
                     for i, j in T.Parallel(BM, BN):
                         Cacc[i, j] += Cchunk[i, j]
                 for i, j in T.Parallel(BM, BN):
@@ -57,10 +56,11 @@ def _build_splitk_gemm_gelu_transB(M, N, K, BM, BN, BK, KC, stages, th):
     return _make()
 
 
-def _build_softmax(M, N, th):
-    ept     = N // th
-    nwarps  = th // 32
-    nlevels = nwarps.bit_length() - 1
+def _build_softmax_online(M, N, th):
+    """Online softmax: store exp values in local buffer to avoid double exp()."""
+    ept     = N // th    # = 32
+    nwarps  = th // 32   # = 8
+    nlevels = nwarps.bit_length() - 1  # = 3
 
     @tilelang.jit(out_idx=[-1])
     def _make():
@@ -75,7 +75,10 @@ def _build_softmax(M, N, th):
                 smem_s = T.alloc_shared((nwarps,), "float32")
                 lmax   = T.alloc_local((1,), "float32")
                 lsum   = T.alloc_local((1,), "float32")
+                # Local buffer to cache exp values (32 elements per thread)
+                lexp   = T.alloc_local((ept,), "float32")
 
+                # ---- phase 1: thread-local max --------------------------------
                 lmax[0] = T.float32(-3.402823466e+38)
                 for k in T.serial(ept):
                     v = X[bx, tid * ept + k]
@@ -96,9 +99,12 @@ def _build_softmax(M, N, th):
                     T.sync_threads()
                 row_max = smem_m[0]
 
+                # ---- phase 2: exp + local store + sum -------------------------
                 lsum[0] = T.float32(0.0)
                 for k in T.serial(ept):
-                    lsum[0] = lsum[0] + T.exp(X[bx, tid * ept + k] - row_max)
+                    e = T.exp(X[bx, tid * ept + k] - row_max)
+                    lexp[k] = e
+                    lsum[0] = lsum[0] + e
                 lsum[0] = lsum[0] + T.shfl_down(lsum[0], 16)
                 lsum[0] = lsum[0] + T.shfl_down(lsum[0], 8)
                 lsum[0] = lsum[0] + T.shfl_down(lsum[0], 4)
@@ -114,14 +120,15 @@ def _build_softmax(M, N, th):
                     T.sync_threads()
                 inv_sum = T.float32(1.0) / smem_s[0]
 
+                # ---- phase 3: write from cached exp (no recompute) ------------
                 for k in T.serial(ept):
-                    Out[bx, tid * ept + k] = T.exp(X[bx, tid * ept + k] - row_max) * inv_sum
+                    Out[bx, tid * ept + k] = lexp[k] * inv_sum
         return main
     return _make()
 
 
-_GG = (_build_splitk_gemm_gelu_transB,)
-_SS = (_build_softmax,)
+_GG = (_build_splitk_gemm_gelu,)
+_SS = (_build_softmax_online,)
 _CACHE: dict = {}
 
 
@@ -140,16 +147,15 @@ class Model(nn.Module):
         self.linear = nn.Linear(in_features, out_features)
         self._kg  = None
         self._ks  = None
-        self._wh  = None   # cached fp16 weight W (N, K) -- no transpose needed
+        self._wt  = None   # cached fp16 transposed weight (K, N)
 
     def forward(self, x):
         M, K = x.shape[0], x.shape[1]
         N    = self.linear.weight.shape[0]
         if self._kg is None:
             self._kg, self._ks = _get(M, N, K)
-        # Cache W.half() in (N, K) layout — no transpose needed
-        if self._wh is None:
-            self._wh = self.linear.weight.half()   # (N, K)
+        if self._wt is None:
+            self._wt = self.linear.weight.t().contiguous().half()
         xh      = x.half()
-        scratch = self._kg(xh, self._wh, self.linear.bias)
+        scratch = self._kg(xh, self._wt, self.linear.bias)
         return self._ks(scratch)

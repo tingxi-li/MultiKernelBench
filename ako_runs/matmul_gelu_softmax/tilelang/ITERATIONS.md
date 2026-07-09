@@ -28,6 +28,7 @@ Status values: improved / no-change / regression / failed.
 | 3 | Warp-shuffle softmax + erf-GELU + split-K GEMM | 1.8265x | 3.40 ms | improved |
 | 4 | Cache transposed fp16 weight in __init__ | 4.6090x | 1.33 ms | improved |
 | 5 | transpose_B=True + W stored as (N,K) + KC=1024 | 4.4855x | 1.38 ms | regression |
+| 6 | Restore iter-4 config + online softmax (cached exp) | 4.7769x | 1.30 ms | improved |
 
 ## Iterations
 
@@ -90,4 +91,16 @@ Status values: improved / no-change / regression / failed.
   - Speedup: 4.4855x (mean)
 - **Analysis:** Regression from iter 4 (1.38ms vs 1.33ms). The transposed layout (K,N) is better for the B tile's memory access pattern (row-contiguous loads). transpose_B adds MMA overhead. iter 4's W.t().contiguous() gives better performance despite the one-time transpose cost.
 - **Next:** Restore iter 4 approach with KC=2048 and try other improvements (larger BM, persistent kernel).
+
+### Iter 6 — Restore iter-4 config + online softmax (cached exp buffer)
+
+- **Hypothesis:** The softmax kernel computes exp() twice: once in phase 2 (to accumulate sum) and again in phase 3 (to write output). Computing exp(x) is expensive (~30 instructions). Caching the exp values in a 32-element local register buffer eliminates the second exp pass.
+- **Changes:** Added `lexp = T.alloc_local((ept,), "float32")` in softmax kernel. Phase 2 stores e=exp(X-max) into lexp[k] and accumulates. Phase 3 reads lexp[k]*inv_sum directly without recomputing. GEMM reverted to iter 4's W.t().contiguous() approach with KC=2048.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 1.30 ms (mean), 1.26 ~ 1.46 ms (min ~ max)
+  - Speedup: 4.7769x (mean)
+- **Analysis:** Best result yet: 4.78x. Eliminating the redundant exp() pass saves ~0.03ms per forward. Combined with the cached weight from iter 4, we're at 1.30ms vs 6.21ms reference. Iter cap reached (6 iterations).
+- **Final:** iter 6 is the best with 4.7769x speedup.
 
