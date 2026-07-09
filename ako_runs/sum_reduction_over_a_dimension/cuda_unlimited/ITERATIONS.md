@@ -23,6 +23,7 @@ Status values: improved / no-change / regression / failed.
 
 | Iter | Title | Speedup(mean) | Runtime(mean) | Status |
 |------|-------|---------|--------------|--------|
+| final | PTX ld.global.cs.v4 streaming float4 | 1.0124x | 9.67 ms | final |
 
 ## Iterations
 
