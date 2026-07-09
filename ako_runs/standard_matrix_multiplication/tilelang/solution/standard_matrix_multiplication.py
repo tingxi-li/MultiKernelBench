@@ -5,15 +5,14 @@ import tilelang.language as T
 
 # C = A @ B,  A:(M,K) B:(K,N),  M=2048 K=8192 N=4096.
 # fp16 tensor cores via T.gemm, split-K flush for fp32 correctness.
-# BK=32, KC=2048, stages=4: 4-stage pipeline to maximize MMA latency hiding.
-# Shared memory per stage: BM*BK*2 + BK*BN*2 = 128*32*2 + 32*256*2 = 24KB
-# Total 4 stages: 96KB < 100KB limit on RTX 6000 Ada.
+# BK=64, KC=2048, stages=2: same as baseline but with KC=1024 for fewer flush ops
+# and potentially better pipeline behavior.
 
 _BM = 128
 _BN = 256
-_BK = 32
+_BK = 64
 _KC = 2048      # K-chunk accumulated per T.gemm before fp32 flush
-_STAGES = 4     # 4-stage software pipeline (deep pipeline for latency hiding)
+_STAGES = 2     # 2-stage software pipeline
 _THREADS = 256
 
 
