@@ -2,38 +2,49 @@ import torch
 import torch.nn as nn
 from torch.utils.cpp_extension import load_inline
 
-# Iter 1 (blind redo): WMMA TF32 tensor-core GEMM + fused bias+GELU+softmax
-# BM=128, BN=128, BK=32, 8 warps (4M×2N), each warp 2×4 WMMA m16n16k8 tiles
-# WT [K,N] precomputed in __init__ for coalesced global loads (no per-call copy!)
-# Separate fused bias+GELU+softmax kernel (1 block/row, registers avoid extra HBM pass)
+# Iter 2 (blind redo): WMMA TF32 with cp.async double-buffered pipeline
+# BM=128, BN=128, BKK=32, 8 warps, 2-stage async pipeline
+# cp.async lets GPU overlap global loads with WMMA compute
+# Key: sm_89 Ada has hardware support for cp.async
+# Smem (2 stages): 2*(As[128][36] + Bs[32][132]) = 2*(18432+16896) = 70656B > 48KB!
+# Reduce: BKK=16, 2 stages: 2*(128*20+16*132)*4 = 2*(10240+8448)*4? No... BKK=16:
+#   As[128][20]=10240B, Bs[16][132]=8448B → per stage: 18688B, 2 stages: 37376B < 48KB ✓
+# With BKK=32, single stage: 35328B. With double buffer BKK=16: 37376B still fits.
 
 _CUDA_SRC = r"""
 #include <cuda_runtime.h>
+#include <cuda_pipeline.h>
 #include <mma.h>
 #include <float.h>
 #include <torch/extension.h>
 using namespace nvcuda;
 
-static constexpr int BM   = 128;
-static constexpr int BN   = 128;
-static constexpr int BKK  =  32;   // renamed to avoid macro clash
-static constexpr int WMMA_M = 16, WMMA_N = 16, WMMA_K = 8;
-static constexpr int WARPS_M = 4, WARPS_N = 2;
-static constexpr int WM = 2, WN = 4;
-static constexpr int NTHREADS = 256;
-static constexpr int SOFT_T = 256;
-static constexpr int EPT = 32;   // N(8192)/SOFT_T
+// Config for double-buffered pipeline
+static constexpr int BM_DB   = 128;
+static constexpr int BN_DB   = 128;
+static constexpr int BKK_DB  =  16;   // smaller BK to allow double-buffering
+static constexpr int STAGES  =   2;
+static constexpr int WMMA_M  =  16, WMMA_N = 16, WMMA_K = 8;
+static constexpr int WARPS_M =   4, WARPS_N = 2;
+static constexpr int WM_DB   =   2, WN_DB = 4;
+static constexpr int NTHREADS_DB = 256;
+// Smem per stage: As[128][20] + Bs[16][132] = 10240+8448 = 18688 floats... wait bytes:
+//   As: 128*(BKK_DB+4)*4 = 128*20*4 = 10240 bytes
+//   Bs: BKK_DB*(BN_DB+4)*4 = 16*132*4 = 8448 bytes
+//   Per stage: 18688 bytes. Two stages: 37376 bytes < 48KB ✓
+
+static constexpr int SOFT_T_DB = 256;
+static constexpr int EPT_DB    =  32;
 
 __device__ __forceinline__ float gelu_ex(float x) {
     return 0.5f * x * (1.0f + erff(x * 0.7071067811865476f));
 }
 
-// ─── WMMA TF32 GEMM (writes raw pre-GELU values to C) ───────────────────────
-// A [M,K] row-major, WT [K,N] row-major (pretransposed W)
-// C [M,N] row-major output (raw GEMM result, no bias/GELU yet)
-// Smem: As[BM][BKK+4]=128*36*4=18432B, Bs[BKK][BN+4]=32*132*4=16896B → 35328B < 48KB ✓
-__global__ __launch_bounds__(NTHREADS)
-void wmma_gemm_tf32(
+// ─── WMMA TF32 GEMM with cp.async double-buffer pipeline ────────────────────
+// A [M,K] row-major, WT [K,N] row-major
+// C [M,N] stores raw GEMM output (bias/GELU applied by next kernel)
+__global__ __launch_bounds__(NTHREADS_DB)
+void wmma_gemm_db(
     const float* __restrict__ A,
     const float* __restrict__ WT,
     float* __restrict__ C,
@@ -42,71 +53,113 @@ void wmma_gemm_tf32(
     const int wid = threadIdx.x / 32;
     const int wr  = wid / WARPS_N;
     const int wc  = wid % WARPS_N;
-    const int bm  = blockIdx.y * BM;
-    const int bn  = blockIdx.x * BN;
-    const int wm0 = wr * (WM * WMMA_M);   // 0,32,64,96
-    const int wn0 = wc * (WN * WMMA_N);   // 0,64
+    const int bm  = blockIdx.y * BM_DB;
+    const int bn  = blockIdx.x * BN_DB;
+    const int wm0 = wr * (WM_DB * WMMA_M);
+    const int wn0 = wc * (WN_DB * WMMA_N);
 
-    __shared__ float As[BM][BKK + 4];    // 18432 bytes
-    __shared__ float Bs[BKK][BN + 4];    // 16896 bytes
+    // Double-buffered smem: [STAGES][As+Bs]
+    __shared__ float As[STAGES][BM_DB][BKK_DB + 4];  // [2][128][20] = 20480 floats = 81920B? No:
+    // 2*128*20*4 = 20480 bytes
+    __shared__ float Bs[STAGES][BKK_DB][BN_DB + 4];  // [2][16][132] = 4224 floats = 16896B
+    // Total: 20480 + 16896 = 37376 bytes < 48KB ✓
 
-    wmma::fragment<wmma::accumulator, WMMA_M, WMMA_N, WMMA_K, float> acc[WM][WN];
+    wmma::fragment<wmma::accumulator, WMMA_M, WMMA_N, WMMA_K, float> acc[WM_DB][WN_DB];
     #pragma unroll
-    for (int i = 0; i < WM; i++)
+    for (int i = 0; i < WM_DB; i++)
         #pragma unroll
-        for (int j = 0; j < WN; j++)
+        for (int j = 0; j < WN_DB; j++)
             wmma::fill_fragment(acc[i][j], 0.f);
 
-    for (int kb = 0; kb < K; kb += BKK) {
-        // Load A[bm:+BM, kb:+BKK] → As[m][k]
-        // BM*BKK=4096 floats, 256 threads → 16 each
-        // e → m=e/BKK, k=e%BKK: consecutive threads load consecutive k → coalesced ✓
+    const int tid   = threadIdx.x;
+    const int nstep = (K + BKK_DB - 1) / BKK_DB;
+
+    // Preload first stage (stage 0) using cp.async
+    {
+        int kb = 0;
+        int s  = 0;
         #pragma unroll
-        for (int e = threadIdx.x; e < BM * BKK; e += NTHREADS) {
-            int m = e / BKK, k = e % BKK;
+        for (int e = tid; e < BM_DB * BKK_DB; e += NTHREADS_DB) {
+            int m = e / BKK_DB, k = e % BKK_DB;
             int gm = bm + m, gk = kb + k;
-            As[m][k] = (gm < M && gk < K) ? A[gm * K + gk] : 0.f;
+            if (gm < M && gk < K)
+                __pipeline_memcpy_async(&As[s][m][k], &A[gm * K + gk], sizeof(float));
+            else
+                As[s][m][k] = 0.f;
         }
-        // Load WT[kb:+BKK, bn:+BN] → Bs[k][n]
-        // BKK*BN=4096 floats, 256 threads → 16 each
-        // e → k=e/BN, n=e%BN: consecutive threads → consecutive n (BN=128) → coalesced ✓
         #pragma unroll
-        for (int e = threadIdx.x; e < BKK * BN; e += NTHREADS) {
-            int k = e / BN, n = e % BN;
+        for (int e = tid; e < BKK_DB * BN_DB; e += NTHREADS_DB) {
+            int k = e / BN_DB, n = e % BN_DB;
             int gk = kb + k, gn = bn + n;
-            Bs[k][n] = (gk < K && gn < N) ? WT[gk * N + gn] : 0.f;
+            if (gk < K && gn < N)
+                __pipeline_memcpy_async(&Bs[s][k][n], &WT[gk * N + gn], sizeof(float));
+            else
+                Bs[s][k][n] = 0.f;
         }
+        __pipeline_commit();
+    }
+
+    for (int step = 0; step < nstep; step++) {
+        const int s_cur  = step % STAGES;
+        const int s_next = (step + 1) % STAGES;
+
+        // Prefetch next stage while current is in-flight
+        if (step + 1 < nstep) {
+            int kb = (step + 1) * BKK_DB;
+            #pragma unroll
+            for (int e = tid; e < BM_DB * BKK_DB; e += NTHREADS_DB) {
+                int m = e / BKK_DB, k = e % BKK_DB;
+                int gm = bm + m, gk = kb + k;
+                if (gm < M && gk < K)
+                    __pipeline_memcpy_async(&As[s_next][m][k], &A[gm * K + gk], sizeof(float));
+                else
+                    As[s_next][m][k] = 0.f;
+            }
+            #pragma unroll
+            for (int e = tid; e < BKK_DB * BN_DB; e += NTHREADS_DB) {
+                int k = e / BN_DB, n = e % BN_DB;
+                int gk = kb + k, gn = bn + n;
+                if (gk < K && gn < N)
+                    __pipeline_memcpy_async(&Bs[s_next][k][n], &WT[gk * N + gn], sizeof(float));
+                else
+                    Bs[s_next][k][n] = 0.f;
+            }
+            __pipeline_commit();
+        }
+
+        // Wait for current stage data to be ready
+        __pipeline_wait_prior(1);
         __syncthreads();
 
-        // WMMA: BKK/WMMA_K = 32/8 = 4 steps
+        // WMMA: BKK_DB/WMMA_K = 16/8 = 2 steps
         #pragma unroll
-        for (int ks = 0; ks < BKK / WMMA_K; ks++) {
+        for (int ks = 0; ks < BKK_DB / WMMA_K; ks++) {
             wmma::fragment<wmma::matrix_a, WMMA_M, WMMA_N, WMMA_K,
-                           wmma::precision::tf32, wmma::row_major> af[WM];
+                           wmma::precision::tf32, wmma::row_major> af[WM_DB];
             wmma::fragment<wmma::matrix_b, WMMA_M, WMMA_N, WMMA_K,
-                           wmma::precision::tf32, wmma::row_major> bf[WN];
+                           wmma::precision::tf32, wmma::row_major> bf[WN_DB];
             #pragma unroll
-            for (int i = 0; i < WM; i++)
+            for (int i = 0; i < WM_DB; i++)
                 wmma::load_matrix_sync(af[i],
-                    &As[wm0 + i * WMMA_M][ks * WMMA_K], BKK + 4);
+                    &As[s_cur][wm0 + i * WMMA_M][ks * WMMA_K], BKK_DB + 4);
             #pragma unroll
-            for (int j = 0; j < WN; j++)
+            for (int j = 0; j < WN_DB; j++)
                 wmma::load_matrix_sync(bf[j],
-                    &Bs[ks * WMMA_K][wn0 + j * WMMA_N], BN + 4);
+                    &Bs[s_cur][ks * WMMA_K][wn0 + j * WMMA_N], BN_DB + 4);
             #pragma unroll
-            for (int i = 0; i < WM; i++)
+            for (int i = 0; i < WM_DB; i++)
                 #pragma unroll
-                for (int j = 0; j < WN; j++)
+                for (int j = 0; j < WN_DB; j++)
                     wmma::mma_sync(acc[i][j], af[i], bf[j], acc[i][j]);
         }
         __syncthreads();
     }
 
-    // Store frags to C (global memory, row-major)
+    // Epilogue: store frags to C
     #pragma unroll
-    for (int i = 0; i < WM; i++)
+    for (int i = 0; i < WM_DB; i++)
         #pragma unroll
-        for (int j = 0; j < WN; j++) {
+        for (int j = 0; j < WN_DB; j++) {
             int gm = bm + wm0 + i * WMMA_M;
             int gn = bn + wn0 + j * WMMA_N;
             if (gm < M && gn < N)
@@ -115,9 +168,7 @@ void wmma_gemm_tf32(
         }
 }
 
-// ─── Fused bias + GELU + softmax ─────────────────────────────────────────────
-// One block per row. SOFT_T=256 threads, EPT=32 elements per thread.
-// Keeps all EPT=32 values in registers → 1 read + 1 write per element.
+// ─── Fused bias + GELU + softmax (all in registers) ─────────────────────────
 __global__ void bias_gelu_softmax_k(
     float* __restrict__ C,
     const float* __restrict__ b,
@@ -128,14 +179,14 @@ __global__ void bias_gelu_softmax_k(
     float* rp = C + (long)row * N;
     const int lane = threadIdx.x % 32;
     const int warp = threadIdx.x / 32;
-    const int nw   = SOFT_T / 32;
+    const int nw   = SOFT_T_DB / 32;
     __shared__ float sm[8];
 
-    float reg[EPT];
+    float reg[EPT_DB];
     float mx = -FLT_MAX;
     #pragma unroll
-    for (int i = 0; i < EPT; i++) {
-        int idx = threadIdx.x + i * SOFT_T;
+    for (int i = 0; i < EPT_DB; i++) {
+        int idx = threadIdx.x + i * SOFT_T_DB;
         float v = rp[idx] + b[idx];
         v = gelu_ex(v);
         reg[i] = v;
@@ -154,7 +205,7 @@ __global__ void bias_gelu_softmax_k(
 
     float s = 0.f;
     #pragma unroll
-    for (int i = 0; i < EPT; i++) { reg[i] = expf(reg[i] - mx); s += reg[i]; }
+    for (int i = 0; i < EPT_DB; i++) { reg[i] = expf(reg[i] - mx); s += reg[i]; }
     for (int d = 16; d > 0; d >>= 1) s += __shfl_xor_sync(~0u, s, d);
     if (!lane) sm[warp] = s;
     __syncthreads();
@@ -167,20 +218,20 @@ __global__ void bias_gelu_softmax_k(
     float inv_s = 1.f / sm[0];
 
     #pragma unroll
-    for (int i = 0; i < EPT; i++)
-        rp[threadIdx.x + i * SOFT_T] = reg[i] * inv_s;
+    for (int i = 0; i < EPT_DB; i++)
+        rp[threadIdx.x + i * SOFT_T_DB] = reg[i] * inv_s;
 }
 
 // ─── Host launcher ────────────────────────────────────────────────────────────
-torch::Tensor fused_wmma_launch(
+torch::Tensor fused_wmma_db_launch(
     torch::Tensor A, torch::Tensor WT, torch::Tensor bias, int M, int N, int K)
 {
     auto C = torch::empty({M, N}, A.options());
-    dim3 grid((N + BN - 1) / BN, (M + BM - 1) / BM);
-    wmma_gemm_tf32<<<grid, NTHREADS>>>(
+    dim3 grid((N + BN_DB - 1) / BN_DB, (M + BM_DB - 1) / BM_DB);
+    wmma_gemm_db<<<grid, NTHREADS_DB>>>(
         A.data_ptr<float>(), WT.data_ptr<float>(),
         C.data_ptr<float>(), M, N, K);
-    bias_gelu_softmax_k<<<M, SOFT_T>>>(
+    bias_gelu_softmax_k<<<M, SOFT_T_DB>>>(
         C.data_ptr<float>(), bias.data_ptr<float>(), M, N);
     return C;
 }
@@ -188,7 +239,7 @@ torch::Tensor fused_wmma_launch(
 
 _CPP_SRC = r"""
 #include <torch/extension.h>
-torch::Tensor fused_wmma_launch(
+torch::Tensor fused_wmma_db_launch(
     torch::Tensor A, torch::Tensor WT, torch::Tensor bias, int M, int N, int K);
 """
 
@@ -198,10 +249,10 @@ def _get_module():
     global _MODULE
     if _MODULE is None:
         _MODULE = load_inline(
-            name="fused_mgs_wmma4",
+            name="fused_mgs_wmma_db",
             cpp_sources=_CPP_SRC,
             cuda_sources=_CUDA_SRC,
-            functions=["fused_wmma_launch"],
+            functions=["fused_wmma_db_launch"],
             extra_cuda_cflags=["-O3", "-arch=sm_89", "--use_fast_math"],
             verbose=False,
         )
@@ -212,16 +263,15 @@ class Model(nn.Module):
     def __init__(self, in_features, out_features):
         super().__init__()
         self.linear = nn.Linear(in_features, out_features)
-        # Precompute transposed weight [K, N] once — avoid per-call 256MB copy
         self.register_buffer('weight_T',
             self.linear.weight.data.t().contiguous())
 
     def forward(self, x):
         M, K = x.shape
         N = self.linear.out_features
-        return _get_module().fused_wmma_launch(
+        return _get_module().fused_wmma_db_launch(
             x.contiguous(),
-            self.weight_T,          # [K, N] precomputed
+            self.weight_T,
             self.linear.bias.contiguous(),
             M, N, K
         )

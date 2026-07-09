@@ -30,8 +30,21 @@ Status values: improved / no-change / regression / failed.
 | 5 | at::mm + fused bias+GELU+online-softmax kernel | 0.89x | 6.84 ms | regression |
 | 6 | Restore iter-2 kernel (BM=BN=128, BK=16, TM=TN=8) | 0.75x | 8.26 ms | regression (thermal) |
 | 7 | WMMA TF32 BKK=32 + precomputed WT + fused GELU+softmax | 1.35x | 4.58 ms | improved |
+| 8 | cp.async double-buffer BKK=16, WMMA TF32 + fused epilogue | 1.32x | 4.56 ms | no-change (noisy) |
 
 ## Iterations
+
+### Iter 8 — cp.async double-buffer BKK=16, WMMA TF32 + fused GELU+softmax
+
+- **Hypothesis:** Using cp.async 2-stage pipeline to overlap global memory loads with WMMA computation should hide the memory latency of the large GEMM tiles.
+- **Changes:** Changed to BKK=16 with STAGES=2 double-buffering via `__pipeline_memcpy_async`/`__pipeline_commit`/`__pipeline_wait_prior`. Preloads next tile while computing current. Added `cuda_pipeline.h`.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 4.56 ms (mean), 3.98~4.84 ms (min~max)
+  - Speedup: 1.32x (mean)
+- **Analysis:** Mean similar to iter-7 but higher variance (std=0.184ms vs 0.028ms). Fast-signal showed 3.71ms but full bench settled at 4.56ms. The double-buffering helps at warmup (min=3.98ms) but introduces more latency variability. The BKK=16 pipeline gives more launches per K-dimension (512 vs 256) which may add overhead.
+- **Next:** Try BKK=32 with 2-stage pipeline (needs 2*(18432+16896)=70656B → doesn't fit). Instead try increasing WARPS configuration or use BKK=16 with 3-stage pipeline (37376*1.5=56064B > 48KB). Best approach: go back to BKK=32 single-stage from iter-7 as it has the best mean+std. Try tuning warp layout.
 
 ### Iter 7 — WMMA TF32 BKK=32, precomputed WT[K,N], fused bias+GELU+softmax
 
