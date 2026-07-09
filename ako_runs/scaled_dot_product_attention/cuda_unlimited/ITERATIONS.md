@@ -26,6 +26,7 @@ Status values: improved / no-change / regression / failed.
 | 1 | Flash Attn warp-per-row (no smem) | 0.034x | 2520 ms | regression |
 | 2 | smem-tiled FA2 (Br=16, Bc=16, DC=64) | ~0.16x | 363 ms (fast) | regression |
 | 3 | wmma FA2 (Br=64, Bc=64, 4 warps) | 0.17x | 397 ms | regression |
+| 4 | 3-kernel unfused: QKT+softmax+PV (fp32 S) | 0.71x | 84.5 ms | improved |
 
 ## Iterations
 
@@ -64,4 +65,16 @@ Status values: improved / no-change / regression / failed.
   - Speedup: 0.17x
 - **Analysis:** wmma computation IS happening but serial softmax loops (O rescale lane==0, normalize lane==0) serialize most lanes. Also __float2half() per element during K/V load from global is expensive. Several subsequent variants tried: warp-per-row with register O (all slower due to poor occupancy or non-coalesced access or bank conflicts). Best fast-signal result was 363ms for the iter-2 DC=64 smem tiling.
 - **Next:** Unfused approach: GEMM for QK^T + pointwise softmax + GEMM for PV. Use 3 separate optimized kernels.
+
+### Iter 4 — 3-kernel unfused: wmma QKT + row softmax + wmma PV (fp32 S)
+
+- **Hypothesis:** Unfused 3-kernel approach using wmma for QKT and PV, fp32 S matrix
+- **Changes:** Kernel 1: batched wmma QKT (1 warp/16x16 tile); Kernel 2: row softmax; Kernel 3: wmma PV with on-the-fly P fp32->fp16 conversion via smem
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 84.5 ms (mean), 81.5 ~ 86.6 ms (min ~ max)
+  - Speedup: 0.71x
+- **Analysis:** Closest to target (57ms) so far. S[BH,N,N] = 1024*512*512*4 = 1GB is the bottleneck - writing and reading 1GB kills bandwidth. fp16 S would cut to 512MB saving ~14ms of bandwidth.
+- **Next:** Use fp16 for S matrix (512MB instead of 1GB), saving ~half S bandwidth.
 
