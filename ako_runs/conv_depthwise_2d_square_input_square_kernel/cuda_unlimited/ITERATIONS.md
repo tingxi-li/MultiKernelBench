@@ -29,6 +29,7 @@ Status values: improved / no-change / regression / failed.
 | 4 | Y-direction coarsening (NVEC_Y=2, 128x16 tile) | 1.53x | 2.63 ms | no-change |
 | 5 | Float4 vectorized smem loads (128x8 tile, NVEC=4) | 1.34x* | 2.62 ms | improved |
 | 6 | NVX=4+NVY=2 combined with float4 loads (128x16 tile) | 1.52x | 2.64 ms | no-change |
+| 7 (new-1) | NVEC=8 wider tile (256 cols/block), float4 smem loads | 1.56x | 2.59 ms | improved |
 
 ## Iterations
 
@@ -103,4 +104,16 @@ Status values: improved / no-change / regression / failed.
   - Speedup: 1.52x (mean)
 - **Analysis:** 2.64ms - marginally worse than iter-5 (2.62ms). The larger smem (9.5KB vs 5.3KB) slightly reduces occupancy/performance. Iter-5 (float4 loads, NVY=1) is the best.
 - **Conclusion:** Solution is at ~94% of theoretical bandwidth floor. Iter-5 is the best at 2.62ms mean.
+
+### Iter 7 (new iter 1) — NVEC=8 wider tile (256 output cols per block)
+
+- **Hypothesis:** Widening the tile from 128 to 256 output columns halves the X-dimension grid size (2 vs 4 blocks per row), reducing kernel launch overhead and improving L2 reuse of input data loaded across the 512-column input. More ILP per thread (8 vs 4 outputs).
+- **Changes:** T1_NVEC=8, T1_OUT_W=256, smem 258x10+2=2600 floats (10.4KB). Float4 smem loads (64 float4 per row). Scalar output stores to avoid misalignment (OW=510 is not 16B aligned). NVEC=8 output computation with 30 registers per thread.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 2.59 ms (mean), 2.54 ~ 3.84 ms (min ~ max)
+  - Speedup: 1.56x (mean)
+- **Analysis:** 2.59ms vs prior best 2.62ms. Small but real improvement. Wider tiles reduce grid overhead and improve ILP. Min 2.54ms hints at a floor around 2.50ms.
+- **Next:** Try NVEC=16 to push even further, or try 2-row coarsening with NVEC=8 (RPTS=2, 16 outputs/thread) with a 256x16 tile.
 
