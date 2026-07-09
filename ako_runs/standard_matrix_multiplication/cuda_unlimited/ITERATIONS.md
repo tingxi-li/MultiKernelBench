@@ -24,9 +24,21 @@ Status values: improved / no-change / regression / failed.
 | Iter | Title | Speedup(mean) | Runtime(mean) | Status |
 |------|-------|---------|--------------|--------|
 | 1 | Tiled register-blocked GEMM BM=BN=128 BK=8 TM=TN=8 | 0.82x | 5.52 ms | regression |
-| 2 | mma.sync WMMA fp32 tensor-core GEMM | - | - | - |
+| 2 | WMMA tensor-core GEMM (fp16 in, fp32 acc) | INCORRECT | N/A | failed |
 
 ## Iterations
+
+### Iter 2 — WMMA tensor-core GEMM (fp16 inputs, fp32 accumulate)
+
+- **Hypothesis:** Using WMMA tensor core API (mma.sync) with fp16 A/B and fp32 accumulation should significantly boost throughput on Ada, which has large tensor core capability.
+- **Changes:** Rewrote kernel using nvcuda::wmma API. 8 warps/block (2×4 warp grid), BM=32 BN=64 BK=16, WMMA 16×16×16 fragments. A/B converted to fp16 in shared mem, C accumulated in fp32.
+- **Bench:**
+  - Compiled: True
+  - Correct: False (max diff ~100, avg diff ~16 — complete mismatch)
+  - Runtime: N/A (correctness gate)
+  - Speedup: N/A
+- **Analysis:** Correctness failure due to race condition in shared memory: `store_matrix_sync` from multiple warps writing to `smC` without synchronization, then all 256 threads write full smC. The wmma store and smC read/write overlap. This iteration confirms the floor — even with tensor cores, correctness is hard to achieve.
+- **Next:** Iter cap reached (2). Restore best iter (iter 1, 0.82x) as final, confirming the floor.
 
 ### Iter 1 — Tiled register-blocked GEMM (BM=BN=128, BK=8, TM=TN=8)
 
