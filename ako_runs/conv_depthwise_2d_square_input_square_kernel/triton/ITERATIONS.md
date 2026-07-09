@@ -32,6 +32,7 @@ Status values: improved / no-change / regression / failed.
 | B1 | All shape params constexpr + tl.math.fma | 1.50x | 2.74 ms | improved |
 | B2 | Expanded configs: larger tiles, num_warps=16, stages=3 | 1.22x | 3.40 ms | regression |
 | B3 | Narrowed config set (only BLOCK_OH>=4, BLOCK_OW>=64) | 1.14x | 3.21 ms | regression |
+| B4 | iter-1 set + num_stages=1 + num_warps=2 variants | 1.51x | 2.70 ms | improved |
 
 ## Iterations
 
@@ -142,6 +143,18 @@ Status values: improved / no-change / regression / failed.
   - Speedup: 1.14x
 - **Analysis:** Major regression — removing configs (esp. small ones like BLOCK_OH=2,4 BLOCK_OW=64) removed the winning config from iter-1.
 - **Next:** Restore iter-1 as baseline. Try a different axis: check what config iter-1 actually selected (it likely picked BLOCK_OW=64 or 128, BLOCK_OH=4-8), then build around that.
+
+### Iter B4 — iter-1 config set + num_stages=1 + num_warps=2 variants
+
+- **Hypothesis:** num_stages=1 (no software pipelining overhead) and num_warps=2 (more blocks per SM) could improve occupancy on this memory-bound kernel.
+- **Changes:** Restored iter-1 kernel. Added 7 num_stages=1 variants with num_warps=2/4.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 2.70 ms (mean), 2.65 ~ 3.86 ms (min ~ max)
+  - Speedup: 1.51x
+- **Analysis:** Marginal improvement (1.51x vs 1.50x), with lower std (0.133 vs 0.165). The num_stages=1 or num_warps=2 variants were selected by the autotuner as slightly better. More consistent performance.
+- **Next:** Try optimizing the kernel body itself — add output tensor reuse by processing 2 channels per CTA to amortize weight loads.
 
 
 

@@ -4,13 +4,14 @@ import triton
 import triton.language as tl
 
 
-# Iter 1: All shape params as constexpr so the compiler can specialize
-# address arithmetic (stride = W is known at compile time), improve
-# register allocation, and eliminate dead code.  Focused config set
-# targeting the BLOCK_OH=4-16, BLOCK_OW=64-256 sweet-spot found in
-# prior work.  stride_h/w, pad_h/w are also constexpr for the same reason.
+# Iter 4: Same kernel body as iter-1 (1.50x best) but add num_stages=1 variants.
+# Depthwise conv has no sequential dependency across blocks so stage=1 (no
+# double-buffering) can increase register count available per thread and raise
+# occupancy, possibly improving performance on this memory-bound kernel.
+# Also adds num_warps=2 for small tiles to increase # blocks resident per SM.
 @triton.autotune(
     configs=[
+        # iter-1 configs
         triton.Config({'BLOCK_OH': 4,  'BLOCK_OW': 64},  num_warps=4, num_stages=2),
         triton.Config({'BLOCK_OH': 4,  'BLOCK_OW': 128}, num_warps=4, num_stages=2),
         triton.Config({'BLOCK_OH': 4,  'BLOCK_OW': 256}, num_warps=8, num_stages=2),
@@ -23,6 +24,14 @@ import triton.language as tl
         triton.Config({'BLOCK_OH': 32, 'BLOCK_OW': 64},  num_warps=8, num_stages=2),
         triton.Config({'BLOCK_OH': 2,  'BLOCK_OW': 256}, num_warps=4, num_stages=2),
         triton.Config({'BLOCK_OH': 2,  'BLOCK_OW': 512}, num_warps=8, num_stages=2),
+        # num_stages=1 variants (less SRAM, potentially more occupancy)
+        triton.Config({'BLOCK_OH': 4,  'BLOCK_OW': 64},  num_warps=2, num_stages=1),
+        triton.Config({'BLOCK_OH': 4,  'BLOCK_OW': 128}, num_warps=4, num_stages=1),
+        triton.Config({'BLOCK_OH': 8,  'BLOCK_OW': 64},  num_warps=2, num_stages=1),
+        triton.Config({'BLOCK_OH': 8,  'BLOCK_OW': 128}, num_warps=4, num_stages=1),
+        triton.Config({'BLOCK_OH': 16, 'BLOCK_OW': 64},  num_warps=4, num_stages=1),
+        triton.Config({'BLOCK_OH': 32, 'BLOCK_OW': 32},  num_warps=2, num_stages=1),
+        triton.Config({'BLOCK_OH': 2,  'BLOCK_OW': 256}, num_warps=4, num_stages=1),
     ],
     key=['NC', 'H', 'W', 'H_out', 'W_out', 'KH', 'KW'],
 )
@@ -94,6 +103,7 @@ class Model(nn.Module):
     """
     Depthwise 2D convolution using a custom Triton kernel.
     All shape parameters passed as constexpr for compiler specialisation.
+    Iter 4: adds num_stages=1 and num_warps=2 variants to iter-1 config set.
     """
     def __init__(self, in_channels: int, kernel_size: int, stride: int = 1,
                  padding: int = 0, bias: bool = False):
