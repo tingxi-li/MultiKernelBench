@@ -2,61 +2,14 @@ import torch
 import torch.nn as nn
 from torch.utils.cpp_extension import load_inline
 
-# Iter 3: Attempt split-K GEMM for better parallelism
-# Observation: M=1024, N=K=8192 → only 8x64=512 blocks with BM=BN=128
-# Split K into P partitions, each block computes partial sums, atomic-add to output
-# This increases parallelism along the K dimension
-# THEN do GELU pass, then softmax pass
-# WARNING: atomic float adds may reduce accuracy
-
-# Actually, let's try a different approach: use __ptx_isa to explicitly control
-# the load/store instructions for better memory behavior.
-# OR: use a transposed weight (W.T) so that the GEMM is A@W.T ≡ standard row-col
-# and both A and W.T have the required memory layout for coalesced access.
-
-# Key insight: W is [N,K], W.T is [K,N]. Standard GEMM C=A@W.T accesses:
-# A[m,k] → row-major, K dimension → ok for inner loop
-# W[n,k] → row-major, K dimension → ok for inner loop
-# Both are accessed in K direction which IS coalesced (K is stride-1 for row-major)!
-#
-# So when loading A's tile (BM rows, BK cols) and W's tile (BN rows, BK cols):
-# - For A: stride between consecutive k_inner = 1 byte → COALESCED ✓
-#   BUT stride between consecutive m_inner = K → row-by-row, not stride-1
-# - Thread access: 256 threads loading 128*16=2048 elements
-#   Thread tid loads element e = tid (or tid+step*256)
-#   If e → row=e%16=e%BK, col=e/BK: consecutive threads load consecutive K-positions
-#   for the same M-position → that's within a single 128-byte cache line (16 floats = 64 bytes)
-#   But consecutive threads load k=0,1,...,15 for same m=0 → this IS coalesced! Each warp
-#   loads threads 0-15 (k=0..15, m=0) AND threads 16-31 (k=0..15, m=1)... wait no.
-#   e = tid, thread 0 loads k=0,m=0; thread 1 loads k=1,m=0; ... thread 15 loads k=15,m=0
-#   thread 16: k=16%16=0, m=16/16=1... BUT BK=16 so k=e%BK=e%16
-#   thread 0: k=0,m=0 → A[block_row+0, k_base+0]
-#   thread 1: k=1,m=0 → A[block_row+0, k_base+1]
-#   ...
-#   thread 15: k=15,m=0 → A[block_row+0, k_base+15]
-#   thread 16: k=0,m=1 → A[block_row+1, k_base+0]
-#   thread 17: k=1,m=1 → A[block_row+1, k_base+1]
-# So threads 0-15 all access row block_row+0 (consecutive K): COALESCED ✓
-# Threads 16-31: row block_row+1 (consecutive K): COALESCED ✓
-# But threads 0 and 16 access different rows → interleaved within a warp:
-#   warp: threads 0-31, 16 from row m=0 and 16 from row m=1
-#   addresses: rows m=0,1 are K floats apart = 32KB apart → two separate cache lines
-# This is a 2-way bank conflict in terms of cache lines, but not register bank conflict.
-# Actually it's fine — 2 cache line loads for 32 threads.
-#
-# The LOAD pattern e → k=e%BK, m=e/BK maps BM*BK elements to (k,m) pairs.
-# For a warp (threads t..t+31): loading elements [t, t+1, ..., t+31]
-# These have k = t%16, t%16+1, ... (cycling), m = t/16, ...
-# If t=0: k=0..15 for m=0, then k=0..15 for m=1 (within warp)
-# → two consecutive rows of A, each with all BK=16 k-values
-# → 2 cache line accesses (one per row, 16 floats each = 64 bytes)
-# → 32 threads / 2 cache lines = 16 threads per cache line ✓ (perfect coalescing)
-#
-# Similarly for W. This pattern IS coalesced! The key is e%BK ordering.
-# Wait, iter-2 already used this pattern (k=e/BM, m=e%BM which is different).
-# Actually iter-2 used k=e/BM, m=e%BM → k=tid/128, which for tid=0..255:
-#   k=0 for tid=0..127, k=1 for tid=128..255 → NOT coalesced (all tid<128 load k=0)
-# Let me switch to k=e%BK, m=e/BK for better coalescing!
+# Iter 4: Compute GEMM with transposed weight (W.T) to enable coalesced access
+# W [N,K] (row-major) → W.T [K,N] cached as attribute
+# GEMM: C = A @ W.T is equivalent to C[m,n] = sum_k A[m,k] * W[n,k]
+# With W.T [K,N] stored as WT[K,N]: WT[k,n] = W[n,k]
+# Now inner loop reads WT[k, block_col:block_col+BN] → consecutive in N → COALESCED ✓
+# And reads A[block_row:block_row+BM, k] → consecutive in BM → COALESCED ✓
+# This should dramatically improve memory bandwidth utilization.
+# Note: We pre-transpose the weight once in __init__ and cache WT.
 
 _CUDA_SRC = r"""
 #include <cuda_runtime.h>
@@ -74,12 +27,21 @@ __device__ __forceinline__ float gelu_exact(float x) {
     return 0.5f * x * (1.0f + erff(x * 0.7071067811865476f));
 }
 
+// C[M,N] = gelu(A[M,K] @ WT[K,N] + bias[N])
+// WT is weight transposed: WT[k,n] = W[n,k]
+// Access pattern:
+// A tile: A[block_row:block_row+BM, k_base:k_base+BK]
+//   → row major, accessing k_base..k_base+BK (BK=16 elements) for each of BM rows
+// WT tile: WT[k_base:k_base+BK, block_col:block_col+BN]
+//   → accessing n-consecutive: WT[k, block_col:block_col+BN] for k=k_base..k_base+BK
+//   → row-major WT[K,N]: WT[k] at offset k*N + block_col → BN=128 consecutive floats ✓
+
 __global__
-void gemm_gelu_reg(
-    const float* __restrict__ A,
-    const float* __restrict__ W,
-    const float* __restrict__ bias,
-    float* __restrict__ C,
+void gemm_gelu_transposed(
+    const float* __restrict__ A,   // [M, K]
+    const float* __restrict__ WT,  // [K, N]  (W transposed)
+    const float* __restrict__ bias, // [N]
+    float* __restrict__ C,          // [M, N]
     int M, int N, int K)
 {
     const int block_row = blockIdx.y * BM;
@@ -88,24 +50,40 @@ void gemm_gelu_reg(
     const int tx = threadIdx.x % (BN / TN);
     const int tid = threadIdx.x;
 
+    // Row-major shared memory: As[BM][BK+PAD], Bs[BK][BN+PAD]
+    // As[m][k]: read by inner loop as As[m][k] (row-major access: a_reg = As[ty*TM+i][k])
+    //           → need column-major access for k → use As[BK][BM+PAD] with [k][m]
+    // Bs[k][n]: read by inner loop as Bs[k][tx*TN+j] → row-major (k fixed, n varies)
+    //           → Bs[BK][BN+PAD] naturally ✓
     __shared__ float As[BK][BM + PAD];
     __shared__ float Bs[BK][BN + PAD];
 
     float acc[TM][TN] = {};
 
     for (int k_base = 0; k_base < K; k_base += BK) {
-        // Coalesced load: e → k=e%BK, m=e/BK
-        // consecutive threads: k cycles 0..BK-1, m increments
-        // warp loads 2 rows of A each with BK=16 consecutive k values → 2 cache lines
+        // Load As: A[block_row:block_row+BM, k_base:k_base+BK] → As[k][m]
+        // Each thread loads element e: k=e/BM, m=e%BM
+        // → A[(block_row+m)*K + k_base+k]
+        // For warp: threads 0-127 load k=0, m=0-127; threads 128-255 load k=1, m=0-127
+        // Each group accesses 128 different rows (stride K apart) → not coalesced,
+        // but only 2 cache line groups per warp per iteration ✓
         for (int e = tid; e < BM * BK; e += NT) {
-            int k = e % BK, m = e / BK;
+            int k = e / BM, m = e % BM;
             int gm = block_row + m, gk = k_base + k;
-            As[k][m] = (gm < M && gk < K) ? __ldg(&A[gm * K + gk]) : 0.f;
+            As[k][m] = (gm < M && gk < K) ? A[gm * K + gk] : 0.f;
         }
+
+        // Load Bs: WT[k_base:k_base+BK, block_col:block_col+BN] → Bs[k][n]
+        // Each thread loads element e: k=e/BN, n=e%BN (since Bs is [BK][BN])
+        // → WT[(k_base+k)*N + block_col+n]
+        // For warp: thread 0 loads k=0,n=0; thread 1: k=0,n=1; ...; thread 127: k=0,n=127
+        //           thread 128: k=1,n=0; etc.
+        // Warp loads WT[k_base+0, block_col:block_col+128] (128 consecutive floats) ✓
+        // THIS IS COALESCED! ✓
         for (int e = tid; e < BN * BK; e += NT) {
-            int k = e % BK, n = e / BK;
-            int gn = block_col + n, gk = k_base + k;
-            Bs[k][n] = (gn < N && gk < K) ? __ldg(&W[gn * K + gk]) : 0.f;
+            int k = e / BN, n = e % BN;
+            int gk = k_base + k, gn = block_col + n;
+            Bs[k][n] = (gk < K && gn < N) ? WT[gk * N + gn] : 0.f;
         }
         __syncthreads();
 
@@ -180,21 +158,21 @@ __global__ void softmax_kernel(float* __restrict__ C, int M, int N) {
 _CPP_SRC = r"""
 #include <torch/extension.h>
 torch::Tensor fused_matmul_gelu_softmax(
-    torch::Tensor A, torch::Tensor W, torch::Tensor bias, int M, int N, int K);
+    torch::Tensor A, torch::Tensor WT, torch::Tensor bias, int M, int N, int K);
 """
 
 _CUDA_WRAPPER = r"""
 #include <torch/extension.h>
-__global__ void gemm_gelu_reg(const float*, const float*, const float*, float*, int, int, int);
+__global__ void gemm_gelu_transposed(const float*, const float*, const float*, float*, int, int, int);
 __global__ void softmax_kernel(float*, int, int);
 
 torch::Tensor fused_matmul_gelu_softmax(
-    torch::Tensor A, torch::Tensor W, torch::Tensor bias, int M, int N, int K)
+    torch::Tensor A, torch::Tensor WT, torch::Tensor bias, int M, int N, int K)
 {
     auto C = torch::empty({M, N}, A.options());
     dim3 grid((N + 127) / 128, (M + 127) / 128);
-    gemm_gelu_reg<<<grid, 256>>>(
-        A.data_ptr<float>(), W.data_ptr<float>(), bias.data_ptr<float>(),
+    gemm_gelu_transposed<<<grid, 256>>>(
+        A.data_ptr<float>(), WT.data_ptr<float>(), bias.data_ptr<float>(),
         C.data_ptr<float>(), M, N, K);
     softmax_kernel<<<M, 256>>>(C.data_ptr<float>(), M, N);
     return C;
@@ -207,7 +185,7 @@ def _get_module():
     global _MODULE
     if _MODULE is None:
         _MODULE = load_inline(
-            name="fused_mgs_reg_v6",
+            name="fused_mgs_transW_v2",
             cpp_sources=_CPP_SRC,
             cuda_sources=_CUDA_SRC + _CUDA_WRAPPER,
             functions=["fused_matmul_gelu_softmax"],
@@ -221,11 +199,16 @@ class Model(nn.Module):
     def __init__(self, in_features, out_features):
         super().__init__()
         self.linear = nn.Linear(in_features, out_features)
+        # Pre-transpose weight for coalesced GMEM access in kernel
+        # linear.weight is [out_features, in_features] = [N, K]
+        # WT = weight.T = [K, N] for coalesced row access in GEMM
+        self.register_buffer('_WT',
+            self.linear.weight.detach().t().contiguous())
 
     def forward(self, x):
         M, K = x.shape
         N = self.linear.out_features
         return _get_module().fused_matmul_gelu_softmax(
-            x.contiguous(), self.linear.weight.contiguous(),
+            x.contiguous(), self._WT,
             self.linear.bias.contiguous(), M, N, K
         )

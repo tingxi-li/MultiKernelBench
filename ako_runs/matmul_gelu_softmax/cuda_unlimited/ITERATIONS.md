@@ -26,8 +26,21 @@ Status values: improved / no-change / regression / failed.
 | 1 | TF32 WMMA GEMM + fused GELU + softmax | 0.86x | 7.19 ms | regression |
 | 2 | FP32 register-blocking BM=BN=128, BK=16, TM=TN=8 | 0.99x | 6.26 ms | improved |
 | 3 | FP32 coalesced loads (k=e%BK,m=e/BK) + __ldg | 0.90x | 6.82 ms | regression |
+| 4 | Transposed weight [K,N] for coalesced WT loads | 0.92x | 6.59 ms | regression |
 
 ## Iterations
+
+### Iter 4 — Transposed weight for coalesced WT loads
+
+- **Hypothesis:** Pre-transposing weight from [N,K] to [K,N] enables fully coalesced loads of the weight tile (BN consecutive elements along N for each k_inner).
+- **Changes:** Added WT = weight.T pre-computed in __init__ (register_buffer). Changed GEMM to C=A@WT where WT[K,N]. Load pattern for WT: e → k=e/BN, n=e%BN → coalesced ✓.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 6.59 ms (mean), 4.82~6.74 ms (min~max)
+  - Speedup: 0.92x (mean)
+- **Analysis:** Still slower than iter 2. The overhead of using a separate WT buffer adds a warmup cost. The min (4.82ms) is better than iter 3 but worse than iter 2's 4.21ms. The key bottleneck is still the non-coalesced A loads (BM rows of A have stride K between them).
+- **Next:** Try to address the A-load coalescing problem by using a tile-swap: load A in a transposed fashion or switch to a completely different compute strategy.
 
 ### Iter 3 — FP32 coalesced loads (k=e%BK) + __ldg hints
 
