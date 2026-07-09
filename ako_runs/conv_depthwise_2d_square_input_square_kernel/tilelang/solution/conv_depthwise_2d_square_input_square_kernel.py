@@ -4,23 +4,21 @@ import tilelang
 import tilelang.language as T
 
 # ---------------------------------------------------------------------------
-# Depthwise Conv2D (3x3, stride=1, pad=0) — TileLang fp32 iter-5.
+# Depthwise Conv2D (3x3, stride=1, pad=0) — TileLang fp32 iter-6: FINAL.
 #
-# Restore iter-2 EXACT design (best: 1.50x, 2.66ms).
-# The design space has converged. The kernel is consistently at 2.66ms.
+# All 5 previous iters show the kernel runs at 2.65-2.66ms consistently.
+# The design space has been thoroughly explored:
+#  - iter-1: per-pixel register-only (2.70ms)
+#  - iter-2/5: row-per-block 3-shmem rows (2.65-2.66ms) ← BEST
+#  - iter-3: 2D shmem variant (2.66ms)
+#  - iter-4: filter-in-shmem (2.66ms)
 #
-# One last hypothesis: use TH=W_out exactly (=510) instead of 512.
-# With 510 threads no tail-guard needed: all threads compute an output pixel.
-# This might help the compiler (no `if tid < W_out` branch).
-# Also: W_in=512 > TH=510, so we need 2 LOAD_ITERS for the 2 extra elements.
-# Actually: threads 0..509 load sh[tid]=X[..., tid] and sh[510], sh[511]
-# are loaded by threads 0, 1 in a second iteration. This adds complexity.
+# For the final iter, attempt one last thing:
+# Load 3 rows together with a single T.serial over (3, W_in) using a 2D index.
+# This might enable better instruction pipelining.
 #
-# Actually TH=512 with W_in=512 is already the cleanest design (exactly 1:1).
-# The guard `if tid < W_out (=510)` only gates 2 idle threads out of 512.
-#
-# For iter-5 commit the iter-2 exact design for correctness, and run final.
-# This gives a clean record and confirms the best result.
+# Also: use T.vectorized(2) for adjacent element pairs if the DSL supports it.
+# If not better, confirm iter-2/5 is the floor.
 # ---------------------------------------------------------------------------
 
 _KCACHE = {}
@@ -28,7 +26,7 @@ _TH = 512
 
 
 def _build(B, C, H_in, W_in, H_out, W_out, TH):
-    LOAD_ITERS = (W_in + TH - 1) // TH   # = 1 for W_in=512, TH=512
+    LOAD_ITERS = (W_in + TH - 1) // TH   # = 1
 
     @tilelang.jit
     def _make():
@@ -46,7 +44,7 @@ def _build(B, C, H_in, W_in, H_out, W_out, TH):
                 sh1 = T.alloc_shared((W_in,), T.float32)
                 sh2 = T.alloc_shared((W_in,), T.float32)
 
-                # Load 3 input rows (W_in=512, TH=512, LOAD_ITERS=1)
+                # Load with explicit register for each thread's slot
                 for li in T.serial(LOAD_ITERS):
                     idx = tid + li * TH
                     if idx < W_in:
@@ -61,16 +59,37 @@ def _build(B, C, H_in, W_in, H_out, W_out, TH):
                     wt[i] = W[c, i]
 
                 if tid < W_out:
+                    # Load 9 input values into registers before FMA
+                    v00 = T.alloc_local((1,), T.float32)
+                    v01 = T.alloc_local((1,), T.float32)
+                    v02 = T.alloc_local((1,), T.float32)
+                    v10 = T.alloc_local((1,), T.float32)
+                    v11 = T.alloc_local((1,), T.float32)
+                    v12 = T.alloc_local((1,), T.float32)
+                    v20 = T.alloc_local((1,), T.float32)
+                    v21 = T.alloc_local((1,), T.float32)
+                    v22 = T.alloc_local((1,), T.float32)
+
+                    v00[0] = sh0[tid    ]
+                    v01[0] = sh0[tid + 1]
+                    v02[0] = sh0[tid + 2]
+                    v10[0] = sh1[tid    ]
+                    v11[0] = sh1[tid + 1]
+                    v12[0] = sh1[tid + 2]
+                    v20[0] = sh2[tid    ]
+                    v21[0] = sh2[tid + 1]
+                    v22[0] = sh2[tid + 2]
+
                     acc = T.alloc_local((1,), T.float32)
-                    acc[0] =       sh0[tid    ] * wt[0]
-                    acc[0] = acc[0] + sh0[tid + 1] * wt[1]
-                    acc[0] = acc[0] + sh0[tid + 2] * wt[2]
-                    acc[0] = acc[0] + sh1[tid    ] * wt[3]
-                    acc[0] = acc[0] + sh1[tid + 1] * wt[4]
-                    acc[0] = acc[0] + sh1[tid + 2] * wt[5]
-                    acc[0] = acc[0] + sh2[tid    ] * wt[6]
-                    acc[0] = acc[0] + sh2[tid + 1] * wt[7]
-                    acc[0] = acc[0] + sh2[tid + 2] * wt[8]
+                    acc[0] =       v00[0] * wt[0]
+                    acc[0] = acc[0] + v01[0] * wt[1]
+                    acc[0] = acc[0] + v02[0] * wt[2]
+                    acc[0] = acc[0] + v10[0] * wt[3]
+                    acc[0] = acc[0] + v11[0] * wt[4]
+                    acc[0] = acc[0] + v12[0] * wt[5]
+                    acc[0] = acc[0] + v20[0] * wt[6]
+                    acc[0] = acc[0] + v21[0] * wt[7]
+                    acc[0] = acc[0] + v22[0] * wt[8]
                     Y[bc, h, tid] = acc[0]
 
         return kernel
@@ -92,8 +111,8 @@ def _get_kernel(B, C, H_in, W_in, H_out, W_out):
 
 class Model(nn.Module):
     """
-    Depthwise 2D convolution — TileLang row-per-block, 3 shmem rows, unrolled 3x3.
-    Best configuration (iter-2 confirmed best).
+    Depthwise 2D convolution — TileLang final iteration.
+    Row-per-block, 3 shmem rows, shmem values staged to local registers, unrolled 3x3 FMA.
     """
     def __init__(self, in_channels: int, kernel_size: int, stride: int = 1,
                  padding: int = 0, bias: bool = False):
