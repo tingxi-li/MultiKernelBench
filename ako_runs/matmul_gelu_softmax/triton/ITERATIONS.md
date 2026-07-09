@@ -27,8 +27,21 @@ Status values: improved / no-change / regression / failed.
 | 2 | fp16 tensor cores in matmul | 4.41x | 1.43 ms | improved |
 | 3 | Autotuned multi-chunk softmax | 4.93x | 1.26 ms | improved |
 | 4 | Pre-cast weight+input to fp16, native fp16 loads | 5.02x | 1.27 ms | improved |
+| 5 | Expanded autotune configs (deep pipeline, large BLOCK_K) | 5.02x | 1.25 ms | no-change |
 
 ## Iterations
+
+### Iter 5 — Expanded autotune configs for better GEMM tile coverage
+
+- **Hypothesis:** Adding more autotune configs including deeper pipelines (num_stages=4,5), larger BLOCK_K (128), and BLOCK_M=256 variants might find a better tile configuration.
+- **Changes:** Added 5 more autotune configs to `_matmul_gelu_fp16_kernel`: various combinations of BLOCK_M/N/K and num_stages/num_warps.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 1.25 ms (mean), 1.21 ~ 1.40 ms (min ~ max)
+  - Speedup: 5.02x (mean)
+- **Analysis:** No meaningful improvement — already at optimal tile configuration. The GEMM is likely compute-bound and the autotune had already found the best config in iter 4.
+- **Next:** (iter 6) Try reducing softmax memory traffic by doing it in fp16, or by fusing the GELU+bias output as fp16 to halve softmax load bandwidth.
 
 ### Iter 4 — Pre-cast weight+input to fp16 for native fp16 tensor-core loads
 

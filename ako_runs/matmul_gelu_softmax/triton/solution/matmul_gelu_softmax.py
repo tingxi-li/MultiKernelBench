@@ -6,15 +6,20 @@ import triton.language as tl
 
 @triton.autotune(
     configs=[
+        # High-throughput configs with deep pipelines for fp16
         triton.Config({'BLOCK_M': 128, 'BLOCK_N': 256, 'BLOCK_K': 64, 'GROUP_M': 8}, num_stages=3, num_warps=8),
         triton.Config({'BLOCK_M': 256, 'BLOCK_N': 128, 'BLOCK_K': 32, 'GROUP_M': 8}, num_stages=3, num_warps=8),
-        triton.Config({'BLOCK_M': 128, 'BLOCK_N': 128, 'BLOCK_K': 32, 'GROUP_M': 8}, num_stages=4, num_warps=4),
-        triton.Config({'BLOCK_M': 64, 'BLOCK_N': 256, 'BLOCK_K': 32, 'GROUP_M': 8}, num_stages=4, num_warps=4),
         triton.Config({'BLOCK_M': 128, 'BLOCK_N': 256, 'BLOCK_K': 32, 'GROUP_M': 8}, num_stages=4, num_warps=8),
         triton.Config({'BLOCK_M': 256, 'BLOCK_N': 256, 'BLOCK_K': 64, 'GROUP_M': 8}, num_stages=3, num_warps=8),
         triton.Config({'BLOCK_M': 128, 'BLOCK_N': 256, 'BLOCK_K': 128, 'GROUP_M': 8}, num_stages=3, num_warps=8),
+        triton.Config({'BLOCK_M': 128, 'BLOCK_N': 256, 'BLOCK_K': 64, 'GROUP_M': 8}, num_stages=4, num_warps=8),
+        triton.Config({'BLOCK_M': 256, 'BLOCK_N': 128, 'BLOCK_K': 64, 'GROUP_M': 8}, num_stages=3, num_warps=8),
         triton.Config({'BLOCK_M': 64, 'BLOCK_N': 256, 'BLOCK_K': 64, 'GROUP_M': 8}, num_stages=4, num_warps=4),
-        triton.Config({'BLOCK_M': 64, 'BLOCK_N': 128, 'BLOCK_K': 64, 'GROUP_M': 8}, num_stages=4, num_warps=4),
+        triton.Config({'BLOCK_M': 64, 'BLOCK_N': 256, 'BLOCK_K': 128, 'GROUP_M': 8}, num_stages=3, num_warps=4),
+        triton.Config({'BLOCK_M': 256, 'BLOCK_N': 256, 'BLOCK_K': 32, 'GROUP_M': 8}, num_stages=4, num_warps=8),
+        triton.Config({'BLOCK_M': 128, 'BLOCK_N': 128, 'BLOCK_K': 64, 'GROUP_M': 8}, num_stages=4, num_warps=4),
+        triton.Config({'BLOCK_M': 128, 'BLOCK_N': 256, 'BLOCK_K': 64, 'GROUP_M': 8}, num_stages=5, num_warps=8),
+        triton.Config({'BLOCK_M': 256, 'BLOCK_N': 256, 'BLOCK_K': 64, 'GROUP_M': 8}, num_stages=4, num_warps=8),
     ],
     key=['M', 'N', 'K'],
 )
@@ -28,7 +33,7 @@ def _matmul_gelu_fp16_kernel(
     BLOCK_M: tl.constexpr, BLOCK_N: tl.constexpr, BLOCK_K: tl.constexpr,
     GROUP_M: tl.constexpr,
 ):
-    """Fused matmul (fp16 in) + bias + GELU. a,b are fp16; output fp32."""
+    """Fused matmul (fp16 native) + bias + GELU. a,b are fp16; output fp32."""
     pid = tl.program_id(0)
     num_pid_m = tl.cdiv(M, BLOCK_M)
     num_pid_n = tl.cdiv(N, BLOCK_N)
@@ -49,14 +54,13 @@ def _matmul_gelu_fp16_kernel(
     acc = tl.zeros((BLOCK_M, BLOCK_N), dtype=tl.float32)
 
     for k in range(0, tl.cdiv(K, BLOCK_K)):
-        # Load fp16 memory; cast back to fp16 (other=0.0 causes fp32 promotion)
         a = tl.load(a_ptrs, mask=offs_k[None, :] < K - k * BLOCK_K, other=0.0).to(tl.float16)
         b = tl.load(b_ptrs, mask=offs_k[:, None] < K - k * BLOCK_K, other=0.0).to(tl.float16)
         acc = tl.dot(a, b, acc)
         a_ptrs += BLOCK_K * stride_ak
         b_ptrs += BLOCK_K * stride_bk
 
-    # Add bias (fp32) + GELU
+    # Add bias (fp32) + exact GELU
     bias_offs = pid_n * BLOCK_N + tl.arange(0, BLOCK_N)
     bias = tl.load(bias_ptr + bias_offs, mask=bias_offs < N, other=0.0)
     acc = acc + bias[None, :]
@@ -94,7 +98,6 @@ def _softmax_kernel(
 
 
 def matmul_gelu_fp16(x_fp16, w_fp16, bias):
-    """x_fp16: [M, K] fp16, w_fp16: [N, K] fp16, bias: [N] fp32"""
     M, K = x_fp16.shape
     N = w_fp16.shape[0]
     out = torch.empty((M, N), device=x_fp16.device, dtype=torch.float32)
@@ -132,12 +135,10 @@ class Model(nn.Module):
     def __init__(self, in_features, out_features):
         super(Model, self).__init__()
         self.linear = nn.Linear(in_features, out_features)
-        # Pre-cast weight to fp16 for faster GEMM (halves weight load bandwidth)
-        # Bias stays fp32 for precision in bias+GELU step
         self.register_buffer('weight_fp16', None)
 
     def forward(self, x):
-        # Lazily create fp16 weight cache (after seeded init in __init__)
+        # Lazily create fp16 weight cache
         if self.weight_fp16 is None or self.weight_fp16.shape != self.linear.weight.shape:
             self.weight_fp16 = self.linear.weight.to(torch.float16)
         x_fp16 = x.to(torch.float16)
