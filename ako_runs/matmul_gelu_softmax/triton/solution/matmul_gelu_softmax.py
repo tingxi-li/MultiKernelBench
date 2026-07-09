@@ -14,11 +14,13 @@ import triton.language as tl
         triton.Config({'BLOCK_M': 64, 'BLOCK_N': 128, 'BLOCK_K': 32, 'GROUP_M': 4}, num_stages=4, num_warps=4),
         triton.Config({'BLOCK_M': 32, 'BLOCK_N': 128, 'BLOCK_K': 32, 'GROUP_M': 4}, num_stages=4, num_warps=4),
         triton.Config({'BLOCK_M': 128, 'BLOCK_N': 256, 'BLOCK_K': 32, 'GROUP_M': 8}, num_stages=4, num_warps=8),
+        triton.Config({'BLOCK_M': 256, 'BLOCK_N': 256, 'BLOCK_K': 64, 'GROUP_M': 8}, num_stages=3, num_warps=8),
+        triton.Config({'BLOCK_M': 64, 'BLOCK_N': 64, 'BLOCK_K': 64, 'GROUP_M': 4}, num_stages=5, num_warps=2),
     ],
     key=['M', 'N', 'K'],
 )
 @triton.jit
-def _matmul_gelu_kernel(
+def _matmul_gelu_fp16_kernel(
     a_ptr, b_ptr, bias_ptr, c_ptr,
     M, N, K,
     stride_am, stride_ak,
@@ -27,7 +29,7 @@ def _matmul_gelu_kernel(
     BLOCK_M: tl.constexpr, BLOCK_N: tl.constexpr, BLOCK_K: tl.constexpr,
     GROUP_M: tl.constexpr,
 ):
-    """Fused matmul + bias + GELU kernel. B is stored transposed (shape [N, K])."""
+    """Fused matmul (fp16 tensor cores) + bias + GELU. B transposed [N, K]."""
     pid = tl.program_id(0)
     num_pid_m = tl.cdiv(M, BLOCK_M)
     num_pid_n = tl.cdiv(N, BLOCK_N)
@@ -50,25 +52,25 @@ def _matmul_gelu_kernel(
     for k in range(0, tl.cdiv(K, BLOCK_K)):
         a = tl.load(a_ptrs, mask=offs_k[None, :] < K - k * BLOCK_K, other=0.0)
         b = tl.load(b_ptrs, mask=offs_k[:, None] < K - k * BLOCK_K, other=0.0)
-        acc = tl.dot(a, b, acc)
+        # Cast to fp16 for tensor-core dot product, accumulate in fp32
+        acc = tl.dot(a.to(tl.float16), b.to(tl.float16), acc)
         a_ptrs += BLOCK_K * stride_ak
         b_ptrs += BLOCK_K * stride_bk
 
-    # Add bias
+    # Add bias (fp32)
     bias_offs = pid_n * BLOCK_N + tl.arange(0, BLOCK_N)
     bias = tl.load(bias_ptr + bias_offs, mask=bias_offs < N, other=0.0)
     acc = acc + bias[None, :]
 
-    # Apply GELU (exact): GELU(x) = 0.5 * x * (1 + erf(x / sqrt(2)))
-    # PyTorch F.gelu default uses this exact form
+    # Apply exact GELU: 0.5 * x * (1 + erf(x / sqrt(2)))
     acc_gelu = 0.5 * acc * (1.0 + tl.erf(acc * 0.7071067811865476))
 
-    # Store
+    # Store as fp32
     offs_cm = pid_m * BLOCK_M + tl.arange(0, BLOCK_M)
     offs_cn = pid_n * BLOCK_N + tl.arange(0, BLOCK_N)
     c_ptrs = c_ptr + stride_cm * offs_cm[:, None] + stride_cn * offs_cn[None, :]
     c_mask = (offs_cm[:, None] < M) & (offs_cn[None, :] < N)
-    tl.store(c_ptrs, acc_gelu.to(tl.float32), mask=c_mask)
+    tl.store(c_ptrs, acc_gelu, mask=c_mask)
 
 
 @triton.jit
@@ -95,7 +97,7 @@ def _softmax_kernel(
     tl.store(out_row_start + col_offsets, softmax_out, mask=mask)
 
 
-def matmul_gelu(x, weight, bias):
+def matmul_gelu_fp16(x, weight, bias):
     """x: [M, K], weight: [N, K] (linear.weight layout), bias: [N]"""
     M, K = x.shape
     N = weight.shape[0]
@@ -103,11 +105,11 @@ def matmul_gelu(x, weight, bias):
     grid = lambda META: (
         triton.cdiv(M, META['BLOCK_M']) * triton.cdiv(N, META['BLOCK_N']),
     )
-    _matmul_gelu_kernel[grid](
+    _matmul_gelu_fp16_kernel[grid](
         x, weight, bias, out,
         M, N, K,
         x.stride(0), x.stride(1),
-        weight.stride(1), weight.stride(0),  # transposed access: stride_bk=stride along K, stride_bn=stride along N
+        weight.stride(1), weight.stride(0),
         out.stride(0), out.stride(1),
     )
     return out
@@ -116,7 +118,6 @@ def matmul_gelu(x, weight, bias):
 def softmax_rows(x):
     """x: [M, N], apply softmax over dim=1."""
     M, N = x.shape
-    # Next power of 2 >= N
     BLOCK_SIZE = triton.next_power_of_2(N)
     out = torch.empty_like(x)
     _softmax_kernel[(M,)](
@@ -138,8 +139,8 @@ class Model(nn.Module):
         self.linear = nn.Linear(in_features, out_features)
 
     def forward(self, x):
-        # Fused: matmul + bias + GELU
-        gelu_out = matmul_gelu(x, self.linear.weight, self.linear.bias)
+        # Fused: matmul (fp16 tensor cores) + bias + GELU
+        gelu_out = matmul_gelu_fp16(x, self.linear.weight, self.linear.bias)
         # Softmax over dim=1
         out = softmax_rows(gelu_out)
         return out

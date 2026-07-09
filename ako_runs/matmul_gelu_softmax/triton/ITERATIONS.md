@@ -24,8 +24,21 @@ Status values: improved / no-change / regression / failed.
 | Iter | Title | Speedup(mean) | Runtime(mean) | Status |
 |------|-------|---------|--------------|--------|
 | 1 | Fused matmul+GELU + separate softmax | 3.55x | 1.76 ms | improved |
+| 2 | fp16 tensor cores in matmul | 4.41x | 1.43 ms | improved |
 
 ## Iterations
+
+### Iter 2 — fp16 tensor cores in GEMM
+
+- **Hypothesis:** Casting inputs to fp16 before tl.dot() activates tensor core units, doubling MMA throughput for the GEMM-dominated workload. Accumulation stays in fp32 to preserve correctness. fp16 GEMM on RTX6000 Ada should be ~2x faster than fp32 GEMM.
+- **Changes:** Cast `a` and `b` to `tl.float16` inside the dot product: `tl.dot(a.to(tl.float16), b.to(tl.float16), acc)`. Added more autotune configs (256×256×64).
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 1.43 ms (mean), 1.37 ~ 1.56 ms (min ~ max)
+  - Speedup: 4.41x (mean)
+- **Analysis:** Improved from 1.76ms to 1.43ms. fp16 tensor cores give ~20% improvement on the GEMM, though not 2x because the softmax pass (memory-bound) is now a more significant fraction of total time.
+- **Next:** Try fusing the two passes — write a single kernel that does matmul+GELU+softmax by computing partial softmax statistics across GEMM tiles using cross-CTA communication via L2.
 
 ### Iter 1 — Fused matmul+GELU kernel + row-wise softmax kernel
 
