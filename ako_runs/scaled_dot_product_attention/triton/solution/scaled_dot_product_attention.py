@@ -1,16 +1,27 @@
 """
-Flash-Attention 2 for HEAD_DIM=1024 in Triton — iter 4 (blind run).
+Flash-Attention 2 for HEAD_DIM=1024 in Triton — iter 5 (blind run).
 
-Iter 3 insight: Loading K transposed from [N,D] (column-major) was 1.78x.
-But K[n,d] has strides (D=1024, 1). Column-major access K[d,n] has stride
-(1, 1024) - accessing columns stride 1024 apart is NOT coalesced.
+Best so far: iter 3 (1.78x, 33.9ms) — K column-major load, BM=16, BN=32,
+D_TILE=256, 4 warps.
 
-Iter 4 idea: Pre-transpose K to contiguous K_T = K.transpose(-2,-1).contiguous()
-in the Python wrapper. K_T is [B,H,D,N] with strides (H*D*N, D*N, N, 1).
-Then loading K_T[d_chunk, n_block] is fully contiguous (stride=1 along N).
-This should give better HBM bandwidth utilization for K reads.
+Iter 5 idea: Flash-Decoding style 2-pass kernel.
+- Pass 1: each CTA handles SPLIT (N/SPLIT) K/V tokens for one (b,h,q_block).
+  Produces partial (out_partial, lse_partial) per split chunk.
+- Pass 2: merge partial results across splits.
 
-Same kernel structure as iter 3 but K is accessed via contiguous K_T.
+With SPLIT=4: grid becomes (N/BM * SPLIT, B*H) = (128, 1024) = 131072 CTAs.
+Each CTA processes only N/SPLIT = 128 K/V tokens → BN=32, 4 iterations.
+This dramatically reduces per-CTA register reuse of K/V (good: less re-read)
+but also reduces opportunities to amortize Q loads (bad: Q loaded per split).
+
+Actually this may help if the kernel is register-limited rather than BW-limited.
+With fewer iterations per CTA, less state needs to be kept in registers.
+
+Alternative approach: try larger BN=32 but with different num_warps (2 vs 4 vs 8).
+With 2 warps: fewer threads per CTA → potentially more CTAs per SM if register-limited.
+
+Let me try 2 warps with the iter 3 kernel structure to see if reducing CTA thread
+count helps occupancy.
 """
 
 import math
@@ -21,10 +32,10 @@ import triton.language as tl
 
 
 @triton.jit
-def _flash_fwd_v4(
-    Q, KT, V, Out,
+def _flash_fwd_v5(
+    Q, K, V, Out,
     stride_qb, stride_qh, stride_qm, stride_qk,
-    stride_ktb, stride_kth, stride_ktk, stride_ktn,   # KT: [B,H,D,N]
+    stride_kb, stride_kh, stride_kn, stride_kk,
     stride_vb, stride_vh, stride_vn, stride_vk,
     stride_ob, stride_oh, stride_om, stride_ok,
     H,
@@ -45,10 +56,10 @@ def _flash_fwd_v4(
     offs_d = tl.arange(0, D_TILE)
     offs_n_base = tl.arange(0, BN)
 
-    Q_bh   = Q   + pid_b * stride_qb  + pid_h * stride_qh
-    KT_bh  = KT  + pid_b * stride_ktb + pid_h * stride_kth
-    V_bh   = V   + pid_b * stride_vb  + pid_h * stride_vh
-    Out_bh = Out + pid_b * stride_ob  + pid_h * stride_oh
+    Q_bh   = Q   + pid_b * stride_qb + pid_h * stride_qh
+    K_bh   = K   + pid_b * stride_kb + pid_h * stride_kh
+    V_bh   = V   + pid_b * stride_vb + pid_h * stride_vh
+    Out_bh = Out + pid_b * stride_ob + pid_h * stride_oh
 
     # Pre-load Q tiles [BM, D_TILE] x 4 in fp16
     q0 = tl.load(Q_bh + offs_m[:, None] * stride_qm + (0*D_TILE + offs_d)[None, :] * stride_qk,
@@ -71,17 +82,16 @@ def _flash_fwd_v4(
         offs_n = start_n + offs_n_base
         mask_n = offs_n < N_CTX
 
-        # Load KT[d_chunk, n_block]: contiguous along N (stride=1)
-        kt0 = tl.load(KT_bh + (0*D_TILE + offs_d)[:, None] * stride_ktk + offs_n[None, :] * stride_ktn,
+        # Load K transposed: K_T[d, n] = K[n, d]
+        kt0 = tl.load(K_bh + (0*D_TILE + offs_d)[:, None] * stride_kk + offs_n[None, :] * stride_kn,
                       mask=mask_n[None, :], other=0.0)  # [D_TILE, BN]
-        kt1 = tl.load(KT_bh + (1*D_TILE + offs_d)[:, None] * stride_ktk + offs_n[None, :] * stride_ktn,
+        kt1 = tl.load(K_bh + (1*D_TILE + offs_d)[:, None] * stride_kk + offs_n[None, :] * stride_kn,
                       mask=mask_n[None, :], other=0.0)
-        kt2 = tl.load(KT_bh + (2*D_TILE + offs_d)[:, None] * stride_ktk + offs_n[None, :] * stride_ktn,
+        kt2 = tl.load(K_bh + (2*D_TILE + offs_d)[:, None] * stride_kk + offs_n[None, :] * stride_kn,
                       mask=mask_n[None, :], other=0.0)
-        kt3 = tl.load(KT_bh + (3*D_TILE + offs_d)[:, None] * stride_ktk + offs_n[None, :] * stride_ktn,
+        kt3 = tl.load(K_bh + (3*D_TILE + offs_d)[:, None] * stride_kk + offs_n[None, :] * stride_kn,
                       mask=mask_n[None, :], other=0.0)
 
-        # QK = q * kt: [BM, D_TILE] x [D_TILE, BN] -> [BM, BN]
         qk = (tl.dot(q0, kt0, allow_tf32=True) +
               tl.dot(q1, kt1, allow_tf32=True) +
               tl.dot(q2, kt2, allow_tf32=True) +
@@ -108,7 +118,6 @@ def _flash_fwd_v4(
         v3 = tl.load(V_bh + offs_n[:, None] * stride_vn + (3*D_TILE + offs_d)[None, :] * stride_vk,
                      mask=mask_n[:, None], other=0.0)
 
-        # Cast p to fp16 for tc pV: [BM, BN] x [BN, D_TILE] -> [BM, D_TILE]
         p_h = p.to(tl.float16)
         a0 = a0 + tl.dot(p_h, v0, allow_tf32=True).to(tl.float32)
         a1 = a1 + tl.dot(p_h, v1, allow_tf32=True).to(tl.float32)
@@ -139,9 +148,7 @@ class Model(nn.Module):
         Out = torch.empty_like(Q)
 
         Qh = Q.to(torch.float16)
-        # Pre-transpose K to [B, H, D, N] for contiguous N-reads in kernel
         Kh = K.to(torch.float16)
-        KTh = Kh.transpose(-2, -1).contiguous()  # [B, H, D, N]
         Vh = V.to(torch.float16)
 
         BM = 16
@@ -149,10 +156,10 @@ class Model(nn.Module):
         D_TILE = 256
 
         grid = (triton.cdiv(N, BM), B * H)
-        _flash_fwd_v4[grid](
-            Qh, KTh, Vh, Out,
+        _flash_fwd_v5[grid](
+            Qh, Kh, Vh, Out,
             Qh.stride(0), Qh.stride(1), Qh.stride(2), Qh.stride(3),
-            KTh.stride(0), KTh.stride(1), KTh.stride(2), KTh.stride(3),
+            Kh.stride(0), Kh.stride(1), Kh.stride(2), Kh.stride(3),
             Vh.stride(0), Vh.stride(1), Vh.stride(2), Vh.stride(3),
             Out.stride(0), Out.stride(1), Out.stride(2), Out.stride(3),
             H,
@@ -162,7 +169,7 @@ class Model(nn.Module):
             BM=BM,
             BN=BN,
             SCALE=sm_scale,
-            num_warps=4,
+            num_warps=2,    # Try 2 warps instead of 4
             num_stages=1,
         )
         return Out

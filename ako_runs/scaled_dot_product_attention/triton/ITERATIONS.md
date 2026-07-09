@@ -32,6 +32,7 @@ Status values: improved / no-change / regression / failed.
 | 2 | BM=32 8warps (OOM) | N/A | N/A | failed (OOM) |
 | 3 | K pre-transposed load (no tl.trans) | 1.7817x | 33.9 ms | improved |
 | 4 | Explicit K.T contiguous transpose in wrapper | 1.2893x | 47.7 ms | regression |
+| 5 | 2 warps (was 4) with iter3 kernel | 0.9014x | 69.0 ms | regression |
 
 ## Iterations
 
@@ -82,6 +83,18 @@ Status values: improved / no-change / regression / failed.
   - Speedup: 1.7235x
 - **Analysis:** Better than iter 1 (37.0ms) and iter 3 (37.5ms). The D-tiling reduces register pressure, allowing higher SM occupancy. With 4x D_TILE=256 sub-tiles: SMEM per K/V tile = 32*256*2 = 16 KB, total SMEM ≈ (16+16)*256*2=16 KB vs previous 96 KB. This leaves more L1/SMEM for thread context switching. Min latency of 31.8ms is 9% better than iter 1's 35.1ms min.
 - **Next:** Try varying D_TILE (512, 128) or tuning BN to see if further improvement is possible. Also try 2 warps to reduce occupancy trade-off.
+
+### Iter 5 (blind run) — 2 warps (was 4) with iter3 kernel
+
+- **Hypothesis:** Reducing num_warps from 4 to 2 might allow more CTAs per SM if register-limited, improving occupancy.
+- **Changes:** num_warps=4→2. Same kernel as iter 3 (K column-major load).
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 69.0 ms (mean), 67.2~71.3 ms (min~max)
+  - Speedup: 0.9014x
+- **Analysis:** Much worse than iter 3 (33.9ms → 69ms). 2 warps = 64 threads per CTA. With BM=16 and D_TILE=256 matrices, fewer threads means each thread handles more elements, increasing register pressure per thread. The tensor core operations also need minimum 4 warps for efficiency on Ada.
+- **Next:** Revert to iter 3 structure. Try 8 warps for comparison (if SMEM allows). Iter 3 (4 warps) seems optimal. Try a Flash-Decoding 2-pass approach to see if it can beat iter 3.
 
 ### Iter 4 (blind run) — Explicit K.T contiguous transpose in wrapper
 
