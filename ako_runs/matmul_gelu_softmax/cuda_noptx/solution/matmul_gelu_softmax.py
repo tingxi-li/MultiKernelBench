@@ -2,15 +2,18 @@ import torch
 import torch.nn as nn
 from torch.utils.cpp_extension import load_inline
 
+# Fused bias-add + GELU + row-softmax after the GEMM.
+# GEMM is done via at::mm (inherits PyTorch's cuBLAS handle/TF32 settings for
+# exact fp32 correctness match). The fused kernel does 1 read pass + 1 write pass,
+# keeping GELU intermediates in registers.
+
 _cuda_src = r"""
 #include <cuda_runtime.h>
-#include <cublas_v2.h>
 #include <float.h>
 #include <math.h>
 
 // Fused bias-add + GELU + row-softmax
-// One block per row; THREADS=256; ELEMS_PER_THREAD=32 (for N=8192)
-// Intermediate GELU values stay in registers -> only 1 global read pass + 1 write pass
+// N=8192, THREADS=256, EPT=32 (each thread processes 32 elements)
 template <int THREADS, int EPT>
 __global__ void fused_bias_gelu_softmax_kernel(
     const float* __restrict__ gemm_out,  // [M, N]
@@ -28,19 +31,19 @@ __global__ void fused_bias_gelu_softmax_kernel(
 
     float vals[EPT];
 
-    // ---- Pass 1: load + bias + GELU, track local max ----
+    // ---- Pass 1: load + bias + GELU (precise erff), track local max ----
     float lmax = -FLT_MAX;
     #pragma unroll
     for (int i = 0; i < EPT; i++) {
         int idx = threadIdx.x + i * THREADS;
         float v = in_row[idx] + bias[idx];
-        // GELU exact: 0.5 * v * (1 + erf(v / sqrt(2)))
+        // GELU exact: 0.5f * v * (1 + erf(v / sqrt(2)))
         float g = 0.5f * v * (1.0f + erff(v * 0.70710678118654752f));
         vals[i] = g;
         lmax = fmaxf(lmax, g);
     }
 
-    // Reduce max
+    // Block-wide max reduction
     smem[threadIdx.x] = lmax;
     __syncthreads();
     #pragma unroll
@@ -51,7 +54,7 @@ __global__ void fused_bias_gelu_softmax_kernel(
     }
     const float row_max = smem[0];
 
-    // ---- Pass 2: exp(val - max), sum (still in registers) ----
+    // ---- Pass 2: exp(val - max), accumulate sum (still in registers) ----
     float lsum = 0.0f;
     #pragma unroll
     for (int i = 0; i < EPT; i++) {
@@ -60,7 +63,7 @@ __global__ void fused_bias_gelu_softmax_kernel(
         lsum += e;
     }
 
-    // Reduce sum
+    // Block-wide sum reduction
     smem[threadIdx.x] = lsum;
     __syncthreads();
     #pragma unroll
@@ -78,45 +81,44 @@ __global__ void fused_bias_gelu_softmax_kernel(
         out_row[idx] = vals[i] * inv_sum;
     }
 }
+"""
 
-static cublasHandle_t g_handle = nullptr;
+_cpp_src = r"""
+#include <torch/extension.h>
 
 torch::Tensor matmul_gelu_softmax_fwd(
     torch::Tensor x,       // [M, K] float32 contiguous
     torch::Tensor weight,  // [N, K] float32 contiguous
     torch::Tensor bias     // [N]   float32 contiguous
+);
+"""
+
+_cpp_impl = r"""
+#include <torch/extension.h>
+
+// forward declared in header
+template <int THREADS, int EPT>
+__global__ void fused_bias_gelu_softmax_kernel(
+    const float* __restrict__ gemm_out,
+    const float* __restrict__ bias,
+    float* __restrict__ output,
+    int M, int N
+);
+
+torch::Tensor matmul_gelu_softmax_fwd(
+    torch::Tensor x,
+    torch::Tensor weight,
+    torch::Tensor bias
 ) {
-    const int M = (int)x.size(0);   // 1024
-    const int K = (int)x.size(1);   // 8192
-    const int N = (int)weight.size(0); // 8192
+    const int M = (int)x.size(0);
+    const int N = (int)weight.size(0);
 
-    auto gemm_out = torch::empty({M, N}, x.options());
-    auto out      = torch::empty({M, N}, x.options());
+    // Use at::mm -> inherits PyTorch cuBLAS handle + TF32 settings for correctness match
+    auto gemm_out = at::mm(x, weight.t());  // [M, N]
+    auto out = torch::empty({M, N}, x.options());
 
-    if (!g_handle) {
-        cublasCreate(&g_handle);
-        // Use TF32 tensor cores for fp32 GEMM (same mode as PyTorch default on Ada)
-        cublasSetMathMode(g_handle, CUBLAS_TF32_TENSOR_OP_MATH);
-    }
-
-    // GEMM: out = x[M,K] @ weight.T[K,N]  (row-major)
-    // cuBLAS is col-major: C = A * B
-    // Row-major trick: C^T = weight @ x^T
-    //   -> cublasSgemm(CUBLAS_OP_T, CUBLAS_OP_N, N, M, K, 1, weight, K, x, K, 0, gemm_out, N)
-    const float alpha = 1.0f, beta = 0.0f;
-    cublasSgemm(g_handle,
-        CUBLAS_OP_T, CUBLAS_OP_N,
-        N, M, K,
-        &alpha,
-        weight.data_ptr<float>(), K,
-        x.data_ptr<float>(), K,
-        &beta,
-        gemm_out.data_ptr<float>(), N);
-
-    // Fused bias + GELU + softmax
-    // N=8192, THREADS=256, EPT=32
     constexpr int THREADS = 256;
-    constexpr int EPT = 32;   // 8192 / 256
+    constexpr int EPT = 32;
     const int smem_bytes = THREADS * sizeof(float);
     fused_bias_gelu_softmax_kernel<THREADS, EPT><<<M, THREADS, smem_bytes>>>(
         gemm_out.data_ptr<float>(),
@@ -129,21 +131,12 @@ torch::Tensor matmul_gelu_softmax_fwd(
 }
 """
 
-_cpp_src = r"""
-torch::Tensor matmul_gelu_softmax_fwd(
-    torch::Tensor x,
-    torch::Tensor weight,
-    torch::Tensor bias
-);
-"""
-
 _ext = load_inline(
-    name="mgf_v1",
+    name="mgf_v2",
     cpp_sources=_cpp_src,
-    cuda_sources=_cuda_src,
+    cuda_sources=_cuda_src + "\n" + _cpp_impl,
     functions=["matmul_gelu_softmax_fwd"],
-    extra_cuda_cflags=["-O3", "--use_fast_math"],
-    extra_ldflags=["-lcublas"],
+    extra_cuda_cflags=["-O3"],
     verbose=False,
 )
 

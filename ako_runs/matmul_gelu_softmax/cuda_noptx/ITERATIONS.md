@@ -24,6 +24,7 @@ Status values: improved / no-change / regression / failed.
 | Iter | Title | Speedup(mean) | Runtime(mean) | Status |
 |------|-------|---------|--------------|--------|
 | 1 | cuBLAS GEMM + fused bias+GELU+softmax | -1 (INCORRECT) | N/A | failed |
+| 2 | at::mm + fused GELU+softmax (correct) | 0.96x | 6.62 ms | regression |
 
 ## Iterations
 
@@ -38,4 +39,16 @@ Status values: improved / no-change / regression / failed.
   - Speedup: N/A
 - **Analysis:** `--use_fast_math` makes `erff` slightly less accurate. After softmax normalization, small GELU errors get amplified past the 1e-4 tolerance. Need to remove `--use_fast_math` and use ATen mm to match PyTorch's TF32 GEMM exactly.
 - **Next:** Use `at::mm` from C++ (matches PyTorch handle/TF32 settings), remove `--use_fast_math`, keep explicit `__expf` for softmax.
+
+### Iter 2 — at::mm + fused GELU+softmax (correct)
+
+- **Hypothesis:** Use PyTorch's at::mm for GEMM (inherits TF32 settings for correctness), fused GELU+softmax kernel reduces HBM passes.
+- **Changes:** Use at::mm in C++ glue, removed --use_fast_math, kept fused bias+GELU+softmax kernel.
+- **Bench:**
+  - Compiled: True
+  - Correct: True (5/5)
+  - Runtime: 6.62 ms mean, 4.38 ~ 7.21 ms (min ~ max)
+  - Speedup: 0.96x
+- **Analysis:** High variance (std=0.833ms) due to clock ramp — min=4.38ms shows the kernel can be fast, but the at::mm re-synchronizes the cuBLAS handle, and the external at::mm tensor allocation creates an extra HBM round-trip. The mean is worse than baseline because the solution runtime is measured against a reference that warmed up clocks. The fused epilogue alone saves ~0.5ms at min, but GEMM overhead negates it.
+- **Next:** Try a single fully-fused CUDA kernel that does tiled GEMM + GELU + row-softmax in one pass without going through at::mm. This eliminates the intermediate GEMM output tensor entirely.
 
