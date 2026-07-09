@@ -25,6 +25,7 @@ Status values: improved / no-change / regression / failed.
 |------|-------|---------|--------------|--------|
 | 1 | D-tiled flash attention fp16 precision | 0.33x | 67.5 ms | regression |
 | 2 | Single-pass multi-acc (4 D-tiles, fp16 TC) | 1.97x | 30.1 ms | improved |
+| 3 | threads=256 (6 warps→8 warps) | 2.29x | 26.3 ms | improved |
 
 ## Iterations
 
@@ -51,5 +52,17 @@ Status values: improved / no-change / regression / failed.
   - Speedup: 1.97x (mean)
 - **Analysis:** 1.97x speedup! Single pass eliminates 8x D-tiling overhead. fp16 tensor cores give correct results within 1e-4. Layout bridge via shared memory works. V is reloaded 4× per KV block (sequential, 1 shared buffer).
 - **Next:** Try to push further — larger block_M, more threads, or pipelining. Also explore if we can use T.Pipelined for the KV loop now that V reuse is sequential within the loop body.
+
+### Iter 3 — threads=256 (8 warps)
+
+- **Hypothesis:** More warps per SM → better latency hiding for memory accesses and higher tensor core throughput. 128 threads = 4 warps; 256 threads = 8 warps.
+- **Changes:** threads=128 → threads=256.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 26.3 ms (mean), 25.0 ~ 27.9 ms (min ~ max)
+  - Speedup: 2.29x (mean)
+- **Analysis:** 16% improvement vs iter 2 (26.3ms vs 30.1ms). More warps better hide memory latency for K/V loads.
+- **Next:** Try larger block_N for better memory throughput, or explore if loop unrolling/staging helps further.
 
 

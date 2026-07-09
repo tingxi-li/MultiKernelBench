@@ -23,7 +23,7 @@ import tilelang.language as T
 
 def _build_kernel(batch, heads, seq_len, dim,
                   block_M=32, block_N=64, D_TILE=256,
-                  threads=128):
+                  threads=256):
     scale = (1.0 / dim) ** 0.5 * 1.44269504  # scale * log2(e) for T.exp2
     shape = [batch, heads, seq_len, dim]
     dtype = T.float16
@@ -170,7 +170,7 @@ def _get_kernel(batch, heads, seq_len, dim):
     if key not in _kernel_cache:
         fn = _build_kernel(batch, heads, seq_len, dim,
                            block_M=32, block_N=64, D_TILE=256,
-                           threads=128)
+                           threads=256)
         _kernel_cache[key] = tilelang.compile(
             fn,
             out_idx=[3],
