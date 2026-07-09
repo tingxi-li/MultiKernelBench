@@ -54,7 +54,7 @@ def matmul_kernel(
     for k in range(0, tl.cdiv(K, BLOCK_K)):
         a = tl.load(a_ptrs, mask=offs_k[None, :] < K - k * BLOCK_K, other=0.0)
         b = tl.load(b_ptrs, mask=offs_k[:, None] < K - k * BLOCK_K, other=0.0)
-        accumulator = tl.dot(a, b, accumulator)
+        accumulator += tl.dot(a, b)
         a_ptrs += BLOCK_K * stride_ak
         b_ptrs += BLOCK_K * stride_bk
 
@@ -79,7 +79,7 @@ class Model(nn.Module):
         assert A.is_contiguous(), "Matrix A must be contiguous"
         assert B.is_contiguous(), "Matrix B must be contiguous"
         M, K = A.shape
-        K, N = B.shape
+        K2, N = B.shape
         C = torch.empty((M, N), device=A.device, dtype=A.dtype)
         grid = lambda META: (triton.cdiv(M, META['BLOCK_M']) * triton.cdiv(N, META['BLOCK_N']),)
         matmul_kernel[grid](
