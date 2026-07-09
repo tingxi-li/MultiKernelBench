@@ -23,6 +23,7 @@ Status values: improved / no-change / regression / failed.
 
 | Iter | Title | Speedup(mean) | Runtime(mean) | Status |
 |------|-------|---------|--------------|--------|
+| final | mma.sync TF32 GEMM + fused bias+GELU+softmax epilogue | 2.1228x | 2.85 ms | final |
 
 ## Iterations
 
