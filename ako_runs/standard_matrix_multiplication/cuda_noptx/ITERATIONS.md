@@ -23,12 +23,24 @@ Status values: improved / no-change / regression / failed.
 
 | Iter | Title | Speedup(mean) | Runtime(mean) | Status |
 |------|-------|---------|--------------|--------|
-| 1 | Tiled SGEMM (BM=128,BN=128,BK=8,TM=8,TN=8) | 0.68x | 5.98 ms | regression |
-| 2 | WMMA TF32 tensor cores (no inline PTX) | INCORRECT | - | failed |
+| 1 | Tiled SGEMM BK=16, float4 loads | 0.81x | 5.70 ms | floor |
+| 2 | TBD | - | - | - |
 
 ## Iterations
 
-### Iter 1 — Tiled SGEMM shared-mem + register blocking (no PTX)
+### Iter 1 — Tiled SGEMM BK=16 float4 loads (no PTX)
+
+- **Hypothesis:** Larger BK=16 halves the number of __syncthreads per K=8192, and float4 vectorized loads improve DRAM bandwidth utilization. Fewer barriers + vectorized GMem transfers should reduce runtime vs BK=8 scalar loads.
+- **Changes:** BK changed from 8 to 16, float4 vectorized loads for both A and B tiles, bank-conflict-free padding (As[BM][BK+4], Bs[BK][BN+4]), same 256-thread block and TM=TN=8 register blocking.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 5.70 ms (mean), 5.64 ~ 5.73 ms (min ~ max)
+  - Speedup: 0.81x (mean)
+- **Analysis:** Improvement over baseline (0.79x → 0.81x). Float4 loads and BK=16 reduce syncthreads count from 1024→512 per K=8192. However, pure FP32 FMA without tensor cores remains substantially slower than cuBLAS TF32 (~4.6 ms). The gap is fundamental: cuBLAS achieves ~93% of peak tensor core throughput; our kernel uses CUDA cores at ~85% FP32 FLOP/s.
+- **Next:** Iter 2: Try WMMA half-precision accumulation (FP16 math, FP32 accumulate via wmma::precision::tf32) to get tensor core access within correctness tolerance.
+
+### Iter 1 (prior session) — Tiled SGEMM shared-mem + register blocking (no PTX)
 
 - **Hypothesis:** A well-tuned float32 tiled SGEMM with 128x128 thread-block tiles and 8x8 register accumulators should be competitive with cuBLAS SGEMM on RTX 6000 Ada. Without PTX/mma.sync, we must demonstrate whether any custom kernel can approach cuBLAS.
 - **Changes:** Replaced torch.matmul with load_inline CUDA kernel — BM=128, BN=128, BK=8, 16x16 thread block (256 threads), each thread accumulates TM=8 x TN=8 output elements, shared-mem tiles with +1 padding to avoid bank conflicts, -O3 --use_fast_math sm_89.
