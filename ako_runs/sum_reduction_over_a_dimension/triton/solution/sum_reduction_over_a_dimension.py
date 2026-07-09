@@ -4,26 +4,6 @@ import triton
 import triton.language as tl
 
 
-@triton.autotune(
-    configs=[
-        # Based on manual profiling: BLOCK_C=1024-4096 at 9.71ms are best
-        # Keep a range to ensure autotune handles shape variations
-        triton.Config({'BLOCK_C': 1024}, num_warps=4, num_stages=2),
-        triton.Config({'BLOCK_C': 2048}, num_warps=8, num_stages=2),
-        triton.Config({'BLOCK_C': 4096}, num_warps=8, num_stages=2),
-        triton.Config({'BLOCK_C': 4096}, num_warps=16, num_stages=4),
-        triton.Config({'BLOCK_C': 4096}, num_warps=8, num_stages=4),
-        triton.Config({'BLOCK_C': 2048}, num_warps=8, num_stages=4),
-        triton.Config({'BLOCK_C': 2048}, num_warps=4, num_stages=4),
-        triton.Config({'BLOCK_C': 1024}, num_warps=8, num_stages=4),
-        triton.Config({'BLOCK_C': 1024}, num_warps=4, num_stages=4),
-        triton.Config({'BLOCK_C': 512}, num_warps=4, num_stages=2),
-        triton.Config({'BLOCK_C': 512}, num_warps=4, num_stages=4),
-        triton.Config({'BLOCK_C': 256}, num_warps=4, num_stages=2),
-        triton.Config({'BLOCK_C': 256}, num_warps=4, num_stages=4),
-    ],
-    key=['B', 'R', 'C'],
-)
 @triton.jit
 def _sum_reduce_dim1(
     x_ptr, out_ptr,
@@ -33,8 +13,7 @@ def _sum_reduce_dim1(
 ):
     """
     Sum-reduce x[B, R, C] over R → out[B, C].
-    Each program handles BLOCK_C contiguous columns for one batch.
-    Streaming access: x[b, r, c:c+BLOCK_C] is contiguous (stride_c=1).
+    Each program handles BLOCK_C contiguous columns for one batch element.
     """
     pid_b = tl.program_id(0)
     pid_c = tl.program_id(1)
@@ -56,6 +35,7 @@ class Model(nn.Module):
     """
     Performs sum reduction over a specified dimension using a Triton kernel.
     Optimized for dim=1 reduction over 3D contiguous tensors.
+    Fixed to best config: BLOCK_C=4096, num_warps=16, num_stages=3.
     """
     def __init__(self, dim: int):
         super().__init__()
@@ -64,13 +44,19 @@ class Model(nn.Module):
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         if self.dim == 1 and x.dim() == 3 and x.is_contiguous():
             B, R, C = x.shape
+
+            # Optimal config from profiling: BLOCK_C=4096, nw=16, ns=3
+            BLOCK_C = 4096
             out = torch.empty(B, C, dtype=x.dtype, device=x.device)
 
-            grid = lambda meta: (B, triton.cdiv(C, meta['BLOCK_C']))
+            grid = (B, triton.cdiv(C, BLOCK_C))
             _sum_reduce_dim1[grid](
                 x, out,
                 B, R, C,
                 x.stride(0), x.stride(1),
+                BLOCK_C=BLOCK_C,
+                num_warps=16,
+                num_stages=3,
             )
 
             return out.view(B, 1, C)

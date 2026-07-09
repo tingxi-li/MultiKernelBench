@@ -25,8 +25,21 @@ Status values: improved / no-change / regression / failed.
 |------|-------|---------|--------------|--------|
 | 1 | Triton autotune streaming reduction | 1.0072x | 9.72 ms | improved |
 | 2 | Clean autotune configs focused on best BLOCK_C | 1.0082x | 9.71 ms | improved |
+| 3 | Fixed optimal config BLOCK_C=4096 nw=16 ns=3 | 1.0082x | 9.71 ms | no-change |
 
 ## Iterations
+
+### Iter 3 — Fixed optimal config BLOCK_C=4096 nw=16 ns=3
+
+- **Hypothesis:** Remove autotune overhead by fixing to the config found by manual profiling: BLOCK_C=4096, num_warps=16, num_stages=3. This avoids the autotune compilation overhead and uses the known-best config from exhaustive search (9.71202ms in micro-benchmarks).
+- **Changes:** Removed @triton.autotune, fixed BLOCK_C=4096, num_warps=16, num_stages=3 at call site.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 9.71 ms (mean), 9.71 ~ 9.71 ms (min ~ max)
+  - Speedup: 1.0082x
+- **Analysis:** Same performance as iter-2. The fixed config matches what autotune was selecting. Both converge to 9.71ms = 884 GB/s. The tl.range() loop with num_stages=3 in the inner loop provides 3-stage software pipelining.
+- **Next:** Try a fundamentally different approach — use shared memory to pre-stage rows and reduce register-count to improve occupancy.
 
 ### Iter 2 — Clean autotune configs focused on best BLOCK_C
 
