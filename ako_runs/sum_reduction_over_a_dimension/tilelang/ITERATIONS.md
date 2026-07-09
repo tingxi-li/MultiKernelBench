@@ -28,7 +28,7 @@ Status values: improved / no-change / regression / failed.
 | 3 | Unrolled 8x serial loop, BLOCK_W=256 | 0.99x | 9.85 ms | no-change |
 | 4 | T.Parallel+T.vectorized float4 approach | WRONG | - | failed |
 | 5 | 2D reshape (B*H, W), avoid int32 overflow | 1.001x | 9.78 ms | improved |
-| 6 | TBD | TBD | TBD | TBD |
+| 6 | out_idx=[1] annotation, same 2D reshape pattern | 1.001x | 9.78 ms | no-change |
 
 ## Iterations
 
@@ -90,7 +90,20 @@ Status values: improved / no-change / regression / failed.
   - Runtime: 9.78 ms (mean), 9.77 ~ 9.80 ms (min ~ max)
   - Speedup: 1.001x (mean)
 - **Analysis:** First iteration to beat the reference! The 2D reshape gives the TVM analyzer cleaner indices and the kernel runs slightly faster than PyTorch (9.78 vs 9.79ms). We're essentially at the bandwidth ceiling - both our kernel and PyTorch are reading the full 8.59GB.
-- **Next:** Try to squeeze out more speedup with different block sizes or more aggressive unrolling.
+- **Next:** Try out_idx=[1] annotation for better output tensor allocation, and verify iter 5 is the best achievable.
+
+### Iter 6 — out_idx=[1] annotation with 2D reshape
+
+- **Hypothesis:** Using out_idx=[1] lets TileLang allocate the output tensor internally, potentially allowing better memory management and reducing Python overhead.
+- **Changes:** Added out_idx=[1] to the @tilelang.jit decorator; kernel call returns y2d instead of passing it as parameter.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 9.78 ms (mean), 9.76 ~ 9.79 ms (min ~ max)
+  - Speedup: 1.001x (mean)
+- **Analysis:** Same performance as iter 5. The out_idx annotation did not provide additional speedup. Both approaches are essentially at the bandwidth limit. We are at 1.001x which is the modest win expected for this near-roofline op.
+- **Next:** Iter cap reached (6). Best is iter 5 = iter 6 both at 1.001x. Restore iter 5's solution as final since it has slightly wider min range (9.77ms min vs 9.76ms min).
+
 
 
 

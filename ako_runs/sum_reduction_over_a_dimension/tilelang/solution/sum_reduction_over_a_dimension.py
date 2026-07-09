@@ -7,12 +7,9 @@ import tilelang.language as T
 # Sum reduction over dim=1: X(B, H, W) -> Y(B, 1, W)
 # B=128, H=4096, W=4096  -> 8.59 GB read, bandwidth-bound.
 #
-# Iter 5: avoid int32 overflow (B*H*W = 2^31).
-# Reshape to X2D(B*H, W) and Y2D(B, W) to work with 2D indices.
-# B*H = 128*4096 = 524288 which is comfortably within int32.
-# Each block processes BLK_W output elements (one b-row of Y).
-# Grid = (B, W//BLK_W). Each thread handles one w column.
-# Use H-stride grid access within the 2D view.
+# Iter 6: 2D reshape with out_idx=[1] so TileLang allocates output
+# and returns it - avoids Python torch.empty call and lets the JIT
+# potentially fuse allocation with kernel launch.
 # ============================================================================
 
 _TH = 256        # threads per block
@@ -21,16 +18,16 @@ _KCACHE = {}
 
 
 def _build(B, H, W, TH):
-    BH = B * H     # 128 * 4096 = 524288 (fits in int32)
+    BH = B * H     # 128 * 4096 = 524288
     BLK_W = TH
-    NW = (W + BLK_W - 1) // BLK_W   # = 16 for W=4096, TH=256
+    NW = (W + BLK_W - 1) // BLK_W   # = 16 for W=4096
 
-    @tilelang.jit
+    @tilelang.jit(out_idx=[1])
     def _make():
         @T.prim_func
         def kernel(
-            X2D: T.Tensor((BH, W), T.float32),   # reshaped view (B*H, W)
-            Y2D: T.Tensor((B, W), T.float32),      # output (B, W)
+            X2D: T.Tensor((BH, W), T.float32),
+            Y2D: T.Tensor((B, W), T.float32),
         ):
             with T.Kernel(B, NW, threads=TH) as (bx, by):
                 tid = T.get_thread_binding(0)
@@ -78,9 +75,9 @@ class Model(nn.Module):
             B, H, W = x.shape
             xc = x.contiguous()
             x2d = xc.view(B * H, W)
-            y2d = torch.empty(B, W, device=x.device, dtype=x.dtype)
             kern = _get_kernel(B, H, W)
-            kern(x2d, y2d)
+            # out_idx=[1]: kernel takes only x2d, returns y2d
+            y2d = kern(x2d)
             return y2d.unsqueeze(1)
         # Fallback
         return torch.sum(x, dim=self.dim, keepdim=True)
