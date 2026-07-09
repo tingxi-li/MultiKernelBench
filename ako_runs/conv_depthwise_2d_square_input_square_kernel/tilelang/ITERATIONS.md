@@ -31,6 +31,7 @@ Status values: improved / no-change / regression / failed.
 | 6 | shmem values staged to 9 local regs before FMA | 1.54x | 2.66 ms | improved |
 | NEW-1 | 3 output rows per block (5 shmem rows, reduce DRAM 44%) | 1.48x | 2.71 ms | regression |
 | NEW-2 | 2 output pixels per thread, TH=255 | 1.45x | 2.69 ms | regression |
+| NEW-3 | 2 output rows per block (4 shmem rows, reduce DRAM 33%) | 1.47x | 2.69 ms | regression |
 
 ## Iterations
 
@@ -116,6 +117,18 @@ Status values: improved / no-change / regression / failed.
   - Speedup: 1.48x (mean)
 - **Analysis:** 2.71ms is slightly worse than 2.65ms baseline (iter-6). Despite 44% fewer global reads, having 5 shmem arrays takes more registers and bank pressure. The RTX 6000 Ada has very fast L1/L2, making the shmem savings less valuable. The extra shmem overhead (5 arrays vs 3) adds latency.
 - **Next:** Try reducing shmem usage — only 2 shmem rows (shift-register style), or try vectorized float4 loads.
+
+### NEW-Iter 3 — 2 output rows per block (4 shmem rows)
+
+- **Hypothesis:** Loading 4 shmem rows to cover 2 output rows reduces DRAM reads by 33% vs 1-row approach (4 rows / 2 outputs vs 3 rows / 1 output). H_out=510 divisible by 2. Halved grid reduces launch overhead.
+- **Changes:** Grid (B*C, H_out//2). 4 shmem rows. 2 accumulators computing output rows h and h+1.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 2.69 ms (mean), 2.62 ~ 3.86 ms (min ~ max)
+  - Speedup: 1.47x (mean) [ref at 3.95ms]
+- **Analysis:** 2.69ms vs 2.65ms baseline. The extra shmem bank pressure from 4 rows vs 3 still hurts slightly. The design is consistently worse than the 1-row approach for this specific kernel.
+- **Next:** Re-explore row-per-block but with cache_hint / prefetch if available, or try an entirely different parallelization — channel-level parallelism with wider tiles.
 
 ### NEW-Iter 2 — 2 output pixels per thread, TH=255
 
