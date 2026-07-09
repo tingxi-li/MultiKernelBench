@@ -27,6 +27,7 @@ Status values: improved / no-change / regression / failed.
 | 2 | Single-pass multi-acc (4 D-tiles, fp16 TC) | 1.97x | 30.1 ms | improved |
 | 3 | threads=256 (6 warps→8 warps) | 2.29x | 26.3 ms | improved |
 | 4 | block_M=64, 8 acc_o (D_TILE=128) | 2.34x | 25.1 ms | improved |
+| 5 | block_N=128 (4 KV iters, 2x blocks) | 2.58x | 22.7 ms | improved |
 
 ## Iterations
 
@@ -77,5 +78,17 @@ Status values: improved / no-change / regression / failed.
   - Speedup: 2.34x (mean)
 - **Analysis:** 25.1ms (2.34x) vs 26.3ms (2.29x). Moderate improvement. Fewer CTAs and lower smem pressure help. 8 V reloads per KV block (vs 4) but each reload is half the size.
 - **Next:** Explore whether the register pressure from 8 acc_o limits occupancy. Try threads=128 or different block_N.
+
+### Iter 5 — block_N=128 (4 KV iterations, 2x KV block size)
+
+- **Hypothesis:** Larger block_N=128 reduces KV iterations from 8 to 4, halving the sync overhead (17×8=136 → 17×4=68 syncs per CTA). Each K/V tile is twice as large but that's OK since the block fits in 96KB shared memory.
+- **Changes:** block_N=64→128. S_shared enlarged to block_M×block_N = 64×128×2B=16KB. smem: 16+32+16+32=96KB (fits Ada Lovelace limit).
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 22.7 ms (mean), 22.0 ~ 24.5 ms (min ~ max)
+  - Speedup: 2.58x (mean)
+- **Analysis:** 2.58x speedup (22.7ms vs 58.5ms reference). Reducing KV iterations from 8 to 4 gives 10% improvement (25.1ms → 22.7ms). Fewer sync barriers and better memory bandwidth utilization per sync event.
+- **Next:** One iteration remaining. Try block_N=256 (2 KV iters) if shared memory allows, or explore other block config improvements.
 
 
