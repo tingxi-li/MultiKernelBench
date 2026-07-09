@@ -27,6 +27,7 @@ Status values: improved / no-change / regression / failed.
 | 2 | 2x float4 per thread + 2 accumulators | 1.008x | 9.71 ms | improved |
 | 3 | 2 float4/thread + 8-unroll + BLOCK_X=128 | 1.008x | 9.71 ms | no-change |
 | 4 | ptr-walk single float4/thread BLOCK_X=256 | 1.008x | 9.71 ms | no-change |
+| 5 | 4-segment independent accumulators | 1.006x | 9.73 ms | regression |
 
 ## Iterations
 
@@ -76,7 +77,20 @@ Status values: improved / no-change / regression / failed.
   - Runtime: 9.71 ms (mean), 9.71 ~ 9.72 ms (min ~ max)
   - Speedup: 1.008x
 - **Analysis:** Consistent 9.71ms = 1.008x vs 9.79ms ref. We are firmly at the memory bandwidth ceiling (theoretical: 9.54ms at 900GB/s). All kernel variants that correctly implement float4 reads converge to 9.71ms. The 0.08ms gap to theory is due to GPU core latency, L2 cache miss overhead, and memory controller overhead.
-- **Next:** Try processing the problem as B parallel matrix-vector ops using cublasSgemv, or try a grid-stride pattern for better SM utilization.
+- **Next:** Try 4 independent D-segment accumulators to reduce dependency chain length.
+
+### Iter 5 — 4-segment independent accumulators per thread
+
+- **Hypothesis:** Split D=4096 into 4 segments of 1024, with 4 independent pointer/accumulator chains. Reduces dependency chain from 4096 to 1024 additions, allowing better out-of-order execution.
+- **Changes:** 4 segment pointers (p0..p3), 4 float4 accumulators (a0..a3), combined at end. Loop of 1024 iterations.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 9.73 ms (mean), 9.72 ~ 9.79 ms (min ~ max)
+  - Speedup: 1.006x
+- **Analysis:** Slightly worse than iter-4 (9.73ms vs 9.71ms). The 4 extra pointers + accumulators add register pressure, potentially reducing occupancy slightly. No improvement over simpler single-accumulator approach. Operation is firmly at memory bandwidth wall.
+- **Next:** Try iter-4 kernel as basis for iter-6 with possible additional tweaks.
+
 
 
 
