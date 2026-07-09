@@ -52,3 +52,8 @@ Status values: improved / no-change / regression / failed.
 - **Analysis:** Correctness is now PASS. Speedup is 0.98x — essentially at parity with the cuBLAS reference (4.54 ms). This is the expected FLOOR result: torch.matmul already dispatches to cuBLAS SGEMM which is near-optimal, and a pure Triton kernel without tensor cores (which can't be used for fp32 precision matching) cannot beat it. The iteration cap of 2 is reached.
 - **Next:** Iteration cap reached. Best result is iter-2 (0.98x, CORRECT). This is a confirmed FLOOR op. Restore iter-2 as final.
 
+## Final
+
+Best iter: 2 (0.98x mean speedup, 4.63 ms vs 4.54 ms ref on measurement run; final bench showed 0.93x on a noisier run).
+FLOOR confirmed: torch.matmul dispatches to cuBLAS SGEMM (near-optimal). Triton fp32 matmul without TF32 cannot beat it due to the lack of tensor core acceleration for IEEE fp32.
+
