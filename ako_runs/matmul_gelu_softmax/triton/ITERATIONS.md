@@ -29,6 +29,7 @@ Status values: improved / no-change / regression / failed.
 | 4 | Pre-cast weight+input to fp16, native fp16 loads | 5.02x | 1.27 ms | improved |
 | 5 | Expanded autotune configs (deep pipeline, large BLOCK_K) | 5.02x | 1.25 ms | no-change |
 | 6 | GEMM output as fp16 → halve softmax load BW | 5.14x | 1.22 ms | improved |
+| final | Confirmed iter-6 as best — final bench 5.07x | 5.07x | 1.23 ms | best |
 
 ## Iterations
 
