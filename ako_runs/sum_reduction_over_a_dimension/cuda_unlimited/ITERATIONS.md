@@ -104,6 +104,14 @@ Status values: improved / no-change / regression / failed.
 - **Analysis:** Marginally better than iter 1 (9.67ms → 9.66ms). The 2x float4 approach captures a full 32-byte cache line per load instruction, which is optimal for this hardware. Small but consistent improvement. The operation is firmly bandwidth-bound; this is near the hardware floor.
 - **Next:** Cap reached. Best iter = 6 (9.66ms, 1.0135x). Restore as final.
 
+## Final Verdict
+
+**Best iter:** 6 (1.0135x, 9.66ms)
+**Final bench:** 1.0135x (confirmed, final run 9.66ms mean, std 0.00132)
+**Status:** win (beat PyTorch eager by ~1.35%)
+**Note:** Operation is fully bandwidth-bound at ~88.7% of theoretical peak. PyTorch's torch.sum is also highly optimized. The 1.35% margin comes from 2x float4 loads (full 32-byte cache line utilization) with ld.cs streaming cache hints that minimize L2 pollution better than PyTorch's fallback path.
+
+
 
 
 
