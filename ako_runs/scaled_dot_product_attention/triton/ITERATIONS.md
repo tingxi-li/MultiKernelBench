@@ -31,6 +31,7 @@ Status values: improved / no-change / regression / failed.
 | 6 | QK ieee + PV tf32 | FAIL (max_diff 4.1e-4) | - | incorrect (PV is the error source) |
 | 7 | QK tf32 + PV ieee | 1.2653x | 63.7 ms | best (kept) |
 | 8 | QK tf32 + PV tf32x3 | 1.1941x | 67.5 ms | correct but slower (revert) |
+| final | QK tf32 + PV ieee (iter 7 best) | 1.0268x | 59.7 ms | final |
 
 ## Iterations
 
