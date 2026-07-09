@@ -30,6 +30,7 @@ Status values: improved / no-change / regression / failed.
 | 5 | Row-per-CTA: 1D tile along W only | 1.30x | 3.14 ms | regression |
 | 6 | 2D tile with NC on grid axis 0 (clean refactor) | 1.37x | 2.67 ms | improved |
 | B1 | All shape params constexpr + tl.math.fma | 1.50x | 2.74 ms | improved |
+| B2 | Expanded configs: larger tiles, num_warps=16, stages=3 | 1.22x | 3.40 ms | regression |
 
 ## Iterations
 
@@ -116,6 +117,18 @@ Status values: improved / no-change / regression / failed.
   - Speedup: 1.50x
 - **Analysis:** Significant improvement over prior best (1.50x vs 1.37x). The constexpr specialization on all shape dims lets Triton's compiler eliminate branch checks and produce more optimal address arithmetic. Lower std (0.165 vs 0.188) also shows more consistent performance.
 - **Next:** Try improving further by using wider float4/int4 loads via pointer casting, or by preloading the 9 kernel weights into registers explicitly before the spatial loops.
+
+### Iter B2 — Expanded config space: larger tiles, num_warps=16, stages=3
+
+- **Hypothesis:** Larger tiles (BLOCK_OH=64, BLOCK_OW=1024) reduce grid launch overhead; stages=3 hides memory latency.
+- **Changes:** Added 9 more configs with larger tiles (up to 1024), num_warps=16, stages=3.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 3.40 ms (mean), 2.71 ~ 4.49 ms (min ~ max)
+  - Speedup: 1.22x
+- **Analysis:** Regression. The expanded config space led the autotuner to pick a worse config. Large tiles may OOM register file or reduce occupancy. The 2.71ms min suggests the RIGHT config is still in the set but it's not consistently picked.
+- **Next:** Restore iter-1's tight 12-config set and try a different angle: use FP16 computation path (cast to fp16 for loads/multiply, accumulate in fp32). This doubles bandwidth throughput.
 
 
 
