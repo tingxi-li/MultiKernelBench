@@ -26,6 +26,7 @@ Status values: improved / no-change / regression / failed.
 | 1 | Custom Triton depthwise kernel (autotune) | 1.12x | 3.25 ms | improved |
 | 2 | Refined autotune configs, constexpr N/C | 1.35x | 2.68 ms | improved |
 | 3 | More configs, num_stages=3/4, tl.fma | 1.30x | 2.79 ms | regression |
+| 4 | Channel batching (BLOCK_NC), focused config space | 1.35x | 2.68 ms | no-change |
 
 ## Iterations
 
@@ -64,6 +65,19 @@ Status values: improved / no-change / regression / failed.
   - Speedup: 1.30x
 - **Analysis:** Regression from iter-2 (1.35x → 1.30x). Higher num_stages may consume more SRAM and reduce occupancy. More configs slow autotuning and the best config may differ. tl.fma likely has no effect (triton does fused ops anyway). The extra variance (std 0.288) suggests the autotuner picked a worse tile.
 - **Next:** Revert to iter-2 config space but try adding nc-level parallelism or try channel batching to reduce launch overhead.
+
+### Iter 4 — Channel batching (BLOCK_NC) with focused config space
+
+- **Hypothesis:** Processing multiple (n,c) slices per CTA (BLOCK_NC=2,4) could improve weight cache reuse and reduce launch overhead. Focused configs around the iter-2 winners.
+- **Changes:** Added BLOCK_NC dimension, focused config set, removed num_stages>2, fixed break issue (triton doesn't support break).
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 2.68 ms (mean), 2.60 ~ 3.82 ms (min ~ max)
+  - Speedup: 1.35x
+- **Analysis:** Matches iter-2 exactly. Channel batching doesn't help — the sequential loop over BLOCK_NC within a CTA reduces parallelism. The kernel is throughput-limited by memory bandwidth, not by launch overhead.
+- **Next:** Try a completely different algorithmic approach: use shared memory to cache the input tile and reuse it across kernel positions. This could significantly reduce L2 traffic.
+
 
 
 
