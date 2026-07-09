@@ -25,8 +25,21 @@ Status values: improved / no-change / regression / failed.
 |------|-------|---------|--------------|--------|
 | 1 | Fused matmul+GELU + separate softmax | 3.55x | 1.76 ms | improved |
 | 2 | fp16 tensor cores in matmul | 4.41x | 1.43 ms | improved |
+| 3 | Autotuned multi-chunk softmax | 4.93x | 1.26 ms | improved |
 
 ## Iterations
+
+### Iter 3 — Autotuned multi-chunk softmax
+
+- **Hypothesis:** The iter-2 softmax kernel uses BLOCK_SIZE=8192 with a single load and 16 warps per CTA. For N=8192, each row is 32KB fp32 = exactly one L2 cache segment. An autotuned kernel that can try ROWS_PER_CTA>1 or different BLOCK_SIZE may improve occupancy and L2 reuse.
+- **Changes:** Replaced fixed-config softmax with autotuned `_softmax_kernel_v2` that tries configs with BLOCK_SIZE in {2048,4096,8192} and ROWS_PER_CTA in {1,2}. Chunked reads within each row for flexibility.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 1.26 ms (mean), 0.958 ~ 1.47 ms (min ~ max)
+  - Speedup: 4.93x (mean)
+- **Analysis:** Improved to 4.93x (1.26ms mean). High std (0.191) suggests clock ramp or occasional L2 misses. Min of 0.958ms is very fast. The autotune likely picked BLOCK_SIZE=8192, ROWS_PER_CTA=2, 16 warps.
+- **Next:** Try to reduce std by warming up autotuned configs, or try fusing into a single kernel pass.
 
 ### Iter 2 — fp16 tensor cores in GEMM
 

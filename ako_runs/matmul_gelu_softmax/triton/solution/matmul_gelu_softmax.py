@@ -52,7 +52,6 @@ def _matmul_gelu_fp16_kernel(
     for k in range(0, tl.cdiv(K, BLOCK_K)):
         a = tl.load(a_ptrs, mask=offs_k[None, :] < K - k * BLOCK_K, other=0.0)
         b = tl.load(b_ptrs, mask=offs_k[:, None] < K - k * BLOCK_K, other=0.0)
-        # Cast to fp16 for tensor-core dot product, accumulate in fp32
         acc = tl.dot(a.to(tl.float16), b.to(tl.float16), acc)
         a_ptrs += BLOCK_K * stride_ak
         b_ptrs += BLOCK_K * stride_bk
@@ -73,32 +72,61 @@ def _matmul_gelu_fp16_kernel(
     tl.store(c_ptrs, acc_gelu, mask=c_mask)
 
 
+# Multi-row softmax: process ROWS_PER_CTA rows per CTA, processing N columns in BLOCK_SIZE chunks
+@triton.autotune(
+    configs=[
+        triton.Config({'BLOCK_SIZE': 8192, 'ROWS_PER_CTA': 1}, num_warps=16),
+        triton.Config({'BLOCK_SIZE': 8192, 'ROWS_PER_CTA': 2}, num_warps=16),
+        triton.Config({'BLOCK_SIZE': 4096, 'ROWS_PER_CTA': 1}, num_warps=8),
+        triton.Config({'BLOCK_SIZE': 2048, 'ROWS_PER_CTA': 1}, num_warps=4),
+    ],
+    key=['M', 'N'],
+)
 @triton.jit
-def _softmax_kernel(
+def _softmax_kernel_v2(
     output_ptr, input_ptr,
     input_row_stride, output_row_stride,
-    n_cols,
+    M, N,
     BLOCK_SIZE: tl.constexpr,
+    ROWS_PER_CTA: tl.constexpr,
 ):
-    """One program per row. Loads the full row, computes softmax in registers."""
-    row_idx = tl.program_id(0)
-    row_start_ptr = input_ptr + row_idx * input_row_stride
+    """Each CTA handles ROWS_PER_CTA rows of softmax, BLOCK_SIZE cols at a time."""
+    pid = tl.program_id(0)
+    base_row = pid * ROWS_PER_CTA
     col_offsets = tl.arange(0, BLOCK_SIZE)
-    mask = col_offsets < n_cols
 
-    row = tl.load(row_start_ptr + col_offsets, mask=mask, other=-float('inf'))
-    row_max = tl.max(row, axis=0)
-    row_shifted = row - row_max
-    exp_row = tl.exp(row_shifted)
-    sum_exp = tl.sum(exp_row, axis=0)
-    softmax_out = exp_row / sum_exp
+    for r in range(ROWS_PER_CTA):
+        row_idx = base_row + r
+        if row_idx < M:
+            row_start = input_ptr + row_idx * input_row_stride
+            # Compute max in chunks
+            row_max = -float('inf')
+            for chunk_start in range(0, N, BLOCK_SIZE):
+                chunk_offs = chunk_start + col_offsets
+                mask = chunk_offs < N
+                val = tl.load(row_start + chunk_offs, mask=mask, other=-float('inf'))
+                chunk_max = tl.max(val, axis=0)
+                row_max = tl.maximum(row_max, chunk_max)
 
-    out_row_start = output_ptr + row_idx * output_row_stride
-    tl.store(out_row_start + col_offsets, softmax_out, mask=mask)
+            # Compute sum of exp
+            sum_exp = 0.0
+            for chunk_start in range(0, N, BLOCK_SIZE):
+                chunk_offs = chunk_start + col_offsets
+                mask = chunk_offs < N
+                val = tl.load(row_start + chunk_offs, mask=mask, other=-float('inf'))
+                sum_exp += tl.sum(tl.exp(val - row_max), axis=0)
+
+            # Write normalized output
+            out_row_start = output_ptr + row_idx * output_row_stride
+            for chunk_start in range(0, N, BLOCK_SIZE):
+                chunk_offs = chunk_start + col_offsets
+                mask = chunk_offs < N
+                val = tl.load(row_start + chunk_offs, mask=mask, other=-float('inf'))
+                out_val = tl.exp(val - row_max) / sum_exp
+                tl.store(out_row_start + chunk_offs, out_val, mask=mask)
 
 
 def matmul_gelu_fp16(x, weight, bias):
-    """x: [M, K], weight: [N, K] (linear.weight layout), bias: [N]"""
     M, K = x.shape
     N = weight.shape[0]
     out = torch.empty((M, N), device=x.device, dtype=torch.float32)
@@ -116,16 +144,13 @@ def matmul_gelu_fp16(x, weight, bias):
 
 
 def softmax_rows(x):
-    """x: [M, N], apply softmax over dim=1."""
     M, N = x.shape
-    BLOCK_SIZE = triton.next_power_of_2(N)
     out = torch.empty_like(x)
-    _softmax_kernel[(M,)](
+    grid = lambda META: (triton.cdiv(M, META['ROWS_PER_CTA']),)
+    _softmax_kernel_v2[grid](
         out, x,
         x.stride(0), out.stride(0),
-        N,
-        BLOCK_SIZE=BLOCK_SIZE,
-        num_warps=max(1, BLOCK_SIZE // 512),
+        M, N,
     )
     return out
 
@@ -139,8 +164,6 @@ class Model(nn.Module):
         self.linear = nn.Linear(in_features, out_features)
 
     def forward(self, x):
-        # Fused: matmul (fp16 tensor cores) + bias + GELU
         gelu_out = matmul_gelu_fp16(x, self.linear.weight, self.linear.bias)
-        # Softmax over dim=1
         out = softmax_rows(gelu_out)
         return out
