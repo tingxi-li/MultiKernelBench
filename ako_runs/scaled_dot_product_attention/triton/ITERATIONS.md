@@ -24,6 +24,7 @@ Status values: improved / no-change / regression / failed.
 | Iter | Title | Speedup(mean) | Runtime(mean) | Status |
 |------|-------|---------|--------------|--------|
 | 1 | Flash-Attn2 fp16 BM=16 BN=32 | 1.6541x | 37.0 ms | improved |
+| 2 | Autotune BM/BN/warps/stages | 1.6240x | 38.3 ms | no-change (regression) |
 
 ## Iterations
 
@@ -38,4 +39,16 @@ Status values: improved / no-change / regression / failed.
   - Speedup: 1.6541x
 - **Analysis:** The flash-fusion eliminates materialization of the [32,32,512,512] attention weight tensor (~1GB), cutting HBM bandwidth. fp16 inputs allow larger block sizes than fp32-only would permit. Correct within fp32 tolerance (1e-4) thanks to fp32 softmax arithmetic and fp32 output.
 - **Next:** Try larger blocks (BN=64 or BM=32 via smem tricks), more warps, or better pipelining to improve IPC. Try autotune to find optimal BM/BN.
+
+### Iter 2 — Autotune BM/BN/warps/stages
+
+- **Hypothesis:** Autotuning over (BM in {8,16}, BN in {16,32}, num_warps in {2,4,8}, num_stages in {1,2}) would find a better config than the hand-picked iter-1 params.
+- **Changes:** Added @triton.autotune with 16 configs over BM/BN/nwarps/nstages.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 38.3 ms (mean), 37.8~40.7 ms (min~max)
+  - Speedup: 1.6240x
+- **Analysis:** Slightly worse than iter 1 (37.0ms). The autotune overhead during warm-up phases and slightly less stable timing accounts for the difference. The best autotune config apparently chose BM=16, BN=32 (same as iter 1) but with different warps/stages that are slightly worse on this hardware. Autotune benchmark results are noisy and may have picked a suboptimal config.
+- **Next:** Go back to fixed BM=16, BN=32, but try to optimize the inner loop: use tl.dot with allow_tf32=True for faster tensor cores, add num_stages=2 for better pipelining, or try fp16 accumulation inside the softmax-rescale path.
 
