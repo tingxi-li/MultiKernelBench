@@ -2,10 +2,12 @@ import torch
 import torch.nn as nn
 from torch.utils.cpp_extension import load_inline
 
-# Iter 4: warp-shuffle reductions replace __syncthreads() tree,
-# __ldg() hints for bias/input cached reads, float4 vectorized I/O.
-# THREADS=256 (8 warps), EPT=32. Two sync-free intra-warp reduce passes,
-# then one small shared-mem inter-warp reduce (8 values -> 8x smaller tree).
+# Iter 5: In-place GELU+softmax on the linear output tensor.
+# Avoids allocating a 32MB output buffer alongside the 32MB linear output.
+# Peak memory: 32MB (vs 64MB in iters 3/4), better L2 cache reuse.
+# The kernel reads all values into registers, applies GELU, computes softmax,
+# then writes the normalized result back to the same buffer.
+# Warp-shuffle reductions; float4 vectorized I/O.
 
 _cuda_src = r"""
 #include <cuda_runtime.h>
@@ -26,33 +28,31 @@ __device__ __forceinline__ float warp_reduce_sum(float v) {
     return v;
 }
 
-// Fused GELU + row-softmax with warp-shuffle reductions.
-// N=8192, THREADS=256 (8 warps), EPT=32, float4 vectorized I/O.
+// In-place fused GELU + row-softmax.
+// Reads the input, holds all values in registers, writes result back in-place.
+// N=8192, THREADS=256 (8 warps), EPT=32, float4 vectorized.
 template <int THREADS, int EPT, int WARPS>
-__global__ void fused_gelu_softmax_warp_kernel(
-    const float* __restrict__ input,   // [M, N]
-    float* __restrict__ output,         // [M, N]
+__global__ void gelu_softmax_inplace_kernel(
+    float* __restrict__ data,   // [M, N] in-place
     int M, int N
 ) {
     const int row = blockIdx.x;
     if (row >= M) return;
 
-    const int warp_id  = threadIdx.x >> 5;   // threadIdx.x / 32
-    const int lane_id  = threadIdx.x & 31;
+    const int warp_id = threadIdx.x >> 5;
+    const int lane_id = threadIdx.x & 31;
 
-    // Shared mem: WARPS floats for inter-warp reduction (max, then sum)
     __shared__ float warp_scratch[WARPS];
 
-    const float4* in4  = reinterpret_cast<const float4*>(input  + (ptrdiff_t)row * N);
-    float4* out4 = reinterpret_cast<float4*>(output + (ptrdiff_t)row * N);
+    float4* row4 = reinterpret_cast<float4*>(data + (ptrdiff_t)row * N);
 
     float vals[EPT];
 
-    // ---- Load + GELU, compute local max ----
+    // ---- Load + GELU, find local max ----
     float lmax = -FLT_MAX;
     #pragma unroll
     for (int i = 0; i < EPT / 4; i++) {
-        float4 v4 = in4[threadIdx.x + i * THREADS];
+        float4 v4 = row4[threadIdx.x + i * THREADS];
         float g0 = 0.5f * v4.x * (1.0f + erff(v4.x * 0.70710678118654752f));
         float g1 = 0.5f * v4.y * (1.0f + erff(v4.y * 0.70710678118654752f));
         float g2 = 0.5f * v4.z * (1.0f + erff(v4.z * 0.70710678118654752f));
@@ -63,11 +63,10 @@ __global__ void fused_gelu_softmax_warp_kernel(
         vals[i*4+3] = g3; lmax = fmaxf(lmax, g3);
     }
 
-    // ---- Warp-level max (no syncthreads within warp) ----
+    // Warp-level max
     lmax = warp_reduce_max(lmax);
     if (lane_id == 0) warp_scratch[warp_id] = lmax;
     __syncthreads();
-    // Inter-warp max: only warp 0 reads all warp results
     if (warp_id == 0) {
         float v = (lane_id < WARPS) ? warp_scratch[lane_id] : -FLT_MAX;
         v = warp_reduce_max(v);
@@ -85,7 +84,7 @@ __global__ void fused_gelu_softmax_warp_kernel(
         lsum += e;
     }
 
-    // ---- Warp-level sum ----
+    // Warp-level sum
     lsum = warp_reduce_sum(lsum);
     if (lane_id == 0) warp_scratch[warp_id] = lsum;
     __syncthreads();
@@ -97,7 +96,7 @@ __global__ void fused_gelu_softmax_warp_kernel(
     __syncthreads();
     const float inv_sum = 1.0f / warp_scratch[0];
 
-    // ---- Write normalized output (float4) ----
+    // ---- Write normalized result back in-place (float4) ----
     #pragma unroll
     for (int i = 0; i < EPT / 4; i++) {
         float4 o;
@@ -105,37 +104,32 @@ __global__ void fused_gelu_softmax_warp_kernel(
         o.y = vals[i*4+1] * inv_sum;
         o.z = vals[i*4+2] * inv_sum;
         o.w = vals[i*4+3] * inv_sum;
-        out4[threadIdx.x + i * THREADS] = o;
+        row4[threadIdx.x + i * THREADS] = o;
     }
 }
 
-torch::Tensor gelu_softmax_fused(torch::Tensor input) {
-    const int M = (int)input.size(0);
-    const int N = (int)input.size(1);
-    auto out = torch::empty({M, N}, input.options());
+void gelu_softmax_inplace(torch::Tensor data) {
+    const int M = (int)data.size(0);
+    const int N = (int)data.size(1);
 
     constexpr int THREADS = 256;
     constexpr int EPT = 32;
-    constexpr int WARPS = THREADS / 32;  // 8
-    // Shared: WARPS * sizeof(float) = 32 bytes
-    fused_gelu_softmax_warp_kernel<THREADS, EPT, WARPS><<<M, THREADS, WARPS * sizeof(float)>>>(
-        input.data_ptr<float>(),
-        out.data_ptr<float>(),
-        M, N
+    constexpr int WARPS = THREADS / 32;
+    gelu_softmax_inplace_kernel<THREADS, EPT, WARPS><<<M, THREADS, WARPS * sizeof(float)>>>(
+        data.data_ptr<float>(), M, N
     );
-    return out;
 }
 """
 
 _cpp_src = r"""
-torch::Tensor gelu_softmax_fused(torch::Tensor input);
+void gelu_softmax_inplace(torch::Tensor data);
 """
 
 _ext = load_inline(
-    name="mgf_v4",
+    name="mgf_v5",
     cpp_sources=_cpp_src,
     cuda_sources=_cuda_src,
-    functions=["gelu_softmax_fused"],
+    functions=["gelu_softmax_inplace"],
     extra_cuda_cflags=["-O3"],
     verbose=False,
 )
@@ -148,4 +142,5 @@ class Model(nn.Module):
 
     def forward(self, x):
         x = self.linear(x)
-        return _ext.gelu_softmax_fused(x)
+        _ext.gelu_softmax_inplace(x)
+        return x
