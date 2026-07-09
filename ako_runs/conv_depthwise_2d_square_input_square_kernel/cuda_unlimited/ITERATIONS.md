@@ -27,6 +27,7 @@ Status values: improved / no-change / regression / failed.
 | 2 | Wide-tile: 4 outputs/thread, 128x8 tile | 1.54x | 2.63 ms | improved |
 | 3 | PTX ld.cs streaming loads + st.cs stores | 1.35x | 2.63 ms | no-change |
 | 4 | Y-direction coarsening (NVEC_Y=2, 128x16 tile) | 1.53x | 2.63 ms | no-change |
+| 5 | Float4 vectorized smem loads (128x8 tile, NVEC=4) | 1.34x* | 2.62 ms | improved |
 
 ## Iterations
 
@@ -77,4 +78,16 @@ Status values: improved / no-change / regression / failed.
   - Speedup: 1.53x (mean)
 - **Analysis:** Same 2.63ms as iter-2. Y-coarsening doesn't help. The solution is at the memory bandwidth ceiling. Three consecutive iters at ~2.63ms with different tile sizes.
 - **Next:** Re-assess - try a fundamentally different approach. Consider: (1) Warp-level reduction with direct HBM reads (no smem), (2) Persistent kernel with circular buffer, (3) Process 2 NC-planes per block simultaneously to better utilize instruction-level parallelism.
+
+### Iter 5 — Float4 vectorized smem loads (128x8 tile, NVEC=4)
+
+- **Hypothesis:** Float4 vectorized global loads (16 bytes = 4 floats per transaction) reduce the number of memory transactions for smem filling, potentially improving throughput.
+- **Changes:** Replaced scalar __ldg loop with explicit float4 loads for the first 128 columns (32 float4 per row), then 2 scalar loads for the trailing columns (128-129). Same NVEC=4 compute.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 2.62 ms (mean), 2.57 ~ 3.82 ms (min ~ max)
+  - Speedup: 1.34x (mean) - *ref was 3.51ms this run; raw runtime is best so far
+- **Analysis:** 2.62ms, marginally better than iter-2/3/4 (2.63ms). Float4 vectorized loads give a tiny improvement. The solution is essentially at the memory bandwidth floor (~2.48ms theoretical).
+- **Next (iter 6 = last): try combining float4 stores with float4 loads, or revert to the cleaner scalar version. The solution is converged.
 
