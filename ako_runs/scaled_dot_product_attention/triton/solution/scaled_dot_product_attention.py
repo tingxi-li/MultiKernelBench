@@ -1,27 +1,21 @@
 """
-Flash-Attention 2 for HEAD_DIM=1024 in Triton — iter 5 (blind run).
+Flash-Attention 2 for HEAD_DIM=1024 in Triton — iter 6 (blind run, final).
 
 Best so far: iter 3 (1.78x, 33.9ms) — K column-major load, BM=16, BN=32,
 D_TILE=256, 4 warps.
 
-Iter 5 idea: Flash-Decoding style 2-pass kernel.
-- Pass 1: each CTA handles SPLIT (N/SPLIT) K/V tokens for one (b,h,q_block).
-  Produces partial (out_partial, lse_partial) per split chunk.
-- Pass 2: merge partial results across splits.
+Iter 6: Try BN=16 (32 inner loop iterations, smaller per-iteration state).
+With BN=16:
+- QK dot: [16,256] x [256,16] -> [16,16] (less accumulation per iter)
+- p matrix: [16,16] fp32 (tiny)
+- pV dot: [16,16] x [16,256] -> [16,256] (smaller K-dimension)
+- Half the K/V load per iteration but double the iterations
 
-With SPLIT=4: grid becomes (N/BM * SPLIT, B*H) = (128, 1024) = 131072 CTAs.
-Each CTA processes only N/SPLIT = 128 K/V tokens → BN=32, 4 iterations.
-This dramatically reduces per-CTA register reuse of K/V (good: less re-read)
-but also reduces opportunities to amortize Q loads (bad: Q loaded per split).
+This reduces per-iteration register pressure significantly. The p matrix
+shrinks from [16,32] to [16,16] fp32 = 256 elements (vs 512). The QK and pV
+result matrices also shrink. This may allow better SM occupancy.
 
-Actually this may help if the kernel is register-limited rather than BW-limited.
-With fewer iterations per CTA, less state needs to be kept in registers.
-
-Alternative approach: try larger BN=32 but with different num_warps (2 vs 4 vs 8).
-With 2 warps: fewer threads per CTA → potentially more CTAs per SM if register-limited.
-
-Let me try 2 warps with the iter 3 kernel structure to see if reducing CTA thread
-count helps occupancy.
+Also try K column-major load (same as iter 3 breakthrough).
 """
 
 import math
@@ -32,7 +26,7 @@ import triton.language as tl
 
 
 @triton.jit
-def _flash_fwd_v5(
+def _flash_fwd_v6(
     Q, K, V, Out,
     stride_qb, stride_qh, stride_qm, stride_qk,
     stride_kb, stride_kh, stride_kn, stride_kk,
@@ -43,7 +37,7 @@ def _flash_fwd_v5(
     D:        tl.constexpr,   # 1024
     D_TILE:   tl.constexpr,   # 256
     BM:       tl.constexpr,   # 16
-    BN:       tl.constexpr,   # 32
+    BN:       tl.constexpr,   # 16
     SCALE:    tl.constexpr,
 ):
     pid_m  = tl.program_id(0)
@@ -152,11 +146,11 @@ class Model(nn.Module):
         Vh = V.to(torch.float16)
 
         BM = 16
-        BN = 32
+        BN = 16
         D_TILE = 256
 
         grid = (triton.cdiv(N, BM), B * H)
-        _flash_fwd_v5[grid](
+        _flash_fwd_v6[grid](
             Qh, Kh, Vh, Out,
             Qh.stride(0), Qh.stride(1), Qh.stride(2), Qh.stride(3),
             Kh.stride(0), Kh.stride(1), Kh.stride(2), Kh.stride(3),
@@ -169,7 +163,7 @@ class Model(nn.Module):
             BM=BM,
             BN=BN,
             SCALE=sm_scale,
-            num_warps=2,    # Try 2 warps instead of 4
+            num_warps=4,
             num_stages=1,
         )
         return Out

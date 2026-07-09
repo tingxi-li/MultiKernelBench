@@ -33,6 +33,7 @@ Status values: improved / no-change / regression / failed.
 | 3 | K pre-transposed load (no tl.trans) | 1.7817x | 33.9 ms | improved |
 | 4 | Explicit K.T contiguous transpose in wrapper | 1.2893x | 47.7 ms | regression |
 | 5 | 2 warps (was 4) with iter3 kernel | 0.9014x | 69.0 ms | regression |
+| 6 | BN=16 (32 inner iterations, smaller tiles) | 1.6496x | 37.1 ms | regression |
 
 ## Iterations
 
@@ -83,6 +84,18 @@ Status values: improved / no-change / regression / failed.
   - Speedup: 1.7235x
 - **Analysis:** Better than iter 1 (37.0ms) and iter 3 (37.5ms). The D-tiling reduces register pressure, allowing higher SM occupancy. With 4x D_TILE=256 sub-tiles: SMEM per K/V tile = 32*256*2 = 16 KB, total SMEM ≈ (16+16)*256*2=16 KB vs previous 96 KB. This leaves more L1/SMEM for thread context switching. Min latency of 31.8ms is 9% better than iter 1's 35.1ms min.
 - **Next:** Try varying D_TILE (512, 128) or tuning BN to see if further improvement is possible. Also try 2 warps to reduce occupancy trade-off.
+
+### Iter 6 (blind run, final) — BN=16 (32 inner iterations, smaller tiles)
+
+- **Hypothesis:** BN=16 cuts per-iteration register state (QK=[16,16], p=[16,16] vs [16,32]). Might allow 2 CTAs per SM due to lower register pressure, doubling occupancy.
+- **Changes:** BN=32→16, same K column-major load, BM=16, D_TILE=256, 4 warps. 32 inner loop iterations instead of 16.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 37.1 ms (mean), 35.4~38.9 ms (min~max)
+  - Speedup: 1.6496x
+- **Analysis:** Worse than iter 3 (33.9ms → 37.1ms). Halving BN doubles loop iterations. The per-iteration K dot [16,256]×[256,16] produces a smaller [16,16] QK matrix - tensor cores operate less efficiently on very small matrices. The increased loop overhead and less efficient TC utilization outweigh any occupancy gains.
+- **Next:** Iter 3 (BN=32, 4 warps, K-column-major, D_TILE=256) remains best at 1.78x.
 
 ### Iter 5 (blind run) — 2 warps (was 4) with iter3 kernel
 
