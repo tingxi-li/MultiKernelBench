@@ -26,6 +26,7 @@ Status values: improved / no-change / regression / failed.
 | 1 | D-tiled flash attention fp16 precision | 0.33x | 67.5 ms | regression |
 | 2 | Single-pass multi-acc (4 D-tiles, fp16 TC) | 1.97x | 30.1 ms | improved |
 | 3 | threads=256 (6 warps→8 warps) | 2.29x | 26.3 ms | improved |
+| 4 | block_M=64, 8 acc_o (D_TILE=128) | 2.34x | 25.1 ms | improved |
 
 ## Iterations
 
@@ -64,5 +65,17 @@ Status values: improved / no-change / regression / failed.
   - Speedup: 2.29x (mean)
 - **Analysis:** 16% improvement vs iter 2 (26.3ms vs 30.1ms). More warps better hide memory latency for K/V loads.
 - **Next:** Try larger block_N for better memory throughput, or explore if loop unrolling/staging helps further.
+
+### Iter 4 — block_M=64, 8 output D-tile accumulators
+
+- **Hypothesis:** Larger block_M=64 halves the number of CTAs (from 512/32=16 to 512/64=8 per batch-head), reducing scheduling overhead. 8 accumulators for D_TILE=128 eliminates all D-tiling overhead (n_d_tiles=8, exactly covers full dim=1024). Smem reduced from 84KB to 56KB.
+- **Changes:** block_M=32→64, D_TILE=256→128, 4 acc_o→8 acc_o. threads=256 retained. 8 V loads per KV block (n_d_tiles=8, each 64×128×2B=16KB).
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 25.1 ms (mean), 24.0 ~ 27.0 ms (min ~ max)
+  - Speedup: 2.34x (mean)
+- **Analysis:** 25.1ms (2.34x) vs 26.3ms (2.29x). Moderate improvement. Fewer CTAs and lower smem pressure help. 8 V reloads per KV block (vs 4) but each reload is half the size.
+- **Next:** Explore whether the register pressure from 8 acc_o limits occupancy. Try threads=128 or different block_N.
 
 
