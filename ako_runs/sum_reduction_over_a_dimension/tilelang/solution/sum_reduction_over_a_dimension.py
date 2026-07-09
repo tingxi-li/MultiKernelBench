@@ -5,20 +5,30 @@ import tilelang.language as T
 
 # ============================================================================
 # Sum reduction over dim=1: X(B, H, W) -> Y(B, 1, W)
-# B=128, H=4096, W=4096  -> 8.59 GB read, bandwidth-bound, near roofline.
+# B=128, H=4096, W=4096  -> 8.59 GB read, bandwidth-bound.
 #
-# Strategy: each thread handles one (b, w) output element, accumulates
-# sum over h serially. Grid = (B, W//TW). Access is coalesced: consecutive
-# threads read consecutive w values at the same h => 128-byte transactions.
+# Strategy iter2: 2-D block layout.
+#   - blockDim = (TH_W, TH_H): TH_W consecutive threads cover TH_W output cols,
+#     TH_H threads share reduction work over the H dimension.
+#   - Grid = (B, W//TH_W, 1): each block is responsible for TH_W output columns.
+#   - Each of the TH_H threads reads H/TH_H input elements per column.
+#   - Shared memory tree-reduce over TH_H to get final partial sums, then write.
+# For H=4096, TH_H=32 -> each thread reads 128 elements. TH_W=32 for coalescing.
 # ============================================================================
 
-_TW = 128     # threads per block; also tile_w (each block covers TW cols)
+_TH_W = 32    # threads in w dimension (coalescing unit)
+_TH_H = 32    # threads in h dimension (reduction workers per w)
+_THREADS = _TH_W * _TH_H  # 1024 threads per block
 
 _KCACHE = {}
 
 
-def _build(B, H, W, TW):
-    BW = (W + TW - 1) // TW   # number of w-tiles
+def _build(B, H, W, TH_W, TH_H):
+    THREADS = TH_W * TH_H
+    BW = (W + TH_W - 1) // TH_W   # number of w-tiles
+    H_per_thread = (H + TH_H - 1) // TH_H  # h elements per thread
+
+    nlevels = TH_H.bit_length() - 1  # log2(TH_H) tree-reduction levels
 
     @tilelang.jit
     def _make():
@@ -27,20 +37,39 @@ def _build(B, H, W, TW):
             X: T.Tensor((B, H, W), T.float32),
             Y: T.Tensor((B, 1, W), T.float32),
         ):
-            with T.Kernel(B, BW, threads=TW) as (bx, by):
+            with T.Kernel(B, BW, threads=THREADS) as (bx, by):
                 tid = T.get_thread_binding(0)
-                w = by * TW + tid
+                # Decompose flat thread id into (th, tw)
+                th = tid // TH_W   # which h-reduction thread
+                tw = tid % TH_W    # which w column (offset within tile)
+
+                w = by * TH_W + tw   # global w index
                 b = bx
+
+                # Shared mem: (TH_H, TH_W) accumulator
+                smem = T.alloc_shared((TH_H, TH_W), T.float32)
 
                 acc = T.alloc_local((1,), T.float32)
                 acc[0] = T.float32(0)
 
-                for h in T.serial(H):
-                    if w < W:
+                # Each thread accumulates H_per_thread elements
+                for k in T.serial(H_per_thread):
+                    h = th + k * TH_H
+                    if h < H and w < W:
                         acc[0] += X[b, h, w]
 
-                if w < W:
-                    Y[b, 0, w] = acc[0]
+                smem[th, tw] = acc[0]
+                T.sync_threads()
+
+                # Tree reduction over TH_H axis (for each tw column)
+                for _lvl in range(nlevels):
+                    stride = TH_H >> (_lvl + 1)
+                    if th < stride:
+                        smem[th, tw] += smem[th + stride, tw]
+                    T.sync_threads()
+
+                if th == 0 and w < W:
+                    Y[b, 0, w] = smem[0, tw]
 
         return kernel
 
@@ -52,10 +81,10 @@ _KB = (_build,)
 
 
 def _get_kernel(B, H, W):
-    key = (B, H, W, _TW)
+    key = (B, H, W, _TH_W, _TH_H)
     k = _KCACHE.get(key)
     if k is None:
-        k = _KB[0](B, H, W, _TW)
+        k = _KB[0](B, H, W, _TH_W, _TH_H)
         _KCACHE[key] = k
     return k
 
