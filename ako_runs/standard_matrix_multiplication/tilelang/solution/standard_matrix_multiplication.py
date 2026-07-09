@@ -4,18 +4,16 @@ import tilelang
 import tilelang.language as T
 
 # C = A @ B,  A:(M,K) B:(K,N),  M=2048 K=8192 N=4096.
-# torch.matmul fp32 runs cuBLAS on CUDA cores (~30 TFLOP/s). Lever = fp16 tensor
-# cores. Correctness subtlety under the 1e-4 gate: T.gemm's MMA accumulator
-# swamps in fp16 over long K (bias ~ K^2; -0.19 at K=8192, which FAILS the gate).
-# Fix = split-K flush: T.gemm accumulates a short KC-length chunk, then the chunk
-# partial is added into a true fp32 accumulator fragment (bias ~ K*KC, -0.02 at
-# KC=2048 => passes with 3x margin). Inputs cast fp16 with torch RTN (unbiased).
+# fp16 tensor cores via T.gemm, split-K flush for fp32 correctness.
+# BK=32, KC=2048, stages=4: 4-stage pipeline to maximize MMA latency hiding.
+# Shared memory per stage: BM*BK*2 + BK*BN*2 = 128*32*2 + 32*256*2 = 24KB
+# Total 4 stages: 96KB < 100KB limit on RTX 6000 Ada.
 
 _BM = 128
 _BN = 256
-_BK = 64
+_BK = 32
 _KC = 2048      # K-chunk accumulated per T.gemm before fp32 flush
-_STAGES = 2
+_STAGES = 4     # 4-stage software pipeline (deep pipeline for latency hiding)
 _THREADS = 256
 
 

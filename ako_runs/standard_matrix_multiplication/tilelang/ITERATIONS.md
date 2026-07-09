@@ -25,6 +25,7 @@ Status values: improved / no-change / regression / failed.
 |------|-------|---------|--------------|--------|
 | 1 | fp16 TC split-K flush BM128 BN256 BK32 KC2048 st3 t256 | 3.63x | 1.12 ms | improved |
 | 2 | BK=64 stages=2 KC2048 BM128 BN256 t256 | 3.78x | 1.09 ms | improved |
+| blind-1 | BK=32 stages=4 KC2048 BM128 BN256 t256 (4-stage pipeline) | 3.94x | 1.14 ms | regression |
 
 ## Iterations
 
@@ -51,6 +52,18 @@ Status values: improved / no-change / regression / failed.
   - Speedup: 3.78x (mean)
 - **Analysis:** BK=64 st=2 is faster than BK=32 st=3 (1.09 vs 1.12 ms). The wider BK tile reduces the number of Pipelined iterations (KC//BK = 32 vs 64), cutting launch overhead and improving L2 utilization. 3.78x vs 3.63x improvement confirms this is the better config. Ref runtime 4.12 ms mean.
 - **Next:** Cap reached at 2 iters per HINTS.md. iter-2 is best.
+
+### Blind Iter 1 — BK=32 stages=4 (4-stage deep pipeline)
+
+- **Hypothesis:** 4-stage pipeline for BK=32 hides more memory latency than the baseline's 2-stage BK=64. Deeper pipeline keeps MMA units busier by pre-fetching more tiles. Shared memory per stage: 128*32*2 + 32*256*2 = 24KB, total 4 stages = 96KB < 100KB limit.
+- **Changes:** BK=32 (was 64), STAGES=4 (was 2). KC=2048, BM=128, BN=256, threads=256 remain unchanged.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 1.14 ms (mean), 1.10 ~ 1.27 ms (min ~ max)
+  - Speedup: 3.94x (mean) vs REF 4.49ms
+- **Analysis:** The 4-stage pipeline with BK=32 is slightly worse than baseline BK=64/st=2 (1.14ms vs 1.10ms). Fast-signal showed 1.03ms but full warmup-200 bench shows 1.14ms. The BK=64 st=2 baseline appears to be the better configuration for this hardware.
+- **Next:** Try BK=64 stages=2 (same as baseline) vs BK=64 stages=3 to see if one more stage adds value. Also try reducing KC=1024 for correctness margin vs performance tradeoff.
 
 ## Final
 
