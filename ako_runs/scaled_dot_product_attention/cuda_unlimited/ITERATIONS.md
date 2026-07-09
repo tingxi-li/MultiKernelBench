@@ -28,6 +28,7 @@ Status values: improved / no-change / regression / failed.
 | 3 | wmma FA2 (Br=64, Bc=64, 4 warps) | 0.17x | 397 ms | regression |
 | 4 | 3-kernel unfused: QKT+softmax+PV (fp32 S) | 0.71x | 84.5 ms | improved |
 | 5 | 3-kernel wmma fixed bh offset, fp16 inputs | 0.75x | 82.4 ms | improved |
+| 6 | 3-kernel wmma fp16, Bc=64 (64×64 output tile) | 1.12x | 52.7 ms | improved |
 
 ## Iterations
 
@@ -90,4 +91,16 @@ Status values: improved / no-change / regression / failed.
   - Speedup: 0.75x
 - **Analysis:** Best result so far (0.75x). Still below target (1.0x). Main bottlenecks: fp32→fp16 conversion (~22ms) + S matrix bandwidth (2.3ms). Total overhead ~25ms on top of compute. Need fused Flash Attention to eliminate S matrix.
 - **Next:** Fused Flash Attention 2 with wmma tiles: Br=Bc=16, D-tiled QKT+PV, online softmax. Avoids writing S to global memory.
+
+### Iter 6 — 3-kernel wmma fp16, Bc=64 (64×64 output tile per block)
+
+- **Hypothesis:** Larger Bc=64 (vs Bc=16 in iter-5) gives each block a 64×64 output tile; 4 warps each cover 16 rows × 64 cols (4 column tiles). Reduces grid size by 4× in K dimension, better SM utilization per block, more wmma ops per smem load.
+- **Changes:** QKT grid=(N/64, N/64, BH) with 4 wmma accumulators per warp; PV same. smem: Qs[64][64]+Ks[64][64] fp16 = 16KB. Keeps fp32 S matrix (correct). Same fp32→fp16 conversion overhead for Q/K/V inputs.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 52.7 ms (mean), 52.1 ~ 53.7 ms (min ~ max)
+  - Speedup: 1.12x (WINS)
+- **Analysis:** Beats PyTorch reference (58.8ms). The 4× larger tiles dramatically reduce kernel launch overhead and improve warp utilization. With Bc=64 each warp does 4 wmma accumulations per smem load instead of 1. The grid is 4× smaller (256 vs 1024 blocks for QKT), reducing scheduler overhead.
+- **Next:** This is the best result (1.12x). Proceed to [final].
 
