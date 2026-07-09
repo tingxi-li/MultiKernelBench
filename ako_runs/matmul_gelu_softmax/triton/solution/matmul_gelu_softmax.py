@@ -3,8 +3,6 @@ import torch.nn as nn
 import triton
 import triton.language as tl
 
-PREC = 'tf32'
-
 
 @triton.autotune(
     configs=[
@@ -12,30 +10,36 @@ PREC = 'tf32'
         triton.Config({'BLOCK_M': 128, 'BLOCK_N': 256, 'BLOCK_K': 64}, num_warps=8, num_stages=3),
         triton.Config({'BLOCK_M': 256, 'BLOCK_N': 128, 'BLOCK_K': 64}, num_warps=8, num_stages=3),
         triton.Config({'BLOCK_M': 128, 'BLOCK_N': 128, 'BLOCK_K': 64}, num_warps=4, num_stages=4),
-        triton.Config({'BLOCK_M': 64, 'BLOCK_N': 256, 'BLOCK_K': 64}, num_warps=8, num_stages=4),
-        triton.Config({'BLOCK_M': 128, 'BLOCK_N': 64, 'BLOCK_K': 64}, num_warps=4, num_stages=4),
+        triton.Config({'BLOCK_M': 64,  'BLOCK_N': 256, 'BLOCK_K': 64}, num_warps=8, num_stages=4),
+        triton.Config({'BLOCK_M': 128, 'BLOCK_N': 64,  'BLOCK_K': 64}, num_warps=4, num_stages=4),
+        triton.Config({'BLOCK_M': 128, 'BLOCK_N': 256, 'BLOCK_K': 32}, num_warps=8, num_stages=5),
+        triton.Config({'BLOCK_M': 256, 'BLOCK_N': 256, 'BLOCK_K': 64}, num_warps=8, num_stages=3),
+        triton.Config({'BLOCK_M': 128, 'BLOCK_N': 128, 'BLOCK_K': 64}, num_warps=8, num_stages=3),
+        triton.Config({'BLOCK_M': 64,  'BLOCK_N': 128, 'BLOCK_K': 64}, num_warps=4, num_stages=5),
     ],
     key=['M', 'N', 'K'],
 )
 @triton.jit
-def _gemm_gelu_kernel(x_ptr, w_ptr, b_ptr, y_ptr, M, N, K,
-                      sx0, sx1, sw0, sw1, sy0, sy1,
-                      BLOCK_M: tl.constexpr, BLOCK_N: tl.constexpr, BLOCK_K: tl.constexpr,
-                      PREC: tl.constexpr):
+def _gemm_gelu_fp16_kernel(x_ptr, w_ptr, b_ptr, y_ptr, M, N, K,
+                            sx0, sx1, sw0, sw1, sy0, sy1,
+                            BLOCK_M: tl.constexpr, BLOCK_N: tl.constexpr, BLOCK_K: tl.constexpr):
     pid_m = tl.program_id(0)
     pid_n = tl.program_id(1)
     offs_m = pid_m * BLOCK_M + tl.arange(0, BLOCK_M)
     offs_n = pid_n * BLOCK_N + tl.arange(0, BLOCK_N)
     offs_k = tl.arange(0, BLOCK_K)
-    # x: (M,K) row-major ; w: nn.Linear weight (N,K) row-major, so y = x @ w^T.
-    # Load w as (BLOCK_N,BLOCK_K) coalesced along K, transpose in-register for the dot.
+    # x: (M,K) row-major ; w: nn.Linear weight (N,K) row-major -> y = x @ w^T
+    # Load as fp32, cast to fp16 for tensor-core dot, accumulate in fp32
     x_ptrs = x_ptr + offs_m[:, None] * sx0 + offs_k[None, :] * sx1
     w_ptrs = w_ptr + offs_n[:, None] * sw0 + offs_k[None, :] * sw1
     acc = tl.zeros([BLOCK_M, BLOCK_N], dtype=tl.float32)
     for k0 in range(0, K, BLOCK_K):
         a = tl.load(x_ptrs, mask=offs_k[None, :] < K - k0, other=0.0)
         w = tl.load(w_ptrs, mask=offs_k[None, :] < K - k0, other=0.0)
-        acc += tl.dot(a, tl.trans(w), input_precision=PREC)
+        # Cast to fp16 to use fp16 tensor cores (faster than tf32)
+        a16 = a.to(tl.float16)
+        w16 = w.to(tl.float16)
+        acc += tl.dot(a16, tl.trans(w16))
         x_ptrs += BLOCK_K * sx1
         w_ptrs += BLOCK_K * sw1
     bias = tl.load(b_ptr + offs_n, mask=offs_n < N, other=0.0)
@@ -90,10 +94,9 @@ class Model(nn.Module):
         Y = torch.empty((M, N), device=x.device, dtype=x.dtype)
         out = torch.empty((M, N), device=x.device, dtype=x.dtype)
         grid = lambda meta: (triton.cdiv(M, meta['BLOCK_M']), triton.cdiv(N, meta['BLOCK_N']))
-        _gemm_gelu_kernel[grid](
+        _gemm_gelu_fp16_kernel[grid](
             x, W, b, Y, M, N, K,
             x.stride(0), x.stride(1), W.stride(0), W.stride(1), Y.stride(0), Y.stride(1),
-            PREC=PREC,
         )
         _softmax_rows_kernel[(M,)](
             Y, out, M, N,
