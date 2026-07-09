@@ -31,6 +31,7 @@ Status values: improved / no-change / regression / failed.
 | 6 | NVX=4+NVY=2 combined with float4 loads (128x16 tile) | 1.52x | 2.64 ms | no-change |
 | 7 (new-1) | NVEC=8 wider tile (256 cols/block), float4 smem loads | 1.56x | 2.59 ms | improved |
 | 8 (new-2) | NVEC=8 RPTS=2 (256x16 tile), float4 smem loads | 1.53x | 2.61 ms | regression |
+| 9 (new-3) | Dual-channel fusion (2 NC-planes/block), NVEC=8 | 1.53x | 2.60 ms | no-change |
 
 ## Iterations
 
@@ -129,4 +130,16 @@ Status values: improved / no-change / regression / failed.
   - Speedup: 1.53x (mean)
 - **Analysis:** 2.61ms - slightly worse than iter-1's 2.59ms. The larger smem footprint (18.7KB) limits occupancy: Ada has 100KB smem/SM, but with 256 threads we can fit ~5 blocks; at 18.7KB, only ~5 blocks (OK); however the main issue is more smem load iterations without proportional speedup. Grid is half in Y dimension vs iter-1 but savings are smaller than register/smem overhead.
 - **Next:** Try a different optimization: warp-level parallelism where each warp handles all 64 channels for a single spatial position (channel-fused). Or try L1 prefetch with cp.async.
+
+### Iter 9 (new iter 3) — Dual-channel fusion (2 NC-planes per block)
+
+- **Hypothesis:** Processing 2 channels per block halves the grid Z dimension, reducing launch overhead and allowing memory requests for two channels to be coalesced in the same warp. Each thread computes 16 outputs (8 for ch0 + 8 for ch1).
+- **Changes:** New kernel processes nc0=blockIdx.z*2 and nc0+1 simultaneously. Uses two smem arrays s0[] and s1[] (total 20.8KB). Loads both channels' float4 data in same loop iteration. Computes 8 outputs per channel sequentially per thread.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 2.60 ms (mean), 2.55 ~ 3.84 ms (min ~ max)
+  - Speedup: 1.53x (mean)
+- **Analysis:** 2.60ms - same as prior iters. The dual-channel approach doesn't help: the larger smem (2x = 20.8KB) limits occupancy, and the doubled register pressure (30 weight registers) causes spilling or scheduling issues. We're firmly at 2.59-2.60ms floor.
+- **Next (final iter): try a register-only approach without smem at all — direct __ldg loads, warp-level coalescing with NVEC=16 or 32. At this scale, L2 cache should provide good hit rate anyway.
 
