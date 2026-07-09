@@ -27,6 +27,7 @@ Status values: improved / no-change / regression / failed.
 | 2 | Refined autotune configs, constexpr N/C | 1.35x | 2.68 ms | improved |
 | 3 | More configs, num_stages=3/4, tl.fma | 1.30x | 2.79 ms | regression |
 | 4 | Channel batching (BLOCK_NC), focused config space | 1.35x | 2.68 ms | no-change |
+| 5 | Row-per-CTA: 1D tile along W only | 1.30x | 3.14 ms | regression |
 
 ## Iterations
 
@@ -77,6 +78,19 @@ Status values: improved / no-change / regression / failed.
   - Speedup: 1.35x
 - **Analysis:** Matches iter-2 exactly. Channel batching doesn't help — the sequential loop over BLOCK_NC within a CTA reduces parallelism. The kernel is throughput-limited by memory bandwidth, not by launch overhead.
 - **Next:** Try a completely different algorithmic approach: use shared memory to cache the input tile and reuse it across kernel positions. This could significantly reduce L2 traffic.
+
+### Iter 5 — Row-per-CTA: 1D tile along W only
+
+- **Hypothesis:** One CTA per output row maximizes coalescing and reduces register pressure (1D vs 2D tile).
+- **Changes:** New row-based kernel with grid (NC, H_out, ceil(W_out/BLOCK_W)). 1D accumulator.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 3.14 ms (mean), 2.71 ~ 4.42 ms (min ~ max)
+  - Speedup: 1.30x
+- **Analysis:** Worse than iter-2 (1.35x). The grid is NC*H_out = 16*64*510 = ~522K blocks which adds launch overhead. The 2D tiling in iter-2 (BLOCK_OH*BLOCK_OW) is better — it keeps more work per block.
+- **Next:** This is iter 5 of 6. Iter-2 is still best at 1.35x. For iter-6, try a fundamentally different approach: process a larger spatial tile to maximize arithmetic intensity, or try using the weight as a constexpr to enable Triton to unroll/specialize more aggressively.
+
 
 
 
