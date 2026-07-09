@@ -3,103 +3,56 @@ import torch.nn as nn
 from torch.utils.cpp_extension import load_inline
 
 # -----------------------------------------------------------------------
-# CUDA kernel v3: depthwise 2-D conv, aggressive vectorisation
-# Strategy:
-#  - Warp handles 32 consecutive output cols (coalesced reads/writes)
-#  - Block has 8 warps = 256 threads, 8 output rows per block
-#  - Shared memory: 10 x 34 per warp section, but we organise as 10 x 256 for the block
-#  - Actually: let each thread handle ONE output pixel with float4 weight loads
-#  - Key insight: process entire output row within one block to maximise L2 reuse
-#  - 1 block per (b, c): processes entire 510x510 output in chunks of 8 rows x 256 cols
+# CUDA kernel v4: depthwise 2-D conv, maximise bandwidth utilisation
+#
+# Architecture: RTX 6000 Ada = Ada Lovelace (sm_89)
+# - 960 GB/s memory bandwidth
+# - 128 KB L1/SM, 72 SMs
+# - Best strategy: maximise bandwidth, minimise memory traffic
+#
+# Key insight: Use wider tiles + float4 vectorised SM fill.
+# TILE: 32 cols x 32 rows = 1024 output pixels per block
+# SM: 34 x 34 = 1156 floats
+# Block: 32 x 32 = 1024 threads → 32 warps
+# Each thread loads 1.1 SM floats and computes 1 output pixel.
+# Float4 loading would help for the SM fill phase.
 # -----------------------------------------------------------------------
 _CUDA_SOURCE = r"""
 #include <cuda_runtime.h>
-#include <float.h>
 
 // ─────────────────────────────────────────────────────────────────
-// Kernel v3: streaming per-channel kernel
-// One (b,c) pair assigned per block — iterate over all output rows.
-// Each thread handles one output column across all rows.
-// Requires out_W <= 512 threads (we use 512-thread blocks for out_W=510).
+// Kernel v4: 32x32 tile, 1024 threads per block
+// SM: 34x34 = 1156 floats = 4624 bytes (well within 128KB)
 // ─────────────────────────────────────────────────────────────────
-__global__ void dw_conv_stream_1blk_per_channel(
-    const float* __restrict__ x,     // [B, C, H, W]
-    const float* __restrict__ w,     // [C, 1, 3, 3]
-    float*       __restrict__ y,     // [B, C, out_H, out_W]
-    int B, int C, int H, int W, int out_H, int out_W
-) {
-    // Each block handles one (b, c) pair
-    // Grid: (C, B) or similar
-    const int c = blockIdx.x;
-    const int b = blockIdx.y;
-    const int tx = threadIdx.x;  // output column index (0..out_W-1, some blocks wider)
+#define TW 32
+#define TH 32
+#define SW (TW + 2)   // 34
+#define SH (TH + 2)   // 34
 
-    if (tx >= out_W) return;
-
-    // Load 9 weights for this channel
-    const float* wc = w + c * 9;
-    float w00 = __ldg(&wc[0]), w01 = __ldg(&wc[1]), w02 = __ldg(&wc[2]);
-    float w10 = __ldg(&wc[3]), w11 = __ldg(&wc[4]), w12 = __ldg(&wc[5]);
-    float w20 = __ldg(&wc[6]), w21 = __ldg(&wc[7]), w22 = __ldg(&wc[8]);
-
-    const float* xc = x + (b * C + c) * (H * W);
-    float*       yc = y + (b * C + c) * (out_H * out_W);
-
-    // Slide down output rows; keep 3 input rows in registers (ring buffer effect)
-    // For tx < out_W: read x[tx], x[tx+1], x[tx+2] for each of 3 rows
-    // Then output = dot product
-
-    for (int oy = 0; oy < out_H; oy++) {
-        float s;
-        // input rows: oy, oy+1, oy+2
-        // input cols: tx, tx+1, tx+2
-        s  = w00 * __ldg(&xc[(oy+0)*W + tx+0])
-           + w01 * __ldg(&xc[(oy+0)*W + tx+1])
-           + w02 * __ldg(&xc[(oy+0)*W + tx+2])
-           + w10 * __ldg(&xc[(oy+1)*W + tx+0])
-           + w11 * __ldg(&xc[(oy+1)*W + tx+1])
-           + w12 * __ldg(&xc[(oy+1)*W + tx+2])
-           + w20 * __ldg(&xc[(oy+2)*W + tx+0])
-           + w21 * __ldg(&xc[(oy+2)*W + tx+1])
-           + w22 * __ldg(&xc[(oy+2)*W + tx+2]);
-        yc[oy * out_W + tx] = s;
-    }
-}
-
-// ─────────────────────────────────────────────────────────────────
-// Kernel v4: 2D shared-memory tiling, optimised for high occupancy
-// TILE: 32 cols × 16 rows; SM: 34×18; 512 threads per block
-// Grid: (ceil(out_W/32), ceil(out_H/16), B*C) -> fewer larger blocks
-// Key: 512 threads = 16 warps → higher occupancy than 256-thread blocks
-// ─────────────────────────────────────────────────────────────────
-#define V4_TW 32
-#define V4_TH 16
-#define V4_SMW (V4_TW + 2)   // 34
-#define V4_SMH (V4_TH + 2)   // 18
-
-__global__ void dw_conv_k3s1p0_v4(
+__global__ void dw_conv_32x32(
     const float* __restrict__ x,
     const float* __restrict__ w,
     float*       __restrict__ y,
     int B, int C, int H, int W, int out_H, int out_W
 ) {
-    __shared__ float sm[V4_SMH * V4_SMW];   // 18*34 = 612 floats = 2448 B
+    __shared__ float sm[SH * SW];   // 34x34 = 1156 floats
 
     const int bc    = blockIdx.z;
     const int b     = bc / C;
     const int c     = bc % C;
-    const int tile_y = blockIdx.y * V4_TH;
-    const int tile_x = blockIdx.x * V4_TW;
+    const int tile_y = blockIdx.y * TH;
+    const int tile_x = blockIdx.x * TW;
     const int tx    = threadIdx.x;   // 0..31
-    const int ty    = threadIdx.y;   // 0..15
-    const int tid   = ty * V4_TW + tx;  // 0..511
+    const int ty    = threadIdx.y;   // 0..31
+    const int tid   = ty * TW + tx;  // 0..1023
 
     const float* xc = x + (b * C + c) * (H * W);
 
-    // Fill SM: 612 floats with 512 threads → ~1.2 loads/thread
-    for (int i = tid; i < V4_SMH * V4_SMW; i += V4_TH * V4_TW) {
-        const int sy = i / V4_SMW;
-        const int sx = i % V4_SMW;
+    // Fill SM: 1156 floats with 1024 threads → ~1.13 loads/thread
+    // Use loop to handle the extra elements
+    for (int i = tid; i < SH * SW; i += TH * TW) {
+        const int sy = i / SW;
+        const int sx = i % SW;
         const int gy = tile_y + sy;
         const int gx = tile_x + sx;
         sm[i] = (gy < H && gx < W) ? __ldg(&xc[gy * W + gx]) : 0.0f;
@@ -116,89 +69,125 @@ __global__ void dw_conv_k3s1p0_v4(
         float w20 = __ldg(&wc[6]), w21 = __ldg(&wc[7]), w22 = __ldg(&wc[8]);
 
         float s;
-        s  = w00 * sm[(ty+0)*V4_SMW + (tx+0)];
-        s += w01 * sm[(ty+0)*V4_SMW + (tx+1)];
-        s += w02 * sm[(ty+0)*V4_SMW + (tx+2)];
-        s += w10 * sm[(ty+1)*V4_SMW + (tx+0)];
-        s += w11 * sm[(ty+1)*V4_SMW + (tx+1)];
-        s += w12 * sm[(ty+1)*V4_SMW + (tx+2)];
-        s += w20 * sm[(ty+2)*V4_SMW + (tx+0)];
-        s += w21 * sm[(ty+2)*V4_SMW + (tx+1)];
-        s += w22 * sm[(ty+2)*V4_SMW + (tx+2)];
+        s  = w00 * sm[(ty+0)*SW + (tx+0)];
+        s += w01 * sm[(ty+0)*SW + (tx+1)];
+        s += w02 * sm[(ty+0)*SW + (tx+2)];
+        s += w10 * sm[(ty+1)*SW + (tx+0)];
+        s += w11 * sm[(ty+1)*SW + (tx+1)];
+        s += w12 * sm[(ty+1)*SW + (tx+2)];
+        s += w20 * sm[(ty+2)*SW + (tx+0)];
+        s += w21 * sm[(ty+2)*SW + (tx+1)];
+        s += w22 * sm[(ty+2)*SW + (tx+2)];
 
         y[(b * C + c) * (out_H * out_W) + out_y * out_W + out_x] = s;
     }
 }
 
 // ─────────────────────────────────────────────────────────────────
-// Kernel v5: Multi-channel block — each block handles CH_PER_BLK channels
-// for one spatial tile. This lets weight loads be shared across channels
-// if they happen to be adjacent. Actually channels have independent weights,
-// so benefit is reduced block count → fewer scheduler overheads.
-// Strategy: 1D block of 256 threads, each thread handles one output pixel
-//           for one channel. Block handles 1 spatial tile × CH_PER_BLK=4 channels.
+// Kernel v4b: 32x32 tile with vectorised float4 SM fill
+// Key: SW=34 is not divisible by 4, so we need to handle boundaries.
+// Alternative: pad SM width to 36 (9 float4s), simplify indexing.
 // ─────────────────────────────────────────────────────────────────
-#define V5_TW 32
-#define V5_TH  8
-#define V5_CH  4
-// Thread layout: 256 threads = (V5_TW * V5_TH * V5_CH) / V5_CH
-// Actually: threads = V5_TW * V5_TH = 256; each thread handles V5_CH output pixels
-// Nope, let's do: block = (V5_TW * V5_TH) = 256 threads
-// Each thread handles output (ty, tx) for one channel
-// Grid: (ceil(out_W/V5_TW), ceil(out_H/V5_TH), ceil(BC / V5_CH))
-#define V5_SMW (V5_TW + 2)  // 34
-#define V5_SMH (V5_TH + 2)  // 10
+#define SW4 36   // padded to multiple of 4
+#define SH4 34
 
-__global__ void dw_conv_k3s1p0_v5(
+__global__ void dw_conv_32x32_f4(
     const float* __restrict__ x,
     const float* __restrict__ w,
     float*       __restrict__ y,
     int B, int C, int H, int W, int out_H, int out_W
 ) {
-    // blockIdx.z = bc_group = (b*C + c) / V5_CH
-    // Each block processes V5_CH consecutive channels
-    __shared__ float sm[V5_CH][V5_SMH * V5_SMW];  // 4 * 340 = 1360 floats = 5440 B
+    __shared__ float sm[SH4 * SW4];   // 34x36 = 1224 floats
 
-    const int bc_group = blockIdx.z;
-    const int bc0 = bc_group * V5_CH;
-    const int tile_y = blockIdx.y * V5_TH;
-    const int tile_x = blockIdx.x * V5_TW;
-    const int tx = threadIdx.x;
-    const int ty = threadIdx.y;
-    const int tid = ty * V5_TW + tx;
+    const int bc    = blockIdx.z;
+    const int b     = bc / C;
+    const int c     = bc % C;
+    const int tile_y = blockIdx.y * TH;
+    const int tile_x = blockIdx.x * TW;
+    const int tx    = threadIdx.x;
+    const int ty    = threadIdx.y;
+    const int tid   = ty * TW + tx;
 
-    // Load SM for each channel
-    for (int ci = 0; ci < V5_CH; ci++) {
-        const int bc = bc0 + ci;
-        if (bc >= B * C) continue;
-        const int b = bc / C, c = bc % C;
-        const float* xc = x + (b * C + c) * (H * W);
-        for (int i = tid; i < V5_SMH * V5_SMW; i += V5_TW * V5_TH) {
-            const int sy = i / V5_SMW, sx = i % V5_SMW;
-            const int gy = tile_y + sy, gx = tile_x + sx;
-            sm[ci][i] = (gy < H && gx < W) ? __ldg(&xc[gy*W+gx]) : 0.0f;
-        }
+    const float* xc = x + (b * C + c) * (H * W);
+
+    // Fill SM using scalar loads (float4 alignment not guaranteed for boundary tiles)
+    for (int i = tid; i < SH4 * SW4; i += TH * TW) {
+        const int sy = i / SW4;
+        const int sx = i % SW4;
+        const int gy = tile_y + sy;
+        const int gx = tile_x + sx;
+        if (sx < 34 && gy < H && gx < W)
+            sm[i] = __ldg(&xc[gy * W + gx]);
+        else
+            sm[i] = 0.0f;
     }
     __syncthreads();
 
-    const int out_y = tile_y + ty, out_x = tile_x + tx;
-    if (out_y >= out_H || out_x >= out_W) return;
+    const int out_y = tile_y + ty;
+    const int out_x = tile_x + tx;
 
-    for (int ci = 0; ci < V5_CH; ci++) {
-        const int bc = bc0 + ci;
-        if (bc >= B * C) continue;
-        const int c = bc % C;
+    if (out_y < out_H && out_x < out_W) {
         const float* wc = w + c * 9;
         float w00 = __ldg(&wc[0]), w01 = __ldg(&wc[1]), w02 = __ldg(&wc[2]);
         float w10 = __ldg(&wc[3]), w11 = __ldg(&wc[4]), w12 = __ldg(&wc[5]);
         float w20 = __ldg(&wc[6]), w21 = __ldg(&wc[7]), w22 = __ldg(&wc[8]);
-        const float* sc = sm[ci];
+
+        // Note: SM uses SW4=36 not SW=34 stride
         float s;
-        s  = w00 * sc[(ty+0)*V5_SMW+(tx+0)] + w01 * sc[(ty+0)*V5_SMW+(tx+1)] + w02 * sc[(ty+0)*V5_SMW+(tx+2)];
-        s += w10 * sc[(ty+1)*V5_SMW+(tx+0)] + w11 * sc[(ty+1)*V5_SMW+(tx+1)] + w12 * sc[(ty+1)*V5_SMW+(tx+2)];
-        s += w20 * sc[(ty+2)*V5_SMW+(tx+0)] + w21 * sc[(ty+2)*V5_SMW+(tx+1)] + w22 * sc[(ty+2)*V5_SMW+(tx+2)];
-        y[bc * (out_H * out_W) + out_y * out_W + out_x] = s;
+        s  = w00 * sm[(ty+0)*SW4 + (tx+0)];
+        s += w01 * sm[(ty+0)*SW4 + (tx+1)];
+        s += w02 * sm[(ty+0)*SW4 + (tx+2)];
+        s += w10 * sm[(ty+1)*SW4 + (tx+0)];
+        s += w11 * sm[(ty+1)*SW4 + (tx+1)];
+        s += w12 * sm[(ty+1)*SW4 + (tx+2)];
+        s += w20 * sm[(ty+2)*SW4 + (tx+0)];
+        s += w21 * sm[(ty+2)*SW4 + (tx+1)];
+        s += w22 * sm[(ty+2)*SW4 + (tx+2)];
+
+        y[(b * C + c) * (out_H * out_W) + out_y * out_W + out_x] = s;
     }
+}
+
+// ─────────────────────────────────────────────────────────────────
+// Kernel v4c: "register-only" approach — no shared memory
+// Each warp of 32 threads processes 32 consecutive output cols in 1 output row
+// Uses __ldg for cached global reads
+// One output row = one pass; grid iterates over rows
+// Block: 1D warp (32 threads), processes 1 output pixel per thread
+// Grid: (ceil(out_W/32), out_H, B*C)
+// ─────────────────────────────────────────────────────────────────
+__global__ void dw_conv_warp_row(
+    const float* __restrict__ x,
+    const float* __restrict__ w,
+    float*       __restrict__ y,
+    int B, int C, int H, int W, int out_H, int out_W
+) {
+    const int bc = blockIdx.z;
+    const int b  = bc / C, c = bc % C;
+    const int out_x = blockIdx.x * 32 + threadIdx.x;
+    const int out_y = blockIdx.y;
+
+    if (out_x >= out_W || out_y >= out_H) return;
+
+    const float* xc = x + (b * C + c) * (H * W);
+    const float* wc = w + c * 9;
+
+    float w00 = __ldg(&wc[0]), w01 = __ldg(&wc[1]), w02 = __ldg(&wc[2]);
+    float w10 = __ldg(&wc[3]), w11 = __ldg(&wc[4]), w12 = __ldg(&wc[5]);
+    float w20 = __ldg(&wc[6]), w21 = __ldg(&wc[7]), w22 = __ldg(&wc[8]);
+
+    float s;
+    s  = w00 * __ldg(&xc[(out_y+0)*W + out_x+0])
+       + w01 * __ldg(&xc[(out_y+0)*W + out_x+1])
+       + w02 * __ldg(&xc[(out_y+0)*W + out_x+2])
+       + w10 * __ldg(&xc[(out_y+1)*W + out_x+0])
+       + w11 * __ldg(&xc[(out_y+1)*W + out_x+1])
+       + w12 * __ldg(&xc[(out_y+1)*W + out_x+2])
+       + w20 * __ldg(&xc[(out_y+2)*W + out_x+0])
+       + w21 * __ldg(&xc[(out_y+2)*W + out_x+1])
+       + w22 * __ldg(&xc[(out_y+2)*W + out_x+2]);
+
+    y[bc * (out_H * out_W) + out_y * out_W + out_x] = s;
 }
 
 // ─────────────────────────────────────────────────────────────────
@@ -252,37 +241,39 @@ void launch_dw_conv(
     const int out_H = y.size(2), out_W = y.size(3);
 
     if (KH == 3 && KW == 3 && stride == 1 && padding == 0) {
-        if (variant == 3) {
-            // Stream kernel: one block per (b,c), out_W threads per block
-            // Needs out_W <= 1024; for 510 we use 512-thread blocks
-            const int blk = ((out_W + 31) / 32) * 32;  // round up to warp
-            const dim3 block(blk);
-            const dim3 grid(C, B);
-            dw_conv_stream_1blk_per_channel<<<grid, block>>>(
+        if (variant == 1) {
+            // 32x32 = 1024 threads, 34x34 SM
+            const dim3 block(TW, TH);
+            const dim3 grid(
+                (out_W + TW - 1) / TW,
+                (out_H + TH - 1) / TH,
+                B * C
+            );
+            dw_conv_32x32<<<grid, block>>>(
                 x.data_ptr<float>(), w.data_ptr<float>(), y.data_ptr<float>(),
                 B, C, H, W, out_H, out_W
             );
-        } else if (variant == 4) {
-            // 32x16 tile, 512 threads
-            const dim3 block(V4_TW, V4_TH);
+        } else if (variant == 2) {
+            // 32x32 with padded SM (36 wide)
+            const dim3 block(TW, TH);
             const dim3 grid(
-                (out_W + V4_TW - 1) / V4_TW,
-                (out_H + V4_TH - 1) / V4_TH,
+                (out_W + TW - 1) / TW,
+                (out_H + TH - 1) / TH,
                 B * C
             );
-            dw_conv_k3s1p0_v4<<<grid, block>>>(
+            dw_conv_32x32_f4<<<grid, block>>>(
                 x.data_ptr<float>(), w.data_ptr<float>(), y.data_ptr<float>(),
                 B, C, H, W, out_H, out_W
             );
         } else {
-            // v5: multi-channel blocks; V5_CH=4 channels per block
-            const dim3 block(V5_TW, V5_TH);
+            // warp-row: no shared mem, direct __ldg
+            const dim3 block(32);
             const dim3 grid(
-                (out_W + V5_TW - 1) / V5_TW,
-                (out_H + V5_TH - 1) / V5_TH,
-                (B * C + V5_CH - 1) / V5_CH
+                (out_W + 31) / 32,
+                out_H,
+                B * C
             );
-            dw_conv_k3s1p0_v5<<<grid, block>>>(
+            dw_conv_warp_row<<<grid, block>>>(
                 x.data_ptr<float>(), w.data_ptr<float>(), y.data_ptr<float>(),
                 B, C, H, W, out_H, out_W
             );
@@ -320,7 +311,7 @@ def _get_mod():
     global _mod
     if _mod is None:
         _mod = load_inline(
-            name="dw_conv2d_noptx_v3",
+            name="dw_conv2d_noptx_v4",
             cpp_sources=_CPP_SOURCE,
             cuda_sources=_CUDA_SOURCE,
             functions=["launch_dw_conv"],
@@ -332,8 +323,7 @@ def _get_mod():
 
 class Model(nn.Module):
     """
-    Depthwise 2-D convolution. Uses variant=4 (32x16, 512-thread blocks)
-    for the standard 3x3 s1p0 case.
+    Depthwise 2-D convolution using 32x32 shared-memory tiling.
     """
     def __init__(self, in_channels: int, kernel_size: int,
                  stride: int = 1, padding: int = 0, bias: bool = False):
@@ -343,7 +333,7 @@ class Model(nn.Module):
             stride=stride, padding=padding,
             groups=in_channels, bias=bias
         )
-        self._variant = 4   # 32x16 tiles with 512 threads
+        self._variant = 1  # 32x32 SM tiles, 1024 threads
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         w = self.conv2d.weight.contiguous()

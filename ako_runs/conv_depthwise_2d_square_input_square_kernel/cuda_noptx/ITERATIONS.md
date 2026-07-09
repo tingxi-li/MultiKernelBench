@@ -26,6 +26,7 @@ Status values: improved / no-change / regression / failed.
 | 1 | Shared-mem tiled CUDA (32x8, KS=3 specialised) | 1.35x | 3.12 ms | improved |
 | 2 | 64x4 tile variant + multi-row variant (32x8x4) | 1.36x | 3.09 ms | improved |
 | 3 | 32x16 tile, 512-thread blocks (v4) | 1.31x | 2.86 ms | improved |
+| 4 | 32x32 tile, 1024-thread blocks + warp-row variant | 1.20x | 3.46 ms | regression |
 
 ## Iterations
 
@@ -64,6 +65,19 @@ Status values: improved / no-change / regression / failed.
   - Speedup: 1.31x (mean) — lower speedup due to variable ref time
 - **Analysis:** Best absolute runtime so far at 2.86ms. Note the ref runtime was only 3.74ms this run (vs 4.2ms before), so speedup ratio looks lower but actual kernel latency improved. The 32x16 tile gives better SM utilisation. Low std (0.135ms) means more stable measurements.
 - **Next:** Try pushing further with: (1) reducing register usage for higher occupancy, (2) loop over rows for the stream variant to reduce block count, (3) try direct global memory reads with __ldg and no shared memory to test if SM overhead isn't worth it for this problem size.
+
+### Iter 4 — 32x32 tiles (1024 threads) regression
+
+- **Hypothesis:** 32x32=1024-thread blocks would give maximum occupancy and better SM utilisation.
+- **Changes:** Added 32x32 SM tiling (1024 threads), padded SW=36 variant, and warp-row (no SM) variant. Used variant=1 (32x32).
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 3.46 ms (mean), 3.37 ~ 4.94 ms (min ~ max)
+  - Speedup: 1.20x
+- **Analysis:** Regression vs iter 3. 32x32 tile with 1024 threads is actually slower than 32x16 with 512 threads. The issue: with 1024 threads/block, each SM can host fewer concurrent blocks (register/SM bandwidth limited). Also, 1024 threads = 32 warps, and the SM is only 1156 floats — very little data reuse. The optimal configuration appears to be 32x16 (512 threads).
+- **Next:** Restore iter 3's 32x16 config. Then try: (1) varying the tile in Y dimension (e.g. 32x8, 32x12, 32x16 comparison), (2) experiment with #pragma unroll for the inner MAC, (3) try occupancy-driven approach with --maxrregcount=32 to allow more resident blocks.
+
 
 
 
