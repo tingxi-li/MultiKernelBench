@@ -25,7 +25,8 @@ Status values: improved / no-change / regression / failed.
 |------|-------|---------|--------------|--------|
 | 1 | Serial-per-thread row reduction | 0.98x | 9.99 ms | no-change |
 | 2 | 2D block: TH_H threads reduce per column, TH_W columns coalesced | 0.97x | 10.1 ms | no-change |
-| 3 | TBD | TBD | TBD | TBD |
+| 3 | Unrolled 8x serial loop, BLOCK_W=256 | 0.99x | 9.85 ms | no-change |
+| 4 | T.Parallel+T.vectorized float4 approach | WRONG | - | failed |
 
 ## Iterations
 
@@ -52,5 +53,30 @@ Status values: improved / no-change / regression / failed.
   - Speedup: 0.97x (mean)
 - **Analysis:** Still slower than baseline. The strided access pattern (each thread reads elements spaced TH_H*W=131KB apart) kills L1/L2 efficiency. The shared memory overhead adds latency without helping bandwidth.
 - **Next:** Analysis: 9.79ms is already very close to theoretical bandwidth limit (~9.94ms at 864GB/s for 8.59GB). The only lever is reducing memory traffic (vector loads) or better cache utilization. Try: larger tile approach with float4 loads, or use the layer_norm style single-row-at-a-time to keep data L2-resident.
+
+### Iter 3 — Unrolled 8x serial loop with BLOCK_W=256
+
+- **Hypothesis:** Manual 8x loop unrolling reduces branch overhead, increasing throughput. BLOCK_W=256 increases occupancy.
+- **Changes:** Changed BLOCK_W from 128 to 256, added manual 8x unrolling with 8 adds per iteration.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 9.85 ms (mean), 9.82 ~ 9.88 ms (min ~ max)
+  - Speedup: 0.99x (mean)
+- **Analysis:** Marginally better than prior attempts but still ~1% slower than PyTorch. The unrolling helps slightly but the bottleneck is memory bandwidth which is already at near-ceiling. The strided access pattern (stride W=16KB per h-step) means each thread is reading from separate cache lines.
+- **Next:** Try T.Parallel + T.vectorized for float4 coalesced reads.
+
+### Iter 4 — T.Parallel + T.vectorized float4 (failed correctness)
+
+- **Hypothesis:** T.Parallel maps iterations to threads, T.vectorized(4) enables float4 loads; each block tile handles BLK_W=1024 output elements with 4-wide vector loads.
+- **Changes:** New kernel using T.Parallel(TH) + T.vectorized(VEC) for vectorized h-loop iteration.
+- **Bench:**
+  - Compiled: True
+  - Correct: False
+  - Runtime: - ms
+  - Speedup: WRONG
+- **Analysis:** Output incorrect. T.vectorized(VEC) inside T.Parallel(TH) does not work as expected - accumulator per-thread/per-vector combination is incorrect. The accumulator needs to be per (thread, vec) but the loop structure may be mixing thread-local and shared state.
+- **Next:** Use a simpler approach - process 4 output elements per thread with explicit indexing, avoiding T.vectorized complexity.
+
 
 
