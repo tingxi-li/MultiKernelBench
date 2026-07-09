@@ -4,12 +4,15 @@ import triton
 import triton.language as tl
 
 
-# Iter 6: Fuse 2 channels per CTA. Each CTA now processes BLOCK_NC=2
-# consecutive (n,c) pairs. This halves the grid size (reduces launch overhead)
-# and both channels' inputs are accessed, allowing the compiler to interleave
-# memory access from both channels to better hide latency.
-# The key insight: with BLOCK_NC=2, the 9-weight loads per kernel position are
-# now shared across 2 channels, and we get 2x output values per launch.
+# Iter 5: For pad=0 (the test case), input is NEVER out-of-bounds:
+#   ih = oh*s + kh (kh in 0..KH-1): max ih = (H_out-1)*s + (KH-1) = H-1 < H
+#   iw = ow*s + kw (kw in 0..KW-1): max iw = (W_out-1)*s + (KW-1) = W-1 < W
+# So the (ih >= 0) & (ih < H) checks are always True for interior elements.
+# We only need the output mask (for the last partial tile).
+# Eliminating the input bounds checks saves ~6 comparisons per inner iteration.
+#
+# For pad>0 or unusual strides we fall back to the general kernel.
+# For pad=0, stride=1, which is the benchmark test case.
 
 @triton.autotune(
     configs=[
@@ -50,7 +53,10 @@ def depthwise_conv2d_nopad_kernel(
     BLOCK_OH: tl.constexpr,
     BLOCK_OW: tl.constexpr,
 ):
-    """Specialized kernel for pad=0. No input bounds checking needed."""
+    """
+    Optimized kernel for pad=0 case.
+    Input coordinates are guaranteed in-bounds: only need output masks.
+    """
     pid_nc = tl.program_id(0)
     pid_oh = tl.program_id(1)
     pid_ow = tl.program_id(2)
@@ -75,13 +81,16 @@ def depthwise_conv2d_nopad_kernel(
     acc = tl.zeros((BLOCK_OH, BLOCK_OW), dtype=tl.float32)
 
     for kh in tl.static_range(KH):
+        # For pad=0: ih = oh*stride_h + kh, always in [0, H-1]
         ih = oh_offs * stride_h + kh
+        ih_masked = ih * mask_h + (ih * (~mask_h) * 0)  # keep 0 for masked rows
 
         for kw in tl.static_range(KW):
             w_val = tl.load(w_c + kh * KW + kw)
 
             iw = ow_offs * stride_w + kw
 
+            # Load only the valid output elements (no input masking needed)
             x_off = ih[:, None] * W + iw[None, :]
             x_val = tl.load(x_nc + x_off, mask=out_mask, other=0.0)
 
@@ -119,7 +128,7 @@ def depthwise_conv2d_general_kernel(
     BLOCK_OH: tl.constexpr,
     BLOCK_OW: tl.constexpr,
 ):
-    """General kernel for pad>0."""
+    """General kernel for pad>0 or unusual strides."""
     pid_nc = tl.program_id(0)
     pid_oh = tl.program_id(1)
     pid_ow = tl.program_id(2)
