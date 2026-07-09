@@ -1,0 +1,175 @@
+============================================================
+REFERENCE SOURCE:
+============================================================
+import torch
+import torch.nn as nn
+
+class Model(nn.Module):
+    """
+    Simple model that performs a single matrix multiplication (C = A * B)
+    """
+    def __init__(self):
+        super(Model, self).__init__()
+    
+    def forward(self, A: torch.Tensor, B: torch.Tensor) -> torch.Tensor:
+        """
+        Performs matrix multiplication.
+
+        Args:
+            A: Input tensor of shape (M, K).
+            B: Input tensor of shape (K, N).
+
+        Returns:
+            Output tensor of shape  ...
+
+============================================================
+MODIFIED SOLUTION SOURCE:
+============================================================
+import torch
+import torch.nn as nn
+from torch.utils.cpp_extension import load_inline
+
+# WMMA-based GEMM using Tensor Cores (fp16 compute, fp32 accumulate)
+# Ampere/Ada architecture supports wmma with fp16 inputs + fp32 accumulation
+# Warp computes 16x16 tile, block has 4 warps => 64x64 block tile
+# Grid partitions M×N accordingly.
+# fp16 tolerance check: bench.py uses float32 tolerance 1e-4; we must match it.
+# We use fp32 input directly loaded from A/B, convert to fp16 for wmma,
+# accumulate in ...
+
+[Eval] Start Evaluation! on device: 0
+[Eval] Loading Original Model
+[Eval] Original Model Loaded
+[Eval] Loading and Compiling New Model with Custom CUDA Kernel
+[Eval] New Model with Custom CUDA Kernel Loaded
+[Eval] Checking Correctness
+[Eval] Generating Random Input with seed 734796314
+[FAIL] trial 0: Output mismatch
+[Eval] Generating Random Input with seed 576165995
+[FAIL] trial 1: Output mismatch
+[Eval] Generating Random Input with seed 2197670066
+[FAIL] trial 2: Output mismatch
+[Eval] Generating Random Input with seed 839703249
+[FAIL] trial 3: Output mismatch
+[Eval] Generating Random Input with seed 2584932063
+[FAIL] trial 4: Output mismatch
+[Eval] Pass count: 0, num_correct_trials: 5
+[Eval] Additional checks to flag excessive speedup
+[Profiling] Using timing method: cuda_event
+[Profiling] Using device: 0 NVIDIA RTX 6000 Ada Generation, warm up 200, trials 100
+Trial 1: 2.89 ms
+Trial 2: 2.9 ms
+Trial 3: 2.9 ms
+Trial 4: 2.88 ms
+Trial 5: 2.87 ms
+Trial 6: 2.88 ms
+Trial 7: 2.89 ms
+Trial 8: 2.87 ms
+Trial 9: 2.88 ms
+Trial 10: 3.68 ms
+Trial 11: 4.1 ms
+Trial 12: 4.09 ms
+Trial 13: 4.1 ms
+Trial 14: 4.1 ms
+Trial 15: 4.24 ms
+Trial 16: 4.24 ms
+Trial 17: 4.24 ms
+Trial 18: 4.24 ms
+Trial 19: 4.24 ms
+Trial 20: 4.24 ms
+Trial 21: 4.24 ms
+Trial 22: 4.24 ms
+Trial 23: 4.23 ms
+Trial 24: 4.19 ms
+Trial 25: 4.19 ms
+Trial 26: 4.19 ms
+Trial 27: 4.18 ms
+Trial 28: 4.27 ms
+Trial 29: 4.29 ms
+Trial 30: 4.29 ms
+Trial 31: 4.29 ms
+Trial 32: 4.27 ms
+Trial 33: 4.24 ms
+Trial 34: 4.24 ms
+Trial 35: 4.23 ms
+Trial 36: 4.24 ms
+Trial 37: 4.28 ms
+Trial 38: 4.28 ms
+Trial 39: 4.29 ms
+Trial 40: 4.29 ms
+Trial 41: 4.29 ms
+Trial 42: 4.29 ms
+Trial 43: 4.28 ms
+Trial 44: 4.29 ms
+Trial 45: 4.29 ms
+Trial 46: 4.29 ms
+Trial 47: 4.29 ms
+Trial 48: 4.29 ms
+Trial 49: 4.29 ms
+Trial 50: 4.29 ms
+Trial 51: 4.29 ms
+Trial 52: 4.28 ms
+Trial 53: 4.29 ms
+Trial 54: 4.27 ms
+Trial 55: 4.24 ms
+Trial 56: 4.24 ms
+Trial 57: 4.24 ms
+Trial 58: 4.24 ms
+Trial 59: 4.29 ms
+Trial 60: 4.29 ms
+Trial 61: 4.29 ms
+Trial 62: 4.29 ms
+Trial 63: 4.29 ms
+Trial 64: 4.29 ms
+Trial 65: 4.29 ms
+Trial 66: 4.29 ms
+Trial 67: 4.28 ms
+Trial 68: 4.19 ms
+Trial 69: 4.19 ms
+Trial 70: 4.19 ms
+Trial 71: 4.19 ms
+Trial 72: 4.27 ms
+Trial 73: 4.29 ms
+Trial 74: 4.29 ms
+Trial 75: 4.29 ms
+Trial 76: 4.27 ms
+Trial 77: 4.24 ms
+Trial 78: 4.24 ms
+Trial 79: 4.23 ms
+Trial 80: 4.24 ms
+Trial 81: 4.24 ms
+Trial 82: 4.24 ms
+Trial 83: 4.24 ms
+Trial 84: 4.24 ms
+Trial 85: 4.24 ms
+Trial 86: 4.24 ms
+Trial 87: 4.24 ms
+Trial 88: 4.24 ms
+Trial 89: 4.24 ms
+Trial 90: 4.24 ms
+Trial 91: 4.24 ms
+Trial 92: 4.24 ms
+Trial 93: 4.24 ms
+Trial 94: 4.23 ms
+Trial 95: 4.24 ms
+Trial 96: 4.24 ms
+Trial 97: 4.24 ms
+Trial 98: 4.23 ms
+Trial 99: 4.19 ms
+Trial 100: 4.19 ms
+[Eval] Effective Speedup is -4.12x using timing method cuda_event
+COMPILED: True
+CORRECT: False
+BACKEND: cuda (auto)
+RUNTIME: -1
+REF_RUNTIME: 4.1200
+SPEEDUP: -1
+
+--- Details ---
+Ref runtime stats: {'mean': 4.12, 'std': 0.396, 'min': 2.87, 'max': 4.29, 'num_trials': 100}
+  hardware: NVIDIA RTX 6000 Ada Generation
+  device: 0
+  max_difference: ['103.681274', '100.477173', '100.901855', '105.212402', '102.092041']
+  avg_difference: ['16.481621', '16.622520', '16.592922', '16.743309', '16.674835']
+  correctness_issue: Output mismatch
+  correctness_trials: (0 / 5)
