@@ -29,6 +29,7 @@ Status values: improved / no-change / regression / failed.
 | 4 | tf32 tensor-core GEMM+gelu fused + softmax | 2.3643x | 2.91 ms | best (kept) |
 | 5 | tf32 larger tensor-core tiles (to 256, BLOCK_K64) | 2.3643x | 2.91 ms | no-change (stall) |
 | 6 | fp16 tensor-core GEMM (cast to fp16 for MMA, acc fp32) | 3.6845x | 1.68 ms | best (kept) |
+| final | fp16 tensor-core GEMM+gelu fused + row-softmax | 3.5965x | 1.71 ms | final |
 
 ## Iterations
 
