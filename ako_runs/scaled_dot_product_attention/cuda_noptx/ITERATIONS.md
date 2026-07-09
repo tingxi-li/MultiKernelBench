@@ -25,6 +25,7 @@ Status values: improved / no-change / regression / failed.
 |------|-------|---------|--------------|--------|
 | 1 | identity baseline (torch SDPA) | 1.0000x | 80.6 ms | baseline (ref) |
 | 2 | v1 3-kernel QKt + softmax + PV (WMMA-tf32, NBANK=1) | 1.7522x | 46.0 ms | improved (BEST) |
+| final | v1 3-kernel QKt + softmax + PV (WMMA-tf32, NBANK=1) | 1.7115x | 36.4 ms | final |
 
 ## Iterations
 
