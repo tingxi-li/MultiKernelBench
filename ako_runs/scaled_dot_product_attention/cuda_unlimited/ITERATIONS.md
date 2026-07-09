@@ -104,3 +104,4 @@ Status values: improved / no-change / regression / failed.
 - **Analysis:** Beats PyTorch reference (58.8ms). The 4× larger tiles dramatically reduce kernel launch overhead and improve warp utilization. With Bc=64 each warp does 4 wmma accumulations per smem load instead of 1. The grid is 4× smaller (256 vs 1024 blocks for QKT), reducing scheduler overhead.
 - **Next:** This is the best result (1.12x). Proceed to [final].
 
+# Final: iter-6 (1.12x) — Bc=64 wmma tile, fp16 Q/K/V, fp32 S
