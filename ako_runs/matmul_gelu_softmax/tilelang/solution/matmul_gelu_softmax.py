@@ -5,41 +5,39 @@ import tilelang.language as T
 
 # matmul_gelu_softmax: x(1024,8192) -> Linear(8192,8192) -> GELU -> softmax(dim=1)
 #
-# Iter 4: Cache transposed fp16 weight to avoid per-call overhead.
-# The weight matrix W is (8192, 8192) fp32. Each forward call:
-#   .half() -> 8192^2 * 2 bytes = 128MB cast
-#   .t().contiguous() -> another 128MB transpose
-# By caching W.t().half() after first call, we eliminate 256MB/fwd of GPU work.
-# Also: use warp_reduce_sum/max helpers from tilelang for cleaner code.
+# Iter 5: Store weight as W (N,K) fp16 (no transpose copy at runtime).
+# The nn.Linear weight is already (N, K) = (8192, 8192) in row-major.
+# Use T.gemm(As, Bs, Acc, transpose_B=True) to compute x @ W^T in-place.
+# This avoids the contiguous() copy needed for .t().
+# Also tune KC=1024 for more SM wave overlap.
 
 _BM    = 128
 _BN    = 128
 _BK    = 64
-_KC    = 2048
+_KC    = 1024   # smaller chunks -> more CTAs -> better SM utilization
 _STAGES = 2
 _GEMM_TH = 256
 
 _SOFT_TH  = 256
-_SOFT_EPT = 8192 // 256   # = 32
-_NWARPS   = 8
-_NLEVELS  = 3             # log2(8)
+_SOFT_EPT = 8192 // 256
 
 sqrt2inv = 0.7071067811865476
 
 
-def _build_splitk_gemm_gelu(M, N, K, BM, BN, BK, KC, stages, th):
+def _build_splitk_gemm_gelu_transB(M, N, K, BM, BN, BK, KC, stages, th):
+    """GEMM with W stored as (N, K) using transpose_B=True."""
     NC = K // KC
 
     @tilelang.jit(out_idx=[-1])
     def _make():
         @T.prim_func
         def main(A:    T.Tensor((M, K), "float16"),
-                 WT:   T.Tensor((K, N), "float16"),
+                 W:    T.Tensor((N, K), "float16"),   # (N, K) stored row-major
                  Bias: T.Tensor((N,),   "float32"),
                  Out:  T.Tensor((M, N), "float32")):
             with T.Kernel(T.ceildiv(N, BN), T.ceildiv(M, BM), threads=th) as (bx, by):
                 As     = T.alloc_shared((BM, BK), "float16")
-                Bs     = T.alloc_shared((BK, BN), "float16")
+                Bs     = T.alloc_shared((BN, BK), "float16")   # (BN, BK) for transposed B
                 Cchunk = T.alloc_fragment((BM, BN), "float32")
                 Cacc   = T.alloc_fragment((BM, BN), "float32")
                 T.clear(Cacc)
@@ -47,8 +45,8 @@ def _build_splitk_gemm_gelu(M, N, K, BM, BN, BK, KC, stages, th):
                     T.clear(Cchunk)
                     for ko in T.Pipelined(KC // BK, num_stages=stages):
                         T.copy(A[by * BM, kc * KC + ko * BK], As)
-                        T.copy(WT[kc * KC + ko * BK, bx * BN], Bs)
-                        T.gemm(As, Bs, Cchunk)
+                        T.copy(W[bx * BN, kc * KC + ko * BK], Bs)
+                        T.gemm(As, Bs, Cchunk, transpose_B=True)
                     for i, j in T.Parallel(BM, BN):
                         Cacc[i, j] += Cchunk[i, j]
                 for i, j in T.Parallel(BM, BN):
@@ -122,7 +120,7 @@ def _build_softmax(M, N, th):
     return _make()
 
 
-_GG = (_build_splitk_gemm_gelu,)
+_GG = (_build_splitk_gemm_gelu_transB,)
 _SS = (_build_softmax,)
 _CACHE: dict = {}
 
@@ -140,18 +138,18 @@ class Model(nn.Module):
     def __init__(self, in_features, out_features):
         super(Model, self).__init__()
         self.linear = nn.Linear(in_features, out_features)
-        self._kg   = None
-        self._ks   = None
-        self._wt   = None   # cached fp16 transposed weight
+        self._kg  = None
+        self._ks  = None
+        self._wh  = None   # cached fp16 weight W (N, K) -- no transpose needed
 
     def forward(self, x):
         M, K = x.shape[0], x.shape[1]
         N    = self.linear.weight.shape[0]
         if self._kg is None:
             self._kg, self._ks = _get(M, N, K)
-        # Cache transposed fp16 weight — only compute once
-        if self._wt is None:
-            self._wt = self.linear.weight.t().contiguous().half()
+        # Cache W.half() in (N, K) layout — no transpose needed
+        if self._wh is None:
+            self._wh = self.linear.weight.half()   # (N, K)
         xh      = x.half()
-        scratch = self._kg(xh, self._wt, self.linear.bias)
+        scratch = self._kg(xh, self._wh, self.linear.bias)
         return self._ks(scratch)

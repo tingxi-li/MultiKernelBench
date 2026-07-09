@@ -27,6 +27,7 @@ Status values: improved / no-change / regression / failed.
 | 2 | Split-K GEMM (KC=2048, NC=4) + GELU epilogue + softmax | 1.8059x | 3.40 ms | improved |
 | 3 | Warp-shuffle softmax + erf-GELU + split-K GEMM | 1.8265x | 3.40 ms | improved |
 | 4 | Cache transposed fp16 weight in __init__ | 4.6090x | 1.33 ms | improved |
+| 5 | transpose_B=True + W stored as (N,K) + KC=1024 | 4.4855x | 1.38 ms | regression |
 
 ## Iterations
 
@@ -77,4 +78,16 @@ Status values: improved / no-change / regression / failed.
   - Speedup: 4.6090x (mean)
 - **Analysis:** Massive win. 3.40ms -> 1.33ms. The weight cast/transpose overhead (~2ms) was dominating steady-state latency. The actual GEMM+GELU+softmax compute is now ~1.33ms.
 - **Next:** Further GEMM tuning (tile sizes, stages). Consider fusing bias into GEMM rather than reading separately. Also try storing weight in column-major for the kernel to avoid the transpose.
+
+### Iter 5 — transpose_B=True with W stored as (N,K) + KC=1024
+
+- **Hypothesis:** Using transpose_B=True in T.gemm avoids the .contiguous() transpose of the weight, which copies 128MB. Also reduced KC=1024 for more CTA parallelism.
+- **Changes:** Kernel takes W in (N,K) layout, uses Bs=(BN,BK) shared mem, T.gemm with transpose_B=True. KC reduced to 1024. Weight cached as W.half() (no transpose).
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 1.38 ms (mean), 1.33 ~ 1.56 ms (min ~ max)
+  - Speedup: 4.4855x (mean)
+- **Analysis:** Regression from iter 4 (1.38ms vs 1.33ms). The transposed layout (K,N) is better for the B tile's memory access pattern (row-contiguous loads). transpose_B adds MMA overhead. iter 4's W.t().contiguous() gives better performance despite the one-time transpose cost.
+- **Next:** Restore iter 4 approach with KC=2048 and try other improvements (larger BM, persistent kernel).
 
