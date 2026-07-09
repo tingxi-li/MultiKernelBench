@@ -2,42 +2,39 @@ import torch
 import torch.nn as nn
 from torch.utils.cpp_extension import load_inline
 
-# Tiled register-blocked SGEMM with vectorized loads
-# BM=BN=128, BK=16, TM=TN=8 => 16x16=256 threads per block
-# Each thread accumulates an 8x8 output tile
+# Optimized register-blocked SGEMM with BK=32 (double the inner loop depth)
+# BM=BN=128, BK=32, TM=TN=8 => 256 threads per block
+# Includes: float4 loads, smem padding, double buffering via register pre-fetch
 SGEMM_SRC = r"""
 #include <cuda_runtime.h>
 
 #define BM 128
 #define BN 128
-#define BK 16
+#define BK 32
 #define TM 8
 #define TN 8
-#define NTHREADS 256  // = (BM/TM) * (BN/TN) = 16 * 16
-
-// Padding to avoid shared-memory bank conflicts
+#define NTHREADS 256   // = (BM/TM) * (BN/TN) = 16 * 16
 #define PAD 4
 
+// Each thread: loads (BM*BK)/(NTHREADS) = 128*32/256 = 16 elems of A, 16 elems of B
+// Vectorized as float4: 16/4 = 4 float4 loads per thread for A, 4 for B
+
 __global__ __launch_bounds__(NTHREADS)
-void sgemm_kernel(const float* __restrict__ A,
-                  const float* __restrict__ B,
-                  float*       __restrict__ C,
-                  int M, int K, int N)
+void sgemm_bk32(const float* __restrict__ A,
+                const float* __restrict__ B,
+                float*       __restrict__ C,
+                int M, int K, int N)
 {
-    // Block tile origin in output matrix
     const int block_row = blockIdx.y * BM;
     const int block_col = blockIdx.x * BN;
 
-    // Thread row/col within block tile
-    const int t = threadIdx.x;
-    const int ty = t / (BN / TN);  // 0..15
-    const int tx = t % (BN / TN);  // 0..15
+    const int t   = threadIdx.x;
+    const int ty  = t / (BN / TN);   // 0..15
+    const int tx  = t % (BN / TN);   // 0..15
 
-    // Shared memory for A and B tiles (no double buffering for simplicity/correctness)
-    __shared__ float smA[BM][BK + PAD];   // 128 x 20
-    __shared__ float smB[BK][BN + PAD];   // 16  x 132
+    __shared__ float smA[BM][BK + PAD];   // 128 x 36
+    __shared__ float smB[BK][BN + PAD];   // 32  x 132
 
-    // Per-thread register accumulators
     float regC[TM][TN];
     #pragma unroll
     for (int i = 0; i < TM; i++)
@@ -45,33 +42,29 @@ void sgemm_kernel(const float* __restrict__ A,
         for (int j = 0; j < TN; j++)
             regC[i][j] = 0.f;
 
-    // Loading patterns:
-    // A tile: BM*BK = 2048 floats; 256 threads => 8 floats/thread = 2 float4s
-    // B tile: BK*BN = 2048 floats; 256 threads => 8 floats/thread = 2 float4s
-
-    const int aN = BM * BK / (4 * NTHREADS);   // = 2
-    const int bN = BK * BN / (4 * NTHREADS);   // = 2
+    // Number of float4 loads per thread per tile: BM*BK/NTHREADS/4 = 4 for A, 4 for B
+    // (4 * NTHREADS = 4 * 256 = 1024; BM*BK = 128*32 = 4096 = 4 * 1024 ✓)
 
     for (int k_base = 0; k_base < K; k_base += BK) {
 
-        // ---- Load A: each thread loads aN float4s ----
-        // Linearize: thread t loads elements at flat indices [t*4*aN .. (t+1)*4*aN)
+        // Load A tile: 4 float4 loads per thread
+        // flat index mapping: thread t handles positions t, t+256, t+512, t+768 in BM*BK
         #pragma unroll
-        for (int li = 0; li < aN; li++) {
-            int flat = (t + li * NTHREADS) * 4;   // flat element index in BM x BK
+        for (int li = 0; li < 4; li++) {
+            int flat = (t + li * NTHREADS) * 4;
             int row  = flat / BK;
-            int col  = flat % BK;
+            int col  = flat % BK;   // always multiple of 4 (BK=32, flat is multiple of 4)
             int gr   = block_row + row;
             int gc   = k_base + col;
             float4 val = {0.f, 0.f, 0.f, 0.f};
-            if (gr < M && gc + 3 < K) {
-                val = *reinterpret_cast<const float4*>(&A[gr * K + gc]);
-            } else if (gr < M) {
-                // partial: load element by element
-                if (gc     < K) val.x = A[gr * K + gc    ];
-                if (gc + 1 < K) val.y = A[gr * K + gc + 1];
-                if (gc + 2 < K) val.z = A[gr * K + gc + 2];
-                if (gc + 3 < K) val.w = A[gr * K + gc + 3];
+            if (gr < M) {
+                if (gc + 3 < K) {
+                    val = *reinterpret_cast<const float4*>(&A[gr * K + gc]);
+                } else {
+                    if (gc     < K) val.x = A[gr * K + gc    ];
+                    if (gc + 1 < K) val.y = A[gr * K + gc + 1];
+                    if (gc + 2 < K) val.z = A[gr * K + gc + 2];
+                }
             }
             smA[row][col]   = val.x;
             smA[row][col+1] = val.y;
@@ -79,22 +72,23 @@ void sgemm_kernel(const float* __restrict__ A,
             smA[row][col+3] = val.w;
         }
 
-        // ---- Load B: each thread loads bN float4s ----
+        // Load B tile: 4 float4 loads per thread
         #pragma unroll
-        for (int li = 0; li < bN; li++) {
-            int flat = (t + li * NTHREADS) * 4;   // flat element index in BK x BN
+        for (int li = 0; li < 4; li++) {
+            int flat = (t + li * NTHREADS) * 4;
             int row  = flat / BN;
             int col  = flat % BN;
             int gr   = k_base + row;
             int gc   = block_col + col;
             float4 val = {0.f, 0.f, 0.f, 0.f};
-            if (gr < K && gc + 3 < N) {
-                val = *reinterpret_cast<const float4*>(&B[gr * N + gc]);
-            } else if (gr < K) {
-                if (gc     < N) val.x = B[gr * N + gc    ];
-                if (gc + 1 < N) val.y = B[gr * N + gc + 1];
-                if (gc + 2 < N) val.z = B[gr * N + gc + 2];
-                if (gc + 3 < N) val.w = B[gr * N + gc + 3];
+            if (gr < K) {
+                if (gc + 3 < N) {
+                    val = *reinterpret_cast<const float4*>(&B[gr * N + gc]);
+                } else {
+                    if (gc     < N) val.x = B[gr * N + gc    ];
+                    if (gc + 1 < N) val.y = B[gr * N + gc + 1];
+                    if (gc + 2 < N) val.z = B[gr * N + gc + 2];
+                }
             }
             smB[row][col]   = val.x;
             smB[row][col+1] = val.y;
@@ -104,7 +98,7 @@ void sgemm_kernel(const float* __restrict__ A,
 
         __syncthreads();
 
-        // ---- Compute 8x8 outer product ----
+        // Inner loop: BK=32 steps
         float regA[TM], regB[TN];
         #pragma unroll
         for (int kk = 0; kk < BK; kk++) {
@@ -128,7 +122,7 @@ void sgemm_kernel(const float* __restrict__ A,
         __syncthreads();
     }
 
-    // ---- Store results ----
+    // Store output with float4 stores
     #pragma unroll
     for (int tm = 0; tm < TM; tm++) {
         int row = block_row + ty * TM + tm;
@@ -137,17 +131,12 @@ void sgemm_kernel(const float* __restrict__ A,
             for (int tn = 0; tn < TN; tn += 4) {
                 int col = block_col + tx * TN + tn;
                 if (col + 3 < N) {
-                    float4 out;
-                    out.x = regC[tm][tn];
-                    out.y = regC[tm][tn+1];
-                    out.z = regC[tm][tn+2];
-                    out.w = regC[tm][tn+3];
+                    float4 out = {regC[tm][tn], regC[tm][tn+1],
+                                  regC[tm][tn+2], regC[tm][tn+3]};
                     *reinterpret_cast<float4*>(&C[row * N + col]) = out;
                 } else {
-                    for (int k = 0; k < 4; k++) {
-                        if (col + k < N)
-                            C[row * N + col + k] = regC[tm][tn + k];
-                    }
+                    for (int k = 0; k < 4 && col + k < N; k++)
+                        C[row * N + col + k] = regC[tm][tn + k];
                 }
             }
         }
@@ -161,7 +150,7 @@ torch::Tensor sgemm(torch::Tensor A, torch::Tensor B) {
     dim3 block(NTHREADS);
     dim3 grid((N + BN - 1) / BN, (M + BM - 1) / BM);
 
-    sgemm_kernel<<<grid, block>>>(
+    sgemm_bk32<<<grid, block>>>(
         A.data_ptr<float>(), B.data_ptr<float>(), C.data_ptr<float>(),
         M, K, N);
     return C;
@@ -169,7 +158,7 @@ torch::Tensor sgemm(torch::Tensor A, torch::Tensor B) {
 """
 
 _ext = load_inline(
-    name="sgemm_v1",
+    name="sgemm_bk32",
     cpp_sources="torch::Tensor sgemm(torch::Tensor A, torch::Tensor B);",
     cuda_sources=SGEMM_SRC,
     functions=["sgemm"],

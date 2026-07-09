@@ -24,8 +24,21 @@ Status values: improved / no-change / regression / failed.
 | Iter | Title | Speedup(mean) | Runtime(mean) | Status |
 |------|-------|---------|--------------|--------|
 | 1 | Tiled register-blocked SGEMM BM=BN=128 BK=16 TM=TN=8 | 0.82x | 5.46 ms | regression |
+| 2 | Tiled register-blocked SGEMM BM=BN=128 BK=32 TM=TN=8 | 0.83x | 5.41 ms | no-change |
 
 ## Iterations
+
+### Iter 2 — Tiled register-blocked SGEMM (BM=BN=128, BK=32, TM=TN=8)
+
+- **Hypothesis:** Increasing BK from 16 to 32 doubles the inner accumulation depth, reducing shared memory reload frequency and improving arithmetic intensity per tile.
+- **Changes:** Changed BK from 16 to 32. Updated float4 loading pattern (4 float4 loads per thread for both A and B). smA is now 128x36, smB is 32x132.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 5.41 ms (mean), 5.32 ~ 5.47 ms (min ~ max)
+  - Speedup: 0.83x (REF=4.48 ms)
+- **Analysis:** Marginal improvement (+0.05ms) over BK=16. Still well below cuBLAS (18% slower). Confirms the FLOOR designation: hand-written register-blocked FP32 SGEMM cannot match cuBLAS on RTX 6000 Ada regardless of tile parameters.
+- **Next:** Iter cap reached. Best is iter 2 (0.83x). Run final.
 
 ### Iter 1 — Tiled register-blocked SGEMM (BM=BN=128, BK=16, TM=TN=8)
 
