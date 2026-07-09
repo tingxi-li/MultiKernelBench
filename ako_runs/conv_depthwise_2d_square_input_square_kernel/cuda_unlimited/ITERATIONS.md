@@ -34,6 +34,7 @@ Status values: improved / no-change / regression / failed.
 | 9 (new-3) | Dual-channel fusion (2 NC-planes/block), NVEC=8 | 1.53x | 2.60 ms | no-change |
 | 10 (new-4) | Register-only, no smem, direct L2 float4 reads | 1.54x | 2.61 ms | no-change |
 | 11 (new-5) | ld.cs streaming loads for smem fill + __launch_bounds__ | 1.53x | 2.66 ms | regression |
+| 12 (new-6) | NVEC=16 (512-wide tile, single block in X for OW=510) | 0.97x | 4.13 ms | regression |
 
 ## Iterations
 
@@ -168,4 +169,16 @@ Status values: improved / no-change / regression / failed.
   - Speedup: 1.53x (mean)
 - **Analysis:** 2.66ms - slightly worse than iter-1 (2.59ms). ld.cs doesn't help because at this scale the L2 cache pressure is not from smem-bound reads competing with computation; the bottleneck is pure HBM bandwidth. The __launch_bounds__(256,4) may be slightly restricting occupancy.
 - **Conclusion (STALL):** 5 new iters tried: NVEC=8 wider tile (1), NVEC=8+RPTS=2 (-), dual-channel (-), register-only (-), ld.cs (-). Best is iter-1 (new) at 2.59ms mean / 1.56x speedup. The kernel is at ~96% of theoretical HBM bandwidth floor (~2.5ms). Will restore iter-1 as final.
+
+### Iter 12 (new iter 6) — NVEC=16 (512x8 tile, single block in X for OW=510)
+
+- **Hypothesis:** For OW=510 < 512, a single block covers the entire output width in X. This eliminates all X-dimension grid overhead. Each thread computes 16 outputs (more ILP). 20.6KB smem (514x10).
+- **Changes:** T6_NVEC=16, T6_OUT_W=512, smem 516x10=20.6KB. 256 threads, __launch_bounds__(256,3).
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 4.13 ms (mean), 3.97 ~ 5.94 ms (min ~ max)
+  - Speedup: 0.97x (mean)
+- **Analysis:** Catastrophically worse. The 20.6KB smem + 54 register slots (18 input values x 3 rows) causes severe register spilling. __launch_bounds__(256,3) forces only 3 blocks/SM → very low occupancy. The large smem is the killer. Iter-1 (NVEC=8, 10.4KB smem) is best.
+- **FINAL CONCLUSION:** All 6 new iters tried. Best = new iter-1 (commit 0e7105d) at 2.59ms / 1.56x. Restoring for final commit.
 
