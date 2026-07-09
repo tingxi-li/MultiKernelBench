@@ -4,42 +4,28 @@ import tilelang
 import tilelang.language as T
 
 # ---------------------------------------------------------------------------
-# Depthwise Conv2D (3x3, stride=1, pad=0) — TileLang iter-4
+# Depthwise Conv2D (3x3, stride=1, pad=0) — TileLang iter-5
 #
-# Reset to proven best: 1-row-per-block, TH=512.
-# This time, try with padding support so the kernel handles general cases,
-# and also try using T.vectorized for potential auto-vectorization.
+# No shared memory: direct global reads via L2 cache.
+# The NVIDIA Ada L2 cache is 96MB; 3 input rows per channel = 3*512*4 = 6KB,
+# fitting 16384 row-triples simultaneously. Consecutive output rows share
+# 2/3 of their input rows, so L2 reuse is high.
 #
-# Actually: try increasing block size to TH=1024 to get 2 warps per block.
-# Wait — W_in=512 fits exactly in TH=512 threads. TH=1024 means half the
-# threads are idle during load. Not better.
+# By removing shmem:
+#  - No sync_threads barrier overhead
+#  - Less shmem register pressure
+#  - Allow more blocks per SM (higher occupancy)
+#  - Each thread reads 9 global locations directly (3 for each of 3 rows)
 #
-# True insight: the prior best (2.65ms) uses 1 block per output row (B*C=1024
-# blocks × 510 rows = 522K block launches). RTX6000Ada has 76 SMs.
-# 522K/76 = 6869 waves. At ~2-3ms per wave, this confirms we're occupancy-limited.
-#
-# Key idea: process B*C*H_out = 522240 "work units" but pack 2 channels per
-# block (share the spatial loads). Since inputs for different channels are
-# different memory locations, this doesn't reduce bandwidth but increases
-# compute density per block.
-#
-# But actually: the bottleneck is reading 3 input rows per output row.
-# Try BF16 reduce: load fp32 inputs, store as fp32 output but compute with
-# 9 MACs using 2-wide FMA to halve compute. Not relevant for fp32.
-#
-# Simplest idea: go back to the exact iter-6 design that achieves 2.65ms
-# but try TH=256 for higher occupancy (2x blocks per SM = more warps
-# to hide memory latency). The shmem is 3*512*4=6KB per block.
-# With TH=256: shmem still 6KB but each block is 256 threads = 8 warps.
-# Current TH=512 = 16 warps. Higher occupancy with smaller blocks?
+# Grid: (B*C, H_out), TH=510 (one thread per output column).
+# Each thread independently accesses 9 L2-cached global locations.
 # ---------------------------------------------------------------------------
 
 _KCACHE = {}
-_TH = 512
+_TH = 510  # exactly W_out: no idle threads, no boundary check needed
 
 
 def _build(B, C, H_in, W_in, H_out, W_out, TH):
-    LOAD_ITERS = (W_in + TH - 1) // TH  # = ceil(512/256) = 2
 
     @tilelang.jit
     def _make():
@@ -53,55 +39,46 @@ def _build(B, C, H_in, W_in, H_out, W_out, TH):
                 tid = T.get_thread_binding(0)
                 c = bc % C
 
-                sh0 = T.alloc_shared((W_in,), T.float32)
-                sh1 = T.alloc_shared((W_in,), T.float32)
-                sh2 = T.alloc_shared((W_in,), T.float32)
-
-                for li in T.serial(LOAD_ITERS):
-                    idx = tid + li * TH
-                    if idx < W_in:
-                        sh0[idx] = X[bc, h,     idx]
-                        sh1[idx] = X[bc, h + 1, idx]
-                        sh2[idx] = X[bc, h + 2, idx]
-
-                T.sync_threads()
-
+                # Load filter into registers (9 floats)
                 wt = T.alloc_local((9,), T.float32)
                 for i in T.serial(9):
                     wt[i] = W[c, i]
 
-                if tid < W_out:
-                    v00 = T.alloc_local((1,), T.float32)
-                    v01 = T.alloc_local((1,), T.float32)
-                    v02 = T.alloc_local((1,), T.float32)
-                    v10 = T.alloc_local((1,), T.float32)
-                    v11 = T.alloc_local((1,), T.float32)
-                    v12 = T.alloc_local((1,), T.float32)
-                    v20 = T.alloc_local((1,), T.float32)
-                    v21 = T.alloc_local((1,), T.float32)
-                    v22 = T.alloc_local((1,), T.float32)
+                # Direct global reads — rely on L2 cache for row reuse
+                # Row h
+                x00 = T.alloc_local((1,), T.float32)
+                x01 = T.alloc_local((1,), T.float32)
+                x02 = T.alloc_local((1,), T.float32)
+                # Row h+1
+                x10 = T.alloc_local((1,), T.float32)
+                x11 = T.alloc_local((1,), T.float32)
+                x12 = T.alloc_local((1,), T.float32)
+                # Row h+2
+                x20 = T.alloc_local((1,), T.float32)
+                x21 = T.alloc_local((1,), T.float32)
+                x22 = T.alloc_local((1,), T.float32)
 
-                    v00[0] = sh0[tid    ]
-                    v01[0] = sh0[tid + 1]
-                    v02[0] = sh0[tid + 2]
-                    v10[0] = sh1[tid    ]
-                    v11[0] = sh1[tid + 1]
-                    v12[0] = sh1[tid + 2]
-                    v20[0] = sh2[tid    ]
-                    v21[0] = sh2[tid + 1]
-                    v22[0] = sh2[tid + 2]
+                x00[0] = X[bc, h,     tid    ]
+                x01[0] = X[bc, h,     tid + 1]
+                x02[0] = X[bc, h,     tid + 2]
+                x10[0] = X[bc, h + 1, tid    ]
+                x11[0] = X[bc, h + 1, tid + 1]
+                x12[0] = X[bc, h + 1, tid + 2]
+                x20[0] = X[bc, h + 2, tid    ]
+                x21[0] = X[bc, h + 2, tid + 1]
+                x22[0] = X[bc, h + 2, tid + 2]
 
-                    acc = T.alloc_local((1,), T.float32)
-                    acc[0]  =             v00[0] * wt[0]
-                    acc[0] = acc[0] + v01[0] * wt[1]
-                    acc[0] = acc[0] + v02[0] * wt[2]
-                    acc[0] = acc[0] + v10[0] * wt[3]
-                    acc[0] = acc[0] + v11[0] * wt[4]
-                    acc[0] = acc[0] + v12[0] * wt[5]
-                    acc[0] = acc[0] + v20[0] * wt[6]
-                    acc[0] = acc[0] + v21[0] * wt[7]
-                    acc[0] = acc[0] + v22[0] * wt[8]
-                    Y[bc, h, tid] = acc[0]
+                acc = T.alloc_local((1,), T.float32)
+                acc[0]  =              x00[0] * wt[0]
+                acc[0] = acc[0] + x01[0] * wt[1]
+                acc[0] = acc[0] + x02[0] * wt[2]
+                acc[0] = acc[0] + x10[0] * wt[3]
+                acc[0] = acc[0] + x11[0] * wt[4]
+                acc[0] = acc[0] + x12[0] * wt[5]
+                acc[0] = acc[0] + x20[0] * wt[6]
+                acc[0] = acc[0] + x21[0] * wt[7]
+                acc[0] = acc[0] + x22[0] * wt[8]
+                Y[bc, h, tid] = acc[0]
 
         return kernel
 
@@ -122,8 +99,9 @@ def _get_kernel(B, C, H_in, W_in, H_out, W_out):
 
 class Model(nn.Module):
     """
-    Depthwise 2D convolution — TileLang iter-4.
-    1-row-per-block, TH=256, 3 shmem rows. Higher occupancy test.
+    Depthwise 2D convolution — TileLang iter-5.
+    No shared memory: direct L2-cached global reads.
+    TH=510 threads: one per output column.
     """
     def __init__(self, in_channels: int, kernel_size: int, stride: int = 1,
                  padding: int = 0, bias: bool = False):
