@@ -27,6 +27,7 @@ Status values: improved / no-change / regression / failed.
 | 2 | Autotune BM/BN/warps/stages | 1.6240x | 38.3 ms | no-change (regression) |
 | 3 | allow_tf32=True + 8 warps + cache hints | 1.6373x | 37.5 ms | no-change (near BW wall) |
 | 4 | D-tiled D_TILE=256, 4 separate dot calls | 1.7235x | 35.8 ms | improved |
+| 5 | D_TILE=512, 2 chunks (larger K-dim for QKT) | 1.6877x | 36.5 ms | no-change (regression vs iter4) |
 
 ## Iterations
 
@@ -77,4 +78,16 @@ Status values: improved / no-change / regression / failed.
   - Speedup: 1.7235x
 - **Analysis:** Better than iter 1 (37.0ms) and iter 3 (37.5ms). The D-tiling reduces register pressure, allowing higher SM occupancy. With 4x D_TILE=256 sub-tiles: SMEM per K/V tile = 32*256*2 = 16 KB, total SMEM ≈ (16+16)*256*2=16 KB vs previous 96 KB. This leaves more L1/SMEM for thread context switching. Min latency of 31.8ms is 9% better than iter 1's 35.1ms min.
 - **Next:** Try varying D_TILE (512, 128) or tuning BN to see if further improvement is possible. Also try 2 warps to reduce occupancy trade-off.
+
+### Iter 5 — D_TILE=512 (2 chunks, larger K-dim for QKT)
+
+- **Hypothesis:** Halving the number of D-tiles (2 vs 4) reduces loop overhead for the D iteration. Larger D_TILE=512 means K-dim=512 for QKT dot products → better tensor core utilization. SMEM: 2*(16+32)*512*2 = 96 KB ✓.
+- **Changes:** D_TILE=512 (was 256), so 2 separate q0/q1, k0/k1, v0/v1, a0/a1 tensors instead of 4. Otherwise same as iter 4.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 36.5 ms (mean), 34.7~38.7 ms (min~max)
+  - Speedup: 1.6877x
+- **Analysis:** Slightly worse than iter 4 (35.8ms). With D_TILE=512, the register footprint for q0,q1,a0,a1 increases: 2*16*512 fp16 + 2*16*512 fp32 = 64K reg elements → more register pressure. The 4-tile approach (D_TILE=256) gives better balance between D-loop overhead and register pressure.
+- **Next:** Iter 4 approach (D_TILE=256, 4 tiles, BN=32) is the best so far. Try adding BM=32 with D_TILE=128 (8 tiles) to give more Q-rows per CTA while keeping SMEM small.
 
