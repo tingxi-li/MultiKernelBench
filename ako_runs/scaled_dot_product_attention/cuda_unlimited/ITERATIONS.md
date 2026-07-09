@@ -27,6 +27,7 @@ Status values: improved / no-change / regression / failed.
 | 2 | smem-tiled FA2 (Br=16, Bc=16, DC=64) | ~0.16x | 363 ms (fast) | regression |
 | 3 | wmma FA2 (Br=64, Bc=64, 4 warps) | 0.17x | 397 ms | regression |
 | 4 | 3-kernel unfused: QKT+softmax+PV (fp32 S) | 0.71x | 84.5 ms | improved |
+| 5 | 3-kernel wmma fixed bh offset, fp16 inputs | 0.75x | 82.4 ms | improved |
 
 ## Iterations
 
@@ -77,4 +78,16 @@ Status values: improved / no-change / regression / failed.
   - Speedup: 0.71x
 - **Analysis:** Closest to target (57ms) so far. S[BH,N,N] = 1024*512*512*4 = 1GB is the bottleneck - writing and reading 1GB kills bandwidth. fp16 S would cut to 512MB saving ~14ms of bandwidth.
 - **Next:** Use fp16 for S matrix (512MB instead of 1GB), saving ~half S bandwidth.
+
+### Iter 5 — 3-kernel wmma fixed bh offset + fp16 inputs
+
+- **Hypothesis:** Fix bh offset bug, use wmma fp16 for QKT/PV, fp32 softmax for correctness
+- **Changes:** Added `blockIdx.z` bh offset to both GEMM kernels; 4 warps per block (64x16 output tile)
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 82.4 ms (mean), 67.8 ~ 153 ms (min ~ max)
+  - Speedup: 0.75x
+- **Analysis:** Best result so far (0.75x). Still below target (1.0x). Main bottlenecks: fp32→fp16 conversion (~22ms) + S matrix bandwidth (2.3ms). Total overhead ~25ms on top of compute. Need fused Flash Attention to eliminate S matrix.
+- **Next:** Fused Flash Attention 2 with wmma tiles: Br=Bc=16, D-tiled QKT+PV, online softmax. Avoids writing S to global memory.
 
