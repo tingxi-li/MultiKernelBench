@@ -33,6 +33,7 @@ Status values: improved / no-change / regression / failed.
 | 8 (new-2) | NVEC=8 RPTS=2 (256x16 tile), float4 smem loads | 1.53x | 2.61 ms | regression |
 | 9 (new-3) | Dual-channel fusion (2 NC-planes/block), NVEC=8 | 1.53x | 2.60 ms | no-change |
 | 10 (new-4) | Register-only, no smem, direct L2 float4 reads | 1.54x | 2.61 ms | no-change |
+| 11 (new-5) | ld.cs streaming loads for smem fill + __launch_bounds__ | 1.53x | 2.66 ms | regression |
 
 ## Iterations
 
@@ -155,4 +156,16 @@ Status values: improved / no-change / regression / failed.
   - Speedup: 1.54x (mean)
 - **Analysis:** 2.61ms - same as other approaches. The smem approach and direct L2 reads are essentially equivalent. The bottleneck is pure memory bandwidth to/from HBM, not smem latency or barrier overhead. We're at the hardware bandwidth limit.
 - **Next (stall reached): iter-1 (NVEC=8, smem, 256x8 tile) remains the best at 2.59ms. Will restore it for final.
+
+### Iter 11 (new iter 5) — ld.cs streaming loads for smem fill + __launch_bounds__(256,4)
+
+- **Hypothesis:** Using ld.cs (cache streaming) PTX instruction for smem fills avoids evicting other L2-cached data, potentially improving cache efficiency for the weight lookups and adjacent channel accesses.
+- **Changes:** Replaced __ldg float4 smem fills with PTX ld.global.cs.v4.f32 instruction. Added __launch_bounds__(256, 4) to hint compiler to limit register spill.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 2.66 ms (mean), 2.60 ~ 3.86 ms (min ~ max)
+  - Speedup: 1.53x (mean)
+- **Analysis:** 2.66ms - slightly worse than iter-1 (2.59ms). ld.cs doesn't help because at this scale the L2 cache pressure is not from smem-bound reads competing with computation; the bottleneck is pure HBM bandwidth. The __launch_bounds__(256,4) may be slightly restricting occupancy.
+- **Conclusion (STALL):** 5 new iters tried: NVEC=8 wider tile (1), NVEC=8+RPTS=2 (-), dual-channel (-), register-only (-), ld.cs (-). Best is iter-1 (new) at 2.59ms mean / 1.56x speedup. The kernel is at ~96% of theoretical HBM bandwidth floor (~2.5ms). Will restore iter-1 as final.
 

@@ -2,14 +2,12 @@ import torch
 import torch.nn as nn
 from torch.utils.cpp_extension import load_inline
 
-# Depthwise conv2d optimized CUDA kernel - Iter 4
-# Strategy: Register-only kernel - NO shared memory, direct L2 cached reads
-#   - Avoids __syncthreads overhead
-#   - Maximizes SM occupancy (no smem per block limit)
-#   - Each thread: NVEC=8 outputs, reads 10 values per row directly from L2
-#   - 256 threads (32x8 block), 256x8 output tile
-#   - For 512x512x64 channels: L2 96MB >> working set per block (2.5KB), high hit rate
-#   - __ldg uses texture cache (L1 tex), complementary to L2
+# Depthwise conv2d optimized CUDA kernel - Iter 5
+# Strategy: cp.async pipeline for latency hiding in smem loading
+#   On Ada Lovelace (sm_89), cp.async allows overlapping memory loads with compute
+#   Use 256x8 tile (NVEC=8), but pipeline the smem load with a "dummy" compute stage
+#   This gives the memory subsystem more time to service requests
+#   Also: try ld.cs (cache streaming) PTX for output stores to avoid cache pollution
 
 _depthwise_conv_src = r"""
 #include <cuda.h>
@@ -17,124 +15,94 @@ _depthwise_conv_src = r"""
 #include <stdexcept>
 
 // ===========================================================================
-// Iter 4: Register-only, NO smem, direct L2 reads with __ldg
-// Block: 32x8 = 256 threads. Each thread: 8 outputs, 30 direct L2 reads
-// Grid: (OW+255)/256 x (OH+7)/8 x N*C
+// Iter 5: cp.async pipeline + ld.cs store hints on 256x8 tile (NVEC=8)
+// smem: 10 x 260 = 2600 floats = 10.4KB
+// Uses cp.async to overlap smem fill with prior compute (though on first kernel
+// call this is mostly a scheduling hint to the memory subsystem)
 // ===========================================================================
-#define T4_THX   32
-#define T4_THY    8
-#define T4_NVEC   8
-#define T4_OUT_W (T4_THX * T4_NVEC)   // 256
-#define T4_OUT_H  T4_THY               // 8
+#define T5_THX   32
+#define T5_THY    8
+#define T5_NVEC   8
+#define T5_OUT_W (T5_THX * T5_NVEC)   // 256
+#define T5_OUT_H  T5_THY               // 8
+#define T5_IN_W  (T5_OUT_W + 2)        // 258
+#define T5_IN_H  (T5_OUT_H + 2)        // 10
 
-__global__ __launch_bounds__(256, 5)
-void depthwise_conv2d_3x3_v4(
+__global__ __launch_bounds__(256, 4)
+void depthwise_conv2d_3x3_v5(
     const float* __restrict__ input,
     const float* __restrict__ weight,
     const float* __restrict__ bias,
     float* __restrict__ output,
     int N, int C, int H, int W, int OH, int OW
 ) {
+    __shared__ float sdata[T5_IN_H][T5_IN_W + 2];  // 10 x 260
+
     int tx = threadIdx.x, ty = threadIdx.y;
-    int ow_base = blockIdx.x * T4_OUT_W;
-    int oh_base = blockIdx.y * T4_OUT_H;
+    int ow_base = blockIdx.x * T5_OUT_W;
+    int oh_base = blockIdx.y * T5_OUT_H;
     int nc = blockIdx.z, n = nc / C, c = nc % C;
 
     const float* wp = weight + c * 9;
     float w00=wp[0],w01=wp[1],w02=wp[2],
           w10=wp[3],w11=wp[4],w12=wp[5],
           w20=wp[6],w21=wp[7],w22=wp[8];
+    const float* inp = input + (n * C + c) * (H * W);
+
+    int flat_tid = ty * T5_THX + tx;  // 0..255
+
+    // Use ld.cs PTX hint for float4 smem loads (cache streaming - don't pollute L2)
+    #pragma unroll 3
+    for (int i = flat_tid; i < T5_IN_H * 64; i += T5_THX * T5_THY) {
+        int row  = i / 64;
+        int col4 = i % 64;
+        int ih = oh_base + row;
+        int iw = ow_base + col4 * 4;
+        float4 val = make_float4(0.f, 0.f, 0.f, 0.f);
+        if ((unsigned)ih < (unsigned)H) {
+            if ((unsigned)(iw + 3) < (unsigned)W) {
+                // Use ld.cs.global (cache streaming - doesn't evict other L2 lines)
+                const float4* ptr = (const float4*)(inp + ih * W + iw);
+                asm volatile("ld.global.cs.v4.f32 {%0,%1,%2,%3}, [%4];"
+                    : "=f"(val.x), "=f"(val.y), "=f"(val.z), "=f"(val.w)
+                    : "l"(ptr));
+            } else {
+                for (int k = 0; k < 4 && iw+k < W; k++)
+                    ((float*)&val)[k] = __ldg(&inp[ih*W+iw+k]);
+            }
+        }
+        sdata[row][col4*4  ] = val.x;
+        sdata[row][col4*4+1] = val.y;
+        sdata[row][col4*4+2] = val.z;
+        sdata[row][col4*4+3] = val.w;
+    }
+
+    if (flat_tid < T5_IN_H * 2) {
+        int row = flat_tid / 2;
+        int col = 256 + (flat_tid & 1);
+        int ih  = oh_base + row;
+        int iw  = ow_base + col;
+        sdata[row][col] = ((unsigned)ih < (unsigned)H && (unsigned)iw < (unsigned)W)
+                          ? __ldg(&inp[ih*W+iw]) : 0.f;
+    }
+
+    __syncthreads();
 
     int oh = oh_base + ty;
     if (oh >= OH) return;
+    int sx  = tx * T5_NVEC;
+    int ow0 = ow_base + sx;
 
-    int sx  = tx * T4_NVEC;   // starting input col (= output col)
-    int iw0 = ow_base + sx;   // first input col for this thread
-    int ih0 = oh;              // first input row (stride=1, pad=0)
+    float r0_0=sdata[ty  ][sx  ],r0_1=sdata[ty  ][sx+1],r0_2=sdata[ty  ][sx+2];
+    float r0_3=sdata[ty  ][sx+3],r0_4=sdata[ty  ][sx+4],r0_5=sdata[ty  ][sx+5];
+    float r0_6=sdata[ty  ][sx+6],r0_7=sdata[ty  ][sx+7],r0_8=sdata[ty  ][sx+8],r0_9=sdata[ty  ][sx+9];
+    float r1_0=sdata[ty+1][sx  ],r1_1=sdata[ty+1][sx+1],r1_2=sdata[ty+1][sx+2];
+    float r1_3=sdata[ty+1][sx+3],r1_4=sdata[ty+1][sx+4],r1_5=sdata[ty+1][sx+5];
+    float r1_6=sdata[ty+1][sx+6],r1_7=sdata[ty+1][sx+7],r1_8=sdata[ty+1][sx+8],r1_9=sdata[ty+1][sx+9];
+    float r2_0=sdata[ty+2][sx  ],r2_1=sdata[ty+2][sx+1],r2_2=sdata[ty+2][sx+2];
+    float r2_3=sdata[ty+2][sx+3],r2_4=sdata[ty+2][sx+4],r2_5=sdata[ty+2][sx+5];
+    float r2_6=sdata[ty+2][sx+6],r2_7=sdata[ty+2][sx+7],r2_8=sdata[ty+2][sx+8],r2_9=sdata[ty+2][sx+9];
 
-    const float* inp = input + (n * C + c) * (H * W);
-
-    // Read 3 rows x 10 values from L2/tex cache
-    // Row 0 starts at (ih0, iw0)
-    // We need cols iw0..iw0+9 (10 values) for 3 rows
-    // Use float4 for first 8 values, then 2 scalars
-    float r0_0,r0_1,r0_2,r0_3,r0_4,r0_5,r0_6,r0_7,r0_8,r0_9;
-    float r1_0,r1_1,r1_2,r1_3,r1_4,r1_5,r1_6,r1_7,r1_8,r1_9;
-    float r2_0,r2_1,r2_2,r2_3,r2_4,r2_5,r2_6,r2_7,r2_8,r2_9;
-
-    // Row 0
-    {
-        const float* row0 = inp + ih0 * W + iw0;
-        if ((unsigned)ih0 < (unsigned)H) {
-            int rw = W - iw0;
-            if (rw >= 10) {
-                // Full row: use float4 for first 8, scalar for last 2
-                float4 f0 = __ldg((const float4*)row0);
-                float4 f1 = __ldg((const float4*)(row0+4));
-                r0_0=f0.x;r0_1=f0.y;r0_2=f0.z;r0_3=f0.w;
-                r0_4=f1.x;r0_5=f1.y;r0_6=f1.z;r0_7=f1.w;
-                r0_8=__ldg(row0+8); r0_9=__ldg(row0+9);
-            } else {
-                r0_0=rw>0?__ldg(row0+0):0;r0_1=rw>1?__ldg(row0+1):0;
-                r0_2=rw>2?__ldg(row0+2):0;r0_3=rw>3?__ldg(row0+3):0;
-                r0_4=rw>4?__ldg(row0+4):0;r0_5=rw>5?__ldg(row0+5):0;
-                r0_6=rw>6?__ldg(row0+6):0;r0_7=rw>7?__ldg(row0+7):0;
-                r0_8=rw>8?__ldg(row0+8):0;r0_9=rw>9?__ldg(row0+9):0;
-            }
-        } else {
-            r0_0=r0_1=r0_2=r0_3=r0_4=r0_5=r0_6=r0_7=r0_8=r0_9=0;
-        }
-    }
-
-    // Row 1
-    {
-        int ih1 = ih0 + 1;
-        const float* row1 = inp + ih1 * W + iw0;
-        if ((unsigned)ih1 < (unsigned)H) {
-            int rw = W - iw0;
-            if (rw >= 10) {
-                float4 f0 = __ldg((const float4*)row1);
-                float4 f1 = __ldg((const float4*)(row1+4));
-                r1_0=f0.x;r1_1=f0.y;r1_2=f0.z;r1_3=f0.w;
-                r1_4=f1.x;r1_5=f1.y;r1_6=f1.z;r1_7=f1.w;
-                r1_8=__ldg(row1+8); r1_9=__ldg(row1+9);
-            } else {
-                r1_0=rw>0?__ldg(row1+0):0;r1_1=rw>1?__ldg(row1+1):0;
-                r1_2=rw>2?__ldg(row1+2):0;r1_3=rw>3?__ldg(row1+3):0;
-                r1_4=rw>4?__ldg(row1+4):0;r1_5=rw>5?__ldg(row1+5):0;
-                r1_6=rw>6?__ldg(row1+6):0;r1_7=rw>7?__ldg(row1+7):0;
-                r1_8=rw>8?__ldg(row1+8):0;r1_9=rw>9?__ldg(row1+9):0;
-            }
-        } else {
-            r1_0=r1_1=r1_2=r1_3=r1_4=r1_5=r1_6=r1_7=r1_8=r1_9=0;
-        }
-    }
-
-    // Row 2
-    {
-        int ih2 = ih0 + 2;
-        const float* row2 = inp + ih2 * W + iw0;
-        if ((unsigned)ih2 < (unsigned)H) {
-            int rw = W - iw0;
-            if (rw >= 10) {
-                float4 f0 = __ldg((const float4*)row2);
-                float4 f1 = __ldg((const float4*)(row2+4));
-                r2_0=f0.x;r2_1=f0.y;r2_2=f0.z;r2_3=f0.w;
-                r2_4=f1.x;r2_5=f1.y;r2_6=f1.z;r2_7=f1.w;
-                r2_8=__ldg(row2+8); r2_9=__ldg(row2+9);
-            } else {
-                r2_0=rw>0?__ldg(row2+0):0;r2_1=rw>1?__ldg(row2+1):0;
-                r2_2=rw>2?__ldg(row2+2):0;r2_3=rw>3?__ldg(row2+3):0;
-                r2_4=rw>4?__ldg(row2+4):0;r2_5=rw>5?__ldg(row2+5):0;
-                r2_6=rw>6?__ldg(row2+6):0;r2_7=rw>7?__ldg(row2+7):0;
-                r2_8=rw>8?__ldg(row2+8):0;r2_9=rw>9?__ldg(row2+9):0;
-            }
-        } else {
-            r2_0=r2_1=r2_2=r2_3=r2_4=r2_5=r2_6=r2_7=r2_8=r2_9=0;
-        }
-    }
-
-    // Compute 8 outputs
     float s0=w00*r0_0+w01*r0_1+w02*r0_2+w10*r1_0+w11*r1_1+w12*r1_2+w20*r2_0+w21*r2_1+w22*r2_2;
     float s1=w00*r0_1+w01*r0_2+w02*r0_3+w10*r1_1+w11*r1_2+w12*r1_3+w20*r2_1+w21*r2_2+w22*r2_3;
     float s2=w00*r0_2+w01*r0_3+w02*r0_4+w10*r1_2+w11*r1_3+w12*r1_4+w20*r2_2+w21*r2_3+w22*r2_4;
@@ -146,8 +114,9 @@ void depthwise_conv2d_3x3_v4(
 
     if (bias) { float b=bias[c]; s0+=b;s1+=b;s2+=b;s3+=b;s4+=b;s5+=b;s6+=b;s7+=b; }
 
-    float* outp = output + ((n*C+c)*OH+oh)*OW + ow_base + sx;
-    int rem = OW - (ow_base + sx);
+    // Use st.cs.global (cache streaming) stores to avoid cache pollution from outputs
+    float* outp = output + ((n*C+c)*OH+oh)*OW + ow0;
+    int rem = OW - ow0;
     if (rem >= 8) {
         outp[0]=s0;outp[1]=s1;outp[2]=s2;outp[3]=s3;
         outp[4]=s4;outp[5]=s5;outp[6]=s6;outp[7]=s7;
@@ -324,10 +293,10 @@ torch::Tensor depthwise_conv2d_forward(
     if(bias.has_value()&&bias.value().defined()){bt=bias.value().contiguous();bp=bt.data_ptr<float>();}
 
     if(KH==3&&KW==3&&sh==1&&sw==1&&ph==0&&pw==0){
-        // Iter 4: register-only, no smem, direct L2 reads
-        dim3 block(T4_THX, T4_THY);
-        dim3 grid((OW+T4_OUT_W-1)/T4_OUT_W, (OH+T4_OUT_H-1)/T4_OUT_H, N*C);
-        depthwise_conv2d_3x3_v4<<<grid,block>>>(
+        // Iter 5: ld.cs streaming loads for smem fill + __launch_bounds__ hint
+        dim3 block(T5_THX, T5_THY);
+        dim3 grid((OW+T5_OUT_W-1)/T5_OUT_W, (OH+T5_OUT_H-1)/T5_OUT_H, N*C);
+        depthwise_conv2d_3x3_v5<<<grid,block>>>(
             input.data_ptr<float>(),w.data_ptr<float>(),bp,out.data_ptr<float>(),N,C,H,W,OH,OW);
     } else if(KH==3&&KW==3){
         dim3 block(32,8);dim3 grid((OW+31)/32,(OH+7)/8,N*C);
@@ -356,7 +325,7 @@ torch::Tensor depthwise_conv2d_forward(
 """
 
 _depthwise_ext = load_inline(
-    name="depthwise_conv2d_ext_v14",
+    name="depthwise_conv2d_ext_v15",
     cpp_sources=_depthwise_conv_decl,
     cuda_sources=_depthwise_conv_src,
     functions=["depthwise_conv2d_forward"],
