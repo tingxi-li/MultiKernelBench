@@ -25,6 +25,7 @@ Status values: improved / no-change / regression / failed.
 |------|-------|---------|--------------|--------|
 | 1 | fp16 T.gemm + GELU epilogue + 2-pass softmax | 1.7853x | 3.40 ms | improved |
 | 2 | Split-K GEMM (KC=2048, NC=4) + GELU epilogue + softmax | 1.8059x | 3.40 ms | improved |
+| 3 | Warp-shuffle softmax + erf-GELU + split-K GEMM | 1.8265x | 3.40 ms | improved |
 
 ## Iterations
 
@@ -51,4 +52,16 @@ Status values: improved / no-change / regression / failed.
   - Speedup: 1.8059x (mean)
 - **Analysis:** Marginal improvement (+0.02x) over iter 1. The GEMM is already saturating fp16 tensor cores regardless of tile count. Both approaches hit the same compute wall. Softmax (1024 blocks of 256 threads, 32 elem/thread) is fast but reads/writes scratch buffer to HBM.
 - **Next:** Try warp_reduce for softmax (avoid tree-reduce shared-mem overhead), try warp_reduce in GELU epilogue, or try a different approach to reduce HBM pressure.
+
+### Iter 3 — Warp-shuffle softmax + erf-GELU + split-K GEMM
+
+- **Hypothesis:** Replacing shared-memory tree-reduce in the softmax with warp shuffle (shfl_down) reduces sync cost. Inter-warp reduce still needs small shared mem for 8 warps.
+- **Changes:** Softmax kernel uses shfl_down(value, delta) for intra-warp max+sum reduction, then tiny 8-element shared-mem step for inter-warp combine. erf-GELU preserved (tanh-GELU fails 1e-4 gate with max_diff 6e-4). Split-K GEMM preserved from iter 2.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 3.40 ms (mean), 3.34 ~ 3.43 ms (min ~ max)
+  - Speedup: 1.8265x (mean)
+- **Analysis:** +0.02x over iter 2. The GEMM absolutely dominates (3.38ms is the compute floor for fp16 tensor-core matmul at this size). Softmax optimization is noise. The system is GEMM-bound.
+- **Next:** Push GEMM tile sizes for better L2 reuse. Try BM=128,BN=128 with warp_group_gemm or larger tiles. Or cache the transposed weight in __init__ to save half() + t() + contiguous() overhead each forward call.
 
