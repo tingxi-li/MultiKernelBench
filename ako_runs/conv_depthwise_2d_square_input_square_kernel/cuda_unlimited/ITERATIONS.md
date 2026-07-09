@@ -32,6 +32,7 @@ Status values: improved / no-change / regression / failed.
 | 7 (new-1) | NVEC=8 wider tile (256 cols/block), float4 smem loads | 1.56x | 2.59 ms | improved |
 | 8 (new-2) | NVEC=8 RPTS=2 (256x16 tile), float4 smem loads | 1.53x | 2.61 ms | regression |
 | 9 (new-3) | Dual-channel fusion (2 NC-planes/block), NVEC=8 | 1.53x | 2.60 ms | no-change |
+| 10 (new-4) | Register-only, no smem, direct L2 float4 reads | 1.54x | 2.61 ms | no-change |
 
 ## Iterations
 
@@ -142,4 +143,16 @@ Status values: improved / no-change / regression / failed.
   - Speedup: 1.53x (mean)
 - **Analysis:** 2.60ms - same as prior iters. The dual-channel approach doesn't help: the larger smem (2x = 20.8KB) limits occupancy, and the doubled register pressure (30 weight registers) causes spilling or scheduling issues. We're firmly at 2.59-2.60ms floor.
 - **Next (final iter): try a register-only approach without smem at all — direct __ldg loads, warp-level coalescing with NVEC=16 or 32. At this scale, L2 cache should provide good hit rate anyway.
+
+### Iter 10 (new iter 4) — Register-only, no smem, direct L2 float4 reads
+
+- **Hypothesis:** Eliminating smem avoids __syncthreads overhead and maximizes SM occupancy. The L2 cache (96MB on Ada) can handle the working set. With NVEC=8, each thread reads 30 values via __ldg/float4 directly from L2 and computes 8 outputs.
+- **Changes:** New kernel v4 with no __shared__ memory. Uses float4 __ldg to read 3 rows x 8 floats + 2 scalar per row = 30 reads. __launch_bounds__(256, 5) hints the compiler.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 2.61 ms (mean), 2.56 ~ 3.85 ms (min ~ max)
+  - Speedup: 1.54x (mean)
+- **Analysis:** 2.61ms - same as other approaches. The smem approach and direct L2 reads are essentially equivalent. The bottleneck is pure memory bandwidth to/from HBM, not smem latency or barrier overhead. We're at the hardware bandwidth limit.
+- **Next (stall reached): iter-1 (NVEC=8, smem, 256x8 tile) remains the best at 2.59ms. Will restore it for final.
 
