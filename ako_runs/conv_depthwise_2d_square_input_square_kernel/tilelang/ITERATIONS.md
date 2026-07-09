@@ -25,6 +25,7 @@ Status values: improved / no-change / regression / failed.
 |------|-------|---------|--------------|--------|
 | 1 | TileLang 1-pixel-per-thread, register-cached filter | 1.47x | 2.70 ms | improved |
 | 2 | Row-per-block shared-mem, unrolled 3x3 kernel | 1.50x | 2.66 ms | improved |
+| 3 | 2D shared-mem (3,W), fused row-load loop | 1.44x | 2.66 ms | no-change |
 
 ## Iterations
 
@@ -51,5 +52,17 @@ Status values: improved / no-change / regression / failed.
   - Speedup: 1.50x (mean)
 - **Analysis:** 1.50x vs 1.47x for iter-1. Small improvement: 2.66ms vs 2.70ms. Shared memory loads for 3 rows + unrolled 3x3 is slightly better. RTX6000 Ada bandwidth ~960 GB/s; with ~4.26 GB total I/O the BW floor is ~4.44ms; we're at 2.66ms which suggests cuDNN's reference is not achieving full BW (it reads/writes partially).
 - **Next:** Try larger tile height (R_ROWS=8) for more row reuse, or different occupancy tuning.
+
+### Iter 3 — 2D shared-mem (3, W_in), fused row-load loop
+
+- **Hypothesis:** Using a 2D (3, W_in) shared-mem array instead of 3 separate 1D arrays may help the compiler generate better code. Fusing the 3 row loads into a single `for fh in serial(3)` loop may improve instruction scheduling.
+- **Changes:** Replace sh0/sh1/sh2 with single sh[3, W_in] array. Single loop loading 3 rows. Same unrolled 3x3 compute.
+- **Bench:**
+  - Compiled: True
+  - Correct: True
+  - Runtime: 2.66 ms (mean), 2.59 ~ 3.82 ms (min ~ max)
+  - Speedup: 1.44x (mean) [note: ref measured 3.82ms vs 3.99ms in iter-2]
+- **Analysis:** Same 2.66ms runtime as iter-2. The speedup difference (1.44 vs 1.50) is due to reference jitter (3.82ms vs 3.99ms). The design is equivalent to iter-2. The performance is stable.
+- **Next:** Try a fundamentally different approach — use the row-per-block design but load fewer rows or try different block sizes. The kernel is at ~2.66ms consistently.
 
 
