@@ -1,0 +1,85 @@
+{
+  "dsl": "tilelang",
+  "variant": "D",
+  "by_warmup": {
+    "0": {
+      "process_medians": [
+        0.986624002456665,
+        0.997376024723053,
+        0.99891197681427,
+        1.0086400508880615,
+        1.0219520330429077
+      ],
+      "ci": {
+        "n_processes": 5,
+        "median_of_medians_ms": 0.99891197681427,
+        "min_ms": 0.986624002456665,
+        "max_ms": 1.0219520330429077,
+        "process_medians_ms": [
+          0.986624002456665,
+          0.997376024723053,
+          0.99891197681427,
+          1.0086400508880615,
+          1.0219520330429077
+        ],
+        "mean_of_medians_ms": 1.0027008175849914,
+        "sd_ms": 0.013295267080000946,
+        "ci95_lo_ms": 0.9861952096225045,
+        "ci95_hi_ms": 1.0192064255474784,
+        "rel_spread_pct": 3.5366510169305236
+      },
+      "per_process": [
+        {
+          "first_half_median": 1.00864,
+          "second_half_median": 0.97587,
+          "drift_pct": -3.248929251269032,
+          "below_midpoint": 87,
+          "above_midpoint": 13,
+          "min": 0.9728,
+          "max": 1.06086,
+          "range_pct": 8.925376916254901
+        },
+        {
+          "first_half_median": 0.9984,
+          "second_half_median": 0.9866250000000001,
+          "drift_pct": -1.179387019230756,
+          "below_midpoint": 81,
+          "above_midpoint": 19,
+          "min": 0.98099,
+          "max": 1.07418,
+          "range_pct": 9.343479917383533
+        },
+        {
+          "first_half_median": 1.02093,
+          "second_half_median": 0.99738,
+          "drift_pct": -2.3067203432164645,
+          "below_midpoint": 85,
+          "above_midpoint": 15,
+          "min": 0.99635,
+          "max": 1.0752,
+          "range_pct": 7.8936040283909445
+        },
+        {
+          "first_half_median": 1.022465,
+          "second_half_median": 0.98714,
+          "drift_pct": -3.4548859863173744,
+          "below_midpoint": 76,
+          "above_midpoint": 24,
+          "min": 0.98509,
+          "max": 1.08749,
+          "range_pct": 10.152284263959396
+        },
+        {
+          "first_half_median": 1.038335,
+          "second_half_median": 1.02093,
+          "drift_pct": -1.6762412901424024,
+          "below_midpoint": 89,
+          "above_midpoint": 11,
+          "min": 1.00864,
+          "max": 1.08851,
+          "range_pct": 7.81545085375998
+        }
+      ]
+    }
+  }
+}

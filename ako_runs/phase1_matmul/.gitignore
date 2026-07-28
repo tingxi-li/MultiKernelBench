@@ -1,0 +1,20 @@
+# Regenerable, and large. Nothing here is a result -- results/ holds the JSON
+# the tables are built from, and it is small enough to keep.
+#
+#   inputs/     385 MB  saved operand tensors. Regenerated bit-identically by
+#                       common._gen() from a fixed seed, so committing them buys
+#                       nothing that the seed does not already guarantee.
+#   .torch_ext/ 310 MB  ninja build tree for the load_inline extensions.
+#   artifacts/   54 MB  PTX/SASS/cubin dumps and ncu CSVs. The *census* of these
+#                       (results/code_inspection.json, results/ncu_matched.json)
+#                       is what the report reads; the raw dumps are for looking
+#                       at by hand.
+#
+# artifacts/figs/ is the exception -- the report embeds those images.
+
+inputs/
+.torch_ext/
+artifacts/*
+!artifacts/figs/
+__pycache__/
+*.pyc

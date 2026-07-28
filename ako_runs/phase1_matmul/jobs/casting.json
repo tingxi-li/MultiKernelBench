@@ -1,0 +1,98 @@
+[
+  {
+    "dsl": "tilelang",
+    "variant": "D",
+    "geom": "primary",
+    "set": "cast=precast"
+  },
+  {
+    "dsl": "tilelang",
+    "variant": "D",
+    "geom": "primary",
+    "set": "cast=in_region"
+  },
+  {
+    "dsl": "tilelang",
+    "variant": "D",
+    "geom": "primary",
+    "set": "cast=on_load"
+  },
+  {
+    "dsl": "triton",
+    "variant": "D",
+    "geom": "primary",
+    "set": "cast=precast"
+  },
+  {
+    "dsl": "triton",
+    "variant": "D",
+    "geom": "primary",
+    "set": "cast=in_region"
+  },
+  {
+    "dsl": "triton",
+    "variant": "D",
+    "geom": "primary",
+    "set": "cast=on_load"
+  },
+  {
+    "dsl": "cuda_noptx",
+    "variant": "D",
+    "geom": "primary",
+    "set": "cast=precast"
+  },
+  {
+    "dsl": "cuda_noptx",
+    "variant": "D",
+    "geom": "primary",
+    "set": "cast=in_region"
+  },
+  {
+    "dsl": "cuda_noptx",
+    "variant": "D",
+    "geom": "primary",
+    "set": "cast=on_load"
+  },
+  {
+    "dsl": "cuda_unlimited",
+    "variant": "D",
+    "geom": "primary",
+    "set": "cast=precast"
+  },
+  {
+    "dsl": "cuda_unlimited",
+    "variant": "D",
+    "geom": "primary",
+    "set": "cast=in_region"
+  },
+  {
+    "dsl": "cuda_unlimited",
+    "variant": "D",
+    "geom": "primary",
+    "set": "cast=on_load"
+  },
+  {
+    "dsl": "tilelang",
+    "variant": "D",
+    "geom": "incumbent",
+    "set": "cast=precast,kc=2048,stages=2"
+  },
+  {
+    "dsl": "tilelang",
+    "variant": "D",
+    "geom": "incumbent",
+    "set": "cast=in_region,kc=2048,stages=2"
+  },
+  {
+    "dsl": "torch",
+    "variant": "B",
+    "geom": "primary",
+    "set": "cast=precast"
+  },
+  {
+    "dsl": "torch",
+    "variant": "B",
+    "geom": "primary",
+    "set": "cast=in_region"
+  }
+]

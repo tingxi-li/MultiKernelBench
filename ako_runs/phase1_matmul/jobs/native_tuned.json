@@ -1,0 +1,458 @@
+[
+  {
+    "dsl": "tilelang",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=128,BN=128,BK=32,stages=2,kc=2048"
+  },
+  {
+    "dsl": "tilelang",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=128,BN=128,BK=32,stages=3,kc=2048"
+  },
+  {
+    "dsl": "tilelang",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=128,BN=128,BK=32,stages=4,kc=2048"
+  },
+  {
+    "dsl": "tilelang",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=128,BN=128,BK=64,stages=2,kc=2048"
+  },
+  {
+    "dsl": "tilelang",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=128,BN=128,BK=64,stages=3,kc=2048"
+  },
+  {
+    "dsl": "tilelang",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=128,BN=256,BK=32,stages=2,kc=2048"
+  },
+  {
+    "dsl": "tilelang",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=128,BN=256,BK=32,stages=3,kc=2048"
+  },
+  {
+    "dsl": "tilelang",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=128,BN=256,BK=32,stages=4,kc=2048"
+  },
+  {
+    "dsl": "tilelang",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=128,BN=256,BK=64,stages=2,kc=2048"
+  },
+  {
+    "dsl": "tilelang",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=256,BN=128,BK=32,stages=2,kc=2048"
+  },
+  {
+    "dsl": "tilelang",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=256,BN=128,BK=32,stages=3,kc=2048"
+  },
+  {
+    "dsl": "tilelang",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=256,BN=128,BK=32,stages=4,kc=2048"
+  },
+  {
+    "dsl": "tilelang",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=256,BN=128,BK=64,stages=2,kc=2048"
+  },
+  {
+    "dsl": "tilelang",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=64,BN=128,BK=64,stages=2,kc=2048"
+  },
+  {
+    "dsl": "tilelang",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=64,BN=128,BK=64,stages=3,kc=2048"
+  },
+  {
+    "dsl": "tilelang",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=64,BN=128,BK=64,stages=4,kc=2048"
+  },
+  {
+    "dsl": "tilelang",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=128,BN=64,BK=64,stages=2,kc=2048"
+  },
+  {
+    "dsl": "tilelang",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=128,BN=64,BK=64,stages=3,kc=2048"
+  },
+  {
+    "dsl": "tilelang",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=128,BN=64,BK=64,stages=4,kc=2048"
+  },
+  {
+    "dsl": "triton",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=128,BN=128,BK=32,stages=2,kc=2048"
+  },
+  {
+    "dsl": "triton",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=128,BN=128,BK=32,stages=3,kc=2048"
+  },
+  {
+    "dsl": "triton",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=128,BN=128,BK=32,stages=4,kc=2048"
+  },
+  {
+    "dsl": "triton",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=128,BN=128,BK=64,stages=2,kc=2048"
+  },
+  {
+    "dsl": "triton",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=128,BN=128,BK=64,stages=3,kc=2048"
+  },
+  {
+    "dsl": "triton",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=128,BN=256,BK=32,stages=2,kc=2048"
+  },
+  {
+    "dsl": "triton",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=128,BN=256,BK=32,stages=3,kc=2048"
+  },
+  {
+    "dsl": "triton",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=128,BN=256,BK=32,stages=4,kc=2048"
+  },
+  {
+    "dsl": "triton",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=128,BN=256,BK=64,stages=2,kc=2048"
+  },
+  {
+    "dsl": "triton",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=256,BN=128,BK=32,stages=2,kc=2048"
+  },
+  {
+    "dsl": "triton",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=256,BN=128,BK=32,stages=3,kc=2048"
+  },
+  {
+    "dsl": "triton",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=256,BN=128,BK=32,stages=4,kc=2048"
+  },
+  {
+    "dsl": "triton",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=256,BN=128,BK=64,stages=2,kc=2048"
+  },
+  {
+    "dsl": "triton",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=64,BN=128,BK=64,stages=2,kc=2048"
+  },
+  {
+    "dsl": "triton",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=64,BN=128,BK=64,stages=3,kc=2048"
+  },
+  {
+    "dsl": "triton",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=64,BN=128,BK=64,stages=4,kc=2048"
+  },
+  {
+    "dsl": "triton",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=128,BN=64,BK=64,stages=2,kc=2048"
+  },
+  {
+    "dsl": "triton",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=128,BN=64,BK=64,stages=3,kc=2048"
+  },
+  {
+    "dsl": "triton",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=128,BN=64,BK=64,stages=4,kc=2048"
+  },
+  {
+    "dsl": "cuda_noptx",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=128,BN=128,BK=32,stages=2,kc=2048"
+  },
+  {
+    "dsl": "cuda_noptx",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=128,BN=128,BK=32,stages=3,kc=2048"
+  },
+  {
+    "dsl": "cuda_noptx",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=128,BN=128,BK=32,stages=4,kc=2048"
+  },
+  {
+    "dsl": "cuda_noptx",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=128,BN=128,BK=64,stages=2,kc=2048"
+  },
+  {
+    "dsl": "cuda_noptx",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=128,BN=128,BK=64,stages=3,kc=2048"
+  },
+  {
+    "dsl": "cuda_noptx",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=128,BN=256,BK=32,stages=2,kc=2048"
+  },
+  {
+    "dsl": "cuda_noptx",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=128,BN=256,BK=32,stages=3,kc=2048"
+  },
+  {
+    "dsl": "cuda_noptx",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=128,BN=256,BK=32,stages=4,kc=2048"
+  },
+  {
+    "dsl": "cuda_noptx",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=128,BN=256,BK=64,stages=2,kc=2048"
+  },
+  {
+    "dsl": "cuda_noptx",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=256,BN=128,BK=32,stages=2,kc=2048"
+  },
+  {
+    "dsl": "cuda_noptx",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=256,BN=128,BK=32,stages=3,kc=2048"
+  },
+  {
+    "dsl": "cuda_noptx",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=256,BN=128,BK=32,stages=4,kc=2048"
+  },
+  {
+    "dsl": "cuda_noptx",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=256,BN=128,BK=64,stages=2,kc=2048"
+  },
+  {
+    "dsl": "cuda_noptx",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=64,BN=128,BK=64,stages=2,kc=2048"
+  },
+  {
+    "dsl": "cuda_noptx",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=64,BN=128,BK=64,stages=3,kc=2048"
+  },
+  {
+    "dsl": "cuda_noptx",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=64,BN=128,BK=64,stages=4,kc=2048"
+  },
+  {
+    "dsl": "cuda_noptx",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=128,BN=64,BK=64,stages=2,kc=2048"
+  },
+  {
+    "dsl": "cuda_noptx",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=128,BN=64,BK=64,stages=3,kc=2048"
+  },
+  {
+    "dsl": "cuda_noptx",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=128,BN=64,BK=64,stages=4,kc=2048"
+  },
+  {
+    "dsl": "cuda_unlimited",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=128,BN=128,BK=32,stages=2,kc=2048"
+  },
+  {
+    "dsl": "cuda_unlimited",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=128,BN=128,BK=32,stages=3,kc=2048"
+  },
+  {
+    "dsl": "cuda_unlimited",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=128,BN=128,BK=32,stages=4,kc=2048"
+  },
+  {
+    "dsl": "cuda_unlimited",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=128,BN=128,BK=64,stages=2,kc=2048"
+  },
+  {
+    "dsl": "cuda_unlimited",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=128,BN=128,BK=64,stages=3,kc=2048"
+  },
+  {
+    "dsl": "cuda_unlimited",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=128,BN=256,BK=32,stages=2,kc=2048"
+  },
+  {
+    "dsl": "cuda_unlimited",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=128,BN=256,BK=32,stages=3,kc=2048"
+  },
+  {
+    "dsl": "cuda_unlimited",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=128,BN=256,BK=32,stages=4,kc=2048"
+  },
+  {
+    "dsl": "cuda_unlimited",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=128,BN=256,BK=64,stages=2,kc=2048"
+  },
+  {
+    "dsl": "cuda_unlimited",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=256,BN=128,BK=32,stages=2,kc=2048"
+  },
+  {
+    "dsl": "cuda_unlimited",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=256,BN=128,BK=32,stages=3,kc=2048"
+  },
+  {
+    "dsl": "cuda_unlimited",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=256,BN=128,BK=32,stages=4,kc=2048"
+  },
+  {
+    "dsl": "cuda_unlimited",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=256,BN=128,BK=64,stages=2,kc=2048"
+  },
+  {
+    "dsl": "cuda_unlimited",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=64,BN=128,BK=64,stages=2,kc=2048"
+  },
+  {
+    "dsl": "cuda_unlimited",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=64,BN=128,BK=64,stages=3,kc=2048"
+  },
+  {
+    "dsl": "cuda_unlimited",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=64,BN=128,BK=64,stages=4,kc=2048"
+  },
+  {
+    "dsl": "cuda_unlimited",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=128,BN=64,BK=64,stages=2,kc=2048"
+  },
+  {
+    "dsl": "cuda_unlimited",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=128,BN=64,BK=64,stages=3,kc=2048"
+  },
+  {
+    "dsl": "cuda_unlimited",
+    "variant": "D",
+    "geom": "primary",
+    "set": "BM=128,BN=64,BK=64,stages=4,kc=2048"
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "dsl": "tilelang_abs",
+    "variant": "H1",
+    "geom": "primary",
+    "set": ""
+  },
+  {
+    "dsl": "tilelang_abs",
+    "variant": "H2",
+    "geom": "primary",
+    "set": ""
+  },
+  {
+    "dsl": "tilelang_abs",
+    "variant": "M1",
+    "geom": "primary",
+    "set": ""
+  },
+  {
+    "dsl": "tilelang_abs",
+    "variant": "M2",
+    "geom": "primary",
+    "set": ""
+  },
+  {
+    "dsl": "tilelang_abs",
+    "variant": "S1",
+    "geom": "primary",
+    "set": ""
+  }
+]

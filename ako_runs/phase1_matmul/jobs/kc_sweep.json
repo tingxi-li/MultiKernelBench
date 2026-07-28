@@ -1,0 +1,242 @@
+[
+  {
+    "dsl": "tilelang",
+    "variant": "C",
+    "geom": "primary",
+    "set": "kc=512"
+  },
+  {
+    "dsl": "tilelang",
+    "variant": "C",
+    "geom": "primary",
+    "set": "kc=1024"
+  },
+  {
+    "dsl": "tilelang",
+    "variant": "C",
+    "geom": "primary",
+    "set": "kc=2048"
+  },
+  {
+    "dsl": "tilelang",
+    "variant": "C",
+    "geom": "primary",
+    "set": "kc=4096"
+  },
+  {
+    "dsl": "tilelang",
+    "variant": "C",
+    "geom": "primary",
+    "set": "kc=8192"
+  },
+  {
+    "dsl": "tilelang",
+    "variant": "D",
+    "geom": "primary",
+    "set": "kc=512"
+  },
+  {
+    "dsl": "tilelang",
+    "variant": "D",
+    "geom": "primary",
+    "set": "kc=1024"
+  },
+  {
+    "dsl": "tilelang",
+    "variant": "D",
+    "geom": "primary",
+    "set": "kc=2048"
+  },
+  {
+    "dsl": "tilelang",
+    "variant": "D",
+    "geom": "primary",
+    "set": "kc=4096"
+  },
+  {
+    "dsl": "tilelang",
+    "variant": "D",
+    "geom": "primary",
+    "set": "kc=8192"
+  },
+  {
+    "dsl": "triton",
+    "variant": "C",
+    "geom": "primary",
+    "set": "kc=512"
+  },
+  {
+    "dsl": "triton",
+    "variant": "C",
+    "geom": "primary",
+    "set": "kc=1024"
+  },
+  {
+    "dsl": "triton",
+    "variant": "C",
+    "geom": "primary",
+    "set": "kc=2048"
+  },
+  {
+    "dsl": "triton",
+    "variant": "C",
+    "geom": "primary",
+    "set": "kc=4096"
+  },
+  {
+    "dsl": "triton",
+    "variant": "C",
+    "geom": "primary",
+    "set": "kc=8192"
+  },
+  {
+    "dsl": "triton",
+    "variant": "D",
+    "geom": "primary",
+    "set": "kc=512"
+  },
+  {
+    "dsl": "triton",
+    "variant": "D",
+    "geom": "primary",
+    "set": "kc=1024"
+  },
+  {
+    "dsl": "triton",
+    "variant": "D",
+    "geom": "primary",
+    "set": "kc=2048"
+  },
+  {
+    "dsl": "triton",
+    "variant": "D",
+    "geom": "primary",
+    "set": "kc=4096"
+  },
+  {
+    "dsl": "triton",
+    "variant": "D",
+    "geom": "primary",
+    "set": "kc=8192"
+  },
+  {
+    "dsl": "cuda_noptx",
+    "variant": "C",
+    "geom": "primary",
+    "set": "kc=512"
+  },
+  {
+    "dsl": "cuda_noptx",
+    "variant": "C",
+    "geom": "primary",
+    "set": "kc=1024"
+  },
+  {
+    "dsl": "cuda_noptx",
+    "variant": "C",
+    "geom": "primary",
+    "set": "kc=2048"
+  },
+  {
+    "dsl": "cuda_noptx",
+    "variant": "C",
+    "geom": "primary",
+    "set": "kc=4096"
+  },
+  {
+    "dsl": "cuda_noptx",
+    "variant": "C",
+    "geom": "primary",
+    "set": "kc=8192"
+  },
+  {
+    "dsl": "cuda_noptx",
+    "variant": "D",
+    "geom": "primary",
+    "set": "kc=512"
+  },
+  {
+    "dsl": "cuda_noptx",
+    "variant": "D",
+    "geom": "primary",
+    "set": "kc=1024"
+  },
+  {
+    "dsl": "cuda_noptx",
+    "variant": "D",
+    "geom": "primary",
+    "set": "kc=2048"
+  },
+  {
+    "dsl": "cuda_noptx",
+    "variant": "D",
+    "geom": "primary",
+    "set": "kc=4096"
+  },
+  {
+    "dsl": "cuda_noptx",
+    "variant": "D",
+    "geom": "primary",
+    "set": "kc=8192"
+  },
+  {
+    "dsl": "cuda_unlimited",
+    "variant": "C",
+    "geom": "primary",
+    "set": "kc=512"
+  },
+  {
+    "dsl": "cuda_unlimited",
+    "variant": "C",
+    "geom": "primary",
+    "set": "kc=1024"
+  },
+  {
+    "dsl": "cuda_unlimited",
+    "variant": "C",
+    "geom": "primary",
+    "set": "kc=2048"
+  },
+  {
+    "dsl": "cuda_unlimited",
+    "variant": "C",
+    "geom": "primary",
+    "set": "kc=4096"
+  },
+  {
+    "dsl": "cuda_unlimited",
+    "variant": "C",
+    "geom": "primary",
+    "set": "kc=8192"
+  },
+  {
+    "dsl": "cuda_unlimited",
+    "variant": "D",
+    "geom": "primary",
+    "set": "kc=512"
+  },
+  {
+    "dsl": "cuda_unlimited",
+    "variant": "D",
+    "geom": "primary",
+    "set": "kc=1024"
+  },
+  {
+    "dsl": "cuda_unlimited",
+    "variant": "D",
+    "geom": "primary",
+    "set": "kc=2048"
+  },
+  {
+    "dsl": "cuda_unlimited",
+    "variant": "D",
+    "geom": "primary",
+    "set": "kc=4096"
+  },
+  {
+    "dsl": "cuda_unlimited",
+    "variant": "D",
+    "geom": "primary",
+    "set": "kc=8192"
+  }
+]

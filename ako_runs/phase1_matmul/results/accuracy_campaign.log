@@ -1,0 +1,33 @@
+== triton.A.128x128x32.kc0.s1.fp32.precast ==
+  rand   pass 20/20 (100%)  maxerr(worst)=0.01465  budget=0.2049  failing_elems=0.000%  bias=-2.814e-05
+  randn  pass 0/20 (0%)  maxerr(worst)=0.0007629  budget=0.002507  failing_elems=0.004%  bias=-6.572e-10
+  -> /home/lxt230026/MultiKernelBench/ako_runs/phase1_matmul/results/accuracy/triton.A.128x128x32.kc0.s1.fp32.precast.json
+== triton.B.128x128x32.kc0.s1.fp16.precast ==
+  rand   pass 0/20 (0%)  maxerr(worst)=0.2349  budget=0.2049  failing_elems=1.130%  bias=-0.1863
+  randn  pass 0/20 (0%)  maxerr(worst)=0.05247  budget=0.002507  failing_elems=78.290%  bias=-2.378e-07
+  -> /home/lxt230026/MultiKernelBench/ako_runs/phase1_matmul/results/accuracy/triton.B.128x128x32.kc0.s1.fp16.precast.json
+== triton.D.128x128x32.kc2048.s3.fp16.precast ==
+  rand   pass 20/20 (100%)  maxerr(worst)=0.09253  budget=0.2049  failing_elems=0.000%  bias=-0.04562
+  randn  pass 0/20 (0%)  maxerr(worst)=0.05282  budget=0.002507  failing_elems=78.262%  bias=-2.308e-07
+  -> /home/lxt230026/MultiKernelBench/ako_runs/phase1_matmul/results/accuracy/triton.D.128x128x32.kc2048.s3.fp16.precast.json
+== triton.C.128x128x32.kc512.s1.fp16.precast ==
+  rand   pass 20/20 (100%)  maxerr(worst)=0.05774  budget=0.2049  failing_elems=0.000%  bias=-0.01063
+  randn  pass 0/20 (0%)  maxerr(worst)=0.05282  budget=0.002507  failing_elems=78.259%  bias=-2.319e-07
+  -> /home/lxt230026/MultiKernelBench/ako_runs/phase1_matmul/results/accuracy/triton.C.128x128x32.kc512.s1.fp16.precast.json
+== triton.C.128x128x32.kc1024.s1.fp16.precast ==
+  rand   pass 20/20 (100%)  maxerr(worst)=0.06909  budget=0.2049  failing_elems=0.000%  bias=-0.02224
+  randn  pass 0/20 (0%)  maxerr(worst)=0.0528  budget=0.002507  failing_elems=78.260%  bias=-2.316e-07
+  -> /home/lxt230026/MultiKernelBench/ako_runs/phase1_matmul/results/accuracy/triton.C.128x128x32.kc1024.s1.fp16.precast.json
+== triton.C.128x128x32.kc2048.s1.fp16.precast ==
+  rand   pass 20/20 (100%)  maxerr(worst)=0.09253  budget=0.2049  failing_elems=0.000%  bias=-0.04562
+  randn  pass 0/20 (0%)  maxerr(worst)=0.05282  budget=0.002507  failing_elems=78.262%  bias=-2.308e-07
+  -> /home/lxt230026/MultiKernelBench/ako_runs/phase1_matmul/results/accuracy/triton.C.128x128x32.kc2048.s1.fp16.precast.json
+== triton.C.128x128x32.kc4096.s1.fp16.precast ==
+  rand   pass 20/20 (100%)  maxerr(worst)=0.1381  budget=0.2049  failing_elems=0.000%  bias=-0.09249
+  randn  pass 0/20 (0%)  maxerr(worst)=0.0527  budget=0.002507  failing_elems=78.267%  bias=-2.348e-07
+  -> /home/lxt230026/MultiKernelBench/ako_runs/phase1_matmul/results/accuracy/triton.C.128x128x32.kc4096.s1.fp16.precast.json
+== triton.C.128x128x32.kc8192.s1.fp16.precast ==
+  rand   pass 0/20 (0%)  maxerr(worst)=0.2349  budget=0.2049  failing_elems=1.130%  bias=-0.1863
+  randn  pass 0/20 (0%)  maxerr(worst)=0.05247  budget=0.002507  failing_elems=78.290%  bias=-2.378e-07
+  -> /home/lxt230026/MultiKernelBench/ako_runs/phase1_matmul/results/accuracy/triton.C.128x128x32.kc8192.s1.fp16.precast.json
+ACCURACY CAMPAIGN DONE

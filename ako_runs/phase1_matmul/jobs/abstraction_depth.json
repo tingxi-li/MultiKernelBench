@@ -1,0 +1,8 @@
+[
+  {
+    "dsl": "tilelang_abs",
+    "variant": "H1",
+    "geom": "primary",
+    "set": "stages=2,x_depth_control=1"
+  }
+]

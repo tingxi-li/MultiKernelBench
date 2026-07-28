@@ -1,0 +1,53 @@
+{
+  "records": [
+    {
+      "dsl": "tilelang",
+      "variant": "A",
+      "cold_compile_s": 10.63255439799832,
+      "self_reported_s": 10.632441116998962
+    },
+    {
+      "dsl": "tilelang",
+      "variant": "D",
+      "cold_compile_s": 5.213671977999184,
+      "self_reported_s": 5.213554088000819
+    },
+    {
+      "dsl": "triton",
+      "variant": "A",
+      "cold_compile_s": 1.3093466620011895,
+      "self_reported_s": 1.308647519999795
+    },
+    {
+      "dsl": "triton",
+      "variant": "D",
+      "cold_compile_s": 1.035129269999743,
+      "self_reported_s": 1.0345751809982175
+    },
+    {
+      "dsl": "cuda_noptx",
+      "variant": "A",
+      "cold_compile_s": 37.93629691699971,
+      "self_reported_s": 36.920626413997525
+    },
+    {
+      "dsl": "cuda_noptx",
+      "variant": "D",
+      "cold_compile_s": 37.274829784997564,
+      "self_reported_s": 36.51817948900134
+    },
+    {
+      "dsl": "cuda_unlimited",
+      "variant": "A",
+      "cold_compile_s": 36.34492987599879,
+      "self_reported_s": 36.23790044099951
+    },
+    {
+      "dsl": "cuda_unlimited",
+      "variant": "D",
+      "cold_compile_s": 36.3292595669991,
+      "self_reported_s": 36.22667410000213
+    }
+  ],
+  "geom": "primary"
+}

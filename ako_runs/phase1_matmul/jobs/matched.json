@@ -1,0 +1,206 @@
+[
+  {
+    "dsl": "tilelang",
+    "variant": "A",
+    "geom": "primary",
+    "set": ""
+  },
+  {
+    "dsl": "tilelang",
+    "variant": "B",
+    "geom": "primary",
+    "set": ""
+  },
+  {
+    "dsl": "tilelang",
+    "variant": "C",
+    "geom": "primary",
+    "set": ""
+  },
+  {
+    "dsl": "tilelang",
+    "variant": "D",
+    "geom": "primary",
+    "set": ""
+  },
+  {
+    "dsl": "triton",
+    "variant": "A",
+    "geom": "primary",
+    "set": ""
+  },
+  {
+    "dsl": "triton",
+    "variant": "B",
+    "geom": "primary",
+    "set": ""
+  },
+  {
+    "dsl": "triton",
+    "variant": "C",
+    "geom": "primary",
+    "set": ""
+  },
+  {
+    "dsl": "triton",
+    "variant": "D",
+    "geom": "primary",
+    "set": ""
+  },
+  {
+    "dsl": "cuda_noptx",
+    "variant": "A",
+    "geom": "primary",
+    "set": ""
+  },
+  {
+    "dsl": "cuda_noptx",
+    "variant": "B",
+    "geom": "primary",
+    "set": ""
+  },
+  {
+    "dsl": "cuda_noptx",
+    "variant": "C",
+    "geom": "primary",
+    "set": ""
+  },
+  {
+    "dsl": "cuda_noptx",
+    "variant": "D",
+    "geom": "primary",
+    "set": ""
+  },
+  {
+    "dsl": "cuda_unlimited",
+    "variant": "A",
+    "geom": "primary",
+    "set": ""
+  },
+  {
+    "dsl": "cuda_unlimited",
+    "variant": "B",
+    "geom": "primary",
+    "set": ""
+  },
+  {
+    "dsl": "cuda_unlimited",
+    "variant": "C",
+    "geom": "primary",
+    "set": ""
+  },
+  {
+    "dsl": "cuda_unlimited",
+    "variant": "D",
+    "geom": "primary",
+    "set": ""
+  },
+  {
+    "dsl": "tilelang",
+    "variant": "A",
+    "geom": "secondary",
+    "set": ""
+  },
+  {
+    "dsl": "tilelang",
+    "variant": "B",
+    "geom": "secondary",
+    "set": ""
+  },
+  {
+    "dsl": "tilelang",
+    "variant": "C",
+    "geom": "secondary",
+    "set": ""
+  },
+  {
+    "dsl": "tilelang",
+    "variant": "D",
+    "geom": "secondary",
+    "set": ""
+  },
+  {
+    "dsl": "triton",
+    "variant": "A",
+    "geom": "secondary",
+    "set": ""
+  },
+  {
+    "dsl": "triton",
+    "variant": "B",
+    "geom": "secondary",
+    "set": ""
+  },
+  {
+    "dsl": "triton",
+    "variant": "C",
+    "geom": "secondary",
+    "set": ""
+  },
+  {
+    "dsl": "triton",
+    "variant": "D",
+    "geom": "secondary",
+    "set": ""
+  },
+  {
+    "dsl": "cuda_noptx",
+    "variant": "A",
+    "geom": "secondary",
+    "set": ""
+  },
+  {
+    "dsl": "cuda_noptx",
+    "variant": "B",
+    "geom": "secondary",
+    "set": ""
+  },
+  {
+    "dsl": "cuda_noptx",
+    "variant": "C",
+    "geom": "secondary",
+    "set": ""
+  },
+  {
+    "dsl": "cuda_noptx",
+    "variant": "D",
+    "geom": "secondary",
+    "set": ""
+  },
+  {
+    "dsl": "cuda_unlimited",
+    "variant": "A",
+    "geom": "secondary",
+    "set": ""
+  },
+  {
+    "dsl": "cuda_unlimited",
+    "variant": "B",
+    "geom": "secondary",
+    "set": ""
+  },
+  {
+    "dsl": "cuda_unlimited",
+    "variant": "C",
+    "geom": "secondary",
+    "set": ""
+  },
+  {
+    "dsl": "cuda_unlimited",
+    "variant": "D",
+    "geom": "secondary",
+    "set": ""
+  },
+  {
+    "dsl": "torch",
+    "variant": "A",
+    "geom": "primary",
+    "set": ""
+  },
+  {
+    "dsl": "torch",
+    "variant": "B",
+    "geom": "primary",
+    "set": ""
+  }
+]

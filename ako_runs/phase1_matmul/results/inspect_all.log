@@ -1,0 +1,22 @@
+2026-07-27 20:53:41  [TileLang:tilelang.jit.kernel:INFO] (kernel.py:130): TileLang begins to compile kernel `main` with `out_idx=[-1]`
+2026-07-27 20:53:50  [TileLang:tilelang.jit.kernel:INFO] (kernel.py:138): TileLang completes to compile kernel `main`
+tilelang.A.128x128x32.kc0.s1.fp32.precast                        HMMA=     0 LDGSTS=   16 LDSM=    0 FFMA=   4096 regs=163 spill=0 smem=32768
+2026-07-27 20:54:08  [TileLang:tilelang.jit.kernel:INFO] (kernel.py:130): TileLang begins to compile kernel `main` with `out_idx=[-1]`
+2026-07-27 20:54:10  [TileLang:tilelang.jit.kernel:INFO] (kernel.py:138): TileLang completes to compile kernel `main`
+tilelang.B.128x128x32.kc0.s1.fp16.precast                        HMMA=    64 LDGSTS=    8 LDSM=   24 FFMA=      0 regs=131 spill=0 smem=16384
+2026-07-27 20:54:15  [TileLang:tilelang.jit.kernel:INFO] (kernel.py:130): TileLang begins to compile kernel `main` with `out_idx=[-1]`
+2026-07-27 20:54:17  [TileLang:tilelang.jit.kernel:INFO] (kernel.py:138): TileLang completes to compile kernel `main`
+tilelang.C.128x128x32.kc2048.s1.fp16.precast                     HMMA=    64 LDGSTS=    8 LDSM=   24 FFMA=      0 regs=191 spill=0 smem=16384
+2026-07-27 20:54:22  [TileLang:tilelang.jit.kernel:INFO] (kernel.py:130): TileLang begins to compile kernel `main` with `out_idx=[-1]`
+2026-07-27 20:54:25  [TileLang:tilelang.jit.kernel:INFO] (kernel.py:138): TileLang completes to compile kernel `main`
+tilelang.D.128x128x32.kc2048.s3.fp16.precast                     HMMA=  2048 LDGSTS=  256 LDSM=  768 FFMA=      0 regs=238 spill=0 smem=49152
+triton.A.128x128x32.kc0.s1.fp32.precast                          HMMA=     0 LDGSTS=    0 LDSM=    0 FFMA=   2048 regs=? spill=? smem=32768
+triton.B.128x128x32.kc0.s1.fp16.precast                          HMMA=    32 LDGSTS=    0 LDSM=   12 FFMA=      0 regs=? spill=? smem=16384
+triton.C.128x128x32.kc2048.s1.fp16.precast                       HMMA=    32 LDGSTS=    0 LDSM=   12 FFMA=      0 regs=? spill=? smem=40960
+triton.D.128x128x32.kc2048.s3.fp16.precast                       HMMA=    32 LDGSTS=   12 LDSM=   12 FFMA=      0 regs=? spill=? smem=65536
+cuda_noptx.A.128x128x32.kc0.s1.fp32.precast                      HMMA=     0 LDGSTS=    0 LDSM=    0 FFMA=   2048 regs=? spill=? smem=32768
+cuda_noptx.B.128x128x32.kc0.s1.fp16.precast                      HMMA=    32 LDGSTS=    0 LDSM=   12 FFMA=      0 regs=? spill=? smem=18944
+cuda_noptx.C.128x128x32.kc2048.s1.fp16.precast                   HMMA=    32 LDGSTS=    0 LDSM=   12 FFMA=      0 regs=? spill=? smem=18944
+cuda_unlimited.D.128x128x32.kc2048.s3.fp16.precast               HMMA=    32 LDGSTS=   12 LDSM=   12 FFMA=      0 regs=168 spill=0 smem=56832
+-> /home/lxt230026/MultiKernelBench/ako_runs/phase1_matmul/results/code_inspection.json  (17 records, 16 from this run)
+-> dumps in /home/lxt230026/MultiKernelBench/ako_runs/phase1_matmul/artifacts/code

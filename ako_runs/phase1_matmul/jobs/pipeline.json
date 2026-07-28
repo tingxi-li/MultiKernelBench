@@ -1,0 +1,98 @@
+[
+  {
+    "dsl": "tilelang",
+    "variant": "D",
+    "geom": "primary",
+    "set": "stages=1"
+  },
+  {
+    "dsl": "tilelang",
+    "variant": "D",
+    "geom": "primary",
+    "set": "stages=2"
+  },
+  {
+    "dsl": "tilelang",
+    "variant": "D",
+    "geom": "primary",
+    "set": "stages=3"
+  },
+  {
+    "dsl": "tilelang",
+    "variant": "D",
+    "geom": "primary",
+    "set": "stages=4"
+  },
+  {
+    "dsl": "triton",
+    "variant": "D",
+    "geom": "primary",
+    "set": "stages=1"
+  },
+  {
+    "dsl": "triton",
+    "variant": "D",
+    "geom": "primary",
+    "set": "stages=2"
+  },
+  {
+    "dsl": "triton",
+    "variant": "D",
+    "geom": "primary",
+    "set": "stages=3"
+  },
+  {
+    "dsl": "triton",
+    "variant": "D",
+    "geom": "primary",
+    "set": "stages=4"
+  },
+  {
+    "dsl": "cuda_noptx",
+    "variant": "D",
+    "geom": "primary",
+    "set": "stages=1"
+  },
+  {
+    "dsl": "cuda_noptx",
+    "variant": "D",
+    "geom": "primary",
+    "set": "stages=2"
+  },
+  {
+    "dsl": "cuda_noptx",
+    "variant": "D",
+    "geom": "primary",
+    "set": "stages=3"
+  },
+  {
+    "dsl": "cuda_noptx",
+    "variant": "D",
+    "geom": "primary",
+    "set": "stages=4"
+  },
+  {
+    "dsl": "cuda_unlimited",
+    "variant": "D",
+    "geom": "primary",
+    "set": "stages=1"
+  },
+  {
+    "dsl": "cuda_unlimited",
+    "variant": "D",
+    "geom": "primary",
+    "set": "stages=2"
+  },
+  {
+    "dsl": "cuda_unlimited",
+    "variant": "D",
+    "geom": "primary",
+    "set": "stages=3"
+  },
+  {
+    "dsl": "cuda_unlimited",
+    "variant": "D",
+    "geom": "primary",
+    "set": "stages=4"
+  }
+]
