@@ -1,0 +1,62 @@
+[
+ {
+  "dsl": "tilelang",
+  "variant": "G",
+  "set": "x_wcache=native"
+ },
+ {
+  "dsl": "tilelang",
+  "variant": "GB",
+  "set": "x_wcache=native"
+ },
+ {
+  "dsl": "tilelang",
+  "variant": "GBG",
+  "set": "x_wcache=native"
+ },
+ {
+  "dsl": "tilelang",
+  "variant": "GBGS",
+  "set": "x_wcache=native"
+ },
+ {
+  "dsl": "triton",
+  "variant": "G",
+  "set": "x_wcache=native"
+ },
+ {
+  "dsl": "triton",
+  "variant": "GB",
+  "set": "x_wcache=native"
+ },
+ {
+  "dsl": "triton",
+  "variant": "GBG",
+  "set": "x_wcache=native"
+ },
+ {
+  "dsl": "triton",
+  "variant": "GBGS",
+  "set": "x_wcache=native"
+ },
+ {
+  "dsl": "torch",
+  "variant": "G",
+  "set": "arith=fp16,x_wcache=native"
+ },
+ {
+  "dsl": "torch",
+  "variant": "GB",
+  "set": "arith=fp16,x_wcache=native"
+ },
+ {
+  "dsl": "torch",
+  "variant": "GBG",
+  "set": "arith=fp16,x_wcache=native"
+ },
+ {
+  "dsl": "torch",
+  "variant": "GBGS",
+  "set": "arith=fp16,x_wcache=native"
+ }
+]

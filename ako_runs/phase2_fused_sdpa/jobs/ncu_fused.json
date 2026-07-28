@@ -1,0 +1,42 @@
+[
+ {
+  "dsl": "tilelang",
+  "variant": "GBGS",
+  "set": "x_wcache=cached"
+ },
+ {
+  "dsl": "triton",
+  "variant": "GBGS",
+  "set": "x_wcache=cached"
+ },
+ {
+  "dsl": "cuda_unlimited",
+  "variant": "GBGS",
+  "set": "x_wcache=cached"
+ },
+ {
+  "dsl": "cuda_noptx",
+  "variant": "GBGS",
+  "set": "x_wcache=cached"
+ },
+ {
+  "dsl": "cuda_unlimited",
+  "variant": "GBGS",
+  "set": "x_wcache=cached,x_epilogue=smem"
+ },
+ {
+  "dsl": "cuda_unlimited",
+  "variant": "GB",
+  "set": "x_wcache=cached,x_epilogue=smem"
+ },
+ {
+  "dsl": "cuda_unlimited",
+  "variant": "GBGS",
+  "set": "x_wcache=cached,x_epilogue=regs"
+ },
+ {
+  "dsl": "cuda_unlimited",
+  "variant": "GB",
+  "set": "x_wcache=cached,x_epilogue=regs"
+ }
+]

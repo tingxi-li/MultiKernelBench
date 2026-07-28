@@ -1,0 +1,16 @@
+# Regenerable, and large. Nothing here is a result -- results/ holds the JSON
+# the tables are built from, and it is small enough to keep. Same policy as
+# phase1_matmul/.gitignore.
+#
+#   inputs/     saved operand tensors. `common2.fused_inputs`/`sdpa_inputs`
+#               regenerate them bit-identically from a fixed seed, so committing
+#               them buys nothing the seed does not already guarantee.
+#   artifacts/  PTX/SASS/cubin dumps and the raw ncu CSVs. The *census* of these
+#               (results/ncu_fused.json, results/ncu_sdpa.json) is what the
+#               report reads; the dumps are for looking at by hand.
+
+inputs/
+artifacts/
+.torch_ext/
+__pycache__/
+*.pyc

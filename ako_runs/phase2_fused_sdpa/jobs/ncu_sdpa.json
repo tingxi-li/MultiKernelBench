@@ -1,0 +1,137 @@
+[
+ {
+  "dsl": "tilelang",
+  "variant": "K3",
+  "set": "x_d=128,x_sdtype=fp32,x_pdtype=fp16"
+ },
+ {
+  "dsl": "tilelang",
+  "variant": "FLASH",
+  "set": "x_d=128,x_sdtype=fp32,x_pdtype=fp16"
+ },
+ {
+  "dsl": "triton",
+  "variant": "K3",
+  "set": "x_d=128,x_sdtype=fp32,x_pdtype=fp16"
+ },
+ {
+  "dsl": "triton",
+  "variant": "FLASH",
+  "set": "x_d=128,x_sdtype=fp32,x_pdtype=fp16"
+ },
+ {
+  "dsl": "cuda_unlimited",
+  "variant": "K3",
+  "set": "x_d=128,x_sdtype=fp32,x_pdtype=fp16"
+ },
+ {
+  "dsl": "cuda_unlimited",
+  "variant": "FLASH",
+  "set": "x_d=128,x_sdtype=fp32,x_pdtype=fp16"
+ },
+ {
+  "dsl": "cuda_noptx",
+  "variant": "K3",
+  "set": "x_d=128,x_sdtype=fp32,x_pdtype=fp16"
+ },
+ {
+  "dsl": "cuda_noptx",
+  "variant": "FLASH",
+  "set": "x_d=128,x_sdtype=fp32,x_pdtype=fp16"
+ },
+ {
+  "dsl": "tilelang",
+  "variant": "K2",
+  "set": "x_d=128,x_sdtype=fp32,x_pdtype=fp16"
+ },
+ {
+  "dsl": "tilelang",
+  "variant": "K3",
+  "set": "x_d=256,x_sdtype=fp32,x_pdtype=fp16"
+ },
+ {
+  "dsl": "tilelang",
+  "variant": "FLASH",
+  "set": "x_d=256,x_sdtype=fp32,x_pdtype=fp16"
+ },
+ {
+  "dsl": "triton",
+  "variant": "K3",
+  "set": "x_d=256,x_sdtype=fp32,x_pdtype=fp16"
+ },
+ {
+  "dsl": "triton",
+  "variant": "FLASH",
+  "set": "x_d=256,x_sdtype=fp32,x_pdtype=fp16"
+ },
+ {
+  "dsl": "cuda_unlimited",
+  "variant": "K3",
+  "set": "x_d=256,x_sdtype=fp32,x_pdtype=fp16"
+ },
+ {
+  "dsl": "cuda_unlimited",
+  "variant": "FLASH",
+  "set": "x_d=256,x_sdtype=fp32,x_pdtype=fp16"
+ },
+ {
+  "dsl": "cuda_noptx",
+  "variant": "K3",
+  "set": "x_d=256,x_sdtype=fp32,x_pdtype=fp16"
+ },
+ {
+  "dsl": "cuda_noptx",
+  "variant": "FLASH",
+  "set": "x_d=256,x_sdtype=fp32,x_pdtype=fp16"
+ },
+ {
+  "dsl": "tilelang",
+  "variant": "K2",
+  "set": "x_d=256,x_sdtype=fp32,x_pdtype=fp16"
+ },
+ {
+  "dsl": "tilelang",
+  "variant": "K3",
+  "set": "x_d=1024,x_sdtype=fp32,x_pdtype=fp16"
+ },
+ {
+  "dsl": "tilelang",
+  "variant": "FLASH",
+  "set": "x_d=1024,x_sdtype=fp32,x_pdtype=fp16"
+ },
+ {
+  "dsl": "triton",
+  "variant": "K3",
+  "set": "x_d=1024,x_sdtype=fp32,x_pdtype=fp16"
+ },
+ {
+  "dsl": "triton",
+  "variant": "FLASH",
+  "set": "x_d=1024,x_sdtype=fp32,x_pdtype=fp16"
+ },
+ {
+  "dsl": "cuda_unlimited",
+  "variant": "K3",
+  "set": "x_d=1024,x_sdtype=fp32,x_pdtype=fp16"
+ },
+ {
+  "dsl": "cuda_unlimited",
+  "variant": "FLASH",
+  "set": "x_d=1024,x_sdtype=fp32,x_pdtype=fp16"
+ },
+ {
+  "dsl": "cuda_noptx",
+  "variant": "K3",
+  "set": "x_d=1024,x_sdtype=fp32,x_pdtype=fp16"
+ },
+ {
+  "dsl": "cuda_noptx",
+  "variant": "FLASH",
+  "set": "x_d=1024,x_sdtype=fp32,x_pdtype=fp16"
+ },
+ {
+  "dsl": "tilelang",
+  "variant": "K2",
+  "set": "x_d=1024,x_sdtype=fp32,x_pdtype=fp16"
+ }
+]

@@ -1,0 +1,27 @@
+[
+ {
+  "dsl": "tilelang",
+  "variant": "GBGS",
+  "set": "cast=in_region,x_wcache=cached"
+ },
+ {
+  "dsl": "triton",
+  "variant": "GBGS",
+  "set": "cast=in_region,x_wcache=cached"
+ },
+ {
+  "dsl": "cuda_noptx",
+  "variant": "GBGS",
+  "set": "cast=in_region,x_wcache=cached"
+ },
+ {
+  "dsl": "cuda_unlimited",
+  "variant": "GBGS",
+  "set": "cast=in_region,x_wcache=cached"
+ },
+ {
+  "dsl": "torch",
+  "variant": "GBGS",
+  "set": "arith=fp16,x_wcache=cached"
+ }
+]

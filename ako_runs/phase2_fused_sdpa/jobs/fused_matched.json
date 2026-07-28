@@ -1,0 +1,242 @@
+[
+ {
+  "dsl": "tilelang",
+  "variant": "G",
+  "set": "x_wcache=cached"
+ },
+ {
+  "dsl": "tilelang",
+  "variant": "GB",
+  "set": "x_wcache=cached"
+ },
+ {
+  "dsl": "tilelang",
+  "variant": "GBG",
+  "set": "x_wcache=cached"
+ },
+ {
+  "dsl": "tilelang",
+  "variant": "GBGS",
+  "set": "x_wcache=cached"
+ },
+ {
+  "dsl": "triton",
+  "variant": "G",
+  "set": "x_wcache=cached"
+ },
+ {
+  "dsl": "triton",
+  "variant": "GB",
+  "set": "x_wcache=cached"
+ },
+ {
+  "dsl": "triton",
+  "variant": "GBG",
+  "set": "x_wcache=cached"
+ },
+ {
+  "dsl": "triton",
+  "variant": "GBGS",
+  "set": "x_wcache=cached"
+ },
+ {
+  "dsl": "cuda_noptx",
+  "variant": "G",
+  "set": "x_wcache=cached"
+ },
+ {
+  "dsl": "cuda_noptx",
+  "variant": "GB",
+  "set": "x_wcache=cached"
+ },
+ {
+  "dsl": "cuda_noptx",
+  "variant": "GBG",
+  "set": "x_wcache=cached"
+ },
+ {
+  "dsl": "cuda_noptx",
+  "variant": "GBGS",
+  "set": "x_wcache=cached"
+ },
+ {
+  "dsl": "cuda_unlimited",
+  "variant": "G",
+  "set": "x_wcache=cached"
+ },
+ {
+  "dsl": "cuda_unlimited",
+  "variant": "GB",
+  "set": "x_wcache=cached"
+ },
+ {
+  "dsl": "cuda_unlimited",
+  "variant": "GBG",
+  "set": "x_wcache=cached"
+ },
+ {
+  "dsl": "cuda_unlimited",
+  "variant": "GBGS",
+  "set": "x_wcache=cached"
+ },
+ {
+  "dsl": "torch",
+  "variant": "G",
+  "set": "arith=fp32,x_wcache=cached"
+ },
+ {
+  "dsl": "torch",
+  "variant": "GB",
+  "set": "arith=fp32,x_wcache=cached"
+ },
+ {
+  "dsl": "torch",
+  "variant": "GBG",
+  "set": "arith=fp32,x_wcache=cached"
+ },
+ {
+  "dsl": "torch",
+  "variant": "GBGS",
+  "set": "arith=fp32,x_wcache=cached"
+ },
+ {
+  "dsl": "torch",
+  "variant": "G",
+  "set": "arith=fp16,x_wcache=cached"
+ },
+ {
+  "dsl": "torch",
+  "variant": "GB",
+  "set": "arith=fp16,x_wcache=cached"
+ },
+ {
+  "dsl": "torch",
+  "variant": "GBG",
+  "set": "arith=fp16,x_wcache=cached"
+ },
+ {
+  "dsl": "torch",
+  "variant": "GBGS",
+  "set": "arith=fp16,x_wcache=cached"
+ },
+ {
+  "dsl": "tilelang",
+  "variant": "G",
+  "set": "x_wcache=uncached"
+ },
+ {
+  "dsl": "tilelang",
+  "variant": "GB",
+  "set": "x_wcache=uncached"
+ },
+ {
+  "dsl": "tilelang",
+  "variant": "GBG",
+  "set": "x_wcache=uncached"
+ },
+ {
+  "dsl": "tilelang",
+  "variant": "GBGS",
+  "set": "x_wcache=uncached"
+ },
+ {
+  "dsl": "triton",
+  "variant": "G",
+  "set": "x_wcache=uncached"
+ },
+ {
+  "dsl": "triton",
+  "variant": "GB",
+  "set": "x_wcache=uncached"
+ },
+ {
+  "dsl": "triton",
+  "variant": "GBG",
+  "set": "x_wcache=uncached"
+ },
+ {
+  "dsl": "triton",
+  "variant": "GBGS",
+  "set": "x_wcache=uncached"
+ },
+ {
+  "dsl": "cuda_noptx",
+  "variant": "G",
+  "set": "x_wcache=uncached"
+ },
+ {
+  "dsl": "cuda_noptx",
+  "variant": "GB",
+  "set": "x_wcache=uncached"
+ },
+ {
+  "dsl": "cuda_noptx",
+  "variant": "GBG",
+  "set": "x_wcache=uncached"
+ },
+ {
+  "dsl": "cuda_noptx",
+  "variant": "GBGS",
+  "set": "x_wcache=uncached"
+ },
+ {
+  "dsl": "cuda_unlimited",
+  "variant": "G",
+  "set": "x_wcache=uncached"
+ },
+ {
+  "dsl": "cuda_unlimited",
+  "variant": "GB",
+  "set": "x_wcache=uncached"
+ },
+ {
+  "dsl": "cuda_unlimited",
+  "variant": "GBG",
+  "set": "x_wcache=uncached"
+ },
+ {
+  "dsl": "cuda_unlimited",
+  "variant": "GBGS",
+  "set": "x_wcache=uncached"
+ },
+ {
+  "dsl": "torch",
+  "variant": "G",
+  "set": "arith=fp32,x_wcache=uncached"
+ },
+ {
+  "dsl": "torch",
+  "variant": "GB",
+  "set": "arith=fp32,x_wcache=uncached"
+ },
+ {
+  "dsl": "torch",
+  "variant": "GBG",
+  "set": "arith=fp32,x_wcache=uncached"
+ },
+ {
+  "dsl": "torch",
+  "variant": "GBGS",
+  "set": "arith=fp32,x_wcache=uncached"
+ },
+ {
+  "dsl": "torch",
+  "variant": "G",
+  "set": "arith=fp16,x_wcache=uncached"
+ },
+ {
+  "dsl": "torch",
+  "variant": "GB",
+  "set": "arith=fp16,x_wcache=uncached"
+ },
+ {
+  "dsl": "torch",
+  "variant": "GBG",
+  "set": "arith=fp16,x_wcache=uncached"
+ },
+ {
+  "dsl": "torch",
+  "variant": "GBGS",
+  "set": "arith=fp16,x_wcache=uncached"
+ }
+]
