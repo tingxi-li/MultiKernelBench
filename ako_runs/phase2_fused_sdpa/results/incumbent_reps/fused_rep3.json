@@ -1,0 +1,97 @@
+{
+  "records": [
+    {
+      "who": "torch_fp32",
+      "flush_l2": true,
+      "ms": 7.000063896179199
+    },
+    {
+      "who": "torch_fp32",
+      "flush_l2": false,
+      "ms": 6.892320156097412
+    },
+    {
+      "who": "torch_fp16",
+      "flush_l2": true,
+      "ms": 1.7285120487213135
+    },
+    {
+      "who": "torch_fp16",
+      "flush_l2": false,
+      "ms": 1.7817599773406982
+    },
+    {
+      "who": "tilelang",
+      "gate_pass": true,
+      "max_abs_err": 1.5264959074556828e-07,
+      "pct_elems_failing_gate": 0.0,
+      "ms_flush1": 1.7571840286254883,
+      "ms_flush0": 1.7210880517959595,
+      "vs_fp32": 4.004629599807668,
+      "vs_fp16": 1.035252075267984
+    },
+    {
+      "who": "triton",
+      "gate_pass": true,
+      "max_abs_err": 3.3044489100575447e-07,
+      "pct_elems_failing_gate": 0.0,
+      "ms_flush1": 1.1898880004882812,
+      "ms_flush0": 1.2031999826431274,
+      "vs_fp32": 5.728324680454799,
+      "vs_fp16": 1.4808510663594094
+    },
+    {
+      "who": "cuda_noptx",
+      "gate_pass": true,
+      "max_abs_err": 3.259629011154175e-09,
+      "pct_elems_failing_gate": 0.0,
+      "ms_flush1": 7.061503887176514,
+      "ms_flush0": 6.8433918952941895,
+      "vs_fp32": 1.0071497090261436,
+      "vs_fp16": 0.2603621134960739
+    },
+    {
+      "who": "cuda_unlimited",
+      "gate_pass": false,
+      "max_abs_err": 0.0006216924084583297,
+      "pct_elems_failing_gate": 1.6666889190673828,
+      "ms_flush1": 5.06879997253418,
+      "ms_flush0": 4.843232154846191,
+      "vs_fp32": 1.4230827546023952,
+      "vs_fp16": 0.36788655186760966
+    }
+  ],
+  "gate_sensitivity": {
+    "uniform_1_over_N": {
+      "pct_pass": 99.31446313858032,
+      "max_abs_err": 0.000620504841208458,
+      "gate_pass": false
+    },
+    "row_mean": {
+      "pct_pass": 99.31446313858032,
+      "max_abs_err": 0.000620504841208458,
+      "gate_pass": false
+    },
+    "zeros": {
+      "pct_pass": 10.906338691711426,
+      "max_abs_err": 0.000742575153708458,
+      "gate_pass": false
+    },
+    "shuffled_rows": {
+      "pct_pass": 99.85779523849487,
+      "max_abs_err": 0.00035980576649308205,
+      "gate_pass": false
+    },
+    "_ref_scale": {
+      "mean": 0.0001220703125,
+      "max": 0.000742575153708458,
+      "min": 9.650643914937973e-05,
+      "median_tol": 0.00010001150803873315
+    }
+  },
+  "shape": {
+    "M": 1024,
+    "K": 8192,
+    "N": 8192
+  }
+}

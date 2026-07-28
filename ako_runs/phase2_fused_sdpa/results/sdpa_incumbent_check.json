@@ -1,0 +1,96 @@
+{
+  "head_dim": 1024,
+  "records": [
+    {
+      "who": "torch_sdpa_fp32",
+      "ms": 61.58028793334961,
+      "note": "published denominator",
+      "ms_ci95": [
+        61.42131303841705,
+        61.66982313101655
+      ],
+      "ms_n": 5
+    },
+    {
+      "who": "torch_sdpa_fp16",
+      "ms": 23.158592224121094,
+      "note": "precision-matched denominator",
+      "ms_ci95": [
+        23.07595777329358,
+        23.32578325453845
+      ],
+      "ms_n": 5
+    },
+    {
+      "who": "tilelang",
+      "ms": 24.39776039123535,
+      "vs_fp32_ref": 2.5240139646371684,
+      "vs_fp16_ref": 0.9492097574841576,
+      "max_abs_err": 4.5627355575561523e-05,
+      "gate_pass": true,
+      "pct_elems_failing_gate": 0.0,
+      "max_err_vs_fp64": null,
+      "oracle_max_err_vs_fp64_subset": 6.7847623541617e-07,
+      "ms_ci95": [
+        24.35242650094422,
+        24.49151575979797
+      ],
+      "ms_n": 5
+    },
+    {
+      "who": "triton",
+      "ms": 36.20659255981445,
+      "vs_fp32_ref": 1.7008031847133087,
+      "vs_fp16_ref": 0.6396236316870293,
+      "max_abs_err": 4.5180320739746094e-05,
+      "gate_pass": true,
+      "pct_elems_failing_gate": 0.0,
+      "max_err_vs_fp64": null,
+      "oracle_max_err_vs_fp64_subset": 6.7847623541617e-07,
+      "ms_ci95": [
+        36.02522003685495,
+        36.2970059152935
+      ],
+      "ms_n": 5
+    },
+    {
+      "who": "cuda_noptx",
+      "ms": 62.499839782714844,
+      "vs_fp32_ref": 0.9852871326940658,
+      "vs_fp16_ref": 0.37053842545250665,
+      "max_abs_err": 0.0,
+      "gate_pass": true,
+      "pct_elems_failing_gate": 0.0,
+      "max_err_vs_fp64": null,
+      "oracle_max_err_vs_fp64_subset": 6.7847623541617e-07,
+      "ms_ci95": [
+        62.34117867980543,
+        62.68035147156176
+      ],
+      "ms_n": 5
+    },
+    {
+      "who": "cuda_unlimited",
+      "ms": 55.28268814086914,
+      "vs_fp32_ref": 1.1139163091424422,
+      "vs_fp16_ref": 0.4189121948105941,
+      "max_abs_err": 4.5299530029296875e-05,
+      "gate_pass": true,
+      "pct_elems_failing_gate": 0.0,
+      "max_err_vs_fp64": null,
+      "oracle_max_err_vs_fp64_subset": 6.7847623541617e-07,
+      "ms_ci95": [
+        55.19203847888503,
+        55.37630868908372
+      ],
+      "ms_n": 5
+    }
+  ],
+  "shape": {
+    "B": 32,
+    "H": 32,
+    "S": 512
+  },
+  "n_procs": 5,
+  "aggregation": "median of per-process medians, t-based 95% CI, 5 independent processes"
+}

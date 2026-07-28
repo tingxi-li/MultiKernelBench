@@ -1,0 +1,14 @@
+=== fused_incumbent_check.py x5 on GPU 0 ===
+  rep0 ok -> fused_rep0.json
+  rep1 ok -> fused_rep1.json
+  rep2 ok -> fused_rep2.json
+  rep3 ok -> fused_rep3.json
+  rep4 ok -> fused_rep4.json
+  -> fused_incumbent_check.json  (5 processes)
+=== sdpa_incumbent_check.py x5 on GPU 0 ===
+  rep0 ok -> sdpa_rep0.json
+  rep1 ok -> sdpa_rep1.json
+  rep2 ok -> sdpa_rep2.json
+  rep3 ok -> sdpa_rep3.json
+  rep4 ok -> sdpa_rep4.json
+  -> sdpa_incumbent_check.json  (5 processes)

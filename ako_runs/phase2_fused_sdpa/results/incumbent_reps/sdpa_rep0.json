@@ -1,0 +1,64 @@
+{
+  "head_dim": 1024,
+  "records": [
+    {
+      "who": "torch_sdpa_fp32",
+      "ms": 61.625343322753906,
+      "note": "published denominator"
+    },
+    {
+      "who": "torch_sdpa_fp16",
+      "ms": 23.144447326660156,
+      "note": "precision-matched denominator"
+    },
+    {
+      "who": "tilelang",
+      "ms": 24.456192016601562,
+      "vs_fp32_ref": 2.519825788124368,
+      "vs_fp16_ref": 0.9463634939956738,
+      "max_abs_err": 4.5627355575561523e-05,
+      "gate_pass": true,
+      "pct_elems_failing_gate": 0.0,
+      "max_err_vs_fp64": null,
+      "oracle_max_err_vs_fp64_subset": 6.7847623541617e-07
+    },
+    {
+      "who": "triton",
+      "ms": 36.08268737792969,
+      "vs_fp32_ref": 1.7078922830023915,
+      "vs_fp16_ref": 0.6414280367824452,
+      "max_abs_err": 4.5180320739746094e-05,
+      "gate_pass": true,
+      "pct_elems_failing_gate": 0.0,
+      "max_err_vs_fp64": null,
+      "oracle_max_err_vs_fp64_subset": 6.7847623541617e-07
+    },
+    {
+      "who": "cuda_noptx",
+      "ms": 62.34703826904297,
+      "vs_fp32_ref": 0.9884245512485329,
+      "vs_fp16_ref": 0.3712196756931117,
+      "max_abs_err": 0.0,
+      "gate_pass": true,
+      "pct_elems_failing_gate": 0.0,
+      "max_err_vs_fp64": null,
+      "oracle_max_err_vs_fp64_subset": 6.7847623541617e-07
+    },
+    {
+      "who": "cuda_unlimited",
+      "ms": 55.181312561035156,
+      "vs_fp32_ref": 1.1167792222156931,
+      "vs_fp16_ref": 0.41942545859271574,
+      "max_abs_err": 4.5299530029296875e-05,
+      "gate_pass": true,
+      "pct_elems_failing_gate": 0.0,
+      "max_err_vs_fp64": null,
+      "oracle_max_err_vs_fp64_subset": 6.7847623541617e-07
+    }
+  ],
+  "shape": {
+    "B": 32,
+    "H": 32,
+    "S": 512
+  }
+}

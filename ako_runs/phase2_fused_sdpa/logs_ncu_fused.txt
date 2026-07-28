@@ -1,0 +1,23 @@
+[1/8] tilelang/GBGS x_wcache=cached: 2 algo kernel(s), 0.62 GB DRAM (+0.95 GB one-shot setup)
+      main_kernel                                            0.837 ms  regs=238.0  occ= 16.6%  dram=  0.59 GB
+      main_kernel                                            0.239 ms  regs=80.0  occ= 43.0%  dram=  0.03 GB
+[2/8] triton/GBGS x_wcache=cached: 2 algo kernel(s), 0.62 GB DRAM (+0.95 GB one-shot setup)
+      _fused_gemm_kernel                                     0.950 ms  regs=255.0  occ= 16.7%  dram=  0.59 GB
+      _softmax_kernel                                        0.043 ms  regs=54.0  occ= 60.7%  dram=  0.03 GB
+[3/8] cuda_unlimited/GBGS x_wcache=cached: 2 algo kernel(s), 0.63 GB DRAM (+0.95 GB one-shot setup)
+      mma_gemm                                               1.007 ms  regs=168.0  occ= 16.7%  dram=  0.59 GB
+      softmax_kernel                                         0.248 ms  regs=48.0  occ= 64.4%  dram=  0.03 GB
+[4/8] cuda_noptx/GBGS x_wcache=cached: 2 algo kernel(s), 0.63 GB DRAM (+0.95 GB one-shot setup)
+      fused_kernel                                           1.082 ms  regs=167.0  occ= 16.7%  dram=  0.59 GB
+      softmax_kernel                                         0.248 ms  regs=48.0  occ= 64.4%  dram=  0.03 GB
+[5/8] cuda_unlimited/GBGS x_wcache=cached,x_epilogue=smem: 2 algo kernel(s), 0.63 GB DRAM (+0.95 GB one-shot setup)
+      mma_gemm                                               1.017 ms  regs=168.0  occ= 16.7%  dram=  0.59 GB
+      softmax_kernel                                         0.249 ms  regs=48.0  occ= 64.7%  dram=  0.03 GB
+[6/8] cuda_unlimited/GB x_wcache=cached,x_epilogue=smem: 1 algo kernel(s), 0.59 GB DRAM (+0.95 GB one-shot setup)
+      mma_gemm                                               1.010 ms  regs=168.0  occ= 16.6%  dram=  0.59 GB
+[7/8] cuda_unlimited/GBGS x_wcache=cached,x_epilogue=regs: 2 algo kernel(s), 0.63 GB DRAM (+0.95 GB one-shot setup)
+      mma_gemm                                               1.010 ms  regs=168.0  occ= 16.7%  dram=  0.59 GB
+      softmax_kernel                                         0.247 ms  regs=48.0  occ= 64.5%  dram=  0.03 GB
+[8/8] cuda_unlimited/GB x_wcache=cached,x_epilogue=regs: 1 algo kernel(s), 0.59 GB DRAM (+0.95 GB one-shot setup)
+      mma_gemm                                               1.009 ms  regs=168.0  occ= 16.6%  dram=  0.59 GB
+-> /home/lxt230026/MultiKernelBench/ako_runs/phase2_fused_sdpa/results/ncu_fused.json

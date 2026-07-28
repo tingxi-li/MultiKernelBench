@@ -1,0 +1,196 @@
+{
+  "records": [
+    {
+      "head_dim": 128,
+      "dtype": "float32",
+      "B": 32,
+      "H": 32,
+      "S": 512,
+      "can_use_flash": false,
+      "can_use_mem_efficient": true,
+      "backends": {
+        "flash": {
+          "ok": false,
+          "error": "No available kernel. Aborting execution."
+        },
+        "mem_efficient": {
+          "ok": true,
+          "ms": 5.673984050750732
+        },
+        "math": {
+          "ok": true,
+          "ms": 13.05292797088623
+        },
+        "cudnn": {
+          "ok": false,
+          "error": "No available kernel. Aborting execution."
+        }
+      },
+      "default_ms": 5.561344146728516,
+      "default_matches": "mem_efficient",
+      "default_vs_fastest_available": 0.9801480048208254,
+      "fastest_available": "mem_efficient"
+    },
+    {
+      "head_dim": 256,
+      "dtype": "float32",
+      "B": 32,
+      "H": 32,
+      "S": 512,
+      "can_use_flash": false,
+      "can_use_mem_efficient": true,
+      "backends": {
+        "flash": {
+          "ok": false,
+          "error": "No available kernel. Aborting execution."
+        },
+        "mem_efficient": {
+          "ok": true,
+          "ms": 13.813535690307617
+        },
+        "math": {
+          "ok": true,
+          "ms": 20.318208694458008
+        },
+        "cudnn": {
+          "ok": false,
+          "error": "No available kernel. Aborting execution."
+        }
+      },
+      "default_ms": 13.966336250305176,
+      "default_matches": "mem_efficient",
+      "default_vs_fastest_available": 1.0110616545555946,
+      "fastest_available": "mem_efficient"
+    },
+    {
+      "head_dim": 1024,
+      "dtype": "float32",
+      "B": 32,
+      "H": 32,
+      "S": 512,
+      "can_use_flash": false,
+      "can_use_mem_efficient": true,
+      "backends": {
+        "flash": {
+          "ok": false,
+          "error": "No available kernel. Aborting execution."
+        },
+        "mem_efficient": {
+          "ok": true,
+          "ms": 55.54585647583008
+        },
+        "math": {
+          "ok": true,
+          "ms": 67.20307159423828
+        },
+        "cudnn": {
+          "ok": false,
+          "error": "No available kernel. Aborting execution."
+        }
+      },
+      "default_ms": 56.9024658203125,
+      "default_matches": "mem_efficient",
+      "default_vs_fastest_available": 1.0244232320924376,
+      "fastest_available": "mem_efficient"
+    },
+    {
+      "head_dim": 128,
+      "dtype": "float16",
+      "B": 32,
+      "H": 32,
+      "S": 512,
+      "can_use_flash": true,
+      "can_use_mem_efficient": true,
+      "backends": {
+        "flash": {
+          "ok": true,
+          "ms": 1.3475840091705322
+        },
+        "mem_efficient": {
+          "ok": true,
+          "ms": 2.0130879878997803
+        },
+        "math": {
+          "ok": true,
+          "ms": 17.03113555908203
+        },
+        "cudnn": {
+          "ok": true,
+          "ms": 1.6414719820022583
+        }
+      },
+      "default_ms": 1.3926399946212769,
+      "default_matches": "flash",
+      "default_vs_fastest_available": 1.0334346394318508,
+      "fastest_available": "flash"
+    },
+    {
+      "head_dim": 256,
+      "dtype": "float16",
+      "B": 32,
+      "H": 32,
+      "S": 512,
+      "can_use_flash": true,
+      "can_use_mem_efficient": true,
+      "backends": {
+        "flash": {
+          "ok": true,
+          "ms": 3.103487968444824
+        },
+        "mem_efficient": {
+          "ok": true,
+          "ms": 5.601280212402344
+        },
+        "math": {
+          "ok": true,
+          "ms": 24.99555206298828
+        },
+        "cudnn": {
+          "ok": false,
+          "error": "No available kernel. Aborting execution."
+        }
+      },
+      "default_ms": 2.9591360092163086,
+      "default_matches": "flash",
+      "default_vs_fastest_available": 0.9534871858063457,
+      "fastest_available": "flash"
+    },
+    {
+      "head_dim": 1024,
+      "dtype": "float16",
+      "B": 32,
+      "H": 32,
+      "S": 512,
+      "can_use_flash": false,
+      "can_use_mem_efficient": true,
+      "backends": {
+        "flash": {
+          "ok": false,
+          "error": "No available kernel. Aborting execution."
+        },
+        "mem_efficient": {
+          "ok": true,
+          "ms": 21.831680297851562
+        },
+        "math": {
+          "ok": true,
+          "ms": 82.89075469970703
+        },
+        "cudnn": {
+          "ok": false,
+          "error": "No available kernel. Aborting execution."
+        }
+      },
+      "default_ms": 22.42969512939453,
+      "default_matches": "mem_efficient",
+      "default_vs_fastest_available": 1.0273920661801657,
+      "fastest_available": "mem_efficient"
+    }
+  ],
+  "shape": {
+    "B": 32,
+    "H": 32,
+    "S": 512
+  },
+  "torch": "2.10.0+cu128"
+}
