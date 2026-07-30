@@ -1,0 +1,18 @@
+{
+  "campaign_id": "20260729_controlled_followup_v1",
+  "core_trajectories": 120,
+  "launch_blockers": [
+    "resolve each model alias to an immutable provider revision",
+    "freeze and hash prompt templates and system/tool contracts",
+    "freeze robust hidden gate before exposing any trajectory",
+    "provide a runner that records provider token usage and controller compute clock"
+  ],
+  "models": [
+    "gpt-5.6-sol",
+    "gpt-5.6-terra"
+  ],
+  "neutral_completed_compute_gpu_hours": 22.0,
+  "prompt_extension_completed_compute_gpu_hours": 8.0,
+  "prompt_extension_trajectories": 48,
+  "schema_version": 1
+}

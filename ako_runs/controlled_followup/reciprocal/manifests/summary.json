@@ -1,0 +1,14 @@
+{
+  "audit_jobs": 16,
+  "campaign_id": "standard-matmul-reciprocal-transfer-v1",
+  "documents": {
+    "manifests/audit.json": "c8ed644ee1db008cc9bf8c019e599fe3f104d5ac16acbdda7179ea3f1b764e58",
+    "manifests/primary.json": "92ff936b38e5d05a43c020c2d0d5a4ae690344048a7783fcffe11b53a6c2e434",
+    "recipe_cards/tilelang_phase1_confirmed.json": "66f267f18189a2e00599ccb01a57a689bb4b1804e1ef388141dcc708e0a33e3e",
+    "recipe_cards/triton_grouped_autotuned.json": "034a74ef0e0452dd858608cd3660403304b9a101ae3130b32dc657beb1abedfe"
+  },
+  "launch_state": "blocked_pending_frozen_dependencies",
+  "primary_jobs": 16,
+  "schema_version": 1,
+  "total_cells": 32
+}

@@ -1,0 +1,49 @@
+{
+  "acceptance_rule": "both trusted-anchor holdouts pass all four cases and 64 locked seeds; every registered negative control fails at least one frozen semantic metric",
+  "accepted_for_fused_grid_screening": true,
+  "calibration": {
+    "conformance_anchor_records": 256,
+    "conformance_records_sha256": "daf3ee0d60b1a303c8ca6a80a0de297d17cd73011583001cb3800a8db277d261",
+    "semantic_anchor_records": 256,
+    "semantic_records_sha256": "d46bc498096fd0d08212a1a969a4884bdef590414e1b15fd98903ec27f8a0b23"
+  },
+  "campaign_id": "20260729_gate_fused_grid_v2",
+  "frozen_gate": {
+    "file_sha256": "b6c3afaadf61f5d380a97c6c541828a1ecacd1a89a00b73b66207fe22d765e2e",
+    "manifest_canonical_sha256": "d017ef44cd63ce2a27bf31ca0ea7631a1f9810d3cbd25f1ddc6155b75a05634a",
+    "path": "ako_runs/controlled_followup/robust_gate/calibration/gate_spec_fused_v2.json"
+  },
+  "holdouts": {
+    "conformance_native_mixed": {
+      "failed": 0,
+      "records": 256,
+      "sha256": "9548c45f7d8cc9ade986f7673e9f7488855c5659a3260aab69d495ac12a9eeb8",
+      "verdict": "pass"
+    },
+    "semantic_native_mixed": {
+      "failed": 0,
+      "records": 256,
+      "sha256": "8b239cc639980e8f0a32fc0b250bb65657bdb2b2eeba228b3945f2b45c39f133",
+      "verdict": "pass"
+    },
+    "semantic_row_reverse": {
+      "failed": 256,
+      "records": 256,
+      "sha256": "9bd51d1af491a03ec83ddbed76c747017bcd6b38c1cba11614b5bf2abc23010f",
+      "verdict": "expected_fail"
+    },
+    "semantic_zeros": {
+      "failed": 256,
+      "records": 256,
+      "sha256": "2a6bff40cef5a5b6fb044db1cecb4ed0d8768f0fce583b3473f5e05540df4360",
+      "verdict": "expected_fail"
+    }
+  },
+  "note": "The generic validator returns nonzero when expected negative controls fail; acceptance is therefore evaluated from the four preregistered group verdicts above, not its aggregate success bit.",
+  "provenance": {
+    "snapshot": "ako_runs/controlled_followup/provenance/snapshots/20260729_gate_fused_grid_v2.json",
+    "source_bundle_sha256": "467c91bf2df696953f009b7279984b9ba09f6d2d33fb70f92421b17806ecfde4",
+    "validator_summary_sha256": "db85385d5dc2c6afae6ac361af5dc1228e8a875161bedc9c93d5ae0ab965c455"
+  },
+  "schema_version": 1
+}

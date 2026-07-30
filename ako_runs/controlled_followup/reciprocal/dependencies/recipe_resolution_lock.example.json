@@ -1,0 +1,15 @@
+{
+  "gate_spec_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "recipes": {
+    "tilelang_phase1_confirmed": {
+      "kc": 2048,
+      "resolution": "donor_literal"
+    },
+    "triton_grouped_autotuned": {
+      "kc": null,
+      "resolution": "select largest passing KC only after the robust gate is frozen"
+    }
+  },
+  "schema_version": 1,
+  "state": "example-not-frozen"
+}

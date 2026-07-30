@@ -1,0 +1,91 @@
+{
+  "$id": "https://multikernelbench.local/schemas/robust-gate-spec-v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "calibration_records_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "campaign_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "gates": {
+      "additionalProperties": {
+        "$ref": "#/$defs/gate"
+      },
+      "minProperties": 1,
+      "type": "object"
+    },
+    "manifest_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0"
+    }
+  },
+  "required": [
+    "schema_version",
+    "campaign_id",
+    "manifest_sha256",
+    "calibration_records_sha256",
+    "gates"
+  ],
+  "type": "object",
+  "$defs": {
+    "gate": {
+      "additionalProperties": true,
+      "properties": {
+        "gate_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "op": {
+          "enum": [
+            "matmul",
+            "fused_softmax",
+            "sdpa"
+          ]
+        },
+        "required_validation_seeds_per_case": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "thresholds": {
+          "additionalProperties": {
+            "$ref": "#/$defs/threshold"
+          },
+          "minProperties": 1,
+          "type": "object"
+        }
+      },
+      "required": [
+        "op",
+        "gate_id",
+        "required_validation_seeds_per_case",
+        "thresholds"
+      ],
+      "type": "object"
+    },
+    "threshold": {
+      "additionalProperties": true,
+      "properties": {
+        "comparison": {
+          "const": "le"
+        },
+        "value": {
+          "minimum": 0,
+          "type": "number"
+        }
+      },
+      "required": [
+        "comparison",
+        "value"
+      ],
+      "type": "object"
+    }
+  }
+}
+

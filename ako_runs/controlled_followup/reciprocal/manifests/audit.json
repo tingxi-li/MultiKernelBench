@@ -1,0 +1,391 @@
+{
+  "axes": {
+    "destination_dsl": [
+      "tilelang",
+      "triton",
+      "cuda_noptx",
+      "cuda_unlimited"
+    ],
+    "recipe_origin": [
+      "tilelang_phase1_confirmed",
+      "triton_grouped_autotuned"
+    ],
+    "transfer_mode": [
+      "literal",
+      "retuned"
+    ]
+  },
+  "axis_cardinality": {
+    "destination_dsl": 4,
+    "recipe_origin": 2,
+    "transfer_mode": 2
+  },
+  "campaign_id": "standard-matmul-reciprocal-transfer-v1",
+  "job_count": 16,
+  "jobs": [
+    {
+      "cell_id": "tilelang_phase1_confirmed.to.tilelang.literal",
+      "destination_dsl": "tilelang",
+      "job_id": "audit.tilelang_phase1_confirmed.to.tilelang.literal",
+      "manifest_kind": "audit",
+      "operation": "matmul",
+      "ordinal": 0,
+      "recipe_card": "recipe_cards/tilelang_phase1_confirmed.json",
+      "recipe_card_sha256": "66f267f18189a2e00599ccb01a57a689bb4b1804e1ef388141dcc708e0a33e3e",
+      "recipe_origin": "tilelang_phase1_confirmed",
+      "required_files": [
+        "dependencies/gate_lock.json",
+        "dependencies/recipe_resolution_lock.json",
+        "implementations/registry.json",
+        "implementations/tilelang_phase1_confirmed/to_tilelang/literal.py"
+      ],
+      "transfer_mode": "literal",
+      "workload_id": "phase1_standard_matmul_m2048_k8192_n4096"
+    },
+    {
+      "cell_id": "tilelang_phase1_confirmed.to.tilelang.retuned",
+      "destination_dsl": "tilelang",
+      "job_id": "audit.tilelang_phase1_confirmed.to.tilelang.retuned",
+      "manifest_kind": "audit",
+      "operation": "matmul",
+      "ordinal": 1,
+      "recipe_card": "recipe_cards/tilelang_phase1_confirmed.json",
+      "recipe_card_sha256": "66f267f18189a2e00599ccb01a57a689bb4b1804e1ef388141dcc708e0a33e3e",
+      "recipe_origin": "tilelang_phase1_confirmed",
+      "required_files": [
+        "dependencies/gate_lock.json",
+        "dependencies/recipe_resolution_lock.json",
+        "implementations/registry.json",
+        "implementations/tilelang_phase1_confirmed/to_tilelang/retuned.py",
+        "retune_plans/tilelang_phase1_confirmed/to_tilelang.json"
+      ],
+      "transfer_mode": "retuned",
+      "workload_id": "phase1_standard_matmul_m2048_k8192_n4096"
+    },
+    {
+      "cell_id": "tilelang_phase1_confirmed.to.triton.literal",
+      "destination_dsl": "triton",
+      "job_id": "audit.tilelang_phase1_confirmed.to.triton.literal",
+      "manifest_kind": "audit",
+      "operation": "matmul",
+      "ordinal": 2,
+      "recipe_card": "recipe_cards/tilelang_phase1_confirmed.json",
+      "recipe_card_sha256": "66f267f18189a2e00599ccb01a57a689bb4b1804e1ef388141dcc708e0a33e3e",
+      "recipe_origin": "tilelang_phase1_confirmed",
+      "required_files": [
+        "dependencies/gate_lock.json",
+        "dependencies/recipe_resolution_lock.json",
+        "implementations/registry.json",
+        "implementations/tilelang_phase1_confirmed/to_triton/literal.py"
+      ],
+      "transfer_mode": "literal",
+      "workload_id": "phase1_standard_matmul_m2048_k8192_n4096"
+    },
+    {
+      "cell_id": "tilelang_phase1_confirmed.to.triton.retuned",
+      "destination_dsl": "triton",
+      "job_id": "audit.tilelang_phase1_confirmed.to.triton.retuned",
+      "manifest_kind": "audit",
+      "operation": "matmul",
+      "ordinal": 3,
+      "recipe_card": "recipe_cards/tilelang_phase1_confirmed.json",
+      "recipe_card_sha256": "66f267f18189a2e00599ccb01a57a689bb4b1804e1ef388141dcc708e0a33e3e",
+      "recipe_origin": "tilelang_phase1_confirmed",
+      "required_files": [
+        "dependencies/gate_lock.json",
+        "dependencies/recipe_resolution_lock.json",
+        "implementations/registry.json",
+        "implementations/tilelang_phase1_confirmed/to_triton/retuned.py",
+        "retune_plans/tilelang_phase1_confirmed/to_triton.json"
+      ],
+      "transfer_mode": "retuned",
+      "workload_id": "phase1_standard_matmul_m2048_k8192_n4096"
+    },
+    {
+      "cell_id": "tilelang_phase1_confirmed.to.cuda_noptx.literal",
+      "destination_dsl": "cuda_noptx",
+      "job_id": "audit.tilelang_phase1_confirmed.to.cuda_noptx.literal",
+      "manifest_kind": "audit",
+      "operation": "matmul",
+      "ordinal": 4,
+      "recipe_card": "recipe_cards/tilelang_phase1_confirmed.json",
+      "recipe_card_sha256": "66f267f18189a2e00599ccb01a57a689bb4b1804e1ef388141dcc708e0a33e3e",
+      "recipe_origin": "tilelang_phase1_confirmed",
+      "required_files": [
+        "dependencies/gate_lock.json",
+        "dependencies/recipe_resolution_lock.json",
+        "implementations/registry.json",
+        "implementations/tilelang_phase1_confirmed/to_cuda_noptx/literal.py"
+      ],
+      "transfer_mode": "literal",
+      "workload_id": "phase1_standard_matmul_m2048_k8192_n4096"
+    },
+    {
+      "cell_id": "tilelang_phase1_confirmed.to.cuda_noptx.retuned",
+      "destination_dsl": "cuda_noptx",
+      "job_id": "audit.tilelang_phase1_confirmed.to.cuda_noptx.retuned",
+      "manifest_kind": "audit",
+      "operation": "matmul",
+      "ordinal": 5,
+      "recipe_card": "recipe_cards/tilelang_phase1_confirmed.json",
+      "recipe_card_sha256": "66f267f18189a2e00599ccb01a57a689bb4b1804e1ef388141dcc708e0a33e3e",
+      "recipe_origin": "tilelang_phase1_confirmed",
+      "required_files": [
+        "dependencies/gate_lock.json",
+        "dependencies/recipe_resolution_lock.json",
+        "implementations/registry.json",
+        "implementations/tilelang_phase1_confirmed/to_cuda_noptx/retuned.py",
+        "retune_plans/tilelang_phase1_confirmed/to_cuda_noptx.json"
+      ],
+      "transfer_mode": "retuned",
+      "workload_id": "phase1_standard_matmul_m2048_k8192_n4096"
+    },
+    {
+      "cell_id": "tilelang_phase1_confirmed.to.cuda_unlimited.literal",
+      "destination_dsl": "cuda_unlimited",
+      "job_id": "audit.tilelang_phase1_confirmed.to.cuda_unlimited.literal",
+      "manifest_kind": "audit",
+      "operation": "matmul",
+      "ordinal": 6,
+      "recipe_card": "recipe_cards/tilelang_phase1_confirmed.json",
+      "recipe_card_sha256": "66f267f18189a2e00599ccb01a57a689bb4b1804e1ef388141dcc708e0a33e3e",
+      "recipe_origin": "tilelang_phase1_confirmed",
+      "required_files": [
+        "dependencies/gate_lock.json",
+        "dependencies/recipe_resolution_lock.json",
+        "implementations/registry.json",
+        "implementations/tilelang_phase1_confirmed/to_cuda_unlimited/literal.py"
+      ],
+      "transfer_mode": "literal",
+      "workload_id": "phase1_standard_matmul_m2048_k8192_n4096"
+    },
+    {
+      "cell_id": "tilelang_phase1_confirmed.to.cuda_unlimited.retuned",
+      "destination_dsl": "cuda_unlimited",
+      "job_id": "audit.tilelang_phase1_confirmed.to.cuda_unlimited.retuned",
+      "manifest_kind": "audit",
+      "operation": "matmul",
+      "ordinal": 7,
+      "recipe_card": "recipe_cards/tilelang_phase1_confirmed.json",
+      "recipe_card_sha256": "66f267f18189a2e00599ccb01a57a689bb4b1804e1ef388141dcc708e0a33e3e",
+      "recipe_origin": "tilelang_phase1_confirmed",
+      "required_files": [
+        "dependencies/gate_lock.json",
+        "dependencies/recipe_resolution_lock.json",
+        "implementations/registry.json",
+        "implementations/tilelang_phase1_confirmed/to_cuda_unlimited/retuned.py",
+        "retune_plans/tilelang_phase1_confirmed/to_cuda_unlimited.json"
+      ],
+      "transfer_mode": "retuned",
+      "workload_id": "phase1_standard_matmul_m2048_k8192_n4096"
+    },
+    {
+      "cell_id": "triton_grouped_autotuned.to.tilelang.literal",
+      "destination_dsl": "tilelang",
+      "job_id": "audit.triton_grouped_autotuned.to.tilelang.literal",
+      "manifest_kind": "audit",
+      "operation": "matmul",
+      "ordinal": 8,
+      "recipe_card": "recipe_cards/triton_grouped_autotuned.json",
+      "recipe_card_sha256": "034a74ef0e0452dd858608cd3660403304b9a101ae3130b32dc657beb1abedfe",
+      "recipe_origin": "triton_grouped_autotuned",
+      "required_files": [
+        "dependencies/gate_lock.json",
+        "dependencies/recipe_resolution_lock.json",
+        "implementations/registry.json",
+        "implementations/triton_grouped_autotuned/to_tilelang/literal.py"
+      ],
+      "transfer_mode": "literal",
+      "workload_id": "phase1_standard_matmul_m2048_k8192_n4096"
+    },
+    {
+      "cell_id": "triton_grouped_autotuned.to.tilelang.retuned",
+      "destination_dsl": "tilelang",
+      "job_id": "audit.triton_grouped_autotuned.to.tilelang.retuned",
+      "manifest_kind": "audit",
+      "operation": "matmul",
+      "ordinal": 9,
+      "recipe_card": "recipe_cards/triton_grouped_autotuned.json",
+      "recipe_card_sha256": "034a74ef0e0452dd858608cd3660403304b9a101ae3130b32dc657beb1abedfe",
+      "recipe_origin": "triton_grouped_autotuned",
+      "required_files": [
+        "dependencies/gate_lock.json",
+        "dependencies/recipe_resolution_lock.json",
+        "implementations/registry.json",
+        "implementations/triton_grouped_autotuned/to_tilelang/retuned.py",
+        "retune_plans/triton_grouped_autotuned/to_tilelang.json"
+      ],
+      "transfer_mode": "retuned",
+      "workload_id": "phase1_standard_matmul_m2048_k8192_n4096"
+    },
+    {
+      "cell_id": "triton_grouped_autotuned.to.triton.literal",
+      "destination_dsl": "triton",
+      "job_id": "audit.triton_grouped_autotuned.to.triton.literal",
+      "manifest_kind": "audit",
+      "operation": "matmul",
+      "ordinal": 10,
+      "recipe_card": "recipe_cards/triton_grouped_autotuned.json",
+      "recipe_card_sha256": "034a74ef0e0452dd858608cd3660403304b9a101ae3130b32dc657beb1abedfe",
+      "recipe_origin": "triton_grouped_autotuned",
+      "required_files": [
+        "dependencies/gate_lock.json",
+        "dependencies/recipe_resolution_lock.json",
+        "implementations/registry.json",
+        "implementations/triton_grouped_autotuned/to_triton/literal.py"
+      ],
+      "transfer_mode": "literal",
+      "workload_id": "phase1_standard_matmul_m2048_k8192_n4096"
+    },
+    {
+      "cell_id": "triton_grouped_autotuned.to.triton.retuned",
+      "destination_dsl": "triton",
+      "job_id": "audit.triton_grouped_autotuned.to.triton.retuned",
+      "manifest_kind": "audit",
+      "operation": "matmul",
+      "ordinal": 11,
+      "recipe_card": "recipe_cards/triton_grouped_autotuned.json",
+      "recipe_card_sha256": "034a74ef0e0452dd858608cd3660403304b9a101ae3130b32dc657beb1abedfe",
+      "recipe_origin": "triton_grouped_autotuned",
+      "required_files": [
+        "dependencies/gate_lock.json",
+        "dependencies/recipe_resolution_lock.json",
+        "implementations/registry.json",
+        "implementations/triton_grouped_autotuned/to_triton/retuned.py",
+        "retune_plans/triton_grouped_autotuned/to_triton.json"
+      ],
+      "transfer_mode": "retuned",
+      "workload_id": "phase1_standard_matmul_m2048_k8192_n4096"
+    },
+    {
+      "cell_id": "triton_grouped_autotuned.to.cuda_noptx.literal",
+      "destination_dsl": "cuda_noptx",
+      "job_id": "audit.triton_grouped_autotuned.to.cuda_noptx.literal",
+      "manifest_kind": "audit",
+      "operation": "matmul",
+      "ordinal": 12,
+      "recipe_card": "recipe_cards/triton_grouped_autotuned.json",
+      "recipe_card_sha256": "034a74ef0e0452dd858608cd3660403304b9a101ae3130b32dc657beb1abedfe",
+      "recipe_origin": "triton_grouped_autotuned",
+      "required_files": [
+        "dependencies/gate_lock.json",
+        "dependencies/recipe_resolution_lock.json",
+        "implementations/registry.json",
+        "implementations/triton_grouped_autotuned/to_cuda_noptx/literal.py"
+      ],
+      "transfer_mode": "literal",
+      "workload_id": "phase1_standard_matmul_m2048_k8192_n4096"
+    },
+    {
+      "cell_id": "triton_grouped_autotuned.to.cuda_noptx.retuned",
+      "destination_dsl": "cuda_noptx",
+      "job_id": "audit.triton_grouped_autotuned.to.cuda_noptx.retuned",
+      "manifest_kind": "audit",
+      "operation": "matmul",
+      "ordinal": 13,
+      "recipe_card": "recipe_cards/triton_grouped_autotuned.json",
+      "recipe_card_sha256": "034a74ef0e0452dd858608cd3660403304b9a101ae3130b32dc657beb1abedfe",
+      "recipe_origin": "triton_grouped_autotuned",
+      "required_files": [
+        "dependencies/gate_lock.json",
+        "dependencies/recipe_resolution_lock.json",
+        "implementations/registry.json",
+        "implementations/triton_grouped_autotuned/to_cuda_noptx/retuned.py",
+        "retune_plans/triton_grouped_autotuned/to_cuda_noptx.json"
+      ],
+      "transfer_mode": "retuned",
+      "workload_id": "phase1_standard_matmul_m2048_k8192_n4096"
+    },
+    {
+      "cell_id": "triton_grouped_autotuned.to.cuda_unlimited.literal",
+      "destination_dsl": "cuda_unlimited",
+      "job_id": "audit.triton_grouped_autotuned.to.cuda_unlimited.literal",
+      "manifest_kind": "audit",
+      "operation": "matmul",
+      "ordinal": 14,
+      "recipe_card": "recipe_cards/triton_grouped_autotuned.json",
+      "recipe_card_sha256": "034a74ef0e0452dd858608cd3660403304b9a101ae3130b32dc657beb1abedfe",
+      "recipe_origin": "triton_grouped_autotuned",
+      "required_files": [
+        "dependencies/gate_lock.json",
+        "dependencies/recipe_resolution_lock.json",
+        "implementations/registry.json",
+        "implementations/triton_grouped_autotuned/to_cuda_unlimited/literal.py"
+      ],
+      "transfer_mode": "literal",
+      "workload_id": "phase1_standard_matmul_m2048_k8192_n4096"
+    },
+    {
+      "cell_id": "triton_grouped_autotuned.to.cuda_unlimited.retuned",
+      "destination_dsl": "cuda_unlimited",
+      "job_id": "audit.triton_grouped_autotuned.to.cuda_unlimited.retuned",
+      "manifest_kind": "audit",
+      "operation": "matmul",
+      "ordinal": 15,
+      "recipe_card": "recipe_cards/triton_grouped_autotuned.json",
+      "recipe_card_sha256": "034a74ef0e0452dd858608cd3660403304b9a101ae3130b32dc657beb1abedfe",
+      "recipe_origin": "triton_grouped_autotuned",
+      "required_files": [
+        "dependencies/gate_lock.json",
+        "dependencies/recipe_resolution_lock.json",
+        "implementations/registry.json",
+        "implementations/triton_grouped_autotuned/to_cuda_unlimited/retuned.py",
+        "retune_plans/triton_grouped_autotuned/to_cuda_unlimited.json"
+      ],
+      "transfer_mode": "retuned",
+      "workload_id": "phase1_standard_matmul_m2048_k8192_n4096"
+    }
+  ],
+  "jobs_sha256": "2f360816dee53835b76b51710ecad7c694c60f3f272ca8692542e0e12f0c8d36",
+  "launch_state": "blocked_pending_frozen_dependencies",
+  "manifest_kind": "audit",
+  "protocol": {
+    "checks": [
+      "exact_recipe_and_source_hashes",
+      "robust_gate_all_cases",
+      "one_hot_work_mapping",
+      "dynamic_tensor_core_work_count",
+      "no_cross_block_split_k_or_atomics",
+      "no_vendor_gemm_calls",
+      "literal_config_family_fidelity",
+      "retune_plan_and_budget_fidelity",
+      "sass_ptx_resource_capture"
+    ],
+    "input_split": "robust_gate.validation",
+    "process_repetitions": 1,
+    "purpose": "translation_fidelity_and_dynamic_work_audit"
+  },
+  "recipe_card_sha256": {
+    "tilelang_phase1_confirmed": "66f267f18189a2e00599ccb01a57a689bb4b1804e1ef388141dcc708e0a33e3e",
+    "triton_grouped_autotuned": "034a74ef0e0452dd858608cd3660403304b9a101ae3130b32dc657beb1abedfe"
+  },
+  "robust_gate_dependency": {
+    "acceptance_receipt": "../robust_gate/validation/v4_acceptance_receipt.json",
+    "gate_spec": "../robust_gate/calibration/gate_spec_matmul_v4.json",
+    "local_lock": "dependencies/gate_lock.json",
+    "required_hashes": [
+      "manifest_sha256",
+      "calibration_records_sha256",
+      "gate_spec_sha256",
+      "gate_spec_file_sha256",
+      "validation_summary_sha256",
+      "acceptance_receipt_sha256"
+    ],
+    "required_operation": "matmul",
+    "required_state": "frozen",
+    "validation_summary": "../robust_gate/validation/matmul_holdout_summary_v4.json"
+  },
+  "schema_version": 1,
+  "workload": {
+    "id": "phase1_standard_matmul_m2048_k8192_n4096",
+    "input_storage_contract": "fp16_operands_precast_outside_timed_kernel_region",
+    "operation": "matmul",
+    "output_dtype": "fp32",
+    "semantic_input_dtype": "fp32_from_robust_gate",
+    "shape": {
+      "K": 8192,
+      "M": 2048,
+      "N": 4096
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "campaign_id": "controlled-followup-robust-gate-matmul-v4",
+  "freeze_receipt_path": "ako_runs/controlled_followup/robust_gate/calibration/v4_freeze_receipt.json",
+  "freeze_receipt_sha256": "de164829c28a850323141f34f1c4e84efa1d41d0c3a5bdd32b2309f297b579e7",
+  "gate_spec_canonical_sha256": "838c21d696febb2e712d03eff120326375fd34c5169a3d9c4978a2f8b6160aca",
+  "gate_spec_path": "ako_runs/controlled_followup/robust_gate/calibration/gate_spec_matmul_v4.json",
+  "gate_spec_sha256": "70bb3bc8f217c40ba5fcab90dc84ef798d06e22b5d1f0e4d27a2031069a295fb",
+  "manifest_canonical_sha256": "c26683f1eb2add7d5b0b57da9f2ff66473042437c05e6019eac7adb3672a7314",
+  "manifest_sha256": "0b4bff1b17ee8c1e30e7e1ece5515ce6cfee74bd1d386f8162588fd91e5accb4",
+  "recorded_utc": "2026-07-30T04:51:47Z",
+  "schema_version": "1.0",
+  "split": "validation",
+  "validation_opened": true,
+  "workloads": [
+    {
+      "candidate": "native_mixed_holdout_v4",
+      "command": "CUDA_VISIBLE_DEVICES=1 PYTHONDONTWRITEBYTECODE=1 python -m ako_runs.controlled_followup.robust_gate.collect --manifest ako_runs/controlled_followup/robust_gate/manifest_matmul_v4.json --op matmul --gate semantic_mixed --split validation --candidate native_mixed --candidate-name native_mixed_holdout_v4 --device cuda --out ako_runs/controlled_followup/robust_gate/validation/raw/matmul_semantic_native_gpu1_v4.jsonl",
+      "expected_records": 3072,
+      "gate_id": "semantic_mixed",
+      "gpu": 1,
+      "output": "ako_runs/controlled_followup/robust_gate/validation/raw/matmul_semantic_native_gpu1_v4.jsonl",
+      "process_start_local": "2026-07-30T00:51:37-04:00"
+    },
+    {
+      "candidate": "native_mixed_holdout_v4",
+      "command": "CUDA_VISIBLE_DEVICES=2 PYTHONDONTWRITEBYTECODE=1 python -m ako_runs.controlled_followup.robust_gate.collect --manifest ako_runs/controlled_followup/robust_gate/manifest_matmul_v4.json --op matmul --gate conformance_mixed --split validation --candidate native_mixed --candidate-name native_mixed_holdout_v4 --device cuda --out ako_runs/controlled_followup/robust_gate/validation/raw/matmul_conformance_native_gpu2_v4.jsonl",
+      "expected_records": 3072,
+      "gate_id": "conformance_mixed",
+      "gpu": 2,
+      "output": "ako_runs/controlled_followup/robust_gate/validation/raw/matmul_conformance_native_gpu2_v4.jsonl",
+      "process_start_local": "2026-07-30T00:51:37-04:00"
+    },
+    {
+      "candidate": "native_fp32_holdout_v4",
+      "command": "CUDA_VISIBLE_DEVICES=3 PYTHONDONTWRITEBYTECODE=1 python -m ako_runs.controlled_followup.robust_gate.collect --manifest ako_runs/controlled_followup/robust_gate/manifest_matmul_v4.json --op matmul --gate semantic_q32 --split validation --candidate native_fp32 --candidate-name native_fp32_holdout_v4 --device cuda --out ako_runs/controlled_followup/robust_gate/validation/raw/matmul_semantic_q32_native_gpu3_v4.jsonl",
+      "expected_records": 3072,
+      "gate_id": "semantic_q32",
+      "gpu": 3,
+      "output": "ako_runs/controlled_followup/robust_gate/validation/raw/matmul_semantic_q32_native_gpu3_v4.jsonl",
+      "process_start_local": "2026-07-30T00:51:37-04:00"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "calibration_records": 23040,
+  "calibration_records_canonical_sha256": "f6293c1d7a8b6033657777450fb463432c39961c7e69f16b8da64d9793fa5f23",
+  "campaign_id": "controlled-followup-robust-gate-matmul-v4",
+  "frozen_utc": "2026-07-30T04:41:58Z",
+  "gate_spec_canonical_sha256": "838c21d696febb2e712d03eff120326375fd34c5169a3d9c4978a2f8b6160aca",
+  "gate_spec_path": "ako_runs/controlled_followup/robust_gate/calibration/gate_spec_matmul_v4.json",
+  "gate_spec_sha256": "70bb3bc8f217c40ba5fcab90dc84ef798d06e22b5d1f0e4d27a2031069a295fb",
+  "manifest_canonical_sha256": "c26683f1eb2add7d5b0b57da9f2ff66473042437c05e6019eac7adb3672a7314",
+  "manifest_sha256": "0b4bff1b17ee8c1e30e7e1ece5515ce6cfee74bd1d386f8162588fd91e5accb4",
+  "raw_records": [
+    {
+      "gate_id": "semantic_mixed",
+      "path": "ako_runs/controlled_followup/robust_gate/calibration/raw/matmul_semantic_mixed_gpu1_v4.jsonl",
+      "records": 7680,
+      "sha256": "d3353a25e9cc1df57ca2884a4fc08a9f45b243212002739849db64cb78b7b6a6"
+    },
+    {
+      "gate_id": "conformance_mixed",
+      "path": "ako_runs/controlled_followup/robust_gate/calibration/raw/matmul_conformance_mixed_gpu2_v4.jsonl",
+      "records": 7680,
+      "sha256": "db5410f979ea44577c5c4ebe48eca496cbe274e4fd08c333b53697b9a1befdf6"
+    },
+    {
+      "gate_id": "semantic_q32",
+      "path": "ako_runs/controlled_followup/robust_gate/calibration/raw/matmul_semantic_q32_gpu3_v4.jsonl",
+      "records": 7680,
+      "sha256": "908174c625991f01b0ed243d41a836892be9da81bf6b50d562d7e45d79d6cb1a"
+    }
+  ],
+  "schema_version": "1.0",
+  "validation_opened": false
+}

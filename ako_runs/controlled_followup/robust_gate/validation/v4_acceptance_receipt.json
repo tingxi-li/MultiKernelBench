@@ -1,0 +1,48 @@
+{
+  "acceptance_rule": "all_metrics_all_cases_all_seeds_and_complete_coverage",
+  "accepted_for_reciprocal_recipe_transfer": true,
+  "campaign_id": "controlled-followup-robust-gate-matmul-v4",
+  "completed_utc": "2026-07-30T05:13:40Z",
+  "frozen_gate": {
+    "canonical_sha256": "838c21d696febb2e712d03eff120326375fd34c5169a3d9c4978a2f8b6160aca",
+    "file_sha256": "70bb3bc8f217c40ba5fcab90dc84ef798d06e22b5d1f0e4d27a2031069a295fb",
+    "path": "ako_runs/controlled_followup/robust_gate/calibration/gate_spec_matmul_v4.json"
+  },
+  "launch_receipt": {
+    "path": "ako_runs/controlled_followup/robust_gate/validation/v4_launch_receipt.json",
+    "sha256": "94cf0210d9514f1a7229cbfc9c2db2d1889014c415da528237273fbe9fd12400"
+  },
+  "manifest_canonical_sha256": "c26683f1eb2add7d5b0b57da9f2ff66473042437c05e6019eac7adb3672a7314",
+  "schema_version": "1.0",
+  "validation": {
+    "collection_failures": 0,
+    "coverage_complete": true,
+    "failed_records": 0,
+    "records": 9216,
+    "raw_evidence": [
+      {
+        "gate_id": "conformance_mixed",
+        "path": "ako_runs/controlled_followup/robust_gate/validation/raw/matmul_conformance_native_gpu2_v4.jsonl",
+        "records": 3072,
+        "sha256": "8f0cc382d5d8bd6678c63e22d5069bace236c947a203af38c808e1c80d5ada70"
+      },
+      {
+        "gate_id": "semantic_mixed",
+        "path": "ako_runs/controlled_followup/robust_gate/validation/raw/matmul_semantic_native_gpu1_v4.jsonl",
+        "records": 3072,
+        "sha256": "7d34eca5991be6fb0d17445f3b1aa8ab53f8948a77a16a7cbab10d53b8ad5dff"
+      },
+      {
+        "gate_id": "semantic_q32",
+        "path": "ako_runs/controlled_followup/robust_gate/validation/raw/matmul_semantic_q32_native_gpu3_v4.jsonl",
+        "records": 3072,
+        "sha256": "eb2486b45b6c906637609317544287aeb2ef9dc019ccb3d2c6d510836bdf21e4"
+      }
+    ],
+    "summary": {
+      "path": "ako_runs/controlled_followup/robust_gate/validation/matmul_holdout_summary_v4.json",
+      "sha256": "ce72771d1dfe7cd833120e0634aed8fd892f5c6fab8fa209788e495894b20b69",
+      "success": true
+    }
+  }
+}

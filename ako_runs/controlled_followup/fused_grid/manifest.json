@@ -1,0 +1,164 @@
+{
+  "campaign_id": "fused-gbgs-shared-grid-v1",
+  "dsl_order": [
+    "tilelang",
+    "triton",
+    "cuda_noptx",
+    "cuda_unlimited"
+  ],
+  "fixed_factors": {
+    "K": 8192,
+    "M": 1024,
+    "N": 8192,
+    "arith": "fp16",
+    "cast": "precast",
+    "epilogue": "smem",
+    "kc": 2048,
+    "op": "fused",
+    "threads": 256,
+    "variant": "GBGS",
+    "wcache": "cached"
+  },
+  "grid": [
+    {
+      "BK": 32,
+      "BM": 128,
+      "BN": 128,
+      "kc": 2048,
+      "stages": 2
+    },
+    {
+      "BK": 32,
+      "BM": 128,
+      "BN": 128,
+      "kc": 2048,
+      "stages": 3
+    },
+    {
+      "BK": 32,
+      "BM": 128,
+      "BN": 128,
+      "kc": 2048,
+      "stages": 4
+    },
+    {
+      "BK": 64,
+      "BM": 128,
+      "BN": 128,
+      "kc": 2048,
+      "stages": 2
+    },
+    {
+      "BK": 64,
+      "BM": 128,
+      "BN": 128,
+      "kc": 2048,
+      "stages": 3
+    },
+    {
+      "BK": 32,
+      "BM": 128,
+      "BN": 256,
+      "kc": 2048,
+      "stages": 2
+    },
+    {
+      "BK": 32,
+      "BM": 128,
+      "BN": 256,
+      "kc": 2048,
+      "stages": 3
+    },
+    {
+      "BK": 32,
+      "BM": 128,
+      "BN": 256,
+      "kc": 2048,
+      "stages": 4
+    },
+    {
+      "BK": 64,
+      "BM": 128,
+      "BN": 256,
+      "kc": 2048,
+      "stages": 2
+    },
+    {
+      "BK": 32,
+      "BM": 256,
+      "BN": 128,
+      "kc": 2048,
+      "stages": 2
+    },
+    {
+      "BK": 32,
+      "BM": 256,
+      "BN": 128,
+      "kc": 2048,
+      "stages": 3
+    },
+    {
+      "BK": 32,
+      "BM": 256,
+      "BN": 128,
+      "kc": 2048,
+      "stages": 4
+    },
+    {
+      "BK": 64,
+      "BM": 256,
+      "BN": 128,
+      "kc": 2048,
+      "stages": 2
+    },
+    {
+      "BK": 64,
+      "BM": 64,
+      "BN": 128,
+      "kc": 2048,
+      "stages": 2
+    },
+    {
+      "BK": 64,
+      "BM": 64,
+      "BN": 128,
+      "kc": 2048,
+      "stages": 3
+    },
+    {
+      "BK": 64,
+      "BM": 64,
+      "BN": 128,
+      "kc": 2048,
+      "stages": 4
+    },
+    {
+      "BK": 64,
+      "BM": 128,
+      "BN": 64,
+      "kc": 2048,
+      "stages": 2
+    },
+    {
+      "BK": 64,
+      "BM": 128,
+      "BN": 64,
+      "kc": 2048,
+      "stages": 3
+    },
+    {
+      "BK": 64,
+      "BM": 128,
+      "BN": 64,
+      "kc": 2048,
+      "stages": 4
+    }
+  ],
+  "grid_point_count": 19,
+  "job_count": 76,
+  "jobs_file": "jobs/fused_gbgs_grid.json",
+  "jobs_sha256": "70bfb1219395c4b231dc41d7e6e5661f6a5fd66a5c5cc26cee53283125e006e3",
+  "phase1_grid_source": "ako_runs/phase1_matmul/jobs/native_tuned.json",
+  "phase1_grid_source_sha256": "1b1c0977eaebdcab45782877e8ca9b577b37a17b4f8343d3bb45b3ed86b0b1a7",
+  "schema_version": 1
+}

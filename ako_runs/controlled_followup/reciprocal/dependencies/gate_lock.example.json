@@ -1,0 +1,15 @@
+{
+  "calibration_records_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "acceptance_receipt": "../robust_gate/validation/v4_acceptance_receipt.json",
+  "acceptance_receipt_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "campaign_id": "replace-after-robust-gate-calibration",
+  "gate_spec": "../robust_gate/calibration/gate_spec_matmul_v4.json",
+  "gate_spec_file_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "gate_spec_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "manifest_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "operation": "matmul",
+  "schema_version": 1,
+  "state": "example-not-frozen",
+  "validation_summary": "../robust_gate/validation/matmul_holdout_summary_v4.json",
+  "validation_summary_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+}

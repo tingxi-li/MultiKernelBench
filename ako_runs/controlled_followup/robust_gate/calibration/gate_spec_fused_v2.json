@@ -1,0 +1,180 @@
+{
+  "calibration_policy": {
+    "candidate_outputs_used": false,
+    "rounding": "next-1-2-5",
+    "safety_factor": 1.25
+  },
+  "calibration_records_sha256": "6cc297eeecc1dca74cd7595f58b39c3af5305ee799a4e2cda56546f8ab0f576b",
+  "campaign_id": "controlled-followup-robust-gate-v1",
+  "created_utc": "2026-07-30T03:02:28.034394+00:00",
+  "gates": {
+    "fused_softmax/conformance_mixed": {
+      "anchors": [
+        "anchor:contract_mixed",
+        "anchor:native_mixed"
+      ],
+      "calibration_records": 256,
+      "contract": {
+        "bias_dtype": "fp32",
+        "gelu": "exact_erf",
+        "operand_dtype": "fp16",
+        "output_dtype": "fp32",
+        "probability_dtype": "fp32",
+        "weight_dtype": "fp16",
+        "x_dtype": "fp16"
+      },
+      "gate_id": "conformance_mixed",
+      "op": "fused_softmax",
+      "reference": {
+        "kind": "contract_mixed"
+      },
+      "required_cases": [
+        "legacy_u01_gain1",
+        "signed_normal_gain1",
+        "rademacher_gain4",
+        "signed_normal_gain16"
+      ],
+      "required_validation_seeds_per_case": 64,
+      "success_rule": "all_metrics_all_cases_all_seeds",
+      "thresholds": {
+        "max_abs_err": {
+          "comparison": "le",
+          "observed_anchor_max": 3.7342309951782227e-05,
+          "safety_factor": 1.25,
+          "source": "calibrated",
+          "value": 5e-05
+        },
+        "negative_count": {
+          "comparison": "le",
+          "source": "fixed",
+          "value": 0.0
+        },
+        "nonfinite_count": {
+          "comparison": "le",
+          "source": "fixed",
+          "value": 0.0
+        },
+        "nrmse": {
+          "comparison": "le",
+          "observed_anchor_max": 1.4931384462397245e-05,
+          "safety_factor": 1.25,
+          "source": "calibrated",
+          "value": 2e-05
+        },
+        "row_sum_error_max": {
+          "comparison": "le",
+          "observed_anchor_max": 3.630482550143199e-07,
+          "safety_factor": 1.25,
+          "source": "calibrated",
+          "value": 5e-07
+        },
+        "scaled_max_abs_err": {
+          "comparison": "le",
+          "observed_anchor_max": 0.00016314629474230988,
+          "safety_factor": 1.25,
+          "source": "calibrated",
+          "value": 0.0005
+        },
+        "sqrt_js_max": {
+          "comparison": "le",
+          "observed_anchor_max": 2.7268246684184158e-05,
+          "safety_factor": 1.25,
+          "source": "calibrated",
+          "value": 5e-05
+        },
+        "tv_max": {
+          "comparison": "le",
+          "observed_anchor_max": 3.764273675075508e-05,
+          "safety_factor": 1.25,
+          "source": "calibrated",
+          "value": 5e-05
+        }
+      }
+    },
+    "fused_softmax/semantic_mixed": {
+      "anchors": [
+        "anchor:contract_mixed",
+        "anchor:native_mixed"
+      ],
+      "calibration_records": 256,
+      "contract": {
+        "bias_dtype": "fp32",
+        "gelu": "exact_erf",
+        "operand_dtype": "fp16",
+        "output_dtype": "fp32",
+        "probability_dtype": "fp32",
+        "weight_dtype": "fp16",
+        "x_dtype": "fp16"
+      },
+      "gate_id": "semantic_mixed",
+      "op": "fused_softmax",
+      "reference": {
+        "kind": "semantic_fp64"
+      },
+      "required_cases": [
+        "legacy_u01_gain1",
+        "signed_normal_gain1",
+        "rademacher_gain4",
+        "signed_normal_gain16"
+      ],
+      "required_validation_seeds_per_case": 64,
+      "success_rule": "all_metrics_all_cases_all_seeds",
+      "thresholds": {
+        "max_abs_err": {
+          "comparison": "le",
+          "observed_anchor_max": 0.00183725220773856,
+          "safety_factor": 1.25,
+          "source": "calibrated",
+          "value": 0.005
+        },
+        "negative_count": {
+          "comparison": "le",
+          "source": "fixed",
+          "value": 0.0
+        },
+        "nonfinite_count": {
+          "comparison": "le",
+          "source": "fixed",
+          "value": 0.0
+        },
+        "nrmse": {
+          "comparison": "le",
+          "observed_anchor_max": 0.0008696137530838867,
+          "safety_factor": 1.25,
+          "source": "calibrated",
+          "value": 0.002
+        },
+        "row_sum_error_max": {
+          "comparison": "le",
+          "observed_anchor_max": 3.630482550143199e-07,
+          "safety_factor": 1.25,
+          "source": "calibrated",
+          "value": 5e-07
+        },
+        "scaled_max_abs_err": {
+          "comparison": "le",
+          "observed_anchor_max": 0.010460326344700958,
+          "safety_factor": 1.25,
+          "source": "calibrated",
+          "value": 0.02
+        },
+        "sqrt_js_max": {
+          "comparison": "le",
+          "observed_anchor_max": 0.0014078518565496753,
+          "safety_factor": 1.25,
+          "source": "calibrated",
+          "value": 0.002
+        },
+        "tv_max": {
+          "comparison": "le",
+          "observed_anchor_max": 0.0018404731719806255,
+          "safety_factor": 1.25,
+          "source": "calibrated",
+          "value": 0.005
+        }
+      }
+    }
+  },
+  "manifest_sha256": "d017ef44cd63ce2a27bf31ca0ea7631a1f9810d3cbd25f1ddc6155b75a05634a",
+  "schema_version": "1.0"
+}

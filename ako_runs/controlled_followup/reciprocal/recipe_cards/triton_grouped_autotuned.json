@@ -1,0 +1,240 @@
+{
+  "$schema": "../schemas/recipe_card.schema.json",
+  "algorithm": {
+    "autotune_key": [
+      "M",
+      "N",
+      "K"
+    ],
+    "cross_block_split_k": false,
+    "grid_mapping": "one_dimensional_grouped_m",
+    "group_m": 8,
+    "k_reduction": "full_k_in_donor; gate_selected_in_block_chunk_amendment",
+    "operand_dtype": "fp16",
+    "outer_accumulator_dtype": "fp32",
+    "output_dtype": "fp32",
+    "tensor_accumulator_dtype": "fp32",
+    "tensor_core": true,
+    "vendor_gemm": false
+  },
+  "card_kind": "frozen_source_recipe",
+  "correctness_amendment": {
+    "candidate_kc_order": [
+      8192,
+      4096,
+      2048,
+      1024,
+      512
+    ],
+    "kind": "in_block_accumulator_flush_only",
+    "no_other_donor_change_permitted": true,
+    "resolution_lock": "dependencies/recipe_resolution_lock.json",
+    "same_value_across_destinations": true,
+    "selection_rule": "After the robust gate is frozen, choose the first (largest) KC passing every tuning case, once at origin level; bind that same KC in every destination before any performance input is opened."
+  },
+  "evidence": [
+    {
+      "path": "ako_runs/matmul_gelu_softmax/triton/solution/matmul_gelu_softmax.py",
+      "role": "ordered fp16 GROUP_M=8 native autotune family",
+      "sha256": "f197d8f9b4efad5a8e751f7d03b458ed51da6477147b35ed0a829ff7604e91ae"
+    },
+    {
+      "path": "ako_runs/phase1_matmul/variants/triton_gemm.py",
+      "role": "controlled fp16 chunk-flush realization used for the sole amendment",
+      "sha256": "8c9cc3d60d549eb941dcb68a0ee7b0a6173b849a368eb55c75ec91c68612e108"
+    },
+    {
+      "path": "ako_runs/phase1_matmul/variants/SPEC.md",
+      "role": "standard-GEMM arithmetic and output contract",
+      "sha256": "ff517a2c30b9142864095e3910317632c74079d0d8e531264ceaed1f08eb6d2a"
+    }
+  ],
+  "gate_dependency": {
+    "acceptance_receipt": "../robust_gate/validation/v4_acceptance_receipt.json",
+    "gate_spec": "../robust_gate/calibration/gate_spec_matmul_v4.json",
+    "local_lock": "dependencies/gate_lock.json",
+    "operation": "matmul",
+    "required_state": "frozen",
+    "validation_summary": "../robust_gate/validation/matmul_holdout_summary_v4.json"
+  },
+  "launch_state": "blocked_until_robust_gate_and_bindings_are_frozen",
+  "literal_treatment": {
+    "configs": [
+      {
+        "BK": 64,
+        "BM": 128,
+        "BN": 256,
+        "group_m": 8,
+        "stages": 3,
+        "warps": 8
+      },
+      {
+        "BK": 32,
+        "BM": 256,
+        "BN": 128,
+        "group_m": 8,
+        "stages": 3,
+        "warps": 8
+      },
+      {
+        "BK": 32,
+        "BM": 128,
+        "BN": 256,
+        "group_m": 8,
+        "stages": 4,
+        "warps": 8
+      },
+      {
+        "BK": 64,
+        "BM": 256,
+        "BN": 256,
+        "group_m": 8,
+        "stages": 3,
+        "warps": 8
+      },
+      {
+        "BK": 128,
+        "BM": 128,
+        "BN": 256,
+        "group_m": 8,
+        "stages": 3,
+        "warps": 8
+      },
+      {
+        "BK": 64,
+        "BM": 128,
+        "BN": 256,
+        "group_m": 8,
+        "stages": 4,
+        "warps": 8
+      },
+      {
+        "BK": 64,
+        "BM": 256,
+        "BN": 128,
+        "group_m": 8,
+        "stages": 3,
+        "warps": 8
+      },
+      {
+        "BK": 64,
+        "BM": 64,
+        "BN": 256,
+        "group_m": 8,
+        "stages": 4,
+        "warps": 4
+      },
+      {
+        "BK": 128,
+        "BM": 64,
+        "BN": 256,
+        "group_m": 8,
+        "stages": 3,
+        "warps": 4
+      },
+      {
+        "BK": 32,
+        "BM": 256,
+        "BN": 256,
+        "group_m": 8,
+        "stages": 4,
+        "warps": 8
+      },
+      {
+        "BK": 64,
+        "BM": 128,
+        "BN": 128,
+        "group_m": 8,
+        "stages": 4,
+        "warps": 4
+      },
+      {
+        "BK": 64,
+        "BM": 128,
+        "BN": 256,
+        "group_m": 8,
+        "stages": 5,
+        "warps": 8
+      },
+      {
+        "BK": 64,
+        "BM": 256,
+        "BN": 256,
+        "group_m": 8,
+        "stages": 4,
+        "warps": 8
+      }
+    ],
+    "frozen_fields": [
+      "ordered_configs",
+      "BM",
+      "BN",
+      "BK",
+      "group_m",
+      "stages",
+      "warps"
+    ],
+    "schedule_kind": "ordered_native_autotune_family",
+    "translation_rule": "Run the exact ordered 13-point family and GROUP_M=8 work mapping offline in every destination; DSL-native autotune machinery may execute it but may not add, delete, reorder, or rewrite points."
+  },
+  "origin": {
+    "artifact": "ako_runs/matmul_gelu_softmax/triton/solution/matmul_gelu_softmax.py",
+    "artifact_role": "native_fp16_grouped_autotuned_gemm_subrecipe",
+    "dsl": "triton",
+    "operation_projection": [
+      "retain the fp16 tensor-core GEMM through its fp32 accumulator",
+      "remove bias, GELU, softmax, and fp16 intermediate storage",
+      "store the raw standard-GEMM result as fp32"
+    ]
+  },
+  "recipe_id": "triton_grouped_autotuned",
+  "retuned_treatment": {
+    "candidate_budget": {
+      "attempted_candidates": 19,
+      "build_failures_consume_budget": true,
+      "source_rationale": "ako_runs/phase1_matmul/jobs/native_tuned.json",
+      "source_sha256": "1b1c0977eaebdcab45782877e8ca9b577b37a17b4f8343d3bb45b3ed86b0b1a7"
+    },
+    "plan_contract": {
+      "kind": "recipient_native_frozen_before_screening",
+      "plan_must_be_content_addressed": true,
+      "plan_must_not_use_performance_split": true,
+      "required_axes": [
+        "BM",
+        "BN",
+        "BK",
+        "stages",
+        "threads_or_warps"
+      ]
+    },
+    "preserve": [
+      "fp16_tensor_core_operands",
+      "fp32_chunk_accumulator",
+      "fp32_outer_accumulator",
+      "in_block_k_chunk_flush",
+      "grouped_m_mapping_with_group_m_8",
+      "no_cross_block_split_k",
+      "no_vendor_gemm"
+    ],
+    "selection": {
+      "confirm_top_k": 2,
+      "confirmation_repetitions": 5,
+      "performance_split_hidden_until_winner_freeze": true,
+      "screening_repetitions": 2,
+      "selection_split": "robust_gate.tuning"
+    }
+  },
+  "schema_version": 1,
+  "workload": {
+    "id": "phase1_standard_matmul_m2048_k8192_n4096",
+    "input_storage_contract": "fp16_operands_precast_outside_timed_kernel_region",
+    "operation": "matmul",
+    "output_dtype": "fp32",
+    "semantic_input_dtype": "fp32_from_robust_gate",
+    "shape": {
+      "K": 8192,
+      "M": 2048,
+      "N": 4096
+    }
+  }
+}

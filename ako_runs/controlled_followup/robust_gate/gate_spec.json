@@ -1,0 +1,203 @@
+{
+  "calibration_policy": {
+    "candidate_outputs_used": false,
+    "rounding": "next-1-2-5",
+    "safety_factor": 1.25
+  },
+  "calibration_records_sha256": "d0a56d695daf0632c6a3b53f4c7a6a56577f7efcd9673c2f72a50b6cdaf686f6",
+  "campaign_id": "controlled-followup-robust-gate-v1",
+  "created_utc": "2026-07-30T03:47:24.775004+00:00",
+  "gates": {
+    "matmul/conformance_mixed": {
+      "anchors": [
+        "anchor:contract_mixed",
+        "anchor:native_mixed"
+      ],
+      "calibration_records": 384,
+      "contract": {
+        "a_dtype": "fp16",
+        "b_dtype": "fp16",
+        "operand_dtype": "fp16",
+        "output_dtype": "fp32"
+      },
+      "gate_id": "conformance_mixed",
+      "op": "matmul",
+      "reference": {
+        "kind": "contract_mixed"
+      },
+      "required_cases": [
+        "legacy_u01",
+        "signed_normal",
+        "rademacher",
+        "signed_log_uniform",
+        "opposing_means",
+        "paired_cancellation"
+      ],
+      "required_validation_seeds_per_case": 64,
+      "success_rule": "all_metrics_all_cases_all_seeds",
+      "thresholds": {
+        "abs_signed_bias": {
+          "comparison": "le",
+          "observed_anchor_max": 1.540643279440701e-05,
+          "safety_factor": 1.25,
+          "source": "calibrated",
+          "value": 2e-05
+        },
+        "componentwise_backward_error": {
+          "comparison": "le",
+          "observed_anchor_max": 2.9222077802888336e-06,
+          "safety_factor": 1.25,
+          "source": "calibrated",
+          "value": 4.9999999999999996e-06
+        },
+        "max_abs_err": {
+          "comparison": "le",
+          "observed_anchor_max": 0.0062255859375,
+          "safety_factor": 1.25,
+          "source": "calibrated",
+          "value": 0.01
+        },
+        "nonfinite_count": {
+          "comparison": "le",
+          "source": "fixed",
+          "value": 0.0
+        },
+        "scaled_rmse": {
+          "comparison": "le",
+          "observed_anchor_max": 4.6793427104791116e-07,
+          "safety_factor": 1.25,
+          "source": "calibrated",
+          "value": 1e-06
+        }
+      }
+    },
+    "matmul/semantic_mixed": {
+      "anchors": [
+        "anchor:contract_mixed",
+        "anchor:native_mixed"
+      ],
+      "calibration_records": 384,
+      "contract": {
+        "a_dtype": "fp16",
+        "b_dtype": "fp16",
+        "operand_dtype": "fp16",
+        "output_dtype": "fp32"
+      },
+      "gate_id": "semantic_mixed",
+      "op": "matmul",
+      "reference": {
+        "kind": "semantic_fp64"
+      },
+      "required_cases": [
+        "legacy_u01",
+        "signed_normal",
+        "rademacher",
+        "signed_log_uniform",
+        "opposing_means",
+        "paired_cancellation"
+      ],
+      "required_validation_seeds_per_case": 64,
+      "success_rule": "all_metrics_all_cases_all_seeds",
+      "thresholds": {
+        "abs_signed_bias": {
+          "comparison": "le",
+          "observed_anchor_max": 0.00037172289396566457,
+          "safety_factor": 1.25,
+          "source": "calibrated",
+          "value": 0.0005
+        },
+        "componentwise_backward_error": {
+          "comparison": "le",
+          "observed_anchor_max": 5.167242545448962e-05,
+          "safety_factor": 1.25,
+          "source": "calibrated",
+          "value": 0.0001
+        },
+        "max_abs_err": {
+          "comparison": "le",
+          "observed_anchor_max": 0.12339150936895749,
+          "safety_factor": 1.25,
+          "source": "calibrated",
+          "value": 0.2
+        },
+        "nonfinite_count": {
+          "comparison": "le",
+          "source": "fixed",
+          "value": 0.0
+        },
+        "scaled_rmse": {
+          "comparison": "le",
+          "observed_anchor_max": 8.518452767006095e-06,
+          "safety_factor": 1.25,
+          "source": "calibrated",
+          "value": 2e-05
+        }
+      }
+    },
+    "matmul/semantic_q32": {
+      "anchors": [
+        "anchor:contract_mixed",
+        "anchor:native_fp32"
+      ],
+      "calibration_records": 384,
+      "contract": {
+        "a_dtype": "fp32",
+        "b_dtype": "fp32",
+        "operand_dtype": "fp32",
+        "output_dtype": "fp32"
+      },
+      "gate_id": "semantic_q32",
+      "op": "matmul",
+      "reference": {
+        "kind": "semantic_fp64"
+      },
+      "required_cases": [
+        "legacy_u01",
+        "signed_normal",
+        "rademacher",
+        "signed_log_uniform",
+        "opposing_means",
+        "paired_cancellation"
+      ],
+      "required_validation_seeds_per_case": 64,
+      "success_rule": "all_metrics_all_cases_all_seeds",
+      "thresholds": {
+        "abs_signed_bias": {
+          "comparison": "le",
+          "observed_anchor_max": 6.213003399716628e-06,
+          "safety_factor": 1.25,
+          "source": "calibrated",
+          "value": 9.999999999999999e-06
+        },
+        "componentwise_backward_error": {
+          "comparison": "le",
+          "observed_anchor_max": 2.749265369443813e-06,
+          "safety_factor": 1.25,
+          "source": "calibrated",
+          "value": 4.9999999999999996e-06
+        },
+        "max_abs_err": {
+          "comparison": "le",
+          "observed_anchor_max": 0.005790245873868116,
+          "safety_factor": 1.25,
+          "source": "calibrated",
+          "value": 0.01
+        },
+        "nonfinite_count": {
+          "comparison": "le",
+          "source": "fixed",
+          "value": 0.0
+        },
+        "scaled_rmse": {
+          "comparison": "le",
+          "observed_anchor_max": 4.670358968745301e-07,
+          "safety_factor": 1.25,
+          "source": "calibrated",
+          "value": 1e-06
+        }
+      }
+    }
+  },
+  "manifest_sha256": "8f2329c14b152a71520f9ff28bd3787092154081ebcf7fb97ef571f3bea316b2",
+  "schema_version": "1.0"
+}

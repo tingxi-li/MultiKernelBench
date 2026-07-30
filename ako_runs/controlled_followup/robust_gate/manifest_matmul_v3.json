@@ -1,0 +1,392 @@
+{
+  "$schema": "schemas/manifest.schema.json",
+  "calibration": {
+    "rounding": "next-1-2-5",
+    "safety_factor": 1.25
+  },
+  "campaign_id": "controlled-followup-robust-gate-v1",
+  "description": "Candidate-independent conformance and semantic quality gates for controlled matmul, fused exact-erf GELU-softmax, and SDPA campaigns.",
+  "operations": {
+    "fused_softmax": {
+      "cases": [
+        {
+          "activation_distribution": "uniform_positive",
+          "id": "legacy_u01_gain1",
+          "weight_gain": 1.0
+        },
+        {
+          "activation_distribution": "normal_zero",
+          "id": "signed_normal_gain1",
+          "weight_gain": 1.0
+        },
+        {
+          "activation_distribution": "rademacher",
+          "id": "rademacher_gain4",
+          "weight_gain": 4.0
+        },
+        {
+          "activation_distribution": "normal_zero",
+          "id": "signed_normal_gain16",
+          "weight_gain": 16.0
+        }
+      ],
+      "cpu_test_shape": {
+        "K": 16,
+        "M": 4,
+        "N": 32
+      },
+      "gates": {
+        "conformance_mixed": {
+          "anchors": [
+            "native_mixed",
+            "contract_mixed"
+          ],
+          "calibrated_metrics": [
+            "max_abs_err",
+            "nrmse",
+            "row_sum_error_max",
+            "tv_max",
+            "sqrt_js_max",
+            "scaled_max_abs_err"
+          ],
+          "contract": {
+            "bias_dtype": "fp32",
+            "gelu": "exact_erf",
+            "operand_dtype": "fp16",
+            "output_dtype": "fp32",
+            "probability_dtype": "fp32",
+            "weight_dtype": "fp16",
+            "x_dtype": "fp16"
+          },
+          "fixed_thresholds": {
+            "negative_count": 0,
+            "nonfinite_count": 0
+          },
+          "reference": {
+            "kind": "contract_mixed"
+          }
+        },
+        "semantic_mixed": {
+          "anchors": [
+            "contract_mixed",
+            "native_mixed"
+          ],
+          "calibrated_metrics": [
+            "max_abs_err",
+            "nrmse",
+            "row_sum_error_max",
+            "tv_max",
+            "sqrt_js_max",
+            "scaled_max_abs_err"
+          ],
+          "contract": {
+            "bias_dtype": "fp32",
+            "gelu": "exact_erf",
+            "operand_dtype": "fp16",
+            "output_dtype": "fp32",
+            "probability_dtype": "fp32",
+            "weight_dtype": "fp16",
+            "x_dtype": "fp16"
+          },
+          "fixed_thresholds": {
+            "negative_count": 0,
+            "nonfinite_count": 0
+          },
+          "reference": {
+            "kind": "semantic_fp64"
+          }
+        },
+        "semantic_q32": {
+          "anchors": [
+            "native_fp32",
+            "contract_mixed"
+          ],
+          "calibrated_metrics": [
+            "max_abs_err",
+            "nrmse",
+            "row_sum_error_max",
+            "tv_max",
+            "sqrt_js_max",
+            "scaled_max_abs_err"
+          ],
+          "contract": {
+            "bias_dtype": "fp32",
+            "gelu": "exact_erf",
+            "operand_dtype": "fp32",
+            "output_dtype": "fp32",
+            "probability_dtype": "fp32",
+            "weight_dtype": "fp32",
+            "x_dtype": "fp32"
+          },
+          "fixed_thresholds": {
+            "negative_count": 0,
+            "nonfinite_count": 0
+          },
+          "reference": {
+            "kind": "semantic_fp64"
+          }
+        }
+      },
+      "shape": {
+        "K": 8192,
+        "M": 1024,
+        "N": 8192
+      }
+    },
+    "matmul": {
+      "cases": [
+        {
+          "distribution": "uniform_positive",
+          "id": "legacy_u01"
+        },
+        {
+          "distribution": "normal_zero",
+          "id": "signed_normal"
+        },
+        {
+          "distribution": "rademacher",
+          "id": "rademacher"
+        },
+        {
+          "distribution": "signed_log_uniform",
+          "id": "signed_log_uniform",
+          "params": {
+            "exp_high": 4.0,
+            "exp_low": -4.0
+          }
+        },
+        {
+          "distribution": "mean_shifted_normal",
+          "id": "opposing_means",
+          "opposing_means": true,
+          "params": {
+            "rho": 0.8660254037844386
+          }
+        },
+        {
+          "distribution": "paired_cancellation",
+          "id": "paired_cancellation"
+        }
+      ],
+      "cpu_test_shape": {
+        "K": 16,
+        "M": 8,
+        "N": 6
+      },
+      "gates": {
+        "conformance_mixed": {
+          "anchors": [
+            "native_mixed",
+            "contract_mixed"
+          ],
+          "calibrated_metrics": [
+            "max_abs_err",
+            "scaled_rmse",
+            "abs_signed_bias",
+            "componentwise_backward_error"
+          ],
+          "contract": {
+            "a_dtype": "fp16",
+            "b_dtype": "fp16",
+            "operand_dtype": "fp16",
+            "output_dtype": "fp32"
+          },
+          "fixed_thresholds": {
+            "nonfinite_count": 0
+          },
+          "reference": {
+            "kind": "contract_mixed"
+          }
+        },
+        "semantic_mixed": {
+          "anchors": [
+            "contract_mixed",
+            "native_mixed"
+          ],
+          "calibrated_metrics": [
+            "max_abs_err",
+            "scaled_rmse",
+            "abs_signed_bias",
+            "componentwise_backward_error"
+          ],
+          "contract": {
+            "a_dtype": "fp16",
+            "b_dtype": "fp16",
+            "operand_dtype": "fp16",
+            "output_dtype": "fp32"
+          },
+          "fixed_thresholds": {
+            "nonfinite_count": 0
+          },
+          "reference": {
+            "kind": "semantic_fp64"
+          }
+        },
+        "semantic_q32": {
+          "anchors": [
+            "native_fp32",
+            "contract_mixed"
+          ],
+          "calibrated_metrics": [
+            "max_abs_err",
+            "scaled_rmse",
+            "abs_signed_bias",
+            "componentwise_backward_error"
+          ],
+          "contract": {
+            "a_dtype": "fp32",
+            "b_dtype": "fp32",
+            "operand_dtype": "fp32",
+            "output_dtype": "fp32"
+          },
+          "fixed_thresholds": {
+            "nonfinite_count": 0
+          },
+          "reference": {
+            "kind": "semantic_fp64"
+          }
+        }
+      },
+      "shape": {
+        "K": 8192,
+        "M": 2048,
+        "N": 4096
+      }
+    },
+    "sdpa": {
+      "cases": [
+        {
+          "id": "legacy_u01",
+          "qk_distribution": "uniform_positive",
+          "v_distribution": "uniform_positive"
+        },
+        {
+          "id": "all_signed_normal",
+          "qk_distribution": "normal_zero",
+          "v_distribution": "normal_zero"
+        },
+        {
+          "id": "signed_qk_positive_v",
+          "qk_distribution": "normal_zero",
+          "v_distribution": "uniform_positive"
+        },
+        {
+          "id": "positive_qk_signed_v",
+          "qk_distribution": "uniform_positive",
+          "v_distribution": "normal_zero"
+        },
+        {
+          "correlated_qk": true,
+          "correlation_noise": 0.1,
+          "id": "correlated_qk",
+          "qk_distribution": "normal_zero",
+          "v_distribution": "normal_zero"
+        },
+        {
+          "id": "signed_temperature16",
+          "qk_distribution": "normal_zero",
+          "score_temperature": 16.0,
+          "v_distribution": "normal_zero"
+        }
+      ],
+      "cpu_test_shape": {
+        "B": 1,
+        "D": 8,
+        "H": 2,
+        "S": 8
+      },
+      "gates": {
+        "conformance_mixed": {
+          "anchors": [
+            "native_mixed",
+            "contract_mixed"
+          ],
+          "calibrated_metrics": [
+            "max_abs_err",
+            "nrmse",
+            "query_relative_l2_max",
+            "cosine_distance_max",
+            "scaled_max_abs_err"
+          ],
+          "contract": {
+            "operand_dtype": "fp16",
+            "output_dtype": "fp32",
+            "probability_dtype": "fp16",
+            "score_dtype": "fp32"
+          },
+          "fixed_thresholds": {
+            "nonfinite_count": 0
+          },
+          "reference": {
+            "kind": "contract_mixed"
+          }
+        },
+        "semantic_mixed": {
+          "anchors": [
+            "contract_mixed",
+            "native_mixed"
+          ],
+          "calibrated_metrics": [
+            "max_abs_err",
+            "nrmse",
+            "query_relative_l2_max",
+            "cosine_distance_max",
+            "scaled_max_abs_err"
+          ],
+          "contract": {
+            "operand_dtype": "fp16",
+            "output_dtype": "fp32",
+            "probability_dtype": "fp16",
+            "score_dtype": "fp32"
+          },
+          "fixed_thresholds": {
+            "nonfinite_count": 0
+          },
+          "reference": {
+            "kind": "semantic_fp64"
+          }
+        },
+        "semantic_q32": {
+          "anchors": [
+            "native_fp32",
+            "contract_mixed"
+          ],
+          "calibrated_metrics": [
+            "max_abs_err",
+            "nrmse",
+            "query_relative_l2_max",
+            "cosine_distance_max",
+            "scaled_max_abs_err"
+          ],
+          "contract": {
+            "operand_dtype": "fp32",
+            "output_dtype": "fp32",
+            "probability_dtype": "fp32",
+            "score_dtype": "fp32"
+          },
+          "fixed_thresholds": {
+            "nonfinite_count": 0
+          },
+          "reference": {
+            "kind": "semantic_fp64"
+          }
+        }
+      },
+      "shape": {
+        "B": 32,
+        "D": 1024,
+        "H": 32,
+        "S": 512
+      }
+    }
+  },
+  "schema_version": "1.0",
+  "seed_namespace": "MKB-gate-v1",
+  "split_counts": {
+    "calibration": 32,
+    "performance": 3,
+    "tuning": 8,
+    "validation": 64
+  },
+  "success_rule": "A candidate passes a frozen gate only if every required metric is at or below threshold for every registered case and every one of the 64 locked validation seeds. Missing records fail closed."
+}

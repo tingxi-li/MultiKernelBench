@@ -1,0 +1,321 @@
+{
+  "$id": "https://multikernelbench.local/schemas/reciprocal-recipe-card-v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "const": "../schemas/recipe_card.schema.json"
+    },
+    "algorithm": {
+      "additionalProperties": true,
+      "properties": {
+        "cross_block_split_k": {
+          "const": false
+        },
+        "grid_mapping": {
+          "enum": [
+            "plain_2d_n_then_m",
+            "one_dimensional_grouped_m"
+          ]
+        },
+        "operand_dtype": {
+          "const": "fp16"
+        },
+        "outer_accumulator_dtype": {
+          "const": "fp32"
+        },
+        "output_dtype": {
+          "const": "fp32"
+        },
+        "tensor_accumulator_dtype": {
+          "const": "fp32"
+        },
+        "tensor_core": {
+          "const": true
+        },
+        "vendor_gemm": {
+          "const": false
+        }
+      },
+      "required": [
+        "operand_dtype",
+        "tensor_core",
+        "tensor_accumulator_dtype",
+        "outer_accumulator_dtype",
+        "output_dtype",
+        "k_reduction",
+        "grid_mapping",
+        "cross_block_split_k",
+        "vendor_gemm"
+      ],
+      "type": "object"
+    },
+    "card_kind": {
+      "const": "frozen_source_recipe"
+    },
+    "correctness_amendment": {
+      "additionalProperties": true,
+      "required": [
+        "kind"
+      ],
+      "type": "object"
+    },
+    "evidence": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "path": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "role": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "path",
+          "role",
+          "sha256"
+        ],
+        "type": "object"
+      },
+      "minItems": 2,
+      "type": "array"
+    },
+    "gate_dependency": {
+      "additionalProperties": false,
+      "properties": {
+        "gate_spec": {
+          "type": "string"
+        },
+        "local_lock": {
+          "const": "dependencies/gate_lock.json"
+        },
+        "operation": {
+          "const": "matmul"
+        },
+        "required_state": {
+          "const": "frozen"
+        }
+      },
+      "required": [
+        "operation",
+        "gate_spec",
+        "local_lock",
+        "required_state"
+      ],
+      "type": "object"
+    },
+    "launch_state": {
+      "const": "blocked_until_robust_gate_and_bindings_are_frozen"
+    },
+    "literal_treatment": {
+      "additionalProperties": false,
+      "properties": {
+        "configs": {
+          "items": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "required": [
+              "BM",
+              "BN",
+              "BK",
+              "stages"
+            ],
+            "type": "object"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "frozen_fields": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "schedule_kind": {
+          "enum": [
+            "single_configuration",
+            "ordered_native_autotune_family"
+          ]
+        },
+        "translation_rule": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "schedule_kind",
+        "configs",
+        "frozen_fields",
+        "translation_rule"
+      ],
+      "type": "object"
+    },
+    "origin": {
+      "additionalProperties": true,
+      "properties": {
+        "artifact": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "artifact_role": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "dsl": {
+          "enum": [
+            "tilelang",
+            "triton"
+          ]
+        }
+      },
+      "required": [
+        "dsl",
+        "artifact",
+        "artifact_role"
+      ],
+      "type": "object"
+    },
+    "recipe_id": {
+      "enum": [
+        "tilelang_phase1_confirmed",
+        "triton_grouped_autotuned"
+      ]
+    },
+    "retuned_treatment": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_budget": {
+          "additionalProperties": true,
+          "properties": {
+            "attempted_candidates": {
+              "const": 19
+            },
+            "build_failures_consume_budget": {
+              "const": true
+            }
+          },
+          "required": [
+            "attempted_candidates",
+            "build_failures_consume_budget",
+            "source_rationale",
+            "source_sha256"
+          ],
+          "type": "object"
+        },
+        "plan_contract": {
+          "additionalProperties": true,
+          "required": [
+            "kind",
+            "required_axes",
+            "plan_must_be_content_addressed",
+            "plan_must_not_use_performance_split"
+          ],
+          "type": "object"
+        },
+        "preserve": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 6,
+          "type": "array"
+        },
+        "selection": {
+          "additionalProperties": true,
+          "required": [
+            "screening_repetitions",
+            "confirm_top_k",
+            "confirmation_repetitions",
+            "selection_split",
+            "performance_split_hidden_until_winner_freeze"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "candidate_budget",
+        "plan_contract",
+        "preserve",
+        "selection"
+      ],
+      "type": "object"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "workload": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "const": "phase1_standard_matmul_m2048_k8192_n4096"
+        },
+        "input_storage_contract": {
+          "const": "fp16_operands_precast_outside_timed_kernel_region"
+        },
+        "operation": {
+          "const": "matmul"
+        },
+        "output_dtype": {
+          "const": "fp32"
+        },
+        "semantic_input_dtype": {
+          "const": "fp32_from_robust_gate"
+        },
+        "shape": {
+          "additionalProperties": false,
+          "properties": {
+            "K": {
+              "const": 8192
+            },
+            "M": {
+              "const": 2048
+            },
+            "N": {
+              "const": 4096
+            }
+          },
+          "required": [
+            "M",
+            "K",
+            "N"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "id",
+        "operation",
+        "shape",
+        "semantic_input_dtype",
+        "input_storage_contract",
+        "output_dtype"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "$schema",
+    "schema_version",
+    "recipe_id",
+    "card_kind",
+    "launch_state",
+    "workload",
+    "origin",
+    "algorithm",
+    "correctness_amendment",
+    "literal_treatment",
+    "retuned_treatment",
+    "gate_dependency",
+    "evidence"
+  ],
+  "title": "Controlled reciprocal-transfer recipe card",
+  "type": "object"
+}

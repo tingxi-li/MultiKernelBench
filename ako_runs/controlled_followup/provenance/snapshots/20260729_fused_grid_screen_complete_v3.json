@@ -1,0 +1,737 @@
+{
+  "campaign_id": "fused_grid_screen_complete_v3",
+  "captured_at_utc": "2026-07-30T03:44:39.041396+00:00",
+  "files": {
+    "ako_runs/CONTROLLED_CROSS_DSL_REPORT.md": {
+      "bytes": 30800,
+      "sha256": "9fb86d9fbaa37d2100ba5ba39df1c9e10cef420998bc0ee16c22d4082ed5fd16"
+    },
+    "ako_runs/CONTROLLED_CROSS_DSL_REVIEW.md": {
+      "bytes": 35915,
+      "sha256": "b9c201e0a63684488ae041673800e7e78040dc338452c30ad54773845b329e9a"
+    },
+    "ako_runs/CONVERGENCE_PROTOCOL.md": {
+      "bytes": 5776,
+      "sha256": "e1629fcbaf7ff222a443e0d26548f9fe99092e69228365be72ff522755db1b7f"
+    },
+    "ako_runs/controlled_followup/README.md": {
+      "bytes": 1556,
+      "sha256": "e65ffdcec2bb13520871768dd90d35936bd0a80fc08487bca35c96310394cdbe"
+    },
+    "ako_runs/controlled_followup/convergence/PROMPT_MISLEADING_PRIOR.md": {
+      "bytes": 335,
+      "sha256": "1b266c6f520741cb77eb460515a43220f589a9707fb63f567776b1a18aea201c"
+    },
+    "ako_runs/controlled_followup/convergence/PROMPT_NEUTRAL.md": {
+      "bytes": 937,
+      "sha256": "b0f8328d15bba23ffe35e9bec4f3f77c5ab41e21ebf9fdbfded9f96be141f27d"
+    },
+    "ako_runs/controlled_followup/convergence/PROMPT_VALID_HINT.md": {
+      "bytes": 400,
+      "sha256": "9f26764b8b9b131550e5d2514ec6a993d28a96475cf45090863d6ce34a225f4e"
+    },
+    "ako_runs/controlled_followup/convergence/README.md": {
+      "bytes": 621,
+      "sha256": "c19d097cbf609566e215aa23ee3f4b6b503203ba3f2d6e1b03e35da0bf84802c"
+    },
+    "ako_runs/controlled_followup/convergence/make_manifest.py": {
+      "bytes": 5103,
+      "sha256": "de0e0467dc3aa8a6b27287eea5711ab2ca6bc263ced9734ebd6304bf85dce856"
+    },
+    "ako_runs/controlled_followup/convergence/manifests/core_120.jsonl": {
+      "bytes": 120785,
+      "sha256": "80e12df608df4077ebac25196f877d7accb5747294e83d44d9ba4c3766439309"
+    },
+    "ako_runs/controlled_followup/convergence/manifests/prompt_extension_48.jsonl": {
+      "bytes": 48877,
+      "sha256": "9c264142a32be0b3ff36cdbb63ef1e117427e55c35cc01f9305a08e108f8b1b3"
+    },
+    "ako_runs/controlled_followup/convergence/manifests/summary.json": {
+      "bytes": 615,
+      "sha256": "b15540ed5a47befa0f916affb2464e688a64d4a8a99bc108dc2116d8dd5874f6"
+    },
+    "ako_runs/controlled_followup/fused_grid/README.md": {
+      "bytes": 2571,
+      "sha256": "d8e3daa91dcf4bc399a080ed1423dc076d0d1f58ebde9256cb7f845b971de83c"
+    },
+    "ako_runs/controlled_followup/fused_grid/analyze_screen.py": {
+      "bytes": 34325,
+      "sha256": "2c4304bb434d16bfef46e27cd7b2f3aaa37947db3e1148204f0c3d09bf8f1d9b"
+    },
+    "ako_runs/controlled_followup/fused_grid/jobs/fused_gbgs_grid.json": {
+      "bytes": 20535,
+      "sha256": "70bfb1219395c4b231dc41d7e6e5661f6a5fd66a5c5cc26cee53283125e006e3"
+    },
+    "ako_runs/controlled_followup/fused_grid/launch.py": {
+      "bytes": 14755,
+      "sha256": "03825cd241d6e0081cff00aeb3d8c860f35156ad9eb0c14c1337cafb048fe90b"
+    },
+    "ako_runs/controlled_followup/fused_grid/make_manifest.py": {
+      "bytes": 6782,
+      "sha256": "0606445dca7b3eb23429a3da0417935126fdfdbd7f8fc5dc987c185f63e06675"
+    },
+    "ako_runs/controlled_followup/fused_grid/make_robust_manifest.py": {
+      "bytes": 9321,
+      "sha256": "85ddccf40212e524db73f47d85ecaf29ef91fdf28bdea2c53dd947e4224d780b"
+    },
+    "ako_runs/controlled_followup/fused_grid/manifest.json": {
+      "bytes": 2640,
+      "sha256": "3ca4395603ed60d0f54caf5fc213d245790be84eb29ba36f638c866a48720439"
+    },
+    "ako_runs/controlled_followup/fused_grid/robust_adapter.py": {
+      "bytes": 32811,
+      "sha256": "688d9b29673d9314f50a3e8f6a8fc217b8497b27fb3eac13a5234cd9b7a29502"
+    },
+    "ako_runs/controlled_followup/fused_grid/robust_adapter_manifest.json": {
+      "bytes": 11831,
+      "sha256": "81e3478b61800e09147a6cb213ba1786b200c137a728a5a9c258241c0a6004ba"
+    },
+    "ako_runs/controlled_followup/fused_grid/robust_launch.py": {
+      "bytes": 19229,
+      "sha256": "4e651a0c6557b74f2ac022645e74e99069bb73dbfd73df256934763617295afc"
+    },
+    "ako_runs/controlled_followup/fused_grid/test_analyze_screen.py": {
+      "bytes": 14876,
+      "sha256": "4f2293aee3bfd6ae438ba47821530b018364df9aab76c559d2ee577af1facd15"
+    },
+    "ako_runs/controlled_followup/fused_grid/test_robust_adapter.py": {
+      "bytes": 6045,
+      "sha256": "a0de71b33d4beaefebcbc58377891b9157704ef23d21fb1d16d77389e9fbc503"
+    },
+    "ako_runs/controlled_followup/fused_grid/test_scaffold.py": {
+      "bytes": 2732,
+      "sha256": "75473bad5fbfb9b16d071d285c3e1247493b144d54a9e5b9f6c47a25de77e3dc"
+    },
+    "ako_runs/controlled_followup/provenance/README.md": {
+      "bytes": 588,
+      "sha256": "9ec07c5193b56f723a54900c9f6463e093653be462b013738a730857bab7b473"
+    },
+    "ako_runs/controlled_followup/provenance/capture.py": {
+      "bytes": 6770,
+      "sha256": "8c533aa5f671fc04f3902e1b131422ad6a264e864999d9ab71aa71569c058ef7"
+    },
+    "ako_runs/controlled_followup/reciprocal/README.md": {
+      "bytes": 6259,
+      "sha256": "dbaf21215fa4dbad4a2d61e75ae14eb00433a4de3f6df52c89dcba120bb7c78f"
+    },
+    "ako_runs/controlled_followup/reciprocal/bind_gate.py": {
+      "bytes": 3787,
+      "sha256": "833a18d47261ad588f635eb7dd39aeda63eced766cdc17c89dcc00f97caf171f"
+    },
+    "ako_runs/controlled_followup/reciprocal/dependencies/gate_lock.example.json": {
+      "bytes": 516,
+      "sha256": "5fd0ca167eca3d3061472b9c318458ab10c195f538145bafa7903f749f2d3c5d"
+    },
+    "ako_runs/controlled_followup/reciprocal/dependencies/recipe_resolution_lock.example.json": {
+      "bytes": 408,
+      "sha256": "e3459d2dde97f1920d1a230f3bb01eef681b7abef85e18afa68e44641fe79d3b"
+    },
+    "ako_runs/controlled_followup/reciprocal/launch.py": {
+      "bytes": 3692,
+      "sha256": "f050fad63df7ec54f498b44eb0cefcbd27013a7842b286da982a5b3bf6a76881"
+    },
+    "ako_runs/controlled_followup/reciprocal/make_manifests.py": {
+      "bytes": 20098,
+      "sha256": "7efb5f1683eda4cfb0883ea776fe9b286dbdc265725bde9ed17508ac0c0e7813"
+    },
+    "ako_runs/controlled_followup/reciprocal/manifests/audit.json": {
+      "bytes": 15864,
+      "sha256": "0fd32a252aa951abda7d5008d4dc968cad58a7bf85ba33b205f823a7d4eff4c0"
+    },
+    "ako_runs/controlled_followup/reciprocal/manifests/primary.json": {
+      "bytes": 17077,
+      "sha256": "bdf65d0833e64dba89aab822eb62f2d231fc91969c1ebe945fd8239d21a5abf9"
+    },
+    "ako_runs/controlled_followup/reciprocal/manifests/summary.json": {
+      "bytes": 657,
+      "sha256": "acffaf900ea70aefca0726a71e8e17d6833190bfffec901a45f240412c0f3ed5"
+    },
+    "ako_runs/controlled_followup/reciprocal/recipe_cards/tilelang_phase1_confirmed.json": {
+      "bytes": 3894,
+      "sha256": "42b1a9737cfef627c4fe14d119ad81bde22c1f9f79628af02e3002e037e8d6be"
+    },
+    "ako_runs/controlled_followup/reciprocal/recipe_cards/triton_grouped_autotuned.json": {
+      "bytes": 6203,
+      "sha256": "16e66e2a625bfada79ff628585ec43dfc134ca5af6468f45d0c4767f1ea3c856"
+    },
+    "ako_runs/controlled_followup/reciprocal/schemas/recipe_card.schema.json": {
+      "bytes": 7279,
+      "sha256": "73c81af1216dba974bda186f9efe72e766246d719f9435e199a0d7f647386cab"
+    },
+    "ako_runs/controlled_followup/reciprocal/test_scaffold.py": {
+      "bytes": 6543,
+      "sha256": "33e9da78ad03ed8884a00965344f79cfef42b1a1c51eadf763e0e02a84823a67"
+    },
+    "ako_runs/controlled_followup/reciprocal/validate.py": {
+      "bytes": 16388,
+      "sha256": "c2ae37b2e9af2af85fdd43e2865ac34502805e74d5370bc350449ce9f9b51079"
+    },
+    "ako_runs/controlled_followup/robust_gate/README.md": {
+      "bytes": 7423,
+      "sha256": "beccfa19434968e95b7681aaaa42eacd5dbd0873719e6da2e934d05039c95096"
+    },
+    "ako_runs/controlled_followup/robust_gate/__init__.py": {
+      "bytes": 350,
+      "sha256": "c47d3e6a5bc723aaca9e724e736c24be490884a16a91d695f41fed1f2b97b183"
+    },
+    "ako_runs/controlled_followup/robust_gate/calibrate.py": {
+      "bytes": 8072,
+      "sha256": "10bc2f10fe49111965c064c5caa62c80b7df121cc3783c863d061e449d3b4f1f"
+    },
+    "ako_runs/controlled_followup/robust_gate/calibration/gate_spec_fused_v2.json": {
+      "bytes": 5196,
+      "sha256": "b6c3afaadf61f5d380a97c6c541828a1ecacd1a89a00b73b66207fe22d765e2e"
+    },
+    "ako_runs/controlled_followup/robust_gate/collect.py": {
+      "bytes": 9941,
+      "sha256": "a9c74a594ca37d320ab5d145d4cd338ae2817115227b1e7d67b5c1b541fd079b"
+    },
+    "ako_runs/controlled_followup/robust_gate/distributions.py": {
+      "bytes": 5641,
+      "sha256": "6280fa580a8ff2e648b937435137930a37143d8225bf9afb348b4c4921ccdd77"
+    },
+    "ako_runs/controlled_followup/robust_gate/manifest.json": {
+      "bytes": 10142,
+      "sha256": "28d51cd4f1730bd190e63c7cad60670c37b67784393270e63e859a1685fc8a62"
+    },
+    "ako_runs/controlled_followup/robust_gate/manifest_matmul_v3.json": {
+      "bytes": 10160,
+      "sha256": "16d4a38e6a55cd70b605cada88bc88caf4ad89a5609b50c85cb834cebeaa706d"
+    },
+    "ako_runs/controlled_followup/robust_gate/metrics.py": {
+      "bytes": 6871,
+      "sha256": "419b48d8410dfeb42ff06e8ce23be15d176443872ad576779ee071a00045a9fe"
+    },
+    "ako_runs/controlled_followup/robust_gate/oracles.py": {
+      "bytes": 8198,
+      "sha256": "5083b72e14285cfc5582effe4cf4d75f6bac8f548cd1183e2d5256c022d5cace"
+    },
+    "ako_runs/controlled_followup/robust_gate/schema.py": {
+      "bytes": 9019,
+      "sha256": "5ddccc0f4eecda92d97de0676eb9c5f16f0ea3bd426a344aa6acb57169e306ec"
+    },
+    "ako_runs/controlled_followup/robust_gate/schemas/gate_spec.schema.json": {
+      "bytes": 1889,
+      "sha256": "fd79b53147af9d2cbc1fbb41f815c1261ecb94d52da0adda61e91315fd6f2556"
+    },
+    "ako_runs/controlled_followup/robust_gate/schemas/manifest.schema.json": {
+      "bytes": 4081,
+      "sha256": "1d2c3829400dd7a2367b7619a4af6ea09c2a3affa70884b246afdf268322aeec"
+    },
+    "ako_runs/controlled_followup/robust_gate/seeds.py": {
+      "bytes": 3689,
+      "sha256": "39663de46fdc31f34ec12975d34c43565f16f19a23be0c1e53bf4f1cfe57fdcc"
+    },
+    "ako_runs/controlled_followup/robust_gate/tests/__init__.py": {
+      "bytes": 64,
+      "sha256": "3707b15c1554d353db53b7f07f40fb050ee2b5e95086c467dcfacdd5c503803a"
+    },
+    "ako_runs/controlled_followup/robust_gate/tests/test_metrics.py": {
+      "bytes": 2364,
+      "sha256": "ece72475762862ebdefed28a9f5d685909cf96de4cd544aebcdee15dde9a9aba"
+    },
+    "ako_runs/controlled_followup/robust_gate/tests/test_oracles_distributions.py": {
+      "bytes": 3317,
+      "sha256": "4920a9377e7608b3aee62fea489bd9707a95fdd2e23956e455635cf37c69ccae"
+    },
+    "ako_runs/controlled_followup/robust_gate/tests/test_pipeline.py": {
+      "bytes": 3787,
+      "sha256": "4303bc88132ab050f666d0b27ae20948443dfd478f8ec825a59c9efccd758fee"
+    },
+    "ako_runs/controlled_followup/robust_gate/tests/test_seeds_schema.py": {
+      "bytes": 3184,
+      "sha256": "07427e4467890c0de00ad4b27bd7d1f0555ddfcfdfe75210683a9f055ce1f12f"
+    },
+    "ako_runs/controlled_followup/robust_gate/validate.py": {
+      "bytes": 6962,
+      "sha256": "b9436c9b4a0d81228a373c1f6e7e79a7cd68cf78e11ef8afdb06c27b2f5b22ec"
+    },
+    "ako_runs/controlled_followup/robust_gate/validation/fused_gate_acceptance_v2.json": {
+      "bytes": 2200,
+      "sha256": "4907fddefa2cac3f7215033cb93caaaa550cecd4a6c70971f29c5f331cb0485c"
+    },
+    "ako_runs/controlled_followup/robust_gate/validation/fused_holdout_summary_v2.json": {
+      "bytes": 210261,
+      "sha256": "db85385d5dc2c6afae6ac361af5dc1228e8a875161bedc9c93d5ae0ab965c455"
+    },
+    "ako_runs/phase1_matmul/PHASE1_REPORT.md": {
+      "bytes": 52275,
+      "sha256": "d1f591dd940abe79d438968efe00e29c82d393dd80787bbc4f1634690b0d3c97"
+    },
+    "ako_runs/phase1_matmul/README.md": {
+      "bytes": 8484,
+      "sha256": "713ed69383bc9d011bdff29171b07ce309d6cfb12c3c8c271c6883ff46f7eba8"
+    },
+    "ako_runs/phase1_matmul/abstraction_rule.py": {
+      "bytes": 8250,
+      "sha256": "edc7c059aca9cad661d473f5ac22c1f39d383e21f03b42e02a34e10e8a768bfb"
+    },
+    "ako_runs/phase1_matmul/accuracy.py": {
+      "bytes": 5943,
+      "sha256": "a8cc551d6596c56dc69ebe27d4b3de106a89593d8d09b14e47522744fe7ec500"
+    },
+    "ako_runs/phase1_matmul/analyze.py": {
+      "bytes": 10286,
+      "sha256": "ec9aee1b62eb8f31c989d1b1452e2937ddc80f5d1bfd1286e63c452a5c05d800"
+    },
+    "ako_runs/phase1_matmul/anchor_check.py": {
+      "bytes": 5209,
+      "sha256": "e495760511f34dc7affdad8f6216615da7f7272d21a78c582532f9b1825bee5c"
+    },
+    "ako_runs/phase1_matmul/build_report.py": {
+      "bytes": 7506,
+      "sha256": "2998361ad275f6c00854932fb419410c39ee8ec87ac669f317f99abbf646cf86"
+    },
+    "ako_runs/phase1_matmul/common.py": {
+      "bytes": 17310,
+      "sha256": "7753fcc00891d475db8675423ca7e48fbc0aa0431ac1e1dd4319e6c2900fd0a7"
+    },
+    "ako_runs/phase1_matmul/compile_cost.py": {
+      "bytes": 4304,
+      "sha256": "18e5986d2a8b0412d678332b440b2a755478d127bf06af26fa75a77fb50495b7"
+    },
+    "ako_runs/phase1_matmul/confirm_winners.py": {
+      "bytes": 6398,
+      "sha256": "5604d954e9a87f1b07c4a5cfad75409203b3fd0837e67a809fc68be4c7293adc"
+    },
+    "ako_runs/phase1_matmul/driver.py": {
+      "bytes": 8684,
+      "sha256": "afee7ba48c7d7ac21ff2f3ca6da77ed576359824b03091b3d72da9b690665ca6"
+    },
+    "ako_runs/phase1_matmul/inspect_code.py": {
+      "bytes": 12150,
+      "sha256": "953a8acaba40e4ec0ee01185b9e87dae69ba4f776b7bc78235714bb6ae145028"
+    },
+    "ako_runs/phase1_matmul/jobs/abstraction.json": {
+      "bytes": 472,
+      "sha256": "c24244b402938da04acbba06bfaab36f7c925da47aa8c6ce552d456c2be0e0ae"
+    },
+    "ako_runs/phase1_matmul/jobs/abstraction_depth.json": {
+      "bytes": 122,
+      "sha256": "9429fb54a610cb4dbf4e5568cc34c356e3a58476e78befb00220611010b494e2"
+    },
+    "ako_runs/phase1_matmul/jobs/casting.json": {
+      "bytes": 1680,
+      "sha256": "053f7eec4a5c99767b8bbc005f472ca7a1ca8d3aa4038b22c455b9cff285f69c"
+    },
+    "ako_runs/phase1_matmul/jobs/confirm.json": {
+      "bytes": 934,
+      "sha256": "6157450784b71d4782ac7ae38b36134b56b08a42cafe7d5616c096f812eee5ba"
+    },
+    "ako_runs/phase1_matmul/jobs/kc_sweep.json": {
+      "bytes": 3894,
+      "sha256": "818a4912f0fdc7106c1db519765197ee3a496c0e70090cfc91bfdceefdf9229a"
+    },
+    "ako_runs/phase1_matmul/jobs/matched.json": {
+      "bytes": 3102,
+      "sha256": "9d0348dd2ec0b10c0d321d9ef264ae2714da5368c45e4b508f5476a343927041"
+    },
+    "ako_runs/phase1_matmul/jobs/native_tuned.json": {
+      "bytes": 9592,
+      "sha256": "1b1c0977eaebdcab45782877e8ca9b577b37a17b4f8343d3bb45b3ed86b0b1a7"
+    },
+    "ako_runs/phase1_matmul/jobs/pipeline.json": {
+      "bytes": 1578,
+      "sha256": "c405f87be34c5d06d8a71bfe41714aad2630d2a00b94f934da88c9b4d9d1ca55"
+    },
+    "ako_runs/phase1_matmul/loc.py": {
+      "bytes": 6387,
+      "sha256": "0247abe45fd463612f6d844aff4816fdc0c2826071a14be60584e8002f0eec95"
+    },
+    "ako_runs/phase1_matmul/make_jobs.py": {
+      "bytes": 5856,
+      "sha256": "2e20c6fd677d028dc994274ce8f719c488c69ab3a8e8766fd6d54b1935c6d5bb"
+    },
+    "ako_runs/phase1_matmul/ncu_collect.py": {
+      "bytes": 10103,
+      "sha256": "8546f63faf1f85f786327a560ab2c30632663db068eec2d799e82f8bfe427ceb"
+    },
+    "ako_runs/phase1_matmul/plots.py": {
+      "bytes": 8857,
+      "sha256": "7cb795959ee4bef75cb73e96484260668779157edef3956ed18b7404f6e74188"
+    },
+    "ako_runs/phase1_matmul/profile_target.py": {
+      "bytes": 1732,
+      "sha256": "0b623d24f61cf8a67e36f98b2edbb01f9320b44e438b5e7528c428148b554936"
+    },
+    "ako_runs/phase1_matmul/report_tables.py": {
+      "bytes": 5850,
+      "sha256": "a46d1852f54dce04f5aa53b60bc978333e8065e84f0882b37bb066c80388c5a7"
+    },
+    "ako_runs/phase1_matmul/run_all.sh": {
+      "bytes": 3139,
+      "sha256": "0fcd216a1061f76ce3592f8da7024301f9cf7ba06b8fb8d063c1994840179515"
+    },
+    "ako_runs/phase1_matmul/runner.py": {
+      "bytes": 5550,
+      "sha256": "cdb2d562d9cdaec292c0c11d4b3f64cbd8e76b5632cbe7a0f14e9b5176ca1178"
+    },
+    "ako_runs/phase1_matmul/stability.py": {
+      "bytes": 4752,
+      "sha256": "a1f9893d8db010abf0fac15c5fb4c5ca517c6b9f8996b55bf40f89b74715f8fc"
+    },
+    "ako_runs/phase1_matmul/sweep_tables.py": {
+      "bytes": 10167,
+      "sha256": "4b1bbc284a7d365ef64b1ea7adbfff9bfda090ab47aac3a5a82663d1946f2f8c"
+    },
+    "ako_runs/phase1_matmul/variants/ABSTRACTION_SPEC.md": {
+      "bytes": 5061,
+      "sha256": "3a1c766036aa44c21c9d10eabf38613f313d269701c79e7cbdc48933e63f9ef4"
+    },
+    "ako_runs/phase1_matmul/variants/SPEC.md": {
+      "bytes": 7169,
+      "sha256": "ff517a2c30b9142864095e3910317632c74079d0d8e531264ceaed1f08eb6d2a"
+    },
+    "ako_runs/phase1_matmul/variants/__init__.py": {
+      "bytes": 1382,
+      "sha256": "0ac322f46ab46fe0bf6d9eb6241c7eacf6b9844f5f6d927dbccfc81a1005a585"
+    },
+    "ako_runs/phase1_matmul/variants/cuda_noptx_gemm.py": {
+      "bytes": 29762,
+      "sha256": "b3935c4e9516304cbbe0b3ab8e32e1fadc1264f48f26ee00fe52aede6e032217"
+    },
+    "ako_runs/phase1_matmul/variants/cuda_unlimited_gemm.py": {
+      "bytes": 27988,
+      "sha256": "c9629300ce871476eb95cdecc5337229c43d3206e674c35d86a7f65d20a87ad5"
+    },
+    "ako_runs/phase1_matmul/variants/tilelang_abstraction.py": {
+      "bytes": 22007,
+      "sha256": "3a055f02970884a4437b607542e046f2f9e6df3b1798c085d9b9c3b9fb57f4ff"
+    },
+    "ako_runs/phase1_matmul/variants/tilelang_gemm.py": {
+      "bytes": 14229,
+      "sha256": "07d40bb5fee951ecec7ad1a7ca1815b5fae6761b3bb42e81f81c15ef806af268"
+    },
+    "ako_runs/phase1_matmul/variants/torch_ref.py": {
+      "bytes": 1500,
+      "sha256": "5656b66fc8d47dd6a6f71561efb3316ea130d68008e6fd0dd31255bec18ace4d"
+    },
+    "ako_runs/phase1_matmul/variants/triton_gemm.py": {
+      "bytes": 9633,
+      "sha256": "8c9cc3d60d549eb941dcb68a0ee7b0a6173b849a368eb55c75ec91c68612e108"
+    },
+    "ako_runs/phase1_matmul/verify_triton_adv.py": {
+      "bytes": 3484,
+      "sha256": "88222a01ed3865e4d892d42cd1b9423ae0ca22766d538618f07eda42637b9441"
+    },
+    "ako_runs/phase2_fused_sdpa/PHASE2_REPORT.built.md": {
+      "bytes": 95249,
+      "sha256": "965fa18418ba3caaf2a9feb8aba067565b93700011483da0da6cb99d10cc81b4"
+    },
+    "ako_runs/phase2_fused_sdpa/PHASE2_REPORT.md": {
+      "bytes": 56308,
+      "sha256": "6a1d90305e8cd330a09c2e683ff893b86f1fbd49f3aa34e7a9473052865abdb9"
+    },
+    "ako_runs/phase2_fused_sdpa/_triton_f32dot_probe.py": {
+      "bytes": 1042,
+      "sha256": "3fc21a281223fa8b0444b48d93de95e842613fc80440e5f806878b2dc352edd8"
+    },
+    "ako_runs/phase2_fused_sdpa/_triton_fp16score_bound.py": {
+      "bytes": 1508,
+      "sha256": "d7094805f53cf59d83b895e3ffec7dabc005b11f4d1c625d929002c2e1ca4b32"
+    },
+    "ako_runs/phase2_fused_sdpa/_triton_smoke.sh": {
+      "bytes": 1208,
+      "sha256": "e01cf06d0c0fedc7d120933e2d14570b9698c655ae75f137012b9a690d3d6090"
+    },
+    "ako_runs/phase2_fused_sdpa/_triton_tile_sweep.py": {
+      "bytes": 2571,
+      "sha256": "d3e2dc7d0fdc718480e984bc362127890b6087f3d8a27dae164dd51db10b42eb"
+    },
+    "ako_runs/phase2_fused_sdpa/_verify_gap.py": {
+      "bytes": 2890,
+      "sha256": "a57beddd90fee5a819c9742e92c8a10e76b041051c307b1b3e7ad09c1bfc83c1"
+    },
+    "ako_runs/phase2_fused_sdpa/_verify_probe.py": {
+      "bytes": 3666,
+      "sha256": "f6c870cbccf34585fdd901b097dd492d36647c007cbb48b59f32cf584b486c50"
+    },
+    "ako_runs/phase2_fused_sdpa/analyze2.py": {
+      "bytes": 15067,
+      "sha256": "42f27304089dfc3b571e80bd35316cbba89b9905cd7e969ab290d65e1d87f547"
+    },
+    "ako_runs/phase2_fused_sdpa/anchor_check2.py": {
+      "bytes": 3620,
+      "sha256": "710b873777f808d8e73033e3053bd1f6b2df0c4a87b68577e4999e4069c7ebc4"
+    },
+    "ako_runs/phase2_fused_sdpa/build_report2.py": {
+      "bytes": 27185,
+      "sha256": "cb3e73405ad13d1cc46a2ac1dc3f786322fa59da09a9e4e343a9498d1bc92a9d"
+    },
+    "ako_runs/phase2_fused_sdpa/common2.py": {
+      "bytes": 16006,
+      "sha256": "0293cb15fc3285df199daa58281a1a35147a78b9cbccda8b8f88418eecb39c64"
+    },
+    "ako_runs/phase2_fused_sdpa/compile_cold.py": {
+      "bytes": 6275,
+      "sha256": "9e64af17c36a4e77d09ab3f09ce444ff4219a1eb828cb802d56b263ac9f37970"
+    },
+    "ako_runs/phase2_fused_sdpa/driver2.py": {
+      "bytes": 7343,
+      "sha256": "ffd93916b0dc9de8ae030ef4ca9742e5a3427d2b84e417b4ca5e675ed45426ed"
+    },
+    "ako_runs/phase2_fused_sdpa/fused_incumbent_check.py": {
+      "bytes": 8356,
+      "sha256": "db9b55f6ece41a8f942dde30766aa0dc42bb4a708d8d98ec9a20eb8ae7febc9e"
+    },
+    "ako_runs/phase2_fused_sdpa/incumbent_reps.py": {
+      "bytes": 5344,
+      "sha256": "3d59d4d23bc69ea70a6e36d7dcb2100267a979409617e77b64d1d4349f2be2e2"
+    },
+    "ako_runs/phase2_fused_sdpa/jobs/fused_abstraction.json": {
+      "bytes": 1761,
+      "sha256": "1bbed2a6f8a154334c1e58b923036173593f835d65841943c473ac262044dee6"
+    },
+    "ako_runs/phase2_fused_sdpa/jobs/fused_cast.json": {
+      "bytes": 456,
+      "sha256": "443f4b9428c0a2283c9507a3b0639a78b347e505fa752884c643aec93d8b1e93"
+    },
+    "ako_runs/phase2_fused_sdpa/jobs/fused_epilogue.json": {
+      "bytes": 774,
+      "sha256": "b353e6df280c8f11a0c68d833ed8dbc978c93145703f2082fb6212bf5e0ea5ff"
+    },
+    "ako_runs/phase2_fused_sdpa/jobs/fused_matched.json": {
+      "bytes": 3802,
+      "sha256": "0daf7d6773f3c61501384c4ff91450fb79653f5ba5a0c2d10d8974dfb98bfaf6"
+    },
+    "ako_runs/phase2_fused_sdpa/jobs/fused_native.json": {
+      "bytes": 920,
+      "sha256": "def5f9205219de0821205fbd25b392e418525e229d636b7b6f18ce12f5d60721"
+    },
+    "ako_runs/phase2_fused_sdpa/jobs/ncu_fused.json": {
+      "bytes": 700,
+      "sha256": "7727fb7ca220c51b9cececba046819a17eb8900645ef353fee57786ea304243a"
+    },
+    "ako_runs/phase2_fused_sdpa/jobs/ncu_sdpa.json": {
+      "bytes": 2621,
+      "sha256": "52b74d89c154032cfcdb2cfb0d4627bd502ca3f74fb191ca7954335c68dd42a2"
+    },
+    "ako_runs/phase2_fused_sdpa/jobs/sdpa_abstraction.json": {
+      "bytes": 1799,
+      "sha256": "b8c62c858b9a7343331bf105b3aaad2df5add5f80dd8dbaedfc1a3578acc0b68"
+    },
+    "ako_runs/phase2_fused_sdpa/jobs/sdpa_cross.json": {
+      "bytes": 7898,
+      "sha256": "305be9897f365a25b494476a40239819e143bad2b3dc7398e3a26a09fc12d580"
+    },
+    "ako_runs/phase2_fused_sdpa/make_jobs2.py": {
+      "bytes": 5915,
+      "sha256": "b74f2eb46c5624186410359fd404a9d91b6ed0c0b47dc9eb5600651b2c7fb060"
+    },
+    "ako_runs/phase2_fused_sdpa/ncu_collect2.py": {
+      "bytes": 10844,
+      "sha256": "a3f4c091f44ba0377d81ce26d8e4df350f9677137d84d7bc2b8a795dba824f4b"
+    },
+    "ako_runs/phase2_fused_sdpa/profile_target2.py": {
+      "bytes": 2012,
+      "sha256": "64fe3a29c03dedbe71dd94171e395bd38b345f4916d8f6e241713bb6f0c1106f"
+    },
+    "ako_runs/phase2_fused_sdpa/run_rest_fused.sh": {
+      "bytes": 489,
+      "sha256": "4aea984a4bb0f1b1b18c39371f3b8354fbedd81be7903f33233dd6bb958a8973"
+    },
+    "ako_runs/phase2_fused_sdpa/run_sdpa.sh": {
+      "bytes": 342,
+      "sha256": "af260e604cc1404ce039df2d4de2151178ff29ff535f677715d62f8b1f60fe2f"
+    },
+    "ako_runs/phase2_fused_sdpa/run_sdpa_rest.sh": {
+      "bytes": 1723,
+      "sha256": "8ea99da08ee75f855492af17f0ce749c6a0bc2a89ce602cde6549e3a12db77bc"
+    },
+    "ako_runs/phase2_fused_sdpa/runner2.py": {
+      "bytes": 9270,
+      "sha256": "d1ade4461bff35058a3c6e967532960f5cc509f5d6a46c69bded78fbd0aac31e"
+    },
+    "ako_runs/phase2_fused_sdpa/sdpa_incumbent_check.py": {
+      "bytes": 6640,
+      "sha256": "d5f1239daf5b0c25a22bdf114b3cfe54248f8e887811ee42ac9c6776bbe9bdc8"
+    },
+    "ako_runs/phase2_fused_sdpa/sdpa_reference_audit.py": {
+      "bytes": 5842,
+      "sha256": "282a32f96708538a91360a73d4d4d6853e4b6fe06a93f03a7166d1f8fc597f1e"
+    },
+    "ako_runs/phase2_fused_sdpa/variants2/SPEC2.md": {
+      "bytes": 15823,
+      "sha256": "d4bc1b1c3dabf79ec813e08ac3ce3164e1251bf9c85c8fc9cd7e954581283652"
+    },
+    "ako_runs/phase2_fused_sdpa/variants2/__init__.py": {
+      "bytes": 1529,
+      "sha256": "2afc778f25db9abe2d05299bbd47fa2ad43b7912eee8633936095e6b92662045"
+    },
+    "ako_runs/phase2_fused_sdpa/variants2/cuda_fused_common.py": {
+      "bytes": 8084,
+      "sha256": "c047985e84428246a455a20107cd5309d63528a593374ed2a4418e531c915c36"
+    },
+    "ako_runs/phase2_fused_sdpa/variants2/fused_cuda_noptx.py": {
+      "bytes": 9476,
+      "sha256": "6abbea8ea28d5d6623da90385e417ec279fd5a022cf2144a56ae8fab684e2058"
+    },
+    "ako_runs/phase2_fused_sdpa/variants2/fused_cuda_unlimited.py": {
+      "bytes": 10770,
+      "sha256": "d0c5b1b46f44ae6fe655e78b8ce902b42d46b3567bf26a81574d52b78262f060"
+    },
+    "ako_runs/phase2_fused_sdpa/variants2/fused_tilelang.py": {
+      "bytes": 12364,
+      "sha256": "c2a0704d81bdb4b2f78377870a1bc45c6945db77bccc8e89b2a0fd4b46511684"
+    },
+    "ako_runs/phase2_fused_sdpa/variants2/fused_tilelang_abstraction.py": {
+      "bytes": 13042,
+      "sha256": "f2769dff2408cb929458344578f23fdf1f8954c110e1bcb0b699d2cc53ae2af3"
+    },
+    "ako_runs/phase2_fused_sdpa/variants2/fused_torch.py": {
+      "bytes": 3370,
+      "sha256": "9a1d5234d7baa3102b9851482b2dd7b4375c80982046d21d03e647755ffba762"
+    },
+    "ako_runs/phase2_fused_sdpa/variants2/fused_triton.py": {
+      "bytes": 8048,
+      "sha256": "20c4f27fdc9145beec6b4cdb99ed8e9d57cbdbede87bace51319d782f378272e"
+    },
+    "ako_runs/phase2_fused_sdpa/variants2/sdpa_cuda_noptx.py": {
+      "bytes": 42295,
+      "sha256": "d3984247afd195323249c4f1b6a06fa37389f2a81c537378b55517809dc31ed2"
+    },
+    "ako_runs/phase2_fused_sdpa/variants2/sdpa_cuda_unlimited.py": {
+      "bytes": 47061,
+      "sha256": "79104bc8bc02dfac32fbcc6b5ee6c7a6c669220bde9f1ba7430ce8d3dc63a757"
+    },
+    "ako_runs/phase2_fused_sdpa/variants2/sdpa_tilelang.py": {
+      "bytes": 37370,
+      "sha256": "0469abd24a40a68e42d5f5d3b90037c05310183f940a373402c8fd6129168fca"
+    },
+    "ako_runs/phase2_fused_sdpa/variants2/sdpa_tilelang_abstraction.py": {
+      "bytes": 32484,
+      "sha256": "b50db2ed70c85a5c44c54c5b17c0ca253e3569ed12c89ff12b03c85985f2c9a7"
+    },
+    "ako_runs/phase2_fused_sdpa/variants2/sdpa_torch.py": {
+      "bytes": 2774,
+      "sha256": "a50b742dcbf0af6e90db9224ccee4195635a8f8040c1d4693731e5f707615340"
+    },
+    "ako_runs/phase2_fused_sdpa/variants2/sdpa_triton.py": {
+      "bytes": 23248,
+      "sha256": "0b27e1cc3dfd27e4339578521cbae7792c5aa7c4d2398cc2b3b0a164ddec0350"
+    }
+  },
+  "git": {
+    "branch": "cross-dsl-6op-ncu-redo",
+    "dirty": true,
+    "head": "8854ae00a4299eb52cdde33abad02e91583aa5ea",
+    "status_porcelain": [
+      "?? ako_runs/CONTROLLED_CROSS_DSL_REPORT.md",
+      "?? ako_runs/CONTROLLED_CROSS_DSL_REVIEW.md",
+      "?? ako_runs/controlled_followup/README.md",
+      "?? ako_runs/controlled_followup/convergence/PROMPT_MISLEADING_PRIOR.md",
+      "?? ako_runs/controlled_followup/convergence/PROMPT_NEUTRAL.md",
+      "?? ako_runs/controlled_followup/convergence/PROMPT_VALID_HINT.md",
+      "?? ako_runs/controlled_followup/convergence/README.md",
+      "?? ako_runs/controlled_followup/convergence/make_manifest.py",
+      "?? ako_runs/controlled_followup/convergence/manifests/core_120.jsonl",
+      "?? ako_runs/controlled_followup/convergence/manifests/prompt_extension_48.jsonl",
+      "?? ako_runs/controlled_followup/convergence/manifests/summary.json",
+      "?? ako_runs/controlled_followup/fused_grid/.gitignore",
+      "?? ako_runs/controlled_followup/fused_grid/README.md",
+      "?? ako_runs/controlled_followup/fused_grid/analyze_screen.py",
+      "?? ako_runs/controlled_followup/fused_grid/jobs/fused_gbgs_grid.json",
+      "?? ako_runs/controlled_followup/fused_grid/launch.py",
+      "?? ako_runs/controlled_followup/fused_grid/make_manifest.py",
+      "?? ako_runs/controlled_followup/fused_grid/make_robust_manifest.py",
+      "?? ako_runs/controlled_followup/fused_grid/manifest.json",
+      "?? ako_runs/controlled_followup/fused_grid/robust_adapter.py",
+      "?? ako_runs/controlled_followup/fused_grid/robust_adapter_manifest.json",
+      "?? ako_runs/controlled_followup/fused_grid/robust_launch.py",
+      "?? ako_runs/controlled_followup/fused_grid/test_analyze_screen.py",
+      "?? ako_runs/controlled_followup/fused_grid/test_robust_adapter.py",
+      "?? ako_runs/controlled_followup/fused_grid/test_scaffold.py",
+      "?? ako_runs/controlled_followup/provenance/20260729_gate_fused_grid_v2_sources.tar.gz",
+      "?? ako_runs/controlled_followup/provenance/README.md",
+      "?? ako_runs/controlled_followup/provenance/capture.py",
+      "?? ako_runs/controlled_followup/provenance/snapshots/20260729_gate_fused_grid_v1.json",
+      "?? ako_runs/controlled_followup/provenance/snapshots/20260729_gate_fused_grid_v2.json",
+      "?? ako_runs/controlled_followup/reciprocal/.gitignore",
+      "?? ako_runs/controlled_followup/reciprocal/README.md",
+      "?? ako_runs/controlled_followup/reciprocal/bind_gate.py",
+      "?? ako_runs/controlled_followup/reciprocal/dependencies/gate_lock.example.json",
+      "?? ako_runs/controlled_followup/reciprocal/dependencies/recipe_resolution_lock.example.json",
+      "?? ako_runs/controlled_followup/reciprocal/launch.py",
+      "?? ako_runs/controlled_followup/reciprocal/make_manifests.py",
+      "?? ako_runs/controlled_followup/reciprocal/manifests/audit.json",
+      "?? ako_runs/controlled_followup/reciprocal/manifests/primary.json",
+      "?? ako_runs/controlled_followup/reciprocal/manifests/summary.json",
+      "?? ako_runs/controlled_followup/reciprocal/recipe_cards/tilelang_phase1_confirmed.json",
+      "?? ako_runs/controlled_followup/reciprocal/recipe_cards/triton_grouped_autotuned.json",
+      "?? ako_runs/controlled_followup/reciprocal/schemas/recipe_card.schema.json",
+      "?? ako_runs/controlled_followup/reciprocal/test_scaffold.py",
+      "?? ako_runs/controlled_followup/reciprocal/validate.py",
+      "?? ako_runs/controlled_followup/robust_gate/README.md",
+      "?? ako_runs/controlled_followup/robust_gate/__init__.py",
+      "?? ako_runs/controlled_followup/robust_gate/calibrate.py",
+      "?? ako_runs/controlled_followup/robust_gate/calibration/gate_spec_fused_v2.json",
+      "?? ako_runs/controlled_followup/robust_gate/calibration/raw/fused_conformance_mixed_gpu1.jsonl",
+      "?? ako_runs/controlled_followup/robust_gate/calibration/raw/fused_semantic_mixed_gpu0.jsonl",
+      "?? ako_runs/controlled_followup/robust_gate/collect.py",
+      "?? ako_runs/controlled_followup/robust_gate/distributions.py",
+      "?? ako_runs/controlled_followup/robust_gate/manifest.json",
+      "?? ako_runs/controlled_followup/robust_gate/manifest_matmul_v3.json",
+      "?? ako_runs/controlled_followup/robust_gate/metrics.py",
+      "?? ako_runs/controlled_followup/robust_gate/oracles.py",
+      "?? ako_runs/controlled_followup/robust_gate/schema.py",
+      "?? ako_runs/controlled_followup/robust_gate/schemas/gate_spec.schema.json",
+      "?? ako_runs/controlled_followup/robust_gate/schemas/manifest.schema.json",
+      "?? ako_runs/controlled_followup/robust_gate/seeds.py",
+      "?? ako_runs/controlled_followup/robust_gate/tests/__init__.py",
+      "?? ako_runs/controlled_followup/robust_gate/tests/test_metrics.py",
+      "?? ako_runs/controlled_followup/robust_gate/tests/test_oracles_distributions.py",
+      "?? ako_runs/controlled_followup/robust_gate/tests/test_pipeline.py",
+      "?? ako_runs/controlled_followup/robust_gate/tests/test_seeds_schema.py",
+      "?? ako_runs/controlled_followup/robust_gate/validate.py",
+      "?? ako_runs/controlled_followup/robust_gate/validation/fused_gate_acceptance_v2.json",
+      "?? ako_runs/controlled_followup/robust_gate/validation/fused_holdout_summary_v2.json",
+      "?? ako_runs/controlled_followup/robust_gate/validation/raw/fused_conformance_native_gpu1.jsonl",
+      "?? ako_runs/controlled_followup/robust_gate/validation/raw/fused_semantic_native_gpu0.jsonl",
+      "?? ako_runs/controlled_followup/robust_gate/validation/raw/fused_semantic_row_reverse_gpu3.jsonl",
+      "?? ako_runs/controlled_followup/robust_gate/validation/raw/fused_semantic_zeros_gpu2.jsonl"
+    ]
+  },
+  "host": {
+    "CUDA_VISIBLE_DEVICES": null,
+    "packages": {
+      "numpy": "2.2.6",
+      "scipy": "1.17.1",
+      "tilelang": "0.1.11",
+      "torch": "2.10.0",
+      "triton": "3.6.0"
+    },
+    "platform": "Linux-5.14.0-687.24.1.el9_8.x86_64-x86_64-with-glibc2.34",
+    "python": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 16:09:02) [GCC 11.2.0]",
+    "python_executable": "/home/lxt230026/miniconda3/bin/python"
+  },
+  "inputs": [
+    "ako_runs/CONTROLLED_CROSS_DSL_REPORT.md",
+    "ako_runs/CONTROLLED_CROSS_DSL_REVIEW.md",
+    "ako_runs/CONVERGENCE_PROTOCOL.md",
+    "ako_runs/phase1_matmul",
+    "ako_runs/phase2_fused_sdpa",
+    "ako_runs/controlled_followup"
+  ],
+  "repository": "/home/lxt230026/MultiKernelBench",
+  "schema_version": 1,
+  "tool_queries": {
+    "nvcc": {
+      "argv": [
+        "nvcc",
+        "--version"
+      ],
+      "error": "FileNotFoundError: [Errno 2] No such file or directory: 'nvcc'",
+      "returncode": null
+    },
+    "nvidia_smi": {
+      "argv": [
+        "nvidia-smi",
+        "--query-gpu=index,uuid,name,driver_version,memory.total,pci.bus_id",
+        "--format=csv,noheader"
+      ],
+      "returncode": 9,
+      "stderr": "",
+      "stdout": "NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver. Make sure that the latest NVIDIA driver is installed and running."
+    }
+  }
+}

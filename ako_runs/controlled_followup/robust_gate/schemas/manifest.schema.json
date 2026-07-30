@@ -1,0 +1,194 @@
+{
+  "$id": "https://multikernelbench.local/schemas/robust-gate-manifest-v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "calibration": {
+      "properties": {
+        "rounding": {
+          "const": "next-1-2-5"
+        },
+        "safety_factor": {
+          "minimum": 1,
+          "type": "number"
+        }
+      },
+      "required": [
+        "rounding",
+        "safety_factor"
+      ],
+      "type": "object"
+    },
+    "campaign_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "operations": {
+      "additionalProperties": false,
+      "properties": {
+        "fused_softmax": {
+          "$ref": "#/$defs/operation"
+        },
+        "matmul": {
+          "$ref": "#/$defs/operation"
+        },
+        "sdpa": {
+          "$ref": "#/$defs/operation"
+        }
+      },
+      "required": [
+        "matmul",
+        "fused_softmax",
+        "sdpa"
+      ],
+      "type": "object"
+    },
+    "schema_version": {
+      "const": "1.0"
+    },
+    "seed_namespace": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "split_counts": {
+      "additionalProperties": false,
+      "properties": {
+        "calibration": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "performance": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "tuning": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "validation": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "calibration",
+        "tuning",
+        "validation",
+        "performance"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema_version",
+    "campaign_id",
+    "seed_namespace",
+    "split_counts",
+    "calibration",
+    "operations"
+  ],
+  "type": "object",
+  "$defs": {
+    "gate": {
+      "additionalProperties": true,
+      "properties": {
+        "anchors": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 2,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "calibrated_metrics": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "fixed_thresholds": {
+          "additionalProperties": {
+            "minimum": 0,
+            "type": "number"
+          },
+          "type": "object"
+        },
+        "reference": {
+          "properties": {
+            "kind": {
+              "enum": [
+                "semantic_fp64",
+                "contract_mixed"
+              ]
+            }
+          },
+          "required": [
+            "kind"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "reference",
+        "anchors",
+        "calibrated_metrics",
+        "fixed_thresholds"
+      ],
+      "type": "object"
+    },
+    "operation": {
+      "additionalProperties": true,
+      "properties": {
+        "cases": {
+          "items": {
+            "properties": {
+              "id": {
+                "minLength": 1,
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "type": "object"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "cpu_test_shape": {
+          "additionalProperties": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "type": "object"
+        },
+        "gates": {
+          "additionalProperties": {
+            "$ref": "#/$defs/gate"
+          },
+          "minProperties": 1,
+          "type": "object"
+        },
+        "shape": {
+          "additionalProperties": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "type": "object"
+        }
+      },
+      "required": [
+        "shape",
+        "cpu_test_shape",
+        "cases",
+        "gates"
+      ],
+      "type": "object"
+    }
+  }
+}
+

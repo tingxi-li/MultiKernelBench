@@ -1,0 +1,47 @@
+{
+  "campaign_id": "controlled-followup-robust-gate-matmul-v4",
+  "failures": [],
+  "gate_spec_sha256": "838c21d696febb2e712d03eff120326375fd34c5169a3d9c4978a2f8b6160aca",
+  "groups": [
+    {
+      "candidate": "native_mixed_holdout_v4",
+      "coverage_complete": true,
+      "failure_rate_upper95": 0.0009746979392025734,
+      "gate_id": "conformance_mixed",
+      "missing_records": 0,
+      "n_failed_records": 0,
+      "n_records": 3072,
+      "observed_failure_rate": 0.0,
+      "op": "matmul",
+      "success": true
+    },
+    {
+      "candidate": "native_mixed_holdout_v4",
+      "coverage_complete": true,
+      "failure_rate_upper95": 0.0009746979392025734,
+      "gate_id": "semantic_mixed",
+      "missing_records": 0,
+      "n_failed_records": 0,
+      "n_records": 3072,
+      "observed_failure_rate": 0.0,
+      "op": "matmul",
+      "success": true
+    },
+    {
+      "candidate": "native_fp32_holdout_v4",
+      "coverage_complete": true,
+      "failure_rate_upper95": 0.0009746979392025734,
+      "gate_id": "semantic_q32",
+      "missing_records": 0,
+      "n_failed_records": 0,
+      "n_records": 3072,
+      "observed_failure_rate": 0.0,
+      "op": "matmul",
+      "success": true
+    }
+  ],
+  "manifest_sha256": "c26683f1eb2add7d5b0b57da9f2ff66473042437c05e6019eac7adb3672a7314",
+  "schema_version": "1.0",
+  "success": true,
+  "success_rule": "all_metrics_all_cases_all_seeds_and_complete_coverage"
+}
