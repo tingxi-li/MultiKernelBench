@@ -1,0 +1,313 @@
+{
+  "campaign_id": "controlled-followup-fused-reachability-row-sum-stress-v1",
+  "candidates": [
+    {
+      "candidate": {
+        "grid_id": "g05",
+        "job_id": "cuda_noptx_streamed.g05",
+        "job_sha256": "63d545eae879c043fa5fe5218c27c421473943545ade072ba2fb8f0b71e12a07",
+        "lane": "cuda_noptx",
+        "screen_rank": 1
+      },
+      "error": null,
+      "metadata": {
+        "artifacts": {
+          "configured_stages": 2,
+          "cuda_source_sha256": "28633049dcdf8a0c09a4315ca758f846525618b4c3887c044a35bd1b5f231439",
+          "deviations": [],
+          "epilogue_policy": "global_intermediate_then_bias_gelu_softmax",
+          "extension_name": "cfr2_n_128_256_32_t256_s2_kc2048",
+          "lane": "cuda_noptx",
+          "n_kernels": 2,
+          "realized_stages": 2,
+          "shared_bytes": 54272,
+          "shared_padding_halfs": {
+            "A": 8,
+            "B": 8
+          }
+        },
+        "build_wall_s": 37.25681357899157,
+        "config": {
+          "BK": 32,
+          "BM": 128,
+          "BN": 256,
+          "K": 8192,
+          "M": 1024,
+          "N": 8192,
+          "arith": "fp16",
+          "cast": "precast",
+          "dsl": "cuda_noptx",
+          "extra": {
+            "epilogue": "streamed_global",
+            "wcache": "cached"
+          },
+          "input_dtype": "torch.float16",
+          "kc": 2048,
+          "stages": 2,
+          "threads": 256,
+          "variant": "GBGS"
+        },
+        "n_kernels": 2,
+        "reported_compile_s": 37.25656839400472
+      }
+    },
+    {
+      "candidate": {
+        "grid_id": "g09",
+        "job_id": "cuda_noptx_streamed.g09",
+        "job_sha256": "57cad6b270d1b5b46cd0b3f35b3fd37986220797084f6eb9081737b0dc6e8fec",
+        "lane": "cuda_noptx",
+        "screen_rank": 2
+      },
+      "error": null,
+      "metadata": {
+        "artifacts": {
+          "configured_stages": 2,
+          "cuda_source_sha256": "57f7e9f14d178d154ea6c5d24033283982285571c67101999b73f2d8938b1466",
+          "deviations": [],
+          "epilogue_policy": "global_intermediate_then_bias_gelu_softmax",
+          "extension_name": "cfr2_n_256_128_32_t256_s2_kc2048",
+          "lane": "cuda_noptx",
+          "n_kernels": 2,
+          "realized_stages": 2,
+          "shared_bytes": 58368,
+          "shared_padding_halfs": {
+            "A": 8,
+            "B": 8
+          }
+        },
+        "build_wall_s": 37.268147397000575,
+        "config": {
+          "BK": 32,
+          "BM": 256,
+          "BN": 128,
+          "K": 8192,
+          "M": 1024,
+          "N": 8192,
+          "arith": "fp16",
+          "cast": "precast",
+          "dsl": "cuda_noptx",
+          "extra": {
+            "epilogue": "streamed_global",
+            "wcache": "cached"
+          },
+          "input_dtype": "torch.float16",
+          "kc": 2048,
+          "stages": 2,
+          "threads": 256,
+          "variant": "GBGS"
+        },
+        "n_kernels": 2,
+        "reported_compile_s": 37.267804332994274
+      }
+    },
+    {
+      "candidate": {
+        "grid_id": "g08",
+        "job_id": "cuda_noptx_streamed.g08",
+        "job_sha256": "b2e1eddff374a724809b3e825dea46fba7dd9b92225c9a490074940a2b2224a8",
+        "lane": "cuda_noptx",
+        "screen_rank": 3
+      },
+      "error": null,
+      "metadata": {
+        "artifacts": {
+          "configured_stages": 2,
+          "cuda_source_sha256": "467aae7d3bd22073468bdf407244b5aa309103e48d45c117566293b2c0809b04",
+          "deviations": [],
+          "epilogue_policy": "global_intermediate_then_bias_gelu_softmax",
+          "extension_name": "cfr2_n_128_256_64_t256_s2_kc2048",
+          "lane": "cuda_noptx",
+          "n_kernels": 2,
+          "realized_stages": 2,
+          "shared_bytes": 98304,
+          "shared_padding_halfs": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        "build_wall_s": 36.61663854100334,
+        "config": {
+          "BK": 64,
+          "BM": 128,
+          "BN": 256,
+          "K": 8192,
+          "M": 1024,
+          "N": 8192,
+          "arith": "fp16",
+          "cast": "precast",
+          "dsl": "cuda_noptx",
+          "extra": {
+            "epilogue": "streamed_global",
+            "wcache": "cached"
+          },
+          "input_dtype": "torch.float16",
+          "kc": 2048,
+          "stages": 2,
+          "threads": 256,
+          "variant": "GBGS"
+        },
+        "n_kernels": 2,
+        "reported_compile_s": 36.61639593000291
+      }
+    },
+    {
+      "candidate": {
+        "grid_id": "g06",
+        "job_id": "cuda_unlimited_streamed.g06",
+        "job_sha256": "e067abda00d0366a4a9bd39cc7d49f1b37d7e573dde7e786c77ff3b8663b25b2",
+        "lane": "cuda_unlimited",
+        "screen_rank": 1
+      },
+      "error": null,
+      "metadata": {
+        "artifacts": {
+          "configured_stages": 3,
+          "cuda_source_sha256": "347de9342aa49929f245874b7290b9af47c8d9caeb1398b09b9f1f179423de59",
+          "deviations": [],
+          "epilogue_policy": "global_intermediate_then_bias_gelu_softmax",
+          "extension_name": "cfr2_u_128_256_32_t256_s3_kc2048_p8",
+          "lane": "cuda_unlimited",
+          "n_kernels": 2,
+          "realized_stages": 3,
+          "shared_bytes": 81408,
+          "shared_padding_halfs": {
+            "A": 8,
+            "B": 8
+          }
+        },
+        "build_wall_s": 36.144034907003515,
+        "config": {
+          "BK": 32,
+          "BM": 128,
+          "BN": 256,
+          "K": 8192,
+          "M": 1024,
+          "N": 8192,
+          "arith": "fp16",
+          "cast": "precast",
+          "dsl": "cuda_unlimited",
+          "extra": {
+            "epilogue": "streamed_global",
+            "wcache": "cached"
+          },
+          "input_dtype": "torch.float16",
+          "kc": 2048,
+          "stages": 3,
+          "threads": 256,
+          "variant": "GBGS"
+        },
+        "n_kernels": 2,
+        "reported_compile_s": 36.1438081790111
+      }
+    },
+    {
+      "candidate": {
+        "grid_id": "g07",
+        "job_id": "cuda_unlimited_streamed.g07",
+        "job_sha256": "b07ac33981c4b89d7a6453fb531a2dd0882ca2077f66a9718268559373391685",
+        "lane": "cuda_unlimited",
+        "screen_rank": 2
+      },
+      "error": null,
+      "metadata": {
+        "artifacts": {
+          "configured_stages": 4,
+          "cuda_source_sha256": "869d687b75cde155d109fb87881999213fac8fd4c498e199afa418988d08ada0",
+          "deviations": [
+            "shared-memory padding dropped"
+          ],
+          "epilogue_policy": "global_intermediate_then_bias_gelu_softmax",
+          "extension_name": "cfr2_u_128_256_32_t256_s4_kc2048_p0",
+          "lane": "cuda_unlimited",
+          "n_kernels": 2,
+          "realized_stages": 4,
+          "shared_bytes": 98304,
+          "shared_padding_halfs": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        "build_wall_s": 36.12808857001073,
+        "config": {
+          "BK": 32,
+          "BM": 128,
+          "BN": 256,
+          "K": 8192,
+          "M": 1024,
+          "N": 8192,
+          "arith": "fp16",
+          "cast": "precast",
+          "dsl": "cuda_unlimited",
+          "extra": {
+            "epilogue": "streamed_global",
+            "wcache": "cached"
+          },
+          "input_dtype": "torch.float16",
+          "kc": 2048,
+          "stages": 4,
+          "threads": 256,
+          "variant": "GBGS"
+        },
+        "n_kernels": 2,
+        "reported_compile_s": 36.1278270920011
+      }
+    },
+    {
+      "candidate": {
+        "grid_id": "g05",
+        "job_id": "cuda_unlimited_streamed.g05",
+        "job_sha256": "9b49ed7400e60a015cd58fcf23223e7ec651bbf59c441bb665aef6fd66f8ab7e",
+        "lane": "cuda_unlimited",
+        "screen_rank": 3
+      },
+      "error": null,
+      "metadata": {
+        "artifacts": {
+          "configured_stages": 2,
+          "cuda_source_sha256": "141e436ca5c505f3a4ba353972226799f171553c16d19fe1e09ec09dd701e081",
+          "deviations": [],
+          "epilogue_policy": "global_intermediate_then_bias_gelu_softmax",
+          "extension_name": "cfr2_u_128_256_32_t256_s2_kc2048_p8",
+          "lane": "cuda_unlimited",
+          "n_kernels": 2,
+          "realized_stages": 2,
+          "shared_bytes": 54272,
+          "shared_padding_halfs": {
+            "A": 8,
+            "B": 8
+          }
+        },
+        "build_wall_s": 36.54638081000303,
+        "config": {
+          "BK": 32,
+          "BM": 128,
+          "BN": 256,
+          "K": 8192,
+          "M": 1024,
+          "N": 8192,
+          "arith": "fp16",
+          "cast": "precast",
+          "dsl": "cuda_unlimited",
+          "extra": {
+            "epilogue": "streamed_global",
+            "wcache": "cached"
+          },
+          "input_dtype": "torch.float16",
+          "kc": 2048,
+          "stages": 2,
+          "threads": 256,
+          "variant": "GBGS"
+        },
+        "n_kernels": 2,
+        "reported_compile_s": 36.546118749000016
+      }
+    }
+  ],
+  "created_utc": "2026-07-30T20:11:36.196391+00:00",
+  "freeze_receipt_sha256": "3b085b23d01c727bd73903d094658af877e67a64cb7e8a0a64f4c5c2fd601246",
+  "launch_receipt_sha256": "dbc1de976214ccf894f9ba5fb6d6d907d6662994c48a360912229e02d334ecae",
+  "performance_measurement_authorized": false,
+  "record_type": "fused_reachability_row_sum_stress_build_receipt",
+  "schema_version": "1.0"
+}

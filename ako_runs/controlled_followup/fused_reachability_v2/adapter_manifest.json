@@ -1,0 +1,90 @@
+{
+  "campaign_id": "fused-reachability-streamed-epilogue-v2",
+  "grid": {
+    "job_count": 16,
+    "job_sha256": {
+      "cuda_noptx_streamed.g05": "63d545eae879c043fa5fe5218c27c421473943545ade072ba2fb8f0b71e12a07",
+      "cuda_noptx_streamed.g06": "1cbadbd8aa514f970de46a11a73e37111eb82cb4be6784a090d1703dac51db54",
+      "cuda_noptx_streamed.g07": "b8328344c0a2ed9ae0811d5cd6a9ca50e7a589b3632ce6ae45f0445f0ae390ed",
+      "cuda_noptx_streamed.g08": "b2e1eddff374a724809b3e825dea46fba7dd9b92225c9a490074940a2b2224a8",
+      "cuda_noptx_streamed.g09": "57cad6b270d1b5b46cd0b3f35b3fd37986220797084f6eb9081737b0dc6e8fec",
+      "cuda_noptx_streamed.g10": "88fcee007b3609a9bd19fbd6e759e7e6f471cdd6ae45a154e144ddf8d32712e3",
+      "cuda_noptx_streamed.g11": "76fa95c89bf13ee6c8d116d60f1abf2e91ccc0f7e373a757fc3c30206f0986ef",
+      "cuda_noptx_streamed.g12": "4babca7acd898318b6519467e879fb6addd23a825ae725feff524e5bf2ed4a69",
+      "cuda_unlimited_streamed.g05": "9b49ed7400e60a015cd58fcf23223e7ec651bbf59c441bb665aef6fd66f8ab7e",
+      "cuda_unlimited_streamed.g06": "e067abda00d0366a4a9bd39cc7d49f1b37d7e573dde7e786c77ff3b8663b25b2",
+      "cuda_unlimited_streamed.g07": "b07ac33981c4b89d7a6453fb531a2dd0882ca2077f66a9718268559373391685",
+      "cuda_unlimited_streamed.g08": "6ce7158219c5b79c395355bd3dc6fa863678a0eaac4c5cd191e845ab11074f18",
+      "cuda_unlimited_streamed.g09": "196e3dabd85139e4bd2227ee2a0a870a8daecbd7f0935604706ac29a50ccfc7f",
+      "cuda_unlimited_streamed.g10": "cfc43ef2dd8b86e0db222b23741ce464606e6f8b6f9c47d4d66421d1125ff73a",
+      "cuda_unlimited_streamed.g11": "0cbfecef5e49ab2fdaccaf3ed8f9569f5b6eaae3f34a3e5a54d185f2e27da271",
+      "cuda_unlimited_streamed.g12": "2f05bf248f48f0aebcbf59cc8ec5ab0a0b1dd57683414d8b928a813f0a382640"
+    },
+    "jobs_canonical_sha256": "97e4e37af0f752547c717217106dcd8706d3c5915d98fddec707dd4f7eb0430a",
+    "jobs_path": "ako_runs/controlled_followup/fused_reachability_v2/jobs.json",
+    "jobs_sha256": "ac8291eef06de2c1c21981eff748a42787d50d795d968e21a9c46f19e8f14c99",
+    "manifest_canonical_sha256": "b1ccf95dfe21dc668700a1241e33247f50715586fc6284adbb414671c51c1f25",
+    "manifest_path": "ako_runs/controlled_followup/fused_reachability_v2/campaign.json",
+    "manifest_sha256": "5a52933f19d25088999649cb8e45edadc34dfd35a4cf0e5c34bf7b20c2c1a05d"
+  },
+  "operation": "fused_softmax",
+  "robust_gate": {
+    "campaign_id": "controlled-followup-robust-gate-v1",
+    "case_ids": [
+      "legacy_u01_gain1",
+      "signed_normal_gain1",
+      "rademacher_gain4",
+      "signed_normal_gain16"
+    ],
+    "gate_keys": [
+      "fused_softmax/semantic_mixed",
+      "fused_softmax/conformance_mixed"
+    ],
+    "gate_spec_canonical_sha256": "4898c42d82707ad4588c880f794935efba202f5c32fb656263ec2c8f6c3f22e8",
+    "gate_spec_path": "ako_runs/controlled_followup/robust_gate/calibration/gate_spec_fused_v2.json",
+    "gate_spec_sha256": "b6c3afaadf61f5d380a97c6c541828a1ecacd1a89a00b73b66207fe22d765e2e",
+    "manifest_canonical_sha256": "d017ef44cd63ce2a27bf31ca0ea7631a1f9810d3cbd25f1ddc6155b75a05634a",
+    "manifest_path": "ako_runs/controlled_followup/robust_gate/manifest.json",
+    "manifest_sha256": "28d51cd4f1730bd190e63c7cad60670c37b67784393270e63e859a1685fc8a62",
+    "shape": {
+      "K": 8192,
+      "M": 1024,
+      "N": 8192
+    },
+    "split_counts": {
+      "tuning": 8,
+      "validation": 64
+    }
+  },
+  "schema_version": 1,
+  "source_bundle_sha256": "ac077b9de182ea9596e97dafa6a6e2ee88771f3d282dec9ed7d19bde90078d2a",
+  "source_sha256": {
+    "ako_runs/controlled_followup/fused_grid/robust_adapter.py": "688d9b29673d9314f50a3e8f6a8fc217b8497b27fb3eac13a5234cd9b7a29502",
+    "ako_runs/controlled_followup/fused_grid/robust_adapter_manifest.json": "81e3478b61800e09147a6cb213ba1786b200c137a728a5a9c258241c0a6004ba",
+    "ako_runs/controlled_followup/fused_reachability_v2/analyze.py": "ef9e06e66d8be32a5ff415e6ae68ee75885a57d16864b50c9e7285e04b15ff37",
+    "ako_runs/controlled_followup/fused_reachability_v2/bind_robust.py": "5df3f84b3c27f81e463c075db46eb7bb06e343576baf800b03e6e0da4446ec1a",
+    "ako_runs/controlled_followup/fused_reachability_v2/campaign.json": "5a52933f19d25088999649cb8e45edadc34dfd35a4cf0e5c34bf7b20c2c1a05d",
+    "ako_runs/controlled_followup/fused_reachability_v2/candidate.py": "84805cd1d44fae40adae81958bc3277453c84de61db85816dfd320399b0af620",
+    "ako_runs/controlled_followup/fused_reachability_v2/capture_evidence.py": "4262bc91888b8b54087ca2d037fbe7ecff1b50a5babbdbba9a8e18809cfa8b5a",
+    "ako_runs/controlled_followup/fused_reachability_v2/freeze.py": "3af55daafed4ec9a2f65df52da20fbae454966fe3d81fdd3e6103093ddc555f4",
+    "ako_runs/controlled_followup/fused_reachability_v2/launch.py": "3433f0dc585f06b03e52de2021ddcbf53ab6d98568eea72e98b305f107a67c0f",
+    "ako_runs/controlled_followup/fused_reachability_v2/protocol.py": "d826b8df7f6295abe1af2d981df1056c8e9163dbaeb3bc1ce4fa64b2d2cd1a67",
+    "ako_runs/controlled_followup/fused_reachability_v2/robust_run.py": "747f89e370acaf0a98126a56ac0e3580cb34673aef880fbe7994b5e4664c49e5",
+    "ako_runs/controlled_followup/fused_reachability_v2/run_one.py": "ae4ba9a3e246cd8e322c4246d07fb3c463469df86cf2f01cd48fa64b921587ff",
+    "ako_runs/controlled_followup/fused_reachability_v2/test_protocol.py": "a029124440f2b737016d48ea03c6adf12919d8480f5c910bd99ccb2993f35f72",
+    "ako_runs/controlled_followup/robust_gate/__init__.py": "c47d3e6a5bc723aaca9e724e736c24be490884a16a91d695f41fed1f2b97b183",
+    "ako_runs/controlled_followup/robust_gate/distributions.py": "6280fa580a8ff2e648b937435137930a37143d8225bf9afb348b4c4921ccdd77",
+    "ako_runs/controlled_followup/robust_gate/metrics.py": "419b48d8410dfeb42ff06e8ce23be15d176443872ad576779ee071a00045a9fe",
+    "ako_runs/controlled_followup/robust_gate/oracles.py": "5083b72e14285cfc5582effe4cf4d75f6bac8f548cd1183e2d5256c022d5cace",
+    "ako_runs/controlled_followup/robust_gate/schema.py": "5ddccc0f4eecda92d97de0676eb9c5f16f0ea3bd426a344aa6acb57169e306ec",
+    "ako_runs/controlled_followup/robust_gate/seeds.py": "39663de46fdc31f34ec12975d34c43565f16f19a23be0c1e53bf4f1cfe57fdcc",
+    "ako_runs/controlled_followup/robust_gate/validate.py": "b9436c9b4a0d81228a373c1f6e7e79a7cd68cf78e11ef8afdb06c27b2f5b22ec",
+    "ako_runs/phase1_matmul/common.py": "7753fcc00891d475db8675423ca7e48fbc0aa0431ac1e1dd4319e6c2900fd0a7",
+    "ako_runs/phase1_matmul/variants/__init__.py": "0ac322f46ab46fe0bf6d9eb6241c7eacf6b9844f5f6d927dbccfc81a1005a585",
+    "ako_runs/phase1_matmul/variants/cuda_noptx_gemm.py": "b3935c4e9516304cbbe0b3ab8e32e1fadc1264f48f26ee00fe52aede6e032217",
+    "ako_runs/phase1_matmul/variants/cuda_unlimited_gemm.py": "c9629300ce871476eb95cdecc5337229c43d3206e674c35d86a7f65d20a87ad5",
+    "ako_runs/phase2_fused_sdpa/common2.py": "0293cb15fc3285df199daa58281a1a35147a78b9cbccda8b8f88418eecb39c64",
+    "ako_runs/phase2_fused_sdpa/runner2.py": "d1ade4461bff35058a3c6e967532960f5cc509f5d6a46c69bded78fbd0aac31e",
+    "ako_runs/phase2_fused_sdpa/variants2/__init__.py": "2afc778f25db9abe2d05299bbd47fa2ad43b7912eee8633936095e6b92662045"
+  }
+}

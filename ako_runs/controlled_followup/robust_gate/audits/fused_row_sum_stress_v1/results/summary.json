@@ -1,0 +1,134 @@
+{
+  "all_winner_groups_success": false,
+  "boundary_failures": [],
+  "boundary_success": true,
+  "campaign_id": "controlled-followup-fused-row-sum-stress-v1",
+  "coverage": {
+    "binding_failures": [],
+    "boundary_duplicates": 0,
+    "duplicates": 0,
+    "winner_expected": 2048,
+    "winner_missing": 0,
+    "winner_observed_unique": 2048
+  },
+  "evidence_complete": true,
+  "generated_utc": "2026-07-30T19:42:13.897345+00:00",
+  "raw_files": [
+    {
+      "path": "results/raw/boundary.jsonl",
+      "sha256": "2bd414ab42017f3ce35c8d1b3da9dec64bd3b876a7f683eb0fc1fc36c1665949"
+    },
+    {
+      "path": "results/raw/winners_gain16.jsonl",
+      "sha256": "d1277c0d33ee24b6ab671b7adb4193a5d1fe9145fc4419ba7a3ea904acda68b7"
+    }
+  ],
+  "schema_version": "1.0",
+  "threshold_mutation_authorized": false,
+  "winner_groups": [
+    {
+      "candidate": "tilelang.g08",
+      "dsl": "tilelang",
+      "expected_records": 256,
+      "failed_registered_gate_records": 1,
+      "gate_id": "semantic_mixed",
+      "observed_records": 256,
+      "raw_safety_exceedances": 6,
+      "registered_threshold": 5e-07,
+      "row_sum_error_max": 5.832095235636103e-07,
+      "success": false,
+      "zero_failure_upper95": null
+    },
+    {
+      "candidate": "tilelang.g08",
+      "dsl": "tilelang",
+      "expected_records": 256,
+      "failed_registered_gate_records": 1,
+      "gate_id": "conformance_mixed",
+      "observed_records": 256,
+      "raw_safety_exceedances": 6,
+      "registered_threshold": 5e-07,
+      "row_sum_error_max": 5.832095235636103e-07,
+      "success": false,
+      "zero_failure_upper95": null
+    },
+    {
+      "candidate": "triton.g05",
+      "dsl": "triton",
+      "expected_records": 256,
+      "failed_registered_gate_records": 1,
+      "gate_id": "semantic_mixed",
+      "observed_records": 256,
+      "raw_safety_exceedances": 5,
+      "registered_threshold": 5e-07,
+      "row_sum_error_max": 5.435876637704951e-07,
+      "success": false,
+      "zero_failure_upper95": null
+    },
+    {
+      "candidate": "triton.g05",
+      "dsl": "triton",
+      "expected_records": 256,
+      "failed_registered_gate_records": 1,
+      "gate_id": "conformance_mixed",
+      "observed_records": 256,
+      "raw_safety_exceedances": 5,
+      "registered_threshold": 5e-07,
+      "row_sum_error_max": 5.435876637704951e-07,
+      "success": false,
+      "zero_failure_upper95": null
+    },
+    {
+      "candidate": "cuda_noptx.g04",
+      "dsl": "cuda_noptx",
+      "expected_records": 256,
+      "failed_registered_gate_records": 1,
+      "gate_id": "semantic_mixed",
+      "observed_records": 256,
+      "raw_safety_exceedances": 7,
+      "registered_threshold": 5e-07,
+      "row_sum_error_max": 5.856042182283971e-07,
+      "success": false,
+      "zero_failure_upper95": null
+    },
+    {
+      "candidate": "cuda_noptx.g04",
+      "dsl": "cuda_noptx",
+      "expected_records": 256,
+      "failed_registered_gate_records": 1,
+      "gate_id": "conformance_mixed",
+      "observed_records": 256,
+      "raw_safety_exceedances": 7,
+      "registered_threshold": 5e-07,
+      "row_sum_error_max": 5.856042182283971e-07,
+      "success": false,
+      "zero_failure_upper95": null
+    },
+    {
+      "candidate": "cuda_unlimited.g04",
+      "dsl": "cuda_unlimited",
+      "expected_records": 256,
+      "failed_registered_gate_records": 1,
+      "gate_id": "semantic_mixed",
+      "observed_records": 256,
+      "raw_safety_exceedances": 7,
+      "registered_threshold": 5e-07,
+      "row_sum_error_max": 5.856042182283971e-07,
+      "success": false,
+      "zero_failure_upper95": null
+    },
+    {
+      "candidate": "cuda_unlimited.g04",
+      "dsl": "cuda_unlimited",
+      "expected_records": 256,
+      "failed_registered_gate_records": 1,
+      "gate_id": "conformance_mixed",
+      "observed_records": 256,
+      "raw_safety_exceedances": 7,
+      "registered_threshold": 5e-07,
+      "row_sum_error_max": 5.856042182283971e-07,
+      "success": false,
+      "zero_failure_upper95": null
+    }
+  ]
+}

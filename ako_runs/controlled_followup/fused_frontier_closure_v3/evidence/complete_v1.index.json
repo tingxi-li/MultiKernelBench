@@ -1,0 +1,1616 @@
+{
+  "bundle_path": "ako_runs/controlled_followup/fused_frontier_closure_v3/evidence/complete_v1.tar.gz",
+  "bundle_sha256": "8b0a05a24013e4944be27accdbcbb7b9fe24bd027bade08fddfbe5c63dc44760",
+  "bundle_size": 2022653,
+  "entry_count": 319,
+  "manifest": {
+    "analysis_sha256": "a16601328aa45b7c573c111c3505f6c1d708bf9d070f5d52364996a895a49404",
+    "campaign_id": "fused-frontier-reachability-closure-v3",
+    "eligibility_receipt_sha256": "40d55bed5f40d5c88cfbb50c1033cab12c96224eb0457f642f0e73818becad12",
+    "entries": [
+      {
+        "path": "ako_runs/controlled_followup/fused_closure_v2/PREREGISTRATION.md",
+        "sha256": "72b3dbdf87bb47a00c9884fcbc803fb3a686acae7f92d5438aa1440dbf0c0ed3",
+        "size": 5323
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_closure_v2/README.md",
+        "sha256": "b9fea6b326cf56bc1b594ef82d05d17dd886097161893c9708c94879b95fbbc1",
+        "size": 1175
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_closure_v2/__init__.py",
+        "sha256": "ecd204c67ebd2e47986f3a0de143bf3da1ce8efcc9f396fc9f72ff2289898cd7",
+        "size": 53
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_closure_v2/analyze.py",
+        "sha256": "1a83f08dba7d5a7b8aee87c908168e299e611863447c009dcca9ff07e762d971",
+        "size": 16055
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_closure_v2/campaign.json",
+        "sha256": "61ba006859e86e5ec9d132b468d001310bbb98d541371f7111f5c5ade4aeee29",
+        "size": 7423
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_closure_v2/candidates.py",
+        "sha256": "4f3e0652202c02d25effc92342705220922c5e5e2d4edfb19e70585011b69737",
+        "size": 5843
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_closure_v2/core.py",
+        "sha256": "4c1978f187fa05cff318925c4b45b4c26ba0f8cf82d353399c14078e867ac346",
+        "size": 10525
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_closure_v2/gate_adjudicate.py",
+        "sha256": "dc0560b60ee1b9facc47fc78869918df84f7773b19dd1caedd88bfa6adfeb4d5",
+        "size": 30375
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_closure_v2/launch.py",
+        "sha256": "755072b557e1b9329f28bf73bdb2f07293b261e00e9d8dd8403434fff82182ee",
+        "size": 17916
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_closure_v2/measure.py",
+        "sha256": "682b7abdec63c84ae45361156d1f9d12e70b0e5d6ce429264a2a244e5359737e",
+        "size": 9532
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_closure_v2/provenance.py",
+        "sha256": "02bd1a50165f864a979616f53e1626926bec100e914455c9e759d9e8699691e2",
+        "size": 7402
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_closure_v2/results/gate_v1/gate_summary.json",
+        "sha256": "0d7955543c262a5dff7fcfd8a3466678f8c55b13b5290c48dd40c90328a068e4",
+        "size": 477335
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/analysis_summary.json",
+        "sha256": "072ce7ea841dad51fe63c50d33c7f02f1bc2cf8c12cc97f3d1d75d387d9bbcec",
+        "size": 54566
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/launch_receipt.json",
+        "sha256": "b56214e92a941c273b081f266e5430b91c2dcc6b9196993b9fa5150a432e2e92",
+        "size": 33417
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_closure_v2/source_receipt.json",
+        "sha256": "d38ba70aa667ee873e3c4c75708881ddf87ab3f48beb6ddc10cfcf94126156c7",
+        "size": 7308
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_closure_v2/test_closure.py",
+        "sha256": "76cda8ae7e87738900de05000c33b18df5a24bc0e6e64ba2cbc1311823cc893d",
+        "size": 7924
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/PREREGISTRATION.md",
+        "sha256": "b6b90488d8066008b5ea983ebc64f44bcc42f7ab4c647c5cc32632eb3b539c05",
+        "size": 3455
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/README.md",
+        "sha256": "3393a1308050210181ab51b13e972e725f3204b62446f6bd72f13d8e6dbd43fd",
+        "size": 1098
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/__init__.py",
+        "sha256": "2ee5f53e8d18f9c027fa3c606aea376f374e4739029e0ee172d31469e50188b5",
+        "size": 67
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/analyze.py",
+        "sha256": "143a57958bfdead8706c3cf19b659e3aec4de20eebea0d3fb2a3e88e88c82a98",
+        "size": 13761
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/campaign.json",
+        "sha256": "4195b7c5d9ab8f3076c192d79dd557ccfaf0c9606e99a711590072e5b6942e9f",
+        "size": 5555
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/candidates.py",
+        "sha256": "4da4b56eadc689d9ac06f0db0eebed5b4ae667f21a314116834522cb55e60dc6",
+        "size": 3507
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/capture_evidence.py",
+        "sha256": "141cb532d49ce42221850398288aba304a8249ebc61e11d3db84869c1a8b7bd5",
+        "size": 6967
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/core.py",
+        "sha256": "0dc366983d870fbef60398a79726f592658340ea60264cfddf4d331be6408548",
+        "size": 5067
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/eligibility.py",
+        "sha256": "11460102b05b87000d76b228647ed460aff8c6232ac9d0f3193ed2ba8d3d62a3",
+        "size": 15247
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/eligibility_receipt.json",
+        "sha256": "40d55bed5f40d5c88cfbb50c1033cab12c96224eb0457f642f0e73818becad12",
+        "size": 6521
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/launch.py",
+        "sha256": "b8af7557177b707b7bc7b461e62f04b692ad1ded0c61c1b944602eaf19b25e81",
+        "size": 14452
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/measure.py",
+        "sha256": "ff6d63297d1fbe2d06b52e0a09dbc37b49f1cc750f303ced53ef543dd57d01a4",
+        "size": 8004
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/provenance.py",
+        "sha256": "f7227ca092dc6bab04ead27a4ebdeaebf6949a99cd3dfdc09e7ae02871b55a24",
+        "size": 5519
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/ANALYSIS.md",
+        "sha256": "a1354cef74b384ea7bc5e94146796e25a62739d028f74e3d6c67962d0764b32a",
+        "size": 3006
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/analysis_summary.json",
+        "sha256": "a16601328aa45b7c573c111c3505f6c1d708bf9d070f5d52364996a895a49404",
+        "size": 65212
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/launch_receipt.json",
+        "sha256": "6d497375770af4b1ff81344c87a4c133b5ba9873b490caabf450d40581ae3ba8",
+        "size": 31833
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/launch_status.json",
+        "sha256": "efabec355a6135d927d2e1ed52aaf091581c95fdf2e346c5267762b9b85bb11e",
+        "size": 48779
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block00/cuda_noptx_old_g04.json",
+        "sha256": "ce9a87a196b84d2951aa245f24fe74837b92811baf5e2442c5f5ff502ce9b70b",
+        "size": 952
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block00/cuda_noptx_streamed_g05.json",
+        "sha256": "71e82d4b40f09380b11155dc393d7e98a26cfdc6df078680751608717755df5e",
+        "size": 972
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block00/cuda_noptx_streamed_g09.json",
+        "sha256": "91962a5c7f13c9ab9524241fdd1f90de33eaa173dd731bf7e7f5a2024a334dfe",
+        "size": 972
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block00/cuda_unlimited_old_g02.json",
+        "sha256": "0cf75bd02aa285c203715aa0cf949a54727fb7dbd51603f2c4e6d9d261fa27b9",
+        "size": 968
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block00/cuda_unlimited_streamed_g07.json",
+        "sha256": "1493272d357fe0f41bc92e2c091d3e63fc6b8e6b607a0adb26ee7da44da8a969",
+        "size": 988
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block00/tilelang_full_g08.json",
+        "sha256": "67e8a5c7266a73304a7362474977d97e9069308fa534dd3ced35e25b9b068450",
+        "size": 1458
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block00/torch_contract_fp32.json",
+        "sha256": "283d0473243cbeefd4a877b2e685d0a06ffb127d1d764b25885d0500dfe1d339",
+        "size": 956
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block00/triton_full_g05.json",
+        "sha256": "a3197279f3e71e73b51a6e6122a4db246a96a8cb3a2f28e87b83da590072114b",
+        "size": 940
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block01/cuda_noptx_old_g04.json",
+        "sha256": "1ef791fade5b3a18a7ede88cd568614842520b30d411747cdd3a453f47cc4147",
+        "size": 952
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block01/cuda_noptx_streamed_g05.json",
+        "sha256": "9f5e3fc7f11c45f0df3cc8508a4b2216defc5354ad70c54b569c53897ad7750a",
+        "size": 972
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block01/cuda_noptx_streamed_g09.json",
+        "sha256": "11d5cceff6c5349fdbe2a8b6808143e3c656f346689a02454b4191bdaf9e91dc",
+        "size": 972
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block01/cuda_unlimited_old_g02.json",
+        "sha256": "c6a020d9b0d03c79b6f521aeef53d1a1a23dccff978bde9772582b5148ad0b2f",
+        "size": 968
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block01/cuda_unlimited_streamed_g07.json",
+        "sha256": "8efc723c3724c6cbf98f56983f574e32da2dabd43bc04a38e954e8c4883ba3fb",
+        "size": 988
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block01/tilelang_full_g08.json",
+        "sha256": "1433ae06a721982bd43dacfd8ee0d10d267503f29d6a36fc7fb2c4fe2dd0b505",
+        "size": 1458
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block01/torch_contract_fp32.json",
+        "sha256": "38e8d734fd376960dc78dbc3aaf8422b6008ef0998d7882b33416ba2f410c11f",
+        "size": 956
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block01/triton_full_g05.json",
+        "sha256": "8e74913987487b509d14099bd2166a93f7044b21761a52709c83fc128b537fec",
+        "size": 940
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block02/cuda_noptx_old_g04.json",
+        "sha256": "aedb7b3dcdcf11eef12ed07b71bc31d1cec8416065bab7d7bab574d3482bfddb",
+        "size": 952
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block02/cuda_noptx_streamed_g05.json",
+        "sha256": "9414eb6cdd6cc91c63e74969ccc1400a54fd151441b5e3467b4b8fe7c06c3508",
+        "size": 972
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block02/cuda_noptx_streamed_g09.json",
+        "sha256": "44319dc5f9b59a132a01840c4faa93d42a80be9a563772602b0bfb6d9e69e8c2",
+        "size": 972
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block02/cuda_unlimited_old_g02.json",
+        "sha256": "a60c2340e43774d3222a0bbbf4bbd7ae2676287c907aa24c1303b8101f4df88f",
+        "size": 968
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block02/cuda_unlimited_streamed_g07.json",
+        "sha256": "197515f8fc7104e73351666a029468402167c1c517787e478b1fdbdd603a205f",
+        "size": 988
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block02/tilelang_full_g08.json",
+        "sha256": "20045aa92f3f717c19f0e54b05ce44dcf0cc136859b7a49c6d3c0bad33b32292",
+        "size": 1458
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block02/torch_contract_fp32.json",
+        "sha256": "2d40a7220f59ba4754ac144216d860de263b4451c4362b38d00db4f323bc4605",
+        "size": 956
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block02/triton_full_g05.json",
+        "sha256": "657e8efce2eac842c068099efae53a3d9e2d17e4f38813bd08230992a7fb201c",
+        "size": 940
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block03/cuda_noptx_old_g04.json",
+        "sha256": "6fc6f2223e551e4c57f1def5567ce9d9abe255d800968008a05ada70b1a3ad63",
+        "size": 952
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block03/cuda_noptx_streamed_g05.json",
+        "sha256": "1af3ef555d4b01e67ad9140ed9a35651ffcd2911776fe18cec69ed361489d873",
+        "size": 972
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block03/cuda_noptx_streamed_g09.json",
+        "sha256": "850486c4362b24d48542f2efb68eac1eabe60df4d206e3b22cf856c1cde8b9c6",
+        "size": 972
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block03/cuda_unlimited_old_g02.json",
+        "sha256": "2086c7ac62586531ace2f306c6d6caa82d9367da3b5c204eb6a761d5fe07410e",
+        "size": 968
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block03/cuda_unlimited_streamed_g07.json",
+        "sha256": "41ae5555ec20d5e2fbfd81f9457cb2a238a5cc556241a5db523c85222c846b0c",
+        "size": 988
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block03/tilelang_full_g08.json",
+        "sha256": "c5febba18fa3ee7311ec59ced87cf508329095eaf6daccf59216e695178782d9",
+        "size": 1458
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block03/torch_contract_fp32.json",
+        "sha256": "903383605898adb1dd7da9c60a948f5cb3167a4bcce1aff505e7dff5a248740c",
+        "size": 956
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block03/triton_full_g05.json",
+        "sha256": "c0398251071631dbc832a9764fd86824033953c3082caea2efffe57446b11ebd",
+        "size": 940
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block04/cuda_noptx_old_g04.json",
+        "sha256": "f975d3e86d920709058d05491fb59ff5fb42b9a8364457f8f4be463bf1bdabcc",
+        "size": 952
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block04/cuda_noptx_streamed_g05.json",
+        "sha256": "ea4071bc33cdf670f6a3646335d04830e4c332bda93d86d14d41e68b5b28c6f8",
+        "size": 972
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block04/cuda_noptx_streamed_g09.json",
+        "sha256": "22759cc53617298e73b657cfb8e698d06abcc458952d80541fb4ed6a91db4c43",
+        "size": 972
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block04/cuda_unlimited_old_g02.json",
+        "sha256": "ee12c4c1bd0f36c052018836c081d64211a730d1eca13f1324bd3939d3501651",
+        "size": 968
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block04/cuda_unlimited_streamed_g07.json",
+        "sha256": "50a082fee8a96ff4f07b7ac8871cb8ffb5f31d43d85e473ac9f06a9bc29ce5ea",
+        "size": 988
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block04/tilelang_full_g08.json",
+        "sha256": "4b1879cfcb98b1bc050cc32dd879438a30c3441c24b1592ef188a6b80cb47dd4",
+        "size": 1458
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block04/torch_contract_fp32.json",
+        "sha256": "31fae39d4bb7ff17d8b3de8b3503d50e0abaf39663c30a70784ba0f829340c4e",
+        "size": 956
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block04/triton_full_g05.json",
+        "sha256": "5c59241ebd53cd0b916facf25ad01cd7646a26fd4abf2ca792bcd73015610c92",
+        "size": 940
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block05/cuda_noptx_old_g04.json",
+        "sha256": "c5d49f6e604674237ca97b587d6762cd94f1d4d5eb49faa7c49894f4ef046c92",
+        "size": 952
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block05/cuda_noptx_streamed_g05.json",
+        "sha256": "458ddd53ac35944a3920459b9c083087ad9cdb16ba3d13f5185a7445a60056d9",
+        "size": 972
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block05/cuda_noptx_streamed_g09.json",
+        "sha256": "a4c05418cc8334a49077c70d4452b69f6dacbb47edcc2e39ee09842e5f8ce7e0",
+        "size": 972
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block05/cuda_unlimited_old_g02.json",
+        "sha256": "889123466045dc4d67529d0856840be217304d41dd9b4e76ed1d9b969a14cecb",
+        "size": 968
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block05/cuda_unlimited_streamed_g07.json",
+        "sha256": "0cff6667b6024e4db65e1418fe8f55a86998cbb9c0ddf501aae3838c73fc4306",
+        "size": 988
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block05/tilelang_full_g08.json",
+        "sha256": "d74183a367a89e3d5f31e63978da37e148b620b896dc24b26de8ba510b56d6ba",
+        "size": 1458
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block05/torch_contract_fp32.json",
+        "sha256": "8677dd61ced715b3d7da8298eb583d11dcefe40133f7825e9fefcb9fe32305c0",
+        "size": 956
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block05/triton_full_g05.json",
+        "sha256": "108c8bce2b2979190f2906f38787c30f7e18d3736aacdda8ec6bf18e5a3ef5f7",
+        "size": 940
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block06/cuda_noptx_old_g04.json",
+        "sha256": "ad4206bd38bc402a3e83b098f6d062bac7c22ffb9469bcdb0a31750fb5b3a3cf",
+        "size": 952
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block06/cuda_noptx_streamed_g05.json",
+        "sha256": "025dd7c2f17ec1397fcf638ba6c499be7b8aeafeec7fd43c8eaf493099f54c46",
+        "size": 972
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block06/cuda_noptx_streamed_g09.json",
+        "sha256": "0d9a06b8b1239a9f602ebc20924e0a3b4b8927857f0ed17897112859e4273aaf",
+        "size": 972
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block06/cuda_unlimited_old_g02.json",
+        "sha256": "9e4d052f9cc47b0e8c090905a01360dbf2f808e3cbc4ea1f116048b34a59ff6c",
+        "size": 968
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block06/cuda_unlimited_streamed_g07.json",
+        "sha256": "3aed3e5bd2b82504208adbdf7f821d392ada9906878c224d30e07f83a09bf1ef",
+        "size": 988
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block06/tilelang_full_g08.json",
+        "sha256": "678fa40be2895636fc1073c8a0da6cf9029a1a1377df92be744df5e0fd87f8db",
+        "size": 1458
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block06/torch_contract_fp32.json",
+        "sha256": "d265a9b84f56de0c96cef6ad7984f1fda2fdc6cc2b1d421a8d3c870610441d4f",
+        "size": 956
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block06/triton_full_g05.json",
+        "sha256": "dc2317161cf1e81217332aae97383a708901a51e5b593001986b6fae5fdec430",
+        "size": 940
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block07/cuda_noptx_old_g04.json",
+        "sha256": "bcf4bc7758b9816a5ccd3291f92ddd5a6afec96dd6272598107e3d7aa2f733d0",
+        "size": 952
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block07/cuda_noptx_streamed_g05.json",
+        "sha256": "185e4125a56ead6582eb4a7e9d805f3217ddbe2a493acba45a09ecdd4bcae294",
+        "size": 972
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block07/cuda_noptx_streamed_g09.json",
+        "sha256": "6df34db3712ade51f465c9dbfcd4f189c512237dffa008c1ddb9c7863fcfafaf",
+        "size": 972
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block07/cuda_unlimited_old_g02.json",
+        "sha256": "c9f8ad9ba304d7ee8e2d3e3c2d3efac92a6e95317106c80315b0b0f0258abfa5",
+        "size": 968
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block07/cuda_unlimited_streamed_g07.json",
+        "sha256": "87928a841addcd7c54d2034c4518867aceb847d696c3fcd4d27f50ee1deb8aff",
+        "size": 988
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block07/tilelang_full_g08.json",
+        "sha256": "49b55d959d89c0369db4b6a5f110fdabc565cddfeda935e941e5d301bb54db33",
+        "size": 1458
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block07/torch_contract_fp32.json",
+        "sha256": "be6e70ade086af3984063a3eb2d9106cb7f7a0d045aa260604c1c1cceaf76d45",
+        "size": 956
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block07/triton_full_g05.json",
+        "sha256": "a91ab70053f78f02e09bf1454200ff4e83ad14bcae377c516c25557987af74f9",
+        "size": 940
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block08/cuda_noptx_old_g04.json",
+        "sha256": "007ff93561a28107ac157ce0f9576f0435a6c7b70896556c81fe56294d2524bb",
+        "size": 952
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block08/cuda_noptx_streamed_g05.json",
+        "sha256": "e8c7372a220a7db7cb4a4d3a5bc98396115583592ba78f4d27b4e9a0e76c0a7c",
+        "size": 972
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block08/cuda_noptx_streamed_g09.json",
+        "sha256": "440714b401e731e63bb4f97985de5affe02b58258e5c41af1cd25f3982d41567",
+        "size": 972
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block08/cuda_unlimited_old_g02.json",
+        "sha256": "4c0d4c48a47caf0c74913ac6aced8d5b20bd2fad79a426e3213c6ff63e6b3fff",
+        "size": 968
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block08/cuda_unlimited_streamed_g07.json",
+        "sha256": "a06ce5149fb778d279008cdb4e87bb35396329de30912d8a7b7703d353945a45",
+        "size": 988
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block08/tilelang_full_g08.json",
+        "sha256": "64fbefbfbacaa6328b4f522efea4d7c6533a2db030db5627dd5e1906934e1bc9",
+        "size": 1458
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block08/torch_contract_fp32.json",
+        "sha256": "c233ade02c4d340ed3ad0e22411874b0b5bedb4a682f73508d53bff2eaebeb98",
+        "size": 956
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block08/triton_full_g05.json",
+        "sha256": "65699a344ddac854f2746bd7dffbe189f6c13f515bb3f622ef8ecda4f8b561d7",
+        "size": 940
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block09/cuda_noptx_old_g04.json",
+        "sha256": "9902f15d2fa007332f37b814a221fa81095fc6fa90bcffe50c7d2e3eb8a9a9c3",
+        "size": 952
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block09/cuda_noptx_streamed_g05.json",
+        "sha256": "739321f643e8562561d9d243cfa0877f0727509d407fb6690dbde9769f3ab715",
+        "size": 972
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block09/cuda_noptx_streamed_g09.json",
+        "sha256": "1b15357bb5c0c7c0c85e6f355a8adc7fd4ed2bfafb5b540a749124663cf51495",
+        "size": 972
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block09/cuda_unlimited_old_g02.json",
+        "sha256": "6661a992b5ec250a96d4f479dd0a19f845b05e40500561f59a187cd2f7e67909",
+        "size": 968
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block09/cuda_unlimited_streamed_g07.json",
+        "sha256": "7ff6a65c745084928dabc17431568be782457691b5ac54bf68ff826c7c937788",
+        "size": 988
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block09/tilelang_full_g08.json",
+        "sha256": "1c812cd36f33b94793430a0b079314346f60df4bfbf99a0a0c52b9dc92520ff6",
+        "size": 1458
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block09/torch_contract_fp32.json",
+        "sha256": "f2b9762ec7701b1de125304ab8f5489696641823cc8c8b7ca9a23cfd53384cc3",
+        "size": 956
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block09/triton_full_g05.json",
+        "sha256": "99253727fd11fcdf14a707d00838762f66b5192f6dbc71a137b8f973bd68fff4",
+        "size": 940
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block10/cuda_noptx_old_g04.json",
+        "sha256": "af4a4ad2828831d439f9c2a7f4f02c807e42eaec096057ce5cfcb412879b6f1f",
+        "size": 954
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block10/cuda_noptx_streamed_g05.json",
+        "sha256": "1584eea7737bbcc78f5c8b489978d4b670287caf61572a9ae1feeb03d780b607",
+        "size": 974
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block10/cuda_noptx_streamed_g09.json",
+        "sha256": "b4e9cac283a14adf4b75fd3a582f7e78106cfe707231e0f35e410d5fdbf8fc07",
+        "size": 974
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block10/cuda_unlimited_old_g02.json",
+        "sha256": "e0887094b3a76ab9b2264d16a906d441e0c076f948c870b7d21c06a692b14b39",
+        "size": 970
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block10/cuda_unlimited_streamed_g07.json",
+        "sha256": "f56d9c84ae20bc468dcc1feb589803de722ec6bf80bdd7516d92a776ab3193c1",
+        "size": 990
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block10/tilelang_full_g08.json",
+        "sha256": "ec5d402a6aab8b41055e05eb507210998a5b091adfb7d54ccc1c60ed156f6ada",
+        "size": 1460
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block10/torch_contract_fp32.json",
+        "sha256": "368ce00750ca82145063999a7f400c859a91b4fb7f17cca709af15e6137d5887",
+        "size": 958
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block10/triton_full_g05.json",
+        "sha256": "932d0b7989d3b43df18d648016a941900eccc53fc201ffabd1131a284383a619",
+        "size": 942
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block11/cuda_noptx_old_g04.json",
+        "sha256": "3479363d458cd5d64e0b0c2ac591c78fa8cdf03a6c31012cfc82dc96030a74d1",
+        "size": 954
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block11/cuda_noptx_streamed_g05.json",
+        "sha256": "b3e7b77745aef45a569dbd1c83e5bcf4b02cd84d3711dc9dddc1a4eff4ac7111",
+        "size": 974
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block11/cuda_noptx_streamed_g09.json",
+        "sha256": "01e4ecbac7b4d3e3f00e79341a5823a927b77fdd10474d6023413af1787eca4a",
+        "size": 974
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block11/cuda_unlimited_old_g02.json",
+        "sha256": "e23d090a73790c19ba3d17141b950f2c50ad96ea84127936c7dcd3e9847ef056",
+        "size": 970
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block11/cuda_unlimited_streamed_g07.json",
+        "sha256": "cd1fb3cbd94e044755879eb952ff52435c1f03a621b4cbf0e95c1003baf581a3",
+        "size": 990
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block11/tilelang_full_g08.json",
+        "sha256": "b625dd3039f63b97c0a736139025a9bd5a5fd4d23f98352748b45c68e6b82b7d",
+        "size": 1460
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block11/torch_contract_fp32.json",
+        "sha256": "8c7238f1d56bd65152ae23ea792fe94748ef4fb7b21a3b49c9f243bf73dd3abd",
+        "size": 958
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block11/triton_full_g05.json",
+        "sha256": "2df5375dff21b3b9a1662f4e071c7d2e83aef37c5b1cb6c2e6f7c6072531a5c0",
+        "size": 942
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block12/cuda_noptx_old_g04.json",
+        "sha256": "4a7e2b627904275b2060fa076364b7d1a64ca4687369234f2d3b4b7c363185d8",
+        "size": 954
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block12/cuda_noptx_streamed_g05.json",
+        "sha256": "5339417b33e85a84f5136f756c5965ed8693304c5c6df6e8f3b54bbcdb2f05ee",
+        "size": 974
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block12/cuda_noptx_streamed_g09.json",
+        "sha256": "504fe00355ab01c561e213370449ec458dfaaad1282737c081bac635eb6b3e86",
+        "size": 974
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block12/cuda_unlimited_old_g02.json",
+        "sha256": "dd8b913850b3e6da82e6b66b3c3c26d333db0bd506c171e239f75ee7da56fe31",
+        "size": 970
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block12/cuda_unlimited_streamed_g07.json",
+        "sha256": "75ffae7ed2f4099ce1aad43cc36e8087db31aa143a2c04e8df5c727c3267b3a1",
+        "size": 990
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block12/tilelang_full_g08.json",
+        "sha256": "a83bf871750af74628ca8cf121e9c7280366212b79f664329b87691aea411aa6",
+        "size": 1460
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block12/torch_contract_fp32.json",
+        "sha256": "07958a33b8d8057004439f36d8b3b4e956ed4337c672f888295425b31f1a8009",
+        "size": 958
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block12/triton_full_g05.json",
+        "sha256": "ed30dbe62a582e08de94d946acc8dac97cfc5cd49760558f33d9420741f54aed",
+        "size": 942
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block13/cuda_noptx_old_g04.json",
+        "sha256": "d4fcb8b5034a030a2cff9b59594e1f391ff68645d36e3d82b47e9173978cdd08",
+        "size": 954
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block13/cuda_noptx_streamed_g05.json",
+        "sha256": "0607de2c9c37d973baa3b983ec0d84b7187968938cc29c1d418c2e20dab53f54",
+        "size": 974
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block13/cuda_noptx_streamed_g09.json",
+        "sha256": "71f48cfcb56c9ba2931077008ec4d58a58c4e4e578510c69c6b35667b4a0e6db",
+        "size": 974
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block13/cuda_unlimited_old_g02.json",
+        "sha256": "15e62cb8085d8dba53ff2d01e5fc0cc17fd74f9d79f2cc2251827a53533ed78d",
+        "size": 970
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block13/cuda_unlimited_streamed_g07.json",
+        "sha256": "d569f0d8600f2495d917528014edcb068d9d4b3d6bf3b3492f390add6b000935",
+        "size": 990
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block13/tilelang_full_g08.json",
+        "sha256": "0633a48adb8c3fff31c62f8a1fff9df9772bafd58f2ae96001ead324cbb0799c",
+        "size": 1460
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block13/torch_contract_fp32.json",
+        "sha256": "0dee9b9193823d54fb3a22ce9f69fff653413377a4ae9652407ad2741197ac38",
+        "size": 958
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block13/triton_full_g05.json",
+        "sha256": "e74daeb9e3cbb6b06904e9856904bb77ea99b610513a21585ff247f0dde3c0ac",
+        "size": 942
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block14/cuda_noptx_old_g04.json",
+        "sha256": "6911b5b919465745d82a63e30fb7f7d6bc6dc49085e3cf6802a1fa0c94eb60cd",
+        "size": 954
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block14/cuda_noptx_streamed_g05.json",
+        "sha256": "39c750a42e6a8a0e0fca582051de7c2740f3703282cb425fc1b6d628684d5a78",
+        "size": 974
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block14/cuda_noptx_streamed_g09.json",
+        "sha256": "bfa9ba5e1d82def6e1168e9e33f9d597ff8ded8f339f228198d44721153fa81f",
+        "size": 974
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block14/cuda_unlimited_old_g02.json",
+        "sha256": "8cb87a3cccd68acc04bf3c8f0a8c6e9cf141838cd498174b032344e266128784",
+        "size": 970
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block14/cuda_unlimited_streamed_g07.json",
+        "sha256": "bdae085c42fead1c470140d3de4033023e84f06465d121f4d6a53b67c3ae24e6",
+        "size": 990
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block14/tilelang_full_g08.json",
+        "sha256": "4b4d1191b0624b0426e27d2a307575a4c7c475596253b887834ccea79c837979",
+        "size": 1460
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block14/torch_contract_fp32.json",
+        "sha256": "40bd409e8252cd7e68860797092b32e34484c40cb06f692cde7cba05a2c71f44",
+        "size": 958
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/logs/block14/triton_full_g05.json",
+        "sha256": "c3c3d747f787384663530bfa9a7c4dcc0f954625c1f1fe2f27a2c14434b4933a",
+        "size": 942
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block00/cuda_noptx_old_g04.json",
+        "sha256": "4a04c90d41532ba7420c6a86653f488fdb528cc7b211f278b7c1dfeac82e5550",
+        "size": 6864
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block00/cuda_noptx_streamed_g05.json",
+        "sha256": "464ff603005fd7c4ce9553b4e70b379fff59ccd72b5a45ac3dff5473e177d9e5",
+        "size": 6442
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block00/cuda_noptx_streamed_g09.json",
+        "sha256": "ebd15236018c04e7863391c458e21ce7a8cf83c454b4bae6349f587523536133",
+        "size": 6434
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block00/cuda_unlimited_old_g02.json",
+        "sha256": "8f3e15f6a9ebf5044efe3c4d7fce79910d9dbbdb22e5c268f49f8a422f8cb35b",
+        "size": 6807
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block00/cuda_unlimited_streamed_g07.json",
+        "sha256": "dc5c5cd5f55061a23e07d8845726484d2925cabb28fe34dd845dc74697a59b2f",
+        "size": 6515
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block00/tilelang_full_g08.json",
+        "sha256": "502fa1fde70a20be249ac19c883297961b7ce628404ee3f05c56ef794e73f19b",
+        "size": 6676
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block00/torch_contract_fp32.json",
+        "sha256": "6ec78da8eb4487d344dbfbd96f441b4e396a17ba70e52a5a900a17c1575efd01",
+        "size": 5944
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block00/triton_full_g05.json",
+        "sha256": "7a0575da15fe4d082908ded69ce5935d632b8a441bf01d32d6e7387e834b8388",
+        "size": 6741
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block01/cuda_noptx_old_g04.json",
+        "sha256": "7ec659a8e0fad8ab8e8439b40301a40d7df06f4cfb6a55488aad962261b04687",
+        "size": 6865
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block01/cuda_noptx_streamed_g05.json",
+        "sha256": "07afc01af6614370a38777e8ab70d34f615ecb8b08d506b11753217b3813db3e",
+        "size": 6437
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block01/cuda_noptx_streamed_g09.json",
+        "sha256": "f8278d5c7f8b916d38fb57481db799a72b58a48ada67d0c813f5f876d290d3be",
+        "size": 6436
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block01/cuda_unlimited_old_g02.json",
+        "sha256": "cff8393a0d4b383a3c14c1d528a2f687db6322ad32149e099eec21e92a0aa00a",
+        "size": 6824
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block01/cuda_unlimited_streamed_g07.json",
+        "sha256": "6209864fbab3b06a1cc72caf4e6d48138f0f988b286c2397271795b74e4470d0",
+        "size": 6520
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block01/tilelang_full_g08.json",
+        "sha256": "3aa4dbb82f0d4144d21e4b3d9c5e7904a3018e9ae8fab5de96cd47955fa25782",
+        "size": 6688
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block01/torch_contract_fp32.json",
+        "sha256": "c5a5c00e4e373790ec2d6892bac620b2d4d3693d6d1b06a8b1653576afcd4049",
+        "size": 5955
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block01/triton_full_g05.json",
+        "sha256": "3cc2e12d67216cd9a9ea54b6d0cc27b5219c78d4866d21b85e7bbdcfd47ebdeb",
+        "size": 6734
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block02/cuda_noptx_old_g04.json",
+        "sha256": "782bdbf6574f777b6702b42c587e5ed1b296d41f913f4fcebc875784109233ee",
+        "size": 6864
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block02/cuda_noptx_streamed_g05.json",
+        "sha256": "09f3807297d41733e0bcbfc9f10298d3bb68757d2913756254127d75c4aeda37",
+        "size": 6439
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block02/cuda_noptx_streamed_g09.json",
+        "sha256": "958a395252344ff364dfe4990a5e3711583fb4e6c9d2d68c1d3b2270e5c6afe1",
+        "size": 6435
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block02/cuda_unlimited_old_g02.json",
+        "sha256": "7dca843a39d72c5ebcfe1aa1266ea37148a3495c19db7ea98eb997c018dcf29e",
+        "size": 6822
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block02/cuda_unlimited_streamed_g07.json",
+        "sha256": "debd1b58f107cc132390d60f7bae4f658c6400461260a95ddda7b0e0b9d631af",
+        "size": 6534
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block02/tilelang_full_g08.json",
+        "sha256": "fff5df6e2a47e428d3968d599340c8fe5eeb2f03b1571d0643de15de5494ca71",
+        "size": 6688
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block02/torch_contract_fp32.json",
+        "sha256": "c7a8f1d74ce9d2b511f87070e0da5f3d22d17139d6f9bee773992614a66c1129",
+        "size": 5963
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block02/triton_full_g05.json",
+        "sha256": "321daaa367c4d1206b4b904d4e7f2a6d8cce1eeb83cd8e3e115fcc752ef45d36",
+        "size": 6744
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block03/cuda_noptx_old_g04.json",
+        "sha256": "43bf14d27aa58ac2fccbc97ef81523f52af9dbe0ef36576c5257c6003c0ec24c",
+        "size": 6860
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block03/cuda_noptx_streamed_g05.json",
+        "sha256": "677d02708b3ab20528bede405d0bc0459825bff168fe10850fa3921a70921151",
+        "size": 6435
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block03/cuda_noptx_streamed_g09.json",
+        "sha256": "9dd3f2cf6ea850c6bf8ea187287c7174c9d1c1da47e2ae827580678adc34a6c2",
+        "size": 6435
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block03/cuda_unlimited_old_g02.json",
+        "sha256": "349ec63206a89aa04d67c5ebf58b63f10989b402f4032bb1aae009955062af1b",
+        "size": 6822
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block03/cuda_unlimited_streamed_g07.json",
+        "sha256": "cac0c7f6b1954ebf51a67a4434f1c257b8d6cd6f05d67ad2e8f8b03fe22fa7ea",
+        "size": 6530
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block03/tilelang_full_g08.json",
+        "sha256": "0330bf59cd5c7869d229279716300c610ae7d0f0fc1a6df33a2e2b3a14f98bd9",
+        "size": 6689
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block03/torch_contract_fp32.json",
+        "sha256": "345c7dfa4e49266a81fc042ac2adda6002b78b46be8f069e778b89f32318fab6",
+        "size": 5968
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block03/triton_full_g05.json",
+        "sha256": "dab25ced17218179ce2bd52c422a398db09b1ae01d2854f585a0e665a3262a78",
+        "size": 6745
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block04/cuda_noptx_old_g04.json",
+        "sha256": "a754a5c6d45adcc0b8387bdcdb0d68a22db2d311caf85984c341da4ea0302dd8",
+        "size": 6854
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block04/cuda_noptx_streamed_g05.json",
+        "sha256": "287b277fc2e1bdc8fb6eb5aabdaf84c4bec937e8d6be7348cfce1a841a52f678",
+        "size": 6434
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block04/cuda_noptx_streamed_g09.json",
+        "sha256": "93f0f1e06d613e0f89f7e7a65b4d17c985ec1b193594e0b108e4a6ec0a0453c4",
+        "size": 6445
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block04/cuda_unlimited_old_g02.json",
+        "sha256": "5f0db872e31e8b1213a728c2915c00c289d0f8c187ed6c50dcf4ea29e71c7a65",
+        "size": 6822
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block04/cuda_unlimited_streamed_g07.json",
+        "sha256": "ecf1f28119b58bdfe9e878d28670780d9aaf85bfc5cd94c248b4f6383ab3072a",
+        "size": 6527
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block04/tilelang_full_g08.json",
+        "sha256": "3fc034a9c68adf682ce01f0d42c5509b92a221ffef9d08ff1f2520e96c821941",
+        "size": 6688
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block04/torch_contract_fp32.json",
+        "sha256": "3dd14686c86615391acf964aacdb68208a45aef22a279f2c4775366906e238b2",
+        "size": 5943
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block04/triton_full_g05.json",
+        "sha256": "f7d42fa8cd2ab655786142e128e6a12c999a6e719e8719355bdb592d62957957",
+        "size": 6743
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block05/cuda_noptx_old_g04.json",
+        "sha256": "22be461a9f016cf9673e9a48cffca0449f572fb64f446512f1df4fb341c00e77",
+        "size": 6869
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block05/cuda_noptx_streamed_g05.json",
+        "sha256": "a2ccd422accad37118aee79038cf8d4a88f70437be6bac27532130900c15ddad",
+        "size": 6433
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block05/cuda_noptx_streamed_g09.json",
+        "sha256": "ffba602982a4ec6dcbb487ce4050d07e0de52fe083971aa4c0f4c866cfd7d1be",
+        "size": 6433
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block05/cuda_unlimited_old_g02.json",
+        "sha256": "ed327b51dfc6a4c8274f9bd6223fae9be21f88d632b4436815b88dfc91ded1fb",
+        "size": 6821
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block05/cuda_unlimited_streamed_g07.json",
+        "sha256": "b7242b578b0033f41c0d558af44ee7dc0a8d7e5c25bef063f27cbcc53cfd8842",
+        "size": 6531
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block05/tilelang_full_g08.json",
+        "sha256": "374fe8667ec52242d1dff2f5697b9326d65a260f0bd377abdc10c0a841082e95",
+        "size": 6685
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block05/torch_contract_fp32.json",
+        "sha256": "605b41c7b63f5ab1f496102dfa6e442362dab2b6bec0e1416c14bc0d1e6c51db",
+        "size": 5968
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block05/triton_full_g05.json",
+        "sha256": "47a404d76dba661a6d716afa9585fad3a1487cdcd4dc59b042483694f3d13b2b",
+        "size": 6747
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block06/cuda_noptx_old_g04.json",
+        "sha256": "56334d98b24bc8de01f505403d720ad6583de8aedf6fa61ef3e394bc6e96ee3e",
+        "size": 6871
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block06/cuda_noptx_streamed_g05.json",
+        "sha256": "417a603b53a6b75253b4bd33b50f4f212c5724688e4159860033e3215207eeb6",
+        "size": 6449
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block06/cuda_noptx_streamed_g09.json",
+        "sha256": "7d35692a08072c0953e27ef7319e3a8135e39b69967cfbe33470f5dc47145d62",
+        "size": 6448
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block06/cuda_unlimited_old_g02.json",
+        "sha256": "781261d1dc6b7d199b26ef3c12fe620881cbec360827c882ca6308704b930a0f",
+        "size": 6815
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block06/cuda_unlimited_streamed_g07.json",
+        "sha256": "f50b196a40e5a0b196801f4a2a8b0dcc574735431747752e2db47400961bf9f6",
+        "size": 6518
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block06/tilelang_full_g08.json",
+        "sha256": "467498de610ab0ebd83f963f8c8d7581800cb6e4ca1624cb71c2c09f6bd53e5f",
+        "size": 6682
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block06/torch_contract_fp32.json",
+        "sha256": "34b1209da783dcfcd2b370a93a21980ffbdc4b660ffd079d02d22b1fed12863f",
+        "size": 5967
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block06/triton_full_g05.json",
+        "sha256": "63d51ab1acbff7905ecb567cc42a0c2b3effd0f1d0b0471248968a7b4a62714b",
+        "size": 6743
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block07/cuda_noptx_old_g04.json",
+        "sha256": "9ee2aa746f44ab648ca01dc0c6b90952ea6c6ff847acbbe811a5f1d94b924f9d",
+        "size": 6868
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block07/cuda_noptx_streamed_g05.json",
+        "sha256": "41622f589ac464466cab49733aebb4c7015e4de8d01be7212c03396c14c21446",
+        "size": 6435
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block07/cuda_noptx_streamed_g09.json",
+        "sha256": "3e553f0bbcf4b2a775704698cdaa11e1aa01cd75dbbe32eed4a59d9a81fd10ee",
+        "size": 6433
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block07/cuda_unlimited_old_g02.json",
+        "sha256": "89b793a1b952fb1b46ed77be5a01ba1590f4d2d651d2883fa1810ff8c7e656eb",
+        "size": 6820
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block07/cuda_unlimited_streamed_g07.json",
+        "sha256": "7d7af00d5712d75d682c8a9755ebbd54c1b190387b95d5fe76fbf4dcb14e7318",
+        "size": 6532
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block07/tilelang_full_g08.json",
+        "sha256": "9720f003afccb1a0198a7dd8f894a709e5fd320c65cdd5b56bdc56674ddd449c",
+        "size": 6681
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block07/torch_contract_fp32.json",
+        "sha256": "4cb92cf3d1999ef90e65fd034bbee9eaa1fa0fec9e9d54a599cfddb0b0087bc3",
+        "size": 5960
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block07/triton_full_g05.json",
+        "sha256": "a8e3dbe95c72d3fef26790d646b303a5c09ea5c0cb3776e1cfa9eee90ea5f7bd",
+        "size": 6738
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block08/cuda_noptx_old_g04.json",
+        "sha256": "648b0a95a913f19cd593fc3802c86b956dfee512d6673225ff8cab4593f029bb",
+        "size": 6854
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block08/cuda_noptx_streamed_g05.json",
+        "sha256": "2833583c73be2d11c7f35ff963ba0ae4d198c4045f83de89cfbc99c24166fe11",
+        "size": 6437
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block08/cuda_noptx_streamed_g09.json",
+        "sha256": "1b50088e3a1693a5a3763e294b32595e0c33e54f4296cd9e52fb5a4a3c6e498e",
+        "size": 6432
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block08/cuda_unlimited_old_g02.json",
+        "sha256": "c6c0ffa5802da440ed226aa221478a98dcb01ced726479dca1aab9362809b312",
+        "size": 6821
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block08/cuda_unlimited_streamed_g07.json",
+        "sha256": "a3d339dec6f14f8aebb98d9286e31f555ec3e84da0ac6e4e75187e94b21435f1",
+        "size": 6529
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block08/tilelang_full_g08.json",
+        "sha256": "bfe2fdf154a89bd805adbaa8fd9ee282684e98cf9a0f3ec36bc5864cff1a347e",
+        "size": 6682
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block08/torch_contract_fp32.json",
+        "sha256": "673625260869d3695e226bff8a23da3effa468fdf7fd2be9dd4b7a75332a54f6",
+        "size": 5965
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block08/triton_full_g05.json",
+        "sha256": "8ebc823288a45c2d308343df94a27aaed86ce273f5a39553146c717a9ad1b276",
+        "size": 6732
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block09/cuda_noptx_old_g04.json",
+        "sha256": "85e9bc0c72cd3744df72b4d65629d14a0237f8573f58c4b1fe376e9fc131bf3b",
+        "size": 6856
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block09/cuda_noptx_streamed_g05.json",
+        "sha256": "90fbf3843d05df10e8d3713e987fd112ce725b644de4ff4d5fab502b5cfea33b",
+        "size": 6434
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block09/cuda_noptx_streamed_g09.json",
+        "sha256": "65cdbcfbe4ec8addf5afe030179e8fe483bd42be0304b41687656b37cbb5b825",
+        "size": 6441
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block09/cuda_unlimited_old_g02.json",
+        "sha256": "6345adea59d884b78aa460022fd57bd2ff908dc2e575ac39756d6a0bc1b8f30f",
+        "size": 6824
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block09/cuda_unlimited_streamed_g07.json",
+        "sha256": "75650c54172bdaa7f957b02db25018b46aeeef71aafac740c41d037333ec4437",
+        "size": 6532
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block09/tilelang_full_g08.json",
+        "sha256": "4975dd95b9265565ef33ac9fd69d69dd08f7df9f2ee6e1dd928b7ffa8c5127b0",
+        "size": 6688
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block09/torch_contract_fp32.json",
+        "sha256": "07bf969bbb8459002d46ff7f6538882adad841e5398f2b062b65089d71030903",
+        "size": 5967
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block09/triton_full_g05.json",
+        "sha256": "c2f56509870a101f76d7e2e389e47552b6a4a00bff5791f469fa89efb70470c5",
+        "size": 6740
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block10/cuda_noptx_old_g04.json",
+        "sha256": "5337c0af36691e20f6d19a569a4cd9692990fa905d83256a60b9842e2582f804",
+        "size": 6864
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block10/cuda_noptx_streamed_g05.json",
+        "sha256": "d5f7a9e0b2fdb28da3e3c121f64fa788c243408823f776b63bba696f7544d84d",
+        "size": 6441
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block10/cuda_noptx_streamed_g09.json",
+        "sha256": "277e82d1db8e699344211ffd116bf03ac88ee74c12e227804207219a46a64bc1",
+        "size": 6429
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block10/cuda_unlimited_old_g02.json",
+        "sha256": "75c0786d6c943b370f67bb8b65a2b85890c37d638e603fa8ba1e093fb8628df2",
+        "size": 6811
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block10/cuda_unlimited_streamed_g07.json",
+        "sha256": "477af22ace7d8228714622af0c500a2076abd8b4cb4e447d786174c3353bef78",
+        "size": 6533
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block10/tilelang_full_g08.json",
+        "sha256": "52aee12347be3a31bf83df8cff94edfc452c9241556285a6f93a36b9d325dfab",
+        "size": 6684
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block10/torch_contract_fp32.json",
+        "sha256": "8d5c47870d67e1e744de08ea129d79e818d13ab5946747fbd37c4465789ef56b",
+        "size": 5971
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block10/triton_full_g05.json",
+        "sha256": "ab3d80026a875905ad433e37bbb609fa34669956d877fcc08716851346ac4194",
+        "size": 6734
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block11/cuda_noptx_old_g04.json",
+        "sha256": "d172cdedf19447f5f8b9f64e183d36ef194a5f2efef7c2c754ee549b9d09dc5c",
+        "size": 6871
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block11/cuda_noptx_streamed_g05.json",
+        "sha256": "d6b1dd8be36050e5c96161f8a66c34e1bb64f1c593a9f5927fca2a9cbc0b44fd",
+        "size": 6437
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block11/cuda_noptx_streamed_g09.json",
+        "sha256": "e0e337a352c2bfb361f4c95085533ab8294631f4da4b68c9af74fc261511f19e",
+        "size": 6426
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block11/cuda_unlimited_old_g02.json",
+        "sha256": "9ff70791471cec2887a60c80f1ae8cf42efa8767ad407c97b4ec1a3929766a23",
+        "size": 6816
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block11/cuda_unlimited_streamed_g07.json",
+        "sha256": "7c47859daa9dc43985828776e5561b4d26334ff9c22b8e2139303f84a46fa20e",
+        "size": 6515
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block11/tilelang_full_g08.json",
+        "sha256": "787be656acb6ad355579949c70995e63f7d13e7dd9203d1faff05ffba906ee4f",
+        "size": 6678
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block11/torch_contract_fp32.json",
+        "sha256": "cfc375fb061dee3c1c34101ee0c606d383331b0d581f710c2345c2de437e2ee3",
+        "size": 5971
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block11/triton_full_g05.json",
+        "sha256": "af526c2c41632761803091d538097a9ce8d0c70241acdbe728d9f26b1d601866",
+        "size": 6728
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block12/cuda_noptx_old_g04.json",
+        "sha256": "f7a8501c38df37e60fe8e715bb3f4b3e5cdd697439601bedda47b0849a896dfb",
+        "size": 6873
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block12/cuda_noptx_streamed_g05.json",
+        "sha256": "b500268223e229d1fb4614354ecda491c73c220e1fae54c5609394cbd79ce351",
+        "size": 6427
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block12/cuda_noptx_streamed_g09.json",
+        "sha256": "7c6be5d03294202676f27a0590737e0ef6730229b1dca46ea41b3d6369383c82",
+        "size": 6421
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block12/cuda_unlimited_old_g02.json",
+        "sha256": "c838cc1448fae2d340b789b5a86572500eec836f24125bca1165032823e7cf0a",
+        "size": 6817
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block12/cuda_unlimited_streamed_g07.json",
+        "sha256": "835ba1ca701b660c5f5ab8a5f757e82228f7de1136297008be178dd383517140",
+        "size": 6537
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block12/tilelang_full_g08.json",
+        "sha256": "e5dc240ad0f60c70b3dcac0df624e1fabea49d54ef25269b112fafcbede554b2",
+        "size": 6682
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block12/torch_contract_fp32.json",
+        "sha256": "a61fd3a62126480e49ae35669038f050d00f964b67e11a2ef747c8972cab2fe2",
+        "size": 5952
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block12/triton_full_g05.json",
+        "sha256": "144e38734e11435b2094daa8f8924bdde3a2b8fb84b9531bedc9582a19700225",
+        "size": 6742
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block13/cuda_noptx_old_g04.json",
+        "sha256": "bbf50e0814d6ec7cefa4bb117bc8402a7b83c3743ccdf5b80526ae56753b3acc",
+        "size": 6852
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block13/cuda_noptx_streamed_g05.json",
+        "sha256": "26c30173222362430406130b743af2fc01da53c9f772d3ed26e002a89488921a",
+        "size": 6437
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block13/cuda_noptx_streamed_g09.json",
+        "sha256": "800a4e4dc6d9d2fdbbfe4e6c7f7e7da0d5d25f14cf11380e9b9575655a801245",
+        "size": 6432
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block13/cuda_unlimited_old_g02.json",
+        "sha256": "9a7bcb2199c239abb4f0c08e05d3797e87a4b8b46834b235adf510ef84d5d091",
+        "size": 6820
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block13/cuda_unlimited_streamed_g07.json",
+        "sha256": "f187c387334826f6959aa176f24353cfae3377d0665ae284de6167bf77412a5f",
+        "size": 6536
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block13/tilelang_full_g08.json",
+        "sha256": "7d795d02ad3cdda5094b743c1e16ae9880dbf7c68f7183cf445b947a715815c7",
+        "size": 6685
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block13/torch_contract_fp32.json",
+        "sha256": "d6b57d85aa66419a69a24b50b56654f670e36099e04865d273a005bc4e2f1fba",
+        "size": 5967
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block13/triton_full_g05.json",
+        "sha256": "afebd3e0ff813d49579143275f15eb9cc9058115e9c01386a6fa9336bc611731",
+        "size": 6738
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block14/cuda_noptx_old_g04.json",
+        "sha256": "e6b9c695bac62a28c1d868066a4e21203092bfe47012c5b1fe16df66e283f2e9",
+        "size": 6852
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block14/cuda_noptx_streamed_g05.json",
+        "sha256": "39e65091213fc70882f1e3fbdcaa3951fe738811687abab41aa0f75cdc2d887b",
+        "size": 6437
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block14/cuda_noptx_streamed_g09.json",
+        "sha256": "a27ef3791738fd502885280a21e1e31ee22db91bab934a8d7bc7391ad581fdde",
+        "size": 6436
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block14/cuda_unlimited_old_g02.json",
+        "sha256": "9b4bb3da49134248aad418d1e557642dbd5fd24bfea526f9123d9f8dab663efb",
+        "size": 6818
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block14/cuda_unlimited_streamed_g07.json",
+        "sha256": "13a469e9b581698fea280a8aec5a745b38f0763c31f851a32caa2c5fede6d9d8",
+        "size": 6535
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block14/tilelang_full_g08.json",
+        "sha256": "22cf0b3dc277013c5b195e285ee5b4a1e78b36cc13f2c083a8b2f05fdadefec4",
+        "size": 6690
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block14/torch_contract_fp32.json",
+        "sha256": "8c5ecdd8050dc76e606b86af0a18c428aa4a3ac78d081dae2e701ea4b5cae7a8",
+        "size": 5971
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block14/triton_full_g05.json",
+        "sha256": "74c91d0a0e479525d7d97fd814779629bca8f719f1b4da92970fbe16a8efdcc4",
+        "size": 6748
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/source_receipt.json",
+        "sha256": "27a51907cb50bdfd98750a0706904f44584b1532ea376da0262deaa2e135fc02",
+        "size": 11930
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_frontier_closure_v3/test_frontier.py",
+        "sha256": "fe36569f49b73bfd675e6deeb1df6a10f42740a9e8c3d6400d8a8d8730d8b7b5",
+        "size": 4559
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_grid/robust_adapter.py",
+        "sha256": "688d9b29673d9314f50a3e8f6a8fc217b8497b27fb3eac13a5234cd9b7a29502",
+        "size": 32811
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_grid/robust_adapter_manifest.json",
+        "sha256": "81e3478b61800e09147a6cb213ba1786b200c137a728a5a9c258241c0a6004ba",
+        "size": 11831
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_reachability_v2/analyze.py",
+        "sha256": "ef9e06e66d8be32a5ff415e6ae68ee75885a57d16864b50c9e7285e04b15ff37",
+        "size": 13859
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_reachability_v2/bind_robust.py",
+        "sha256": "5df3f84b3c27f81e463c075db46eb7bb06e343576baf800b03e6e0da4446ec1a",
+        "size": 5474
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_reachability_v2/campaign.json",
+        "sha256": "5a52933f19d25088999649cb8e45edadc34dfd35a4cf0e5c34bf7b20c2c1a05d",
+        "size": 2688
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_reachability_v2/candidate.py",
+        "sha256": "84805cd1d44fae40adae81958bc3277453c84de61db85816dfd320399b0af620",
+        "size": 14096
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_reachability_v2/capture_evidence.py",
+        "sha256": "4262bc91888b8b54087ca2d037fbe7ecff1b50a5babbdbba9a8e18809cfa8b5a",
+        "size": 8430
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_reachability_v2/evidence/complete_v1.index.json",
+        "sha256": "d228ba509e02f2ed7e9a75346e2e960e3ec9fa6f8cfea943193da6a91b7f06cb",
+        "size": 478239
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_reachability_v2/evidence/complete_v1.tar.gz",
+        "sha256": "efcd54b68885b2bdd2c60202d68b858fbe3f40a8288d5815ef5fa7eeb6536572",
+        "size": 1274441
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_reachability_v2/freeze.py",
+        "sha256": "3af55daafed4ec9a2f65df52da20fbae454966fe3d81fdd3e6103093ddc555f4",
+        "size": 4378
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_reachability_v2/launch.py",
+        "sha256": "3433f0dc585f06b03e52de2021ddcbf53ab6d98568eea72e98b305f107a67c0f",
+        "size": 8566
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_reachability_v2/launch_lock.json",
+        "sha256": "7bd24892e29e8d8af4b48a34b397434ed80bd59e2349ff714fb4babe0afcc240",
+        "size": 7545
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_reachability_v2/protocol.py",
+        "sha256": "d826b8df7f6295abe1af2d981df1056c8e9163dbaeb3bc1ce4fa64b2d2cd1a67",
+        "size": 15801
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_reachability_v2/results/confirmation_analysis_v1/confirmation_summary.json",
+        "sha256": "5b691fbacc772b3d27af743791b6aa3dd0edd8e7d63d125c56399f86b22e4c7f",
+        "size": 29893
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_reachability_v2/results/robust_noptx_v1/records.jsonl",
+        "sha256": "990e7346a47edd1c9ff9d62e95a20df3168d9934aa0848ce94e99249af98d21f",
+        "size": 5721957
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_reachability_v2/results/robust_noptx_v1/summary.json",
+        "sha256": "2cb63b00231f17d42c76fde5e9964960c9817e68fe277b4e701c6715fb9aaaea",
+        "size": 4692
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_reachability_v2/results/robust_unlimited_v1/records.jsonl",
+        "sha256": "c3ceca55b24d14ec41928d38224eda4b080136f73ee43850caf33f9a4efb937c",
+        "size": 5786765
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_reachability_v2/results/robust_unlimited_v1/summary.json",
+        "sha256": "83c59ba8bb8a7a9a4da7d93fdecc9385b0ebff5d1099118d0b59de6bd7cfc953",
+        "size": 4756
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_reachability_v2/results/screen_analysis_v1/confirmation_selection.json",
+        "sha256": "4385e10329b18a43178e5e2bbb5a0b25613d32588fbd466f5c70c854ca733582",
+        "size": 2903
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_reachability_v2/results/screen_analysis_v1/selection.json",
+        "sha256": "3d07a193d2a5f8766e56628a87e6f8800a7245428d83f5ac8359c64076930a50",
+        "size": 2540
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_reachability_v2/robust_run.py",
+        "sha256": "747f89e370acaf0a98126a56ac0e3580cb34673aef880fbe7994b5e4664c49e5",
+        "size": 14258
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_reachability_v2/run_one.py",
+        "sha256": "ae4ba9a3e246cd8e322c4246d07fb3c463469df86cf2f01cd48fa64b921587ff",
+        "size": 6023
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_reachability_v2/test_protocol.py",
+        "sha256": "a029124440f2b737016d48ea03c6adf12919d8480f5c910bd99ccb2993f35f72",
+        "size": 4585
+      },
+      {
+        "path": "ako_runs/controlled_followup/robust_gate/__init__.py",
+        "sha256": "c47d3e6a5bc723aaca9e724e736c24be490884a16a91d695f41fed1f2b97b183",
+        "size": 350
+      },
+      {
+        "path": "ako_runs/controlled_followup/robust_gate/distributions.py",
+        "sha256": "6280fa580a8ff2e648b937435137930a37143d8225bf9afb348b4c4921ccdd77",
+        "size": 5641
+      },
+      {
+        "path": "ako_runs/controlled_followup/robust_gate/metrics.py",
+        "sha256": "419b48d8410dfeb42ff06e8ce23be15d176443872ad576779ee071a00045a9fe",
+        "size": 6871
+      },
+      {
+        "path": "ako_runs/controlled_followup/robust_gate/oracles.py",
+        "sha256": "5083b72e14285cfc5582effe4cf4d75f6bac8f548cd1183e2d5256c022d5cace",
+        "size": 8198
+      },
+      {
+        "path": "ako_runs/controlled_followup/robust_gate/schema.py",
+        "sha256": "5ddccc0f4eecda92d97de0676eb9c5f16f0ea3bd426a344aa6acb57169e306ec",
+        "size": 9019
+      },
+      {
+        "path": "ako_runs/controlled_followup/robust_gate/seeds.py",
+        "sha256": "39663de46fdc31f34ec12975d34c43565f16f19a23be0c1e53bf4f1cfe57fdcc",
+        "size": 3689
+      },
+      {
+        "path": "ako_runs/controlled_followup/robust_gate/validate.py",
+        "sha256": "b9436c9b4a0d81228a373c1f6e7e79a7cd68cf78e11ef8afdb06c27b2f5b22ec",
+        "size": 6962
+      },
+      {
+        "path": "ako_runs/phase1_matmul/common.py",
+        "sha256": "7753fcc00891d475db8675423ca7e48fbc0aa0431ac1e1dd4319e6c2900fd0a7",
+        "size": 17310
+      },
+      {
+        "path": "ako_runs/phase1_matmul/variants/__init__.py",
+        "sha256": "0ac322f46ab46fe0bf6d9eb6241c7eacf6b9844f5f6d927dbccfc81a1005a585",
+        "size": 1382
+      },
+      {
+        "path": "ako_runs/phase1_matmul/variants/cuda_noptx_gemm.py",
+        "sha256": "b3935c4e9516304cbbe0b3ab8e32e1fadc1264f48f26ee00fe52aede6e032217",
+        "size": 29762
+      },
+      {
+        "path": "ako_runs/phase1_matmul/variants/cuda_unlimited_gemm.py",
+        "sha256": "c9629300ce871476eb95cdecc5337229c43d3206e674c35d86a7f65d20a87ad5",
+        "size": 27988
+      },
+      {
+        "path": "ako_runs/phase2_fused_sdpa/common2.py",
+        "sha256": "0293cb15fc3285df199daa58281a1a35147a78b9cbccda8b8f88418eecb39c64",
+        "size": 16006
+      },
+      {
+        "path": "ako_runs/phase2_fused_sdpa/runner2.py",
+        "sha256": "d1ade4461bff35058a3c6e967532960f5cc509f5d6a46c69bded78fbd0aac31e",
+        "size": 9270
+      },
+      {
+        "path": "ako_runs/phase2_fused_sdpa/variants2/SPEC2.md",
+        "sha256": "d4bc1b1c3dabf79ec813e08ac3ce3164e1251bf9c85c8fc9cd7e954581283652",
+        "size": 15823
+      },
+      {
+        "path": "ako_runs/phase2_fused_sdpa/variants2/__init__.py",
+        "sha256": "2afc778f25db9abe2d05299bbd47fa2ad43b7912eee8633936095e6b92662045",
+        "size": 1529
+      },
+      {
+        "path": "ako_runs/phase2_fused_sdpa/variants2/cuda_fused_common.py",
+        "sha256": "c047985e84428246a455a20107cd5309d63528a593374ed2a4418e531c915c36",
+        "size": 8084
+      },
+      {
+        "path": "ako_runs/phase2_fused_sdpa/variants2/fused_cuda_noptx.py",
+        "sha256": "6abbea8ea28d5d6623da90385e417ec279fd5a022cf2144a56ae8fab684e2058",
+        "size": 9476
+      },
+      {
+        "path": "ako_runs/phase2_fused_sdpa/variants2/fused_cuda_unlimited.py",
+        "sha256": "d0c5b1b46f44ae6fe655e78b8ce902b42d46b3567bf26a81574d52b78262f060",
+        "size": 10770
+      },
+      {
+        "path": "ako_runs/phase2_fused_sdpa/variants2/fused_tilelang.py",
+        "sha256": "c2a0704d81bdb4b2f78377870a1bc45c6945db77bccc8e89b2a0fd4b46511684",
+        "size": 12364
+      },
+      {
+        "path": "ako_runs/phase2_fused_sdpa/variants2/fused_torch.py",
+        "sha256": "9a1d5234d7baa3102b9851482b2dd7b4375c80982046d21d03e647755ffba762",
+        "size": 3370
+      },
+      {
+        "path": "ako_runs/phase2_fused_sdpa/variants2/fused_triton.py",
+        "sha256": "20c4f27fdc9145beec6b4cdb99ed8e9d57cbdbede87bace51319d782f378272e",
+        "size": 8048
+      }
+    ],
+    "launch_receipt_sha256": "6d497375770af4b1ff81344c87a4c133b5ba9873b490caabf450d40581ae3ba8",
+    "record_type": "fused_frontier_closure_v3_evidence_manifest",
+    "schema_version": 1,
+    "source_receipt_sha256": "27a51907cb50bdfd98750a0706904f44584b1532ea376da0262deaa2e135fc02",
+    "tag": "performance_v1"
+  },
+  "manifest_sha256": "1c4d0c7f86ca1038c8dc1e26209c6952568779505bb8ed5a4e79761b5163803c",
+  "record_type": "fused_frontier_closure_v3_evidence_index",
+  "schema_version": 1
+}

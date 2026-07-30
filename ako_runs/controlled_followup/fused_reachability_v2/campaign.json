@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "campaign_id": "fused-reachability-streamed-epilogue-v2",
+  "status": "preregistered_not_launched",
+  "scientific_question": "Do g05-g12 remain infeasible in either CUDA lane when the full fp32 accumulator tile is not reserved in shared memory?",
+  "operation": "fused_softmax",
+  "shape": {"M": 1024, "K": 8192, "N": 8192},
+  "hardware": {
+    "required_name": "NVIDIA RTX 6000 Ada Generation",
+    "required_compute_capability": "8.9",
+    "allowed_gpu_uuids": [
+      "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae",
+      "GPU-91b61ae6-d21e-485e-43b3-7505d62149b1",
+      "GPU-3ed448f2-f23a-09fc-e18b-f580523c4a3f",
+      "GPU-eafdd6ce-8857-40fd-f494-47a7240bf6b5"
+    ]
+  },
+  "fixed_factors": {
+    "variant": "GBGS",
+    "arith": "fp16",
+    "cast": "precast",
+    "wcache": "cached",
+    "epilogue": "streamed_global",
+    "threads": 256,
+    "timing_dist": "rand",
+    "timing_seed": 0,
+    "warmup_s": 2.0,
+    "trials": 100,
+    "screen_processes": 2,
+    "confirmation_processes": 15
+  },
+  "lanes": ["cuda_noptx", "cuda_unlimited"],
+  "grid_ids": ["g05", "g06", "g07", "g08", "g09", "g10", "g11", "g12"],
+  "selection_rule": "Within each lane, retain every legacy-correct screen result, rank by median of two process medians, robust-validate the frozen top three under both fused-v2 mixed gates, then confirm all robust-passing selected cells in 15 within-lane randomized complete blocks.",
+  "failure_rule": "Every build, attribute, launch, correctness, and robust-gate failure is retained and is ineligible; thresholds are never changed.",
+  "primary_estimand": "Per-lane minimum median process time among robust-passing streamed-epilogue candidates; compared descriptively with the receipt-bound v1 frontier.",
+  "inference": {
+    "cell_point_estimator": "median of 15 process medians",
+    "cell_interval": "order-statistic interval [x4,x12], 96.5% binomial coverage for a continuous population median at n=15",
+    "lane_minimum": "minimum cell point estimate among the robust-passing frozen top three",
+    "block_bootstrap_draws": 100000,
+    "block_bootstrap_seed": 2026073003,
+    "per_lane_seed_rule": "base seed + lane index in [cuda_noptx,cuda_unlimited]",
+    "block_bootstrap_rule": "resample the 15 rep blocks jointly within lane; recompute every candidate median and their minimum; percentile 2.5/97.5 interval",
+    "percentile_method": "linear interpolation at (n-1)*p (R-7 / NumPy default)",
+    "ordering_rule": "no strict winner claim when simultaneous cell intervals overlap"
+  },
+  "claim_limit": "This is a prospective implementation-recipe ablation, not a retroactive replacement of v1 and not by itself a language ceiling."
+}

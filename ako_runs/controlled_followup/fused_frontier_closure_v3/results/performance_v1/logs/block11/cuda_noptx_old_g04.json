@@ -1,0 +1,21 @@
+{
+  "argv": [
+    "/home/lxt230026/miniconda3/bin/python",
+    "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/fused_frontier_closure_v3/measure.py",
+    "--candidate",
+    "cuda_noptx_old_g04",
+    "--block",
+    "11",
+    "--position",
+    "3",
+    "--launch-receipt",
+    "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/launch_receipt.json",
+    "--out",
+    "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block11/cuda_noptx_old_g04.json"
+  ],
+  "completed_utc": "2026-07-30T20:34:31.682420+00:00",
+  "returncode": 0,
+  "started_utc": "2026-07-30T20:34:25.541480+00:00",
+  "stderr": "",
+  "stdout": "cuda_noptx_old_g04 block=11 position=3 ok=True out=/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block11/cuda_noptx_old_g04.json\n"
+}

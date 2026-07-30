@@ -1,0 +1,8 @@
+# Runtime/build material is never audit evidence.
+.torch_extensions/
+.torch_ext/
+__pycache__/
+.pytest_cache/
+active.lock
+*.partial
+*.tmp

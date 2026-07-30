@@ -1,0 +1,13 @@
+{
+  "all_candidate_gate_groups_success": true,
+  "campaign_id": "controlled-followup-fused-reachability-row-sum-stress-v1",
+  "collection_receipt_sha256": "e1ad2217f8070d7c1f00a56df62d94bdfcb9050b41a2887d07f36b6344492453",
+  "completed_utc": "2026-07-30T20:14:28.115475+00:00",
+  "evidence_complete": true,
+  "performance_selection_feedback_authorized": false,
+  "record_type": "fused_reachability_row_sum_stress_completion_receipt",
+  "schema_version": "1.0",
+  "summary_path": "results/summary.json",
+  "summary_sha256": "326cc75f7901ad602f239f75740ecd004e9749feee98fdeddfb0233698a0427a",
+  "threshold_mutation_authorized": false
+}

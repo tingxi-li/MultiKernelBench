@@ -1,0 +1,30 @@
+{
+  "adapter_source_bundle_sha256": "a20e2929de11e19bfdf61e27cfa070cd8aa1ef63d50660a0aab6c27845c49c38",
+  "campaign_id": "controlled-followup-fused-row-sum-stress-v1",
+  "frozen_utc": "2026-07-30T19:37:24.430586+00:00",
+  "git_commit": "c0b35dfdd65248b8bba1598fbabab06484011fd9",
+  "manifest_canonical_sha256": "b15cf5485c2463bc74c20ee8333f594237f289a53d43264f6f77c1228124e977",
+  "manifest_sha256": "3b4171c07a7d7bc943bb8228f7ba45ed80dbd4e16c64b3f859b3b8026d20f330",
+  "original_gate": {
+    "canonical_sha256": "4898c42d82707ad4588c880f794935efba202f5c32fb656263ec2c8f6c3f22e8",
+    "path": "ako_runs/controlled_followup/robust_gate/calibration/gate_spec_fused_v2.json",
+    "sha256": "b6c3afaadf61f5d380a97c6c541828a1ecacd1a89a00b73b66207fe22d765e2e"
+  },
+  "raw_results_opened": false,
+  "schema_version": "1.0",
+  "source_bundle_canonical_sha256": "24049503594d5e059b4682521216b22f4d2a2b03d250abed3173b80ce2a2bda6",
+  "source_sha256": {
+    "ako_runs/controlled_followup/fused_grid/robust_adapter_manifest.json": "81e3478b61800e09147a6cb213ba1786b200c137a728a5a9c258241c0a6004ba",
+    "ako_runs/controlled_followup/robust_gate/audits/__init__.py": "6c30b84be5071c594bbddeac7b808b1f332e1fc9a59497fda53f7a08a142720b",
+    "ako_runs/controlled_followup/robust_gate/audits/fused_row_sum_stress_v1/README.md": "ab463d0ae7abd285c647694ceb47594824c0590b7d27ebbd5cee41335feb8d73",
+    "ako_runs/controlled_followup/robust_gate/audits/fused_row_sum_stress_v1/__init__.py": "274350bc1709e5b46784ad312ac4ac1d3a86a580032c2a21e7173e22355677e5",
+    "ako_runs/controlled_followup/robust_gate/audits/fused_row_sum_stress_v1/analyze.py": "b7f2ccc327052199694bda4134aee6a149dc8dc5bdb57f92736d93d870826999",
+    "ako_runs/controlled_followup/robust_gate/audits/fused_row_sum_stress_v1/freeze.py": "43391aee298db024c44d7a3e25b6ba70b6f3ae0f5bc5c32402234ebea96ed911",
+    "ako_runs/controlled_followup/robust_gate/audits/fused_row_sum_stress_v1/manifest.json": "3b4171c07a7d7bc943bb8228f7ba45ed80dbd4e16c64b3f859b3b8026d20f330",
+    "ako_runs/controlled_followup/robust_gate/audits/fused_row_sum_stress_v1/runner.py": "d8af008d10d1cbf96c68c49b500d4a09a85bfc8cc7fc940fcbc85f5f960495b9",
+    "ako_runs/controlled_followup/robust_gate/audits/fused_row_sum_stress_v1/tests/__init__.py": "6b1c271e6f73f188132fe782bf52ecc14ace8f0b4ffd2c4dc9f811e66b81595a",
+    "ako_runs/controlled_followup/robust_gate/audits/fused_row_sum_stress_v1/tests/test_stress.py": "37a94eeb4fc90e83eb449ac0407a23ac7b43ad656fdf5453baa541b03871b39f"
+  },
+  "threshold_fitting_allowed": false,
+  "threshold_mutation_authorized": false
+}

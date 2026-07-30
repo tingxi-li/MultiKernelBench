@@ -1,0 +1,1554 @@
+{
+  "attestation": {
+    "kind": "post_hoc_evidence_preservation",
+    "source_files_modified": false,
+    "statement": "This index and bundle were created after campaign completion. They preserve the observed result bytes but do not establish preregistration, a launch-time source freeze, or an external timestamp."
+  },
+  "bundle": {
+    "bytes": 6445312,
+    "format": "deterministic GNU tar + gzip(level=9, mtime=0, empty filename)",
+    "path": "ako_runs/controlled_followup/provenance/evidence_v1/evidence_bundle.tar.gz",
+    "sha256": "6305573cbb13e47902d0b0cd58d629feea812678ca6e4b1e13e4884f96432ea6"
+  },
+  "counts": {
+    "confirmation_process_records": 80,
+    "robust_aggregate_records": {
+      "tuning_full_screened55": 3520,
+      "tuning_smoke_all76": 608,
+      "validation_screened56": 28672
+    },
+    "screen_process_records": 152,
+    "selected_files": 251
+  },
+  "entries": [
+    {
+      "bytes": 5018,
+      "category": "confirmation_control",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/launch_20260730T044239Z_296071.json",
+      "sha256": "35b94cec55072c3f4fa8d85bc743b62402e65668377e983288d2b3d85909fa3b"
+    },
+    {
+      "bytes": 5240,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/cuda_noptx__c08__rep0.json",
+      "sha256": "02bcc1709a7aa5ba1f30015559f5a0972569a482d1414871012a302732ab3ac0"
+    },
+    {
+      "bytes": 5252,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/cuda_noptx__c08__rep1.json",
+      "sha256": "7cea25d6eab66e40994cd7028a1df7102d071a7230e87c16a82cb3792f8a42a7"
+    },
+    {
+      "bytes": 5238,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/cuda_noptx__c08__rep2.json",
+      "sha256": "06ca2dee5e5611e7a23a25f7528ebea35804e0d86a294f84f556ef522121783f"
+    },
+    {
+      "bytes": 5243,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/cuda_noptx__c08__rep3.json",
+      "sha256": "510c5dfe94a6eef5ba2b8bcd3ef5ddb5a52cf33828abd307e8972d8eb7cf3e10"
+    },
+    {
+      "bytes": 5245,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/cuda_noptx__c08__rep4.json",
+      "sha256": "0c186c7f49af9875786cdf75ad95e031be7c97ea96e1758c3cc54a7aa67e8394"
+    },
+    {
+      "bytes": 5243,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/cuda_noptx__c09__rep0.json",
+      "sha256": "5c337f3a04d09090e6edc62dc9be5d9a0ae5123e8ca1dc8a5d5a136112e0e682"
+    },
+    {
+      "bytes": 5252,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/cuda_noptx__c09__rep1.json",
+      "sha256": "8214d7443df5d9d026b5480d8468919ee501ccc79e96960a8d6fad958db458fe"
+    },
+    {
+      "bytes": 5242,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/cuda_noptx__c09__rep2.json",
+      "sha256": "db2e155af9d349e31781ae2a2880c16a6bdf7f739ee0164e105bc8f4999b9302"
+    },
+    {
+      "bytes": 5252,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/cuda_noptx__c09__rep3.json",
+      "sha256": "5d1500060845e2ecfb9f6a71f203d848f47fae6bb7e7d0a4349f2b9f747f54dd"
+    },
+    {
+      "bytes": 5248,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/cuda_noptx__c09__rep4.json",
+      "sha256": "6dd778d525fe85ed3481c98b9171bd23747b42145f33b9bd3ad2cc1ff122b8a4"
+    },
+    {
+      "bytes": 5245,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/cuda_noptx__c10__rep0.json",
+      "sha256": "2b54827b2a36dafbe4588c56fc96e0013743cb24b4125b791b08583f5c98cad6"
+    },
+    {
+      "bytes": 5242,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/cuda_noptx__c10__rep1.json",
+      "sha256": "d46a21784a6abc4e42056a741030aaccc513b684cfdff188397d7f73fc26b4a9"
+    },
+    {
+      "bytes": 5250,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/cuda_noptx__c10__rep2.json",
+      "sha256": "41255874385c70fa801878a0b4d423ed7a06800886742d818932785feb89ac7f"
+    },
+    {
+      "bytes": 5252,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/cuda_noptx__c10__rep3.json",
+      "sha256": "f5aa0b9356a612b1c3678a133825b9c25bcd7bd285d4b71e2b0d24ed8b26a656"
+    },
+    {
+      "bytes": 5253,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/cuda_noptx__c10__rep4.json",
+      "sha256": "34273d380cc74d862e63ee3071a09aca907b60afa6788b367fcd9069923e22c8"
+    },
+    {
+      "bytes": 5246,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/cuda_noptx__c11__rep0.json",
+      "sha256": "a5328e000cbbdff68ed986492329c1331d5a791114e96f52bf8085f256f16ca9"
+    },
+    {
+      "bytes": 5258,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/cuda_noptx__c11__rep1.json",
+      "sha256": "7d1dfd6e775bd2681a8676c9d54679cf7352593b61fa14b378b6e345f44c42e8"
+    },
+    {
+      "bytes": 5260,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/cuda_noptx__c11__rep2.json",
+      "sha256": "0954f866a41d43e7dac52807cce53e228c0e14a28ced0500d264e845edc237a1"
+    },
+    {
+      "bytes": 5254,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/cuda_noptx__c11__rep3.json",
+      "sha256": "ad960811471deca08016e18dab71678bcfee516ecc65723c03e14cd165179a9d"
+    },
+    {
+      "bytes": 5254,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/cuda_noptx__c11__rep4.json",
+      "sha256": "416254b970616dd3391b462292268d3d5b1094fea47482640bc06a7591a19ec6"
+    },
+    {
+      "bytes": 5196,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/cuda_unlimited__c12__rep0.json",
+      "sha256": "34925559fbf8704b6ab3908a0cb9061419efbeaf2f39a82e9b022eb323505aff"
+    },
+    {
+      "bytes": 5195,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/cuda_unlimited__c12__rep1.json",
+      "sha256": "bcdfdcd6f0c2eec16f958af575d83bd864af0b17bfb105b800d25cd836fc753d"
+    },
+    {
+      "bytes": 5198,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/cuda_unlimited__c12__rep2.json",
+      "sha256": "b2d18c59ffd308473a78346fbd5a664aace3274b15d94cbe3a16707580f19cb8"
+    },
+    {
+      "bytes": 5201,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/cuda_unlimited__c12__rep3.json",
+      "sha256": "526c45e28dab5ff7386a0ffc119c45bc356b36be9e4aa95ed72d04a873115183"
+    },
+    {
+      "bytes": 5196,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/cuda_unlimited__c12__rep4.json",
+      "sha256": "6a35f5f374a822f2e30daa3adabbcbf0dc96bcb91d7cdeefb9edc27c87f77c62"
+    },
+    {
+      "bytes": 5212,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/cuda_unlimited__c13__rep0.json",
+      "sha256": "e6b3bf4773461164cff2dfd0999061b21f4ee9582a04a6cfa604290d4568e4df"
+    },
+    {
+      "bytes": 5206,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/cuda_unlimited__c13__rep1.json",
+      "sha256": "7c6cf217c39e472cd402e3682b8698acda7084431fb5b89378676ffb7560735b"
+    },
+    {
+      "bytes": 5216,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/cuda_unlimited__c13__rep2.json",
+      "sha256": "7dea464406052ec5d9ce7aafbe0e1fb2eb1de0395d9729ace743be50b3dbc2fa"
+    },
+    {
+      "bytes": 5206,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/cuda_unlimited__c13__rep3.json",
+      "sha256": "2505ae676ceaccee0b4113dd0f9d391b79e52b8576308665afcafd30c25ad887"
+    },
+    {
+      "bytes": 5212,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/cuda_unlimited__c13__rep4.json",
+      "sha256": "9bbc65cb9810fb95ce27211f04a8b01d0c00fd9fc538376dc90b284416ce6e74"
+    },
+    {
+      "bytes": 5205,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/cuda_unlimited__c14__rep0.json",
+      "sha256": "826edde6f1ad61654e75de1722241e856a7251abb3a61c002c1d1887de9b1ad3"
+    },
+    {
+      "bytes": 5202,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/cuda_unlimited__c14__rep1.json",
+      "sha256": "e0e22c1e6c00d76572e57265c0ee632aefe9a9b5f757b878e6b95bb29666ae01"
+    },
+    {
+      "bytes": 5215,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/cuda_unlimited__c14__rep2.json",
+      "sha256": "69c31003f02110075259c9a799de0070440824d5cc62972187350d2f760dd4e7"
+    },
+    {
+      "bytes": 5208,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/cuda_unlimited__c14__rep3.json",
+      "sha256": "1ce3e642347bf473983cff862390aea7eb7e76b65aee7b53e18c9448d3e89e26"
+    },
+    {
+      "bytes": 5217,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/cuda_unlimited__c14__rep4.json",
+      "sha256": "71e15ec9c754849c96e2cbbe22b151b975a31f94267cfe57a9b8fa01668f9730"
+    },
+    {
+      "bytes": 5197,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/cuda_unlimited__c15__rep0.json",
+      "sha256": "df7cc468b42b59f4fc4f85771f1b28f94c064a4b68414356b8c559f6bd62dc41"
+    },
+    {
+      "bytes": 5198,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/cuda_unlimited__c15__rep1.json",
+      "sha256": "30125227581cf1afcae8fb5d4f533513ffe0ad0f849d6264e9a6a01e19815325"
+    },
+    {
+      "bytes": 5206,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/cuda_unlimited__c15__rep2.json",
+      "sha256": "b94f638e0a817635f8595e70d3a1663d82f87999577efe82c220bc1aeeedc4d3"
+    },
+    {
+      "bytes": 5200,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/cuda_unlimited__c15__rep3.json",
+      "sha256": "6f9b8f446c17b9b1eb193af4bb4bb37bb1537fe4e3bdab4498bb00a8e7dbbe5c"
+    },
+    {
+      "bytes": 5207,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/cuda_unlimited__c15__rep4.json",
+      "sha256": "3a6d80a6d56835dc5b0b53d5f2a6803f7a2779a3c6a75abfcd864871d8a1b181"
+    },
+    {
+      "bytes": 5049,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/tilelang__c00__rep0.json",
+      "sha256": "97f88cbbf232f2b955c8919ba60ec2a1ea9aa105b2ed11acf8b270b2ed453b87"
+    },
+    {
+      "bytes": 5055,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/tilelang__c00__rep1.json",
+      "sha256": "219b629fa2fd4af10b91dd59e5f3d532495f5709f88f55734ce60a8d5a4dbc8b"
+    },
+    {
+      "bytes": 5046,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/tilelang__c00__rep2.json",
+      "sha256": "108857bee2c4c530df3316d5f2f7e391e0f044be7267ef182d77b6d39c707d23"
+    },
+    {
+      "bytes": 5052,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/tilelang__c00__rep3.json",
+      "sha256": "d5276c23b3e3497f4a238275bf5a7c976c11aadaf2764935153d45e797262bc2"
+    },
+    {
+      "bytes": 5051,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/tilelang__c00__rep4.json",
+      "sha256": "704c3dc4ef42b078ba8f28eded52ce38415a5eaab240139699bfa1ea7318ce06"
+    },
+    {
+      "bytes": 5049,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/tilelang__c01__rep0.json",
+      "sha256": "704358cdfc28ae3f14d669dee23c5376937a5c1cd17f2ce9d0b4ec677029c0d8"
+    },
+    {
+      "bytes": 5052,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/tilelang__c01__rep1.json",
+      "sha256": "3d046589d1a75137aafb461a220c495766d4da220c4a78e4fab93b3064d5f0b7"
+    },
+    {
+      "bytes": 5058,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/tilelang__c01__rep2.json",
+      "sha256": "2fdd548d33f361f9b86588645717b7969faa66c9dd0155a89ca3fcab27244967"
+    },
+    {
+      "bytes": 5051,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/tilelang__c01__rep3.json",
+      "sha256": "c035d8a98c4b6825a586a934630dfcd3db15fbeecf7c4ac5eb04742d4ff455ca"
+    },
+    {
+      "bytes": 5054,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/tilelang__c01__rep4.json",
+      "sha256": "5a5524129b048c8dad0373002d5b2053bc90bf3db7db9f834f25d570f19dcc1d"
+    },
+    {
+      "bytes": 5036,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/tilelang__c02__rep0.json",
+      "sha256": "bdd55d2a797ec67494f5f48a1aeadd28e258b592e5599e8d19197c693f60c71c"
+    },
+    {
+      "bytes": 5055,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/tilelang__c02__rep1.json",
+      "sha256": "6a0b24521e14896942d21dbcba63645fdf74ee4a5c86586946fb7ed9de61ea66"
+    },
+    {
+      "bytes": 5053,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/tilelang__c02__rep2.json",
+      "sha256": "9e666dfc9f55c320b4583a5edb55acb2e918a75de828f91e87b61acf4d0f908a"
+    },
+    {
+      "bytes": 5055,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/tilelang__c02__rep3.json",
+      "sha256": "adfcc45a2da95adf68f9203fe44aa9ec98915cb9c15b147a3222256a6efae7f6"
+    },
+    {
+      "bytes": 5053,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/tilelang__c02__rep4.json",
+      "sha256": "3766eaeaaf9c94301e694c408bedfed58877ae11b4da3468d9c28895f2083522"
+    },
+    {
+      "bytes": 5053,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/tilelang__c03__rep0.json",
+      "sha256": "94e7bdb9e2d4eafc1848aceed8d5aca9459f3a7408012d0e67592860904d6bcd"
+    },
+    {
+      "bytes": 5060,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/tilelang__c03__rep1.json",
+      "sha256": "ee2f8359bb7596633b807935dc7246dcebc25867bf2c80850ebb400b5e9c43b4"
+    },
+    {
+      "bytes": 5058,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/tilelang__c03__rep2.json",
+      "sha256": "0a5d65cb3a93fda4dccfa1e3ba9d74c26ce9eceba5ef6de0cf4875bd628403a8"
+    },
+    {
+      "bytes": 5043,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/tilelang__c03__rep3.json",
+      "sha256": "1ae1712b2c800817961cc55bddda8664c3ec58890918f880ee7debe5e147dfa8"
+    },
+    {
+      "bytes": 5049,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/tilelang__c03__rep4.json",
+      "sha256": "2a20c211c7211d423d3b9a27ace43dd4a2bbca325a40cb7af69920fb9938df8c"
+    },
+    {
+      "bytes": 5104,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/triton__c04__rep0.json",
+      "sha256": "c858d35ad61aa0770d02e87f75b3e824f30c647fb4747dd096b1b94d84ccddb2"
+    },
+    {
+      "bytes": 5107,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/triton__c04__rep1.json",
+      "sha256": "a51e3d233756cb899c2356fb19567d0b1f2dfa2912d863c4c27abf646e91fb19"
+    },
+    {
+      "bytes": 5104,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/triton__c04__rep2.json",
+      "sha256": "4f924e44187f6bd7e186da01fdf16aa35b6a260315362d7ee7626ce3fae27989"
+    },
+    {
+      "bytes": 5104,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/triton__c04__rep3.json",
+      "sha256": "e9b3f0712c4da28f067ab1d6b5ebd0ecd6785bce621e210285a0968d81e83229"
+    },
+    {
+      "bytes": 5107,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/triton__c04__rep4.json",
+      "sha256": "9b4720e8aa1e1cf824271dc33df52e595b8fd56b891ea6c2c2965795abdb9748"
+    },
+    {
+      "bytes": 5107,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/triton__c05__rep0.json",
+      "sha256": "c8d75cad71452aa95ccfce6c9bba4250bb6c5b3bf5a70772d8ade78f239edfc8"
+    },
+    {
+      "bytes": 5105,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/triton__c05__rep1.json",
+      "sha256": "038d4c932105ddefa398c558fb933a36b6672e5f4eb6927314f30f0682cf316a"
+    },
+    {
+      "bytes": 5111,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/triton__c05__rep2.json",
+      "sha256": "2cf486b831b75c4985f2ade3cbcf940bb5ff1dfb10f09d31982e648cdd5dd44f"
+    },
+    {
+      "bytes": 5096,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/triton__c05__rep3.json",
+      "sha256": "cacbf0f26b1d0dda74788fd755728ddf6d4ab5568caaa2a699056981eedaffb1"
+    },
+    {
+      "bytes": 5096,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/triton__c05__rep4.json",
+      "sha256": "fba4e36a391509e0077217bd5018b609a5426043ee0b233cdbca92da4e58d7d3"
+    },
+    {
+      "bytes": 5102,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/triton__c06__rep0.json",
+      "sha256": "fe877f28f78ed3ee93387b61ac26386b23fdc354e93bedea52037db5d0cddb9e"
+    },
+    {
+      "bytes": 5103,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/triton__c06__rep1.json",
+      "sha256": "433a6c5f4a30ec1d08ba04606c28ce214abfc69fff1852a53843df282c0219dc"
+    },
+    {
+      "bytes": 5099,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/triton__c06__rep2.json",
+      "sha256": "071807b997b0c7261dd83357c34d68de01cfb8680c038a61463cefdc883e1a45"
+    },
+    {
+      "bytes": 5106,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/triton__c06__rep3.json",
+      "sha256": "36629d1677525d450b7a15a50f9f78caeefa665f1b1f02c7bb2d094b8c23555e"
+    },
+    {
+      "bytes": 5111,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/triton__c06__rep4.json",
+      "sha256": "0e674235d837d7ede9815796645173a90b306910a48a54cdad915eaeb2940920"
+    },
+    {
+      "bytes": 5114,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/triton__c07__rep0.json",
+      "sha256": "56740e4f868c846b77aac0b38922fedb2b7f5b61e9dd1bfe99eac6379a01789a"
+    },
+    {
+      "bytes": 5116,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/triton__c07__rep1.json",
+      "sha256": "6866de38796da4b196ae24d23c05e971bb0a9b1d3e8d6d56994e7453ca65a7df"
+    },
+    {
+      "bytes": 5118,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/triton__c07__rep2.json",
+      "sha256": "51bd315112fea68472c07fc210fd4186e10a088c8635b8c7635a3babb04432b3"
+    },
+    {
+      "bytes": 5111,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/triton__c07__rep3.json",
+      "sha256": "4c9c62be790666368fe63b2c3912680795bd9942777a3c0459eab94787d50608"
+    },
+    {
+      "bytes": 5112,
+      "category": "confirmation_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/raw/triton__c07__rep4.json",
+      "sha256": "28a207c485c985986dd1c3248aad86fec9330c007c811e7df0136ffcb3e50a7c"
+    },
+    {
+      "bytes": 362,
+      "category": "confirmation_control",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/status.json",
+      "sha256": "705b2db6a6a93fe28c00f9a82a278373a924ddb910cfa5c7c844f686ddfbd496"
+    },
+    {
+      "bytes": 73097,
+      "category": "confirmation_control",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_confirm_robust_v1/summary.json",
+      "sha256": "058f0ae38ab30735f1537a99b942eb75fdc9e5daa127cfb11b39ef3394f6f7cd"
+    },
+    {
+      "bytes": 9048,
+      "category": "screen_control",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/confirmation_jobs.robust_validation.json",
+      "sha256": "6dcaf7c03437059094a7c400a79a5d9d6ab869dbc0dab62c9ac7f0ad5c942148"
+    },
+    {
+      "bytes": 2701,
+      "category": "screen_control",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/launch_20260730T030955Z_85060.json",
+      "sha256": "890aa239a707b46836703d6bfbc9e19498d53476e2f6ec5b3969943ea5983775"
+    },
+    {
+      "bytes": 6317,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_noptx__GBGS__BM128_BN128_BK32_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "0679265aa81a248e1586bf435850975d07ab11bb032c60e03a2a1997287809eb"
+    },
+    {
+      "bytes": 6323,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_noptx__GBGS__BM128_BN128_BK32_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "c59ba51c6bbb53e5e8e7442eed32a40ded7f085d9e362544d2ce9413c54c97e6"
+    },
+    {
+      "bytes": 6322,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_noptx__GBGS__BM128_BN128_BK32_threads256_stages3_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "1bb2a07da5313d0a2f7eda1048c0c604863655f0e5d6e0c76159bb336f3701a0"
+    },
+    {
+      "bytes": 6335,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_noptx__GBGS__BM128_BN128_BK32_threads256_stages3_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "18e6271645258c2fd8ca1db0dbab0a926129c20cda33cec0d3d742f8fb68cc49"
+    },
+    {
+      "bytes": 6320,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_noptx__GBGS__BM128_BN128_BK32_threads256_stages4_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "99728640307294f0d3cb542cfd53354f739f0b6bdd3ac6bfd80f5906a61b2b91"
+    },
+    {
+      "bytes": 6323,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_noptx__GBGS__BM128_BN128_BK32_threads256_stages4_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "11427352f5c5aad5086d58d63930f884428725cb3ac5cb4ff88b2899a16a5fe1"
+    },
+    {
+      "bytes": 6324,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_noptx__GBGS__BM128_BN128_BK64_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "413a48b114fb73659c2745fcc198a331d6bec212e5fa23c19784568df168ce5d"
+    },
+    {
+      "bytes": 6314,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_noptx__GBGS__BM128_BN128_BK64_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "f51239dfa4a75f3217e6ebbc7dfc9a0f3960879c6c8f22fbab83c3da653b1dc6"
+    },
+    {
+      "bytes": 6328,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_noptx__GBGS__BM128_BN128_BK64_threads256_stages3_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "a202b46d3ed777b39de03359e61336a07d4ab764bfca69391e358e4104731f31"
+    },
+    {
+      "bytes": 6321,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_noptx__GBGS__BM128_BN128_BK64_threads256_stages3_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "ba1a600932c88654fb2a79dbaf695eda13c89682e5a99bda8cb9eab608ce555a"
+    },
+    {
+      "bytes": 4326,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_noptx__GBGS__BM128_BN256_BK32_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "7e7e0cff9e5dccfa3b8d2422c20f6f649e23d39268cac3ded46bcc890a697ab4"
+    },
+    {
+      "bytes": 4325,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_noptx__GBGS__BM128_BN256_BK32_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "56a4a1dd29144a76ba526c4aa7713b55e49c8114f2e5bfc416c9a0210df3e4d9"
+    },
+    {
+      "bytes": 4328,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_noptx__GBGS__BM128_BN256_BK32_threads256_stages3_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "6ab31fb16d4e94ca2cf7495e406479a97ff12937ac60887b34ec917cf2660c55"
+    },
+    {
+      "bytes": 4327,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_noptx__GBGS__BM128_BN256_BK32_threads256_stages3_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "2483ccd8c34b270aff6c3329b5552058c4137b2ba4253b9657d1f6956d441abf"
+    },
+    {
+      "bytes": 4327,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_noptx__GBGS__BM128_BN256_BK32_threads256_stages4_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "cd3ffa9b327b3ab1aaa1b4c532ec1a9361d9422dfe0a007461e445ee383a2727"
+    },
+    {
+      "bytes": 4325,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_noptx__GBGS__BM128_BN256_BK32_threads256_stages4_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "7a3b8fff815c521ecb828bd3303fee0c9410e0ddb77cc0524f84fb9781a57d61"
+    },
+    {
+      "bytes": 4327,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_noptx__GBGS__BM128_BN256_BK64_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "0e53ecfef7d79fab590ee1f4e459a68ec95379a167c4df2daf9b96f666c4ddc0"
+    },
+    {
+      "bytes": 4328,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_noptx__GBGS__BM128_BN256_BK64_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "55f5283ef0b02b4c8a44491f0d5b49117a0edda2d58ae62d48dca8b0d342387b"
+    },
+    {
+      "bytes": 6315,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_noptx__GBGS__BM128_BN64_BK64_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "976b5d43990562d580d1e5bd6d2866bca1675a47a3383a8c9ec218fab1be4cb9"
+    },
+    {
+      "bytes": 6319,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_noptx__GBGS__BM128_BN64_BK64_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "758173b0fb2f76d903c4d4a91237217043c751d1c1a7634f8d50f8eff535f4a7"
+    },
+    {
+      "bytes": 6323,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_noptx__GBGS__BM128_BN64_BK64_threads256_stages3_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "9391e72497e1d48999e27efc9b19518c055e36486ec88296371c59e5f7f5a435"
+    },
+    {
+      "bytes": 6323,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_noptx__GBGS__BM128_BN64_BK64_threads256_stages3_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "356f708ef398b329bb75e383c9c91c3932c5cc62457091f755bc2ac4f50d55e2"
+    },
+    {
+      "bytes": 6314,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_noptx__GBGS__BM128_BN64_BK64_threads256_stages4_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "9f1b632d9e382f33c6a9e228a98610d7bd643bbe374f1f9534ac8a9b0365df7d"
+    },
+    {
+      "bytes": 6321,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_noptx__GBGS__BM128_BN64_BK64_threads256_stages4_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "7af9c62ad515abb898d6c8c8aba072dd996e4cdb95315dd92e02d4f74c544f3d"
+    },
+    {
+      "bytes": 4327,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_noptx__GBGS__BM256_BN128_BK32_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "0f4d4d9d75664a9b40b43bac09dad188b6135485c46e18b58d0dfb75b5e84e68"
+    },
+    {
+      "bytes": 4328,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_noptx__GBGS__BM256_BN128_BK32_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "8a13c379f6def8b85f878e51696012fbbfc741d84965cc08e26be7ae9c8cba46"
+    },
+    {
+      "bytes": 4328,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_noptx__GBGS__BM256_BN128_BK32_threads256_stages3_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "13ceff795cab7b32e6fa9a57d28bede64fbc4e78372913eb2ffb8b7eda34bc76"
+    },
+    {
+      "bytes": 4328,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_noptx__GBGS__BM256_BN128_BK32_threads256_stages3_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "e670f528edf901c961cab5280ef48d4a30b4b6fc17e47c84ec071100eec9c897"
+    },
+    {
+      "bytes": 4328,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_noptx__GBGS__BM256_BN128_BK32_threads256_stages4_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "d5dedc930294df23aec4c50a93ac787783bb2b7d2e8526d49718f225ecaa0cea"
+    },
+    {
+      "bytes": 4329,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_noptx__GBGS__BM256_BN128_BK32_threads256_stages4_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "b2766269198b9c13e72843d3fd0e12916f2e6aa8ac145ac4845b6ab8b1be2fbb"
+    },
+    {
+      "bytes": 4329,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_noptx__GBGS__BM256_BN128_BK64_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "290842f545be9f6c8f2eead0e2ba663d6aeb204a3dbf824e6cc03feba5d504f9"
+    },
+    {
+      "bytes": 4329,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_noptx__GBGS__BM256_BN128_BK64_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "c80d4c340f4db4fc6f8be5a671f4615c0a00234e82ecc37ddc7c94dea26debe2"
+    },
+    {
+      "bytes": 6318,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_noptx__GBGS__BM64_BN128_BK64_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "24cc1ef210aac2523c3f844482f8ad1a59826798e0831b7870a199a2309b3df1"
+    },
+    {
+      "bytes": 6311,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_noptx__GBGS__BM64_BN128_BK64_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "c19a1ce5dfc8cc5a3db37c97ba5609f165fcfaa5494bff3b38d041e7c66c6cde"
+    },
+    {
+      "bytes": 6318,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_noptx__GBGS__BM64_BN128_BK64_threads256_stages3_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "1951515d781dcbb9a21d582cab9401d7acfc5f53e045b90789085a0dc625b3fa"
+    },
+    {
+      "bytes": 6316,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_noptx__GBGS__BM64_BN128_BK64_threads256_stages3_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "718c6b29bf2aa7f356d3e30cfe04cce700956b94b20d5d51907202ce89f346d2"
+    },
+    {
+      "bytes": 6318,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_noptx__GBGS__BM64_BN128_BK64_threads256_stages4_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "c9aa55a49fb1730805290c6587fc25665ccec2c3f9487ad0b374c3ab17ad9bbb"
+    },
+    {
+      "bytes": 6318,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_noptx__GBGS__BM64_BN128_BK64_threads256_stages4_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "46b7177ac92a26cafe4f87434b984fbb12abddd16347ec3fc3393035fb94dc2a"
+    },
+    {
+      "bytes": 6274,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_unlimited__GBGS__BM128_BN128_BK32_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "3d1bed000025dcd0e949055c4445fc0158dd9b61f010c3a9b6e6a4866bb313af"
+    },
+    {
+      "bytes": 6276,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_unlimited__GBGS__BM128_BN128_BK32_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "6880cb8aadc1d522e5a535c5ebb74256b364b992741234d504476e28378c3a27"
+    },
+    {
+      "bytes": 6281,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_unlimited__GBGS__BM128_BN128_BK32_threads256_stages3_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "3ae3541c591701f7724ea2108b3d192f617d6c52e86721e3ce8517826f725cf9"
+    },
+    {
+      "bytes": 6263,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_unlimited__GBGS__BM128_BN128_BK32_threads256_stages3_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "1b0539861fc1b2ff305724014e97975263651bcf692dfc0937518462b9fc4f71"
+    },
+    {
+      "bytes": 6257,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_unlimited__GBGS__BM128_BN128_BK32_threads256_stages4_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "869d105ed54a0fd1b92d2a49782773b60029d38eb9400073071792bd9e302d3e"
+    },
+    {
+      "bytes": 6270,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_unlimited__GBGS__BM128_BN128_BK32_threads256_stages4_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "bd51391722520591a4554b59999fff185e1c8b35db516c7b2b3f4182bf1be48d"
+    },
+    {
+      "bytes": 6277,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_unlimited__GBGS__BM128_BN128_BK64_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "a16c5f8146983f250cba8fd178bbe9ff41da504653d09398cb03861bb86ff89d"
+    },
+    {
+      "bytes": 6274,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_unlimited__GBGS__BM128_BN128_BK64_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "779e7335b1bec90de6d4e724a328f59e6243778eb6b7bd6b1ac2dd1d5a42bdd4"
+    },
+    {
+      "bytes": 6281,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_unlimited__GBGS__BM128_BN128_BK64_threads256_stages3_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "5abbf6aedcf04354494de97f667d51e2fa7878d406cf85aea36735dd226027ad"
+    },
+    {
+      "bytes": 6274,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_unlimited__GBGS__BM128_BN128_BK64_threads256_stages3_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "b1a6ed9863f2334277c844afec8860131c05b2a5aa46b3beb381213376addf21"
+    },
+    {
+      "bytes": 6309,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_unlimited__GBGS__BM128_BN256_BK32_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "d5becb09ed2fcfb9ae56d11b22f545c60b27f4b18ec8d2436f8d7fd9d406a801"
+    },
+    {
+      "bytes": 6308,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_unlimited__GBGS__BM128_BN256_BK32_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "a5a5495ad50fb9ade976b7adaaa17ec468ead016a10489d8fcf888551354fbfb"
+    },
+    {
+      "bytes": 6307,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_unlimited__GBGS__BM128_BN256_BK32_threads256_stages3_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "30efd33ae3a031be9a003ec6ee001e7b3ff0d631821fa95c0e52ad6806e877ba"
+    },
+    {
+      "bytes": 6308,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_unlimited__GBGS__BM128_BN256_BK32_threads256_stages3_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "d1b23b5479b5b81169d5b77ce5aa2828bcb51e935982b11acb999563dd66b6df"
+    },
+    {
+      "bytes": 6304,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_unlimited__GBGS__BM128_BN256_BK32_threads256_stages4_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "0cf449cbf3eed936f298c86324cdd4b7a43022623de20c6ef7197ef739aa9c12"
+    },
+    {
+      "bytes": 6307,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_unlimited__GBGS__BM128_BN256_BK32_threads256_stages4_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "adb0de7ace6bcffce3b954a0605ababf5ec3ae7b6bad595988f40ef6c694824b"
+    },
+    {
+      "bytes": 6302,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_unlimited__GBGS__BM128_BN256_BK64_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "c51effc2640155d508843f665ab909b54036bb2496b29a6aebb2549b1067d430"
+    },
+    {
+      "bytes": 6311,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_unlimited__GBGS__BM128_BN256_BK64_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "12f7fcbc413f04304a7d2a53ad33ec32d2c212182c0e920be0903f4d4a314ebb"
+    },
+    {
+      "bytes": 6269,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_unlimited__GBGS__BM128_BN64_BK64_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "00d561511399bf65bfc6d51237ca9110fb12d0610fd8fa771e9a01c9f9738d0a"
+    },
+    {
+      "bytes": 6270,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_unlimited__GBGS__BM128_BN64_BK64_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "aba0bc062939d068cc384d84d5c6522e30efb1a18cfa4270426f4f346e5a5017"
+    },
+    {
+      "bytes": 6264,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_unlimited__GBGS__BM128_BN64_BK64_threads256_stages3_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "1644d501e0d6b9e5ee935d05750a3fdae8bf8a4d670f504bc9eb3a65dc9ae5ab"
+    },
+    {
+      "bytes": 6268,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_unlimited__GBGS__BM128_BN64_BK64_threads256_stages3_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "dc323466ff2e159942c0dd940133c07b360ea02a39df91d56e53b3d470fa09f3"
+    },
+    {
+      "bytes": 6273,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_unlimited__GBGS__BM128_BN64_BK64_threads256_stages4_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "7f188167e523071fbdb7dca1067940beac7767cd41bc612e57f2a6e25245a928"
+    },
+    {
+      "bytes": 6272,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_unlimited__GBGS__BM128_BN64_BK64_threads256_stages4_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "ecda3cf71dabdd51919c40bbcbefa94c8d138f0b0ea960e3fae00a9d41c9e8a6"
+    },
+    {
+      "bytes": 6310,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_unlimited__GBGS__BM256_BN128_BK32_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "5002f5851a1732205d485ac4eb284de84788c1769ca180f9c32fa41cb2e11f98"
+    },
+    {
+      "bytes": 6303,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_unlimited__GBGS__BM256_BN128_BK32_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "5f3f80f6edc4e466c2f59831b79ebfde39c572bf0309b5596ffce129fa2f0364"
+    },
+    {
+      "bytes": 6307,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_unlimited__GBGS__BM256_BN128_BK32_threads256_stages3_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "575c57e0c50a1d7584b61a972c9a0e71c4a235ce2821db5a92162bb56a6dbba3"
+    },
+    {
+      "bytes": 6309,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_unlimited__GBGS__BM256_BN128_BK32_threads256_stages3_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "d831ced53e73bb0d5bbb6939e694ebe62f3f41c19a8f812e13741a33d4ef1a5b"
+    },
+    {
+      "bytes": 6307,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_unlimited__GBGS__BM256_BN128_BK32_threads256_stages4_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "abf741adcd1b52cb88e3337a163b5a14ed437b61102ef8491f4059657adb8617"
+    },
+    {
+      "bytes": 6307,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_unlimited__GBGS__BM256_BN128_BK32_threads256_stages4_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "afe883b58b01df0767504d0f208ee79b7f1749a292ee43646723a646eb8ae2ba"
+    },
+    {
+      "bytes": 6310,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_unlimited__GBGS__BM256_BN128_BK64_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "bbda5f8f02ea3965f79d09d0782406e93d023a0ba54dc1d741276bb272e3048f"
+    },
+    {
+      "bytes": 6308,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_unlimited__GBGS__BM256_BN128_BK64_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "38f42eda94a16a1e28b450d271175b3b51c6ebe13a7c32959ea230dd05bc3e8c"
+    },
+    {
+      "bytes": 6270,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_unlimited__GBGS__BM64_BN128_BK64_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "3ef82366dcbfc9e1c89f8add8d6c54d29ddd68d3eb72ab57d43fc97b8ca3400b"
+    },
+    {
+      "bytes": 6271,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_unlimited__GBGS__BM64_BN128_BK64_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "b8a488df6616386c34618e7cd3bcc144e548bd1c17a023e7b702e2a5741e2aed"
+    },
+    {
+      "bytes": 6262,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_unlimited__GBGS__BM64_BN128_BK64_threads256_stages3_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "9f6fe461e5cfb74712ab378cf2d146d90b5f816490f469b8f76ed592580954f5"
+    },
+    {
+      "bytes": 6264,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_unlimited__GBGS__BM64_BN128_BK64_threads256_stages3_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "5f5187addaf753d7c447a45f7fcbfbe7ef1af980423e3390a58e07b501d4f354"
+    },
+    {
+      "bytes": 6269,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_unlimited__GBGS__BM64_BN128_BK64_threads256_stages4_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "e1b7333779562304e422001b5c5b54b09a7e56f53bf19e05d80c4988252f00fe"
+    },
+    {
+      "bytes": 6274,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/cuda_unlimited__GBGS__BM64_BN128_BK64_threads256_stages4_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "f786fbd4c2f97301bd86ec49dacf379ff87d3db76dbebe8e81c20fe26d1df97c"
+    },
+    {
+      "bytes": 6123,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/tilelang__GBGS__BM128_BN128_BK32_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "cd15579417a8953fc967f63a8382dec39a42680a6801e0e199c8dbc2312bdc0b"
+    },
+    {
+      "bytes": 6134,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/tilelang__GBGS__BM128_BN128_BK32_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "622983bca1b3c4d6908b08fb34c7ca6b9fe2e4acfce47261f7909c80f66144e3"
+    },
+    {
+      "bytes": 6127,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/tilelang__GBGS__BM128_BN128_BK32_threads256_stages3_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "6f1a0fb7ffd6ee836428c86ec46791b9b831ab200c3cbb318e8888346901db1f"
+    },
+    {
+      "bytes": 6117,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/tilelang__GBGS__BM128_BN128_BK32_threads256_stages3_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "74421f82c16e6666344f1b8952a4e026f5de85a1fc76fc429eca5c7d1c03474d"
+    },
+    {
+      "bytes": 6132,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/tilelang__GBGS__BM128_BN128_BK32_threads256_stages4_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "542175de2bbd82822856dbae402dbc3f94e3b9e7b2b1e77d0c3f92ce02f91eb7"
+    },
+    {
+      "bytes": 6123,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/tilelang__GBGS__BM128_BN128_BK32_threads256_stages4_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "912d19c283e988b12fbfef41efd6a6acab54771d8888e38433c6c6edf667b8a5"
+    },
+    {
+      "bytes": 6129,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/tilelang__GBGS__BM128_BN128_BK64_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "f9145dde73d359f128d260264a22cd9ad6bb95b40f339b7d34ed76e5e80108e8"
+    },
+    {
+      "bytes": 6126,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/tilelang__GBGS__BM128_BN128_BK64_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "4bb0778dbae196499fb026e8e83d67daad4d555f8a3cd72b64e98e3e86589461"
+    },
+    {
+      "bytes": 6134,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/tilelang__GBGS__BM128_BN128_BK64_threads256_stages3_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "79d474c8bc351884a5d80dcaa0e6ef179be36c41ec3818e6450e9e91b8af5c94"
+    },
+    {
+      "bytes": 6116,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/tilelang__GBGS__BM128_BN128_BK64_threads256_stages3_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "1e9d126fc8af3cffe54801ac1e0652d8ad7ec4e44b1cb08f87ec27b84039b20a"
+    },
+    {
+      "bytes": 6113,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/tilelang__GBGS__BM128_BN256_BK32_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "486be842a58dc9141b527cacd5564fc3996dbb1d1e5710f5546c26df7b87a318"
+    },
+    {
+      "bytes": 6132,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/tilelang__GBGS__BM128_BN256_BK32_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "5830421925f28f20301e4f64d1c33c5fd0fc9b302df589e99e32ae0c64149092"
+    },
+    {
+      "bytes": 6137,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/tilelang__GBGS__BM128_BN256_BK32_threads256_stages3_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "25ad117910a878105bb34c8bac8241859ff8ea0b19ddac676c8505f9090ab8e1"
+    },
+    {
+      "bytes": 6123,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/tilelang__GBGS__BM128_BN256_BK32_threads256_stages3_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "d250614248325b8a4dd8d4567216391afffecc913ac2c13290dc61c0f5870def"
+    },
+    {
+      "bytes": 6130,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/tilelang__GBGS__BM128_BN256_BK32_threads256_stages4_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "a0339863c01dd362aa752d84fc913c535ed6a931fa72c5a0fccedfd3d5a855ff"
+    },
+    {
+      "bytes": 6128,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/tilelang__GBGS__BM128_BN256_BK32_threads256_stages4_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "0959d03579396c4583e0c9dc71dde4797d48de08c5299ac4ca701f41c4435437"
+    },
+    {
+      "bytes": 6129,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/tilelang__GBGS__BM128_BN256_BK64_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "bba62b507bf2c14d5d2efecd6f884be05e3c674808f600801422045fe05ce9e7"
+    },
+    {
+      "bytes": 6136,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/tilelang__GBGS__BM128_BN256_BK64_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "5866bccc2fab694f994f0b83894dc6ae886d9cc575aae9c3de6739e8be1299e2"
+    },
+    {
+      "bytes": 6113,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/tilelang__GBGS__BM128_BN64_BK64_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "279abb814c771eada8b398cc107fd187ce20cb527e5c36380b0b2d4805148d83"
+    },
+    {
+      "bytes": 6116,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/tilelang__GBGS__BM128_BN64_BK64_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "d49a90a9e5a03ab3895612042aca719d5e85682beafa4b15a0811b06335e3c6d"
+    },
+    {
+      "bytes": 6127,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/tilelang__GBGS__BM128_BN64_BK64_threads256_stages3_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "2242cecb441c413855954b62bd2a15002cc86e7c7f30d36f38246b2f518f58b6"
+    },
+    {
+      "bytes": 6120,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/tilelang__GBGS__BM128_BN64_BK64_threads256_stages3_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "0397836ea60c368d4260030f5588326706af61d47492faa3d0c6e1474a757242"
+    },
+    {
+      "bytes": 6109,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/tilelang__GBGS__BM128_BN64_BK64_threads256_stages4_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "63a264d6a233405328e403c8ce478c37fe624e50bca26237e81709274b6e6be6"
+    },
+    {
+      "bytes": 6113,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/tilelang__GBGS__BM128_BN64_BK64_threads256_stages4_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "af12dbd7861f45c66ae1b644cfe0a35995798883815d759bb7cf341190dad36c"
+    },
+    {
+      "bytes": 6128,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/tilelang__GBGS__BM256_BN128_BK32_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "e7270750beb5f42c2431cc59e101fbb086e5dd2cbdc91832f7067cfa0fc1ba68"
+    },
+    {
+      "bytes": 6131,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/tilelang__GBGS__BM256_BN128_BK32_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "0ef5e3a94feb94c047fa8a2cd3434607a85c53967b1f77119f95dca164080034"
+    },
+    {
+      "bytes": 6125,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/tilelang__GBGS__BM256_BN128_BK32_threads256_stages3_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "2447c69bf677a4eff41de9cbf7d00e88123ec78c34695ff9d5e0383d5fee5f0b"
+    },
+    {
+      "bytes": 6127,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/tilelang__GBGS__BM256_BN128_BK32_threads256_stages3_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "1f1007c4217888d9d630deb090889dc8f356f0d62b7e0b9fa9db1967db2e0e63"
+    },
+    {
+      "bytes": 6136,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/tilelang__GBGS__BM256_BN128_BK32_threads256_stages4_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "9b5b14038aed01b151ccb3b24f03debc62924b7cb2e28bac1712e1e18e94a96e"
+    },
+    {
+      "bytes": 6125,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/tilelang__GBGS__BM256_BN128_BK32_threads256_stages4_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "754f106bf0932857f4c1e29f4b1069e9b5b82bda3b9a3d34851b09e1e70b1082"
+    },
+    {
+      "bytes": 6128,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/tilelang__GBGS__BM256_BN128_BK64_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "08e6349ba60b022ebfbd58e998a628788b696af394d6a8feb5294a17b41a7341"
+    },
+    {
+      "bytes": 6130,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/tilelang__GBGS__BM256_BN128_BK64_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "7e86cc2cda71e2515af03ecdc062856b33099fea59291a3687a2388b0d600465"
+    },
+    {
+      "bytes": 6125,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/tilelang__GBGS__BM64_BN128_BK64_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "0eb403f8bd7fa13ee0e22e5c129a8ca59d6a04bba9fe98fdf3c0ce81e4e2da27"
+    },
+    {
+      "bytes": 6122,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/tilelang__GBGS__BM64_BN128_BK64_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "b437d726733ac0ac9d6d271ca81b917199e2978a2532805f7f7e8d5ffc649c1a"
+    },
+    {
+      "bytes": 6122,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/tilelang__GBGS__BM64_BN128_BK64_threads256_stages3_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "a2b3a288db408aa1e1247b922274cee79f7b0b63bfed7831aca2af63f3dfeda2"
+    },
+    {
+      "bytes": 6124,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/tilelang__GBGS__BM64_BN128_BK64_threads256_stages3_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "666a9370cfb034970505a674c6caf1b0388e7803310facce40611fe8b0dd8e4a"
+    },
+    {
+      "bytes": 6129,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/tilelang__GBGS__BM64_BN128_BK64_threads256_stages4_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "4a73dc7ce2e59af84fb713045146831036856e6229e4cc01b093215ce5370ca6"
+    },
+    {
+      "bytes": 6125,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/tilelang__GBGS__BM64_BN128_BK64_threads256_stages4_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "77c14e9cc7eaeead113e1ae59b364b25383d56e0286b7a7c2bc30a50548e96b2"
+    },
+    {
+      "bytes": 6178,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/triton__GBGS__BM128_BN128_BK32_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "b1f571a603df6b6329338b9aa3137d8157c9bbeaec44defe0c6822112f2e52d8"
+    },
+    {
+      "bytes": 6180,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/triton__GBGS__BM128_BN128_BK32_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "36e0af1cf9a11b9c990c8f45bf5a1d36a6fd94ebefe50775e0cd6938db0737ba"
+    },
+    {
+      "bytes": 6199,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/triton__GBGS__BM128_BN128_BK32_threads256_stages3_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "d00f69eb526088b37e103cfa575ad09d7e4be21b998e748fbe530a87f744982c"
+    },
+    {
+      "bytes": 6195,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/triton__GBGS__BM128_BN128_BK32_threads256_stages3_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "4919831a66ca9b176e229dfc269fc1bf9ef9813e6a9d385aa407f23af1e2e696"
+    },
+    {
+      "bytes": 6193,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/triton__GBGS__BM128_BN128_BK32_threads256_stages4_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "6bfa3ec341c11aa24ae6795425806baca8edec710a0c914606cf6bdfe22ffb21"
+    },
+    {
+      "bytes": 6189,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/triton__GBGS__BM128_BN128_BK32_threads256_stages4_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "a21f77d22054e5c2568feab617253d43408dbf605ac7b02d8e857b251c2aee15"
+    },
+    {
+      "bytes": 6177,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/triton__GBGS__BM128_BN128_BK64_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "3c560efa8df266fb4770de115257ec04d4c11d2e9f35700088bead4e9446a6f5"
+    },
+    {
+      "bytes": 6172,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/triton__GBGS__BM128_BN128_BK64_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "ea60f82623e19900d801c05fb50efc7555290bb5b7cb54b5d852b2724459261e"
+    },
+    {
+      "bytes": 6197,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/triton__GBGS__BM128_BN128_BK64_threads256_stages3_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "c4e0b4c02e1ebedc165f4c1a5cf2ed421d6f3c10d3dacbe0097a30754cae7abc"
+    },
+    {
+      "bytes": 6198,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/triton__GBGS__BM128_BN128_BK64_threads256_stages3_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "9b6abae907caab6520a46baaeaa749bb82992efbc451af0b4564097ef7f65b21"
+    },
+    {
+      "bytes": 6187,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/triton__GBGS__BM128_BN256_BK32_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "bcdf87f9d620ced063b9428465491438408d2a13c63b74f1c6ae91c3967deb5d"
+    },
+    {
+      "bytes": 6181,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/triton__GBGS__BM128_BN256_BK32_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "52812d35febc98ad929f8b87e491a460ca198c239ab4d40e9113af73b025f486"
+    },
+    {
+      "bytes": 6281,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/triton__GBGS__BM128_BN256_BK32_threads256_stages3_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "f7c38dd3022fba8d3241faac20df897d8e1af058baee2f6b0458e253911d4b7f"
+    },
+    {
+      "bytes": 6286,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/triton__GBGS__BM128_BN256_BK32_threads256_stages3_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "b7fa773ff1075b93c0a80947fb3e56d132cd1d8c8d79ff811ee0db6e1900a214"
+    },
+    {
+      "bytes": 5906,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/triton__GBGS__BM128_BN256_BK32_threads256_stages4_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "7913d0ffa203ac099fe050cbc643480b4835686f770bc68042e4bfea0722ff72"
+    },
+    {
+      "bytes": 5908,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/triton__GBGS__BM128_BN256_BK32_threads256_stages4_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "11df7f38e178aba93ce050095053c6fc4e07a07f7ca241816ea0fbd63e27101b"
+    },
+    {
+      "bytes": 6190,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/triton__GBGS__BM128_BN256_BK64_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "18788b13e7db4b3171f677b8dd603d0a145090abc61a59f2608e106745c91ddb"
+    },
+    {
+      "bytes": 6190,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/triton__GBGS__BM128_BN256_BK64_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "0e9d62e5a6bbda06a56c64da6843824f5cf654d66714301e97aabd633558f638"
+    },
+    {
+      "bytes": 6189,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/triton__GBGS__BM128_BN64_BK64_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "31ca475db102ddd6307f6b35e534fff77745d5af45248a87a22457609d3c3088"
+    },
+    {
+      "bytes": 6181,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/triton__GBGS__BM128_BN64_BK64_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "3fd6907ed115c0ddce746eebce92331f1abf0c5ca4135a570e6ce5b2b6e246cf"
+    },
+    {
+      "bytes": 6176,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/triton__GBGS__BM128_BN64_BK64_threads256_stages3_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "ea727a8e3e20518dae2b73689114b89ff7a9c518dd95c41e2af3821b8ec3545b"
+    },
+    {
+      "bytes": 6182,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/triton__GBGS__BM128_BN64_BK64_threads256_stages3_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "5d8ebf445710f0c97f4103f68e0bcfff983a4410efa727010a474f8512cdfa7c"
+    },
+    {
+      "bytes": 5906,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/triton__GBGS__BM128_BN64_BK64_threads256_stages4_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "e64087f5f79f313be11b1cc5d88c2bf9334ee9f68d944d715af863e673519a7b"
+    },
+    {
+      "bytes": 5905,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/triton__GBGS__BM128_BN64_BK64_threads256_stages4_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "d551f27b549a47329b8800afb3928dd20e601c49c8c606288a6d29190bd0b084"
+    },
+    {
+      "bytes": 6177,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/triton__GBGS__BM256_BN128_BK32_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "25c4a58038a8b444c8e670a2cb999001649c30fbb2ed2eb691fd5c5914368907"
+    },
+    {
+      "bytes": 6181,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/triton__GBGS__BM256_BN128_BK32_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "5556acb33061e8dfd0689e1d1538dd2080f7f46faae8c043d15a1a453fbbfa47"
+    },
+    {
+      "bytes": 6181,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/triton__GBGS__BM256_BN128_BK32_threads256_stages3_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "71a21adb8798cfcb1a39aae2ab5efe7d80d253a23e8c51e93944fd7877b4bbc9"
+    },
+    {
+      "bytes": 6189,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/triton__GBGS__BM256_BN128_BK32_threads256_stages3_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "dd7faf1d3be4a0a174bbcbed6a06d645b2832813c625d911df6bcfc30ed6cb6b"
+    },
+    {
+      "bytes": 5908,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/triton__GBGS__BM256_BN128_BK32_threads256_stages4_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "f6166144954265884e31fd311da4029e140a7ab1f452f04dc5d5d051d64feced"
+    },
+    {
+      "bytes": 5907,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/triton__GBGS__BM256_BN128_BK32_threads256_stages4_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "99e823336bfd9719323e2b63248313ae9b21634f0bba45a51a77659dbaae7d85"
+    },
+    {
+      "bytes": 6188,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/triton__GBGS__BM256_BN128_BK64_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "677094acc6e83424145f1d405f263f3cc35a25375ecf975b1fd94fea97ab0ffd"
+    },
+    {
+      "bytes": 6185,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/triton__GBGS__BM256_BN128_BK64_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "9df3f754efc82bbfc3783f558ba2351ea20b55209db9017963b6ca968f0d0cba"
+    },
+    {
+      "bytes": 6173,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/triton__GBGS__BM64_BN128_BK64_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "af1d780ca4645d3ab3ee98ec04827c72a6aed9bf9f91a12105d129f7ba3f7897"
+    },
+    {
+      "bytes": 6186,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/triton__GBGS__BM64_BN128_BK64_threads256_stages2_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "decadf5cd3e9fc6ac77350b220770144fcb3c9fb89aa3af90ebc6a555f0f46fd"
+    },
+    {
+      "bytes": 6192,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/triton__GBGS__BM64_BN128_BK64_threads256_stages3_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "a3bd6522138b1324a9c19bbeb3fef6f8a8a27de7b0557fa4537ca4e4cad09fe3"
+    },
+    {
+      "bytes": 6190,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/triton__GBGS__BM64_BN128_BK64_threads256_stages3_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "9f4135a3cf321e5fe0d92e1134406d88fdb080a9f829352376f8b485bd5c5474"
+    },
+    {
+      "bytes": 5906,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/triton__GBGS__BM64_BN128_BK64_threads256_stages4_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep0.json",
+      "sha256": "e5f0068ccf771a1d571bc844ad863f304671b512468b0d2553c1a5cc45b522c0"
+    },
+    {
+      "bytes": 5906,
+      "category": "screen_raw",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/raw/triton__GBGS__BM64_BN128_BK64_threads256_stages4_kc2048_arithfp16_castprecast_x_wcachecached_x_epiloguesmem__rand__rep1.json",
+      "sha256": "7839f6b1febcba85d1ffa4f5db6a160a1e2589f25fd5e03504a90ad8660b547a"
+    },
+    {
+      "bytes": 140696,
+      "category": "screen_control",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/screen_summary.json",
+      "sha256": "982b704c69687f7cd6919c10ef8e2aff37204432fa85a36bc6b56bc247d4962f"
+    },
+    {
+      "bytes": 170744,
+      "category": "screen_control",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/screen_summary.robust_validation.json",
+      "sha256": "fae79f52e6096abfbe07ba79b63f32a2a1e9ab29318c555d8da378cdbd4816e7"
+    },
+    {
+      "bytes": 432,
+      "category": "screen_control",
+      "path": "ako_runs/controlled_followup/fused_grid/results/fused_gbgs_grid_rank/status.json",
+      "sha256": "1315a5bc59f34bc935630db4c5629384a511d9cf0e2cf888296590c83d0efda8"
+    },
+    {
+      "bytes": 12927914,
+      "category": "robust_aggregate_records",
+      "jsonl_records": 3520,
+      "path": "ako_runs/controlled_followup/fused_grid/results/robust/tuning_full_screened55/records.jsonl",
+      "sha256": "e67dc55304622d29e16ac9d29b0d2434dba4c2f41d3d0eaa2221565ca08ae46e"
+    },
+    {
+      "bytes": 12080,
+      "category": "robust_control",
+      "path": "ako_runs/controlled_followup/fused_grid/results/robust/tuning_full_screened55/run.json",
+      "sha256": "de0781d56b3d2c7a4bac60307491803f4fd907b402339ce2398efd7a1eb29444"
+    },
+    {
+      "bytes": 41344,
+      "category": "robust_control",
+      "path": "ako_runs/controlled_followup/fused_grid/results/robust/tuning_full_screened55/summary.json",
+      "sha256": "49fe0f63e8e2878076d26e42e03adeb1c2fcff0ef3a45e7dd46f1ddd9c0640ba"
+    },
+    {
+      "bytes": 2251549,
+      "category": "robust_aggregate_records",
+      "jsonl_records": 608,
+      "path": "ako_runs/controlled_followup/fused_grid/results/robust/tuning_smoke_all76/records.jsonl",
+      "sha256": "0a5dd282e3a15daa4b92e9291262221c1e852d62d4b4ee71910f0491e6bdc215"
+    },
+    {
+      "bytes": 15015,
+      "category": "robust_control",
+      "path": "ako_runs/controlled_followup/fused_grid/results/robust/tuning_smoke_all76/run.json",
+      "sha256": "d59cf02a2f5b9469ad9a6087fae05321aa1c7b461f1a60937692b4638ee070c0"
+    },
+    {
+      "bytes": 56741,
+      "category": "robust_control",
+      "path": "ako_runs/controlled_followup/fused_grid/results/robust/tuning_smoke_all76/summary.json",
+      "sha256": "b1731b0271e614c5cff14fec61bf6f46d7b524be324bb207122f74f59cf2f24e"
+    },
+    {
+      "bytes": 105490302,
+      "category": "robust_aggregate_records",
+      "jsonl_records": 28672,
+      "path": "ako_runs/controlled_followup/fused_grid/results/robust/validation_screened56/records.jsonl",
+      "sha256": "0319e35f471053d0e3149e5956b30b1226900ef64bdcbc10d35a87ebad481f63"
+    },
+    {
+      "bytes": 12784,
+      "category": "robust_control",
+      "path": "ako_runs/controlled_followup/fused_grid/results/robust/validation_screened56/run.json",
+      "sha256": "4afcc7e44f54b4a1674993879c4c9f22392f5d4c60f88de828795c4826f1cba9"
+    },
+    {
+      "bytes": 56545,
+      "category": "robust_control",
+      "path": "ako_runs/controlled_followup/fused_grid/results/robust/validation_screened56/summary.json",
+      "sha256": "f62d2031f301183c1fd9e58c92a46a49fad207026623410583c6d2bded92ec7c"
+    },
+    {
+      "bytes": 56570,
+      "category": "robust_control",
+      "path": "ako_runs/controlled_followup/fused_grid/results/robust/validation_screened56/summary.validation.json",
+      "sha256": "04828b4c3893af77d1958dfb9b2726ed9056ae18b4d95866ef00c9d71b2f1a94"
+    },
+    {
+      "bytes": 1223,
+      "category": "robust_control",
+      "path": "ako_runs/controlled_followup/fused_grid/results/robust/validation_screened56/summary.validation.receipt.json",
+      "sha256": "e6251a678f4f33a2e93da3f5052a40bc21eb7d9193bbca64850dd98af11f84d0"
+    }
+  ],
+  "evidence_id": "controlled-followup-fused-posthoc-evidence-v1",
+  "generator": {
+    "path": "ako_runs/controlled_followup/provenance/evidence_v1/build_evidence.py",
+    "sha256": "338f709c9d8322f31a06b390f0045d3b8297515ea6e7ad2f8ef4a1104065515b"
+  },
+  "schema_version": 1,
+  "selection_policy": {
+    "excluded": [
+      "build caches and compiled binaries",
+      "scratch runner copies",
+      "per-record robust duplicates already represented by aggregate records.jsonl streams"
+    ],
+    "included": [
+      "all 152 screen process records",
+      "screen launch/status, both screen summaries, and frozen confirmation selection",
+      "all 80 confirmation process records",
+      "confirmation launch/status and analysis summary",
+      "aggregate records plus run/summary/normalization controls for all three robust runs"
+    ]
+  }
+}

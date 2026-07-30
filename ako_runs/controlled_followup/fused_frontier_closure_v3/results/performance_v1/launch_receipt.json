@@ -1,0 +1,721 @@
+{
+  "binding": {
+    "campaign_canonical_sha256": "a2fed4b73126fe262620cdd2187bde9a297cd10e3f622ecd3d20dc853669a607",
+    "campaign_id": "fused-frontier-reachability-closure-v3",
+    "candidate_sha256": {
+      "cuda_noptx_old_g04": "82b93676e185c6e452fd4cbcf146286aa2b03d2ae6007ce349064534f429f5c6",
+      "cuda_noptx_streamed_g05": "b946f4b9cf27192ea0f78e652c104509a33573f24b6a988b98d5e63a987fcb53",
+      "cuda_noptx_streamed_g09": "b809aabd23cd6a1feacfa36d2a6d5d9cbcbc2603b6960439d897d17cb71c138f",
+      "cuda_unlimited_old_g02": "8e090e57c07896879704ee87e2f27e326eb8c0e07d4e9966ec793ff00fb4c83f",
+      "cuda_unlimited_streamed_g07": "9cdb3456e59420c7563d241f6ce08c472fcee27eeb24ce2bb53c998740ca50f6",
+      "tilelang_full_g08": "4b21b97fb74fcd8d8b352917ffa8a683fa8120a64055ea999cd00b2df6dc1601",
+      "torch_contract_fp32": "38ba25f760d0d2d0d16b36f7fb0bdd5ec19190ee111525d1865d7eddf14b9593",
+      "triton_full_g05": "8293fb5b5d5be41abc77ea74f1165dc04854406c6fc2cb3964bffe5aaa4f1968"
+    },
+    "eligibility_claim_limit": "Imported eligibility is not fresh-stress eligibility and makes no claim about later stress namespaces.",
+    "eligibility_receipt_canonical_sha256": "218a8d9a8fc4fc740a00c36e86679c877973b84c01133aab4b4635dd275142ec",
+    "eligibility_receipt_sha256": "40d55bed5f40d5c88cfbb50c1033cab12c96224eb0457f642f0e73818becad12",
+    "eligibility_scope": "original frozen fused-v2 mixed validation gates only: semantic_mixed and conformance_mixed, four registered cases, validation seed indices 0--63",
+    "performance_protocol_sha256": "c75d9721acfcc7bdd9958a5b93386a70dbca0a0e70faa9c383c97a060dc67aed",
+    "source_receipt_sha256": "27a51907cb50bdfd98750a0706904f44584b1532ea376da0262deaa2e135fc02"
+  },
+  "created_utc": "2026-07-30T20:23:15.181069+00:00",
+  "expected_records": 120,
+  "plan": [
+    {
+      "block": 0,
+      "candidate_id": "cuda_noptx_streamed_g09",
+      "position": 0
+    },
+    {
+      "block": 0,
+      "candidate_id": "cuda_noptx_streamed_g05",
+      "position": 1
+    },
+    {
+      "block": 0,
+      "candidate_id": "cuda_noptx_old_g04",
+      "position": 2
+    },
+    {
+      "block": 0,
+      "candidate_id": "tilelang_full_g08",
+      "position": 3
+    },
+    {
+      "block": 0,
+      "candidate_id": "torch_contract_fp32",
+      "position": 4
+    },
+    {
+      "block": 0,
+      "candidate_id": "cuda_unlimited_old_g02",
+      "position": 5
+    },
+    {
+      "block": 0,
+      "candidate_id": "cuda_unlimited_streamed_g07",
+      "position": 6
+    },
+    {
+      "block": 0,
+      "candidate_id": "triton_full_g05",
+      "position": 7
+    },
+    {
+      "block": 1,
+      "candidate_id": "cuda_noptx_streamed_g05",
+      "position": 0
+    },
+    {
+      "block": 1,
+      "candidate_id": "cuda_noptx_old_g04",
+      "position": 1
+    },
+    {
+      "block": 1,
+      "candidate_id": "torch_contract_fp32",
+      "position": 2
+    },
+    {
+      "block": 1,
+      "candidate_id": "cuda_unlimited_streamed_g07",
+      "position": 3
+    },
+    {
+      "block": 1,
+      "candidate_id": "cuda_noptx_streamed_g09",
+      "position": 4
+    },
+    {
+      "block": 1,
+      "candidate_id": "cuda_unlimited_old_g02",
+      "position": 5
+    },
+    {
+      "block": 1,
+      "candidate_id": "triton_full_g05",
+      "position": 6
+    },
+    {
+      "block": 1,
+      "candidate_id": "tilelang_full_g08",
+      "position": 7
+    },
+    {
+      "block": 2,
+      "candidate_id": "cuda_unlimited_streamed_g07",
+      "position": 0
+    },
+    {
+      "block": 2,
+      "candidate_id": "triton_full_g05",
+      "position": 1
+    },
+    {
+      "block": 2,
+      "candidate_id": "cuda_noptx_old_g04",
+      "position": 2
+    },
+    {
+      "block": 2,
+      "candidate_id": "torch_contract_fp32",
+      "position": 3
+    },
+    {
+      "block": 2,
+      "candidate_id": "cuda_noptx_streamed_g09",
+      "position": 4
+    },
+    {
+      "block": 2,
+      "candidate_id": "cuda_unlimited_old_g02",
+      "position": 5
+    },
+    {
+      "block": 2,
+      "candidate_id": "tilelang_full_g08",
+      "position": 6
+    },
+    {
+      "block": 2,
+      "candidate_id": "cuda_noptx_streamed_g05",
+      "position": 7
+    },
+    {
+      "block": 3,
+      "candidate_id": "triton_full_g05",
+      "position": 0
+    },
+    {
+      "block": 3,
+      "candidate_id": "cuda_unlimited_old_g02",
+      "position": 1
+    },
+    {
+      "block": 3,
+      "candidate_id": "tilelang_full_g08",
+      "position": 2
+    },
+    {
+      "block": 3,
+      "candidate_id": "torch_contract_fp32",
+      "position": 3
+    },
+    {
+      "block": 3,
+      "candidate_id": "cuda_unlimited_streamed_g07",
+      "position": 4
+    },
+    {
+      "block": 3,
+      "candidate_id": "cuda_noptx_streamed_g09",
+      "position": 5
+    },
+    {
+      "block": 3,
+      "candidate_id": "cuda_noptx_streamed_g05",
+      "position": 6
+    },
+    {
+      "block": 3,
+      "candidate_id": "cuda_noptx_old_g04",
+      "position": 7
+    },
+    {
+      "block": 4,
+      "candidate_id": "cuda_noptx_old_g04",
+      "position": 0
+    },
+    {
+      "block": 4,
+      "candidate_id": "triton_full_g05",
+      "position": 1
+    },
+    {
+      "block": 4,
+      "candidate_id": "cuda_noptx_streamed_g05",
+      "position": 2
+    },
+    {
+      "block": 4,
+      "candidate_id": "torch_contract_fp32",
+      "position": 3
+    },
+    {
+      "block": 4,
+      "candidate_id": "cuda_unlimited_old_g02",
+      "position": 4
+    },
+    {
+      "block": 4,
+      "candidate_id": "tilelang_full_g08",
+      "position": 5
+    },
+    {
+      "block": 4,
+      "candidate_id": "cuda_noptx_streamed_g09",
+      "position": 6
+    },
+    {
+      "block": 4,
+      "candidate_id": "cuda_unlimited_streamed_g07",
+      "position": 7
+    },
+    {
+      "block": 5,
+      "candidate_id": "cuda_unlimited_streamed_g07",
+      "position": 0
+    },
+    {
+      "block": 5,
+      "candidate_id": "cuda_noptx_streamed_g09",
+      "position": 1
+    },
+    {
+      "block": 5,
+      "candidate_id": "cuda_noptx_streamed_g05",
+      "position": 2
+    },
+    {
+      "block": 5,
+      "candidate_id": "triton_full_g05",
+      "position": 3
+    },
+    {
+      "block": 5,
+      "candidate_id": "cuda_noptx_old_g04",
+      "position": 4
+    },
+    {
+      "block": 5,
+      "candidate_id": "tilelang_full_g08",
+      "position": 5
+    },
+    {
+      "block": 5,
+      "candidate_id": "torch_contract_fp32",
+      "position": 6
+    },
+    {
+      "block": 5,
+      "candidate_id": "cuda_unlimited_old_g02",
+      "position": 7
+    },
+    {
+      "block": 6,
+      "candidate_id": "cuda_unlimited_streamed_g07",
+      "position": 0
+    },
+    {
+      "block": 6,
+      "candidate_id": "cuda_noptx_streamed_g09",
+      "position": 1
+    },
+    {
+      "block": 6,
+      "candidate_id": "cuda_noptx_streamed_g05",
+      "position": 2
+    },
+    {
+      "block": 6,
+      "candidate_id": "triton_full_g05",
+      "position": 3
+    },
+    {
+      "block": 6,
+      "candidate_id": "cuda_noptx_old_g04",
+      "position": 4
+    },
+    {
+      "block": 6,
+      "candidate_id": "cuda_unlimited_old_g02",
+      "position": 5
+    },
+    {
+      "block": 6,
+      "candidate_id": "tilelang_full_g08",
+      "position": 6
+    },
+    {
+      "block": 6,
+      "candidate_id": "torch_contract_fp32",
+      "position": 7
+    },
+    {
+      "block": 7,
+      "candidate_id": "triton_full_g05",
+      "position": 0
+    },
+    {
+      "block": 7,
+      "candidate_id": "cuda_noptx_streamed_g05",
+      "position": 1
+    },
+    {
+      "block": 7,
+      "candidate_id": "torch_contract_fp32",
+      "position": 2
+    },
+    {
+      "block": 7,
+      "candidate_id": "cuda_unlimited_old_g02",
+      "position": 3
+    },
+    {
+      "block": 7,
+      "candidate_id": "cuda_unlimited_streamed_g07",
+      "position": 4
+    },
+    {
+      "block": 7,
+      "candidate_id": "tilelang_full_g08",
+      "position": 5
+    },
+    {
+      "block": 7,
+      "candidate_id": "cuda_noptx_old_g04",
+      "position": 6
+    },
+    {
+      "block": 7,
+      "candidate_id": "cuda_noptx_streamed_g09",
+      "position": 7
+    },
+    {
+      "block": 8,
+      "candidate_id": "cuda_noptx_old_g04",
+      "position": 0
+    },
+    {
+      "block": 8,
+      "candidate_id": "triton_full_g05",
+      "position": 1
+    },
+    {
+      "block": 8,
+      "candidate_id": "cuda_noptx_streamed_g09",
+      "position": 2
+    },
+    {
+      "block": 8,
+      "candidate_id": "tilelang_full_g08",
+      "position": 3
+    },
+    {
+      "block": 8,
+      "candidate_id": "cuda_unlimited_old_g02",
+      "position": 4
+    },
+    {
+      "block": 8,
+      "candidate_id": "torch_contract_fp32",
+      "position": 5
+    },
+    {
+      "block": 8,
+      "candidate_id": "cuda_unlimited_streamed_g07",
+      "position": 6
+    },
+    {
+      "block": 8,
+      "candidate_id": "cuda_noptx_streamed_g05",
+      "position": 7
+    },
+    {
+      "block": 9,
+      "candidate_id": "cuda_unlimited_streamed_g07",
+      "position": 0
+    },
+    {
+      "block": 9,
+      "candidate_id": "cuda_noptx_old_g04",
+      "position": 1
+    },
+    {
+      "block": 9,
+      "candidate_id": "triton_full_g05",
+      "position": 2
+    },
+    {
+      "block": 9,
+      "candidate_id": "tilelang_full_g08",
+      "position": 3
+    },
+    {
+      "block": 9,
+      "candidate_id": "cuda_noptx_streamed_g09",
+      "position": 4
+    },
+    {
+      "block": 9,
+      "candidate_id": "cuda_noptx_streamed_g05",
+      "position": 5
+    },
+    {
+      "block": 9,
+      "candidate_id": "torch_contract_fp32",
+      "position": 6
+    },
+    {
+      "block": 9,
+      "candidate_id": "cuda_unlimited_old_g02",
+      "position": 7
+    },
+    {
+      "block": 10,
+      "candidate_id": "triton_full_g05",
+      "position": 0
+    },
+    {
+      "block": 10,
+      "candidate_id": "cuda_noptx_streamed_g09",
+      "position": 1
+    },
+    {
+      "block": 10,
+      "candidate_id": "cuda_noptx_streamed_g05",
+      "position": 2
+    },
+    {
+      "block": 10,
+      "candidate_id": "cuda_unlimited_streamed_g07",
+      "position": 3
+    },
+    {
+      "block": 10,
+      "candidate_id": "tilelang_full_g08",
+      "position": 4
+    },
+    {
+      "block": 10,
+      "candidate_id": "cuda_noptx_old_g04",
+      "position": 5
+    },
+    {
+      "block": 10,
+      "candidate_id": "torch_contract_fp32",
+      "position": 6
+    },
+    {
+      "block": 10,
+      "candidate_id": "cuda_unlimited_old_g02",
+      "position": 7
+    },
+    {
+      "block": 11,
+      "candidate_id": "tilelang_full_g08",
+      "position": 0
+    },
+    {
+      "block": 11,
+      "candidate_id": "cuda_noptx_streamed_g05",
+      "position": 1
+    },
+    {
+      "block": 11,
+      "candidate_id": "torch_contract_fp32",
+      "position": 2
+    },
+    {
+      "block": 11,
+      "candidate_id": "cuda_noptx_old_g04",
+      "position": 3
+    },
+    {
+      "block": 11,
+      "candidate_id": "cuda_noptx_streamed_g09",
+      "position": 4
+    },
+    {
+      "block": 11,
+      "candidate_id": "cuda_unlimited_streamed_g07",
+      "position": 5
+    },
+    {
+      "block": 11,
+      "candidate_id": "triton_full_g05",
+      "position": 6
+    },
+    {
+      "block": 11,
+      "candidate_id": "cuda_unlimited_old_g02",
+      "position": 7
+    },
+    {
+      "block": 12,
+      "candidate_id": "cuda_unlimited_old_g02",
+      "position": 0
+    },
+    {
+      "block": 12,
+      "candidate_id": "triton_full_g05",
+      "position": 1
+    },
+    {
+      "block": 12,
+      "candidate_id": "torch_contract_fp32",
+      "position": 2
+    },
+    {
+      "block": 12,
+      "candidate_id": "tilelang_full_g08",
+      "position": 3
+    },
+    {
+      "block": 12,
+      "candidate_id": "cuda_unlimited_streamed_g07",
+      "position": 4
+    },
+    {
+      "block": 12,
+      "candidate_id": "cuda_noptx_old_g04",
+      "position": 5
+    },
+    {
+      "block": 12,
+      "candidate_id": "cuda_noptx_streamed_g09",
+      "position": 6
+    },
+    {
+      "block": 12,
+      "candidate_id": "cuda_noptx_streamed_g05",
+      "position": 7
+    },
+    {
+      "block": 13,
+      "candidate_id": "triton_full_g05",
+      "position": 0
+    },
+    {
+      "block": 13,
+      "candidate_id": "cuda_noptx_streamed_g09",
+      "position": 1
+    },
+    {
+      "block": 13,
+      "candidate_id": "cuda_unlimited_streamed_g07",
+      "position": 2
+    },
+    {
+      "block": 13,
+      "candidate_id": "cuda_noptx_old_g04",
+      "position": 3
+    },
+    {
+      "block": 13,
+      "candidate_id": "cuda_noptx_streamed_g05",
+      "position": 4
+    },
+    {
+      "block": 13,
+      "candidate_id": "tilelang_full_g08",
+      "position": 5
+    },
+    {
+      "block": 13,
+      "candidate_id": "cuda_unlimited_old_g02",
+      "position": 6
+    },
+    {
+      "block": 13,
+      "candidate_id": "torch_contract_fp32",
+      "position": 7
+    },
+    {
+      "block": 14,
+      "candidate_id": "cuda_noptx_streamed_g05",
+      "position": 0
+    },
+    {
+      "block": 14,
+      "candidate_id": "triton_full_g05",
+      "position": 1
+    },
+    {
+      "block": 14,
+      "candidate_id": "cuda_unlimited_streamed_g07",
+      "position": 2
+    },
+    {
+      "block": 14,
+      "candidate_id": "cuda_noptx_old_g04",
+      "position": 3
+    },
+    {
+      "block": 14,
+      "candidate_id": "torch_contract_fp32",
+      "position": 4
+    },
+    {
+      "block": 14,
+      "candidate_id": "cuda_unlimited_old_g02",
+      "position": 5
+    },
+    {
+      "block": 14,
+      "candidate_id": "tilelang_full_g08",
+      "position": 6
+    },
+    {
+      "block": 14,
+      "candidate_id": "cuda_noptx_streamed_g09",
+      "position": 7
+    }
+  ],
+  "platform_preflight": {
+    "captured_utc": "2026-07-30T20:23:15.059915+00:00",
+    "compute_processes_before_launch": {
+      "argv": [
+        "nvidia-smi",
+        "--id=3",
+        "--query-compute-apps=gpu_uuid,pid,process_name,used_gpu_memory",
+        "--format=csv,noheader,nounits"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ""
+    },
+    "git_head": {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "c0b35dfdd65248b8bba1598fbabab06484011fd9"
+    },
+    "git_status": {
+      "argv": [
+        "git",
+        "status",
+        "--short"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "?? ako_runs/controlled_followup/ERRATA_20260730.md\n?? ako_runs/controlled_followup/REVIEW_20260730.md\n?? ako_runs/controlled_followup/REVIEW_RESPONSE_20260730.md\n?? ako_runs/controlled_followup/archived_current_fused_v1/\n?? ako_runs/controlled_followup/fused_closure_v2/\n?? ako_runs/controlled_followup/fused_frontier_closure_v3/\n?? ako_runs/controlled_followup/fused_reachability_v2/\n?? ako_runs/controlled_followup/provenance/evidence_v1/\n?? ako_runs/controlled_followup/robust_gate/audits/"
+    },
+    "gpu": {
+      "clocks.max.memory": "10001",
+      "clocks.max.sm": "3105",
+      "clocks.mem": "810",
+      "clocks.sm": "315",
+      "compute_cap": "8.9",
+      "driver_version": "610.43.02",
+      "index": "3",
+      "memory.total": "49140",
+      "memory.used": "2",
+      "name": "NVIDIA RTX 6000 Ada Generation",
+      "persistence_mode": "Disabled",
+      "power.limit": "300.00",
+      "pstate": "P0",
+      "temperature.gpu": "60",
+      "utilization.gpu": "0",
+      "uuid": "GPU-eafdd6ce-8857-40fd-f494-47a7240bf6b5"
+    },
+    "host": {
+      "argv": [
+        "uname",
+        "-a"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Linux cs265655.utdallas.edu 5.14.0-687.24.1.el9_8.x86_64 #1 SMP PREEMPT_DYNAMIC Tue Jul 7 18:41:48 EDT 2026 x86_64 x86_64 x86_64 GNU/Linux"
+    },
+    "nvcc": {
+      "argv": [
+        "/usr/local/cuda-13.1/bin/nvcc",
+        "--version"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2025 NVIDIA Corporation\nBuilt on Tue_Dec_16_07:23:41_PM_PST_2025\nCuda compilation tools, release 13.1, V13.1.115\nBuild cuda_13.1.r13.1/compiler.37061995_0"
+    },
+    "nvidia_smi_full": {
+      "argv": [
+        "nvidia-smi",
+        "--id=3",
+        "-q"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "==============NVSMI LOG==============\n\nTimestamp                                              : Thu Jul 30 16:23:15 2026\nDriver Version                                         : 610.43.02 [Deprecated; will be removed in CUDA 14.0. Use KMD Version instead]\nCUDA Version                                           : 13.3 [Deprecated; will be removed in CUDA 14.0. Use CUDA UMD Version instead]\nKMD Version                                            : 610.43.02\nCUDA UMD Version                                       : 13.3\n\nAttached GPUs                                          : 4\nGPU 00000000:CA:00.0\n    Product Name                                       : NVIDIA RTX 6000 Ada Generation\n    Product Brand                                      : NVIDIA RTX\n    Product Architecture                               : Ada Lovelace\n    Display Mode                                       : Requested functionality has been deprecated\n    Display Attached                                   : No\n    Display Active                                     : Disabled\n    Persistence Mode                                   : Disabled\n    Addressing Mode                                    : HMM\n    MIG Mode\n        Current                                        : N/A\n        Pending                                        : N/A\n    Accounting Mode                                    : Disabled\n    Accounting Mode Buffer Size                        : 4000\n    Driver Model\n        Current                                        : N/A\n        Pending                                        : N/A\n    Serial Number                                      : 1790225026846\n    GPU UUID                                           : GPU-eafdd6ce-8857-40fd-f494-47a7240bf6b5\n    GPU PDI                                            : 0x1bce5006bd8b712e\n    Minor Number                                       : 3\n    VBIOS Version                                      : 95.02.59.00.08\n    MultiGPU Board                                     : No\n    Board ID                                           : 0xca00\n    Board Part Number                                  : 900-5G133-0150-001\n    GPU Part Number                                    : 26B1-870-A1\n    FRU Part Number                                    : N/A\n    Platform Info\n        Chassis Serial Number                          : N/A\n        Slot Number                                    : N/A\n        Tray Index                                     : N/A\n        Host ID                                        : N/A\n        Peer Type                                      : N/A\n        Module Id                                      : 1\n        GPU Fabric GUID                                : N/A\n    Inforom Version\n        Image Version                                  : G133.0510.00.02\n        OEM Object                                     : 2.1\n        ECC Object                                     : 6.16\n        Power Management Object                        : N/A\n    Inforom BBX Object Flush\n        Latest Timestamp                               : N/A\n        Latest Duration                                : N/A\n    Inforom Time Data\n        Time Run                                       : 13543538 seconds\n    GPU Operation Mode\n        Current                                        : N/A\n        Pending                                        : N/A\n    GPU C2C Mode                                       : N/A\n    GPU Virtualization Mode\n        Virtualization Mode                            : None\n        Host VGPU Mode                                 : N/A\n        vGPU Heterogeneous Mode                        : N/A\n    GPU Recovery Action                                : None\n    GSP Firmware Version                               : 610.43.02\n    IBMNPU\n        Relaxed Ordering Mode                          : N/A\n    PCI\n        Bus                                            : 0xCA\n        Device                                         : 0x00\n        Domain                                         : 0x0000\n        Base Classcode                                 : 0x3\n        Sub Classcode                                  : 0x0\n        Device Id                                      : 0x26B110DE\n        Bus Id                                         : 00000000:CA:00.0\n        Sub System Id                                  : 0x16A11028\n        GPU Link Info\n            PCIe Generation\n                Max                                    : 4\n                Current                                : 4\n                Device Current                         : 4\n                Device Max                             : 4\n                Host Max                               : 5\n            Link Width\n                Max                                    : 16x\n                Current                                : 16x\n        Bridge Chip\n            Type                                       : N/A\n            Firmware                                   : N/A\n        Replays Since Reset                            : 0\n        Replay Number Rollovers                        : 0\n        Tx Throughput                                  : 488 KB/s\n        Rx Throughput                                  : 292 KB/s\n        Atomic Caps Outbound                           : N/A\n        Atomic Caps Inbound                            : N/A\n    Fan Speed                                          : 30 %\n    Performance State                                  : P0\n    Clocks Event Reasons\n        Idle                                           : Active\n        Applications Clocks Setting                    : Not Active\n        SW Power Cap                                   : Not Active\n        HW Slowdown                                    : Not Active\n            HW Thermal Slowdown                        : Not Active\n            HW Power Brake Slowdown                    : Not Active\n        Sync Boost                                     : Not Active\n        SW Thermal Slowdown                            : Not Active\n        Display Clock Setting                          : Not Active\n    Clocks Event Reasons Counters\n        SW Power Capping                               : 130709975 us\n        Sync Boost                                     : 0 us\n        SW Thermal Slowdown                            : 0 us\n        HW Thermal Slowdown                            : 0 us\n        HW Power Braking                               : 0 us\n    Sparse Operation Mode                              : N/A\n    FB Memory Usage\n        Total                                          : 49140 MiB\n        Reserved                                       : 603 MiB\n        Used                                           : 2 MiB\n        Free                                           : 48537 MiB\n    BAR1 Memory Usage\n        Total                                          : 256 MiB\n        Used                                           : 1 MiB\n        Free                                           : 255 MiB\n    Conf Compute Protected Memory Usage\n        Total                                          : 0 MiB\n        Used                                           : 0 MiB\n        Free                                           : 0 MiB\n    Compute Mode                                       : Default\n    Utilization\n        GPU                                            : 0 %\n        Memory                                         : 0 %\n        Encoder                                        : 0 %\n        Decoder                                        : 0 %\n        JPEG                                           : 0 %\n        OFA                                            : 0 %\n    Encoder Stats\n        Active Sessions                                : 0\n        Average FPS                                    : 0\n        Average Latency                                : 0\n    FBC Stats\n        Active Sessions                                : 0\n        Average FPS                                    : 0\n        Average Latency                                : 0\n    DRAM Encryption Mode\n        Current                                        : N/A\n        Pending                                        : N/A\n    ECC Mode\n        Current                                        : Disabled\n        Pending                                        : Disabled\n    ECC Errors\n        Volatile\n            SRAM Correctable                           : N/A\n            SRAM Uncorrectable Parity                  : N/A\n            SRAM Uncorrectable SEC-DED                 : N/A\n            DRAM Correctable                           : N/A\n            DRAM Uncorrectable                         : N/A\n        Aggregate\n            SRAM Correctable                           : N/A\n            SRAM Uncorrectable Parity                  : N/A\n            SRAM Uncorrectable SEC-DED                 : N/A\n            DRAM Correctable                           : N/A\n            DRAM Uncorrectable                         : N/A\n            SRAM Threshold Exceeded                    : N/A\n        Aggregate Uncorrectable SRAM Sources\n            SRAM L2                                    : N/A\n            SRAM SM                                    : N/A\n            SRAM Microcontroller                       : N/A\n            SRAM PCIE                                  : N/A\n            SRAM Other                                 : N/A\n        Channel Repair Pending                         : No\n        TPC Repair Pending                             : No\n        Unrepairable Memory                            : N/A\n    Retired Pages\n        Single Bit ECC                                 : N/A\n        Double Bit ECC                                 : N/A\n        Pending Page Blacklist                         : N/A\n    Remapped Rows\n        Correctable Error                              : 0\n        Inactive Correctable Error                     : 0\n        Uncorrectable Error                            : 0\n        Inactive Uncorrectable Error                   : 0\n        Pending                                        : No\n        Remapping Failure Occurred                     : No\n        Bank Remap Availability Histogram\n            Max                                        : 192 bank(s)\n            High                                       : 0 bank(s)\n            Partial                                    : 0 bank(s)\n            Low                                        : 0 bank(s)\n            None                                       : 0 bank(s)\n    Temperature\n        GPU Current Temp                               : 60 C\n        GPU Current T.Limit Temp                       : 31 C\n        GPU Shutdown T.Limit Temp Specification        : -7 C\n        GPU Slowdown T.Limit Temp Specification        : -2 C\n        GPU Max Operating T.Limit Temp Specification   : 0 C\n        GPU Target Temperature Specification           : 85 C\n        Memory Current Temp                            : N/A\n        Memory Max Operating T.Limit Temp Specification: N/A\n    GPU Power Readings\n        Average Power Draw                             : 58.43 W\n        Instantaneous Power Draw                       : 54.02 W\n        GPU Ceiling Power Limit\n            Current Power Limit                        : 300.00 W\n            Requested Power Limit                      : 300.00 W\n            Default Power Limit                        : 300.00 W\n        GPU Base Power\n            Current Base Power                         : N/A\n            Requested Base Power                       : N/A\n            Default Base Power                         : N/A\n        Min Power Limit                                : 100.00 W\n        Max Power Limit                                : 300.00 W\n    GPU Memory Power Readings \n        Average Power Draw                             : N/A\n        Instantaneous Power Draw                       : N/A\n    Module Power Readings\n        Average Power Draw                             : N/A\n        Instantaneous Power Draw                       : N/A\n        Current Power Limit                            : N/A\n        Requested Power Limit                          : N/A\n        Default Power Limit                            : N/A\n        Min Power Limit                                : N/A\n        Max Power Limit                                : N/A\n    Power Smoothing                                    : N/A\n    Workload Power Profiles\n        Requested Profiles                             : N/A\n        Enforced Profiles                              : N/A\n    EDPp Multiplier                                    : N/A\n    Clocks\n        Graphics                                       : 315 MHz\n        SM                                             : 315 MHz\n        Memory                                         : 810 MHz\n        Video                                          : 1500 MHz\n    Applications Clocks\n        Graphics                                       : Requested functionality has been deprecated\n        Memory                                         : Requested functionality has been deprecated\n    Default Applications Clocks\n        Graphics                                       : Requested functionality has been deprecated\n        Memory                                         : Requested functionality has been deprecated\n    Deferred Clocks\n        Memory                                         : N/A\n    Max Clocks\n        Graphics                                       : 3105 MHz\n        SM                                             : 3105 MHz\n        Memory                                         : 10001 MHz\n        Video                                          : 2415 MHz\n    Max Customer Boost Clocks\n        Graphics                                       : N/A\n    Clock Policy\n        Auto Boost                                     : N/A\n        Auto Boost Default                             : N/A\n    Fabric\n        State                                          : N/A\n        Status                                         : N/A\n        CliqueId                                       : N/A\n        ClusterUUID                                    : N/A\n        Health\n            Summary                                    : N/A\n            Bandwidth                                  : N/A\n            Route Recovery in progress                 : N/A\n            Route Unhealthy                            : N/A\n            Access Timeout Recovery                    : N/A\n            Incorrect Configuration                    : N/A\n            Partition Assigned                         : N/A\n    Processes                                          : None\n    Capabilities\n        EGM                                            : disabled"
+    },
+    "python": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 16:09:02) [GCC 11.2.0]"
+  },
+  "protocol": {
+    "blocks": 15,
+    "dist": "rand",
+    "flush_l2": true,
+    "order_seed": 2026073005,
+    "physical_gpu": 3,
+    "seed": 0,
+    "trials": 100,
+    "warmup_s": 2.0
+  },
+  "record_type": "fused_frontier_closure_v3_launch",
+  "result_root": "ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1",
+  "schema_version": 1,
+  "tag": "performance_v1"
+}

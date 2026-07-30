@@ -1,0 +1,21 @@
+{
+  "argv": [
+    "/home/lxt230026/miniconda3/bin/python",
+    "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/fused_frontier_closure_v3/measure.py",
+    "--candidate",
+    "torch_contract_fp32",
+    "--block",
+    "6",
+    "--position",
+    "7",
+    "--launch-receipt",
+    "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/launch_receipt.json",
+    "--out",
+    "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block06/torch_contract_fp32.json"
+  ],
+  "completed_utc": "2026-07-30T20:30:43.455775+00:00",
+  "returncode": 0,
+  "started_utc": "2026-07-30T20:30:38.461335+00:00",
+  "stderr": "",
+  "stdout": "torch_contract_fp32 block=6 position=7 ok=True out=/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block06/torch_contract_fp32.json\n"
+}

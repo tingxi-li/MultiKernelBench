@@ -1,0 +1,1363 @@
+{
+  "complete": true,
+  "completed_records": 135,
+  "expected_records": 135,
+  "failed_records": 0,
+  "launch_receipt_sha256": "b56214e92a941c273b081f266e5430b91c2dcc6b9196993b9fa5150a432e2e92",
+  "outcomes": [
+    {
+      "block": 0,
+      "candidate_id": "torch_contract_fp32",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 0,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block00/torch_contract_fp32.json",
+      "raw_sha256": "0d87891890a3f48a36475b76b8ed13f2e27e520e24a1ff5e42a08328e98d5499"
+    },
+    {
+      "block": 0,
+      "candidate_id": "cuda_unlimited_common_g02",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 1,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block00/cuda_unlimited_common_g02.json",
+      "raw_sha256": "02bd61423f87946011726296b6da34229e2eac70c20ed1b1491cbecbcf01ab69"
+    },
+    {
+      "block": 0,
+      "candidate_id": "triton_common_g00",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 2,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block00/triton_common_g00.json",
+      "raw_sha256": "b4de4fb1fe8074c96afce489295c25b885d5307d251fdd47a5456b8c937440cd"
+    },
+    {
+      "block": 0,
+      "candidate_id": "torch_historical_exact",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 3,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block00/torch_historical_exact.json",
+      "raw_sha256": "99d7bb204a5aa0b8d1aa9ff3546773be1f608a00872cc9071ad2903d44956f88"
+    },
+    {
+      "block": 0,
+      "candidate_id": "cuda_noptx_common_g04",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 4,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block00/cuda_noptx_common_g04.json",
+      "raw_sha256": "996b2052e1cc41d9b989d1e0af9fa2f8b3784f7f86ea135397da13248764ccf4"
+    },
+    {
+      "block": 0,
+      "candidate_id": "tilelang_full_g08",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 5,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block00/tilelang_full_g08.json",
+      "raw_sha256": "d9c92d444c5b0e1a749a2a24bd8fcb66f1bf9cdcec6c792f82a0658d3786ddb7"
+    },
+    {
+      "block": 0,
+      "candidate_id": "torch_historical_precast",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 6,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block00/torch_historical_precast.json",
+      "raw_sha256": "e41a6f9cdaf08f990dc957b10a3804416ebcf6431c573e2453a5adc752366e99"
+    },
+    {
+      "block": 0,
+      "candidate_id": "tilelang_common_g03",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 7,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block00/tilelang_common_g03.json",
+      "raw_sha256": "ab65bc24b2be15f9abfeb16de148247471baa977834c02cb98041ed0a9191028"
+    },
+    {
+      "block": 0,
+      "candidate_id": "triton_full_g05",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 8,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block00/triton_full_g05.json",
+      "raw_sha256": "f01fa6e069655af820996d82e2a69c955bf524073ff3cf27807d483dfb7b9185"
+    },
+    {
+      "block": 1,
+      "candidate_id": "tilelang_full_g08",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 0,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block01/tilelang_full_g08.json",
+      "raw_sha256": "be06f6ac739c2cbd7e5e773ffcddd62fcf6b1daa5c02f6920fbe61d3d53c00fb"
+    },
+    {
+      "block": 1,
+      "candidate_id": "tilelang_common_g03",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 1,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block01/tilelang_common_g03.json",
+      "raw_sha256": "6dc9b2cb7b61b663bc35507c44a4c66b626b2e8f4d9e09d3c9254fda75c408fe"
+    },
+    {
+      "block": 1,
+      "candidate_id": "triton_full_g05",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 2,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block01/triton_full_g05.json",
+      "raw_sha256": "432d881ae096dc31f4f5b6632673a77e4d8001acb22eb2bd9a50c715c06f95c1"
+    },
+    {
+      "block": 1,
+      "candidate_id": "torch_historical_precast",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 3,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block01/torch_historical_precast.json",
+      "raw_sha256": "bfb40da3eaafff2f1e5b1816c1a7a6dc3f978097df8bf203b77f2b893f9ea952"
+    },
+    {
+      "block": 1,
+      "candidate_id": "torch_historical_exact",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 4,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block01/torch_historical_exact.json",
+      "raw_sha256": "cb35000d09f271ae8d09730cac887c22adf8ad12c5cb2fa96dad3d97a2d464f4"
+    },
+    {
+      "block": 1,
+      "candidate_id": "cuda_noptx_common_g04",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 5,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block01/cuda_noptx_common_g04.json",
+      "raw_sha256": "8d0c45f6e0b99beb0d2d30236c1ddffc58950aee006259658b4741f3d8a33c1e"
+    },
+    {
+      "block": 1,
+      "candidate_id": "cuda_unlimited_common_g02",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 6,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block01/cuda_unlimited_common_g02.json",
+      "raw_sha256": "2472efdf710e119bd1d284a79afe0e1f61f7846ef65a60f7c2fc0aab96a25f9f"
+    },
+    {
+      "block": 1,
+      "candidate_id": "triton_common_g00",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 7,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block01/triton_common_g00.json",
+      "raw_sha256": "7b59a1f1567fd0b8bea2be3c2cb8859efeec1c2881f2e11737bff0f27ac881bd"
+    },
+    {
+      "block": 1,
+      "candidate_id": "torch_contract_fp32",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 8,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block01/torch_contract_fp32.json",
+      "raw_sha256": "a7e0cd8104d177bafcb9d04520e5904fcda5535297998599c24b25fd12125a5f"
+    },
+    {
+      "block": 2,
+      "candidate_id": "torch_historical_exact",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 0,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block02/torch_historical_exact.json",
+      "raw_sha256": "2db7118faadd436f333c48e0d7ad100aaf77cb639b833c63c33e0064e16f8859"
+    },
+    {
+      "block": 2,
+      "candidate_id": "torch_historical_precast",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 1,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block02/torch_historical_precast.json",
+      "raw_sha256": "c80fa6b4de5677b3f7216a5ade0302ffa5f8823589cbfb2ed2f74f8e59d8fa18"
+    },
+    {
+      "block": 2,
+      "candidate_id": "cuda_noptx_common_g04",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 2,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block02/cuda_noptx_common_g04.json",
+      "raw_sha256": "1f7f2d9c8da0a9ff6bd6666ad4182f5e4efcca5c99149997233a15eecd68ee02"
+    },
+    {
+      "block": 2,
+      "candidate_id": "torch_contract_fp32",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 3,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block02/torch_contract_fp32.json",
+      "raw_sha256": "5c8c8f9dd724921e8b2785d3fe62103b756aa3794ae65379a89aab86c1e51eea"
+    },
+    {
+      "block": 2,
+      "candidate_id": "triton_full_g05",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 4,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block02/triton_full_g05.json",
+      "raw_sha256": "a8df1bc80303658e2e24883d8641a4f9d11b99abd07d80b97605286c936aa576"
+    },
+    {
+      "block": 2,
+      "candidate_id": "tilelang_full_g08",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 5,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block02/tilelang_full_g08.json",
+      "raw_sha256": "21597eea9230fb7e0abb7bd66b16d5cab2e98f5bbf338ba6e88baf81dcd587c2"
+    },
+    {
+      "block": 2,
+      "candidate_id": "tilelang_common_g03",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 6,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block02/tilelang_common_g03.json",
+      "raw_sha256": "7f9a1474c1ac40265bd6416c11eb1ceee09939ca72f06b17cb8288bb5d78241a"
+    },
+    {
+      "block": 2,
+      "candidate_id": "cuda_unlimited_common_g02",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 7,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block02/cuda_unlimited_common_g02.json",
+      "raw_sha256": "f2ca02e8e5c84fed865ae9ca78619f682a12f2b416695a55507d24548e728f67"
+    },
+    {
+      "block": 2,
+      "candidate_id": "triton_common_g00",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 8,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block02/triton_common_g00.json",
+      "raw_sha256": "e3cf8153e35c699deced3206aa08306d380475c80677c2535e431ee6dde0af07"
+    },
+    {
+      "block": 3,
+      "candidate_id": "cuda_noptx_common_g04",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 0,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block03/cuda_noptx_common_g04.json",
+      "raw_sha256": "c87fff2be83531a3eaca4e32ae4eb9f33c9706aff55b69561bab56c581a21b80"
+    },
+    {
+      "block": 3,
+      "candidate_id": "torch_historical_precast",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 1,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block03/torch_historical_precast.json",
+      "raw_sha256": "7f55eb88d78c9a03cb678cd5ab403ad53e2ee673cd0457cca80f5e733c1ef18e"
+    },
+    {
+      "block": 3,
+      "candidate_id": "triton_common_g00",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 2,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block03/triton_common_g00.json",
+      "raw_sha256": "eaa3edebaadb60ba2f128add4995fc9a5c0c90411e6bafc5e9c6e0a0e7c60299"
+    },
+    {
+      "block": 3,
+      "candidate_id": "tilelang_full_g08",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 3,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block03/tilelang_full_g08.json",
+      "raw_sha256": "40837d519e0fbef64a27f18fe66627f27e98b54f05de026fddebdf0ce20d3ea9"
+    },
+    {
+      "block": 3,
+      "candidate_id": "cuda_unlimited_common_g02",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 4,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block03/cuda_unlimited_common_g02.json",
+      "raw_sha256": "0e4e7f6be5d12c37756baf4f6ae070b5382e84d91e65611881d27c867929ac4d"
+    },
+    {
+      "block": 3,
+      "candidate_id": "torch_historical_exact",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 5,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block03/torch_historical_exact.json",
+      "raw_sha256": "3c60fa76890b369af5aa13bf48fb6bbe38327ab115a3cbd1aff0cd174bbf10e8"
+    },
+    {
+      "block": 3,
+      "candidate_id": "torch_contract_fp32",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 6,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block03/torch_contract_fp32.json",
+      "raw_sha256": "18a9c3125841ea6a47d4fbd489ab19428cf219e08d8b5ff7d2529f08db58bc82"
+    },
+    {
+      "block": 3,
+      "candidate_id": "triton_full_g05",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 7,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block03/triton_full_g05.json",
+      "raw_sha256": "93945f351bb81602f8aa012bf4b7ea10e8d05971df7400be47fef76ac336c6e1"
+    },
+    {
+      "block": 3,
+      "candidate_id": "tilelang_common_g03",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 8,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block03/tilelang_common_g03.json",
+      "raw_sha256": "f387f90bd71b48d27fbb35e17083e68139f0a3f4cd60c4acc019d15e635892c2"
+    },
+    {
+      "block": 4,
+      "candidate_id": "triton_full_g05",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 0,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block04/triton_full_g05.json",
+      "raw_sha256": "050764116bc4dfaaa67f0019ae4faf51f87b61421c1526cd6e6c54242b1c035c"
+    },
+    {
+      "block": 4,
+      "candidate_id": "torch_historical_precast",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 1,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block04/torch_historical_precast.json",
+      "raw_sha256": "a420deb1d28a969a3f6ec13466c417ecbfdbcfb158aa5e7b0a423dff60292b83"
+    },
+    {
+      "block": 4,
+      "candidate_id": "tilelang_common_g03",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 2,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block04/tilelang_common_g03.json",
+      "raw_sha256": "b93f7ed188b4d5fe61b6130b2ad6049f1f99fa7ae2c4c32ad05be31a3105c770"
+    },
+    {
+      "block": 4,
+      "candidate_id": "cuda_noptx_common_g04",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 3,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block04/cuda_noptx_common_g04.json",
+      "raw_sha256": "2b0db03d477cb4c3c518b7494735f24083540ced2bf47cb9df5c0c211a4538a5"
+    },
+    {
+      "block": 4,
+      "candidate_id": "cuda_unlimited_common_g02",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 4,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block04/cuda_unlimited_common_g02.json",
+      "raw_sha256": "8807e562d2ffd31521ba4084d49fb0c69bc3c4f38022257cd3b046f63f498d4d"
+    },
+    {
+      "block": 4,
+      "candidate_id": "tilelang_full_g08",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 5,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block04/tilelang_full_g08.json",
+      "raw_sha256": "9346a35b4823d3c9ca785e3cf4d12d46b4a06506ad723e41e64032b1d9cb40a6"
+    },
+    {
+      "block": 4,
+      "candidate_id": "torch_contract_fp32",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 6,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block04/torch_contract_fp32.json",
+      "raw_sha256": "e4f715a2d25ae67aa1c895afbc4ae74345a43635eded0b1713cac2f194f4610b"
+    },
+    {
+      "block": 4,
+      "candidate_id": "torch_historical_exact",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 7,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block04/torch_historical_exact.json",
+      "raw_sha256": "f2ab0fb4e9e4c11b7a433e7111a80b9cd01dcaf4e2d53f76381a8f1f39ce7865"
+    },
+    {
+      "block": 4,
+      "candidate_id": "triton_common_g00",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 8,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block04/triton_common_g00.json",
+      "raw_sha256": "8331fb34c419e0163d272dd7988a5d19cd4b9e669df2ffdee2dd0f9d7d586845"
+    },
+    {
+      "block": 5,
+      "candidate_id": "tilelang_full_g08",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 0,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block05/tilelang_full_g08.json",
+      "raw_sha256": "e801d30f1b9d751cbff8d98ac7273798c80cc4444a56a51dcbfdd9bc35872d39"
+    },
+    {
+      "block": 5,
+      "candidate_id": "torch_historical_precast",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 1,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block05/torch_historical_precast.json",
+      "raw_sha256": "8948629921bf46a44c79573efbac0848f5b5275169d896811b73b70259cb369e"
+    },
+    {
+      "block": 5,
+      "candidate_id": "tilelang_common_g03",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 2,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block05/tilelang_common_g03.json",
+      "raw_sha256": "506499d4b825a29e70729b9c0659f8193c296427e60533e8e6c695f7d5975b2e"
+    },
+    {
+      "block": 5,
+      "candidate_id": "cuda_unlimited_common_g02",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 3,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block05/cuda_unlimited_common_g02.json",
+      "raw_sha256": "74ec6e0f042f501cf6ff787068d2356fc261d6b8a60f68c176f170499e997342"
+    },
+    {
+      "block": 5,
+      "candidate_id": "torch_historical_exact",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 4,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block05/torch_historical_exact.json",
+      "raw_sha256": "a10c5a1728f77cdb5a1d5da2d735aa81f727f56f94db5dd7d05348e5b0f64750"
+    },
+    {
+      "block": 5,
+      "candidate_id": "cuda_noptx_common_g04",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 5,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block05/cuda_noptx_common_g04.json",
+      "raw_sha256": "118873f3db71db025d805ed558dff233da537755c217b3c677ce60cac61bd0d3"
+    },
+    {
+      "block": 5,
+      "candidate_id": "triton_common_g00",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 6,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block05/triton_common_g00.json",
+      "raw_sha256": "f117e9dff18f2fc48c1b9b395eeb19b68aef357887f82c36dc69bcce4ad43280"
+    },
+    {
+      "block": 5,
+      "candidate_id": "torch_contract_fp32",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 7,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block05/torch_contract_fp32.json",
+      "raw_sha256": "7226cfe80eeb4b7db6aa0b55e9c60183d42a5ca269b4727f98cc6f48898aecd6"
+    },
+    {
+      "block": 5,
+      "candidate_id": "triton_full_g05",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 8,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block05/triton_full_g05.json",
+      "raw_sha256": "3a4e6f9a1a67f5f5d48b7d61b50a92e11cfaee39aa9285cc60bcdec7222df10c"
+    },
+    {
+      "block": 6,
+      "candidate_id": "triton_full_g05",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 0,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block06/triton_full_g05.json",
+      "raw_sha256": "bef9f7a9f7130698683b1180c0d0c8c863649abb313b37692a6109e50fa7372d"
+    },
+    {
+      "block": 6,
+      "candidate_id": "cuda_unlimited_common_g02",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 1,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block06/cuda_unlimited_common_g02.json",
+      "raw_sha256": "7196d318a72160aafe54d661b6d8e7b40ba44e3ca7c8a855cffc86b26f186bbd"
+    },
+    {
+      "block": 6,
+      "candidate_id": "tilelang_common_g03",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 2,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block06/tilelang_common_g03.json",
+      "raw_sha256": "fbc52d19fff3637397e9dd6cd5b4ba1911135d6e6aa7faa07148dd7d1fd6b526"
+    },
+    {
+      "block": 6,
+      "candidate_id": "torch_historical_exact",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 3,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block06/torch_historical_exact.json",
+      "raw_sha256": "62dc3f76ca5f22c1aad1c2efd121e9954dca575d64dd3fc856deb1e96dd673ed"
+    },
+    {
+      "block": 6,
+      "candidate_id": "cuda_noptx_common_g04",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 4,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block06/cuda_noptx_common_g04.json",
+      "raw_sha256": "9a43c9c01748a70c5511312415ace21b14ca9de1675472ffea7929377a5d8f34"
+    },
+    {
+      "block": 6,
+      "candidate_id": "tilelang_full_g08",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 5,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block06/tilelang_full_g08.json",
+      "raw_sha256": "d4118b1313559ecb9fbecde1865d3f942e2275e90564961d18aedcd473b5d8b2"
+    },
+    {
+      "block": 6,
+      "candidate_id": "torch_historical_precast",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 6,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block06/torch_historical_precast.json",
+      "raw_sha256": "c0e0d7e93997201c662856a48e6b525799ffdd61f06d6cdabada971e7d8cb20c"
+    },
+    {
+      "block": 6,
+      "candidate_id": "torch_contract_fp32",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 7,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block06/torch_contract_fp32.json",
+      "raw_sha256": "4b09c1b580f7cec3139e3a7658f60c15f7e9e15b81debbf3f1e4d2590b4c6a43"
+    },
+    {
+      "block": 6,
+      "candidate_id": "triton_common_g00",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 8,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block06/triton_common_g00.json",
+      "raw_sha256": "8202a42bab928db76153b6ca47a830b290e6371526adacd872c573e03d0b8963"
+    },
+    {
+      "block": 7,
+      "candidate_id": "tilelang_full_g08",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 0,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block07/tilelang_full_g08.json",
+      "raw_sha256": "2125d897f16b11ae9077ee41ddbe70ed7b6ca05232eb5ff094e707d78bb78b45"
+    },
+    {
+      "block": 7,
+      "candidate_id": "tilelang_common_g03",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 1,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block07/tilelang_common_g03.json",
+      "raw_sha256": "d9f81b756b05a2a80f336db8fb21232ff18c94899a8eb12ee1aab85efda4a1d3"
+    },
+    {
+      "block": 7,
+      "candidate_id": "cuda_noptx_common_g04",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 2,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block07/cuda_noptx_common_g04.json",
+      "raw_sha256": "17a288c0bd8affcde8559fc7660fad5966437b953157aa8d3742baec6eb3eea9"
+    },
+    {
+      "block": 7,
+      "candidate_id": "torch_historical_precast",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 3,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block07/torch_historical_precast.json",
+      "raw_sha256": "83dc5bc6be6dfd7ec6327424f73f4adae904d3e989b07eab27eb398fce7402dc"
+    },
+    {
+      "block": 7,
+      "candidate_id": "torch_historical_exact",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 4,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block07/torch_historical_exact.json",
+      "raw_sha256": "7ab135d5ef169e008001b6df64946f684f809e10c7bc7e4ac4a9135d518d50bd"
+    },
+    {
+      "block": 7,
+      "candidate_id": "triton_full_g05",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 5,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block07/triton_full_g05.json",
+      "raw_sha256": "78c094e175e1a2c1f5ed1b467bb2b173e2109b7181e907c30db8908074b46211"
+    },
+    {
+      "block": 7,
+      "candidate_id": "cuda_unlimited_common_g02",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 6,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block07/cuda_unlimited_common_g02.json",
+      "raw_sha256": "fdd702ac491e02d2bf689e4f0e5484ff884997bfe538772b21b286853edaee30"
+    },
+    {
+      "block": 7,
+      "candidate_id": "triton_common_g00",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 7,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block07/triton_common_g00.json",
+      "raw_sha256": "d577bf8a37dd0f87fa98fe3d8280d23bef2e2c3997b7aaff109f4762db9a1989"
+    },
+    {
+      "block": 7,
+      "candidate_id": "torch_contract_fp32",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 8,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block07/torch_contract_fp32.json",
+      "raw_sha256": "fc28d7d4ad4618719b9b7dfb26ec08f0630684197ff6e8756adbcda0db94f85f"
+    },
+    {
+      "block": 8,
+      "candidate_id": "cuda_noptx_common_g04",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 0,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block08/cuda_noptx_common_g04.json",
+      "raw_sha256": "7c7dc3b1d0ddded10e3c8265aff6c4b60b906badff49ff18d82f37fc26fb822c"
+    },
+    {
+      "block": 8,
+      "candidate_id": "tilelang_common_g03",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 1,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block08/tilelang_common_g03.json",
+      "raw_sha256": "fc6eb54a477f72d5b1fd93b5cfcfb0d039e1cf8c1a7522c425dbd27fc2a07a33"
+    },
+    {
+      "block": 8,
+      "candidate_id": "torch_historical_exact",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 2,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block08/torch_historical_exact.json",
+      "raw_sha256": "e28d0241f9672fe510e10c2cf1e358dd1398f97c10a0f576dfee4c353a24e17a"
+    },
+    {
+      "block": 8,
+      "candidate_id": "tilelang_full_g08",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 3,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block08/tilelang_full_g08.json",
+      "raw_sha256": "4116cb78d825977c924b81fc143f9aca9ede662ae93f2a94b05471b663f9509c"
+    },
+    {
+      "block": 8,
+      "candidate_id": "torch_contract_fp32",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 4,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block08/torch_contract_fp32.json",
+      "raw_sha256": "7b16c4953a54256f0b2b13221e217ba29e2197c86021ec30491b853c367f8a30"
+    },
+    {
+      "block": 8,
+      "candidate_id": "cuda_unlimited_common_g02",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 5,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block08/cuda_unlimited_common_g02.json",
+      "raw_sha256": "bdbcfd467961a37362af49cddf853afc086ffebf518b575159361d696d0e88c6"
+    },
+    {
+      "block": 8,
+      "candidate_id": "torch_historical_precast",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 6,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block08/torch_historical_precast.json",
+      "raw_sha256": "01c90141745de3730209f92dcc5148b81329cbad57f446e44294a7943b48c142"
+    },
+    {
+      "block": 8,
+      "candidate_id": "triton_full_g05",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 7,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block08/triton_full_g05.json",
+      "raw_sha256": "dd789456262cc3428f09917417145c46696667085efc29bc5c431e2c65843df9"
+    },
+    {
+      "block": 8,
+      "candidate_id": "triton_common_g00",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 8,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block08/triton_common_g00.json",
+      "raw_sha256": "c6414292877ae325e1f93fbb4eeb0e869df05199b48510195ee92824217f3b41"
+    },
+    {
+      "block": 9,
+      "candidate_id": "torch_historical_precast",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 0,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block09/torch_historical_precast.json",
+      "raw_sha256": "68785dfb3ba8aa28cc3ee838c9202c1677146b9a49b5794f8b8da277b189965a"
+    },
+    {
+      "block": 9,
+      "candidate_id": "cuda_noptx_common_g04",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 1,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block09/cuda_noptx_common_g04.json",
+      "raw_sha256": "b48fe3d8e2fe7ab202f3af637deebdad2c8b94419d9f271628ec0f1a7ead1e81"
+    },
+    {
+      "block": 9,
+      "candidate_id": "triton_full_g05",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 2,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block09/triton_full_g05.json",
+      "raw_sha256": "ed7a64b5ff7bfb544892f03b57cdcd2eeb236f1520061776fdd19ff2e788e73d"
+    },
+    {
+      "block": 9,
+      "candidate_id": "torch_historical_exact",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 3,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block09/torch_historical_exact.json",
+      "raw_sha256": "832a675edef63d069e000351d9578212a329ffe7b5b03ff9bd75838b265be751"
+    },
+    {
+      "block": 9,
+      "candidate_id": "triton_common_g00",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 4,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block09/triton_common_g00.json",
+      "raw_sha256": "339f56489dfa9a3a2de60bff4a62a53ca9cd8079e4ae84ccc4b0bf7fcb0dc886"
+    },
+    {
+      "block": 9,
+      "candidate_id": "cuda_unlimited_common_g02",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 5,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block09/cuda_unlimited_common_g02.json",
+      "raw_sha256": "98335f5d5d1299f3ab31e6b9e3d388cdaef71ac6153446bf560814682edfbcae"
+    },
+    {
+      "block": 9,
+      "candidate_id": "torch_contract_fp32",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 6,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block09/torch_contract_fp32.json",
+      "raw_sha256": "8ac1a9c22a04682a79e30010857d977fbbaeabb2d1b41dac4ad2f84dc506cc9d"
+    },
+    {
+      "block": 9,
+      "candidate_id": "tilelang_full_g08",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 7,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block09/tilelang_full_g08.json",
+      "raw_sha256": "7e7682e48a7dcddc46221bf335770c04716ee3050ae9920eb3c96f08a6ceddc7"
+    },
+    {
+      "block": 9,
+      "candidate_id": "tilelang_common_g03",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 8,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block09/tilelang_common_g03.json",
+      "raw_sha256": "6649e296e518424147db818582ce2c8e5dff73e74d5a079e630aa7802954638d"
+    },
+    {
+      "block": 10,
+      "candidate_id": "cuda_unlimited_common_g02",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 0,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block10/cuda_unlimited_common_g02.json",
+      "raw_sha256": "d7aa77a2d193565d01ea0dcdceb4375a28d59445275a8d198882b10e8c0915b0"
+    },
+    {
+      "block": 10,
+      "candidate_id": "tilelang_common_g03",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 1,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block10/tilelang_common_g03.json",
+      "raw_sha256": "6f5e510fea86309a440e2bed15f90d5705a7a2f875769105e85e45f94a232d8b"
+    },
+    {
+      "block": 10,
+      "candidate_id": "triton_full_g05",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 2,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block10/triton_full_g05.json",
+      "raw_sha256": "5a325f75bf8d0a56eb3b2ebd3c8b9682eebd143cfb69926dc9d76b85feea0ab2"
+    },
+    {
+      "block": 10,
+      "candidate_id": "triton_common_g00",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 3,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block10/triton_common_g00.json",
+      "raw_sha256": "b20bb8b17d1da0b556fb927bd1848947c10e027536182bd85b6fa658cd7df273"
+    },
+    {
+      "block": 10,
+      "candidate_id": "torch_historical_precast",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 4,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block10/torch_historical_precast.json",
+      "raw_sha256": "6afdfbebb8dacd51959b473348f65ff6cf428a7c8e7f5260e72bf27378c192eb"
+    },
+    {
+      "block": 10,
+      "candidate_id": "torch_historical_exact",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 5,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block10/torch_historical_exact.json",
+      "raw_sha256": "4a12d4ca60b5479e81310101b4f77812ea3707647cc2ea55008689e3a9899770"
+    },
+    {
+      "block": 10,
+      "candidate_id": "torch_contract_fp32",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 6,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block10/torch_contract_fp32.json",
+      "raw_sha256": "e191359dad7b2db1f85be4f01c6d194fbffddc5d36cc588b0cb419567fd33141"
+    },
+    {
+      "block": 10,
+      "candidate_id": "cuda_noptx_common_g04",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 7,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block10/cuda_noptx_common_g04.json",
+      "raw_sha256": "df356556d21a340152710e1ccfadeb4151aa3080194debaa0fc05f89872e1727"
+    },
+    {
+      "block": 10,
+      "candidate_id": "tilelang_full_g08",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 8,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block10/tilelang_full_g08.json",
+      "raw_sha256": "01d3850f421287b9a44845128056b2cf8d915b629ac927575d30aa0928d4d394"
+    },
+    {
+      "block": 11,
+      "candidate_id": "triton_common_g00",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 0,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block11/triton_common_g00.json",
+      "raw_sha256": "d9d895fca7027c59b50236448b2b2440701314c26c2c32e69d36cc4de3731b0e"
+    },
+    {
+      "block": 11,
+      "candidate_id": "cuda_noptx_common_g04",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 1,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block11/cuda_noptx_common_g04.json",
+      "raw_sha256": "450724fd70958f4d46cff477e4ebfb637979f79a1a058a6bd656a1e6077db5c2"
+    },
+    {
+      "block": 11,
+      "candidate_id": "torch_contract_fp32",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 2,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block11/torch_contract_fp32.json",
+      "raw_sha256": "d9bab73c9c7e545d12c72505785847ca1e974d2438987eb0e525bbc5021d17bc"
+    },
+    {
+      "block": 11,
+      "candidate_id": "tilelang_full_g08",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 3,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block11/tilelang_full_g08.json",
+      "raw_sha256": "a26755579dc96d1cd972fb7c5dae5363039b1ab46614054c1370a25d8341aa5e"
+    },
+    {
+      "block": 11,
+      "candidate_id": "torch_historical_exact",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 4,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block11/torch_historical_exact.json",
+      "raw_sha256": "dad77ebcd2f31c6cdfa61271969e7d1eff4fda6f1b73070adf9abd3cfdc990c5"
+    },
+    {
+      "block": 11,
+      "candidate_id": "tilelang_common_g03",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 5,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block11/tilelang_common_g03.json",
+      "raw_sha256": "0e8254a02a06cf05af5654857891c9d7dab5b928b0b5b4846a4423a904d611f6"
+    },
+    {
+      "block": 11,
+      "candidate_id": "cuda_unlimited_common_g02",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 6,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block11/cuda_unlimited_common_g02.json",
+      "raw_sha256": "791c254e8e11f99540cc72388ac11e31ef95f8a6682e8981c363a19bea457d2d"
+    },
+    {
+      "block": 11,
+      "candidate_id": "torch_historical_precast",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 7,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block11/torch_historical_precast.json",
+      "raw_sha256": "7c48548a87a9cb68326ecff2ee227f3139d378ca02a508963631c20597a75eca"
+    },
+    {
+      "block": 11,
+      "candidate_id": "triton_full_g05",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 8,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block11/triton_full_g05.json",
+      "raw_sha256": "c0e44d02068c31cc2b0d57f81ef7d54ef604095f0aac85d7e4c9e106165640c8"
+    },
+    {
+      "block": 12,
+      "candidate_id": "tilelang_full_g08",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 0,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block12/tilelang_full_g08.json",
+      "raw_sha256": "bce2677cfd3ef1eaadebe8430daf36aeb4976f372ffbe821b447cf1b915e6b46"
+    },
+    {
+      "block": 12,
+      "candidate_id": "cuda_unlimited_common_g02",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 1,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block12/cuda_unlimited_common_g02.json",
+      "raw_sha256": "c2e660dfe405debdc3f09efb88a245d5d5e23e412e3a8c76b58bf7102bc14e40"
+    },
+    {
+      "block": 12,
+      "candidate_id": "tilelang_common_g03",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 2,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block12/tilelang_common_g03.json",
+      "raw_sha256": "01704489845b2460e29a9592588857266b9331d8a52ef4ebb351370903a438ce"
+    },
+    {
+      "block": 12,
+      "candidate_id": "torch_historical_exact",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 3,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block12/torch_historical_exact.json",
+      "raw_sha256": "c8fcdd66f91d1f79a8feac9efce64223981935278b8c3c4c3dc0146b30ff9199"
+    },
+    {
+      "block": 12,
+      "candidate_id": "triton_common_g00",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 4,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block12/triton_common_g00.json",
+      "raw_sha256": "6e75a15e9355f7d1c7e5fdbbf628aa7a75f885b4d566176c651607793eec6bbe"
+    },
+    {
+      "block": 12,
+      "candidate_id": "triton_full_g05",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 5,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block12/triton_full_g05.json",
+      "raw_sha256": "6d8baeac7383b33e25990d6d03bb11020d3ed6736454c7142347f1b457b33005"
+    },
+    {
+      "block": 12,
+      "candidate_id": "cuda_noptx_common_g04",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 6,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block12/cuda_noptx_common_g04.json",
+      "raw_sha256": "c65b9fa48a9ea92db14c666ebd3e8275c7ab5d4079e1f0f72269168545fffa94"
+    },
+    {
+      "block": 12,
+      "candidate_id": "torch_contract_fp32",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 7,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block12/torch_contract_fp32.json",
+      "raw_sha256": "e16c8a49ef98a36a80abb9dde6d63f3bf991004ccb09527bdc8dd34ffaf1f632"
+    },
+    {
+      "block": 12,
+      "candidate_id": "torch_historical_precast",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 8,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block12/torch_historical_precast.json",
+      "raw_sha256": "0c09b9277c31ce70129cc2b6c020b1c37ba42edbe581332167df6952a1dc7137"
+    },
+    {
+      "block": 13,
+      "candidate_id": "tilelang_common_g03",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 0,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block13/tilelang_common_g03.json",
+      "raw_sha256": "64a40db6c87a16c1fbbc79c44dffed6b67a62259d5bd82681125e5e356b36b59"
+    },
+    {
+      "block": 13,
+      "candidate_id": "tilelang_full_g08",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 1,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block13/tilelang_full_g08.json",
+      "raw_sha256": "3f0fc8b2111bfde1be726e2c75f5be4362c001973c161f2e2e4de835cc9da27f"
+    },
+    {
+      "block": 13,
+      "candidate_id": "triton_common_g00",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 2,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block13/triton_common_g00.json",
+      "raw_sha256": "efdcee2f917bd70a5e36d121f4bd02308cfea039a63a1a380b4ca4b27f8fd057"
+    },
+    {
+      "block": 13,
+      "candidate_id": "torch_historical_exact",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 3,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block13/torch_historical_exact.json",
+      "raw_sha256": "f8c034abf94179d37c0789c7fcdf8fe9938033e093233a2334c9244d1ab727f3"
+    },
+    {
+      "block": 13,
+      "candidate_id": "cuda_noptx_common_g04",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 4,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block13/cuda_noptx_common_g04.json",
+      "raw_sha256": "e8eb972330ab68e4e6dbafaa57512bb1cacf9329a1a64709539c1ed804763125"
+    },
+    {
+      "block": 13,
+      "candidate_id": "triton_full_g05",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 5,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block13/triton_full_g05.json",
+      "raw_sha256": "5ffd1617b95e52f94c0b63221cfe443b507676786a6a81ff41d0f3db551e3ca6"
+    },
+    {
+      "block": 13,
+      "candidate_id": "torch_contract_fp32",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 6,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block13/torch_contract_fp32.json",
+      "raw_sha256": "8910c0b45484fbe89d91c4b340d74040265cbb9662eb840901c9559ac2d982f5"
+    },
+    {
+      "block": 13,
+      "candidate_id": "torch_historical_precast",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 7,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block13/torch_historical_precast.json",
+      "raw_sha256": "ced72683ef067dce9c32d28a73b21b6a183fe6082c32fb10567577594d7ec112"
+    },
+    {
+      "block": 13,
+      "candidate_id": "cuda_unlimited_common_g02",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 8,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block13/cuda_unlimited_common_g02.json",
+      "raw_sha256": "573163a0487d477a5e387ae31dd307aeaf47d7c248b1326d35c199e795ec6d5f"
+    },
+    {
+      "block": 14,
+      "candidate_id": "tilelang_full_g08",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 0,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block14/tilelang_full_g08.json",
+      "raw_sha256": "84a8132c1222390e3c8d30e10520c12a1587511ea3f0d3b1882ec9d1d4c331a8"
+    },
+    {
+      "block": 14,
+      "candidate_id": "torch_historical_precast",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 1,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block14/torch_historical_precast.json",
+      "raw_sha256": "aa8aa60853adaea6ad66ff1954695b91b17d2ca688a6b47f0c428b5f54ece8f0"
+    },
+    {
+      "block": 14,
+      "candidate_id": "cuda_unlimited_common_g02",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 2,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block14/cuda_unlimited_common_g02.json",
+      "raw_sha256": "d9198b33a4cb07e64722026ffae0621400d24cebe0d7e3afce9aa580354a6082"
+    },
+    {
+      "block": 14,
+      "candidate_id": "triton_common_g00",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 3,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block14/triton_common_g00.json",
+      "raw_sha256": "5184706520c1359a9308e9aa5e4fe599cf9b5ade434be3947eed330100992709"
+    },
+    {
+      "block": 14,
+      "candidate_id": "triton_full_g05",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 4,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block14/triton_full_g05.json",
+      "raw_sha256": "85505dee445a3c9e47d12f630ccdb0e4681c6d394e079d818fa2255ad78c42e9"
+    },
+    {
+      "block": 14,
+      "candidate_id": "torch_contract_fp32",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 5,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block14/torch_contract_fp32.json",
+      "raw_sha256": "00cfc7296e37b96a9e8d5302c45149554503aff61c86a406c273ad14f7ce801a"
+    },
+    {
+      "block": 14,
+      "candidate_id": "cuda_noptx_common_g04",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 6,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block14/cuda_noptx_common_g04.json",
+      "raw_sha256": "1640e679a78692790f89b168067fb9cde494c4460438b9a23906d0f8984001c7"
+    },
+    {
+      "block": 14,
+      "candidate_id": "torch_historical_exact",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 7,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block14/torch_historical_exact.json",
+      "raw_sha256": "18c1546732f81ce108e5cd67cdc6e193e3206f49c1a9a6ba3cb3fa411cc493c4"
+    },
+    {
+      "block": 14,
+      "candidate_id": "tilelang_common_g03",
+      "child_returncode": 0,
+      "disposition": "launched",
+      "ok": true,
+      "position": 8,
+      "raw_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block14/tilelang_common_g03.json",
+      "raw_sha256": "cc4497ecd122e40ad19ce208129fbb8b680ce11ccd6aa8d9f8db513b0acdb8e5"
+    }
+  ],
+  "record_type": "fused_closure_v2_launch_status",
+  "schema_version": 1,
+  "tag": "performance_v1",
+  "updated_utc": "2026-07-30T19:49:42.052456+00:00"
+}

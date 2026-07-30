@@ -1,0 +1,117 @@
+{
+  "acceptance_rules": {
+    "boundary": "delta=4.5e-7 must pass; delta=4.7e-7 must pass the registered 5e-7 threshold while exceeding the unrounded anchor_max*1.25 diagnostic; delta=5.1e-7 must be rejected solely by row_sum_error_max, under both frozen mixed gates.",
+    "winners": "Each prior DSL winner/gate is reported independently. Complete signed_normal_gain16 x 256-seed coverage and zero registered-threshold failures are required. Exceeding anchor_max*1.25 is reported descriptively and never used to alter the registered threshold."
+  },
+  "append_only": true,
+  "boundary_controls": [
+    {
+      "control_id": "below_raw_safety_4p5e7",
+      "expected_gate_outcome": "pass",
+      "expected_raw_safety_outcome": "pass",
+      "row_sum_delta": 4.5e-07
+    },
+    {
+      "control_id": "rounding_gap_4p7e7",
+      "expected_gate_outcome": "pass",
+      "expected_raw_safety_outcome": "exceed",
+      "row_sum_delta": 4.7e-07
+    },
+    {
+      "control_id": "above_registered_5p1e7",
+      "expected_gate_outcome": "reject",
+      "expected_raw_safety_outcome": "exceed",
+      "row_sum_delta": 5.1e-07
+    }
+  ],
+  "campaign_id": "controlled-followup-fused-row-sum-stress-v1",
+  "case": {
+    "activation_distribution": "normal_zero",
+    "id": "signed_normal_gain16",
+    "weight_gain": 16.0
+  },
+  "cpu_boundary_shape": {
+    "M": 8,
+    "N": 8192
+  },
+  "fixed_threshold_policy": {
+    "gate_copy_allowed": false,
+    "on_failure": "retain_and_report; never mutate fused-v2",
+    "threshold_fitting_allowed": false,
+    "threshold_source": "original_fused_v2_gate_only"
+  },
+  "gates": [
+    "semantic_mixed",
+    "conformance_mixed"
+  ],
+  "original_fused_v2": {
+    "acceptance_receipt": {
+      "path": "ako_runs/controlled_followup/robust_gate/validation/fused_gate_acceptance_v2.json",
+      "sha256": "4907fddefa2cac3f7215033cb93caaaa550cecd4a6c70971f29c5f331cb0485c"
+    },
+    "gate_spec": {
+      "canonical_sha256": "4898c42d82707ad4588c880f794935efba202f5c32fb656263ec2c8f6c3f22e8",
+      "path": "ako_runs/controlled_followup/robust_gate/calibration/gate_spec_fused_v2.json",
+      "sha256": "b6c3afaadf61f5d380a97c6c541828a1ecacd1a89a00b73b66207fe22d765e2e"
+    },
+    "manifest": {
+      "canonical_sha256": "d017ef44cd63ce2a27bf31ca0ea7631a1f9810d3cbd25f1ddc6155b75a05634a",
+      "path": "ako_runs/controlled_followup/robust_gate/manifest.json",
+      "sha256": "28d51cd4f1730bd190e63c7cad60670c37b67784393270e63e859a1685fc8a62"
+    },
+    "validation_summary": {
+      "path": "ako_runs/controlled_followup/robust_gate/validation/fused_holdout_summary_v2.json",
+      "sha256": "db85385d5dc2c6afae6ac361af5dc1228e8a875161bedc9c93d5ae0ab965c455"
+    }
+  },
+  "registered_row_sum_threshold": 5e-07,
+  "runner_adapter": {
+    "path": "ako_runs/controlled_followup/fused_grid/robust_adapter_manifest.json",
+    "sha256": "81e3478b61800e09147a6cb213ba1786b200c137a728a5a9c258241c0a6004ba",
+    "source_bundle_sha256": "a20e2929de11e19bfdf61e27cfa070cd8aa1ef63d50660a0aab6c27845c49c38"
+  },
+  "schema_version": "1.0",
+  "shape": {
+    "K": 8192,
+    "M": 1024,
+    "N": 8192
+  },
+  "stress_split": {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seeds": 256
+  },
+  "winners": [
+    {
+      "dsl": "tilelang",
+      "job_id": "tilelang.g08",
+      "job_sha256": "297be090557514c11e16709a5f925770f829872eab751fd843e1a7c6d058d29c"
+    },
+    {
+      "dsl": "triton",
+      "job_id": "triton.g05",
+      "job_sha256": "8120a1fc08af57a9aab2f0273dcd15b3273a93c3b65027ca75b279e851b9dc94"
+    },
+    {
+      "dsl": "cuda_noptx",
+      "job_id": "cuda_noptx.g04",
+      "job_sha256": "68de23e1884338535f2e5fa643b9174362c041181c53717f93c7463bbd22d71a"
+    },
+    {
+      "dsl": "cuda_unlimited",
+      "job_id": "cuda_unlimited.g04",
+      "job_sha256": "a39d07ad4524ba0324dc1ee1f0d38f7af4f8012820f4d1b147ad46271843f571"
+    }
+  ],
+  "workloads": [
+    {
+      "arm": "boundary",
+      "expected_records": 6,
+      "output": "results/raw/boundary.jsonl"
+    },
+    {
+      "arm": "winners",
+      "expected_records": 2048,
+      "output": "results/raw/winners_gain16.jsonl"
+    }
+  ]
+}

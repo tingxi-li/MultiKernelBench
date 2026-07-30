@@ -1,0 +1,11 @@
+{
+  "all_winner_groups_success": false,
+  "boundary_success": true,
+  "campaign_id": "controlled-followup-fused-row-sum-stress-v1",
+  "completed_utc": "2026-07-30T19:42:13.903098+00:00",
+  "evidence_complete": true,
+  "freeze_receipt_sha256": "71dc0087a5d550dd698847a70d1f89191d2cade1ff453bf290117f32230bc498",
+  "schema_version": "1.0",
+  "summary_sha256": "df51077cf16f5a67abc6ab821bda99ecd87ee93b77a8e8cd3246cdcf38859891",
+  "threshold_mutation_authorized": false
+}

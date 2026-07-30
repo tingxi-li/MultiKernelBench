@@ -1,0 +1,23 @@
+{
+  "campaign_id": "controlled-followup-fused-row-sum-stress-v1",
+  "freeze_receipt_sha256": "71dc0087a5d550dd698847a70d1f89191d2cade1ff453bf290117f32230bc498",
+  "git_commit": "c0b35dfdd65248b8bba1598fbabab06484011fd9",
+  "raw_results_opened": false,
+  "recorded_utc": "2026-07-30T19:37:25.535503+00:00",
+  "schema_version": "1.0",
+  "source_bundle_canonical_sha256": "24049503594d5e059b4682521216b22f4d2a2b03d250abed3173b80ce2a2bda6",
+  "workloads": [
+    {
+      "arm": "boundary",
+      "command": "PYTHONDONTWRITEBYTECODE=1 python -m ako_runs.controlled_followup.robust_gate.audits.fused_row_sum_stress_v1.runner --arm boundary --out ako_runs/controlled_followup/robust_gate/audits/fused_row_sum_stress_v1/results/raw/boundary.jsonl",
+      "expected_records": 6,
+      "output": "ako_runs/controlled_followup/robust_gate/audits/fused_row_sum_stress_v1/results/raw/boundary.jsonl"
+    },
+    {
+      "arm": "winners",
+      "command": "CUDA_VISIBLE_DEVICES=1 PYTHONDONTWRITEBYTECODE=1 python -m ako_runs.controlled_followup.robust_gate.audits.fused_row_sum_stress_v1.runner --arm winners --out ako_runs/controlled_followup/robust_gate/audits/fused_row_sum_stress_v1/results/raw/winners_gain16.jsonl",
+      "expected_records": 2048,
+      "output": "ako_runs/controlled_followup/robust_gate/audits/fused_row_sum_stress_v1/results/raw/winners_gain16.jsonl"
+    }
+  ]
+}

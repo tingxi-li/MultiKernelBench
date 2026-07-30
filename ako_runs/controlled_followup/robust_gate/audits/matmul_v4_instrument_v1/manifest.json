@@ -1,0 +1,418 @@
+{
+  "acceptance_rules": {
+    "real_contact": "Report each candidate/gate independently. A candidate passes only with complete 6-case x 512-seed coverage and zero collection or threshold failures. Real-candidate failure does not invalidate evidence retention or trigger threshold changes.",
+    "replication": "Every native positive-control row in every one of four mandatory blocks must pass every frozen threshold. All four blocks run regardless of interim outcomes. No pooled success may rescue a failed block.",
+    "synthetic": "Every designated-reject row must collect successfully and fail at least one frozen metric. Every mathematically exact paired-cancellation exclusion must collect successfully and pass. Structural controls fail closed in one smoke seed per case."
+  },
+  "append_only": true,
+  "campaign_id": "controlled-followup-matmul-v4-instrument-audit-v1",
+  "cases": [
+    {
+      "distribution": "uniform_positive",
+      "id": "legacy_u01"
+    },
+    {
+      "distribution": "normal_zero",
+      "id": "signed_normal"
+    },
+    {
+      "distribution": "rademacher",
+      "id": "rademacher"
+    },
+    {
+      "distribution": "signed_log_uniform",
+      "id": "signed_log_uniform",
+      "params": {
+        "exp_high": 4.0,
+        "exp_low": -4.0
+      }
+    },
+    {
+      "distribution": "mean_shifted_normal",
+      "id": "opposing_means",
+      "opposing_means": true,
+      "params": {
+        "rho": 0.8660254037844386
+      }
+    },
+    {
+      "distribution": "paired_cancellation",
+      "id": "paired_cancellation"
+    }
+  ],
+  "cpu_test_shape": {
+    "K": 16,
+    "M": 8,
+    "N": 6
+  },
+  "fixed_threshold_policy": {
+    "calibration_allowed": false,
+    "gate_copy_allowed": false,
+    "on_failure": "retain_and_report; never amend v4; any new threshold requires a new campaign and untouched namespace",
+    "threshold_source": "original_v4_gate_only"
+  },
+  "gate_routes": {
+    "conformance_mixed": {
+      "positive_control": "native_mixed",
+      "reference_kind": "contract_mixed",
+      "real_candidates": [
+        "phase1_triton_B",
+        "phase1_triton_C",
+        "phase1_triton_D"
+      ]
+    },
+    "semantic_mixed": {
+      "positive_control": "native_mixed",
+      "reference_kind": "semantic_fp64",
+      "real_candidates": [
+        "phase1_triton_B",
+        "phase1_triton_C",
+        "phase1_triton_D"
+      ]
+    },
+    "semantic_q32": {
+      "positive_control": "native_fp32",
+      "reference_kind": "semantic_fp64",
+      "real_candidates": [
+        "phase1_triton_A"
+      ]
+    }
+  },
+  "notes": [
+    "The native v4 holdouts were positive controls. This audit separately measures rejection of registered wrong answers and first contact with frozen Phase-1 DSL kernels.",
+    "Phase-1 reported bit-identical A/B/C/D outputs across DSLs. Triton is the preregistered representative here; this audit does not re-estimate the historical four-DSL performance spread.",
+    "Tensor elements and output rows are not independent observations; the pseudorandom input seed is the statistical unit.",
+    "For a deliberately nonzero candidate against the bitwise-zero paired-cancellation reference, diagnostic NRMSE overflows under the canonical tiny-denominator convention. The runner saturates only this ungated diagnostic at float64 max; all five registered gate metrics retain their canonical definitions and values."
+  ],
+  "original_v4": {
+    "acceptance_receipt": {
+      "path": "ako_runs/controlled_followup/robust_gate/validation/v4_acceptance_receipt.json",
+      "sha256": "7714808ea46d5a6a8db369cc0351632d530a52ea073015cd866c173af5e66743"
+    },
+    "gate_spec": {
+      "canonical_sha256": "838c21d696febb2e712d03eff120326375fd34c5169a3d9c4978a2f8b6160aca",
+      "path": "ako_runs/controlled_followup/robust_gate/calibration/gate_spec_matmul_v4.json",
+      "sha256": "70bb3bc8f217c40ba5fcab90dc84ef798d06e22b5d1f0e4d27a2031069a295fb"
+    },
+    "manifest": {
+      "canonical_sha256": "c26683f1eb2add7d5b0b57da9f2ff66473042437c05e6019eac7adb3672a7314",
+      "path": "ako_runs/controlled_followup/robust_gate/manifest_matmul_v4.json",
+      "sha256": "0b4bff1b17ee8c1e30e7e1ece5515ce6cfee74bd1d386f8162588fd91e5accb4"
+    },
+    "validation_summary": {
+      "path": "ako_runs/controlled_followup/robust_gate/validation/matmul_holdout_summary_v4.json",
+      "sha256": "ce72771d1dfe7cd833120e0634aed8fd892f5c6fab8fa209788e495894b20b69"
+    }
+  },
+  "real_candidates": [
+    {
+      "candidate_id": "phase1_triton_A",
+      "config": {
+        "BK": 32,
+        "BM": 128,
+        "BN": 128,
+        "arith": "fp32",
+        "cast": "precast",
+        "dsl": "triton",
+        "geometry": "primary",
+        "kc": 0,
+        "stages": 1,
+        "threads": 256,
+        "variant": "A"
+      },
+      "gates": [
+        "semantic_q32"
+      ]
+    },
+    {
+      "candidate_id": "phase1_triton_B",
+      "config": {
+        "BK": 32,
+        "BM": 128,
+        "BN": 128,
+        "arith": "fp16",
+        "cast": "precast",
+        "dsl": "triton",
+        "geometry": "primary",
+        "kc": 0,
+        "stages": 1,
+        "threads": 256,
+        "variant": "B"
+      },
+      "gates": [
+        "conformance_mixed",
+        "semantic_mixed"
+      ]
+    },
+    {
+      "candidate_id": "phase1_triton_C",
+      "config": {
+        "BK": 32,
+        "BM": 128,
+        "BN": 128,
+        "arith": "fp16",
+        "cast": "precast",
+        "dsl": "triton",
+        "geometry": "primary",
+        "kc": 2048,
+        "stages": 1,
+        "threads": 256,
+        "variant": "C"
+      },
+      "gates": [
+        "conformance_mixed",
+        "semantic_mixed"
+      ]
+    },
+    {
+      "candidate_id": "phase1_triton_D",
+      "config": {
+        "BK": 32,
+        "BM": 128,
+        "BN": 128,
+        "arith": "fp16",
+        "cast": "precast",
+        "dsl": "triton",
+        "geometry": "primary",
+        "kc": 2048,
+        "stages": 3,
+        "threads": 256,
+        "variant": "D"
+      },
+      "gates": [
+        "conformance_mixed",
+        "semantic_mixed"
+      ]
+    }
+  ],
+  "schema_version": "1.0",
+  "shape": {
+    "K": 8192,
+    "M": 2048,
+    "N": 4096
+  },
+  "splits": {
+    "real_contact": {
+      "namespace": "MKB-matmul-v4-instrument-real-v1-20260730",
+      "seeds_per_case": 512
+    },
+    "replication_blocks": [
+      {
+        "block_id": "r0",
+        "namespace": "MKB-matmul-v4-fixed-replication-r0-v1-20260730",
+        "seeds_per_case": 512
+      },
+      {
+        "block_id": "r1",
+        "namespace": "MKB-matmul-v4-fixed-replication-r1-v1-20260730",
+        "seeds_per_case": 512
+      },
+      {
+        "block_id": "r2",
+        "namespace": "MKB-matmul-v4-fixed-replication-r2-v1-20260730",
+        "seeds_per_case": 512
+      },
+      {
+        "block_id": "r3",
+        "namespace": "MKB-matmul-v4-fixed-replication-r3-v1-20260730",
+        "seeds_per_case": 512
+      }
+    ],
+    "structural_smoke": {
+      "namespace": "MKB-matmul-v4-instrument-structural-v1-20260730",
+      "seeds_per_case": 1
+    },
+    "synthetic": {
+      "namespace": "MKB-matmul-v4-instrument-synthetic-v1-20260730",
+      "seeds_per_case": 64
+    }
+  },
+  "structural_controls": [
+    {
+      "control_id": "nonfinite_nan",
+      "expected": "reject_all_cases_all_gates"
+    },
+    {
+      "control_id": "wrong_shape_drop_column",
+      "expected": "reject_all_cases_all_gates"
+    }
+  ],
+  "workloads": [
+    {
+      "arm": "replication",
+      "block_id": "r0",
+      "output": "results/raw/replication_r0.jsonl"
+    },
+    {
+      "arm": "replication",
+      "block_id": "r1",
+      "output": "results/raw/replication_r1.jsonl"
+    },
+    {
+      "arm": "replication",
+      "block_id": "r2",
+      "output": "results/raw/replication_r2.jsonl"
+    },
+    {
+      "arm": "replication",
+      "block_id": "r3",
+      "output": "results/raw/replication_r3.jsonl"
+    },
+    {
+      "arm": "synthetic",
+      "output": "results/raw/synthetic.jsonl"
+    },
+    {
+      "arm": "real_contact",
+      "output": "results/raw/real_contact.jsonl"
+    }
+  ],
+  "wrong_answer_controls": [
+    {
+      "control_id": "zeros",
+      "definition": "return an all-zero output",
+      "exact_pass_cases": [
+        "paired_cancellation"
+      ],
+      "gates": [
+        "conformance_mixed",
+        "semantic_mixed",
+        "semantic_q32"
+      ],
+      "reject_cases": [
+        "legacy_u01",
+        "signed_normal",
+        "rademacher",
+        "signed_log_uniform",
+        "opposing_means"
+      ]
+    },
+    {
+      "control_id": "row_roll1",
+      "definition": "roll the correct output by one row",
+      "exact_pass_cases": [
+        "paired_cancellation"
+      ],
+      "gates": [
+        "conformance_mixed",
+        "semantic_mixed",
+        "semantic_q32"
+      ],
+      "reject_cases": [
+        "legacy_u01",
+        "signed_normal",
+        "rademacher",
+        "signed_log_uniform",
+        "opposing_means"
+      ]
+    },
+    {
+      "control_id": "column_roll1",
+      "definition": "roll the correct output by one column",
+      "exact_pass_cases": [
+        "paired_cancellation"
+      ],
+      "gates": [
+        "conformance_mixed",
+        "semantic_mixed",
+        "semantic_q32"
+      ],
+      "reject_cases": [
+        "legacy_u01",
+        "signed_normal",
+        "rademacher",
+        "signed_log_uniform",
+        "opposing_means"
+      ]
+    },
+    {
+      "control_id": "drop_odd_k",
+      "definition": "compute only even K lanes, omitting every odd product",
+      "exact_pass_cases": [],
+      "gates": [
+        "conformance_mixed",
+        "semantic_mixed",
+        "semantic_q32"
+      ],
+      "reject_cases": [
+        "legacy_u01",
+        "signed_normal",
+        "rademacher",
+        "signed_log_uniform",
+        "opposing_means",
+        "paired_cancellation"
+      ]
+    },
+    {
+      "control_id": "k_roll1",
+      "definition": "roll B by one along the reduction dimension before matmul",
+      "exact_pass_cases": [],
+      "gates": [
+        "conformance_mixed",
+        "semantic_mixed",
+        "semantic_q32"
+      ],
+      "reject_cases": [
+        "legacy_u01",
+        "signed_normal",
+        "rademacher",
+        "signed_log_uniform",
+        "opposing_means",
+        "paired_cancellation"
+      ]
+    },
+    {
+      "control_id": "uniform_offset_0p002",
+      "definition": "add +0.002 to every correct output element",
+      "exact_pass_cases": [],
+      "gates": [
+        "conformance_mixed",
+        "semantic_mixed",
+        "semantic_q32"
+      ],
+      "reject_cases": [
+        "legacy_u01",
+        "signed_normal",
+        "rademacher",
+        "signed_log_uniform",
+        "opposing_means",
+        "paired_cancellation"
+      ]
+    },
+    {
+      "control_id": "single_spike_0p25",
+      "definition": "add +0.25 to output element [0,0] only",
+      "exact_pass_cases": [],
+      "gates": [
+        "conformance_mixed",
+        "semantic_mixed",
+        "semantic_q32"
+      ],
+      "reject_cases": [
+        "legacy_u01",
+        "signed_normal",
+        "rademacher",
+        "signed_log_uniform",
+        "opposing_means",
+        "paired_cancellation"
+      ]
+    },
+    {
+      "control_id": "forced_fp16_exact_q32",
+      "definition": "round both operands to fp16, accumulate exactly in fp64, cast to fp32, and compare to q32 semantics",
+      "exact_pass_cases": [
+        "paired_cancellation"
+      ],
+      "gates": [
+        "semantic_q32"
+      ],
+      "reject_cases": [
+        "legacy_u01",
+        "signed_normal",
+        "rademacher",
+        "signed_log_uniform",
+        "opposing_means"
+      ]
+    }
+  ]
+}

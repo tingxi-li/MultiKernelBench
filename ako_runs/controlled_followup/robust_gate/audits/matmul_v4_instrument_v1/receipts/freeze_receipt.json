@@ -1,0 +1,67 @@
+{
+  "audit_manifest": {
+    "canonical_sha256": "fe16c79f7d7a6e530844d0368f3675e68a946dcfedc72ce981177b67dedaa727",
+    "raw_sha256": "21b3376465d36393c6075c393d9ee5bde7b14a7520cb4846e1fad1670b278b39"
+  },
+  "campaign_id": "controlled-followup-matmul-v4-instrument-audit-v1",
+  "frozen_utc": "2026-07-30T19:37:23.472092+00:00",
+  "git_commit": "c0b35dfdd65248b8bba1598fbabab06484011fd9",
+  "namespaces": [
+    "MKB-matmul-v4-instrument-real-v1-20260730",
+    "MKB-matmul-v4-instrument-synthetic-v1-20260730",
+    "MKB-matmul-v4-instrument-structural-v1-20260730",
+    "MKB-matmul-v4-fixed-replication-r0-v1-20260730",
+    "MKB-matmul-v4-fixed-replication-r1-v1-20260730",
+    "MKB-matmul-v4-fixed-replication-r2-v1-20260730",
+    "MKB-matmul-v4-fixed-replication-r3-v1-20260730"
+  ],
+  "namespaces_pairwise_distinct": true,
+  "original_gate_canonical_sha256_verified": "838c21d696febb2e712d03eff120326375fd34c5169a3d9c4978a2f8b6160aca",
+  "original_v4": {
+    "acceptance_receipt": {
+      "path": "ako_runs/controlled_followup/robust_gate/validation/v4_acceptance_receipt.json",
+      "sha256": "7714808ea46d5a6a8db369cc0351632d530a52ea073015cd866c173af5e66743"
+    },
+    "gate_spec": {
+      "canonical_sha256": "838c21d696febb2e712d03eff120326375fd34c5169a3d9c4978a2f8b6160aca",
+      "path": "ako_runs/controlled_followup/robust_gate/calibration/gate_spec_matmul_v4.json",
+      "sha256": "70bb3bc8f217c40ba5fcab90dc84ef798d06e22b5d1f0e4d27a2031069a295fb"
+    },
+    "manifest": {
+      "canonical_sha256": "c26683f1eb2add7d5b0b57da9f2ff66473042437c05e6019eac7adb3672a7314",
+      "path": "ako_runs/controlled_followup/robust_gate/manifest_matmul_v4.json",
+      "sha256": "0b4bff1b17ee8c1e30e7e1ece5515ce6cfee74bd1d386f8162588fd91e5accb4"
+    },
+    "validation_summary": {
+      "path": "ako_runs/controlled_followup/robust_gate/validation/matmul_holdout_summary_v4.json",
+      "sha256": "ce72771d1dfe7cd833120e0634aed8fd892f5c6fab8fa209788e495894b20b69"
+    }
+  },
+  "raw_results_opened": false,
+  "schema_version": "1.0",
+  "source_bundle_canonical_sha256": "a3e3c3c03773d85eb20b2a45c55289d89b43890b660184c0a68b6167a88fbec0",
+  "source_files": {
+    "ako_runs/controlled_followup/robust_gate/__init__.py": "c47d3e6a5bc723aaca9e724e736c24be490884a16a91d695f41fed1f2b97b183",
+    "ako_runs/controlled_followup/robust_gate/audits/__init__.py": "6c30b84be5071c594bbddeac7b808b1f332e1fc9a59497fda53f7a08a142720b",
+    "ako_runs/controlled_followup/robust_gate/audits/matmul_v4_instrument_v1/README.md": "f6aa4d03d52dead3ec134cfc8287d5024c9a8afafe02d3380ac08c323ac04aef",
+    "ako_runs/controlled_followup/robust_gate/audits/matmul_v4_instrument_v1/__init__.py": "a4f4028e4dc9f4fa46e2d0ea8fdbfc6eb43c0f7e80d79b97b560f1ccb854bd71",
+    "ako_runs/controlled_followup/robust_gate/audits/matmul_v4_instrument_v1/analyze.py": "b9705ef947468ac0958eda4b14da39b315e97b09eecb6437f8b2b3f0a55b7633",
+    "ako_runs/controlled_followup/robust_gate/audits/matmul_v4_instrument_v1/bindings.py": "d42ad8449ab167149b90b6ec976400b4e95a696496e152ef3a5504eecbf7e227",
+    "ako_runs/controlled_followup/robust_gate/audits/matmul_v4_instrument_v1/freeze.py": "83dd35a7856caad2aed9b211ac32f2f53f3ee737de84ef87c5f718925e488c04",
+    "ako_runs/controlled_followup/robust_gate/audits/matmul_v4_instrument_v1/manifest.json": "21b3376465d36393c6075c393d9ee5bde7b14a7520cb4846e1fad1670b278b39",
+    "ako_runs/controlled_followup/robust_gate/audits/matmul_v4_instrument_v1/runner.py": "d61a4a644e779a4588acedb7e2a1c07a2550ed96fcb0afd4fb4d262c00c618a9",
+    "ako_runs/controlled_followup/robust_gate/audits/matmul_v4_instrument_v1/tests/__init__.py": "06768272cac9975ddd68faf70f433cc55ee3ce6e2db8917203c337db5694515d",
+    "ako_runs/controlled_followup/robust_gate/audits/matmul_v4_instrument_v1/tests/test_audit.py": "e70b6b0e6397c5636b37734dcd3c62107a063dfddef275607db214ca6021a3dc",
+    "ako_runs/controlled_followup/robust_gate/distributions.py": "6280fa580a8ff2e648b937435137930a37143d8225bf9afb348b4c4921ccdd77",
+    "ako_runs/controlled_followup/robust_gate/metrics.py": "419b48d8410dfeb42ff06e8ce23be15d176443872ad576779ee071a00045a9fe",
+    "ako_runs/controlled_followup/robust_gate/oracles.py": "5083b72e14285cfc5582effe4cf4d75f6bac8f548cd1183e2d5256c022d5cace",
+    "ako_runs/controlled_followup/robust_gate/schema.py": "5ddccc0f4eecda92d97de0676eb9c5f16f0ea3bd426a344aa6acb57169e306ec",
+    "ako_runs/controlled_followup/robust_gate/seeds.py": "39663de46fdc31f34ec12975d34c43565f16f19a23be0c1e53bf4f1cfe57fdcc",
+    "ako_runs/phase1_matmul/common.py": "7753fcc00891d475db8675423ca7e48fbc0aa0431ac1e1dd4319e6c2900fd0a7",
+    "ako_runs/phase1_matmul/variants/__init__.py": "0ac322f46ab46fe0bf6d9eb6241c7eacf6b9844f5f6d927dbccfc81a1005a585",
+    "ako_runs/phase1_matmul/variants/triton_gemm.py": "8c9cc3d60d549eb941dcb68a0ee7b0a6173b849a368eb55c75ec91c68612e108"
+  },
+  "threshold_fitting_allowed": false,
+  "threshold_mutation_authorized": false,
+  "threshold_source": "original_v4_gate_only"
+}

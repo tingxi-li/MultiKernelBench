@@ -1,0 +1,152 @@
+{
+  "all_candidates_original_gate_eligible": true,
+  "campaign_canonical_sha256": "a2fed4b73126fe262620cdd2187bde9a297cd10e3f622ecd3d20dc853669a607",
+  "campaign_id": "fused-frontier-reachability-closure-v3",
+  "candidates": {
+    "cuda_noptx_old_g04": {
+      "case_count": 4,
+      "eligible": true,
+      "gate_failures": 0,
+      "gate_ids": [
+        "semantic_mixed",
+        "conformance_mixed"
+      ],
+      "gate_records": 512,
+      "source_candidate_id": "cuda_noptx_common_g04",
+      "validation_seeds_per_case": 64
+    },
+    "cuda_noptx_streamed_g05": {
+      "case_count": 4,
+      "eligible": true,
+      "gate_failures": 0,
+      "gate_ids": [
+        "semantic_mixed",
+        "conformance_mixed"
+      ],
+      "gate_records": 512,
+      "source_job_id": "cuda_noptx_streamed.g05",
+      "source_job_sha256": "63d545eae879c043fa5fe5218c27c421473943545ade072ba2fb8f0b71e12a07",
+      "validation_seeds_per_case": 64
+    },
+    "cuda_noptx_streamed_g09": {
+      "case_count": 4,
+      "eligible": true,
+      "gate_failures": 0,
+      "gate_ids": [
+        "semantic_mixed",
+        "conformance_mixed"
+      ],
+      "gate_records": 512,
+      "source_job_id": "cuda_noptx_streamed.g09",
+      "source_job_sha256": "57cad6b270d1b5b46cd0b3f35b3fd37986220797084f6eb9081737b0dc6e8fec",
+      "validation_seeds_per_case": 64
+    },
+    "cuda_unlimited_old_g02": {
+      "case_count": 4,
+      "eligible": true,
+      "gate_failures": 0,
+      "gate_ids": [
+        "semantic_mixed",
+        "conformance_mixed"
+      ],
+      "gate_records": 512,
+      "source_candidate_id": "cuda_unlimited_common_g02",
+      "validation_seeds_per_case": 64
+    },
+    "cuda_unlimited_streamed_g07": {
+      "case_count": 4,
+      "eligible": true,
+      "gate_failures": 0,
+      "gate_ids": [
+        "semantic_mixed",
+        "conformance_mixed"
+      ],
+      "gate_records": 512,
+      "source_job_id": "cuda_unlimited_streamed.g07",
+      "source_job_sha256": "b07ac33981c4b89d7a6453fb531a2dd0882ca2077f66a9718268559373391685",
+      "validation_seeds_per_case": 64
+    },
+    "tilelang_full_g08": {
+      "case_count": 4,
+      "eligible": true,
+      "gate_failures": 0,
+      "gate_ids": [
+        "semantic_mixed",
+        "conformance_mixed"
+      ],
+      "gate_records": 512,
+      "source_candidate_id": "tilelang_full_g08",
+      "validation_seeds_per_case": 64
+    },
+    "torch_contract_fp32": {
+      "case_count": 4,
+      "eligible": true,
+      "gate_failures": 0,
+      "gate_ids": [
+        "semantic_mixed",
+        "conformance_mixed"
+      ],
+      "gate_records": 512,
+      "source_candidate_id": "torch_contract_fp32",
+      "validation_seeds_per_case": 64
+    },
+    "triton_full_g05": {
+      "case_count": 4,
+      "eligible": true,
+      "gate_failures": 0,
+      "gate_ids": [
+        "semantic_mixed",
+        "conformance_mixed"
+      ],
+      "gate_records": 512,
+      "source_candidate_id": "triton_full_g05",
+      "validation_seeds_per_case": 64
+    }
+  },
+  "claim_limit": "Imported eligibility is not fresh-stress eligibility and makes no claim about later stress namespaces.",
+  "fused_closure_v2": {
+    "analysis_path": "ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/analysis_summary.json",
+    "analysis_sha256": "072ce7ea841dad51fe63c50d33c7f02f1bc2cf8c12cc97f3d1d75d387d9bbcec",
+    "gate_raw_records_canonical_sha256": "d52fb86044a587ef3a40ec786a00ec8e8a2bdf48fdff1a8ae81a0594645486c2",
+    "gate_summary_path": "ako_runs/controlled_followup/fused_closure_v2/results/gate_v1/gate_summary.json",
+    "gate_summary_sha256": "0d7955543c262a5dff7fcfd8a3466678f8c55b13b5290c48dd40c90328a068e4",
+    "performance_launch_receipt_sha256": "b56214e92a941c273b081f266e5430b91c2dcc6b9196993b9fa5150a432e2e92",
+    "performance_raw_records": 135,
+    "source_receipt_path": "ako_runs/controlled_followup/fused_closure_v2/source_receipt.json",
+    "source_receipt_sha256": "d38ba70aa667ee873e3c4c75708881ddf87ab3f48beb6ddc10cfcf94126156c7"
+  },
+  "fused_reachability_v2": {
+    "bundle_path": "ako_runs/controlled_followup/fused_reachability_v2/evidence/complete_v1.tar.gz",
+    "bundle_sha256": "efcd54b68885b2bdd2c60202d68b858fbe3f40a8288d5815ef5fa7eeb6536572",
+    "confirmation_path": "ako_runs/controlled_followup/fused_reachability_v2/results/confirmation_analysis_v1/confirmation_summary.json",
+    "confirmation_sha256": "5b691fbacc772b3d27af743791b6aa3dd0edd8e7d63d125c56399f86b22e4c7f",
+    "entry_count": 1712,
+    "index_path": "ako_runs/controlled_followup/fused_reachability_v2/evidence/complete_v1.index.json",
+    "index_sha256": "d228ba509e02f2ed7e9a75346e2e960e3ec9fa6f8cfea943193da6a91b7f06cb",
+    "launch_lock_path": "ako_runs/controlled_followup/fused_reachability_v2/launch_lock.json",
+    "launch_lock_sha256": "7bd24892e29e8d8af4b48a34b397434ed80bd59e2349ff714fb4babe0afcc240",
+    "manifest_sha256": "7877b1043d67d660a48e5fb38376b56fe4b35aeb7f30dbf5e07e3c5bd04fb51a",
+    "robust": {
+      "cuda_noptx": {
+        "record_count": 1536,
+        "records_path": "ako_runs/controlled_followup/fused_reachability_v2/results/robust_noptx_v1/records.jsonl",
+        "records_sha256": "990e7346a47edd1c9ff9d62e95a20df3168d9934aa0848ce94e99249af98d21f",
+        "summary_path": "ako_runs/controlled_followup/fused_reachability_v2/results/robust_noptx_v1/summary.json",
+        "summary_sha256": "2cb63b00231f17d42c76fde5e9964960c9817e68fe277b4e701c6715fb9aaaea"
+      },
+      "cuda_unlimited": {
+        "record_count": 1536,
+        "records_path": "ako_runs/controlled_followup/fused_reachability_v2/results/robust_unlimited_v1/records.jsonl",
+        "records_sha256": "c3ceca55b24d14ec41928d38224eda4b080136f73ee43850caf33f9a4efb937c",
+        "summary_path": "ako_runs/controlled_followup/fused_reachability_v2/results/robust_unlimited_v1/summary.json",
+        "summary_sha256": "83c59ba8bb8a7a9a4da7d93fdecc9385b0ebff5d1099118d0b59de6bd7cfc953"
+      }
+    },
+    "selection_path": "ako_runs/controlled_followup/fused_reachability_v2/results/screen_analysis_v1/confirmation_selection.json",
+    "selection_sha256": "4385e10329b18a43178e5e2bbb5a0b25613d32588fbd466f5c70c854ca733582",
+    "source_bundle_sha256": "ac077b9de182ea9596e97dafa6a6e2ee88771f3d282dec9ed7d19bde90078d2a"
+  },
+  "record_type": "fused_frontier_closure_v3_original_eligibility",
+  "schema_version": 1,
+  "scope": "original frozen fused-v2 mixed validation gates only: semantic_mixed and conformance_mixed, four registered cases, validation seed indices 0--63"
+}

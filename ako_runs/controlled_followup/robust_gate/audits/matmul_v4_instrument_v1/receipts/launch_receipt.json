@@ -1,0 +1,61 @@
+{
+  "campaign_id": "controlled-followup-matmul-v4-instrument-audit-v1",
+  "cuda_visible_devices": "1",
+  "freeze_receipt_path": "ako_runs/controlled_followup/robust_gate/audits/matmul_v4_instrument_v1/receipts/freeze_receipt.json",
+  "freeze_receipt_sha256": "56c297207e6b3a6104967d36d059d1a23fdab83a4da6e937c59d6ec94e495c72",
+  "git_commit": "c0b35dfdd65248b8bba1598fbabab06484011fd9",
+  "raw_results_opened": false,
+  "recorded_utc": "2026-07-30T19:37:23.519194+00:00",
+  "schema_version": "1.0",
+  "source_bundle_canonical_sha256": "a3e3c3c03773d85eb20b2a45c55289d89b43890b660184c0a68b6167a88fbec0",
+  "workloads": [
+    {
+      "arm": "replication",
+      "block_id": "r0",
+      "command": "CUDA_VISIBLE_DEVICES=1 PYTHONDONTWRITEBYTECODE=1 python -m ako_runs.controlled_followup.robust_gate.audits.matmul_v4_instrument_v1.runner --arm replication --block r0 --device cuda --out ako_runs/controlled_followup/robust_gate/audits/matmul_v4_instrument_v1/results/raw/replication_r0.jsonl",
+      "expected_records": 9216,
+      "gpu": 1,
+      "output": "ako_runs/controlled_followup/robust_gate/audits/matmul_v4_instrument_v1/results/raw/replication_r0.jsonl"
+    },
+    {
+      "arm": "replication",
+      "block_id": "r1",
+      "command": "CUDA_VISIBLE_DEVICES=1 PYTHONDONTWRITEBYTECODE=1 python -m ako_runs.controlled_followup.robust_gate.audits.matmul_v4_instrument_v1.runner --arm replication --block r1 --device cuda --out ako_runs/controlled_followup/robust_gate/audits/matmul_v4_instrument_v1/results/raw/replication_r1.jsonl",
+      "expected_records": 9216,
+      "gpu": 1,
+      "output": "ako_runs/controlled_followup/robust_gate/audits/matmul_v4_instrument_v1/results/raw/replication_r1.jsonl"
+    },
+    {
+      "arm": "replication",
+      "block_id": "r2",
+      "command": "CUDA_VISIBLE_DEVICES=1 PYTHONDONTWRITEBYTECODE=1 python -m ako_runs.controlled_followup.robust_gate.audits.matmul_v4_instrument_v1.runner --arm replication --block r2 --device cuda --out ako_runs/controlled_followup/robust_gate/audits/matmul_v4_instrument_v1/results/raw/replication_r2.jsonl",
+      "expected_records": 9216,
+      "gpu": 1,
+      "output": "ako_runs/controlled_followup/robust_gate/audits/matmul_v4_instrument_v1/results/raw/replication_r2.jsonl"
+    },
+    {
+      "arm": "replication",
+      "block_id": "r3",
+      "command": "CUDA_VISIBLE_DEVICES=1 PYTHONDONTWRITEBYTECODE=1 python -m ako_runs.controlled_followup.robust_gate.audits.matmul_v4_instrument_v1.runner --arm replication --block r3 --device cuda --out ako_runs/controlled_followup/robust_gate/audits/matmul_v4_instrument_v1/results/raw/replication_r3.jsonl",
+      "expected_records": 9216,
+      "gpu": 1,
+      "output": "ako_runs/controlled_followup/robust_gate/audits/matmul_v4_instrument_v1/results/raw/replication_r3.jsonl"
+    },
+    {
+      "arm": "synthetic",
+      "block_id": null,
+      "command": "CUDA_VISIBLE_DEVICES=1 PYTHONDONTWRITEBYTECODE=1 python -m ako_runs.controlled_followup.robust_gate.audits.matmul_v4_instrument_v1.runner --arm synthetic --device cuda --out ako_runs/controlled_followup/robust_gate/audits/matmul_v4_instrument_v1/results/raw/synthetic.jsonl",
+      "expected_records": 8484,
+      "gpu": 1,
+      "output": "ako_runs/controlled_followup/robust_gate/audits/matmul_v4_instrument_v1/results/raw/synthetic.jsonl"
+    },
+    {
+      "arm": "real_contact",
+      "block_id": null,
+      "command": "CUDA_VISIBLE_DEVICES=1 PYTHONDONTWRITEBYTECODE=1 python -m ako_runs.controlled_followup.robust_gate.audits.matmul_v4_instrument_v1.runner --arm real_contact --device cuda --out ako_runs/controlled_followup/robust_gate/audits/matmul_v4_instrument_v1/results/raw/real_contact.jsonl",
+      "expected_records": 21504,
+      "gpu": 1,
+      "output": "ako_runs/controlled_followup/robust_gate/audits/matmul_v4_instrument_v1/results/raw/real_contact.jsonl"
+    }
+  ]
+}

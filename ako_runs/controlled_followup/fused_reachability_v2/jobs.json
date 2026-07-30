@@ -1,0 +1,162 @@
+[
+  {
+    "grid_id": "g05",
+    "grid_index": 5,
+    "job_id": "cuda_noptx_streamed.g05",
+    "lane": "cuda_noptx",
+    "origin_job_id": "cuda_noptx.g05",
+    "origin_job_sha256": "15d0f6a35334298a995716975f5c7affdc2dee9819a2cfec18a2f75b51e83e80",
+    "set": "BM=128,BN=256,BK=32,threads=256,stages=2,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=streamed_global",
+    "variant": "GBGS"
+  },
+  {
+    "grid_id": "g06",
+    "grid_index": 6,
+    "job_id": "cuda_noptx_streamed.g06",
+    "lane": "cuda_noptx",
+    "origin_job_id": "cuda_noptx.g06",
+    "origin_job_sha256": "dde8665c584f5ac0df16ae4ca5c0d73ecd5045544e1a41721289dd2ef7359939",
+    "set": "BM=128,BN=256,BK=32,threads=256,stages=3,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=streamed_global",
+    "variant": "GBGS"
+  },
+  {
+    "grid_id": "g07",
+    "grid_index": 7,
+    "job_id": "cuda_noptx_streamed.g07",
+    "lane": "cuda_noptx",
+    "origin_job_id": "cuda_noptx.g07",
+    "origin_job_sha256": "dbcc0e90dfcc89fc80c568684c10fad795ec6d090929e965d8362a949400e37f",
+    "set": "BM=128,BN=256,BK=32,threads=256,stages=4,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=streamed_global",
+    "variant": "GBGS"
+  },
+  {
+    "grid_id": "g08",
+    "grid_index": 8,
+    "job_id": "cuda_noptx_streamed.g08",
+    "lane": "cuda_noptx",
+    "origin_job_id": "cuda_noptx.g08",
+    "origin_job_sha256": "2199a9366422d3ea696ed7659ef893c176685b32e26758c67d6eadeb25235190",
+    "set": "BM=128,BN=256,BK=64,threads=256,stages=2,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=streamed_global",
+    "variant": "GBGS"
+  },
+  {
+    "grid_id": "g09",
+    "grid_index": 9,
+    "job_id": "cuda_noptx_streamed.g09",
+    "lane": "cuda_noptx",
+    "origin_job_id": "cuda_noptx.g09",
+    "origin_job_sha256": "c0ebf6c8a3619bf27ebd91192805edd40363dd77ca37647f3e2dfc454d396cf6",
+    "set": "BM=256,BN=128,BK=32,threads=256,stages=2,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=streamed_global",
+    "variant": "GBGS"
+  },
+  {
+    "grid_id": "g10",
+    "grid_index": 10,
+    "job_id": "cuda_noptx_streamed.g10",
+    "lane": "cuda_noptx",
+    "origin_job_id": "cuda_noptx.g10",
+    "origin_job_sha256": "1c5e20204bce3f8c14ce8dab314aefa4f5836acab9f7f1fa4aa6fc864e629e19",
+    "set": "BM=256,BN=128,BK=32,threads=256,stages=3,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=streamed_global",
+    "variant": "GBGS"
+  },
+  {
+    "grid_id": "g11",
+    "grid_index": 11,
+    "job_id": "cuda_noptx_streamed.g11",
+    "lane": "cuda_noptx",
+    "origin_job_id": "cuda_noptx.g11",
+    "origin_job_sha256": "669c5c5b9f97fc7dca54d66110efcb25fdd4e6b90cf34322bb5dc935e6382c4e",
+    "set": "BM=256,BN=128,BK=32,threads=256,stages=4,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=streamed_global",
+    "variant": "GBGS"
+  },
+  {
+    "grid_id": "g12",
+    "grid_index": 12,
+    "job_id": "cuda_noptx_streamed.g12",
+    "lane": "cuda_noptx",
+    "origin_job_id": "cuda_noptx.g12",
+    "origin_job_sha256": "0b211826115f5aae32881bb7b92006c22bba3d7a88b58e77d9db3e6a3c56e0d7",
+    "set": "BM=256,BN=128,BK=64,threads=256,stages=2,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=streamed_global",
+    "variant": "GBGS"
+  },
+  {
+    "grid_id": "g05",
+    "grid_index": 5,
+    "job_id": "cuda_unlimited_streamed.g05",
+    "lane": "cuda_unlimited",
+    "origin_job_id": "cuda_unlimited.g05",
+    "origin_job_sha256": "c473df95a6d027fb58dcb2ed974bd56ae0ec72aaa9783a7f62771ebcd47e990a",
+    "set": "BM=128,BN=256,BK=32,threads=256,stages=2,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=streamed_global",
+    "variant": "GBGS"
+  },
+  {
+    "grid_id": "g06",
+    "grid_index": 6,
+    "job_id": "cuda_unlimited_streamed.g06",
+    "lane": "cuda_unlimited",
+    "origin_job_id": "cuda_unlimited.g06",
+    "origin_job_sha256": "cb686f64afbb75fe7e7497ee78748e5dcc67f9dc0684ad1f6060772e4c5e0bc6",
+    "set": "BM=128,BN=256,BK=32,threads=256,stages=3,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=streamed_global",
+    "variant": "GBGS"
+  },
+  {
+    "grid_id": "g07",
+    "grid_index": 7,
+    "job_id": "cuda_unlimited_streamed.g07",
+    "lane": "cuda_unlimited",
+    "origin_job_id": "cuda_unlimited.g07",
+    "origin_job_sha256": "d2a695579296f69d17e59cc5a0e21921f954e312ae47ef70caf58a1c3821b2dd",
+    "set": "BM=128,BN=256,BK=32,threads=256,stages=4,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=streamed_global",
+    "variant": "GBGS"
+  },
+  {
+    "grid_id": "g08",
+    "grid_index": 8,
+    "job_id": "cuda_unlimited_streamed.g08",
+    "lane": "cuda_unlimited",
+    "origin_job_id": "cuda_unlimited.g08",
+    "origin_job_sha256": "e4562b1272b244f4b94634d2b3dbb3f4733208c75afea758a49a3cd45929080c",
+    "set": "BM=128,BN=256,BK=64,threads=256,stages=2,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=streamed_global",
+    "variant": "GBGS"
+  },
+  {
+    "grid_id": "g09",
+    "grid_index": 9,
+    "job_id": "cuda_unlimited_streamed.g09",
+    "lane": "cuda_unlimited",
+    "origin_job_id": "cuda_unlimited.g09",
+    "origin_job_sha256": "b493d84248a3e58305f924677fee37022c5e7e21e731e0db48a5bae39d821097",
+    "set": "BM=256,BN=128,BK=32,threads=256,stages=2,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=streamed_global",
+    "variant": "GBGS"
+  },
+  {
+    "grid_id": "g10",
+    "grid_index": 10,
+    "job_id": "cuda_unlimited_streamed.g10",
+    "lane": "cuda_unlimited",
+    "origin_job_id": "cuda_unlimited.g10",
+    "origin_job_sha256": "aa568a2ab5798cb033a60189c1e220bad9d194b6d47e90c2d054268d1ad0e3e7",
+    "set": "BM=256,BN=128,BK=32,threads=256,stages=3,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=streamed_global",
+    "variant": "GBGS"
+  },
+  {
+    "grid_id": "g11",
+    "grid_index": 11,
+    "job_id": "cuda_unlimited_streamed.g11",
+    "lane": "cuda_unlimited",
+    "origin_job_id": "cuda_unlimited.g11",
+    "origin_job_sha256": "b844a0af7458ff30425f639a8188ed893e497308ee8766b395a23bbad9fb22e8",
+    "set": "BM=256,BN=128,BK=32,threads=256,stages=4,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=streamed_global",
+    "variant": "GBGS"
+  },
+  {
+    "grid_id": "g12",
+    "grid_index": 12,
+    "job_id": "cuda_unlimited_streamed.g12",
+    "lane": "cuda_unlimited",
+    "origin_job_id": "cuda_unlimited.g12",
+    "origin_job_sha256": "ad6eb6e3305fed809c53c6936d890df9156f520b65135821a30c663a79437d01",
+    "set": "BM=256,BN=128,BK=64,threads=256,stages=2,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=streamed_global",
+    "variant": "GBGS"
+  }
+]

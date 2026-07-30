@@ -1,0 +1,21 @@
+{
+  "argv": [
+    "/home/lxt230026/miniconda3/bin/python",
+    "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/fused_closure_v2/measure.py",
+    "--candidate",
+    "triton_full_g05",
+    "--block",
+    "8",
+    "--position",
+    "7",
+    "--launch-receipt",
+    "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/launch_receipt.json",
+    "--out",
+    "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block08/triton_full_g05.json"
+  ],
+  "completed_utc": "2026-07-30T19:43:55.739684+00:00",
+  "returncode": 0,
+  "started_utc": "2026-07-30T19:43:50.959896+00:00",
+  "stderr": "",
+  "stdout": "triton_full_g05 block=8 position=7 ok=True out=/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block08/triton_full_g05.json\n"
+}

@@ -1,0 +1,21 @@
+{
+  "argv": [
+    "/home/lxt230026/miniconda3/bin/python",
+    "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/fused_frontier_closure_v3/measure.py",
+    "--candidate",
+    "cuda_unlimited_streamed_g07",
+    "--block",
+    "14",
+    "--position",
+    "2",
+    "--launch-receipt",
+    "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/launch_receipt.json",
+    "--out",
+    "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block14/cuda_unlimited_streamed_g07.json"
+  ],
+  "completed_utc": "2026-07-30T20:36:48.426661+00:00",
+  "returncode": 0,
+  "started_utc": "2026-07-30T20:36:43.129683+00:00",
+  "stderr": "",
+  "stdout": "cuda_unlimited_streamed_g07 block=14 position=2 ok=True out=/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/fused_frontier_closure_v3/results/performance_v1/raw/block14/cuda_unlimited_streamed_g07.json\n"
+}

@@ -1,0 +1,2231 @@
+{
+  "binding": {
+    "campaign_canonical_sha256": "feb15e1f03b5da1db03f5151cf64a92ee23d828fa07aebec47cebe5b839876ca",
+    "campaign_id": "fused-gbgs-closure-v2",
+    "candidate_sha256": {
+      "cuda_noptx_common_g04": "ff3edd5d4579a37aef3241b91e57e681f4ddcc38752f87e9a4013f2c81bd3fef",
+      "cuda_unlimited_common_g02": "08a40bf751962d88c015cf20c1dd9ec90c4782980ad57816bb9d3d59462c9050",
+      "tilelang_common_g03": "5c0a65dcf15d157514d750ab0ce3d7173c78187655fceda7c7c927780a05e640",
+      "tilelang_full_g08": "459785c83e7e6fc83c2b6a1baac9cbb154bb6a037b26f6077c73e6c821cdd25d",
+      "torch_contract_fp32": "bd89a3d7502a04919990db385b66576bc572d6999eae10a497c360ec268bfbb9",
+      "torch_historical_exact": "684aab7bd72c48ed7fb268c875c399cddc760ce6f8b80761251876feb3e9749a",
+      "torch_historical_precast": "bdd4467f7ce15d01734ec9f9b2e7e3f6dd39463b47b03ef5e50fe2a434cfc0be",
+      "triton_common_g00": "f8388ae171e4e3e90136a222d0c3d40a22ca1ee9e15bf05d06b542d05053c3f4",
+      "triton_full_g05": "ffff5c01ea18fc0c43108d73df724f967a3bfa13e6c8406e81d9c5d1ed41e951"
+    },
+    "case_ids": [
+      "legacy_u01_gain1",
+      "signed_normal_gain1",
+      "rademacher_gain4",
+      "signed_normal_gain16"
+    ],
+    "gate_ids": [
+      "semantic_mixed",
+      "conformance_mixed"
+    ],
+    "gate_spec_canonical_sha256": "4898c42d82707ad4588c880f794935efba202f5c32fb656263ec2c8f6c3f22e8",
+    "gate_spec_file_sha256": "b6c3afaadf61f5d380a97c6c541828a1ecacd1a89a00b73b66207fe22d765e2e",
+    "robust_manifest_canonical_sha256": "d017ef44cd63ce2a27bf31ca0ea7631a1f9810d3cbd25f1ddc6155b75a05634a",
+    "robust_manifest_file_sha256": "28d51cd4f1730bd190e63c7cad60670c37b67784393270e63e859a1685fc8a62",
+    "seed_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63
+    ],
+    "source_receipt_sha256": "d38ba70aa667ee873e3c4c75708881ddf87ab3f48beb6ddc10cfcf94126156c7",
+    "split": "validation"
+  },
+  "case_id": "legacy_u01_gain1",
+  "record_type": "closure_gate_bundle",
+  "records": [
+    {
+      "build_metadata": {
+        "activation_cast_in_timed_region": true,
+        "bias_dtype": "torch.float16",
+        "build_wall_s": 5.2179995691403747e-05,
+        "builder": "ako_runs/controlled_followup/fused_closure_v2/candidates.py:historical_torch",
+        "historical_reference_builder": "ako_runs/phase2_fused_sdpa/variants2/fused_torch.py",
+        "matmul_output_dtype": "torch.float16",
+        "probability_dtype": "torch.float16",
+        "reported_compile_s": 0.0,
+        "timed_input_dtype": "torch.float32"
+      },
+      "campaign_id": "controlled-followup-robust-gate-v1",
+      "candidate": "torch_historical_exact",
+      "candidate_definition": {
+        "candidate_id": "torch_historical_exact",
+        "contract_adjudication": "diagnostic_nonconforming",
+        "implementation": "historical_torch",
+        "label": "historical torch fp16, activation cast in timed region",
+        "structural_mismatches": [
+          "bias_dtype=fp16 (fused-v2 requires fp32)",
+          "probability_dtype=fp16 (fused-v2 requires fp32)",
+          "activation cast occurs in timed region"
+        ],
+        "timed_input_dtype": "fp32"
+      },
+      "candidate_definition_sha256": "684aab7bd72c48ed7fb268c875c399cddc760ce6f8b80761251876feb3e9749a",
+      "candidate_wall_s": 0.0023236379929585382,
+      "case_id": "legacy_u01_gain1",
+      "closure_campaign_id": "fused-gbgs-closure-v2",
+      "closure_campaign_sha256": "feb15e1f03b5da1db03f5151cf64a92ee23d828fa07aebec47cebe5b839876ca",
+      "contract": {
+        "bias_dtype": "fp32",
+        "gelu": "exact_erf",
+        "operand_dtype": "fp16",
+        "output_dtype": "fp32",
+        "probability_dtype": "fp32",
+        "weight_dtype": "fp16",
+        "x_dtype": "fp16"
+      },
+      "contract_adjudication": "diagnostic_nonconforming",
+      "device": "cuda:0",
+      "gate_id": "semantic_mixed",
+      "gate_pass": false,
+      "gate_spec_file_sha256": "b6c3afaadf61f5d380a97c6c541828a1ecacd1a89a00b73b66207fe22d765e2e",
+      "gate_spec_sha256": "4898c42d82707ad4588c880f794935efba202f5c32fb656263ec2c8f6c3f22e8",
+      "manifest_file_sha256": "28d51cd4f1730bd190e63c7cad60670c37b67784393270e63e859a1685fc8a62",
+      "manifest_sha256": "d017ef44cd63ce2a27bf31ca0ea7631a1f9810d3cbd25f1ddc6155b75a05634a",
+      "metric_wall_s": 0.008396460994845256,
+      "metrics": {
+        "abs_signed_bias": 8.164136033787546e-12,
+        "max_abs_err": 9.81817191189388e-07,
+        "mean_abs_err": 2.270095560874574e-08,
+        "negative_count": 0.0,
+        "nonfinite_count": 0.0,
+        "nrmse": 0.0002435517921311123,
+        "reference_abs_max": 0.000684239220276195,
+        "reference_abs_mean": 0.0001220703125,
+        "row_sum_error_max": 9.655952453613281e-06,
+        "scaled_max_abs_err": 0.0023203000217707523,
+        "sqrt_js_max": 8.427634453634085e-05,
+        "top1_mismatch_rate": 0.0009765625,
+        "tv_max": 9.54830022771957e-05,
+        "tv_q99": 9.492289726405855e-05
+      },
+      "ok": true,
+      "op": "fused_softmax",
+      "output_dtype": "torch.float32",
+      "output_shape": [
+        1024,
+        8192
+      ],
+      "record_type": "robust_gate_measurement",
+      "reference_kind": "semantic_fp64",
+      "role": "candidate",
+      "schema_version": "1.0",
+      "seed_index": 10,
+      "shape": {
+        "K": 8192,
+        "M": 1024,
+        "N": 8192
+      },
+      "shared_input_wall_s": 0.2574425469938433,
+      "shared_reference_wall_s": {
+        "conformance_mixed": 0.10889088599651586,
+        "semantic_mixed": 0.10832909599412233
+      },
+      "source_receipt_sha256": "d38ba70aa667ee873e3c4c75708881ddf87ab3f48beb6ddc10cfcf94126156c7",
+      "split": "validation",
+      "structural_mismatches": [
+        "bias_dtype=fp16 (fused-v2 requires fp32)",
+        "probability_dtype=fp16 (fused-v2 requires fp32)",
+        "activation cast occurs in timed region"
+      ],
+      "tensor_seeds": {
+        "bias": 997613358416417046,
+        "weight": 2722397205961799376,
+        "x": 3607985298574940933
+      },
+      "threshold_failures": [
+        "row_sum_error_max=9.65595245e-06 > 5e-07"
+      ]
+    },
+    {
+      "build_metadata": {
+        "activation_cast_in_timed_region": true,
+        "bias_dtype": "torch.float16",
+        "build_wall_s": 5.2179995691403747e-05,
+        "builder": "ako_runs/controlled_followup/fused_closure_v2/candidates.py:historical_torch",
+        "historical_reference_builder": "ako_runs/phase2_fused_sdpa/variants2/fused_torch.py",
+        "matmul_output_dtype": "torch.float16",
+        "probability_dtype": "torch.float16",
+        "reported_compile_s": 0.0,
+        "timed_input_dtype": "torch.float32"
+      },
+      "campaign_id": "controlled-followup-robust-gate-v1",
+      "candidate": "torch_historical_exact",
+      "candidate_definition": {
+        "candidate_id": "torch_historical_exact",
+        "contract_adjudication": "diagnostic_nonconforming",
+        "implementation": "historical_torch",
+        "label": "historical torch fp16, activation cast in timed region",
+        "structural_mismatches": [
+          "bias_dtype=fp16 (fused-v2 requires fp32)",
+          "probability_dtype=fp16 (fused-v2 requires fp32)",
+          "activation cast occurs in timed region"
+        ],
+        "timed_input_dtype": "fp32"
+      },
+      "candidate_definition_sha256": "684aab7bd72c48ed7fb268c875c399cddc760ce6f8b80761251876feb3e9749a",
+      "candidate_wall_s": 0.0023236379929585382,
+      "case_id": "legacy_u01_gain1",
+      "closure_campaign_id": "fused-gbgs-closure-v2",
+      "closure_campaign_sha256": "feb15e1f03b5da1db03f5151cf64a92ee23d828fa07aebec47cebe5b839876ca",
+      "contract": {
+        "bias_dtype": "fp32",
+        "gelu": "exact_erf",
+        "operand_dtype": "fp16",
+        "output_dtype": "fp32",
+        "probability_dtype": "fp32",
+        "weight_dtype": "fp16",
+        "x_dtype": "fp16"
+      },
+      "contract_adjudication": "diagnostic_nonconforming",
+      "device": "cuda:0",
+      "gate_id": "conformance_mixed",
+      "gate_pass": false,
+      "gate_spec_file_sha256": "b6c3afaadf61f5d380a97c6c541828a1ecacd1a89a00b73b66207fe22d765e2e",
+      "gate_spec_sha256": "4898c42d82707ad4588c880f794935efba202f5c32fb656263ec2c8f6c3f22e8",
+      "manifest_file_sha256": "28d51cd4f1730bd190e63c7cad60670c37b67784393270e63e859a1685fc8a62",
+      "manifest_sha256": "d017ef44cd63ce2a27bf31ca0ea7631a1f9810d3cbd25f1ddc6155b75a05634a",
+      "metric_wall_s": 0.008174760005204007,
+      "metrics": {
+        "abs_signed_bias": 8.164626093265515e-12,
+        "max_abs_err": 1.007108949124813e-06,
+        "mean_abs_err": 2.2181795632063295e-08,
+        "negative_count": 0.0,
+        "nonfinite_count": 0.0,
+        "nrmse": 0.00023610112216233424,
+        "reference_abs_max": 0.0006842078873887658,
+        "reference_abs_mean": 0.00012207031250049006,
+        "row_sum_error_max": 9.655952453613281e-06,
+        "scaled_max_abs_err": 0.0021143176134083416,
+        "sqrt_js_max": 8.163692933535067e-05,
+        "top1_mismatch_rate": 0.0009765625,
+        "tv_max": 9.344068530481309e-05,
+        "tv_q99": 9.270552018278977e-05
+      },
+      "ok": true,
+      "op": "fused_softmax",
+      "output_dtype": "torch.float32",
+      "output_shape": [
+        1024,
+        8192
+      ],
+      "record_type": "robust_gate_measurement",
+      "reference_kind": "contract_mixed",
+      "role": "candidate",
+      "schema_version": "1.0",
+      "seed_index": 10,
+      "shape": {
+        "K": 8192,
+        "M": 1024,
+        "N": 8192
+      },
+      "shared_input_wall_s": 0.2574425469938433,
+      "shared_reference_wall_s": {
+        "conformance_mixed": 0.10889088599651586,
+        "semantic_mixed": 0.10832909599412233
+      },
+      "source_receipt_sha256": "d38ba70aa667ee873e3c4c75708881ddf87ab3f48beb6ddc10cfcf94126156c7",
+      "split": "validation",
+      "structural_mismatches": [
+        "bias_dtype=fp16 (fused-v2 requires fp32)",
+        "probability_dtype=fp16 (fused-v2 requires fp32)",
+        "activation cast occurs in timed region"
+      ],
+      "tensor_seeds": {
+        "bias": 997613358416417046,
+        "weight": 2722397205961799376,
+        "x": 3607985298574940933
+      },
+      "threshold_failures": [
+        "nrmse=0.000236101122 > 2e-05",
+        "row_sum_error_max=9.65595245e-06 > 5e-07",
+        "scaled_max_abs_err=0.00211431761 > 0.0005",
+        "sqrt_js_max=8.16369293e-05 > 5e-05",
+        "tv_max=9.34406853e-05 > 5e-05"
+      ]
+    },
+    {
+      "build_metadata": {
+        "activation_cast_in_timed_region": false,
+        "bias_dtype": "torch.float16",
+        "build_wall_s": 6.271900201682001e-05,
+        "builder": "ako_runs/controlled_followup/fused_closure_v2/candidates.py:historical_torch_precast",
+        "historical_reference_builder": "ako_runs/phase2_fused_sdpa/variants2/fused_torch.py",
+        "matmul_output_dtype": "torch.float16",
+        "probability_dtype": "torch.float16",
+        "reported_compile_s": 0.0,
+        "timed_input_dtype": "torch.float16"
+      },
+      "campaign_id": "controlled-followup-robust-gate-v1",
+      "candidate": "torch_historical_precast",
+      "candidate_definition": {
+        "candidate_id": "torch_historical_precast",
+        "contract_adjudication": "diagnostic_nonconforming",
+        "implementation": "historical_torch_precast",
+        "label": "historical torch fp16 arithmetic, activation precast",
+        "structural_mismatches": [
+          "bias_dtype=fp16 (fused-v2 requires fp32)",
+          "probability_dtype=fp16 (fused-v2 requires fp32)"
+        ],
+        "timed_input_dtype": "fp16"
+      },
+      "candidate_definition_sha256": "bdd4467f7ce15d01734ec9f9b2e7e3f6dd39463b47b03ef5e50fe2a434cfc0be",
+      "candidate_wall_s": 0.0022426170035032555,
+      "case_id": "legacy_u01_gain1",
+      "closure_campaign_id": "fused-gbgs-closure-v2",
+      "closure_campaign_sha256": "feb15e1f03b5da1db03f5151cf64a92ee23d828fa07aebec47cebe5b839876ca",
+      "contract": {
+        "bias_dtype": "fp32",
+        "gelu": "exact_erf",
+        "operand_dtype": "fp16",
+        "output_dtype": "fp32",
+        "probability_dtype": "fp32",
+        "weight_dtype": "fp16",
+        "x_dtype": "fp16"
+      },
+      "contract_adjudication": "diagnostic_nonconforming",
+      "device": "cuda:0",
+      "gate_id": "semantic_mixed",
+      "gate_pass": false,
+      "gate_spec_file_sha256": "b6c3afaadf61f5d380a97c6c541828a1ecacd1a89a00b73b66207fe22d765e2e",
+      "gate_spec_sha256": "4898c42d82707ad4588c880f794935efba202f5c32fb656263ec2c8f6c3f22e8",
+      "manifest_file_sha256": "28d51cd4f1730bd190e63c7cad60670c37b67784393270e63e859a1685fc8a62",
+      "manifest_sha256": "d017ef44cd63ce2a27bf31ca0ea7631a1f9810d3cbd25f1ddc6155b75a05634a",
+      "metric_wall_s": 0.008198080002330244,
+      "metrics": {
+        "abs_signed_bias": 8.164136033787546e-12,
+        "max_abs_err": 9.81817191189388e-07,
+        "mean_abs_err": 2.270095560874574e-08,
+        "negative_count": 0.0,
+        "nonfinite_count": 0.0,
+        "nrmse": 0.0002435517921311123,
+        "reference_abs_max": 0.000684239220276195,
+        "reference_abs_mean": 0.0001220703125,
+        "row_sum_error_max": 9.655952453613281e-06,
+        "scaled_max_abs_err": 0.0023203000217707523,
+        "sqrt_js_max": 8.427634453634085e-05,
+        "top1_mismatch_rate": 0.0009765625,
+        "tv_max": 9.54830022771957e-05,
+        "tv_q99": 9.492289726405855e-05
+      },
+      "ok": true,
+      "op": "fused_softmax",
+      "output_dtype": "torch.float32",
+      "output_shape": [
+        1024,
+        8192
+      ],
+      "record_type": "robust_gate_measurement",
+      "reference_kind": "semantic_fp64",
+      "role": "candidate",
+      "schema_version": "1.0",
+      "seed_index": 10,
+      "shape": {
+        "K": 8192,
+        "M": 1024,
+        "N": 8192
+      },
+      "shared_input_wall_s": 0.2574425469938433,
+      "shared_reference_wall_s": {
+        "conformance_mixed": 0.10889088599651586,
+        "semantic_mixed": 0.10832909599412233
+      },
+      "source_receipt_sha256": "d38ba70aa667ee873e3c4c75708881ddf87ab3f48beb6ddc10cfcf94126156c7",
+      "split": "validation",
+      "structural_mismatches": [
+        "bias_dtype=fp16 (fused-v2 requires fp32)",
+        "probability_dtype=fp16 (fused-v2 requires fp32)"
+      ],
+      "tensor_seeds": {
+        "bias": 997613358416417046,
+        "weight": 2722397205961799376,
+        "x": 3607985298574940933
+      },
+      "threshold_failures": [
+        "row_sum_error_max=9.65595245e-06 > 5e-07"
+      ]
+    },
+    {
+      "build_metadata": {
+        "activation_cast_in_timed_region": false,
+        "bias_dtype": "torch.float16",
+        "build_wall_s": 6.271900201682001e-05,
+        "builder": "ako_runs/controlled_followup/fused_closure_v2/candidates.py:historical_torch_precast",
+        "historical_reference_builder": "ako_runs/phase2_fused_sdpa/variants2/fused_torch.py",
+        "matmul_output_dtype": "torch.float16",
+        "probability_dtype": "torch.float16",
+        "reported_compile_s": 0.0,
+        "timed_input_dtype": "torch.float16"
+      },
+      "campaign_id": "controlled-followup-robust-gate-v1",
+      "candidate": "torch_historical_precast",
+      "candidate_definition": {
+        "candidate_id": "torch_historical_precast",
+        "contract_adjudication": "diagnostic_nonconforming",
+        "implementation": "historical_torch_precast",
+        "label": "historical torch fp16 arithmetic, activation precast",
+        "structural_mismatches": [
+          "bias_dtype=fp16 (fused-v2 requires fp32)",
+          "probability_dtype=fp16 (fused-v2 requires fp32)"
+        ],
+        "timed_input_dtype": "fp16"
+      },
+      "candidate_definition_sha256": "bdd4467f7ce15d01734ec9f9b2e7e3f6dd39463b47b03ef5e50fe2a434cfc0be",
+      "candidate_wall_s": 0.0022426170035032555,
+      "case_id": "legacy_u01_gain1",
+      "closure_campaign_id": "fused-gbgs-closure-v2",
+      "closure_campaign_sha256": "feb15e1f03b5da1db03f5151cf64a92ee23d828fa07aebec47cebe5b839876ca",
+      "contract": {
+        "bias_dtype": "fp32",
+        "gelu": "exact_erf",
+        "operand_dtype": "fp16",
+        "output_dtype": "fp32",
+        "probability_dtype": "fp32",
+        "weight_dtype": "fp16",
+        "x_dtype": "fp16"
+      },
+      "contract_adjudication": "diagnostic_nonconforming",
+      "device": "cuda:0",
+      "gate_id": "conformance_mixed",
+      "gate_pass": false,
+      "gate_spec_file_sha256": "b6c3afaadf61f5d380a97c6c541828a1ecacd1a89a00b73b66207fe22d765e2e",
+      "gate_spec_sha256": "4898c42d82707ad4588c880f794935efba202f5c32fb656263ec2c8f6c3f22e8",
+      "manifest_file_sha256": "28d51cd4f1730bd190e63c7cad60670c37b67784393270e63e859a1685fc8a62",
+      "manifest_sha256": "d017ef44cd63ce2a27bf31ca0ea7631a1f9810d3cbd25f1ddc6155b75a05634a",
+      "metric_wall_s": 0.008172747009666637,
+      "metrics": {
+        "abs_signed_bias": 8.164626093265515e-12,
+        "max_abs_err": 1.007108949124813e-06,
+        "mean_abs_err": 2.2181795632063295e-08,
+        "negative_count": 0.0,
+        "nonfinite_count": 0.0,
+        "nrmse": 0.00023610112216233424,
+        "reference_abs_max": 0.0006842078873887658,
+        "reference_abs_mean": 0.00012207031250049006,
+        "row_sum_error_max": 9.655952453613281e-06,
+        "scaled_max_abs_err": 0.0021143176134083416,
+        "sqrt_js_max": 8.163692933535067e-05,
+        "top1_mismatch_rate": 0.0009765625,
+        "tv_max": 9.344068530481309e-05,
+        "tv_q99": 9.270552018278977e-05
+      },
+      "ok": true,
+      "op": "fused_softmax",
+      "output_dtype": "torch.float32",
+      "output_shape": [
+        1024,
+        8192
+      ],
+      "record_type": "robust_gate_measurement",
+      "reference_kind": "contract_mixed",
+      "role": "candidate",
+      "schema_version": "1.0",
+      "seed_index": 10,
+      "shape": {
+        "K": 8192,
+        "M": 1024,
+        "N": 8192
+      },
+      "shared_input_wall_s": 0.2574425469938433,
+      "shared_reference_wall_s": {
+        "conformance_mixed": 0.10889088599651586,
+        "semantic_mixed": 0.10832909599412233
+      },
+      "source_receipt_sha256": "d38ba70aa667ee873e3c4c75708881ddf87ab3f48beb6ddc10cfcf94126156c7",
+      "split": "validation",
+      "structural_mismatches": [
+        "bias_dtype=fp16 (fused-v2 requires fp32)",
+        "probability_dtype=fp16 (fused-v2 requires fp32)"
+      ],
+      "tensor_seeds": {
+        "bias": 997613358416417046,
+        "weight": 2722397205961799376,
+        "x": 3607985298574940933
+      },
+      "threshold_failures": [
+        "nrmse=0.000236101122 > 2e-05",
+        "row_sum_error_max=9.65595245e-06 > 5e-07",
+        "scaled_max_abs_err=0.00211431761 > 0.0005",
+        "sqrt_js_max=8.16369293e-05 > 5e-05",
+        "tv_max=9.34406853e-05 > 5e-05"
+      ]
+    },
+    {
+      "build_metadata": {
+        "activation_cast_in_timed_region": false,
+        "bias_dtype": "torch.float32",
+        "build_wall_s": 2.1297004423104227e-05,
+        "builder": "ako_runs/controlled_followup/fused_closure_v2/candidates.py:torch_contract_fp32",
+        "historical_reference_builder": null,
+        "matmul_output_dtype": "torch.float32",
+        "probability_dtype": "torch.float32",
+        "reported_compile_s": 0.0,
+        "timed_input_dtype": "torch.float16"
+      },
+      "campaign_id": "controlled-followup-robust-gate-v1",
+      "candidate": "torch_contract_fp32",
+      "candidate_definition": {
+        "candidate_id": "torch_contract_fp32",
+        "contract_adjudication": "fused_v2_required",
+        "implementation": "torch_contract_fp32",
+        "label": "torch fp16 operands, fp32 matmul output and fp32 epilogue",
+        "structural_mismatches": [],
+        "timed_input_dtype": "fp16"
+      },
+      "candidate_definition_sha256": "bd89a3d7502a04919990db385b66576bc572d6999eae10a497c360ec268bfbb9",
+      "candidate_wall_s": 0.0023015409969957545,
+      "case_id": "legacy_u01_gain1",
+      "closure_campaign_id": "fused-gbgs-closure-v2",
+      "closure_campaign_sha256": "feb15e1f03b5da1db03f5151cf64a92ee23d828fa07aebec47cebe5b839876ca",
+      "contract": {
+        "bias_dtype": "fp32",
+        "gelu": "exact_erf",
+        "operand_dtype": "fp16",
+        "output_dtype": "fp32",
+        "probability_dtype": "fp32",
+        "weight_dtype": "fp16",
+        "x_dtype": "fp16"
+      },
+      "contract_adjudication": "fused_v2_required",
+      "device": "cuda:0",
+      "gate_id": "semantic_mixed",
+      "gate_pass": true,
+      "gate_spec_file_sha256": "b6c3afaadf61f5d380a97c6c541828a1ecacd1a89a00b73b66207fe22d765e2e",
+      "gate_spec_sha256": "4898c42d82707ad4588c880f794935efba202f5c32fb656263ec2c8f6c3f22e8",
+      "manifest_file_sha256": "28d51cd4f1730bd190e63c7cad60670c37b67784393270e63e859a1685fc8a62",
+      "manifest_sha256": "d017ef44cd63ce2a27bf31ca0ea7631a1f9810d3cbd25f1ddc6155b75a05634a",
+      "metric_wall_s": 0.008229295999626629,
+      "metrics": {
+        "abs_signed_bias": 1.4394475185534007e-13,
+        "max_abs_err": 1.3481064885077646e-07,
+        "mean_abs_err": 5.035956533219346e-09,
+        "negative_count": 0.0,
+        "nonfinite_count": 0.0,
+        "nrmse": 6.129941805819949e-05,
+        "reference_abs_max": 0.000684239220276195,
+        "reference_abs_mean": 0.0001220703125,
+        "row_sum_error_max": 1.4725810615345836e-07,
+        "scaled_max_abs_err": 0.0004448654008128961,
+        "sqrt_js_max": 2.0724163349995124e-05,
+        "top1_mismatch_rate": 0.0,
+        "tv_max": 2.1297395051046898e-05,
+        "tv_q99": 2.1145091487283415e-05
+      },
+      "ok": true,
+      "op": "fused_softmax",
+      "output_dtype": "torch.float32",
+      "output_shape": [
+        1024,
+        8192
+      ],
+      "record_type": "robust_gate_measurement",
+      "reference_kind": "semantic_fp64",
+      "role": "candidate",
+      "schema_version": "1.0",
+      "seed_index": 10,
+      "shape": {
+        "K": 8192,
+        "M": 1024,
+        "N": 8192
+      },
+      "shared_input_wall_s": 0.2574425469938433,
+      "shared_reference_wall_s": {
+        "conformance_mixed": 0.10889088599651586,
+        "semantic_mixed": 0.10832909599412233
+      },
+      "source_receipt_sha256": "d38ba70aa667ee873e3c4c75708881ddf87ab3f48beb6ddc10cfcf94126156c7",
+      "split": "validation",
+      "structural_mismatches": [],
+      "tensor_seeds": {
+        "bias": 997613358416417046,
+        "weight": 2722397205961799376,
+        "x": 3607985298574940933
+      },
+      "threshold_failures": []
+    },
+    {
+      "build_metadata": {
+        "activation_cast_in_timed_region": false,
+        "bias_dtype": "torch.float32",
+        "build_wall_s": 2.1297004423104227e-05,
+        "builder": "ako_runs/controlled_followup/fused_closure_v2/candidates.py:torch_contract_fp32",
+        "historical_reference_builder": null,
+        "matmul_output_dtype": "torch.float32",
+        "probability_dtype": "torch.float32",
+        "reported_compile_s": 0.0,
+        "timed_input_dtype": "torch.float16"
+      },
+      "campaign_id": "controlled-followup-robust-gate-v1",
+      "candidate": "torch_contract_fp32",
+      "candidate_definition": {
+        "candidate_id": "torch_contract_fp32",
+        "contract_adjudication": "fused_v2_required",
+        "implementation": "torch_contract_fp32",
+        "label": "torch fp16 operands, fp32 matmul output and fp32 epilogue",
+        "structural_mismatches": [],
+        "timed_input_dtype": "fp16"
+      },
+      "candidate_definition_sha256": "bd89a3d7502a04919990db385b66576bc572d6999eae10a497c360ec268bfbb9",
+      "candidate_wall_s": 0.0023015409969957545,
+      "case_id": "legacy_u01_gain1",
+      "closure_campaign_id": "fused-gbgs-closure-v2",
+      "closure_campaign_sha256": "feb15e1f03b5da1db03f5151cf64a92ee23d828fa07aebec47cebe5b839876ca",
+      "contract": {
+        "bias_dtype": "fp32",
+        "gelu": "exact_erf",
+        "operand_dtype": "fp16",
+        "output_dtype": "fp32",
+        "probability_dtype": "fp32",
+        "weight_dtype": "fp16",
+        "x_dtype": "fp16"
+      },
+      "contract_adjudication": "fused_v2_required",
+      "device": "cuda:0",
+      "gate_id": "conformance_mixed",
+      "gate_pass": true,
+      "gate_spec_file_sha256": "b6c3afaadf61f5d380a97c6c541828a1ecacd1a89a00b73b66207fe22d765e2e",
+      "gate_spec_sha256": "4898c42d82707ad4588c880f794935efba202f5c32fb656263ec2c8f6c3f22e8",
+      "manifest_file_sha256": "28d51cd4f1730bd190e63c7cad60670c37b67784393270e63e859a1685fc8a62",
+      "manifest_sha256": "d017ef44cd63ce2a27bf31ca0ea7631a1f9810d3cbd25f1ddc6155b75a05634a",
+      "metric_wall_s": 0.008203435994801112,
+      "metrics": {
+        "abs_signed_bias": 1.4443481133330494e-13,
+        "max_abs_err": 6.170012056827545e-09,
+        "mean_abs_err": 9.179122913149929e-11,
+        "negative_count": 0.0,
+        "nonfinite_count": 0.0,
+        "nrmse": 1.1972988373209036e-06,
+        "reference_abs_max": 0.0006842078873887658,
+        "reference_abs_mean": 0.00012207031250049006,
+        "row_sum_error_max": 1.4725810615345836e-07,
+        "scaled_max_abs_err": 1.0294342981376346e-05,
+        "sqrt_js_max": 3.750734918268152e-07,
+        "top1_mismatch_rate": 0.0,
+        "tv_max": 4.1153180063702166e-07,
+        "tv_q99": 3.970876059611328e-07
+      },
+      "ok": true,
+      "op": "fused_softmax",
+      "output_dtype": "torch.float32",
+      "output_shape": [
+        1024,
+        8192
+      ],
+      "record_type": "robust_gate_measurement",
+      "reference_kind": "contract_mixed",
+      "role": "candidate",
+      "schema_version": "1.0",
+      "seed_index": 10,
+      "shape": {
+        "K": 8192,
+        "M": 1024,
+        "N": 8192
+      },
+      "shared_input_wall_s": 0.2574425469938433,
+      "shared_reference_wall_s": {
+        "conformance_mixed": 0.10889088599651586,
+        "semantic_mixed": 0.10832909599412233
+      },
+      "source_receipt_sha256": "d38ba70aa667ee873e3c4c75708881ddf87ab3f48beb6ddc10cfcf94126156c7",
+      "split": "validation",
+      "structural_mismatches": [],
+      "tensor_seeds": {
+        "bias": 997613358416417046,
+        "weight": 2722397205961799376,
+        "x": 3607985298574940933
+      },
+      "threshold_failures": []
+    },
+    {
+      "build_metadata": {
+        "artifacts": {
+          "backend_detail": "T.gemm(fp16 smem -> fp32 fragment) kc=2048 T.Pipelined(num_stages=2); epilogue bias=True gelu=True (T.erf, exact form); + row-softmax kernel (F4: warp shuffle + cached exp, 256 thr)",
+          "block": [
+            256,
+            1,
+            1
+          ],
+          "grid": [
+            32,
+            8,
+            1
+          ],
+          "n_kernels": 2,
+          "wcache": "cached"
+        },
+        "build_wall_s": 7.321748907008441,
+        "builder": "ako_runs/phase2_fused_sdpa/variants2/fused_tilelang.py",
+        "n_kernels": 2,
+        "notes": "tilelang 0.1.11 fused arm GBGS (+ softmax (full op)) wcache=cached: 128x256x64/256thr kc=2048 stages=2",
+        "phase2_config": {
+          "BK": 64,
+          "BM": 128,
+          "BN": 256,
+          "K": 8192,
+          "M": 1024,
+          "N": 8192,
+          "arith": "fp16",
+          "cast": "precast",
+          "dsl": "tilelang",
+          "extra": {
+            "epilogue": "smem",
+            "wcache": "cached"
+          },
+          "input_dtype": "torch.float16",
+          "kc": 2048,
+          "stages": 2,
+          "threads": 256,
+          "variant": "GBGS"
+        },
+        "reported_compile_s": 6.9015313669951865,
+        "timed_input_dtype": "torch.float16"
+      },
+      "campaign_id": "controlled-followup-robust-gate-v1",
+      "candidate": "tilelang_full_g08",
+      "candidate_definition": {
+        "candidate_id": "tilelang_full_g08",
+        "contract_adjudication": "fused_v2_required",
+        "dsl": "tilelang",
+        "grid_id": "g08",
+        "implementation": "phase2_custom",
+        "label": "frozen full-frontier TileLang winner g08",
+        "selection_role": "confirmed_full_frontier_winner",
+        "set": "BM=128,BN=256,BK=64,threads=256,stages=2,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=smem",
+        "structural_mismatches": [],
+        "timed_input_dtype": "fp16"
+      },
+      "candidate_definition_sha256": "459785c83e7e6fc83c2b6a1baac9cbb154bb6a037b26f6077c73e6c821cdd25d",
+      "candidate_wall_s": 0.00306139700114727,
+      "case_id": "legacy_u01_gain1",
+      "closure_campaign_id": "fused-gbgs-closure-v2",
+      "closure_campaign_sha256": "feb15e1f03b5da1db03f5151cf64a92ee23d828fa07aebec47cebe5b839876ca",
+      "contract": {
+        "bias_dtype": "fp32",
+        "gelu": "exact_erf",
+        "operand_dtype": "fp16",
+        "output_dtype": "fp32",
+        "probability_dtype": "fp32",
+        "weight_dtype": "fp16",
+        "x_dtype": "fp16"
+      },
+      "contract_adjudication": "fused_v2_required",
+      "device": "cuda:0",
+      "gate_id": "semantic_mixed",
+      "gate_pass": true,
+      "gate_spec_file_sha256": "b6c3afaadf61f5d380a97c6c541828a1ecacd1a89a00b73b66207fe22d765e2e",
+      "gate_spec_sha256": "4898c42d82707ad4588c880f794935efba202f5c32fb656263ec2c8f6c3f22e8",
+      "manifest_file_sha256": "28d51cd4f1730bd190e63c7cad60670c37b67784393270e63e859a1685fc8a62",
+      "manifest_sha256": "d017ef44cd63ce2a27bf31ca0ea7631a1f9810d3cbd25f1ddc6155b75a05634a",
+      "metric_wall_s": 0.008183162994100712,
+      "metrics": {
+        "abs_signed_bias": 6.426109634808342e-14,
+        "max_abs_err": 1.3384258657519847e-07,
+        "mean_abs_err": 5.035787758379806e-09,
+        "negative_count": 0.0,
+        "nonfinite_count": 0.0,
+        "nrmse": 6.129458305256432e-05,
+        "reference_abs_max": 0.000684239220276195,
+        "reference_abs_mean": 0.0001220703125,
+        "row_sum_error_max": 1.453518052585423e-07,
+        "scaled_max_abs_err": 0.0004454422168022175,
+        "sqrt_js_max": 2.0726447723416404e-05,
+        "top1_mismatch_rate": 0.0,
+        "tv_max": 2.1296636709817e-05,
+        "tv_q99": 2.114366785186404e-05
+      },
+      "ok": true,
+      "op": "fused_softmax",
+      "output_dtype": "torch.float32",
+      "output_shape": [
+        1024,
+        8192
+      ],
+      "record_type": "robust_gate_measurement",
+      "reference_kind": "semantic_fp64",
+      "role": "candidate",
+      "schema_version": "1.0",
+      "seed_index": 10,
+      "shape": {
+        "K": 8192,
+        "M": 1024,
+        "N": 8192
+      },
+      "shared_input_wall_s": 0.2574425469938433,
+      "shared_reference_wall_s": {
+        "conformance_mixed": 0.10889088599651586,
+        "semantic_mixed": 0.10832909599412233
+      },
+      "source_receipt_sha256": "d38ba70aa667ee873e3c4c75708881ddf87ab3f48beb6ddc10cfcf94126156c7",
+      "split": "validation",
+      "structural_mismatches": [],
+      "tensor_seeds": {
+        "bias": 997613358416417046,
+        "weight": 2722397205961799376,
+        "x": 3607985298574940933
+      },
+      "threshold_failures": []
+    },
+    {
+      "build_metadata": {
+        "artifacts": {
+          "backend_detail": "T.gemm(fp16 smem -> fp32 fragment) kc=2048 T.Pipelined(num_stages=2); epilogue bias=True gelu=True (T.erf, exact form); + row-softmax kernel (F4: warp shuffle + cached exp, 256 thr)",
+          "block": [
+            256,
+            1,
+            1
+          ],
+          "grid": [
+            32,
+            8,
+            1
+          ],
+          "n_kernels": 2,
+          "wcache": "cached"
+        },
+        "build_wall_s": 7.321748907008441,
+        "builder": "ako_runs/phase2_fused_sdpa/variants2/fused_tilelang.py",
+        "n_kernels": 2,
+        "notes": "tilelang 0.1.11 fused arm GBGS (+ softmax (full op)) wcache=cached: 128x256x64/256thr kc=2048 stages=2",
+        "phase2_config": {
+          "BK": 64,
+          "BM": 128,
+          "BN": 256,
+          "K": 8192,
+          "M": 1024,
+          "N": 8192,
+          "arith": "fp16",
+          "cast": "precast",
+          "dsl": "tilelang",
+          "extra": {
+            "epilogue": "smem",
+            "wcache": "cached"
+          },
+          "input_dtype": "torch.float16",
+          "kc": 2048,
+          "stages": 2,
+          "threads": 256,
+          "variant": "GBGS"
+        },
+        "reported_compile_s": 6.9015313669951865,
+        "timed_input_dtype": "torch.float16"
+      },
+      "campaign_id": "controlled-followup-robust-gate-v1",
+      "candidate": "tilelang_full_g08",
+      "candidate_definition": {
+        "candidate_id": "tilelang_full_g08",
+        "contract_adjudication": "fused_v2_required",
+        "dsl": "tilelang",
+        "grid_id": "g08",
+        "implementation": "phase2_custom",
+        "label": "frozen full-frontier TileLang winner g08",
+        "selection_role": "confirmed_full_frontier_winner",
+        "set": "BM=128,BN=256,BK=64,threads=256,stages=2,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=smem",
+        "structural_mismatches": [],
+        "timed_input_dtype": "fp16"
+      },
+      "candidate_definition_sha256": "459785c83e7e6fc83c2b6a1baac9cbb154bb6a037b26f6077c73e6c821cdd25d",
+      "candidate_wall_s": 0.00306139700114727,
+      "case_id": "legacy_u01_gain1",
+      "closure_campaign_id": "fused-gbgs-closure-v2",
+      "closure_campaign_sha256": "feb15e1f03b5da1db03f5151cf64a92ee23d828fa07aebec47cebe5b839876ca",
+      "contract": {
+        "bias_dtype": "fp32",
+        "gelu": "exact_erf",
+        "operand_dtype": "fp16",
+        "output_dtype": "fp32",
+        "probability_dtype": "fp32",
+        "weight_dtype": "fp16",
+        "x_dtype": "fp16"
+      },
+      "contract_adjudication": "fused_v2_required",
+      "device": "cuda:0",
+      "gate_id": "conformance_mixed",
+      "gate_pass": true,
+      "gate_spec_file_sha256": "b6c3afaadf61f5d380a97c6c541828a1ecacd1a89a00b73b66207fe22d765e2e",
+      "gate_spec_sha256": "4898c42d82707ad4588c880f794935efba202f5c32fb656263ec2c8f6c3f22e8",
+      "manifest_file_sha256": "28d51cd4f1730bd190e63c7cad60670c37b67784393270e63e859a1685fc8a62",
+      "manifest_sha256": "d017ef44cd63ce2a27bf31ca0ea7631a1f9810d3cbd25f1ddc6155b75a05634a",
+      "metric_wall_s": 0.008191537999664433,
+      "metrics": {
+        "abs_signed_bias": 6.475115582604829e-14,
+        "max_abs_err": 5.0640664994716644e-09,
+        "mean_abs_err": 6.895402217960145e-11,
+        "negative_count": 0.0,
+        "nonfinite_count": 0.0,
+        "nrmse": 8.937758716463362e-07,
+        "reference_abs_max": 0.0006842078873887658,
+        "reference_abs_mean": 0.00012207031250049006,
+        "row_sum_error_max": 1.453518052585423e-07,
+        "scaled_max_abs_err": 7.825959994159731e-06,
+        "sqrt_js_max": 2.815191874270428e-07,
+        "top1_mismatch_rate": 0.0,
+        "tv_max": 3.063360054511577e-07,
+        "tv_q99": 3.016750997630879e-07
+      },
+      "ok": true,
+      "op": "fused_softmax",
+      "output_dtype": "torch.float32",
+      "output_shape": [
+        1024,
+        8192
+      ],
+      "record_type": "robust_gate_measurement",
+      "reference_kind": "contract_mixed",
+      "role": "candidate",
+      "schema_version": "1.0",
+      "seed_index": 10,
+      "shape": {
+        "K": 8192,
+        "M": 1024,
+        "N": 8192
+      },
+      "shared_input_wall_s": 0.2574425469938433,
+      "shared_reference_wall_s": {
+        "conformance_mixed": 0.10889088599651586,
+        "semantic_mixed": 0.10832909599412233
+      },
+      "source_receipt_sha256": "d38ba70aa667ee873e3c4c75708881ddf87ab3f48beb6ddc10cfcf94126156c7",
+      "split": "validation",
+      "structural_mismatches": [],
+      "tensor_seeds": {
+        "bias": 997613358416417046,
+        "weight": 2722397205961799376,
+        "x": 3607985298574940933
+      },
+      "threshold_failures": []
+    },
+    {
+      "build_metadata": {
+        "artifacts": {
+          "backend_detail": "tl.dot on fp16 operands -> mma.sync.m16n8k16.f32.f16.f16.f32; KC=2048; num_stages=2 num_warps=8; epilogue bias=True gelu=True (tl.math.erf, exact form); NO autotune; + row-softmax kernel, one row per program, BN=N so exp is computed once in registers",
+          "block": [
+            256,
+            1,
+            1
+          ],
+          "grid": [
+            32,
+            8,
+            1
+          ],
+          "n_kernels": 2,
+          "wcache": "cached"
+        },
+        "build_wall_s": 0.3451150370092364,
+        "builder": "ako_runs/phase2_fused_sdpa/variants2/fused_triton.py",
+        "n_kernels": 2,
+        "notes": "triton 3.6.0 fused arm GBGS (+ softmax (full op)) wcache=cached: 128x256x32 kc=2048 stages=2 warps=8",
+        "phase2_config": {
+          "BK": 32,
+          "BM": 128,
+          "BN": 256,
+          "K": 8192,
+          "M": 1024,
+          "N": 8192,
+          "arith": "fp16",
+          "cast": "precast",
+          "dsl": "triton",
+          "extra": {
+            "epilogue": "smem",
+            "wcache": "cached"
+          },
+          "input_dtype": "torch.float16",
+          "kc": 2048,
+          "stages": 2,
+          "threads": 256,
+          "variant": "GBGS"
+        },
+        "reported_compile_s": 0.3018687589938054,
+        "timed_input_dtype": "torch.float16"
+      },
+      "campaign_id": "controlled-followup-robust-gate-v1",
+      "candidate": "triton_full_g05",
+      "candidate_definition": {
+        "candidate_id": "triton_full_g05",
+        "contract_adjudication": "fused_v2_required",
+        "dsl": "triton",
+        "grid_id": "g05",
+        "implementation": "phase2_custom",
+        "label": "frozen full-frontier Triton winner g05",
+        "selection_role": "confirmed_full_frontier_winner",
+        "set": "BM=128,BN=256,BK=32,threads=256,stages=2,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=smem",
+        "structural_mismatches": [],
+        "timed_input_dtype": "fp16"
+      },
+      "candidate_definition_sha256": "ffff5c01ea18fc0c43108d73df724f967a3bfa13e6c8406e81d9c5d1ed41e951",
+      "candidate_wall_s": 0.0030289459973573685,
+      "case_id": "legacy_u01_gain1",
+      "closure_campaign_id": "fused-gbgs-closure-v2",
+      "closure_campaign_sha256": "feb15e1f03b5da1db03f5151cf64a92ee23d828fa07aebec47cebe5b839876ca",
+      "contract": {
+        "bias_dtype": "fp32",
+        "gelu": "exact_erf",
+        "operand_dtype": "fp16",
+        "output_dtype": "fp32",
+        "probability_dtype": "fp32",
+        "weight_dtype": "fp16",
+        "x_dtype": "fp16"
+      },
+      "contract_adjudication": "fused_v2_required",
+      "device": "cuda:0",
+      "gate_id": "semantic_mixed",
+      "gate_pass": true,
+      "gate_spec_file_sha256": "b6c3afaadf61f5d380a97c6c541828a1ecacd1a89a00b73b66207fe22d765e2e",
+      "gate_spec_sha256": "4898c42d82707ad4588c880f794935efba202f5c32fb656263ec2c8f6c3f22e8",
+      "manifest_file_sha256": "28d51cd4f1730bd190e63c7cad60670c37b67784393270e63e859a1685fc8a62",
+      "manifest_sha256": "d017ef44cd63ce2a27bf31ca0ea7631a1f9810d3cbd25f1ddc6155b75a05634a",
+      "metric_wall_s": 0.008205527992686257,
+      "metrics": {
+        "abs_signed_bias": 2.7235071846262214e-13,
+        "max_abs_err": 1.338716904056552e-07,
+        "mean_abs_err": 5.035793843398745e-09,
+        "negative_count": 0.0,
+        "nonfinite_count": 0.0,
+        "nrmse": 6.129458560825064e-05,
+        "reference_abs_max": 0.000684239220276195,
+        "reference_abs_mean": 0.0001220703125,
+        "row_sum_error_max": 1.512307790108025e-07,
+        "scaled_max_abs_err": 0.0004454422168022175,
+        "sqrt_js_max": 2.072665194228668e-05,
+        "top1_mismatch_rate": 0.0,
+        "tv_max": 2.1296879284068184e-05,
+        "tv_q99": 2.1144645187528538e-05
+      },
+      "ok": true,
+      "op": "fused_softmax",
+      "output_dtype": "torch.float32",
+      "output_shape": [
+        1024,
+        8192
+      ],
+      "record_type": "robust_gate_measurement",
+      "reference_kind": "semantic_fp64",
+      "role": "candidate",
+      "schema_version": "1.0",
+      "seed_index": 10,
+      "shape": {
+        "K": 8192,
+        "M": 1024,
+        "N": 8192
+      },
+      "shared_input_wall_s": 0.2574425469938433,
+      "shared_reference_wall_s": {
+        "conformance_mixed": 0.10889088599651586,
+        "semantic_mixed": 0.10832909599412233
+      },
+      "source_receipt_sha256": "d38ba70aa667ee873e3c4c75708881ddf87ab3f48beb6ddc10cfcf94126156c7",
+      "split": "validation",
+      "structural_mismatches": [],
+      "tensor_seeds": {
+        "bias": 997613358416417046,
+        "weight": 2722397205961799376,
+        "x": 3607985298574940933
+      },
+      "threshold_failures": []
+    },
+    {
+      "build_metadata": {
+        "artifacts": {
+          "backend_detail": "tl.dot on fp16 operands -> mma.sync.m16n8k16.f32.f16.f16.f32; KC=2048; num_stages=2 num_warps=8; epilogue bias=True gelu=True (tl.math.erf, exact form); NO autotune; + row-softmax kernel, one row per program, BN=N so exp is computed once in registers",
+          "block": [
+            256,
+            1,
+            1
+          ],
+          "grid": [
+            32,
+            8,
+            1
+          ],
+          "n_kernels": 2,
+          "wcache": "cached"
+        },
+        "build_wall_s": 0.3451150370092364,
+        "builder": "ako_runs/phase2_fused_sdpa/variants2/fused_triton.py",
+        "n_kernels": 2,
+        "notes": "triton 3.6.0 fused arm GBGS (+ softmax (full op)) wcache=cached: 128x256x32 kc=2048 stages=2 warps=8",
+        "phase2_config": {
+          "BK": 32,
+          "BM": 128,
+          "BN": 256,
+          "K": 8192,
+          "M": 1024,
+          "N": 8192,
+          "arith": "fp16",
+          "cast": "precast",
+          "dsl": "triton",
+          "extra": {
+            "epilogue": "smem",
+            "wcache": "cached"
+          },
+          "input_dtype": "torch.float16",
+          "kc": 2048,
+          "stages": 2,
+          "threads": 256,
+          "variant": "GBGS"
+        },
+        "reported_compile_s": 0.3018687589938054,
+        "timed_input_dtype": "torch.float16"
+      },
+      "campaign_id": "controlled-followup-robust-gate-v1",
+      "candidate": "triton_full_g05",
+      "candidate_definition": {
+        "candidate_id": "triton_full_g05",
+        "contract_adjudication": "fused_v2_required",
+        "dsl": "triton",
+        "grid_id": "g05",
+        "implementation": "phase2_custom",
+        "label": "frozen full-frontier Triton winner g05",
+        "selection_role": "confirmed_full_frontier_winner",
+        "set": "BM=128,BN=256,BK=32,threads=256,stages=2,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=smem",
+        "structural_mismatches": [],
+        "timed_input_dtype": "fp16"
+      },
+      "candidate_definition_sha256": "ffff5c01ea18fc0c43108d73df724f967a3bfa13e6c8406e81d9c5d1ed41e951",
+      "candidate_wall_s": 0.0030289459973573685,
+      "case_id": "legacy_u01_gain1",
+      "closure_campaign_id": "fused-gbgs-closure-v2",
+      "closure_campaign_sha256": "feb15e1f03b5da1db03f5151cf64a92ee23d828fa07aebec47cebe5b839876ca",
+      "contract": {
+        "bias_dtype": "fp32",
+        "gelu": "exact_erf",
+        "operand_dtype": "fp16",
+        "output_dtype": "fp32",
+        "probability_dtype": "fp32",
+        "weight_dtype": "fp16",
+        "x_dtype": "fp16"
+      },
+      "contract_adjudication": "fused_v2_required",
+      "device": "cuda:0",
+      "gate_id": "conformance_mixed",
+      "gate_pass": true,
+      "gate_spec_file_sha256": "b6c3afaadf61f5d380a97c6c541828a1ecacd1a89a00b73b66207fe22d765e2e",
+      "gate_spec_sha256": "4898c42d82707ad4588c880f794935efba202f5c32fb656263ec2c8f6c3f22e8",
+      "manifest_file_sha256": "28d51cd4f1730bd190e63c7cad60670c37b67784393270e63e859a1685fc8a62",
+      "manifest_sha256": "d017ef44cd63ce2a27bf31ca0ea7631a1f9810d3cbd25f1ddc6155b75a05634a",
+      "metric_wall_s": 0.008170779008651152,
+      "metrics": {
+        "abs_signed_bias": 2.718606589846573e-13,
+        "max_abs_err": 5.0640664994716644e-09,
+        "mean_abs_err": 6.943701169603855e-11,
+        "negative_count": 0.0,
+        "nonfinite_count": 0.0,
+        "nrmse": 8.955045201425869e-07,
+        "reference_abs_max": 0.0006842078873887658,
+        "reference_abs_mean": 0.00012207031250049006,
+        "row_sum_error_max": 1.512307790108025e-07,
+        "scaled_max_abs_err": 7.825959994159731e-06,
+        "sqrt_js_max": 2.807021682955661e-07,
+        "top1_mismatch_rate": 0.0,
+        "tv_max": 3.13091732095927e-07,
+        "tv_q99": 3.043050310225226e-07
+      },
+      "ok": true,
+      "op": "fused_softmax",
+      "output_dtype": "torch.float32",
+      "output_shape": [
+        1024,
+        8192
+      ],
+      "record_type": "robust_gate_measurement",
+      "reference_kind": "contract_mixed",
+      "role": "candidate",
+      "schema_version": "1.0",
+      "seed_index": 10,
+      "shape": {
+        "K": 8192,
+        "M": 1024,
+        "N": 8192
+      },
+      "shared_input_wall_s": 0.2574425469938433,
+      "shared_reference_wall_s": {
+        "conformance_mixed": 0.10889088599651586,
+        "semantic_mixed": 0.10832909599412233
+      },
+      "source_receipt_sha256": "d38ba70aa667ee873e3c4c75708881ddf87ab3f48beb6ddc10cfcf94126156c7",
+      "split": "validation",
+      "structural_mismatches": [],
+      "tensor_seeds": {
+        "bias": 997613358416417046,
+        "weight": 2722397205961799376,
+        "x": 3607985298574940933
+      },
+      "threshold_failures": []
+    },
+    {
+      "build_metadata": {
+        "artifacts": {
+          "backend_detail": "T.gemm(fp16 smem -> fp32 fragment) kc=2048 T.Pipelined(num_stages=2); epilogue bias=True gelu=True (T.erf, exact form); + row-softmax kernel (F4: warp shuffle + cached exp, 256 thr)",
+          "block": [
+            256,
+            1,
+            1
+          ],
+          "grid": [
+            64,
+            8,
+            1
+          ],
+          "n_kernels": 2,
+          "wcache": "cached"
+        },
+        "build_wall_s": 5.857076082989806,
+        "builder": "ako_runs/phase2_fused_sdpa/variants2/fused_tilelang.py",
+        "n_kernels": 2,
+        "notes": "tilelang 0.1.11 fused arm GBGS (+ softmax (full op)) wcache=cached: 128x128x64/256thr kc=2048 stages=2",
+        "phase2_config": {
+          "BK": 64,
+          "BM": 128,
+          "BN": 128,
+          "K": 8192,
+          "M": 1024,
+          "N": 8192,
+          "arith": "fp16",
+          "cast": "precast",
+          "dsl": "tilelang",
+          "extra": {
+            "epilogue": "smem",
+            "wcache": "cached"
+          },
+          "input_dtype": "torch.float16",
+          "kc": 2048,
+          "stages": 2,
+          "threads": 256,
+          "variant": "GBGS"
+        },
+        "reported_compile_s": 5.856991763997939,
+        "timed_input_dtype": "torch.float16"
+      },
+      "campaign_id": "controlled-followup-robust-gate-v1",
+      "candidate": "tilelang_common_g03",
+      "candidate_definition": {
+        "candidate_id": "tilelang_common_g03",
+        "contract_adjudication": "fused_v2_required",
+        "dsl": "tilelang",
+        "grid_id": "g03",
+        "implementation": "phase2_custom",
+        "label": "frozen strict-common TileLang screen winner g03",
+        "selection_role": "strict_common_screen_winner",
+        "set": "BM=128,BN=128,BK=64,threads=256,stages=2,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=smem",
+        "structural_mismatches": [],
+        "timed_input_dtype": "fp16"
+      },
+      "candidate_definition_sha256": "5c0a65dcf15d157514d750ab0ce3d7173c78187655fceda7c7c927780a05e640",
+      "candidate_wall_s": 0.003207478002877906,
+      "case_id": "legacy_u01_gain1",
+      "closure_campaign_id": "fused-gbgs-closure-v2",
+      "closure_campaign_sha256": "feb15e1f03b5da1db03f5151cf64a92ee23d828fa07aebec47cebe5b839876ca",
+      "contract": {
+        "bias_dtype": "fp32",
+        "gelu": "exact_erf",
+        "operand_dtype": "fp16",
+        "output_dtype": "fp32",
+        "probability_dtype": "fp32",
+        "weight_dtype": "fp16",
+        "x_dtype": "fp16"
+      },
+      "contract_adjudication": "fused_v2_required",
+      "device": "cuda:0",
+      "gate_id": "semantic_mixed",
+      "gate_pass": true,
+      "gate_spec_file_sha256": "b6c3afaadf61f5d380a97c6c541828a1ecacd1a89a00b73b66207fe22d765e2e",
+      "gate_spec_sha256": "4898c42d82707ad4588c880f794935efba202f5c32fb656263ec2c8f6c3f22e8",
+      "manifest_file_sha256": "28d51cd4f1730bd190e63c7cad60670c37b67784393270e63e859a1685fc8a62",
+      "manifest_sha256": "d017ef44cd63ce2a27bf31ca0ea7631a1f9810d3cbd25f1ddc6155b75a05634a",
+      "metric_wall_s": 0.008181861994671635,
+      "metrics": {
+        "abs_signed_bias": 6.426109634808342e-14,
+        "max_abs_err": 1.3384258657519847e-07,
+        "mean_abs_err": 5.035787758379806e-09,
+        "negative_count": 0.0,
+        "nonfinite_count": 0.0,
+        "nrmse": 6.129458305256432e-05,
+        "reference_abs_max": 0.000684239220276195,
+        "reference_abs_mean": 0.0001220703125,
+        "row_sum_error_max": 1.453518052585423e-07,
+        "scaled_max_abs_err": 0.0004454422168022175,
+        "sqrt_js_max": 2.0726447723416404e-05,
+        "top1_mismatch_rate": 0.0,
+        "tv_max": 2.1296636709817e-05,
+        "tv_q99": 2.114366785186404e-05
+      },
+      "ok": true,
+      "op": "fused_softmax",
+      "output_dtype": "torch.float32",
+      "output_shape": [
+        1024,
+        8192
+      ],
+      "record_type": "robust_gate_measurement",
+      "reference_kind": "semantic_fp64",
+      "role": "candidate",
+      "schema_version": "1.0",
+      "seed_index": 10,
+      "shape": {
+        "K": 8192,
+        "M": 1024,
+        "N": 8192
+      },
+      "shared_input_wall_s": 0.2574425469938433,
+      "shared_reference_wall_s": {
+        "conformance_mixed": 0.10889088599651586,
+        "semantic_mixed": 0.10832909599412233
+      },
+      "source_receipt_sha256": "d38ba70aa667ee873e3c4c75708881ddf87ab3f48beb6ddc10cfcf94126156c7",
+      "split": "validation",
+      "structural_mismatches": [],
+      "tensor_seeds": {
+        "bias": 997613358416417046,
+        "weight": 2722397205961799376,
+        "x": 3607985298574940933
+      },
+      "threshold_failures": []
+    },
+    {
+      "build_metadata": {
+        "artifacts": {
+          "backend_detail": "T.gemm(fp16 smem -> fp32 fragment) kc=2048 T.Pipelined(num_stages=2); epilogue bias=True gelu=True (T.erf, exact form); + row-softmax kernel (F4: warp shuffle + cached exp, 256 thr)",
+          "block": [
+            256,
+            1,
+            1
+          ],
+          "grid": [
+            64,
+            8,
+            1
+          ],
+          "n_kernels": 2,
+          "wcache": "cached"
+        },
+        "build_wall_s": 5.857076082989806,
+        "builder": "ako_runs/phase2_fused_sdpa/variants2/fused_tilelang.py",
+        "n_kernels": 2,
+        "notes": "tilelang 0.1.11 fused arm GBGS (+ softmax (full op)) wcache=cached: 128x128x64/256thr kc=2048 stages=2",
+        "phase2_config": {
+          "BK": 64,
+          "BM": 128,
+          "BN": 128,
+          "K": 8192,
+          "M": 1024,
+          "N": 8192,
+          "arith": "fp16",
+          "cast": "precast",
+          "dsl": "tilelang",
+          "extra": {
+            "epilogue": "smem",
+            "wcache": "cached"
+          },
+          "input_dtype": "torch.float16",
+          "kc": 2048,
+          "stages": 2,
+          "threads": 256,
+          "variant": "GBGS"
+        },
+        "reported_compile_s": 5.856991763997939,
+        "timed_input_dtype": "torch.float16"
+      },
+      "campaign_id": "controlled-followup-robust-gate-v1",
+      "candidate": "tilelang_common_g03",
+      "candidate_definition": {
+        "candidate_id": "tilelang_common_g03",
+        "contract_adjudication": "fused_v2_required",
+        "dsl": "tilelang",
+        "grid_id": "g03",
+        "implementation": "phase2_custom",
+        "label": "frozen strict-common TileLang screen winner g03",
+        "selection_role": "strict_common_screen_winner",
+        "set": "BM=128,BN=128,BK=64,threads=256,stages=2,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=smem",
+        "structural_mismatches": [],
+        "timed_input_dtype": "fp16"
+      },
+      "candidate_definition_sha256": "5c0a65dcf15d157514d750ab0ce3d7173c78187655fceda7c7c927780a05e640",
+      "candidate_wall_s": 0.003207478002877906,
+      "case_id": "legacy_u01_gain1",
+      "closure_campaign_id": "fused-gbgs-closure-v2",
+      "closure_campaign_sha256": "feb15e1f03b5da1db03f5151cf64a92ee23d828fa07aebec47cebe5b839876ca",
+      "contract": {
+        "bias_dtype": "fp32",
+        "gelu": "exact_erf",
+        "operand_dtype": "fp16",
+        "output_dtype": "fp32",
+        "probability_dtype": "fp32",
+        "weight_dtype": "fp16",
+        "x_dtype": "fp16"
+      },
+      "contract_adjudication": "fused_v2_required",
+      "device": "cuda:0",
+      "gate_id": "conformance_mixed",
+      "gate_pass": true,
+      "gate_spec_file_sha256": "b6c3afaadf61f5d380a97c6c541828a1ecacd1a89a00b73b66207fe22d765e2e",
+      "gate_spec_sha256": "4898c42d82707ad4588c880f794935efba202f5c32fb656263ec2c8f6c3f22e8",
+      "manifest_file_sha256": "28d51cd4f1730bd190e63c7cad60670c37b67784393270e63e859a1685fc8a62",
+      "manifest_sha256": "d017ef44cd63ce2a27bf31ca0ea7631a1f9810d3cbd25f1ddc6155b75a05634a",
+      "metric_wall_s": 0.008157949996530078,
+      "metrics": {
+        "abs_signed_bias": 6.475115582604829e-14,
+        "max_abs_err": 5.0640664994716644e-09,
+        "mean_abs_err": 6.895402217960145e-11,
+        "negative_count": 0.0,
+        "nonfinite_count": 0.0,
+        "nrmse": 8.937758716463362e-07,
+        "reference_abs_max": 0.0006842078873887658,
+        "reference_abs_mean": 0.00012207031250049006,
+        "row_sum_error_max": 1.453518052585423e-07,
+        "scaled_max_abs_err": 7.825959994159731e-06,
+        "sqrt_js_max": 2.815191874270428e-07,
+        "top1_mismatch_rate": 0.0,
+        "tv_max": 3.063360054511577e-07,
+        "tv_q99": 3.016750997630879e-07
+      },
+      "ok": true,
+      "op": "fused_softmax",
+      "output_dtype": "torch.float32",
+      "output_shape": [
+        1024,
+        8192
+      ],
+      "record_type": "robust_gate_measurement",
+      "reference_kind": "contract_mixed",
+      "role": "candidate",
+      "schema_version": "1.0",
+      "seed_index": 10,
+      "shape": {
+        "K": 8192,
+        "M": 1024,
+        "N": 8192
+      },
+      "shared_input_wall_s": 0.2574425469938433,
+      "shared_reference_wall_s": {
+        "conformance_mixed": 0.10889088599651586,
+        "semantic_mixed": 0.10832909599412233
+      },
+      "source_receipt_sha256": "d38ba70aa667ee873e3c4c75708881ddf87ab3f48beb6ddc10cfcf94126156c7",
+      "split": "validation",
+      "structural_mismatches": [],
+      "tensor_seeds": {
+        "bias": 997613358416417046,
+        "weight": 2722397205961799376,
+        "x": 3607985298574940933
+      },
+      "threshold_failures": []
+    },
+    {
+      "build_metadata": {
+        "artifacts": {
+          "backend_detail": "tl.dot on fp16 operands -> mma.sync.m16n8k16.f32.f16.f16.f32; KC=2048; num_stages=2 num_warps=8; epilogue bias=True gelu=True (tl.math.erf, exact form); NO autotune; + row-softmax kernel, one row per program, BN=N so exp is computed once in registers",
+          "block": [
+            256,
+            1,
+            1
+          ],
+          "grid": [
+            64,
+            8,
+            1
+          ],
+          "n_kernels": 2,
+          "wcache": "cached"
+        },
+        "build_wall_s": 0.007040655997116119,
+        "builder": "ako_runs/phase2_fused_sdpa/variants2/fused_triton.py",
+        "n_kernels": 2,
+        "notes": "triton 3.6.0 fused arm GBGS (+ softmax (full op)) wcache=cached: 128x128x32 kc=2048 stages=2 warps=8",
+        "phase2_config": {
+          "BK": 32,
+          "BM": 128,
+          "BN": 128,
+          "K": 8192,
+          "M": 1024,
+          "N": 8192,
+          "arith": "fp16",
+          "cast": "precast",
+          "dsl": "triton",
+          "extra": {
+            "epilogue": "smem",
+            "wcache": "cached"
+          },
+          "input_dtype": "torch.float16",
+          "kc": 2048,
+          "stages": 2,
+          "threads": 256,
+          "variant": "GBGS"
+        },
+        "reported_compile_s": 0.006970227012061514,
+        "timed_input_dtype": "torch.float16"
+      },
+      "campaign_id": "controlled-followup-robust-gate-v1",
+      "candidate": "triton_common_g00",
+      "candidate_definition": {
+        "candidate_id": "triton_common_g00",
+        "contract_adjudication": "fused_v2_required",
+        "dsl": "triton",
+        "grid_id": "g00",
+        "implementation": "phase2_custom",
+        "label": "frozen strict-common Triton screen winner g00",
+        "selection_role": "strict_common_screen_winner",
+        "set": "BM=128,BN=128,BK=32,threads=256,stages=2,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=smem",
+        "structural_mismatches": [],
+        "timed_input_dtype": "fp16"
+      },
+      "candidate_definition_sha256": "f8388ae171e4e3e90136a222d0c3d40a22ca1ee9e15bf05d06b542d05053c3f4",
+      "candidate_wall_s": 0.0031933090067468584,
+      "case_id": "legacy_u01_gain1",
+      "closure_campaign_id": "fused-gbgs-closure-v2",
+      "closure_campaign_sha256": "feb15e1f03b5da1db03f5151cf64a92ee23d828fa07aebec47cebe5b839876ca",
+      "contract": {
+        "bias_dtype": "fp32",
+        "gelu": "exact_erf",
+        "operand_dtype": "fp16",
+        "output_dtype": "fp32",
+        "probability_dtype": "fp32",
+        "weight_dtype": "fp16",
+        "x_dtype": "fp16"
+      },
+      "contract_adjudication": "fused_v2_required",
+      "device": "cuda:0",
+      "gate_id": "semantic_mixed",
+      "gate_pass": true,
+      "gate_spec_file_sha256": "b6c3afaadf61f5d380a97c6c541828a1ecacd1a89a00b73b66207fe22d765e2e",
+      "gate_spec_sha256": "4898c42d82707ad4588c880f794935efba202f5c32fb656263ec2c8f6c3f22e8",
+      "manifest_file_sha256": "28d51cd4f1730bd190e63c7cad60670c37b67784393270e63e859a1685fc8a62",
+      "manifest_sha256": "d017ef44cd63ce2a27bf31ca0ea7631a1f9810d3cbd25f1ddc6155b75a05634a",
+      "metric_wall_s": 0.008252094994531944,
+      "metrics": {
+        "abs_signed_bias": 2.7235071846262214e-13,
+        "max_abs_err": 1.338716904056552e-07,
+        "mean_abs_err": 5.035793843398745e-09,
+        "negative_count": 0.0,
+        "nonfinite_count": 0.0,
+        "nrmse": 6.129458560825064e-05,
+        "reference_abs_max": 0.000684239220276195,
+        "reference_abs_mean": 0.0001220703125,
+        "row_sum_error_max": 1.512307790108025e-07,
+        "scaled_max_abs_err": 0.0004454422168022175,
+        "sqrt_js_max": 2.072665194228668e-05,
+        "top1_mismatch_rate": 0.0,
+        "tv_max": 2.1296879284068184e-05,
+        "tv_q99": 2.1144645187528538e-05
+      },
+      "ok": true,
+      "op": "fused_softmax",
+      "output_dtype": "torch.float32",
+      "output_shape": [
+        1024,
+        8192
+      ],
+      "record_type": "robust_gate_measurement",
+      "reference_kind": "semantic_fp64",
+      "role": "candidate",
+      "schema_version": "1.0",
+      "seed_index": 10,
+      "shape": {
+        "K": 8192,
+        "M": 1024,
+        "N": 8192
+      },
+      "shared_input_wall_s": 0.2574425469938433,
+      "shared_reference_wall_s": {
+        "conformance_mixed": 0.10889088599651586,
+        "semantic_mixed": 0.10832909599412233
+      },
+      "source_receipt_sha256": "d38ba70aa667ee873e3c4c75708881ddf87ab3f48beb6ddc10cfcf94126156c7",
+      "split": "validation",
+      "structural_mismatches": [],
+      "tensor_seeds": {
+        "bias": 997613358416417046,
+        "weight": 2722397205961799376,
+        "x": 3607985298574940933
+      },
+      "threshold_failures": []
+    },
+    {
+      "build_metadata": {
+        "artifacts": {
+          "backend_detail": "tl.dot on fp16 operands -> mma.sync.m16n8k16.f32.f16.f16.f32; KC=2048; num_stages=2 num_warps=8; epilogue bias=True gelu=True (tl.math.erf, exact form); NO autotune; + row-softmax kernel, one row per program, BN=N so exp is computed once in registers",
+          "block": [
+            256,
+            1,
+            1
+          ],
+          "grid": [
+            64,
+            8,
+            1
+          ],
+          "n_kernels": 2,
+          "wcache": "cached"
+        },
+        "build_wall_s": 0.007040655997116119,
+        "builder": "ako_runs/phase2_fused_sdpa/variants2/fused_triton.py",
+        "n_kernels": 2,
+        "notes": "triton 3.6.0 fused arm GBGS (+ softmax (full op)) wcache=cached: 128x128x32 kc=2048 stages=2 warps=8",
+        "phase2_config": {
+          "BK": 32,
+          "BM": 128,
+          "BN": 128,
+          "K": 8192,
+          "M": 1024,
+          "N": 8192,
+          "arith": "fp16",
+          "cast": "precast",
+          "dsl": "triton",
+          "extra": {
+            "epilogue": "smem",
+            "wcache": "cached"
+          },
+          "input_dtype": "torch.float16",
+          "kc": 2048,
+          "stages": 2,
+          "threads": 256,
+          "variant": "GBGS"
+        },
+        "reported_compile_s": 0.006970227012061514,
+        "timed_input_dtype": "torch.float16"
+      },
+      "campaign_id": "controlled-followup-robust-gate-v1",
+      "candidate": "triton_common_g00",
+      "candidate_definition": {
+        "candidate_id": "triton_common_g00",
+        "contract_adjudication": "fused_v2_required",
+        "dsl": "triton",
+        "grid_id": "g00",
+        "implementation": "phase2_custom",
+        "label": "frozen strict-common Triton screen winner g00",
+        "selection_role": "strict_common_screen_winner",
+        "set": "BM=128,BN=128,BK=32,threads=256,stages=2,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=smem",
+        "structural_mismatches": [],
+        "timed_input_dtype": "fp16"
+      },
+      "candidate_definition_sha256": "f8388ae171e4e3e90136a222d0c3d40a22ca1ee9e15bf05d06b542d05053c3f4",
+      "candidate_wall_s": 0.0031933090067468584,
+      "case_id": "legacy_u01_gain1",
+      "closure_campaign_id": "fused-gbgs-closure-v2",
+      "closure_campaign_sha256": "feb15e1f03b5da1db03f5151cf64a92ee23d828fa07aebec47cebe5b839876ca",
+      "contract": {
+        "bias_dtype": "fp32",
+        "gelu": "exact_erf",
+        "operand_dtype": "fp16",
+        "output_dtype": "fp32",
+        "probability_dtype": "fp32",
+        "weight_dtype": "fp16",
+        "x_dtype": "fp16"
+      },
+      "contract_adjudication": "fused_v2_required",
+      "device": "cuda:0",
+      "gate_id": "conformance_mixed",
+      "gate_pass": true,
+      "gate_spec_file_sha256": "b6c3afaadf61f5d380a97c6c541828a1ecacd1a89a00b73b66207fe22d765e2e",
+      "gate_spec_sha256": "4898c42d82707ad4588c880f794935efba202f5c32fb656263ec2c8f6c3f22e8",
+      "manifest_file_sha256": "28d51cd4f1730bd190e63c7cad60670c37b67784393270e63e859a1685fc8a62",
+      "manifest_sha256": "d017ef44cd63ce2a27bf31ca0ea7631a1f9810d3cbd25f1ddc6155b75a05634a",
+      "metric_wall_s": 0.008189232990844175,
+      "metrics": {
+        "abs_signed_bias": 2.718606589846573e-13,
+        "max_abs_err": 5.0640664994716644e-09,
+        "mean_abs_err": 6.943701169603855e-11,
+        "negative_count": 0.0,
+        "nonfinite_count": 0.0,
+        "nrmse": 8.955045201425869e-07,
+        "reference_abs_max": 0.0006842078873887658,
+        "reference_abs_mean": 0.00012207031250049006,
+        "row_sum_error_max": 1.512307790108025e-07,
+        "scaled_max_abs_err": 7.825959994159731e-06,
+        "sqrt_js_max": 2.807021682955661e-07,
+        "top1_mismatch_rate": 0.0,
+        "tv_max": 3.13091732095927e-07,
+        "tv_q99": 3.043050310225226e-07
+      },
+      "ok": true,
+      "op": "fused_softmax",
+      "output_dtype": "torch.float32",
+      "output_shape": [
+        1024,
+        8192
+      ],
+      "record_type": "robust_gate_measurement",
+      "reference_kind": "contract_mixed",
+      "role": "candidate",
+      "schema_version": "1.0",
+      "seed_index": 10,
+      "shape": {
+        "K": 8192,
+        "M": 1024,
+        "N": 8192
+      },
+      "shared_input_wall_s": 0.2574425469938433,
+      "shared_reference_wall_s": {
+        "conformance_mixed": 0.10889088599651586,
+        "semantic_mixed": 0.10832909599412233
+      },
+      "source_receipt_sha256": "d38ba70aa667ee873e3c4c75708881ddf87ab3f48beb6ddc10cfcf94126156c7",
+      "split": "validation",
+      "structural_mismatches": [],
+      "tensor_seeds": {
+        "bias": 997613358416417046,
+        "weight": 2722397205961799376,
+        "x": 3607985298574940933
+      },
+      "threshold_failures": []
+    },
+    {
+      "build_metadata": {
+        "artifacts": {
+          "backend_detail": "nvcuda::wmma 16x16x16 half x half -> float; warp grid 2x4, warp tile 64x32 (4x2 frags/warp); loads = __pipeline_memcpy_async x 3 buffers; KC flush every 32 BK-tiles; epilogue stages fragments through 67584 B of smem, then bias=True gelu=True (erff, exact form). Zero inline PTX (asserted at build).; + row-softmax kernel (256 thr, 32 elem/thread cached in registers, __shfl_down_sync + smem tree)",
+          "block": "(256,1,1)",
+          "grid": "(64,8)",
+          "n_kernels": 2,
+          "n_regs": 48,
+          "n_spills": 0,
+          "shared_bytes": 98304,
+          "wcache": "cached"
+        },
+        "build_wall_s": 1.113438688989845,
+        "builder": "ako_runs/phase2_fused_sdpa/variants2/fused_cuda_noptx.py",
+        "n_kernels": 2,
+        "notes": "cuda_noptx fused arm GBGS (+ softmax (full op)) wcache=cached",
+        "phase2_config": {
+          "BK": 64,
+          "BM": 128,
+          "BN": 128,
+          "K": 8192,
+          "M": 1024,
+          "N": 8192,
+          "arith": "fp16",
+          "cast": "precast",
+          "dsl": "cuda_noptx",
+          "extra": {
+            "epilogue": "smem",
+            "wcache": "cached"
+          },
+          "input_dtype": "torch.float16",
+          "kc": 2048,
+          "stages": 3,
+          "threads": 256,
+          "variant": "GBGS"
+        },
+        "reported_compile_s": 0.2269667949876748,
+        "timed_input_dtype": "torch.float16"
+      },
+      "campaign_id": "controlled-followup-robust-gate-v1",
+      "candidate": "cuda_noptx_common_g04",
+      "candidate_definition": {
+        "candidate_id": "cuda_noptx_common_g04",
+        "contract_adjudication": "fused_v2_required",
+        "dsl": "cuda_noptx",
+        "grid_id": "g04",
+        "implementation": "phase2_custom",
+        "label": "frozen strict-common CUDA-no-PTX screen winner g04",
+        "selection_role": "strict_common_screen_winner",
+        "set": "BM=128,BN=128,BK=64,threads=256,stages=3,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=smem",
+        "structural_mismatches": [],
+        "timed_input_dtype": "fp16"
+      },
+      "candidate_definition_sha256": "ff3edd5d4579a37aef3241b91e57e681f4ddcc38752f87e9a4013f2c81bd3fef",
+      "candidate_wall_s": 0.003801626997301355,
+      "case_id": "legacy_u01_gain1",
+      "closure_campaign_id": "fused-gbgs-closure-v2",
+      "closure_campaign_sha256": "feb15e1f03b5da1db03f5151cf64a92ee23d828fa07aebec47cebe5b839876ca",
+      "contract": {
+        "bias_dtype": "fp32",
+        "gelu": "exact_erf",
+        "operand_dtype": "fp16",
+        "output_dtype": "fp32",
+        "probability_dtype": "fp32",
+        "weight_dtype": "fp16",
+        "x_dtype": "fp16"
+      },
+      "contract_adjudication": "fused_v2_required",
+      "device": "cuda:0",
+      "gate_id": "semantic_mixed",
+      "gate_pass": true,
+      "gate_spec_file_sha256": "b6c3afaadf61f5d380a97c6c541828a1ecacd1a89a00b73b66207fe22d765e2e",
+      "gate_spec_sha256": "4898c42d82707ad4588c880f794935efba202f5c32fb656263ec2c8f6c3f22e8",
+      "manifest_file_sha256": "28d51cd4f1730bd190e63c7cad60670c37b67784393270e63e859a1685fc8a62",
+      "manifest_sha256": "d017ef44cd63ce2a27bf31ca0ea7631a1f9810d3cbd25f1ddc6155b75a05634a",
+      "metric_wall_s": 0.008196199996746145,
+      "metrics": {
+        "abs_signed_bias": 7.96064604085771e-14,
+        "max_abs_err": 1.338716904056552e-07,
+        "mean_abs_err": 5.035795186512358e-09,
+        "negative_count": 0.0,
+        "nonfinite_count": 0.0,
+        "nrmse": 6.129456324749017e-05,
+        "reference_abs_max": 0.000684239220276195,
+        "reference_abs_mean": 0.0001220703125,
+        "row_sum_error_max": 1.6219564713537693e-07,
+        "scaled_max_abs_err": 0.0004453701148035523,
+        "sqrt_js_max": 2.072658175556279e-05,
+        "top1_mismatch_rate": 0.0,
+        "tv_max": 2.1296879284068184e-05,
+        "tv_q99": 2.114444366556954e-05
+      },
+      "ok": true,
+      "op": "fused_softmax",
+      "output_dtype": "torch.float32",
+      "output_shape": [
+        1024,
+        8192
+      ],
+      "record_type": "robust_gate_measurement",
+      "reference_kind": "semantic_fp64",
+      "role": "candidate",
+      "schema_version": "1.0",
+      "seed_index": 10,
+      "shape": {
+        "K": 8192,
+        "M": 1024,
+        "N": 8192
+      },
+      "shared_input_wall_s": 0.2574425469938433,
+      "shared_reference_wall_s": {
+        "conformance_mixed": 0.10889088599651586,
+        "semantic_mixed": 0.10832909599412233
+      },
+      "source_receipt_sha256": "d38ba70aa667ee873e3c4c75708881ddf87ab3f48beb6ddc10cfcf94126156c7",
+      "split": "validation",
+      "structural_mismatches": [],
+      "tensor_seeds": {
+        "bias": 997613358416417046,
+        "weight": 2722397205961799376,
+        "x": 3607985298574940933
+      },
+      "threshold_failures": []
+    },
+    {
+      "build_metadata": {
+        "artifacts": {
+          "backend_detail": "nvcuda::wmma 16x16x16 half x half -> float; warp grid 2x4, warp tile 64x32 (4x2 frags/warp); loads = __pipeline_memcpy_async x 3 buffers; KC flush every 32 BK-tiles; epilogue stages fragments through 67584 B of smem, then bias=True gelu=True (erff, exact form). Zero inline PTX (asserted at build).; + row-softmax kernel (256 thr, 32 elem/thread cached in registers, __shfl_down_sync + smem tree)",
+          "block": "(256,1,1)",
+          "grid": "(64,8)",
+          "n_kernels": 2,
+          "n_regs": 48,
+          "n_spills": 0,
+          "shared_bytes": 98304,
+          "wcache": "cached"
+        },
+        "build_wall_s": 1.113438688989845,
+        "builder": "ako_runs/phase2_fused_sdpa/variants2/fused_cuda_noptx.py",
+        "n_kernels": 2,
+        "notes": "cuda_noptx fused arm GBGS (+ softmax (full op)) wcache=cached",
+        "phase2_config": {
+          "BK": 64,
+          "BM": 128,
+          "BN": 128,
+          "K": 8192,
+          "M": 1024,
+          "N": 8192,
+          "arith": "fp16",
+          "cast": "precast",
+          "dsl": "cuda_noptx",
+          "extra": {
+            "epilogue": "smem",
+            "wcache": "cached"
+          },
+          "input_dtype": "torch.float16",
+          "kc": 2048,
+          "stages": 3,
+          "threads": 256,
+          "variant": "GBGS"
+        },
+        "reported_compile_s": 0.2269667949876748,
+        "timed_input_dtype": "torch.float16"
+      },
+      "campaign_id": "controlled-followup-robust-gate-v1",
+      "candidate": "cuda_noptx_common_g04",
+      "candidate_definition": {
+        "candidate_id": "cuda_noptx_common_g04",
+        "contract_adjudication": "fused_v2_required",
+        "dsl": "cuda_noptx",
+        "grid_id": "g04",
+        "implementation": "phase2_custom",
+        "label": "frozen strict-common CUDA-no-PTX screen winner g04",
+        "selection_role": "strict_common_screen_winner",
+        "set": "BM=128,BN=128,BK=64,threads=256,stages=3,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=smem",
+        "structural_mismatches": [],
+        "timed_input_dtype": "fp16"
+      },
+      "candidate_definition_sha256": "ff3edd5d4579a37aef3241b91e57e681f4ddcc38752f87e9a4013f2c81bd3fef",
+      "candidate_wall_s": 0.003801626997301355,
+      "case_id": "legacy_u01_gain1",
+      "closure_campaign_id": "fused-gbgs-closure-v2",
+      "closure_campaign_sha256": "feb15e1f03b5da1db03f5151cf64a92ee23d828fa07aebec47cebe5b839876ca",
+      "contract": {
+        "bias_dtype": "fp32",
+        "gelu": "exact_erf",
+        "operand_dtype": "fp16",
+        "output_dtype": "fp32",
+        "probability_dtype": "fp32",
+        "weight_dtype": "fp16",
+        "x_dtype": "fp16"
+      },
+      "contract_adjudication": "fused_v2_required",
+      "device": "cuda:0",
+      "gate_id": "conformance_mixed",
+      "gate_pass": true,
+      "gate_spec_file_sha256": "b6c3afaadf61f5d380a97c6c541828a1ecacd1a89a00b73b66207fe22d765e2e",
+      "gate_spec_sha256": "4898c42d82707ad4588c880f794935efba202f5c32fb656263ec2c8f6c3f22e8",
+      "manifest_file_sha256": "28d51cd4f1730bd190e63c7cad60670c37b67784393270e63e859a1685fc8a62",
+      "manifest_sha256": "d017ef44cd63ce2a27bf31ca0ea7631a1f9810d3cbd25f1ddc6155b75a05634a",
+      "metric_wall_s": 0.008170421002432704,
+      "metrics": {
+        "abs_signed_bias": 7.911640093061223e-14,
+        "max_abs_err": 5.0640664994716644e-09,
+        "mean_abs_err": 6.937422077774036e-11,
+        "negative_count": 0.0,
+        "nonfinite_count": 0.0,
+        "nrmse": 8.956292462116963e-07,
+        "reference_abs_max": 0.0006842078873887658,
+        "reference_abs_mean": 0.00012207031250049006,
+        "row_sum_error_max": 1.6219564713537693e-07,
+        "scaled_max_abs_err": 7.709154621112572e-06,
+        "sqrt_js_max": 2.807021682955661e-07,
+        "top1_mismatch_rate": 0.0,
+        "tv_max": 3.0894079827703536e-07,
+        "tv_q99": 3.0244151275837796e-07
+      },
+      "ok": true,
+      "op": "fused_softmax",
+      "output_dtype": "torch.float32",
+      "output_shape": [
+        1024,
+        8192
+      ],
+      "record_type": "robust_gate_measurement",
+      "reference_kind": "contract_mixed",
+      "role": "candidate",
+      "schema_version": "1.0",
+      "seed_index": 10,
+      "shape": {
+        "K": 8192,
+        "M": 1024,
+        "N": 8192
+      },
+      "shared_input_wall_s": 0.2574425469938433,
+      "shared_reference_wall_s": {
+        "conformance_mixed": 0.10889088599651586,
+        "semantic_mixed": 0.10832909599412233
+      },
+      "source_receipt_sha256": "d38ba70aa667ee873e3c4c75708881ddf87ab3f48beb6ddc10cfcf94126156c7",
+      "split": "validation",
+      "structural_mismatches": [],
+      "tensor_seeds": {
+        "bias": 997613358416417046,
+        "weight": 2722397205961799376,
+        "x": 3607985298574940933
+      },
+      "threshold_failures": []
+    },
+    {
+      "build_metadata": {
+        "artifacts": {
+          "backend_detail": "inline PTX mma.sync.aligned.m16n8k16.f32.f16.f16.f32 + ldmatrix.sync.aligned.m8n8.x4[.trans] + cp.async.cg.shared.global x 4 stages; KCB=64; epilogue=smem (fragments staged through smem, matched to the WMMA lane); bias=True gelu=True (erff, exact form); + row-softmax kernel (256 thr, 32 elem/thread cached in registers, __shfl_down_sync + smem tree)",
+          "block": "(256,1,1)",
+          "grid": "(64,8)",
+          "n_kernels": 2,
+          "shared_bytes": 75776,
+          "wcache": "cached"
+        },
+        "build_wall_s": 0.026769846997922286,
+        "builder": "ako_runs/phase2_fused_sdpa/variants2/fused_cuda_unlimited.py",
+        "n_kernels": 2,
+        "notes": "cuda_unlimited fused arm GBGS (+ softmax (full op)) wcache=cached epilogue=smem",
+        "phase2_config": {
+          "BK": 32,
+          "BM": 128,
+          "BN": 128,
+          "K": 8192,
+          "M": 1024,
+          "N": 8192,
+          "arith": "fp16",
+          "cast": "precast",
+          "dsl": "cuda_unlimited",
+          "extra": {
+            "epilogue": "smem",
+            "wcache": "cached"
+          },
+          "input_dtype": "torch.float16",
+          "kc": 2048,
+          "stages": 4,
+          "threads": 256,
+          "variant": "GBGS"
+        },
+        "reported_compile_s": 0.02612856299674604,
+        "timed_input_dtype": "torch.float16"
+      },
+      "campaign_id": "controlled-followup-robust-gate-v1",
+      "candidate": "cuda_unlimited_common_g02",
+      "candidate_definition": {
+        "candidate_id": "cuda_unlimited_common_g02",
+        "contract_adjudication": "fused_v2_required",
+        "dsl": "cuda_unlimited",
+        "grid_id": "g02",
+        "implementation": "phase2_custom",
+        "label": "frozen strict-common CUDA-unlimited screen winner g02",
+        "selection_role": "strict_common_screen_winner",
+        "set": "BM=128,BN=128,BK=32,threads=256,stages=4,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=smem",
+        "structural_mismatches": [],
+        "timed_input_dtype": "fp16"
+      },
+      "candidate_definition_sha256": "08a40bf751962d88c015cf20c1dd9ec90c4782980ad57816bb9d3d59462c9050",
+      "candidate_wall_s": 0.0033388529991498217,
+      "case_id": "legacy_u01_gain1",
+      "closure_campaign_id": "fused-gbgs-closure-v2",
+      "closure_campaign_sha256": "feb15e1f03b5da1db03f5151cf64a92ee23d828fa07aebec47cebe5b839876ca",
+      "contract": {
+        "bias_dtype": "fp32",
+        "gelu": "exact_erf",
+        "operand_dtype": "fp16",
+        "output_dtype": "fp32",
+        "probability_dtype": "fp32",
+        "weight_dtype": "fp16",
+        "x_dtype": "fp16"
+      },
+      "contract_adjudication": "fused_v2_required",
+      "device": "cuda:0",
+      "gate_id": "semantic_mixed",
+      "gate_pass": true,
+      "gate_spec_file_sha256": "b6c3afaadf61f5d380a97c6c541828a1ecacd1a89a00b73b66207fe22d765e2e",
+      "gate_spec_sha256": "4898c42d82707ad4588c880f794935efba202f5c32fb656263ec2c8f6c3f22e8",
+      "manifest_file_sha256": "28d51cd4f1730bd190e63c7cad60670c37b67784393270e63e859a1685fc8a62",
+      "manifest_sha256": "d017ef44cd63ce2a27bf31ca0ea7631a1f9810d3cbd25f1ddc6155b75a05634a",
+      "metric_wall_s": 0.008167584004695527,
+      "metrics": {
+        "abs_signed_bias": 7.96064604085771e-14,
+        "max_abs_err": 1.338716904056552e-07,
+        "mean_abs_err": 5.035795186512358e-09,
+        "negative_count": 0.0,
+        "nonfinite_count": 0.0,
+        "nrmse": 6.129456324749017e-05,
+        "reference_abs_max": 0.000684239220276195,
+        "reference_abs_mean": 0.0001220703125,
+        "row_sum_error_max": 1.6219564713537693e-07,
+        "scaled_max_abs_err": 0.0004453701148035523,
+        "sqrt_js_max": 2.072658175556279e-05,
+        "top1_mismatch_rate": 0.0,
+        "tv_max": 2.1296879284068184e-05,
+        "tv_q99": 2.114444366556954e-05
+      },
+      "ok": true,
+      "op": "fused_softmax",
+      "output_dtype": "torch.float32",
+      "output_shape": [
+        1024,
+        8192
+      ],
+      "record_type": "robust_gate_measurement",
+      "reference_kind": "semantic_fp64",
+      "role": "candidate",
+      "schema_version": "1.0",
+      "seed_index": 10,
+      "shape": {
+        "K": 8192,
+        "M": 1024,
+        "N": 8192
+      },
+      "shared_input_wall_s": 0.2574425469938433,
+      "shared_reference_wall_s": {
+        "conformance_mixed": 0.10889088599651586,
+        "semantic_mixed": 0.10832909599412233
+      },
+      "source_receipt_sha256": "d38ba70aa667ee873e3c4c75708881ddf87ab3f48beb6ddc10cfcf94126156c7",
+      "split": "validation",
+      "structural_mismatches": [],
+      "tensor_seeds": {
+        "bias": 997613358416417046,
+        "weight": 2722397205961799376,
+        "x": 3607985298574940933
+      },
+      "threshold_failures": []
+    },
+    {
+      "build_metadata": {
+        "artifacts": {
+          "backend_detail": "inline PTX mma.sync.aligned.m16n8k16.f32.f16.f16.f32 + ldmatrix.sync.aligned.m8n8.x4[.trans] + cp.async.cg.shared.global x 4 stages; KCB=64; epilogue=smem (fragments staged through smem, matched to the WMMA lane); bias=True gelu=True (erff, exact form); + row-softmax kernel (256 thr, 32 elem/thread cached in registers, __shfl_down_sync + smem tree)",
+          "block": "(256,1,1)",
+          "grid": "(64,8)",
+          "n_kernels": 2,
+          "shared_bytes": 75776,
+          "wcache": "cached"
+        },
+        "build_wall_s": 0.026769846997922286,
+        "builder": "ako_runs/phase2_fused_sdpa/variants2/fused_cuda_unlimited.py",
+        "n_kernels": 2,
+        "notes": "cuda_unlimited fused arm GBGS (+ softmax (full op)) wcache=cached epilogue=smem",
+        "phase2_config": {
+          "BK": 32,
+          "BM": 128,
+          "BN": 128,
+          "K": 8192,
+          "M": 1024,
+          "N": 8192,
+          "arith": "fp16",
+          "cast": "precast",
+          "dsl": "cuda_unlimited",
+          "extra": {
+            "epilogue": "smem",
+            "wcache": "cached"
+          },
+          "input_dtype": "torch.float16",
+          "kc": 2048,
+          "stages": 4,
+          "threads": 256,
+          "variant": "GBGS"
+        },
+        "reported_compile_s": 0.02612856299674604,
+        "timed_input_dtype": "torch.float16"
+      },
+      "campaign_id": "controlled-followup-robust-gate-v1",
+      "candidate": "cuda_unlimited_common_g02",
+      "candidate_definition": {
+        "candidate_id": "cuda_unlimited_common_g02",
+        "contract_adjudication": "fused_v2_required",
+        "dsl": "cuda_unlimited",
+        "grid_id": "g02",
+        "implementation": "phase2_custom",
+        "label": "frozen strict-common CUDA-unlimited screen winner g02",
+        "selection_role": "strict_common_screen_winner",
+        "set": "BM=128,BN=128,BK=32,threads=256,stages=4,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=smem",
+        "structural_mismatches": [],
+        "timed_input_dtype": "fp16"
+      },
+      "candidate_definition_sha256": "08a40bf751962d88c015cf20c1dd9ec90c4782980ad57816bb9d3d59462c9050",
+      "candidate_wall_s": 0.0033388529991498217,
+      "case_id": "legacy_u01_gain1",
+      "closure_campaign_id": "fused-gbgs-closure-v2",
+      "closure_campaign_sha256": "feb15e1f03b5da1db03f5151cf64a92ee23d828fa07aebec47cebe5b839876ca",
+      "contract": {
+        "bias_dtype": "fp32",
+        "gelu": "exact_erf",
+        "operand_dtype": "fp16",
+        "output_dtype": "fp32",
+        "probability_dtype": "fp32",
+        "weight_dtype": "fp16",
+        "x_dtype": "fp16"
+      },
+      "contract_adjudication": "fused_v2_required",
+      "device": "cuda:0",
+      "gate_id": "conformance_mixed",
+      "gate_pass": true,
+      "gate_spec_file_sha256": "b6c3afaadf61f5d380a97c6c541828a1ecacd1a89a00b73b66207fe22d765e2e",
+      "gate_spec_sha256": "4898c42d82707ad4588c880f794935efba202f5c32fb656263ec2c8f6c3f22e8",
+      "manifest_file_sha256": "28d51cd4f1730bd190e63c7cad60670c37b67784393270e63e859a1685fc8a62",
+      "manifest_sha256": "d017ef44cd63ce2a27bf31ca0ea7631a1f9810d3cbd25f1ddc6155b75a05634a",
+      "metric_wall_s": 0.008171912995749153,
+      "metrics": {
+        "abs_signed_bias": 7.911640093061223e-14,
+        "max_abs_err": 5.0640664994716644e-09,
+        "mean_abs_err": 6.937422077774036e-11,
+        "negative_count": 0.0,
+        "nonfinite_count": 0.0,
+        "nrmse": 8.956292462116963e-07,
+        "reference_abs_max": 0.0006842078873887658,
+        "reference_abs_mean": 0.00012207031250049006,
+        "row_sum_error_max": 1.6219564713537693e-07,
+        "scaled_max_abs_err": 7.709154621112572e-06,
+        "sqrt_js_max": 2.807021682955661e-07,
+        "top1_mismatch_rate": 0.0,
+        "tv_max": 3.0894079827703536e-07,
+        "tv_q99": 3.0244151275837796e-07
+      },
+      "ok": true,
+      "op": "fused_softmax",
+      "output_dtype": "torch.float32",
+      "output_shape": [
+        1024,
+        8192
+      ],
+      "record_type": "robust_gate_measurement",
+      "reference_kind": "contract_mixed",
+      "role": "candidate",
+      "schema_version": "1.0",
+      "seed_index": 10,
+      "shape": {
+        "K": 8192,
+        "M": 1024,
+        "N": 8192
+      },
+      "shared_input_wall_s": 0.2574425469938433,
+      "shared_reference_wall_s": {
+        "conformance_mixed": 0.10889088599651586,
+        "semantic_mixed": 0.10832909599412233
+      },
+      "source_receipt_sha256": "d38ba70aa667ee873e3c4c75708881ddf87ab3f48beb6ddc10cfcf94126156c7",
+      "split": "validation",
+      "structural_mismatches": [],
+      "tensor_seeds": {
+        "bias": 997613358416417046,
+        "weight": 2722397205961799376,
+        "x": 3607985298574940933
+      },
+      "threshold_failures": []
+    }
+  ],
+  "schema_version": 1,
+  "seed_index": 10
+}

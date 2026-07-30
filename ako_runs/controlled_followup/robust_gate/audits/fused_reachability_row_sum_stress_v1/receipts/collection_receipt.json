@@ -1,0 +1,33 @@
+{
+  "build_receipt_sha256": "6b26eb03adaf042ab203308e2e3816869f2103cf66386396a865b3c00ae58916",
+  "campaign_id": "controlled-followup-fused-reachability-row-sum-stress-v1",
+  "completed_utc": "2026-07-30T20:14:19.534056+00:00",
+  "correctness_only": true,
+  "expected_records": 3072,
+  "gpu_after": {
+    "clocks.max.memory": "10001",
+    "clocks.max.sm": "3105",
+    "clocks.mem": "9501",
+    "clocks.sm": "2685",
+    "compute_cap": "8.9",
+    "driver_version": "610.43.02",
+    "index": "2",
+    "memory.total": "49140",
+    "memory.used": "3332",
+    "name": "NVIDIA RTX 6000 Ada Generation",
+    "persistence_mode": "Disabled",
+    "power.limit": "300.00",
+    "pstate": "P2",
+    "temperature.gpu": "75",
+    "utilization.gpu": "92",
+    "uuid": "GPU-3ed448f2-f23a-09fc-e18b-f580523c4a3f"
+  },
+  "gpu_execution_receipt_sha256": "c93b087704a0e658f1a2f416c1f473efe21828c3687dcfac32f85a097e7bb916",
+  "performance_selection_feedback_authorized": false,
+  "raw_path": "results/raw/measurements.jsonl",
+  "raw_sha256": "a6ae604fa1a1ebdf7097a1da81bfe18e4d66b2e07e9180cdb0dd95e273f16f81",
+  "record_count": 3072,
+  "record_type": "fused_reachability_row_sum_stress_collection_receipt",
+  "schema_version": "1.0",
+  "wall_s_operational": 383.42013049899833
+}

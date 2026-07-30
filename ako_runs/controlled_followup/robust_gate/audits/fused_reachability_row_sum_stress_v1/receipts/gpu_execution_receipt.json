@@ -1,0 +1,42 @@
+{
+  "campaign_id": "controlled-followup-fused-reachability-row-sum-stress-v1",
+  "correctness_only": true,
+  "cuda_visible_devices": "2",
+  "freeze_receipt_sha256": "3b085b23d01c727bd73903d094658af877e67a64cb7e8a0a64f4c5c2fd601246",
+  "gpu_before": {
+    "clocks.max.memory": "10001",
+    "clocks.max.sm": "3105",
+    "clocks.mem": "405",
+    "clocks.sm": "210",
+    "compute_cap": "8.9",
+    "driver_version": "610.43.02",
+    "index": "2",
+    "memory.total": "49140",
+    "memory.used": "10",
+    "name": "NVIDIA RTX 6000 Ada Generation",
+    "persistence_mode": "Disabled",
+    "power.limit": "300.00",
+    "pstate": "P8",
+    "temperature.gpu": "48",
+    "utilization.gpu": "0",
+    "uuid": "GPU-3ed448f2-f23a-09fc-e18b-f580523c4a3f"
+  },
+  "host": "cs265655.utdallas.edu",
+  "launch_receipt_sha256": "dbc1de976214ccf894f9ba5fb6d6d907d6662994c48a360912229e02d334ecae",
+  "logical_device": "cuda:0",
+  "nvcc": {
+    "path": "/usr/local/cuda-13.1/bin/nvcc",
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2025 NVIDIA Corporation\nBuilt on Tue_Dec_16_07:23:41_PM_PST_2025\nCuda compilation tools, release 13.1, V13.1.115\nBuild cuda_13.1.r13.1/compiler.37061995_0"
+  },
+  "performance_selection_feedback_authorized": false,
+  "physical_gpu": 2,
+  "python": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 16:09:02) [GCC 11.2.0]",
+  "reachability_launch_lock_sha256": "7bd24892e29e8d8af4b48a34b397434ed80bd59e2349ff714fb4babe0afcc240",
+  "record_type": "fused_reachability_row_sum_stress_gpu_execution_receipt",
+  "schema_version": "1.0",
+  "screen_selection_sha256": "3d07a193d2a5f8766e56628a87e6f8800a7245428d83f5ac8359c64076930a50",
+  "seed_plan_canonical_sha256": "9ac7ac76f90f2e7f3b3d68619d01fd1b02a2f1ff076be096b33858772ea46675",
+  "started_utc": "2026-07-30T20:07:56.109793+00:00"
+}

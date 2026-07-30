@@ -1,0 +1,139 @@
+{
+  "schema_version": 3,
+  "campaign_id": "fused-frontier-reachability-closure-v3",
+  "candidate_order": [
+    "torch_contract_fp32",
+    "tilelang_full_g08",
+    "triton_full_g05",
+    "cuda_noptx_old_g04",
+    "cuda_unlimited_old_g02",
+    "cuda_noptx_streamed_g05",
+    "cuda_noptx_streamed_g09",
+    "cuda_unlimited_streamed_g07"
+  ],
+  "candidates": [
+    {
+      "candidate_id": "torch_contract_fp32",
+      "implementation": "closure_v2",
+      "source_candidate_id": "torch_contract_fp32",
+      "label": "contract-matched torch fp16 operands with fp32 matmul output and epilogue",
+      "eligibility_source": "fused_closure_v2",
+      "recipe_role": "vendor_contract_anchor"
+    },
+    {
+      "candidate_id": "tilelang_full_g08",
+      "implementation": "closure_v2",
+      "source_candidate_id": "tilelang_full_g08",
+      "label": "TileLang frozen full-frontier g08",
+      "eligibility_source": "fused_closure_v2",
+      "recipe_role": "compiler_full_frontier"
+    },
+    {
+      "candidate_id": "triton_full_g05",
+      "implementation": "closure_v2",
+      "source_candidate_id": "triton_full_g05",
+      "label": "Triton frozen full-frontier g05",
+      "eligibility_source": "fused_closure_v2",
+      "recipe_role": "compiler_full_frontier"
+    },
+    {
+      "candidate_id": "cuda_noptx_old_g04",
+      "implementation": "closure_v2",
+      "source_candidate_id": "cuda_noptx_common_g04",
+      "label": "old CUDA-no-PTX smem-epilogue common g04",
+      "eligibility_source": "fused_closure_v2",
+      "recipe_role": "old_cuda_common"
+    },
+    {
+      "candidate_id": "cuda_unlimited_old_g02",
+      "implementation": "closure_v2",
+      "source_candidate_id": "cuda_unlimited_common_g02",
+      "label": "old CUDA-unlimited smem-epilogue common g02",
+      "eligibility_source": "fused_closure_v2",
+      "recipe_role": "old_cuda_common"
+    },
+    {
+      "candidate_id": "cuda_noptx_streamed_g05",
+      "implementation": "reachability_v2",
+      "source_job_id": "cuda_noptx_streamed.g05",
+      "label": "new CUDA-no-PTX streamed-epilogue g05",
+      "eligibility_source": "fused_reachability_v2",
+      "recipe_role": "new_cuda_unresolved_frontier"
+    },
+    {
+      "candidate_id": "cuda_noptx_streamed_g09",
+      "implementation": "reachability_v2",
+      "source_job_id": "cuda_noptx_streamed.g09",
+      "label": "new CUDA-no-PTX streamed-epilogue g09",
+      "eligibility_source": "fused_reachability_v2",
+      "recipe_role": "new_cuda_unresolved_frontier"
+    },
+    {
+      "candidate_id": "cuda_unlimited_streamed_g07",
+      "implementation": "reachability_v2",
+      "source_job_id": "cuda_unlimited_streamed.g07",
+      "label": "new CUDA-unlimited streamed-epilogue resolved g07",
+      "eligibility_source": "fused_reachability_v2",
+      "recipe_role": "new_cuda_resolved_frontier"
+    }
+  ],
+  "eligibility": {
+    "required": true,
+    "scope": "original frozen fused-v2 mixed validation gates only: semantic_mixed and conformance_mixed, four registered cases, validation seed indices 0--63",
+    "claim_limit": "Imported eligibility is not fresh-stress eligibility and makes no claim about later stress namespaces."
+  },
+  "hardware": {
+    "physical_gpu": 3,
+    "required_uuid": "GPU-eafdd6ce-8857-40fd-f494-47a7240bf6b5",
+    "required_name": "NVIDIA RTX 6000 Ada Generation",
+    "required_compute_capability": "8.9",
+    "required_nvcc_release": "13.1"
+  },
+  "performance_protocol": {
+    "blocks": 15,
+    "dist": "rand",
+    "flush_l2": true,
+    "order_seed": 2026073005,
+    "physical_gpu": 3,
+    "seed": 0,
+    "trials": 100,
+    "warmup_s": 2.0
+  },
+  "inference": {
+    "block_unit": "one fresh serialized process per candidate within each randomized complete block",
+    "cell_estimator": "median of 15 independent process medians",
+    "paired_estimator": "median of 15 within-block numerator_ms/denominator_ms ratios",
+    "interval": "exact central order-statistic [x4,x12], coverage 0.96484375",
+    "test": "exact two-sided sign test around ratio 1",
+    "multiplicity": "Holm correction separately within each preregistered family",
+    "confirmatory_rule": "all 15 pairs, imported original eligibility for both arms, ratio interval strictly on one side of 1, and Holm-adjusted p < 0.05",
+    "noptx_selection_status": "g05 and g09 are both retained because the reachability-v2 winner was unresolved; no winner claim is made between them"
+  },
+  "preregistered_families": {
+    "old_vs_new_within_cuda": [
+      ["cuda_noptx_streamed_g05", "cuda_noptx_old_g04"],
+      ["cuda_noptx_streamed_g09", "cuda_noptx_old_g04"],
+      ["cuda_unlimited_streamed_g07", "cuda_unlimited_old_g02"]
+    ],
+    "compiler_vs_new_cuda_fixed": [
+      ["tilelang_full_g08", "cuda_noptx_streamed_g05"],
+      ["triton_full_g05", "cuda_noptx_streamed_g05"],
+      ["tilelang_full_g08", "cuda_noptx_streamed_g09"],
+      ["triton_full_g05", "cuda_noptx_streamed_g09"],
+      ["tilelang_full_g08", "cuda_unlimited_streamed_g07"],
+      ["triton_full_g05", "cuda_unlimited_streamed_g07"]
+    ],
+    "new_cuda_vs_contract_torch": [
+      ["cuda_noptx_streamed_g05", "torch_contract_fp32"],
+      ["cuda_noptx_streamed_g09", "torch_contract_fp32"],
+      ["cuda_unlimited_streamed_g07", "torch_contract_fp32"]
+    ]
+  },
+  "fixed_frontier_spread": [
+    "tilelang_full_g08",
+    "triton_full_g05",
+    "cuda_noptx_streamed_g05",
+    "cuda_unlimited_streamed_g07"
+  ],
+  "claim_limit": "Same-GPU fixed-recipe mechanism closure only; no universal DSL optimum, language ceiling, or fresh-stress eligibility claim."
+}

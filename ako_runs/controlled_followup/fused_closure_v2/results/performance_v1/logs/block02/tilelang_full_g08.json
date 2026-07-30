@@ -1,0 +1,21 @@
+{
+  "argv": [
+    "/home/lxt230026/miniconda3/bin/python",
+    "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/fused_closure_v2/measure.py",
+    "--candidate",
+    "tilelang_full_g08",
+    "--block",
+    "2",
+    "--position",
+    "5",
+    "--launch-receipt",
+    "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/launch_receipt.json",
+    "--out",
+    "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block02/tilelang_full_g08.json"
+  ],
+  "completed_utc": "2026-07-30T19:38:02.423270+00:00",
+  "returncode": 0,
+  "started_utc": "2026-07-30T19:37:51.020842+00:00",
+  "stderr": "",
+  "stdout": "2026-07-30 15:37:53  [TileLang:tilelang.jit.kernel:INFO] (kernel.py:130): TileLang begins to compile kernel `main` with `out_idx=[-1]`\n2026-07-30 15:37:56  [TileLang:tilelang.jit.kernel:INFO] (kernel.py:138): TileLang completes to compile kernel `main`\n2026-07-30 15:37:56  [TileLang:tilelang.jit.kernel:INFO] (kernel.py:130): TileLang begins to compile kernel `main` with `out_idx=[-1]`\n2026-07-30 15:37:58  [TileLang:tilelang.jit.kernel:INFO] (kernel.py:138): TileLang completes to compile kernel `main`\ntilelang_full_g08 block=2 position=5 ok=True out=/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/fused_closure_v2/results/performance_v1/raw/block02/tilelang_full_g08.json\n"
+}

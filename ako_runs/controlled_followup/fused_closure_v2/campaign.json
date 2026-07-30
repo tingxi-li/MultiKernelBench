@@ -1,0 +1,207 @@
+{
+  "campaign_id": "fused-gbgs-closure-v2",
+  "candidate_order": [
+    "torch_historical_exact",
+    "torch_historical_precast",
+    "torch_contract_fp32",
+    "tilelang_full_g08",
+    "triton_full_g05",
+    "tilelang_common_g03",
+    "triton_common_g00",
+    "cuda_noptx_common_g04",
+    "cuda_unlimited_common_g02"
+  ],
+  "candidates": [
+    {
+      "candidate_id": "torch_historical_exact",
+      "contract_adjudication": "diagnostic_nonconforming",
+      "implementation": "historical_torch",
+      "label": "historical torch fp16, activation cast in timed region",
+      "structural_mismatches": [
+        "bias_dtype=fp16 (fused-v2 requires fp32)",
+        "probability_dtype=fp16 (fused-v2 requires fp32)",
+        "activation cast occurs in timed region"
+      ],
+      "timed_input_dtype": "fp32"
+    },
+    {
+      "candidate_id": "torch_historical_precast",
+      "contract_adjudication": "diagnostic_nonconforming",
+      "implementation": "historical_torch_precast",
+      "label": "historical torch fp16 arithmetic, activation precast",
+      "structural_mismatches": [
+        "bias_dtype=fp16 (fused-v2 requires fp32)",
+        "probability_dtype=fp16 (fused-v2 requires fp32)"
+      ],
+      "timed_input_dtype": "fp16"
+    },
+    {
+      "candidate_id": "torch_contract_fp32",
+      "contract_adjudication": "fused_v2_required",
+      "implementation": "torch_contract_fp32",
+      "label": "torch fp16 operands, fp32 matmul output and fp32 epilogue",
+      "structural_mismatches": [],
+      "timed_input_dtype": "fp16"
+    },
+    {
+      "candidate_id": "tilelang_full_g08",
+      "contract_adjudication": "fused_v2_required",
+      "dsl": "tilelang",
+      "grid_id": "g08",
+      "implementation": "phase2_custom",
+      "label": "frozen full-frontier TileLang winner g08",
+      "selection_role": "confirmed_full_frontier_winner",
+      "set": "BM=128,BN=256,BK=64,threads=256,stages=2,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=smem",
+      "structural_mismatches": [],
+      "timed_input_dtype": "fp16"
+    },
+    {
+      "candidate_id": "triton_full_g05",
+      "contract_adjudication": "fused_v2_required",
+      "dsl": "triton",
+      "grid_id": "g05",
+      "implementation": "phase2_custom",
+      "label": "frozen full-frontier Triton winner g05",
+      "selection_role": "confirmed_full_frontier_winner",
+      "set": "BM=128,BN=256,BK=32,threads=256,stages=2,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=smem",
+      "structural_mismatches": [],
+      "timed_input_dtype": "fp16"
+    },
+    {
+      "candidate_id": "tilelang_common_g03",
+      "contract_adjudication": "fused_v2_required",
+      "dsl": "tilelang",
+      "grid_id": "g03",
+      "implementation": "phase2_custom",
+      "label": "frozen strict-common TileLang screen winner g03",
+      "selection_role": "strict_common_screen_winner",
+      "set": "BM=128,BN=128,BK=64,threads=256,stages=2,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=smem",
+      "structural_mismatches": [],
+      "timed_input_dtype": "fp16"
+    },
+    {
+      "candidate_id": "triton_common_g00",
+      "contract_adjudication": "fused_v2_required",
+      "dsl": "triton",
+      "grid_id": "g00",
+      "implementation": "phase2_custom",
+      "label": "frozen strict-common Triton screen winner g00",
+      "selection_role": "strict_common_screen_winner",
+      "set": "BM=128,BN=128,BK=32,threads=256,stages=2,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=smem",
+      "structural_mismatches": [],
+      "timed_input_dtype": "fp16"
+    },
+    {
+      "candidate_id": "cuda_noptx_common_g04",
+      "contract_adjudication": "fused_v2_required",
+      "dsl": "cuda_noptx",
+      "grid_id": "g04",
+      "implementation": "phase2_custom",
+      "label": "frozen strict-common CUDA-no-PTX screen winner g04",
+      "selection_role": "strict_common_screen_winner",
+      "set": "BM=128,BN=128,BK=64,threads=256,stages=3,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=smem",
+      "structural_mismatches": [],
+      "timed_input_dtype": "fp16"
+    },
+    {
+      "candidate_id": "cuda_unlimited_common_g02",
+      "contract_adjudication": "fused_v2_required",
+      "dsl": "cuda_unlimited",
+      "grid_id": "g02",
+      "implementation": "phase2_custom",
+      "label": "frozen strict-common CUDA-unlimited screen winner g02",
+      "selection_role": "strict_common_screen_winner",
+      "set": "BM=128,BN=128,BK=32,threads=256,stages=4,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=smem",
+      "structural_mismatches": [],
+      "timed_input_dtype": "fp16"
+    }
+  ],
+  "gate": {
+    "case_ids": [
+      "legacy_u01_gain1",
+      "signed_normal_gain1",
+      "rademacher_gain4",
+      "signed_normal_gain16"
+    ],
+    "gate_ids": [
+      "semantic_mixed",
+      "conformance_mixed"
+    ],
+    "seed_indices": {
+      "start": 0,
+      "stop_exclusive": 64
+    },
+    "split": "validation",
+    "threshold_policy": "frozen fused-v2 values without amendment",
+    "timing_launch_rule": "complete adjudication required; diagnostic candidates remain timed; same-contract claims require structural conformance and zero frozen-gate failures"
+  },
+  "inference": {
+    "block_unit": "one fresh process per candidate within each randomized complete block",
+    "cell_estimator": "median of independent process medians",
+    "common_spread_estimator": "median across blocks of max(common-four times)/min(common-four times)",
+    "confirmatory_faster_rule": "all 15 paired observations present, both candidates same-contract eligible, ratio CI strictly below 1, and within-family Holm-adjusted exact sign-test p < 0.05",
+    "confidence_interval": "exact central order-statistic interval with achieved coverage at least 0.95 when finite; n=15 uses [x4,x12] with coverage 0.96484375",
+    "multiplicity": "Holm correction within each preregistered comparison family",
+    "paired_contrast_estimator": "median of within-block time ratios",
+    "paired_test": "exact two-sided sign test of block ratios around 1",
+    "selection_scope": "fixed candidate recipes only; no claim that screen-selected common recipes are latent optima"
+  },
+  "performance_protocol": {
+    "blocks": 15,
+    "dist": "rand",
+    "flush_l2": true,
+    "order_seed": 2026073002,
+    "physical_gpu": 0,
+    "seed": 0,
+    "trials": 100,
+    "warmup_s": 2.0
+  },
+  "preregistered_families": {
+    "historical_diagnostic": [
+      [
+        "tilelang_full_g08",
+        "torch_historical_exact"
+      ],
+      [
+        "triton_full_g05",
+        "torch_historical_exact"
+      ]
+    ],
+    "same_contract_vendor": [
+      [
+        "tilelang_full_g08",
+        "torch_contract_fp32"
+      ],
+      [
+        "triton_full_g05",
+        "torch_contract_fp32"
+      ]
+    ],
+    "torch_decomposition": [
+      [
+        "torch_historical_exact",
+        "torch_historical_precast"
+      ],
+      [
+        "torch_historical_precast",
+        "torch_contract_fp32"
+      ]
+    ]
+  },
+  "schema_version": 2,
+  "selection": {
+    "common_winner_rule": "minimum median-of-two-process-medians inside the strict all-four timing-eligible intersection, with grid ID tie-break",
+    "full_winner_source": "existing independently confirmed point-estimate winners",
+    "strict_common_grid_ids": [
+      "g00",
+      "g01",
+      "g02",
+      "g03",
+      "g04",
+      "g13",
+      "g14",
+      "g16",
+      "g17"
+    ]
+  }
+}

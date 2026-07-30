@@ -1,0 +1,105 @@
+{
+  "campaign_id": "archived-current-fused-v1",
+  "schema_version": 1,
+  "question": "Within each DSL, how does the archived solution_opus48 fused artifact compare with the current fused artifact when both are remeasured contemporaneously?",
+  "scope": {
+    "operation": "softmax(exact_gelu(linear(x)), dim=1)",
+    "shape": {
+      "M": 1024,
+      "K": 8192,
+      "N": 8192
+    },
+    "input_distribution": "torch.rand seed 0, with nn.Linear-style uniform weight and bias",
+    "interpretation": "end-to-end steady-state performance of the frozen Model.forward artifact; source differences in casts, weight layouts, caches, intermediate dtypes, tiles, pipelines, softmaxes, and autotuners are intentionally retained",
+    "exclusions": [
+      "no claim that either artifact is a latent DSL optimum",
+      "no code-generation-only claim because each archived/current pair is a different program",
+      "the single-input correctness diagnostic is not a substitute for the full frozen fused-v2 4x64 validation gate"
+    ]
+  },
+  "subjects": [
+    {
+      "subject_id": "tilelang_archived_opus48",
+      "dsl": "tilelang",
+      "version": "archived_opus48",
+      "source_path": "ako_runs/matmul_gelu_softmax/tilelang/solution/solution_opus48/matmul_gelu_softmax.py",
+      "expected_source_sha256": "43b3150896cecd4c89eae6edf4804e0e076a50fd5c0b7ac90bf225a537d1312b"
+    },
+    {
+      "subject_id": "tilelang_current",
+      "dsl": "tilelang",
+      "version": "current",
+      "source_path": "ako_runs/matmul_gelu_softmax/tilelang/solution/matmul_gelu_softmax.py",
+      "expected_source_sha256": "d8d3668fb60935f1d419a83f05e1fa731fa899e30c3179fc9cbbfd64ef0d24b7",
+      "paired_archived_subject": "tilelang_archived_opus48"
+    },
+    {
+      "subject_id": "triton_archived_opus48",
+      "dsl": "triton",
+      "version": "archived_opus48",
+      "source_path": "ako_runs/matmul_gelu_softmax/triton/solution/solution_opus48/matmul_gelu_softmax.py",
+      "expected_source_sha256": "e9560f44f49814e294cc2f8198dbe4c8f84adbd9d48af2617721ff90f8fb671b"
+    },
+    {
+      "subject_id": "triton_current",
+      "dsl": "triton",
+      "version": "current",
+      "source_path": "ako_runs/matmul_gelu_softmax/triton/solution/matmul_gelu_softmax.py",
+      "expected_source_sha256": "f197d8f9b4efad5a8e751f7d03b458ed51da6477147b35ed0a829ff7604e91ae",
+      "paired_archived_subject": "triton_archived_opus48"
+    }
+  ],
+  "performance_protocol": {
+    "blocks": 15,
+    "block_unit": "one fresh serialized process per subject within a randomized complete block",
+    "order_seed": 2026073006,
+    "data_seed": 0,
+    "warmup_s": 2.0,
+    "trials": 100,
+    "discard_first": 1,
+    "flush_l2": true,
+    "l2_flush_bytes": 268435456,
+    "timing": "CUDA events around exactly Model.forward(x); L2 flush and synchronization occur before the start event",
+    "physical_gpu": 0,
+    "expected_gpu_uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae",
+    "expected_device_name": "NVIDIA RTX 6000 Ada Generation",
+    "expected_compute_capability": [8, 9],
+    "nvcc_path": "/usr/local/cuda-13.1/bin/nvcc",
+    "expected_nvcc_release": "13.1"
+  },
+  "correctness_diagnostic": {
+    "reference": "fp32 torch matmul + fp32 bias + exact erf GELU + fp32 softmax on the performance input",
+    "historical_atol": 0.0001,
+    "historical_rtol": 0.0001,
+    "required": [
+      "finite fp32 output of shape 1024x8192",
+      "all elements pass the historical elementwise tolerance",
+      "no negative probabilities",
+      "maximum absolute row-sum error <= 5e-7"
+    ],
+    "qualification": "This one-input diagnostic protects the timing comparison from an obviously invalid execution. It is explicitly not a full fused-v2 gate acceptance claim."
+  },
+  "inference": {
+    "cell_estimator": "median of 15 independent per-process medians",
+    "paired_contrast": "within-block current_ms / archived_ms for each DSL",
+    "paired_estimator": "median of the 15 within-block ratios",
+    "confidence_interval": "exact central order-statistic interval [x4,x12] for n=15, achieved coverage 0.96484375",
+    "paired_test": "exact two-sided sign test of within-block ratios around 1",
+    "multiplicity": "Holm adjustment across the two preregistered within-DSL contrasts",
+    "directional_claim_rule": "all 15 paired blocks valid, exact interval strictly on one side of 1, and Holm-adjusted sign-test p < 0.05",
+    "tie_rule": "ratio exactly 1 is omitted from the sign test but remains in the interval and estimator"
+  },
+  "preregistered_contrasts": [
+    {
+      "contrast_id": "tilelang_current_over_archived",
+      "current": "tilelang_current",
+      "archived": "tilelang_archived_opus48"
+    },
+    {
+      "contrast_id": "triton_current_over_archived",
+      "current": "triton_current",
+      "archived": "triton_archived_opus48"
+    }
+  ]
+}
+
