@@ -1,0 +1,297 @@
+{
+  "campaign_id": "fused-epilogue-crossed-v1",
+  "coverage": {
+    "locked_union_count": 49,
+    "parent_dependency_count": 18,
+    "parent_missing_from_primary_count": 23,
+    "parent_missing_from_primary_paths": [
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v1/README.md",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v1/__init__.py",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v1/candidates.py",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v1/freeze.py",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v1/make_manifest.py",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v1/postprocess.py",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v1/tests/test_protocol.py",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v1/tilelang_smem.py",
+      "ako_runs/controlled_followup/fused_grid/jobs/fused_gbgs_grid.json",
+      "ako_runs/controlled_followup/robust_gate/manifest.json",
+      "ako_runs/phase1_matmul/common.py",
+      "ako_runs/phase1_matmul/variants/__init__.py",
+      "ako_runs/phase1_matmul/variants/cuda_noptx_gemm.py",
+      "ako_runs/phase1_matmul/variants/cuda_unlimited_gemm.py",
+      "ako_runs/phase1_matmul/variants/tilelang_gemm.py",
+      "ako_runs/phase1_matmul/variants/triton_gemm.py",
+      "ako_runs/phase2_fused_sdpa/common2.py",
+      "ako_runs/phase2_fused_sdpa/runner2.py",
+      "ako_runs/phase2_fused_sdpa/variants2/__init__.py",
+      "ako_runs/phase2_fused_sdpa/variants2/fused_cuda_noptx.py",
+      "ako_runs/phase2_fused_sdpa/variants2/fused_cuda_unlimited.py",
+      "ako_runs/phase2_fused_sdpa/variants2/fused_tilelang.py",
+      "ako_runs/phase2_fused_sdpa/variants2/fused_triton.py"
+    ],
+    "parent_source_count": 17,
+    "recovery_dependency_count": 13,
+    "recovery_missing_from_primary_count": 0,
+    "recovery_source_count": 13
+  },
+  "final_summary": {
+    "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/final_summary.json",
+    "sha256": "98552e48aa67411ba738e160d454e5c387e1c33cb1c543aa53a20198e4c0a70d",
+    "size": 323065
+  },
+  "locked_file_bundle_sha256": "7b06cb5d7ed78dd9dd336e4e4d117e45ca282121959145d412b6f2629a848996",
+  "locked_file_sha256": {
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/README.md": "f9952f50bdb777ca70f24de60c60422339d8120872008e7f0ec31fb1dc63be29",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/__init__.py": "dbfc9f93b5765abcf75cbb939b475e777012841a2c317b3dae5eec897cb755f7",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/analyze.py": "38958d1e1741b1c6e98a3a8d17606fca878b6c5933c7d83960fda938eaa5e5b8",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/audit.py": "d374d27d08cfc2334dd62246c42989fcf685335c65dcfba2321233b27fb5f34e",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/campaign.json": "0aee37b53587f71a9adfa0d80392e6f08554b510b4ce1fef59ccf9b3b185320e",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/candidates.py": "cfd84c68fd3883fdded7062cf4306509108a9ae45e89e99fec9ef78630bbb5ce",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/capture_evidence.py": "b1eb48364bdc1f30c23501f62c1184b968c0f6444f5b469f39cccd8e599cad2c",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/cells.json": "168ec3e73955ea53a3558348d8759a33f102147c51b8454082c32dc2312ee11d",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/core.py": "538feecd1e88f90f711ee2a112a4fc28d027684169b7f64b596d96e74899dbcf",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/freeze.py": "b7de80877348d7867e6314213af0741303d01844164b116da20530a29e1f02aa",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/launch.py": "b9110f5cf0deb08a928364cde1d9a216b8a1541d78ece32eeb32285845949168",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/launch_lock.json": "fe9a0123cc1e3aa64f5d0026e09d89b918838174c7964c85c4580b0962767e8a",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/make_manifest.py": "5eb7b0ac3d148a9ae48675b16e10b887b6ce111e78092984a0d2faebd57ca8ca",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/postprocess.py": "a3bbc92add74d9af04d79a1ce8745f7195f5806d53d4d693ad5aa15ef6f57a39",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/README.md": "5bacd7674871aad076e8e57cb760e9b03c12efabd0f8ce56ef99d21632902cf3",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/__init__.py": "ff0798c2305512ec234cd8360115712eaa70ce05a8e865caa058ae7241eae74c",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/analyze.py": "f636fa50cfc8cb42166fc72ddafdac293e972b88acbaeb9d880e86ac21fecf96",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/audit.py": "5b7edc232e51ef5601c02be004a101903a49c61289df1705e30daa9da74641ba",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/capture_evidence.py": "4c774b40dc7757e17be002f483d0e7b93a57181a05d4565c180fe1a4d6151bc0",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/common.py": "9d4271f33fc2b7977435600ad3fb6d80d521b56e7898471716fbe3fbdf437533",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/freeze.py": "12514470231525267bbb1295408e5886e9454a018494498b65a96579047f0c87",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/incident_receipt.json": "363210911a21a5b106fb25cf036052dcaaa1f9dd73750776898e1b99c598eaa4",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/launch.py": "45b8c4067ab9114a26e73b0d5fca4943122b51f5f628a5b0af547741bfd5cab7",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/run_one.py": "25a77aeb4fbaa8619b9210ab18315d5c384b3a8e32eb91ec4714c5be11ea5221",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/tests/__init__.py": "65d22b191673bdda373e662feaadef9badd380ccaacf12ab928ccf87590a3d81",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/tests/test_recovery.py": "f6356ae1bc8e8e1131010d7e095797e4a3d972ba2e05e3a37e58cdee3536ccb7",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/validate.py": "eea0a2e418380e6fd724a3928a661c40bba56b6ff4e0f1b24e14932e5eb92b9d",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/run_one.py": "7a1fe71618bec4dcd21df1f279c72fbeb253fbf35874b9ddc363c8fa5bbb54a7",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/tests/test_protocol.py": "9cd0dd51d91ad4f13a4613ad5aa3ad9ca2af9485d2114596b9f5770a933489b8",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/tilelang_smem.py": "93c7fe29ecab64a2ad9a1fe1cf28093d8bc4945419741f7da32bc30b048febaf",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/validate.py": "579ca72ebbacb17fb5c62748ce69b198b9e55cbab1b7c2b3e2e3d6f0efa602e2",
+    "ako_runs/controlled_followup/fused_grid/jobs/fused_gbgs_grid.json": "70bfb1219395c4b231dc41d7e6e5661f6a5fd66a5c5cc26cee53283125e006e3",
+    "ako_runs/controlled_followup/fused_grid/robust_adapter.py": "688d9b29673d9314f50a3e8f6a8fc217b8497b27fb3eac13a5234cd9b7a29502",
+    "ako_runs/controlled_followup/fused_grid/robust_adapter_manifest.json": "81e3478b61800e09147a6cb213ba1786b200c137a728a5a9c258241c0a6004ba",
+    "ako_runs/controlled_followup/robust_gate/calibration/gate_spec_fused_v2.json": "b6c3afaadf61f5d380a97c6c541828a1ecacd1a89a00b73b66207fe22d765e2e",
+    "ako_runs/controlled_followup/robust_gate/manifest.json": "28d51cd4f1730bd190e63c7cad60670c37b67784393270e63e859a1685fc8a62",
+    "ako_runs/phase1_matmul/common.py": "7753fcc00891d475db8675423ca7e48fbc0aa0431ac1e1dd4319e6c2900fd0a7",
+    "ako_runs/phase1_matmul/variants/__init__.py": "0ac322f46ab46fe0bf6d9eb6241c7eacf6b9844f5f6d927dbccfc81a1005a585",
+    "ako_runs/phase1_matmul/variants/cuda_noptx_gemm.py": "b3935c4e9516304cbbe0b3ab8e32e1fadc1264f48f26ee00fe52aede6e032217",
+    "ako_runs/phase1_matmul/variants/cuda_unlimited_gemm.py": "c9629300ce871476eb95cdecc5337229c43d3206e674c35d86a7f65d20a87ad5",
+    "ako_runs/phase1_matmul/variants/tilelang_gemm.py": "07d40bb5fee951ecec7ad1a7ca1815b5fae6761b3bb42e81f81c15ef806af268",
+    "ako_runs/phase1_matmul/variants/triton_gemm.py": "8c9cc3d60d549eb941dcb68a0ee7b0a6173b849a368eb55c75ec91c68612e108",
+    "ako_runs/phase2_fused_sdpa/common2.py": "0293cb15fc3285df199daa58281a1a35147a78b9cbccda8b8f88418eecb39c64",
+    "ako_runs/phase2_fused_sdpa/runner2.py": "d1ade4461bff35058a3c6e967532960f5cc509f5d6a46c69bded78fbd0aac31e",
+    "ako_runs/phase2_fused_sdpa/variants2/__init__.py": "2afc778f25db9abe2d05299bbd47fa2ad43b7912eee8633936095e6b92662045",
+    "ako_runs/phase2_fused_sdpa/variants2/fused_cuda_noptx.py": "6abbea8ea28d5d6623da90385e417ec279fd5a022cf2144a56ae8fab684e2058",
+    "ako_runs/phase2_fused_sdpa/variants2/fused_cuda_unlimited.py": "d0c5b1b46f44ae6fe655e78b8ce902b42d46b3567bf26a81574d52b78262f060",
+    "ako_runs/phase2_fused_sdpa/variants2/fused_tilelang.py": "c2a0704d81bdb4b2f78377870a1bc45c6945db77bccc8e89b2a0fd4b46511684",
+    "ako_runs/phase2_fused_sdpa/variants2/fused_triton.py": "20c4f27fdc9145beec6b4cdb99ed8e9d57cbdbede87bace51319d782f378272e"
+  },
+  "locked_path_roles": {
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/README.md": [
+      "parent_source"
+    ],
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/__init__.py": [
+      "parent_source"
+    ],
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/analyze.py": [
+      "parent_source",
+      "recovery_dependency"
+    ],
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/audit.py": [
+      "parent_source",
+      "recovery_dependency"
+    ],
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/campaign.json": [
+      "parent_source",
+      "recovery_dependency"
+    ],
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/candidates.py": [
+      "parent_source"
+    ],
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/capture_evidence.py": [
+      "parent_source",
+      "recovery_dependency"
+    ],
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/cells.json": [
+      "parent_source",
+      "recovery_dependency"
+    ],
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/core.py": [
+      "parent_source",
+      "recovery_dependency"
+    ],
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/freeze.py": [
+      "parent_source"
+    ],
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/launch.py": [
+      "parent_source",
+      "recovery_dependency"
+    ],
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/launch_lock.json": [
+      "recovery_dependency"
+    ],
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/make_manifest.py": [
+      "parent_source"
+    ],
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/postprocess.py": [
+      "parent_source"
+    ],
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/README.md": [
+      "recovery_source"
+    ],
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/__init__.py": [
+      "recovery_source"
+    ],
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/analyze.py": [
+      "recovery_source"
+    ],
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/audit.py": [
+      "recovery_source"
+    ],
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/capture_evidence.py": [
+      "recovery_source"
+    ],
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/common.py": [
+      "recovery_source"
+    ],
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/freeze.py": [
+      "recovery_source"
+    ],
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/incident_receipt.json": [
+      "recovery_source"
+    ],
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/launch.py": [
+      "recovery_source"
+    ],
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/run_one.py": [
+      "recovery_source"
+    ],
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/tests/__init__.py": [
+      "recovery_source"
+    ],
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/tests/test_recovery.py": [
+      "recovery_source"
+    ],
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/validate.py": [
+      "recovery_source"
+    ],
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/run_one.py": [
+      "parent_source",
+      "recovery_dependency"
+    ],
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/tests/test_protocol.py": [
+      "parent_source"
+    ],
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/tilelang_smem.py": [
+      "parent_source"
+    ],
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/validate.py": [
+      "parent_source",
+      "recovery_dependency"
+    ],
+    "ako_runs/controlled_followup/fused_grid/jobs/fused_gbgs_grid.json": [
+      "parent_dependency"
+    ],
+    "ako_runs/controlled_followup/fused_grid/robust_adapter.py": [
+      "parent_dependency",
+      "recovery_dependency"
+    ],
+    "ako_runs/controlled_followup/fused_grid/robust_adapter_manifest.json": [
+      "parent_dependency",
+      "recovery_dependency"
+    ],
+    "ako_runs/controlled_followup/robust_gate/calibration/gate_spec_fused_v2.json": [
+      "parent_dependency",
+      "recovery_dependency"
+    ],
+    "ako_runs/controlled_followup/robust_gate/manifest.json": [
+      "parent_dependency"
+    ],
+    "ako_runs/phase1_matmul/common.py": [
+      "parent_dependency"
+    ],
+    "ako_runs/phase1_matmul/variants/__init__.py": [
+      "parent_dependency"
+    ],
+    "ako_runs/phase1_matmul/variants/cuda_noptx_gemm.py": [
+      "parent_dependency"
+    ],
+    "ako_runs/phase1_matmul/variants/cuda_unlimited_gemm.py": [
+      "parent_dependency"
+    ],
+    "ako_runs/phase1_matmul/variants/tilelang_gemm.py": [
+      "parent_dependency"
+    ],
+    "ako_runs/phase1_matmul/variants/triton_gemm.py": [
+      "parent_dependency"
+    ],
+    "ako_runs/phase2_fused_sdpa/common2.py": [
+      "parent_dependency"
+    ],
+    "ako_runs/phase2_fused_sdpa/runner2.py": [
+      "parent_dependency"
+    ],
+    "ako_runs/phase2_fused_sdpa/variants2/__init__.py": [
+      "parent_dependency"
+    ],
+    "ako_runs/phase2_fused_sdpa/variants2/fused_cuda_noptx.py": [
+      "parent_dependency"
+    ],
+    "ako_runs/phase2_fused_sdpa/variants2/fused_cuda_unlimited.py": [
+      "parent_dependency"
+    ],
+    "ako_runs/phase2_fused_sdpa/variants2/fused_tilelang.py": [
+      "parent_dependency"
+    ],
+    "ako_runs/phase2_fused_sdpa/variants2/fused_triton.py": [
+      "parent_dependency"
+    ]
+  },
+  "parent": {
+    "dependency_bundle_sha256": "9af9f8ceb36d077cfe079a01e5a9df125e83932542449ceca8f4225a74dd5c84",
+    "git_commit": "4ddfc88d5712959e12161da75ce991f8c9a20248",
+    "launch_lock_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/launch_lock.json",
+    "launch_lock_sha256": "fe9a0123cc1e3aa64f5d0026e09d89b918838174c7964c85c4580b0962767e8a",
+    "source_bundle_sha256": "f8d7745416c7254d10cfdd144d80d91409f745d521d0debb5f5f8cc87c9de0b6"
+  },
+  "primary_evidence": {
+    "bundle_path": "ako_runs/controlled_followup/provenance/evidence_v3/fused_crossed_v1r1_complete_v1.tar.gz",
+    "bundle_sha256": "b48d5b1d8087d6c777e0530d602920258c405529f59ce3c8dd6a081fea337d91",
+    "bundle_size": 19603043,
+    "entry_count": 1644,
+    "index_path": "ako_runs/controlled_followup/provenance/evidence_v3/fused_crossed_v1r1_complete_v1.index.json",
+    "index_sha256": "e5d9e174c5f21395b71b40d7933b0601d9f44f4d58292fdc84fc59b36bb43860",
+    "index_size": 1022,
+    "manifest_canonical_sha256": "745e1ea6bcf6e6de1e0c103c423867488966b65c9fb7c23657962eeb344b80ea",
+    "manifest_raw_sha256": "547b0f6a744ea5bcbd880a8d12d2def668ce9c2ffc86322e7ae291d7ff6a274c",
+    "uncompressed_entry_bytes": 528928742
+  },
+  "record_type": "fused_crossed_v1r1_provenance_supplement_lock",
+  "recovery": {
+    "dependency_bundle_sha256": "66386b8582dd077fad85792e1ceefbf266dfc469570ef2f8682f8709b93ae824",
+    "git_commit": "3c5beb19c25fb083c80efd2e5a7839d201e200ec",
+    "recovery_id": "fused-epilogue-crossed-v1r1-reporting-fix",
+    "recovery_lock_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/recovery_lock.json",
+    "recovery_lock_sha256": "919827539cce29d8a5aa134cd88f4afe14241703615a1b1ba29d40aabde31b63",
+    "source_bundle_sha256": "40cb91ec9739f9b2073347cce55ea01b89aebcd5c94526589b323d247ebfb251"
+  },
+  "result_tag": "crossed_v1r1",
+  "schema_version": 1,
+  "source_bundle_sha256": "52d8509a654efb9ae76b4adb395c7654016d22d0dec4432e10f34d9de910453e",
+  "source_sha256": {
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/provenance_supplement_v1/README.md": "bb2cdd8c790743a29ce805a0a1e1ee4df76c49ff8b96f269b5050dc2b80ec836",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/provenance_supplement_v1/__init__.py": "abacc09bcde98895d98bbf9cdb48a9651252b2a4fdd7eb29c1c3d4455c2fe0ad",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/provenance_supplement_v1/build.py": "62d3d29a0be0235e0a50c952ba8baaa0c827c13b8dac6f36806e7f34354b67a8",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/provenance_supplement_v1/common.py": "8ea1fc4a237430778b11babadc146eb41bb3983ed15624a4ea1891a23952d372",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/provenance_supplement_v1/freeze.py": "09c58208516f8d1266ea95cf39dc745bca0e6e6bbc866393fd5b1ed382cc2ec8",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/provenance_supplement_v1/tests/__init__.py": "270ecbba84f770246638efc3ed61028a9f03da95dab23609ff1a769312b3498a",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/provenance_supplement_v1/tests/test_supplement.py": "e8bcf310a2a40a93fe9397b2d39db51cacf183cd84fc3b01f1d21e4cb539d218"
+  },
+  "supplement_id": "fused-crossed-v1r1-provenance-supplement-v1",
+  "supplement_scope": "provenance_self_containment_only"
+}
