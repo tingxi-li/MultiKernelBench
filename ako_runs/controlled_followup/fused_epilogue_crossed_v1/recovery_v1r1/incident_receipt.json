@@ -1,0 +1,49 @@
+{
+  "campaign_id": "fused-epilogue-crossed-v1",
+  "diagnosis": {
+    "effect": "all four audit processes exited before any cell record or gate JSONL was sealed",
+    "exception": "ZeroDivisionError: float division by zero",
+    "location": "audit.py:gate_summary",
+    "mechanism": "the diagnostic utilization reducer divided negative_count and nonfinite_count by their exact zero-valued fixed thresholds",
+    "scientific_effect": "none; frozen gate decisions and thresholds were not changed, and no empirical cell outcome was retained"
+  },
+  "parent_git_commit": "4ddfc88d5712959e12161da75ce991f8c9a20248",
+  "parent_launch_lock_sha256": "fe9a0123cc1e3aa64f5d0026e09d89b918838174c7964c85c4580b0962767e8a",
+  "parent_source_bundle_sha256": "f8d7745416c7254d10cfdd144d80d91409f745d521d0debb5f5f8cc87c9de0b6",
+  "preserved_artifact_count": 5,
+  "preserved_artifacts": {
+    "audit/receipts/shard00.json": {
+      "sha256": "f60a5dd3ebd5e570ef92e92517c0357212de3f31f80aa1c8cd84c9c4a6665591",
+      "size": 3662
+    },
+    "audit/receipts/shard01.json": {
+      "sha256": "d837a685f7b50f06a6de93bde4875981d752f53cf0f082f10f87da3ae8c71eac",
+      "size": 3674
+    },
+    "audit/receipts/shard02.json": {
+      "sha256": "e73363dbaba0349da428835e54f6e74eae778835966d4a06eaf32b711063ab09",
+      "size": 3684
+    },
+    "audit/receipts/shard03.json": {
+      "sha256": "0412ee951517342230d5e471c16e4e1b5566e0de88276ea8a5ee642bbc1fcf99",
+      "size": 3680
+    },
+    "remote_push_receipt.json": {
+      "sha256": "e812a89f4c9ab09b89644caf5fb565cc7c8ef13e03c2b7b6d9bd4dd3abd82df3",
+      "size": 773
+    }
+  },
+  "process_exit_census": {
+    "exit_code_1": 4,
+    "zero_division_error": 4
+  },
+  "record_type": "fused_crossed_v1_failed_launch_incident_receipt",
+  "recovery_id": "fused-epilogue-crossed-v1r1-reporting-fix",
+  "schema_version": 1,
+  "sealed_outcome_census": {
+    "audit_cell_records": 0,
+    "gate_jsonl": 0,
+    "sealed_terminal_outcomes": 0,
+    "shard_statuses": 0
+  }
+}

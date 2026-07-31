@@ -1,0 +1,49 @@
+{
+  "campaign_id": "fused-epilogue-crossed-v1",
+  "dependency_bundle_sha256": "66386b8582dd077fad85792e1ceefbf266dfc469570ef2f8682f8709b93ae824",
+  "dependency_sha256": {
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/analyze.py": "38958d1e1741b1c6e98a3a8d17606fca878b6c5933c7d83960fda938eaa5e5b8",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/audit.py": "d374d27d08cfc2334dd62246c42989fcf685335c65dcfba2321233b27fb5f34e",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/campaign.json": "0aee37b53587f71a9adfa0d80392e6f08554b510b4ce1fef59ccf9b3b185320e",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/capture_evidence.py": "b1eb48364bdc1f30c23501f62c1184b968c0f6444f5b469f39cccd8e599cad2c",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/cells.json": "168ec3e73955ea53a3558348d8759a33f102147c51b8454082c32dc2312ee11d",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/core.py": "538feecd1e88f90f711ee2a112a4fc28d027684169b7f64b596d96e74899dbcf",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/launch.py": "b9110f5cf0deb08a928364cde1d9a216b8a1541d78ece32eeb32285845949168",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/launch_lock.json": "fe9a0123cc1e3aa64f5d0026e09d89b918838174c7964c85c4580b0962767e8a",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/run_one.py": "7a1fe71618bec4dcd21df1f279c72fbeb253fbf35874b9ddc363c8fa5bbb54a7",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/validate.py": "579ca72ebbacb17fb5c62748ce69b198b9e55cbab1b7c2b3e2e3d6f0efa602e2",
+    "ako_runs/controlled_followup/fused_grid/robust_adapter.py": "688d9b29673d9314f50a3e8f6a8fc217b8497b27fb3eac13a5234cd9b7a29502",
+    "ako_runs/controlled_followup/fused_grid/robust_adapter_manifest.json": "81e3478b61800e09147a6cb213ba1786b200c137a728a5a9c258241c0a6004ba",
+    "ako_runs/controlled_followup/robust_gate/calibration/gate_spec_fused_v2.json": "b6c3afaadf61f5d380a97c6c541828a1ecacd1a89a00b73b66207fe22d765e2e"
+  },
+  "incident_receipt_sha256": "363210911a21a5b106fb25cf036052dcaaa1f9dd73750776898e1b99c598eaa4",
+  "parent_git_commit": "4ddfc88d5712959e12161da75ce991f8c9a20248",
+  "parent_launch_lock_sha256": "fe9a0123cc1e3aa64f5d0026e09d89b918838174c7964c85c4580b0962767e8a",
+  "parent_source_bundle_sha256": "f8d7745416c7254d10cfdd144d80d91409f745d521d0debb5f5f8cc87c9de0b6",
+  "record_type": "fused_crossed_v1r1_recovery_lock",
+  "recovery_id": "fused-epilogue-crossed-v1r1-reporting-fix",
+  "reporting_change": {
+    "exact_zero_thresholds": "report maxima and violation counts; do not divide",
+    "frozen_gate_decisions_changed": false,
+    "frozen_thresholds_changed": false,
+    "positive_thresholds": "retain value/threshold utilization"
+  },
+  "result_tag": "crossed_v1r1",
+  "schema_version": 1,
+  "source_bundle_sha256": "40cb91ec9739f9b2073347cce55ea01b89aebcd5c94526589b323d247ebfb251",
+  "source_sha256": {
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/README.md": "5bacd7674871aad076e8e57cb760e9b03c12efabd0f8ce56ef99d21632902cf3",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/__init__.py": "ff0798c2305512ec234cd8360115712eaa70ce05a8e865caa058ae7241eae74c",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/analyze.py": "f636fa50cfc8cb42166fc72ddafdac293e972b88acbaeb9d880e86ac21fecf96",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/audit.py": "5b7edc232e51ef5601c02be004a101903a49c61289df1705e30daa9da74641ba",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/capture_evidence.py": "4c774b40dc7757e17be002f483d0e7b93a57181a05d4565c180fe1a4d6151bc0",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/common.py": "9d4271f33fc2b7977435600ad3fb6d80d521b56e7898471716fbe3fbdf437533",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/freeze.py": "12514470231525267bbb1295408e5886e9454a018494498b65a96579047f0c87",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/incident_receipt.json": "363210911a21a5b106fb25cf036052dcaaa1f9dd73750776898e1b99c598eaa4",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/launch.py": "45b8c4067ab9114a26e73b0d5fca4943122b51f5f628a5b0af547741bfd5cab7",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/run_one.py": "25a77aeb4fbaa8619b9210ab18315d5c384b3a8e32eb91ec4714c5be11ea5221",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/tests/__init__.py": "65d22b191673bdda373e662feaadef9badd380ccaacf12ab928ccf87590a3d81",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/tests/test_recovery.py": "f6356ae1bc8e8e1131010d7e095797e4a3d972ba2e05e3a37e58cdee3536ccb7",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/validate.py": "eea0a2e418380e6fd724a3928a661c40bba56b6ff4e0f1b24e14932e5eb92b9d"
+  }
+}
