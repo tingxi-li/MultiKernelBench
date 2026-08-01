@@ -4,6 +4,7 @@ import math
 import sys
 from collections import Counter
 from pathlib import Path
+from types import SimpleNamespace
 
 import pytest
 
@@ -75,6 +76,68 @@ def test_primary_timing_summary_uses_trials_60_through_99():
     assert summary["first_decile_median_ms"] == 5.5
     assert summary["last_decile_median_ms"] == 95.5
     assert summary["first_to_last_decile_ratio"] == pytest.approx(95.5 / 5.5)
+
+
+def test_gate_summary_does_not_divide_exact_zero_thresholds():
+    case_ids = ["a", "b", "c", "d"]
+    rows = [
+        {
+            "case_id": case_id,
+            "gate_id": gate_id,
+            "gate_pass": True,
+            "metrics": {"max_abs_err": 0.5, "negative_count": 0},
+            "ok": True,
+            "seed_index": seed_index,
+        }
+        for case_id in case_ids
+        for seed_index in range(64)
+        for gate_id in ("conformance_mixed", "semantic_mixed")
+    ]
+    context = SimpleNamespace(
+        adapter={"robust_gate": {"case_ids": case_ids}},
+        gate_spec={
+            "gates": {
+                f"fused_softmax/{gate_id}": {
+                    "thresholds": {
+                        "max_abs_err": {"value": 1.0},
+                        "negative_count": {"value": 0.0},
+                    }
+                }
+                for gate_id in ("conformance_mixed", "semantic_mixed")
+            }
+        },
+    )
+
+    summary = campaign_runner._gate_summary(context, rows)
+
+    assert summary["full_gate_pass"] is True
+    assert summary["max_over_threshold_ratio"] == 0.5
+    assert set(summary["zero_threshold_max_observed_by_metric"].values()) == {0.0}
+    assert summary["zero_threshold_violation_records_by_metric"] == {}
+
+
+@pytest.mark.parametrize(
+    ("outcome", "n_kernels"),
+    (("BUILD_FAILED", None), ("GATE_PASSED", 1)),
+)
+def test_audit_requires_every_supported_fourth_strategy_cell_to_gate_pass(
+    outcome, n_kernels
+):
+    record = {
+        "build_metadata": {"n_kernels": n_kernels},
+        "cell": {
+            "cell_id": "register_common_postprocess.tilelang.g01",
+            "strategy": "register_common_postprocess",
+            "support_declared": True,
+        },
+        "terminal_outcome": outcome,
+    }
+    with pytest.raises(RuntimeError, match="full two-kernel operation"):
+        analyze._validate_fourth_strategy_acceptance([record])
+
+    record["terminal_outcome"] = "GATE_PASSED"
+    record["build_metadata"]["n_kernels"] = 2
+    analyze._validate_fourth_strategy_acceptance([record])
 
 
 def test_sham_floor_suppresses_subfloor_effects():

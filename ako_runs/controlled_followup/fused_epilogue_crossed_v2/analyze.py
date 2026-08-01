@@ -155,6 +155,24 @@ def _validate_timing_run(
     ]
 
 
+def _validate_fourth_strategy_acceptance(records: list[dict[str, Any]]) -> None:
+    failures = [
+        record["cell"]["cell_id"]
+        for record in records
+        if record["cell"]["strategy"] == "register_common_postprocess"
+        and record["cell"]["support_declared"] is True
+        and (
+            record["terminal_outcome"] != "GATE_PASSED"
+            or record.get("build_metadata", {}).get("n_kernels") != 2
+        )
+    ]
+    if failures:
+        raise RuntimeError(
+            "supported register_common_postprocess cells did not produce the "
+            f"full two-kernel operation: {failures}"
+        )
+
+
 def audit_summary(root: Path) -> dict[str, Any]:
     campaign, cells, lock = load_contract()
     receipt_hashes = _validate_audit_receipts(root, campaign, cells, lock)
@@ -227,6 +245,7 @@ def audit_summary(root: Path) -> dict[str, Any]:
                 raise RuntimeError(f"full operation did not declare exactly two kernels: {cell['cell_id']}")
         records.append(record)
     by_cell = {record["cell"]["cell_id"]: record for record in records}
+    _validate_fourth_strategy_acceptance(records)
     recovered = [f"register_fused.cuda_unlimited.g{index:02d}" for index in range(5, 13)]
     if any(by_cell[cell_id]["terminal_outcome"] != "GATE_PASSED" for cell_id in recovered):
         raise RuntimeError("corrected cuda_unlimited register cells g05-g12 did not recover")

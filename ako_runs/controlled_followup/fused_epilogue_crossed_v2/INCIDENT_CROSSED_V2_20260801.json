@@ -1,0 +1,46 @@
+{
+  "campaign_id": "fused-epilogue-crossed-v2",
+  "corrective_result_tag": "crossed_v2r1",
+  "diagnosis": {
+    "effect": "all four audit processes exited before any cell record or gate JSONL was retained",
+    "exception": "ZeroDivisionError: float division by zero",
+    "location": "campaign_runner.py:_gate_summary",
+    "mechanism": "the diagnostic utilization reducer divided negative_count and nonfinite_count by their exact zero-valued frozen thresholds",
+    "scientific_effect": "none; frozen gate decisions and thresholds were not changed, and no empirical cell outcome was retained"
+  },
+  "failed_result_tag": "crossed_v2",
+  "parent_git_commit": "416e8c45e1656df8e4d954adc86272932d754af1",
+  "parent_launch_lock_sha256": "929fdcb765327de3cbfdad7a034c01dff4c1a2f19b10a356a82e331a9728bffe",
+  "parent_source_bundle_sha256": "4a802ae2901135781c6bf094c10c70cd2986e0d0a951da6515774224be8abf50",
+  "preserved_artifact_count": 4,
+  "preserved_artifacts": {
+    "results/crossed_v2/audit/receipts/shard00.json": {
+      "sha256": "a5a3dd6ac9e13a7d2e42eca9932ff5e87eaaed0f31f7ae116ab986832bcd1f29",
+      "size": 4518
+    },
+    "results/crossed_v2/audit/receipts/shard01.json": {
+      "sha256": "001716a9841b1a432a7b3616c4fb36852988c486e0b2de59a03b2736c6fb6a90",
+      "size": 4531
+    },
+    "results/crossed_v2/audit/receipts/shard02.json": {
+      "sha256": "1efe91e6f53e5adb81a3471a0cf740ec1665f30e8156532b93f9f44eb92b7f17",
+      "size": 4548
+    },
+    "results/crossed_v2/audit/receipts/shard03.json": {
+      "sha256": "3862f4917e043b7315fb7c28e6b3d44df80401ef778a8fc0186e48b364b36d8f",
+      "size": 4539
+    }
+  },
+  "process_exit_census": {
+    "exit_code_1": 4,
+    "zero_division_error": 4
+  },
+  "record_type": "fused_crossed_v2_failed_launch_incident_receipt",
+  "schema_version": 1,
+  "sealed_outcome_census": {
+    "audit_cell_records": 0,
+    "gate_jsonl": 0,
+    "sealed_terminal_outcomes": 0,
+    "shard_statuses": 0
+  }
+}

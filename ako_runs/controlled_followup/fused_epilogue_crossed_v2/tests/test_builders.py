@@ -189,10 +189,62 @@ def test_candidate_dispatch_uses_v2_postprocess_flags(monkeypatch):
         {"lane": "tilelang"},
         {"artifacts": {}, "build_wall_s": 0.0, "isolated_artifact_root": "/tmp/test"},
     )
-    monkeypatch.setattr(candidates, "_build_phase2", lambda *_args: lane)
+    phase2_calls = []
+
+    def fake_phase2(cell, epilogue, arm):
+        phase2_calls.append((cell["lane"], epilogue, arm))
+        return lane
+
+    monkeypatch.setattr(candidates, "_build_phase2", fake_phase2)
     common_cell = {"cell_id": lane.cell_id, "lane": "tilelang"}
     assert candidates._build_register_common(common_cell).metadata["n_kernels"] == 2
     assert calls == [(True, True), (False, False)]
+    assert phase2_calls == [("tilelang", "regs", "GBG")]
+
+
+def test_every_supported_production_builder_consumes_strategy_dispatch(monkeypatch):
+    calls = []
+    monkeypatch.setattr(
+        candidates,
+        "_build_phase2",
+        lambda cell, epilogue, arm: calls.append((cell["lane"], "phase2", epilogue, arm)),
+    )
+    monkeypatch.setattr(
+        candidates,
+        "_build_tilelang_smem",
+        lambda cell: calls.append((cell["lane"], "tilelang_smem", "smem", "GBGS")),
+    )
+    monkeypatch.setattr(
+        candidates,
+        "_build_global",
+        lambda cell: calls.append((cell["lane"], "global", "global", "GBGS")),
+    )
+    monkeypatch.setattr(
+        candidates,
+        "_build_register_common",
+        lambda cell: calls.append((cell["lane"], "register_common", "regs", "GBG")),
+    )
+    cells = [
+        cell
+        for cell in core.load_cells()
+        if cell["grid_id"] == "g01" and cell["support_declared"] is True
+    ]
+
+    for cell in cells:
+        candidates.build(cell)
+
+    expected = []
+    for cell in cells:
+        if cell["strategy"] == "register_fused":
+            expected.append((cell["lane"], "phase2", "regs", "GBGS"))
+        elif cell["strategy"] == "smem_staged":
+            builder = "tilelang_smem" if cell["lane"] == "tilelang" else "phase2"
+            expected.append((cell["lane"], builder, "smem", "GBGS"))
+        elif cell["strategy"] == "global_intermediate":
+            expected.append((cell["lane"], "global", "global", "GBGS"))
+        else:
+            expected.append((cell["lane"], "register_common", "regs", "GBG"))
+    assert calls == expected
 
 
 def test_every_probe_builder_consumes_the_requested_epilogue():

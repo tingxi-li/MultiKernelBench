@@ -5,7 +5,6 @@ from __future__ import annotations
 import argparse
 import fcntl
 import json
-import math
 import os
 import platform
 import statistics
@@ -58,6 +57,9 @@ FUSED_GRID = REPO_ROOT / "ako_runs/controlled_followup/fused_grid"
 if str(FUSED_GRID) not in sys.path:
     sys.path.insert(0, str(FUSED_GRID))
 import robust_adapter as adapter  # noqa: E402
+from ako_runs.controlled_followup.fused_epilogue_crossed_v1.recovery_v1r1.audit import (  # noqa: E402
+    fixed_gate_summary as _gate_summary,
+)
 
 
 def compact(value: Any) -> Any:
@@ -90,41 +92,6 @@ def _write_jsonl(path: Path, rows: list[dict[str, Any]]) -> None:
 
 def _cell_filename(cell_id: str) -> str:
     return cell_id.replace(".", "__") + ".json"
-
-
-def _gate_summary(context, rows: list[dict[str, Any]]) -> dict[str, Any]:
-    expected = 4 * 64 * 2
-    if len(rows) != expected:
-        raise RuntimeError(f"gate row count {len(rows)} != {expected}")
-    ratios: dict[str, float] = {}
-    for row in rows:
-        if row.get("ok") is not True:
-            continue
-        gate = context.gate_spec["gates"][f"fused_softmax/{row['gate_id']}"]
-        for metric, threshold in gate["thresholds"].items():
-            value = row.get("metrics", {}).get(metric)
-            if isinstance(value, (int, float)):
-                key = f"{row['gate_id']}/{metric}"
-                ratios[key] = max(ratios.get(key, float("-inf")), float(value) / float(threshold["value"]))
-    failed = [row for row in rows if row.get("ok") is not True or row.get("gate_pass") is not True]
-    coverage = {(row.get("case_id"), row.get("seed_index"), row.get("gate_id")) for row in rows}
-    expected_coverage = {
-        (case, seed, gate)
-        for case in context.adapter["robust_gate"]["case_ids"]
-        for seed in range(64)
-        for gate in adapter.GATE_IDS
-    }
-    complete = coverage == expected_coverage and len(rows) == expected
-    return {
-        "complete": complete,
-        "expected_records": expected,
-        "failed_records": len(failed),
-        "full_gate_pass": complete and not failed,
-        "max_over_threshold_ratio": max(ratios.values()) if ratios else None,
-        "max_over_threshold_ratio_by_metric": ratios,
-        "minimum_headroom_fraction": 1.0 - max(ratios.values()) if ratios else None,
-        "observed_records": len(rows),
-    }
 
 
 def _candidate_plan(context, cell: dict[str, Any], built):
