@@ -161,14 +161,12 @@ def _validate_fourth_strategy_acceptance(records: list[dict[str, Any]]) -> None:
         for record in records
         if record["cell"]["strategy"] == "register_common_postprocess"
         and record["cell"]["support_declared"] is True
-        and (
-            record["terminal_outcome"] != "GATE_PASSED"
-            or record.get("build_metadata", {}).get("n_kernels") != 2
-        )
+        and record["terminal_outcome"] != "BUILD_FAILED"
+        and record.get("build_metadata", {}).get("n_kernels") != 2
     ]
     if failures:
         raise RuntimeError(
-            "supported register_common_postprocess cells did not produce the "
+            "built register_common_postprocess cells did not produce the "
             f"full two-kernel operation: {failures}"
         )
 

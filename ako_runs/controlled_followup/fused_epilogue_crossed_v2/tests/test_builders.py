@@ -36,6 +36,13 @@ def config(lane: str, epilogue: str, **overrides):
     return common2.make_fused_config(lane, "GBGS", extra=extra, **overrides)
 
 
+def test_generated_cuda_launchers_include_checked_header():
+    for path in sorted(HERE.glob("*.py")):
+        source = path.read_text(encoding="utf-8")
+        if "<<<" in source:
+            assert '#include "checked_cuda_launch.h"' in source, path.name
+
+
 def test_cuda_unlimited_launch_checks_and_epilogue_conditional_smem():
     regs = cuda_unlimited.make_source(config("cuda_unlimited", "regs"))
     assert regs["epilogue_tile_shared_bytes"] == 0

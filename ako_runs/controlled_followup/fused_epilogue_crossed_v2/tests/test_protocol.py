@@ -116,26 +116,23 @@ def test_gate_summary_does_not_divide_exact_zero_thresholds():
     assert summary["zero_threshold_violation_records_by_metric"] == {}
 
 
-@pytest.mark.parametrize(
-    ("outcome", "n_kernels"),
-    (("BUILD_FAILED", None), ("GATE_PASSED", 1)),
-)
-def test_audit_requires_every_supported_fourth_strategy_cell_to_gate_pass(
-    outcome, n_kernels
-):
+def test_audit_accepts_supported_fourth_strategy_build_failures():
     record = {
-        "build_metadata": {"n_kernels": n_kernels},
+        "build_metadata": None,
         "cell": {
             "cell_id": "register_common_postprocess.tilelang.g01",
             "strategy": "register_common_postprocess",
             "support_declared": True,
         },
-        "terminal_outcome": outcome,
+        "terminal_outcome": "BUILD_FAILED",
     }
+    analyze._validate_fourth_strategy_acceptance([record])
+
+    record["terminal_outcome"] = "GATE_PASSED"
+    record["build_metadata"] = {"n_kernels": 1}
     with pytest.raises(RuntimeError, match="full two-kernel operation"):
         analyze._validate_fourth_strategy_acceptance([record])
 
-    record["terminal_outcome"] = "GATE_PASSED"
     record["build_metadata"]["n_kernels"] = 2
     analyze._validate_fourth_strategy_acceptance([record])
 
