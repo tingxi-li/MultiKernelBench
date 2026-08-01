@@ -1,5 +1,7 @@
 # Adversarial review of `CONTROLLED_CROSS_DSL_REPORT.md`
 
+> Corrections and current controlling interpretation: [`controlled_followup/REVIEW_ROUND2_RESPONSE_20260731.md`](controlled_followup/REVIEW_ROUND2_RESPONSE_20260731.md).
+
 > Target: `ako_runs/CONTROLLED_CROSS_DSL_REPORT.md` at commit `8854ae0` (branch
 > `cross-dsl-6op-ncu-redo`), together with its evidence base
 > (`phase1_matmul/PHASE1_REPORT.md`, `phase2_fused_sdpa/PHASE2_REPORT.built.md`,

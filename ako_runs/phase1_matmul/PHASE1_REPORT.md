@@ -1,5 +1,7 @@
 # Phase 1 — the decisive standard-matmul experiment
 
+> Corrections and current controlling interpretation: [`../controlled_followup/REVIEW_ROUND2_RESPONSE_20260731.md`](../controlled_followup/REVIEW_ROUND2_RESPONSE_20260731.md).
+
 *Branch `cross-dsl-6op-ncu-redo`. Host: 4× NVIDIA RTX 6000 Ada (sm_89, 142 SMs,
 48 GB, 96 MB L2), torch 2.10.0+cu128, triton 3.6.0, tilelang 0.1.11, nvcc
 13.1.115, ncu 2026.2.1.0.*

@@ -1,5 +1,7 @@
 # Cross-DSL performance, optimization trajectories, transfer, and TileLang abstraction
 
+> Corrections and current controlling interpretation: [`controlled_followup/REVIEW_ROUND2_RESPONSE_20260731.md`](controlled_followup/REVIEW_ROUND2_RESPONSE_20260731.md).
+
 > Evidence snapshot: branch `cross-dsl-6op-ncu-redo`, commit `8854ae0`.
 > This report audits the committed trajectories and controlled Phase-1/Phase-2
 > artifacts; it does not claim an exhaustive search of any DSL.
@@ -186,8 +188,10 @@ Files to inspect:
 The published 1.17 ms TileLang result belongs to the archived Opus artifact, but
 the Phase-2 incumbent checker loads the mutable current `solution/` file. Those
 files have different GEMM tiles, pipeline depths, weight layouts, and softmax
-implementations. Triton's current solution also changed from the logged TF32
-kernel into a 13-configuration FP16 autotuned kernel.
+implementations. Triton's archived file was not a logged TF32 kernel: it was a
+10-configuration kernel that loaded fp32 operands and cast tiles to fp16 inside
+the kernel, with a fp32 GELU intermediate. The current file has 13 configurations,
+precasts the activation, caches an fp16 weight, and writes an fp16 intermediate.
 
 For example, archived TileLang uses `BM=128, BN=256, BK=32, stages=3` and reads
 the native `(N,K)` weight through `transpose_B=True`; current TileLang uses

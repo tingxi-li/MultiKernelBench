@@ -7,6 +7,8 @@
 > Completed-run ledger: [`RUN_20260730.md`](RUN_20260730.md)
 >
 > Historical-report overlay: [`ERRATA_20260730.md`](ERRATA_20260730.md)
+>
+> Current controlling response: [`REVIEW_ROUND2_RESPONSE_20260731.md`](REVIEW_ROUND2_RESPONSE_20260731.md)
 
 This is an append-only response. It does not alter the completed campaign's
 launch receipts, result files, frozen gates, analysis sources, or provenance
@@ -200,12 +202,11 @@ Opus-versus-Sonnet effect.
 
 ## Post-review results (append-only, 2026-07-30)
 
-The experiments requested after the review are now complete for fused closure,
-CUDA reachability, fresh fused row-sum stress, and archived-versus-current fused
-artifacts.  They do not rewrite the historical reports or mutate any frozen
-threshold, validation split, selection, or launch receipt.  The separate
-matmul-v4 instrumentation/negative-control audit remains active and contributes
-no completed result to this section.
+The experiments requested after the review are complete for fused closure,
+CUDA reachability, fresh fused row-sum stress, archived-versus-current fused
+artifacts, and the matmul-v4 instrumentation audit. They do not mutate any
+frozen threshold, validation split, selection, or launch receipt. Current
+interpretation is consolidated in the round-2 response linked above.
 
 ### Receipt-backed evidence ledger
 
@@ -246,6 +247,10 @@ ratios were:
 |---|---:|---:|---:|---:|
 | TileLang `g08` | `0.863852956` | `[0.858407072, 0.888349475]` | `0.00738525` | `1.157604x` |
 | Triton `g05` | `0.863172215` | `[0.852713156, 0.870408856]` | `0.00195313` | `1.158517x` |
+
+**Inline robustness warning:** both timed custom artifacts subsequently failed
+`1/256` fresh gain-16 seeds. Their timing eligibility is limited to the original
+frozen `4 x 64 x 2` split; these ratios are not fresh-stress-qualified results.
 
 Thus these two frozen custom artifacts were faster than this contemporaneous,
 same-arithmetic-contract Torch control in this session.  This is not a general
@@ -364,6 +369,12 @@ materially, while a smaller fixed-recipe realization gap remains.  It is not
 an additive decomposition or a universal DSL-optimum claim, and the no-PTX
 `g05`/`g09` winner remains unresolved.
 
+**Inline robustness and effort warning:** the compiler artifacts in this table
+failed their separate fresh-seed stress, and old-versus-streamed robustness was
+measured on disjoint seeds. CUDA alone received the oracle-informed streamed
+redesign while TileLang and Triton remained grid-frozen. The `1.250500x` spread
+is therefore an asymmetric-engineering snapshot, not an equilibrium frontier.
+
 The bound
 [`analysis_summary.json`](fused_frontier_closure_v3/results/performance_v1/analysis_summary.json)
 has SHA-256
@@ -372,3 +383,39 @@ The 319-entry deterministic evidence index and archive have SHA-256 values
 `5e12dc8676d4694a05e6970bbd3b54ab9cace3b09976e3e558563ed1b5cf0771`
 and `8b0a05a24013e4944be27accdbcbb7b9fe24bd027bade08fddfbe5c63dc44760`,
 respectively.
+
+## Round-2 currency correction (append-only, 2026-07-30)
+
+The matmul-v4 instrument audit is now complete.  The controlling result is
+[`summary.json`](robust_gate/audits/matmul_v4_instrument_v1/results/summary.json)
+with SHA-256
+`125e66bbd76012e49695b1226ff39943d52bb61da9a44842b549a53b1f678ebd`, and the
+completion receipt is
+[`completion_receipt.json`](robust_gate/audits/matmul_v4_instrument_v1/receipts/completion_receipt.json).
+
+The audit contains `66,852/66,852` expected unique records, with zero missing,
+duplicate, unexpected, or binding failures.  Frozen-threshold replication
+passed `36,864/36,864` records across `r0`--`r3`; synthetic discrimination
+passed `8,484/8,484`, including fail-closed NaN/shape controls.  Real contact
+failed for every A/B/C/D route on `legacy_u01` and `opposing_means` while
+passing the four signed distributions.  Therefore the fixed-gate and synthetic
+endpoints succeeded, the real-contact endpoint failed, and the aggregate audit
+is not an all-endpoints success.  This is an authentic candidate arithmetic
+finding, not evidence of gate instability, and it does not authorize threshold
+mutation.
+
+The previous statements that this audit was active and contributed no result
+are superseded by this section. The historical reports now carry one current-
+corrections pointer; their before/after hashes and the one top-report artifact
+description correction are recorded in
+[`historical_document_corrections_20260731.json`](provenance/historical_document_corrections_20260731.json).
+
+The corrected continuous-margin diagnostic is
+[`margin_report_v2.json`](robust_gate/audits/matmul_v4_instrument_v1/results/margin_report_v2.json),
+SHA-256 `884a7cd513ae50f6ec58859da9185737fcc8fbb54e900503e4522c324d33e3af`.
+It validates and reports per-record maxima: the closest real-contact failure is
+fp32 A at `1.2133795796216873x` (`opposing_means`, seed 465,
+`max_abs_err`), while the worst is `9322.150545631303x` for fp16 B
+(`legacy_u01`, seed 251, `abs_signed_bias`). The former `1.6033x` value was
+a group maximum, not the closest failure. These are descriptive post-campaign
+diagnostics and do not define a replacement gate.

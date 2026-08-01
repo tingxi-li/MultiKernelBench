@@ -1,0 +1,50 @@
+{
+  "created_utc": "2026-07-31T06:51:02Z",
+  "documents": [
+    {
+      "changes": [
+        "added one current-corrections pointer",
+        "corrected archived Triton from a TF32 description to the observed 10-configuration fp16-cast artifact and distinguished current operand/cache/intermediate behavior"
+      ],
+      "path": "ako_runs/CONTROLLED_CROSS_DSL_REPORT.md",
+      "post_edit_sha256": "14a4e972eb656dd0a12fe430ff2b1f5be52f5910b26316b2ed7c418457100f89",
+      "pre_edit_sha256": "9fb86d9fbaa37d2100ba5ba39df1c9e10cef420998bc0ee16c22d4082ed5fd16"
+    },
+    {
+      "changes": [
+        "added one current-corrections pointer"
+      ],
+      "path": "ako_runs/CONTROLLED_CROSS_DSL_REVIEW.md",
+      "post_edit_sha256": "57d2667c64b82d9a56d680570ae1a98f0bd458de0637edef515a46840678f8b2",
+      "pre_edit_sha256": "b9c201e0a63684488ae041673800e7e78040dc338452c30ad54773845b329e9a"
+    },
+    {
+      "changes": [
+        "added one current-corrections pointer"
+      ],
+      "path": "ako_runs/phase1_matmul/PHASE1_REPORT.md",
+      "post_edit_sha256": "a245e39cb0971125057437bfa9d1b5d4f7ae9b91834e470d9c2f3169295b5fb3",
+      "pre_edit_sha256": "d1f591dd940abe79d438968efe00e29c82d393dd80787bbc4f1634690b0d3c97"
+    },
+    {
+      "changes": [
+        "added one current-corrections pointer"
+      ],
+      "path": "ako_runs/phase2_fused_sdpa/PHASE2_REPORT.md",
+      "post_edit_sha256": "bae8da01ba2730f62d52d2ebffad4941edd2e6164a61cb2dcecd400ac437e08b",
+      "pre_edit_sha256": "6a1d90305e8cd330a09c2e683ff893b86f1fbd49f3aa34e7a9473052865abdb9"
+    },
+    {
+      "changes": [
+        "added one current-corrections pointer"
+      ],
+      "path": "ako_runs/phase2_fused_sdpa/PHASE2_REPORT.built.md",
+      "post_edit_sha256": "28251704b30d7568c5b809f9196de3714727f8591aaa211c44121e4703f5b292",
+      "pre_edit_sha256": "965fa18418ba3caaf2a9feb8aba067565b93700011483da0da6cb99d10cc81b4"
+    }
+  ],
+  "historical_head_before_edit": "d34ef719da080518523a9cd8ef3b7c6e3b00805d",
+  "policy": "The pre-edit bytes remain identified by SHA-256. The only edits outside the top-level artifact-description correction are one discoverability pointer per historical document.",
+  "record_type": "historical_document_correction_receipt",
+  "schema_version": "1.0"
+}

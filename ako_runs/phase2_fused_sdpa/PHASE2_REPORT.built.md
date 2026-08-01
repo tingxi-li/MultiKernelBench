@@ -1,5 +1,7 @@
 # Phase 2 — fused op and SDPA
 
+> Corrections and current controlling interpretation: [`../controlled_followup/REVIEW_ROUND2_RESPONSE_20260731.md`](../controlled_followup/REVIEW_ROUND2_RESPONSE_20260731.md).
+
 Companion to `../phase1_matmul/PHASE1_REPORT.md`. Phase 1 asked whether the
 published 7.0× spread across four DSLs on a plain GEMM was a code-generation
 result; normalizing arithmetic and tile collapsed it to 1.31×. Phase 2 asks the
