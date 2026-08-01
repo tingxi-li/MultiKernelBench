@@ -1,0 +1,47 @@
+{
+  "build_attempted": true,
+  "build_wall_s": 0.0005048140010330826,
+  "campaign_id": "fused-epilogue-crossed-v2",
+  "capability_limitation": true,
+  "cell_id": "smem_staged.triton.g11",
+  "cell_sha256": "3628d09bc693343d58d1abe1cc6249bd853a643df7062d2ab119287a5a2dc0c9",
+  "created_utc": "2026-08-01T05:21:23.558775+00:00",
+  "diagnostics_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/diagnostics/g11.txt",
+  "diagnostics_sha256": "4bf02dc8e0a729c23bd11dcba1e46d9db6697850ac358114add482c640e9f8cd",
+  "failure_signature": "61c9c637adf7b90d58d85ee92fa8285fc18d26963c0a2c282ffc7ee39d61da15",
+  "gate_attempted": false,
+  "grid_id": "g11",
+  "origin_job_sha256": "27b822d6a6e030c0c8d07abe97dd6660ab618ab750f209ecc5d292bc1b0d0522",
+  "probe_binding": {
+    "frozen_gate": {
+      "adapter_manifest_sha256": "81e3478b61800e09147a6cb213ba1786b200c137a728a5a9c258241c0a6004ba",
+      "gate_spec_sha256": "b6c3afaadf61f5d380a97c6c541828a1ecacd1a89a00b73b66207fe22d765e2e",
+      "manifest_sha256": "28d51cd4f1730bd190e63c7cad60670c37b67784393270e63e859a1685fc8a62"
+    },
+    "git_commit": "23fd6edd80e0e5654dc1ec0ec77e2b0363f37fdb",
+    "gpu": {
+      "clocks.mem": "810",
+      "clocks.sm": "285",
+      "compute_cap": "8.9",
+      "driver_version": "610.43.02",
+      "index": "1",
+      "memory.total": "49140",
+      "memory.used": "2",
+      "name": "NVIDIA RTX 6000 Ada Generation",
+      "power.limit": "300.00",
+      "pstate": "P8",
+      "temperature.gpu": "52",
+      "utilization.gpu": "0",
+      "uuid": "GPU-91b61ae6-d21e-485e-43b3-7505d62149b1"
+    },
+    "physical_gpu": 1,
+    "probe_lock_sha256": "4d5c21cbe957afa20f5072cbd1ccb79a5aff9e22583530037a9487b51bfdceac",
+    "source_bundle_sha256": "bd6b03328152e2b90a905a8a41d605228032b296fdfc930c55319ca082566eec"
+  },
+  "probe_key": "triton_smem",
+  "schema_version": 1,
+  "source_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/sources/g11.py",
+  "source_sha256": "f506b9d6c8a2ce25c6e0dbed3d221acdc353bc90f8218480e014b5e0afebed08",
+  "terminal_outcome": "BUILD_FAILED",
+  "terminal_reason": "ExplicitSharedMemoryUnavailable: Triton 3.6.0 public triton.language has no alloc_shared; shared/allocation-like symbols=[]"
+}

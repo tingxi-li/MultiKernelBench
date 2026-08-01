@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/fused_epilogue_crossed_v2/support_probes.py", line 271, in run_probe
+    built = build_probe_candidate(probe_key, cfg)
+  File "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/fused_epilogue_crossed_v2/support_probes.py", line 78, in build_probe_candidate
+    return _module("triton_smem").build(cfg)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/fused_epilogue_crossed_v2/triton_smem.py", line 53, in build
+    raise ExplicitSharedMemoryUnavailable(
+    ...<2 lines>...
+    )
+triton_smem.ExplicitSharedMemoryUnavailable: Triton 3.6.0 public triton.language has no alloc_shared; shared/allocation-like symbols=[]

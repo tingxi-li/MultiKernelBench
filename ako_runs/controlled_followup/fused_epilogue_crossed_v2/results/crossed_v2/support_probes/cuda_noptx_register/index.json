@@ -1,0 +1,229 @@
+{
+  "attempts": [
+    {
+      "diagnostics_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/diagnostics/g00.txt",
+      "diagnostics_sha256": "734fd00c2426a74e1bb03fce7b034308cdb73845571c10e4ac441add41222e10",
+      "grid_id": "g00",
+      "receipt_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/attempts/g00.json",
+      "receipt_sha256": "5ab55d4e859c952da6b0cd36ca6cdf08d52634b1adc397ae5adb2f05a957070e",
+      "source_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/sources/g00.cu",
+      "source_sha256": "3e6bb1b7c2da61cb465896849f8adac726ecd31a4dc42afd44427eea101f0360",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "diagnostics_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/diagnostics/g01.txt",
+      "diagnostics_sha256": "0a68d83b660f2e51ff1e85928e63214ca30a83d978098a7053453b27e0987e0a",
+      "grid_id": "g01",
+      "receipt_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/attempts/g01.json",
+      "receipt_sha256": "7df9fabf12017baa5be9ebbd4619c15a78bdf58790ebd0946a16648f8c7b9365",
+      "source_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/sources/g01.cu",
+      "source_sha256": "82fc083364c220680df6fd48e262be0a6ec9d45788b8c10ba5be4f27697dcf5a",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "diagnostics_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/diagnostics/g02.txt",
+      "diagnostics_sha256": "0def2a07295173bd518112edacc07b2d79c10b0462b3ef5fffa4c590ac8f06f6",
+      "grid_id": "g02",
+      "receipt_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/attempts/g02.json",
+      "receipt_sha256": "22c78d55158c877742c4ed94b2bbded529f41a691e8692f4b377c0adaf82d7b4",
+      "source_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/sources/g02.cu",
+      "source_sha256": "01e7c343df4ffaa97991444b4ba217062290743bc283fcb6e970c0a8075c50e8",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "diagnostics_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/diagnostics/g03.txt",
+      "diagnostics_sha256": "967c02d16243c01293b006c77b23a11a254b98e4e44e36a47ab36e98e3a37e62",
+      "grid_id": "g03",
+      "receipt_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/attempts/g03.json",
+      "receipt_sha256": "5ab0601f106c565210dac146542e889a9ed00d7c7342f29f4117bbcc5a52ef39",
+      "source_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/sources/g03.cu",
+      "source_sha256": "f81d97a5744dfdbbdd5932c9c5d5694e448e938a9633324e1b9540a4e1340d7e",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "diagnostics_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/diagnostics/g04.txt",
+      "diagnostics_sha256": "db80fdafeac53a827ab571b47a5a0259a1610693ba045e960649c48ab9b3cc52",
+      "grid_id": "g04",
+      "receipt_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/attempts/g04.json",
+      "receipt_sha256": "bf5c26bd7c1dbbcd717201ea6639e0de43b604db30b49a75bbc2def8fd221283",
+      "source_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/sources/g04.cu",
+      "source_sha256": "21afa6f3a68bb2a6fc51cb977fb0b8982f6f2e8c272ef52664dea695298d2663",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "diagnostics_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/diagnostics/g05.txt",
+      "diagnostics_sha256": "384c472e889376c9cb5c6225d97b1a787659a01166d35aefc94b32a21247e81e",
+      "grid_id": "g05",
+      "receipt_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/attempts/g05.json",
+      "receipt_sha256": "c2f9cf10052895f531e10d23a3725a64952620887e25df6d43a8eaa3cca61127",
+      "source_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/sources/g05.cu",
+      "source_sha256": "c37eb8495e75423857413893580c2b84ec2714c50ebe7719b0b1170d4c19844e",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "diagnostics_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/diagnostics/g06.txt",
+      "diagnostics_sha256": "f1e364ab702a86bd6d2d49e1a6f35029862984a6fafa79ac853d617c5661bc66",
+      "grid_id": "g06",
+      "receipt_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/attempts/g06.json",
+      "receipt_sha256": "856a77045eb2cd43067a496fc6e4b801321b7093d98074f2d0555ca036f18025",
+      "source_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/sources/g06.cu",
+      "source_sha256": "faad5ac0499dbf6edf78f8b98989b142e849938300e4faa1470aa0640589925b",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "diagnostics_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/diagnostics/g07.txt",
+      "diagnostics_sha256": "59166249461d47943ebcf3d0ff87ce8f8af36c123e6c6db0b6aa5c43918f5242",
+      "grid_id": "g07",
+      "receipt_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/attempts/g07.json",
+      "receipt_sha256": "471936beb47bcac9f76140cb373bb7fa09c3b84a3a2d49053e6382d50f42cb50",
+      "source_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/sources/g07.cu",
+      "source_sha256": "60454ba8fce964e2f49f075f703a1e9eaad9ff56a19cb6c5dd729f28a1a7fb80",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "diagnostics_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/diagnostics/g08.txt",
+      "diagnostics_sha256": "0cabdd19c28916f35d2149e1df922ab1b6bde5408e5c7f600453e8cf943ee065",
+      "grid_id": "g08",
+      "receipt_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/attempts/g08.json",
+      "receipt_sha256": "57845ae11923593e8c55c8153d01605414f911bf7b652c6a6a4a7ce0a4147f93",
+      "source_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/sources/g08.cu",
+      "source_sha256": "5ddbcec5e0e95077b1b4f4bdd846ba1268945d456217ca5b420491c433aedb6f",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "diagnostics_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/diagnostics/g09.txt",
+      "diagnostics_sha256": "ed645ba21d8b63e0e5b6e285774c52027d7f3e40c280f547cc81245883f87eb6",
+      "grid_id": "g09",
+      "receipt_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/attempts/g09.json",
+      "receipt_sha256": "a5c395677577dbcadaec37af414c4161c46c37ddf3b23ed9f83de88b62c07f7d",
+      "source_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/sources/g09.cu",
+      "source_sha256": "e3fa60a0166a872d624c797701517609aaa7ec6ea9ce43c4034c8ac4e7ecd2f3",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "diagnostics_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/diagnostics/g10.txt",
+      "diagnostics_sha256": "599a6f3f9fffc188a8f3d3e6d9aeb42c417e101243af4214759a1da1993ed8be",
+      "grid_id": "g10",
+      "receipt_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/attempts/g10.json",
+      "receipt_sha256": "bdec53d669ec3775f662f2128421fcb09b53d95825eb5e6aa1f8a42a143408b2",
+      "source_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/sources/g10.cu",
+      "source_sha256": "980944c43487ee12ce66b89939c5305937bfa2bc8254ac648f727c2b069dcf6b",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "diagnostics_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/diagnostics/g11.txt",
+      "diagnostics_sha256": "8ddf478c11f0201b41e6696e108451c443059898cabdc431297ad68e4e4c95f5",
+      "grid_id": "g11",
+      "receipt_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/attempts/g11.json",
+      "receipt_sha256": "70777e8a8c270dd8fb540f591eacdce6564aec32c08dd80740e932dc27b9df93",
+      "source_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/sources/g11.cu",
+      "source_sha256": "944ebe7fad05d28ba1bc93a1d14fa9dff4e940be9a63e231ae4b6cad81127c69",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "diagnostics_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/diagnostics/g12.txt",
+      "diagnostics_sha256": "6b59adc0fb86e0b8c2260b23c3400f6cb62e76c98c243b4362fe1a6efd0f600b",
+      "grid_id": "g12",
+      "receipt_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/attempts/g12.json",
+      "receipt_sha256": "1450deb62c6469e7ad4e10a200b4af26408aff2027562f6e440d99f5dade91e0",
+      "source_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/sources/g12.cu",
+      "source_sha256": "d534d992554f1382fbf1926b9dd5b736e01e871f8454206dd81b32ac0ef6721a",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "diagnostics_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/diagnostics/g13.txt",
+      "diagnostics_sha256": "df111924ef05138169984eac033af5c9dfad3259d9ace24c7a90de66f9112bc8",
+      "grid_id": "g13",
+      "receipt_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/attempts/g13.json",
+      "receipt_sha256": "8d3391ddede0f5e7d75efddac36504bf18b76b3ab63acfa31eaadcc8744d80b2",
+      "source_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/sources/g13.cu",
+      "source_sha256": "6943611fc55e623b5434c3c3a8e4f221dc7d6d311feb32b38b43055023215bfd",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "diagnostics_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/diagnostics/g14.txt",
+      "diagnostics_sha256": "ef848285dbf629a36cbb1d10adf6902d41168e021b69d1f22eca984270eba770",
+      "grid_id": "g14",
+      "receipt_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/attempts/g14.json",
+      "receipt_sha256": "e567f4c28ca865eac89f950d441f0b534ab76aeecd6483a8b0120ae0183be8be",
+      "source_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/sources/g14.cu",
+      "source_sha256": "b9cdc293622f4fcf49d7420510a8e1dbbb0baf7ba71f415774ac98627a1a332a",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "diagnostics_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/diagnostics/g15.txt",
+      "diagnostics_sha256": "40e0de8aa2096bfb07f6e04e9faeda7d7a8e4133612f0c239dd239052d7002a9",
+      "grid_id": "g15",
+      "receipt_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/attempts/g15.json",
+      "receipt_sha256": "e59ec464112e297aac2631a43d7da8bdfe5e25b52e5e350d31cb8589ed92ebc9",
+      "source_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/sources/g15.cu",
+      "source_sha256": "d95d3e111f5dd73c57b5b995b00697c3e5bdc3500a18c1e8ae0ec6c2b3f11230",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "diagnostics_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/diagnostics/g16.txt",
+      "diagnostics_sha256": "ccb45ceb5407702afa87c56180b5e7a309c0948de9b2e798af10cb8dc6555641",
+      "grid_id": "g16",
+      "receipt_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/attempts/g16.json",
+      "receipt_sha256": "44898326f23042bb0f4ad4f490868ea30e703da8d9167916b67c5e6b064db275",
+      "source_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/sources/g16.cu",
+      "source_sha256": "9895aad16acc28d3381538f758fee2432e3060322d3b9b9fc0ee7a6625ff4117",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "diagnostics_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/diagnostics/g17.txt",
+      "diagnostics_sha256": "9ae69f7f89ee3b3ee5ba1961eec9bc061d71a0bdfe853a67aa77e639acbb5d32",
+      "grid_id": "g17",
+      "receipt_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/attempts/g17.json",
+      "receipt_sha256": "34353b079fb6636859986f7a42f30b8caa7de32ce6fad0ca86b7b38533799f17",
+      "source_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/sources/g17.cu",
+      "source_sha256": "59b592d25a54e2e5b9d14d623e574ae3a2496d7e2f5c7f984d2e6a99d9bba504",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "diagnostics_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/diagnostics/g18.txt",
+      "diagnostics_sha256": "9834994cabd8c9d2bacf607555a3c841995b2a7ca94e3897acc52af6683cc627",
+      "grid_id": "g18",
+      "receipt_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/attempts/g18.json",
+      "receipt_sha256": "63c3fbb66b94a46eb08115921b7023e2aa9f586a734ecf402b661cd78a6e0c2f",
+      "source_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/sources/g18.cu",
+      "source_sha256": "dbd76ff410e7e251d2ad6d8ede42b88a0bda3274b5d73e615fcc66517b2f51cd",
+      "terminal_outcome": "GATE_PASSED"
+    }
+  ],
+  "campaign_id": "fused-epilogue-crossed-v2",
+  "complete": true,
+  "created_utc": "2026-08-01T06:13:36.597708+00:00",
+  "probe_binding": {
+    "frozen_gate": {
+      "adapter_manifest_sha256": "81e3478b61800e09147a6cb213ba1786b200c137a728a5a9c258241c0a6004ba",
+      "gate_spec_sha256": "b6c3afaadf61f5d380a97c6c541828a1ecacd1a89a00b73b66207fe22d765e2e",
+      "manifest_sha256": "28d51cd4f1730bd190e63c7cad60670c37b67784393270e63e859a1685fc8a62"
+    },
+    "git_commit": "23fd6edd80e0e5654dc1ec0ec77e2b0363f37fdb",
+    "gpu": {
+      "clocks.mem": "10001",
+      "clocks.sm": "2490",
+      "compute_cap": "8.9",
+      "driver_version": "610.43.02",
+      "index": "0",
+      "memory.total": "49140",
+      "memory.used": "2",
+      "name": "NVIDIA RTX 6000 Ada Generation",
+      "power.limit": "300.00",
+      "pstate": "P0",
+      "temperature.gpu": "61",
+      "utilization.gpu": "0",
+      "uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae"
+    },
+    "physical_gpu": 0,
+    "probe_lock_sha256": "4d5c21cbe957afa20f5072cbd1ccb79a5aff9e22583530037a9487b51bfdceac",
+    "source_bundle_sha256": "bd6b03328152e2b90a905a8a41d605228032b296fdfc930c55319ca082566eec"
+  },
+  "probe_key": "cuda_noptx_register",
+  "resolution": {
+    "reason": "at least one measured grid passed the full frozen gate",
+    "status": "supported"
+  },
+  "schema_version": 1
+}

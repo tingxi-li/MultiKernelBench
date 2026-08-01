@@ -1,0 +1,230 @@
+{
+  "attempts": [
+    {
+      "diagnostics_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/diagnostics/g00.txt",
+      "diagnostics_sha256": "4bf02dc8e0a729c23bd11dcba1e46d9db6697850ac358114add482c640e9f8cd",
+      "grid_id": "g00",
+      "receipt_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/attempts/g00.json",
+      "receipt_sha256": "e043326fd7c0f4fb4c0416b54fef9a9038db82407e49b1526f831bc492ce4d30",
+      "source_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/sources/g00.py",
+      "source_sha256": "d0f31c80fcb0b506d9130510f977bb4f511ca3a5ef7cfbbd2dcc3eddbc4c05a0",
+      "terminal_outcome": "BUILD_FAILED"
+    },
+    {
+      "diagnostics_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/diagnostics/g01.txt",
+      "diagnostics_sha256": "4bf02dc8e0a729c23bd11dcba1e46d9db6697850ac358114add482c640e9f8cd",
+      "grid_id": "g01",
+      "receipt_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/attempts/g01.json",
+      "receipt_sha256": "beb7e71dadff4828501ce140207b851704361f33adb5b21f0607fae83abb8621",
+      "source_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/sources/g01.py",
+      "source_sha256": "d0f31c80fcb0b506d9130510f977bb4f511ca3a5ef7cfbbd2dcc3eddbc4c05a0",
+      "terminal_outcome": "BUILD_FAILED"
+    },
+    {
+      "diagnostics_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/diagnostics/g02.txt",
+      "diagnostics_sha256": "4bf02dc8e0a729c23bd11dcba1e46d9db6697850ac358114add482c640e9f8cd",
+      "grid_id": "g02",
+      "receipt_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/attempts/g02.json",
+      "receipt_sha256": "f3523a399c6069b6afc8438c9ffe0486edcfdd289c77ec67340e89159138b004",
+      "source_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/sources/g02.py",
+      "source_sha256": "d0f31c80fcb0b506d9130510f977bb4f511ca3a5ef7cfbbd2dcc3eddbc4c05a0",
+      "terminal_outcome": "BUILD_FAILED"
+    },
+    {
+      "diagnostics_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/diagnostics/g03.txt",
+      "diagnostics_sha256": "4bf02dc8e0a729c23bd11dcba1e46d9db6697850ac358114add482c640e9f8cd",
+      "grid_id": "g03",
+      "receipt_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/attempts/g03.json",
+      "receipt_sha256": "ff772c5422c3edbedc929d7acbab6e372c1eac930ce3ad7b16667db2c17c0a31",
+      "source_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/sources/g03.py",
+      "source_sha256": "3ac612c517f9f8bc7b711868a75d18f4ba7e3778ef51460af1009c2ad363707c",
+      "terminal_outcome": "BUILD_FAILED"
+    },
+    {
+      "diagnostics_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/diagnostics/g04.txt",
+      "diagnostics_sha256": "4bf02dc8e0a729c23bd11dcba1e46d9db6697850ac358114add482c640e9f8cd",
+      "grid_id": "g04",
+      "receipt_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/attempts/g04.json",
+      "receipt_sha256": "4a39709e3e331bb46c7124e05e0a9d591229f017e6328e50568ebb3131060e29",
+      "source_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/sources/g04.py",
+      "source_sha256": "3ac612c517f9f8bc7b711868a75d18f4ba7e3778ef51460af1009c2ad363707c",
+      "terminal_outcome": "BUILD_FAILED"
+    },
+    {
+      "diagnostics_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/diagnostics/g05.txt",
+      "diagnostics_sha256": "4bf02dc8e0a729c23bd11dcba1e46d9db6697850ac358114add482c640e9f8cd",
+      "grid_id": "g05",
+      "receipt_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/attempts/g05.json",
+      "receipt_sha256": "8ef1e756079e21ed78a04e80645b1f12da807e184361ffa002bd1e5a03471e40",
+      "source_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/sources/g05.py",
+      "source_sha256": "5465554b206ddc05f6e547e00da8adc4928b34c1ab740595b800d4d0077241e6",
+      "terminal_outcome": "BUILD_FAILED"
+    },
+    {
+      "diagnostics_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/diagnostics/g06.txt",
+      "diagnostics_sha256": "4bf02dc8e0a729c23bd11dcba1e46d9db6697850ac358114add482c640e9f8cd",
+      "grid_id": "g06",
+      "receipt_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/attempts/g06.json",
+      "receipt_sha256": "0f83d6b4f908956b15aca3a54a74b65a6b451cad9d6abc1f7c5ca11c0151f5ad",
+      "source_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/sources/g06.py",
+      "source_sha256": "5465554b206ddc05f6e547e00da8adc4928b34c1ab740595b800d4d0077241e6",
+      "terminal_outcome": "BUILD_FAILED"
+    },
+    {
+      "diagnostics_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/diagnostics/g07.txt",
+      "diagnostics_sha256": "4bf02dc8e0a729c23bd11dcba1e46d9db6697850ac358114add482c640e9f8cd",
+      "grid_id": "g07",
+      "receipt_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/attempts/g07.json",
+      "receipt_sha256": "e0374ffa41434af98f3adf03c65e362c6b4b2a59e4ebac442249d3c9cb1db12c",
+      "source_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/sources/g07.py",
+      "source_sha256": "5465554b206ddc05f6e547e00da8adc4928b34c1ab740595b800d4d0077241e6",
+      "terminal_outcome": "BUILD_FAILED"
+    },
+    {
+      "diagnostics_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/diagnostics/g08.txt",
+      "diagnostics_sha256": "4bf02dc8e0a729c23bd11dcba1e46d9db6697850ac358114add482c640e9f8cd",
+      "grid_id": "g08",
+      "receipt_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/attempts/g08.json",
+      "receipt_sha256": "150c3142ce03bce62c4c47f2b9dbd3e73a02e1fe014b51b27af5e789e5c4774d",
+      "source_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/sources/g08.py",
+      "source_sha256": "3c901e14800b1cc2a6b6993ab63cb722e471df2ebf317f020baa83a32d45e940",
+      "terminal_outcome": "BUILD_FAILED"
+    },
+    {
+      "diagnostics_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/diagnostics/g09.txt",
+      "diagnostics_sha256": "4bf02dc8e0a729c23bd11dcba1e46d9db6697850ac358114add482c640e9f8cd",
+      "grid_id": "g09",
+      "receipt_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/attempts/g09.json",
+      "receipt_sha256": "981d412c1dcc27418512c5ab6d34c60f06f7253587c81646fa8c2499c5ab62a8",
+      "source_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/sources/g09.py",
+      "source_sha256": "f506b9d6c8a2ce25c6e0dbed3d221acdc353bc90f8218480e014b5e0afebed08",
+      "terminal_outcome": "BUILD_FAILED"
+    },
+    {
+      "diagnostics_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/diagnostics/g10.txt",
+      "diagnostics_sha256": "4bf02dc8e0a729c23bd11dcba1e46d9db6697850ac358114add482c640e9f8cd",
+      "grid_id": "g10",
+      "receipt_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/attempts/g10.json",
+      "receipt_sha256": "81d697606a17402833ce9ee669375e995dc33916736c2b7509f1a6e2844521f1",
+      "source_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/sources/g10.py",
+      "source_sha256": "f506b9d6c8a2ce25c6e0dbed3d221acdc353bc90f8218480e014b5e0afebed08",
+      "terminal_outcome": "BUILD_FAILED"
+    },
+    {
+      "diagnostics_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/diagnostics/g11.txt",
+      "diagnostics_sha256": "4bf02dc8e0a729c23bd11dcba1e46d9db6697850ac358114add482c640e9f8cd",
+      "grid_id": "g11",
+      "receipt_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/attempts/g11.json",
+      "receipt_sha256": "6d34c79b85fa86c6b17aff723471a213a41c86f470145a1c3c9690697e495cc0",
+      "source_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/sources/g11.py",
+      "source_sha256": "f506b9d6c8a2ce25c6e0dbed3d221acdc353bc90f8218480e014b5e0afebed08",
+      "terminal_outcome": "BUILD_FAILED"
+    },
+    {
+      "diagnostics_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/diagnostics/g12.txt",
+      "diagnostics_sha256": "4bf02dc8e0a729c23bd11dcba1e46d9db6697850ac358114add482c640e9f8cd",
+      "grid_id": "g12",
+      "receipt_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/attempts/g12.json",
+      "receipt_sha256": "8bd01d5258a89b392356c99178b75afc1084f93f77ca542a2201822ca09296dc",
+      "source_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/sources/g12.py",
+      "source_sha256": "f79c5f75caaa30c7e019aa4f4395975568c9b60b19c2fd057b9c7b160a1d08f1",
+      "terminal_outcome": "BUILD_FAILED"
+    },
+    {
+      "diagnostics_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/diagnostics/g13.txt",
+      "diagnostics_sha256": "4bf02dc8e0a729c23bd11dcba1e46d9db6697850ac358114add482c640e9f8cd",
+      "grid_id": "g13",
+      "receipt_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/attempts/g13.json",
+      "receipt_sha256": "b265be514e761096156a9923967f920e510fba329bd7b4e872cc0b9edd0b10ae",
+      "source_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/sources/g13.py",
+      "source_sha256": "2362835e3f9089c3fc6df231420c045f7a2ed9a3a5a01b69682f31f347e88a95",
+      "terminal_outcome": "BUILD_FAILED"
+    },
+    {
+      "diagnostics_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/diagnostics/g14.txt",
+      "diagnostics_sha256": "4bf02dc8e0a729c23bd11dcba1e46d9db6697850ac358114add482c640e9f8cd",
+      "grid_id": "g14",
+      "receipt_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/attempts/g14.json",
+      "receipt_sha256": "66172fc2399f5e273e60ce9868f0edc30d28937b54eed1861aabf8468671c422",
+      "source_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/sources/g14.py",
+      "source_sha256": "2362835e3f9089c3fc6df231420c045f7a2ed9a3a5a01b69682f31f347e88a95",
+      "terminal_outcome": "BUILD_FAILED"
+    },
+    {
+      "diagnostics_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/diagnostics/g15.txt",
+      "diagnostics_sha256": "4bf02dc8e0a729c23bd11dcba1e46d9db6697850ac358114add482c640e9f8cd",
+      "grid_id": "g15",
+      "receipt_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/attempts/g15.json",
+      "receipt_sha256": "4c25e41d80dbd0ece58a609621792741d6a11b2c29b40484fe5db4e9ab0f6cdf",
+      "source_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/sources/g15.py",
+      "source_sha256": "2362835e3f9089c3fc6df231420c045f7a2ed9a3a5a01b69682f31f347e88a95",
+      "terminal_outcome": "BUILD_FAILED"
+    },
+    {
+      "diagnostics_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/diagnostics/g16.txt",
+      "diagnostics_sha256": "4bf02dc8e0a729c23bd11dcba1e46d9db6697850ac358114add482c640e9f8cd",
+      "grid_id": "g16",
+      "receipt_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/attempts/g16.json",
+      "receipt_sha256": "8e14acb8e54f117d44989d47909268ab388edfef62888e0d361d4506a6cf870f",
+      "source_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/sources/g16.py",
+      "source_sha256": "47a4a7f746c1e03c1ea12dc1850332a03b5155cb5ce496920fe7608ecf59399c",
+      "terminal_outcome": "BUILD_FAILED"
+    },
+    {
+      "diagnostics_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/diagnostics/g17.txt",
+      "diagnostics_sha256": "4bf02dc8e0a729c23bd11dcba1e46d9db6697850ac358114add482c640e9f8cd",
+      "grid_id": "g17",
+      "receipt_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/attempts/g17.json",
+      "receipt_sha256": "2cce0266a1fb20c47ca3d7b5b1082d759498128de92b010c3a12668052d7ff62",
+      "source_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/sources/g17.py",
+      "source_sha256": "47a4a7f746c1e03c1ea12dc1850332a03b5155cb5ce496920fe7608ecf59399c",
+      "terminal_outcome": "BUILD_FAILED"
+    },
+    {
+      "diagnostics_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/diagnostics/g18.txt",
+      "diagnostics_sha256": "4bf02dc8e0a729c23bd11dcba1e46d9db6697850ac358114add482c640e9f8cd",
+      "grid_id": "g18",
+      "receipt_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/attempts/g18.json",
+      "receipt_sha256": "b63750f8f9ee91204af623b433353d8b067d8de58e9dd93e93959c42764165f2",
+      "source_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/sources/g18.py",
+      "source_sha256": "47a4a7f746c1e03c1ea12dc1850332a03b5155cb5ce496920fe7608ecf59399c",
+      "terminal_outcome": "BUILD_FAILED"
+    }
+  ],
+  "campaign_id": "fused-epilogue-crossed-v2",
+  "complete": true,
+  "created_utc": "2026-08-01T05:21:23.569573+00:00",
+  "probe_binding": {
+    "frozen_gate": {
+      "adapter_manifest_sha256": "81e3478b61800e09147a6cb213ba1786b200c137a728a5a9c258241c0a6004ba",
+      "gate_spec_sha256": "b6c3afaadf61f5d380a97c6c541828a1ecacd1a89a00b73b66207fe22d765e2e",
+      "manifest_sha256": "28d51cd4f1730bd190e63c7cad60670c37b67784393270e63e859a1685fc8a62"
+    },
+    "git_commit": "23fd6edd80e0e5654dc1ec0ec77e2b0363f37fdb",
+    "gpu": {
+      "clocks.mem": "810",
+      "clocks.sm": "285",
+      "compute_cap": "8.9",
+      "driver_version": "610.43.02",
+      "index": "1",
+      "memory.total": "49140",
+      "memory.used": "2",
+      "name": "NVIDIA RTX 6000 Ada Generation",
+      "power.limit": "300.00",
+      "pstate": "P8",
+      "temperature.gpu": "52",
+      "utilization.gpu": "0",
+      "uuid": "GPU-91b61ae6-d21e-485e-43b3-7505d62149b1"
+    },
+    "physical_gpu": 1,
+    "probe_lock_sha256": "4d5c21cbe957afa20f5072cbd1ccb79a5aff9e22583530037a9487b51bfdceac",
+    "source_bundle_sha256": "bd6b03328152e2b90a905a8a41d605228032b296fdfc930c55319ca082566eec"
+  },
+  "probe_key": "triton_smem",
+  "resolution": {
+    "failure_signature": "61c9c637adf7b90d58d85ee92fa8285fc18d26963c0a2c282ffc7ee39d61da15",
+    "reason": "all 19 builds retained one identical compiler/API limitation",
+    "status": "unsupported"
+  },
+  "schema_version": 1
+}

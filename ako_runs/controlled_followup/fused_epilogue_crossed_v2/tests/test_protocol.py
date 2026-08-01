@@ -28,12 +28,24 @@ def test_requested_manifest_is_deterministic_304_cell_cross():
     assert Counter(row["strategy"] for row in cells) == {strategy: 76 for strategy in core.STRATEGIES}
     assert Counter(row["lane"] for row in cells) == {lane: 76 for lane in core.LANES}
     assert Counter(row["grid_id"] for row in cells) == {grid: 16 for grid in core.GRID_IDS}
-    assert sum(row["support_declared"] is None for row in cells) == 57
+    assert sum(row["support_declared"] is None for row in cells) == 0
+    assert sum(row["support_declared"] is True for row in cells) == 285
+    assert sum(row["support_declared"] is False for row in cells) == 19
 
 
-def test_unresolved_support_fails_closed_before_final_freeze():
-    with pytest.raises(core.ProtocolError, match="support probes unresolved"):
-        core.load_cells(require_resolved=True)
+def test_resolved_support_is_receipt_bound_and_probe_specific():
+    cells = core.load_cells(require_resolved=True)
+    unsupported = [row for row in cells if row["support_declared"] is False]
+    assert {
+        (row["strategy"], row["lane"], row["support_probe_key"])
+        for row in unsupported
+    } == {("smem_staged", "triton", "triton_smem")}
+    assert all(
+        row["support_declared"] is True
+        for row in cells
+        if row["lane"] == "cuda_noptx"
+        and row["strategy"] in {"register_fused", "register_common_postprocess"}
+    )
 
 
 def test_confirmation_plan_randomizes_complete_cells_and_shams():
@@ -96,7 +108,9 @@ def test_parent_results_are_content_bound():
     assert campaign["parent"]["controlling_result_sha256"] == "98552e48aa67411ba738e160d454e5c387e1c33cb1c543aa53a20198e4c0a70d"
     assert campaign["parent"]["tail_overlay_sha256"] == "e7296ce10585169e7dcf1f0d66c6bc59bf079d367d30491c46f42a8b3d03d1e5"
     assert len(cells) == 304
-    assert resolution["status"] == "unresolved"
+    assert resolution["status"] == "resolved"
+    assert resolution["probes"]["cuda_noptx_register"]["status"] == "supported"
+    assert resolution["probes"]["triton_smem"]["status"] == "unsupported"
 
 
 def test_lock_aggregates_and_gate_binding_are_revalidated():

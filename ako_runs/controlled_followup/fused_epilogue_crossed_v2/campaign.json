@@ -64,7 +64,7 @@
   "preregistration_policy": "Resolve and seal both support probes, freeze all source/dependency hashes, commit, push, and verify the launch commit on its configured upstream before campaign GPU work.",
   "requested_cells": 304,
   "schema_version": 2,
-  "status": "implemented_probe_blocked",
+  "status": "support_resolved_pre_audit",
   "strategy_contracts": {
     "global_intermediate": "Lane-native GEMM writes fp32 global scratch; one common checked CUDA kernel performs bias, exact GELU, and row softmax.",
     "register_fused": "Bias and exact GELU are expressed directly on lane-native accumulator values before global store, with no explicit fp32 epilogue tile; compiler spills are retained descriptively. Lane-native softmax follows.",

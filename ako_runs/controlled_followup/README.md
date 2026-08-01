@@ -12,8 +12,9 @@ Current interpretation and execution status are recorded in
 [`RUN_20260731.md`](RUN_20260731.md). The fused campaigns, the 66,852-record
 matmul-v4 instrument audit, the corrected same-seed robustness campaign, and the
 228-cell crossed epilogue campaign (result tag `crossed_v1r1`) are complete.
-Its corrective 304-cell successor is CPU-ready but blocked before measured
-support probes by live GPU preflight. Reciprocal transfer now has a one-honest-
+Its corrective 304-cell successor has completed both measured support probes:
+285 cells are supported and 19 Triton explicit-smem cells are unsupported.
+Reciprocal transfer now has a one-honest-
 translator 24-cell corrective design and fail-closed runner admission; the
 effort frontier has a non-controlling cuBLASLt/Triton pilot protocol; and
 `convergence_v2` is retired unlaunched. None contributes a result.

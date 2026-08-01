@@ -3,20 +3,25 @@
   "probes": {
     "cuda_noptx_register": {
       "lane": "cuda_noptx",
-      "result_index_path": null,
-      "result_index_sha256": null,
-      "status": "preregistered_not_executed",
-      "strategies": ["register_fused", "register_common_postprocess"]
+      "result_index_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/cuda_noptx_register/index.json",
+      "result_index_sha256": "8992bf0930122d530a8c8669007fd95639f1d4b22a0a2b5858358457e4d418ef",
+      "status": "supported",
+      "strategies": [
+        "register_fused",
+        "register_common_postprocess"
+      ]
     },
     "triton_smem": {
       "lane": "triton",
-      "result_index_path": null,
-      "result_index_sha256": null,
-      "status": "preregistered_not_executed",
-      "strategies": ["smem_staged"]
+      "result_index_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/index.json",
+      "result_index_sha256": "090cfa2863e23c9f14ccb4ad37ba6f15786a01789e3df75982366beb209c0f25",
+      "status": "unsupported",
+      "strategies": [
+        "smem_staged"
+      ]
     }
   },
   "resolution_policy": "Each probe retains exactly 19 grid attempts. Any GATE_PASSED attempt resolves supported. Unsupported requires 19 terminal attempts and one shared captured API/compiler limitation; missing or mixed evidence stays unresolved.",
   "schema_version": 1,
-  "status": "unresolved"
+  "status": "resolved"
 }

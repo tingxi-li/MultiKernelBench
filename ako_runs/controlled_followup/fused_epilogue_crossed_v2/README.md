@@ -15,9 +15,12 @@ It is called four-lane-common only if the measured CUDA-no-PTX register probe
 passes. The two support probes retain source, diagnostics, gate rows, and one
 terminal receipt for each of all 19 grids.
 
-Current state: CPU-complete and probe-blocked. `support_resolution.json` remains
-unresolved, so no final campaign lock or GPU campaign launch is possible. A live
-driver/GPU preflight is mandatory; historical availability is never accepted.
+Current state: both measured support grids are complete. CUDA-no-PTX register
+support resolved supported from 19 gate-passing attempts; Triton explicit-smem
+resolved unsupported from 19 identical public-API limitation receipts. The final
+campaign lock binds their full evidence closure. Audit launch still requires that
+lock's commit on the configured upstream plus a fresh live GPU preflight;
+historical availability is never accepted.
 
 ## CPU validation and probe preregistration
 
