@@ -1,0 +1,258 @@
+{
+  "record_type": "fused_reachability_v2_robust_seed_bundle",
+  "records": [
+    {
+      "adapter_manifest_sha256": "34e147283b02158501f26d1ec92cf1b6fba04531d3f453b812b56d0df7c71d74",
+      "build_metadata": {
+        "adapter_build_wall_s": 0.017084276987588964,
+        "artifacts": {
+          "configured_stages": 3,
+          "cuda_source_sha256": "347de9342aa49929f245874b7290b9af47c8d9caeb1398b09b9f1f179423de59",
+          "deviations": [],
+          "epilogue_policy": "global_intermediate_then_bias_gelu_softmax",
+          "extension_name": "cfr2_u_128_256_32_t256_s3_kc2048_p8",
+          "lane": "cuda_unlimited",
+          "n_kernels": 2,
+          "realized_stages": 3,
+          "shared_bytes": 81408,
+          "shared_padding_halfs": {
+            "A": 8,
+            "B": 8
+          }
+        },
+        "n_kernels": 2,
+        "prospective_campaign": "fused-reachability-streamed-epilogue-v2",
+        "reported_compile_s": 0.01686979598889593
+      },
+      "campaign_id": "controlled-followup-robust-gate-v1",
+      "candidate": "fused-grid:cuda_unlimited_streamed.g06:e067abda00d0",
+      "candidate_wall_s": 0.007985888994880952,
+      "case_id": "signed_normal_gain16",
+      "contract": {
+        "bias_dtype": "fp32",
+        "gelu": "exact_erf",
+        "operand_dtype": "fp16",
+        "output_dtype": "fp32",
+        "probability_dtype": "fp32",
+        "weight_dtype": "fp16",
+        "x_dtype": "fp16"
+      },
+      "device": "cuda:0",
+      "gate_id": "semantic_mixed",
+      "gate_pass": true,
+      "gate_spec_canonical_sha256": "4898c42d82707ad4588c880f794935efba202f5c32fb656263ec2c8f6c3f22e8",
+      "gate_spec_sha256": "b6c3afaadf61f5d380a97c6c541828a1ecacd1a89a00b73b66207fe22d765e2e",
+      "grid_job": {
+        "grid_id": "g06",
+        "grid_index": 6,
+        "job_id": "cuda_unlimited_streamed.g06",
+        "lane": "cuda_unlimited",
+        "origin_job_id": "cuda_unlimited.g06",
+        "origin_job_sha256": "cb686f64afbb75fe7e7497ee78748e5dcc67f9dc0684ad1f6060772e4c5e0bc6",
+        "set": "BM=128,BN=256,BK=32,threads=256,stages=3,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=streamed_global",
+        "variant": "GBGS"
+      },
+      "grid_job_id": "cuda_unlimited_streamed.g06",
+      "grid_job_sha256": "e067abda00d0366a4a9bd39cc7d49f1b37d7e573dde7e786c77ff3b8663b25b2",
+      "grid_jobs_sha256": "ac8291eef06de2c1c21981eff748a42787d50d795d968e21a9c46f19e8f14c99",
+      "grid_manifest_sha256": "5a52933f19d25088999649cb8e45edadc34dfd35a4cf0e5c34bf7b20c2c1a05d",
+      "manifest_sha256": "d017ef44cd63ce2a27bf31ca0ea7631a1f9810d3cbd25f1ddc6155b75a05634a",
+      "metric_wall_s": 0.018520110010285862,
+      "metrics": {
+        "abs_signed_bias": 6.5876082579181095e-12,
+        "max_abs_err": 0.0013817082514835932,
+        "mean_abs_err": 1.1320903601846422e-07,
+        "negative_count": 0.0,
+        "nonfinite_count": 0.0,
+        "nrmse": 0.0008048181983656092,
+        "reference_abs_max": 0.99990512402983,
+        "reference_abs_mean": 0.0001220703125,
+        "row_sum_error_max": 3.965821415707893e-07,
+        "scaled_max_abs_err": 0.009041910559951773,
+        "sqrt_js_max": 0.0011112002258659198,
+        "top1_mismatch_rate": 0.0009765625,
+        "tv_max": 0.0014422206082722003,
+        "tv_q99": 0.0010655875224663846
+      },
+      "ok": true,
+      "op": "fused_softmax",
+      "output_dtype": "torch.float32",
+      "output_shape": [
+        1024,
+        8192
+      ],
+      "phase2_config": {
+        "BK": 32,
+        "BM": 128,
+        "BN": 256,
+        "K": 8192,
+        "M": 1024,
+        "N": 8192,
+        "arith": "fp16",
+        "cast": "precast",
+        "dsl": "cuda_unlimited",
+        "extra": {
+          "epilogue": "streamed_global",
+          "wcache": "cached"
+        },
+        "input_dtype": "torch.float16",
+        "kc": 2048,
+        "stages": 3,
+        "threads": 256,
+        "variant": "GBGS"
+      },
+      "record_type": "robust_gate_measurement",
+      "reference_kind": "semantic_fp64",
+      "role": "candidate",
+      "schema_version": "1.0",
+      "seed_index": 9,
+      "shape": {
+        "K": 8192,
+        "M": 1024,
+        "N": 8192
+      },
+      "shared_input_wall_s": 0.2964385559898801,
+      "shared_reference_wall_s": {
+        "contract_mixed": 0.23175164600252174,
+        "semantic_fp64": 0.21139304900134448
+      },
+      "source_bundle_sha256": "ac077b9de182ea9596e97dafa6a6e2ee88771f3d282dec9ed7d19bde90078d2a",
+      "source_sha256": "ac077b9de182ea9596e97dafa6a6e2ee88771f3d282dec9ed7d19bde90078d2a",
+      "split": "validation",
+      "tensor_seeds": {
+        "bias": 2274951289942707947,
+        "weight": 4418364095844910573,
+        "x": 8158827627767130149
+      },
+      "threshold_failures": [],
+      "torch_version": "2.10.0+cu128"
+    },
+    {
+      "adapter_manifest_sha256": "34e147283b02158501f26d1ec92cf1b6fba04531d3f453b812b56d0df7c71d74",
+      "build_metadata": {
+        "adapter_build_wall_s": 0.017084276987588964,
+        "artifacts": {
+          "configured_stages": 3,
+          "cuda_source_sha256": "347de9342aa49929f245874b7290b9af47c8d9caeb1398b09b9f1f179423de59",
+          "deviations": [],
+          "epilogue_policy": "global_intermediate_then_bias_gelu_softmax",
+          "extension_name": "cfr2_u_128_256_32_t256_s3_kc2048_p8",
+          "lane": "cuda_unlimited",
+          "n_kernels": 2,
+          "realized_stages": 3,
+          "shared_bytes": 81408,
+          "shared_padding_halfs": {
+            "A": 8,
+            "B": 8
+          }
+        },
+        "n_kernels": 2,
+        "prospective_campaign": "fused-reachability-streamed-epilogue-v2",
+        "reported_compile_s": 0.01686979598889593
+      },
+      "campaign_id": "controlled-followup-robust-gate-v1",
+      "candidate": "fused-grid:cuda_unlimited_streamed.g06:e067abda00d0",
+      "candidate_wall_s": 0.007985888994880952,
+      "case_id": "signed_normal_gain16",
+      "contract": {
+        "bias_dtype": "fp32",
+        "gelu": "exact_erf",
+        "operand_dtype": "fp16",
+        "output_dtype": "fp32",
+        "probability_dtype": "fp32",
+        "weight_dtype": "fp16",
+        "x_dtype": "fp16"
+      },
+      "device": "cuda:0",
+      "gate_id": "conformance_mixed",
+      "gate_pass": true,
+      "gate_spec_canonical_sha256": "4898c42d82707ad4588c880f794935efba202f5c32fb656263ec2c8f6c3f22e8",
+      "gate_spec_sha256": "b6c3afaadf61f5d380a97c6c541828a1ecacd1a89a00b73b66207fe22d765e2e",
+      "grid_job": {
+        "grid_id": "g06",
+        "grid_index": 6,
+        "job_id": "cuda_unlimited_streamed.g06",
+        "lane": "cuda_unlimited",
+        "origin_job_id": "cuda_unlimited.g06",
+        "origin_job_sha256": "cb686f64afbb75fe7e7497ee78748e5dcc67f9dc0684ad1f6060772e4c5e0bc6",
+        "set": "BM=128,BN=256,BK=32,threads=256,stages=3,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=streamed_global",
+        "variant": "GBGS"
+      },
+      "grid_job_id": "cuda_unlimited_streamed.g06",
+      "grid_job_sha256": "e067abda00d0366a4a9bd39cc7d49f1b37d7e573dde7e786c77ff3b8663b25b2",
+      "grid_jobs_sha256": "ac8291eef06de2c1c21981eff748a42787d50d795d968e21a9c46f19e8f14c99",
+      "grid_manifest_sha256": "5a52933f19d25088999649cb8e45edadc34dfd35a4cf0e5c34bf7b20c2c1a05d",
+      "manifest_sha256": "d017ef44cd63ce2a27bf31ca0ea7631a1f9810d3cbd25f1ddc6155b75a05634a",
+      "metric_wall_s": 0.019418689000303857,
+      "metrics": {
+        "abs_signed_bias": 6.585567246175671e-12,
+        "max_abs_err": 1.1742115020751953e-05,
+        "mean_abs_err": 9.30314703673999e-10,
+        "negative_count": 0.0,
+        "nonfinite_count": 0.0,
+        "nrmse": 6.547379307400087e-06,
+        "reference_abs_max": 0.9999050498008728,
+        "reference_abs_mean": 0.000122070312502041,
+        "row_sum_error_max": 3.965821415707893e-07,
+        "scaled_max_abs_err": 7.269992180851808e-05,
+        "sqrt_js_max": 8.96084299777027e-06,
+        "top1_mismatch_rate": 0.0,
+        "tv_max": 1.1817481667251994e-05,
+        "tv_q99": 8.947385353878367e-06
+      },
+      "ok": true,
+      "op": "fused_softmax",
+      "output_dtype": "torch.float32",
+      "output_shape": [
+        1024,
+        8192
+      ],
+      "phase2_config": {
+        "BK": 32,
+        "BM": 128,
+        "BN": 256,
+        "K": 8192,
+        "M": 1024,
+        "N": 8192,
+        "arith": "fp16",
+        "cast": "precast",
+        "dsl": "cuda_unlimited",
+        "extra": {
+          "epilogue": "streamed_global",
+          "wcache": "cached"
+        },
+        "input_dtype": "torch.float16",
+        "kc": 2048,
+        "stages": 3,
+        "threads": 256,
+        "variant": "GBGS"
+      },
+      "record_type": "robust_gate_measurement",
+      "reference_kind": "contract_mixed",
+      "role": "candidate",
+      "schema_version": "1.0",
+      "seed_index": 9,
+      "shape": {
+        "K": 8192,
+        "M": 1024,
+        "N": 8192
+      },
+      "shared_input_wall_s": 0.2964385559898801,
+      "shared_reference_wall_s": {
+        "contract_mixed": 0.23175164600252174,
+        "semantic_fp64": 0.21139304900134448
+      },
+      "source_bundle_sha256": "ac077b9de182ea9596e97dafa6a6e2ee88771f3d282dec9ed7d19bde90078d2a",
+      "source_sha256": "ac077b9de182ea9596e97dafa6a6e2ee88771f3d282dec9ed7d19bde90078d2a",
+      "split": "validation",
+      "tensor_seeds": {
+        "bias": 2274951289942707947,
+        "weight": 4418364095844910573,
+        "x": 8158827627767130149
+      },
+      "threshold_failures": [],
+      "torch_version": "2.10.0+cu128"
+    }
+  ],
+  "schema_version": 1
+}

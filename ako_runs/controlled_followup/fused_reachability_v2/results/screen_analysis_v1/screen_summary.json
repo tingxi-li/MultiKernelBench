@@ -1,0 +1,370 @@
+{
+  "campaign_id": "fused-reachability-streamed-epilogue-v2",
+  "cells": [
+    {
+      "eligibility_scope": "launch_reachable_and_legacy_correct",
+      "eligible": true,
+      "failures": [],
+      "grid_id": "g05",
+      "job_id": "cuda_noptx_streamed.g05",
+      "lane": "cuda_noptx",
+      "median_of_process_medians_ms": 1.4755840301513672,
+      "process_medians_ms": [
+        1.4561280012130737,
+        1.4950400590896606
+      ],
+      "record_count": 2
+    },
+    {
+      "eligibility_scope": "launch_reachable_and_legacy_correct",
+      "eligible": true,
+      "failures": [],
+      "grid_id": "g06",
+      "job_id": "cuda_noptx_streamed.g06",
+      "lane": "cuda_noptx",
+      "median_of_process_medians_ms": 1.6870399713516235,
+      "process_medians_ms": [
+        1.6834559440612793,
+        1.6906239986419678
+      ],
+      "record_count": 2
+    },
+    {
+      "eligibility_scope": "launch_reachable_and_legacy_correct",
+      "eligible": true,
+      "failures": [],
+      "grid_id": "g07",
+      "job_id": "cuda_noptx_streamed.g07",
+      "lane": "cuda_noptx",
+      "median_of_process_medians_ms": 1.7723039984703064,
+      "process_medians_ms": [
+        1.759775996208191,
+        1.7848320007324219
+      ],
+      "record_count": 2
+    },
+    {
+      "eligibility_scope": "launch_reachable_and_legacy_correct",
+      "eligible": true,
+      "failures": [],
+      "grid_id": "g08",
+      "job_id": "cuda_noptx_streamed.g08",
+      "lane": "cuda_noptx",
+      "median_of_process_medians_ms": 1.6138080060482025,
+      "process_medians_ms": [
+        1.6046080589294434,
+        1.6230079531669617
+      ],
+      "record_count": 2
+    },
+    {
+      "eligibility_scope": "launch_reachable_and_legacy_correct",
+      "eligible": true,
+      "failures": [],
+      "grid_id": "g09",
+      "job_id": "cuda_noptx_streamed.g09",
+      "lane": "cuda_noptx",
+      "median_of_process_medians_ms": 1.516535997390747,
+      "process_medians_ms": [
+        1.4704639911651611,
+        1.562608003616333
+      ],
+      "record_count": 2
+    },
+    {
+      "eligibility_scope": "launch_reachable_and_legacy_correct",
+      "eligible": true,
+      "failures": [],
+      "grid_id": "g10",
+      "job_id": "cuda_noptx_streamed.g10",
+      "lane": "cuda_noptx",
+      "median_of_process_medians_ms": 1.637039989233017,
+      "process_medians_ms": [
+        1.5476159453392029,
+        1.726464033126831
+      ],
+      "record_count": 2
+    },
+    {
+      "eligibility_scope": "launch_reachable_and_legacy_correct",
+      "eligible": true,
+      "failures": [],
+      "grid_id": "g11",
+      "job_id": "cuda_noptx_streamed.g11",
+      "lane": "cuda_noptx",
+      "median_of_process_medians_ms": 1.7916799783706665,
+      "process_medians_ms": [
+        1.7658559679985046,
+        1.8175039887428284
+      ],
+      "record_count": 2
+    },
+    {
+      "eligibility_scope": "launch_reachable_and_legacy_correct",
+      "eligible": true,
+      "failures": [],
+      "grid_id": "g12",
+      "job_id": "cuda_noptx_streamed.g12",
+      "lane": "cuda_noptx",
+      "median_of_process_medians_ms": 1.6253039836883545,
+      "process_medians_ms": [
+        1.6138240098953247,
+        1.6367839574813843
+      ],
+      "record_count": 2
+    },
+    {
+      "eligibility_scope": "launch_reachable_and_legacy_correct",
+      "eligible": true,
+      "failures": [],
+      "grid_id": "g05",
+      "job_id": "cuda_unlimited_streamed.g05",
+      "lane": "cuda_unlimited",
+      "median_of_process_medians_ms": 1.407263994216919,
+      "process_medians_ms": [
+        1.3875839710235596,
+        1.4269440174102783
+      ],
+      "record_count": 2
+    },
+    {
+      "eligibility_scope": "launch_reachable_and_legacy_correct",
+      "eligible": true,
+      "failures": [],
+      "grid_id": "g06",
+      "job_id": "cuda_unlimited_streamed.g06",
+      "lane": "cuda_unlimited",
+      "median_of_process_medians_ms": 1.3401760160923004,
+      "process_medians_ms": [
+        1.4064639806747437,
+        1.2738880515098572
+      ],
+      "record_count": 2
+    },
+    {
+      "eligibility_scope": "launch_reachable_and_legacy_correct",
+      "eligible": true,
+      "failures": [],
+      "grid_id": "g07",
+      "job_id": "cuda_unlimited_streamed.g07",
+      "lane": "cuda_unlimited",
+      "median_of_process_medians_ms": 1.3490319848060608,
+      "process_medians_ms": [
+        1.312720000743866,
+        1.3853439688682556
+      ],
+      "record_count": 2
+    },
+    {
+      "eligibility_scope": "launch_reachable_and_legacy_correct",
+      "eligible": true,
+      "failures": [],
+      "grid_id": "g08",
+      "job_id": "cuda_unlimited_streamed.g08",
+      "lane": "cuda_unlimited",
+      "median_of_process_medians_ms": 1.6475039720535278,
+      "process_medians_ms": [
+        1.6255199909210205,
+        1.6694879531860352
+      ],
+      "record_count": 2
+    },
+    {
+      "eligibility_scope": "launch_reachable_and_legacy_correct",
+      "eligible": true,
+      "failures": [],
+      "grid_id": "g09",
+      "job_id": "cuda_unlimited_streamed.g09",
+      "lane": "cuda_unlimited",
+      "median_of_process_medians_ms": 1.4622239768505096,
+      "process_medians_ms": [
+        1.4223359823226929,
+        1.5021119713783264
+      ],
+      "record_count": 2
+    },
+    {
+      "eligibility_scope": "launch_reachable_and_legacy_correct",
+      "eligible": true,
+      "failures": [],
+      "grid_id": "g10",
+      "job_id": "cuda_unlimited_streamed.g10",
+      "lane": "cuda_unlimited",
+      "median_of_process_medians_ms": 1.4566960036754608,
+      "process_medians_ms": [
+        1.418239951133728,
+        1.4951520562171936
+      ],
+      "record_count": 2
+    },
+    {
+      "eligibility_scope": "launch_reachable_and_legacy_correct",
+      "eligible": true,
+      "failures": [],
+      "grid_id": "g11",
+      "job_id": "cuda_unlimited_streamed.g11",
+      "lane": "cuda_unlimited",
+      "median_of_process_medians_ms": 1.4117120206356049,
+      "process_medians_ms": [
+        1.3660160303115845,
+        1.4574080109596252
+      ],
+      "record_count": 2
+    },
+    {
+      "eligibility_scope": "launch_reachable_and_legacy_correct",
+      "eligible": true,
+      "failures": [],
+      "grid_id": "g12",
+      "job_id": "cuda_unlimited_streamed.g12",
+      "lane": "cuda_unlimited",
+      "median_of_process_medians_ms": 1.582496017217636,
+      "process_medians_ms": [
+        1.5779039859771729,
+        1.5870880484580994
+      ],
+      "record_count": 2
+    }
+  ],
+  "expected_reps": 2,
+  "launch_lock_sha256": "7bd24892e29e8d8af4b48a34b397434ed80bd59e2349ff714fb4babe0afcc240",
+  "phase": "screen",
+  "physical_gpus": {
+    "cuda_noptx": 2,
+    "cuda_unlimited": 3
+  },
+  "record_bundle": [
+    {
+      "path": "ako_runs/controlled_followup/fused_reachability_v2/results/screen_noptx_v1/raw/cuda_noptx_streamed__g05__rep00.json",
+      "sha256": "776f2fa537f5bc2eb45432b71016bef7a7d6fa4e182239e4e6f5171278e486b1"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_reachability_v2/results/screen_noptx_v1/raw/cuda_noptx_streamed__g05__rep01.json",
+      "sha256": "af559449e927875b28c47f3ce890b2b223142e06dac50c675937bd4671a4c768"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_reachability_v2/results/screen_noptx_v1/raw/cuda_noptx_streamed__g06__rep00.json",
+      "sha256": "30d40420a905976d6440d3fccdb9d66076ba1520d4a5cc5cc3ae35b6a39b9085"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_reachability_v2/results/screen_noptx_v1/raw/cuda_noptx_streamed__g06__rep01.json",
+      "sha256": "251c7c33cde790c7355f10e138e0136a306ca50a2af12a9b57750d8bee279603"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_reachability_v2/results/screen_noptx_v1/raw/cuda_noptx_streamed__g07__rep00.json",
+      "sha256": "1835dfa4524408d7025d5060c2c6529323d00920c4e13407d1738fbe5377636a"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_reachability_v2/results/screen_noptx_v1/raw/cuda_noptx_streamed__g07__rep01.json",
+      "sha256": "93f2e119b7cd0793d2fadb729070655c99dfaba65b19782781fe5c08e719e147"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_reachability_v2/results/screen_noptx_v1/raw/cuda_noptx_streamed__g08__rep00.json",
+      "sha256": "0f8c799f01cf1a9c8bd142cf66ebce37ce4bd26b25c1fd62866d35ccfaff8dce"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_reachability_v2/results/screen_noptx_v1/raw/cuda_noptx_streamed__g08__rep01.json",
+      "sha256": "f065272f4a7b7047259fb4b503a7381c58b51ca59a654ba8df9d8531573b2abc"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_reachability_v2/results/screen_noptx_v1/raw/cuda_noptx_streamed__g09__rep00.json",
+      "sha256": "e5066f8901d4f814c4863aac2d5a8ef6090ccb4593b05ad21cba117cd3e4123a"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_reachability_v2/results/screen_noptx_v1/raw/cuda_noptx_streamed__g09__rep01.json",
+      "sha256": "27a1d360396a86129c96f8249384bd0a2d4c4965068bdbc555c0a97663aaec8e"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_reachability_v2/results/screen_noptx_v1/raw/cuda_noptx_streamed__g10__rep00.json",
+      "sha256": "9a1340c05c873da6c5c13680c52d053d19ac067de3f572ea5b8a695ac283da8f"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_reachability_v2/results/screen_noptx_v1/raw/cuda_noptx_streamed__g10__rep01.json",
+      "sha256": "78742eaaa0d20549761925551f84a2880de2282d00089c1efcec6983af5aef89"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_reachability_v2/results/screen_noptx_v1/raw/cuda_noptx_streamed__g11__rep00.json",
+      "sha256": "d3ac24bc0d37dd7f58539919e0acaabb5a388c9d13d2cba69e97146f78f1505d"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_reachability_v2/results/screen_noptx_v1/raw/cuda_noptx_streamed__g11__rep01.json",
+      "sha256": "98d181a19b9d061f5d4c6feb2c2aea782534e3c6106f1b9603b65d3fb28d4bce"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_reachability_v2/results/screen_noptx_v1/raw/cuda_noptx_streamed__g12__rep00.json",
+      "sha256": "6e282a950a76365a1f25a82cd59ea9ad863cd6de9c4ad0480f633a659333dbc1"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_reachability_v2/results/screen_noptx_v1/raw/cuda_noptx_streamed__g12__rep01.json",
+      "sha256": "cfd2614687ce71db1340a7d7e2aa55fb178fc888c04f278122c963690f22c1f7"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_reachability_v2/results/screen_unlimited_v1/raw/cuda_unlimited_streamed__g05__rep00.json",
+      "sha256": "cb97be989ed5ac5fb4614c63bd9f9624b41b91d208d42247d01e98cb25ed6edb"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_reachability_v2/results/screen_unlimited_v1/raw/cuda_unlimited_streamed__g05__rep01.json",
+      "sha256": "0f619663be7e5ba677ab090acf05f3dc706a7bf794909c54b69b6ba21fc2df84"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_reachability_v2/results/screen_unlimited_v1/raw/cuda_unlimited_streamed__g06__rep00.json",
+      "sha256": "362d63513f7c3c832a0857fef93c8bf62e2d70d841927f025ef62762db19a068"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_reachability_v2/results/screen_unlimited_v1/raw/cuda_unlimited_streamed__g06__rep01.json",
+      "sha256": "b1c85f189579a31492c9b1c784b9a8ebec0cacde215f93abab31a2014581d692"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_reachability_v2/results/screen_unlimited_v1/raw/cuda_unlimited_streamed__g07__rep00.json",
+      "sha256": "5b50b09d56afe6e24cdc2cfe3551459e3518cf2dfb2cf3d6812745ccd77eef12"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_reachability_v2/results/screen_unlimited_v1/raw/cuda_unlimited_streamed__g07__rep01.json",
+      "sha256": "d92544dafe0c402e2c87b0b4a4cdd43c73c1a1a98cf33bcc57e7e68b3ebd9d52"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_reachability_v2/results/screen_unlimited_v1/raw/cuda_unlimited_streamed__g08__rep00.json",
+      "sha256": "e72cc2265b286bb03aeff27522805dac2aeedbb125998f75f146079a754a5a79"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_reachability_v2/results/screen_unlimited_v1/raw/cuda_unlimited_streamed__g08__rep01.json",
+      "sha256": "eb47740c9e41c5a49ad5ab86b79bf610680f699b08e1c436f3355e4bb3d0a49e"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_reachability_v2/results/screen_unlimited_v1/raw/cuda_unlimited_streamed__g09__rep00.json",
+      "sha256": "84d3546045442a6d91c8a967e0e2e1770b201a072cf3f459375924259a4f64c5"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_reachability_v2/results/screen_unlimited_v1/raw/cuda_unlimited_streamed__g09__rep01.json",
+      "sha256": "c8cc2a0c1c82f3e965ac9657462c826408f06569b2c915d50498bd76564707d3"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_reachability_v2/results/screen_unlimited_v1/raw/cuda_unlimited_streamed__g10__rep00.json",
+      "sha256": "708f86436ef97be7cd6462bfaf40ec9e80404590bf7cabf6ab1816fbbc4db086"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_reachability_v2/results/screen_unlimited_v1/raw/cuda_unlimited_streamed__g10__rep01.json",
+      "sha256": "d48a3bed51e73af6e796f8c41543a724c2a8fdc13ced66717c547fd062fc9527"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_reachability_v2/results/screen_unlimited_v1/raw/cuda_unlimited_streamed__g11__rep00.json",
+      "sha256": "a6838a67136cd9fedd18ce76a0d5fcda2be69730ac18aefbadb54041b9701e25"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_reachability_v2/results/screen_unlimited_v1/raw/cuda_unlimited_streamed__g11__rep01.json",
+      "sha256": "f5bda94490e8274880b03a78ff282055a9a4db170d6bbaa8ae56e517fb08fc33"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_reachability_v2/results/screen_unlimited_v1/raw/cuda_unlimited_streamed__g12__rep00.json",
+      "sha256": "1417bec171db9ed5d918a1580982a6943dff9805c69f5db41b34fc5664183130"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_reachability_v2/results/screen_unlimited_v1/raw/cuda_unlimited_streamed__g12__rep01.json",
+      "sha256": "02b42a561203da3b44421c39fd5f4ef5288b611be2b97c692d39f5d14e7c4aa2"
+    }
+  ],
+  "record_bundle_sha256": "8fdaccb9195a6246606a096b4b3e40a83214bd5e567e122a0d8f1e934e30216a",
+  "record_type": "fused_reachability_v2_analysis",
+  "schema_version": 1,
+  "source_bundle_sha256": "ac077b9de182ea9596e97dafa6a6e2ee88771f3d282dec9ed7d19bde90078d2a"
+}

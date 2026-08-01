@@ -1,0 +1,81 @@
+++ date -u +%FT%TZ
++ echo launcher_started_utc=2026-07-31T04:31:35Z
+launcher_started_utc=2026-07-31T04:31:35Z
++ true
++ nvidia-smi -L
+++ date -u +%FT%TZ
++ echo 'gpu_driver_unavailable_utc=2026-07-31T04:31:35Z; retry_seconds=60'
+gpu_driver_unavailable_utc=2026-07-31T04:31:35Z; retry_seconds=60
++ sleep 60
+launcher_started_utc=2026-07-31T04:32:03Z
+gpu_driver_unavailable_utc=2026-07-31T04:32:03Z; retry_seconds=60
++ true
++ nvidia-smi -L
+++ date -u +%FT%TZ
++ echo 'gpu_driver_unavailable_utc=2026-07-31T04:32:35Z; retry_seconds=60'
+gpu_driver_unavailable_utc=2026-07-31T04:32:35Z; retry_seconds=60
++ sleep 60
+gpu_driver_unavailable_utc=2026-07-31T04:33:03Z; retry_seconds=60
++ true
++ nvidia-smi -L
+++ date -u +%FT%TZ
++ echo 'gpu_driver_unavailable_utc=2026-07-31T04:33:36Z; retry_seconds=60'
+gpu_driver_unavailable_utc=2026-07-31T04:33:36Z; retry_seconds=60
++ sleep 60
+gpu_driver_unavailable_utc=2026-07-31T04:34:03Z; retry_seconds=60
++ true
++ nvidia-smi -L
+++ date -u +%FT%TZ
++ echo 'gpu_driver_unavailable_utc=2026-07-31T04:34:36Z; retry_seconds=60'
+gpu_driver_unavailable_utc=2026-07-31T04:34:36Z; retry_seconds=60
++ sleep 60
+gpu_driver_unavailable_utc=2026-07-31T04:35:03Z; retry_seconds=60
++ true
++ nvidia-smi -L
+++ date -u +%FT%TZ
++ echo 'gpu_driver_unavailable_utc=2026-07-31T04:35:36Z; retry_seconds=60'
+gpu_driver_unavailable_utc=2026-07-31T04:35:36Z; retry_seconds=60
++ sleep 60
+gpu_driver_unavailable_utc=2026-07-31T04:36:03Z; retry_seconds=60
++ true
++ nvidia-smi -L
+++ date -u +%FT%TZ
++ echo 'gpu_driver_unavailable_utc=2026-07-31T04:36:36Z; retry_seconds=60'
+gpu_driver_unavailable_utc=2026-07-31T04:36:36Z; retry_seconds=60
++ sleep 60
+gpu_driver_unavailable_utc=2026-07-31T04:37:03Z; retry_seconds=60
++ true
++ nvidia-smi -L
+++ date -u +%FT%TZ
++ echo 'gpu_driver_unavailable_utc=2026-07-31T04:37:36Z; retry_seconds=60'
+gpu_driver_unavailable_utc=2026-07-31T04:37:36Z; retry_seconds=60
++ sleep 60
+gpu_driver_unavailable_utc=2026-07-31T04:38:03Z; retry_seconds=60
++ true
++ nvidia-smi -L
+++ date -u +%FT%TZ
++ echo 'gpu_driver_unavailable_utc=2026-07-31T04:38:36Z; retry_seconds=60'
+gpu_driver_unavailable_utc=2026-07-31T04:38:36Z; retry_seconds=60
++ sleep 60
+gpu_driver_unavailable_utc=2026-07-31T04:39:03Z; retry_seconds=60
++ true
++ nvidia-smi -L
+++ date -u +%FT%TZ
++ echo 'gpu_driver_unavailable_utc=2026-07-31T04:39:36Z; retry_seconds=60'
+gpu_driver_unavailable_utc=2026-07-31T04:39:36Z; retry_seconds=60
++ sleep 60
+gpu_driver_unavailable_utc=2026-07-31T04:40:03Z; retry_seconds=60
++ true
++ nvidia-smi -L
+++ date -u +%FT%TZ
++ echo 'gpu_driver_unavailable_utc=2026-07-31T04:40:36Z; retry_seconds=60'
+gpu_driver_unavailable_utc=2026-07-31T04:40:36Z; retry_seconds=60
++ sleep 60
+gpu_driver_unavailable_utc=2026-07-31T04:41:03Z; retry_seconds=60
++ true
++ nvidia-smi -L
+++ date -u +%FT%TZ
++ echo 'gpu_driver_unavailable_utc=2026-07-31T04:41:36Z; retry_seconds=60'
+gpu_driver_unavailable_utc=2026-07-31T04:41:36Z; retry_seconds=60
++ sleep 60
+gpu_driver_unavailable_utc=2026-07-31T04:42:03Z; retry_seconds=60

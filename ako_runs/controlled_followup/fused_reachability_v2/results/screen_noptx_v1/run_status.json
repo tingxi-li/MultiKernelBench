@@ -1,0 +1,28 @@
+{
+  "campaign_id": "fused-reachability-streamed-epilogue-v2",
+  "completed_utc": "2026-07-30T19:51:01.815971+00:00",
+  "expected_records": 16,
+  "gpu_after": {
+    "clocks.max.memory": "10001",
+    "clocks.max.sm": "3105",
+    "clocks.mem": "10001",
+    "clocks.sm": "2700",
+    "compute_cap": "8.9",
+    "driver_version": "610.43.02",
+    "index": "2",
+    "memory.total": "49140",
+    "memory.used": "10",
+    "name": "NVIDIA RTX 6000 Ada Generation",
+    "persistence_mode": "Disabled",
+    "power.limit": "300.00",
+    "pstate": "P0",
+    "temperature.gpu": "66",
+    "utilization.gpu": "10",
+    "uuid": "GPU-3ed448f2-f23a-09fc-e18b-f580523c4a3f"
+  },
+  "lane": "cuda_noptx",
+  "legacy_gate_failures": 0,
+  "observed_records": 16,
+  "phase": "screen",
+  "process_failures": 0
+}

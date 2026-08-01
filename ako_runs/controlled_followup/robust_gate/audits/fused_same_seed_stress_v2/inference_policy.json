@@ -1,0 +1,24 @@
+{
+  "alpha": 0.05,
+  "candidate_interval": "two-sided 95% Clopper-Pearson interval for the unique-seed failure proportion",
+  "claim_rule": "A streamed candidate may be described as having paired evidence of fewer failures than its lane's old g04 comparator only when the joint-all-gates endpoint is complete, old_fail_new_pass exceeds old_pass_new_fail, and the Holm-adjusted exact paired-discordance p-value is below 0.05. Zero observed failures alone is not evidence of superiority and is not called robust.",
+  "effective_unit": "one of 512 shared input seeds; the two gate views and any identical output/grid views are not independent replicates",
+  "gate_specific_endpoints": "descriptive diagnostics; no independent-sample tests and no gate-view sample-size inflation",
+  "multiplicity": "Holm correction across the six preregistered joint-all-gates old-versus-streamed contrasts",
+  "paired_contrasts": [
+    ["cuda_noptx.g04", "cuda_noptx_streamed.g05"],
+    ["cuda_noptx.g04", "cuda_noptx_streamed.g08"],
+    ["cuda_noptx.g04", "cuda_noptx_streamed.g09"],
+    ["cuda_unlimited.g04", "cuda_unlimited_streamed.g05"],
+    ["cuda_unlimited.g04", "cuda_unlimited_streamed.g06"],
+    ["cuda_unlimited.g04", "cuda_unlimited_streamed.g07"]
+  ],
+  "paired_test": "two-sided exact binomial McNemar/discordance test with p=0.5, computed on shared seeds",
+  "primary_endpoint": "per seed, failure means a collection failure or failure of either frozen mixed gate",
+  "quantiles": {
+    "method": "R-7 linear interpolation at (n-1)*p",
+    "probabilities": [0.0, 0.25, 0.5, 0.75, 0.9, 0.95, 0.99, 1.0]
+  },
+  "threshold_policy": "all metrics are scored against the unchanged frozen fused-v2 mixed-gate thresholds; raw anchor_max*safety_factor exceedances and threshold-utilization ratios are descriptive only"
+}
+

@@ -1,0 +1,38 @@
+{
+  "campaign_id": "controlled-followup-fused-same-seed-stress-v2",
+  "candidate_order": [
+    "tilelang.g08",
+    "triton.g05",
+    "cuda_noptx.g04",
+    "cuda_unlimited.g04",
+    "cuda_noptx_streamed.g05",
+    "cuda_noptx_streamed.g08",
+    "cuda_noptx_streamed.g09",
+    "cuda_unlimited_streamed.g05",
+    "cuda_unlimited_streamed.g06",
+    "cuda_unlimited_streamed.g07"
+  ],
+  "command": "CUDA_VISIBLE_DEVICES=2 PYTHONDONTWRITEBYTECODE=1 python -m ako_runs.controlled_followup.robust_gate.audits.fused_same_seed_stress_v2.runner",
+  "correctness_only": true,
+  "effective_shared_seed_n": 512,
+  "expected_records": 10240,
+  "freeze_receipt_sha256": "8e12a41e0fd58090e04fccaac34ecce5e9fdeec95e64a9ebb736aa2546767967",
+  "gates": [
+    "semantic_mixed",
+    "conformance_mixed"
+  ],
+  "git_commit": "d34ef719da080518523a9cd8ef3b7c6e3b00805d",
+  "inference_policy_sha256": "a578bb09e054267bf8b35581eb89269cbac8f5fb239b96d000b3e794c33d097c",
+  "logical_device": "cuda:0",
+  "output": "ako_runs/controlled_followup/robust_gate/audits/fused_same_seed_stress_v2/results/raw/measurements.jsonl",
+  "performance_selection_feedback_authorized": false,
+  "physical_gpu": 2,
+  "raw_results_opened": false,
+  "record_type": "fused_same_seed_stress_launch_receipt",
+  "recorded_utc": "2026-07-31T06:57:50.476258+00:00",
+  "required_gpu_uuid": "GPU-3ed448f2-f23a-09fc-e18b-f580523c4a3f",
+  "schema_version": "2.0",
+  "seed_plan_canonical_sha256": "c6628dca4d196f963a58d5e2820440c8dc9d5070158a6a10030ca98916e3643e",
+  "seed_plan_sha256": "36df9d9155c405718f5b7c0a903a24114a6be4d4809e461834cffd227d7516b9",
+  "source_bundle_canonical_sha256": "531ec194b5b27ee2da386f2a7b8be1bdb9e1d883bd6034fecc6c126963ba7c55"
+}

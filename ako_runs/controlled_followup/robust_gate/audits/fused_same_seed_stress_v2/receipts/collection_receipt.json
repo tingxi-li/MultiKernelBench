@@ -1,0 +1,29 @@
+{
+  "build_receipt_sha256": "3e27d74ff717e93ec51de3cc750067ae83bbeeae2d0453b323933f579510c031",
+  "campaign_id": "controlled-followup-fused-same-seed-stress-v2",
+  "completed_utc": "2026-07-31T07:14:49.649769+00:00",
+  "correctness_only": true,
+  "expected_records": 10240,
+  "gpu_after": {
+    "clocks.mem": "9501",
+    "clocks.sm": "2685",
+    "compute_cap": "8.9",
+    "driver_version": "610.43.02",
+    "index": "2",
+    "memory.total": "49140",
+    "memory.used": "3846",
+    "name": "NVIDIA RTX 6000 Ada Generation",
+    "power.limit": "300.00",
+    "pstate": "P2",
+    "temperature.gpu": "78",
+    "utilization.gpu": "100",
+    "uuid": "GPU-3ed448f2-f23a-09fc-e18b-f580523c4a3f"
+  },
+  "gpu_execution_receipt_sha256": "7b6bdf5533f1c9292d1824e5cf70a25bc5a549e7bd56c8fc9fb790907d155f3c",
+  "raw_path": "results/raw/measurements.jsonl",
+  "raw_sha256": "fe07aaa569a395ca172ccf78919e03697e292b9c580705c145ecba01697d10d9",
+  "record_count": 10240,
+  "record_type": "fused_same_seed_stress_collection_receipt",
+  "schema_version": "2.0",
+  "wall_s_operational_this_invocation": 629.3392671230104
+}

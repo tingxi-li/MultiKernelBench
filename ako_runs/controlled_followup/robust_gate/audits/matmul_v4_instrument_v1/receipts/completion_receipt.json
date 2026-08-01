@@ -1,0 +1,49 @@
+{
+  "campaign_id": "controlled-followup-matmul-v4-instrument-audit-v1",
+  "completed_utc": "2026-07-30T22:21:01.857764+00:00",
+  "endpoints": {
+    "all_preregistered_endpoints_success": false,
+    "fixed_threshold_replication_success": true,
+    "real_contact_all_candidates_success": false,
+    "synthetic_discrimination_success": true
+  },
+  "evidence_complete": true,
+  "freeze_receipt_sha256": "56c297207e6b3a6104967d36d059d1a23fdab83a4da6e937c59d6ec94e495c72",
+  "raw_files": [
+    {
+      "path": "ako_runs/controlled_followup/robust_gate/audits/matmul_v4_instrument_v1/results/raw/replication_r0.jsonl",
+      "records": 9216,
+      "sha256": "9032e1d7130fbff394141269a82d5561a6d4d1038c84d8ed42d6e7225a7b96d1"
+    },
+    {
+      "path": "ako_runs/controlled_followup/robust_gate/audits/matmul_v4_instrument_v1/results/raw/replication_r1.jsonl",
+      "records": 9216,
+      "sha256": "8adb6ed077f69c9c6b86220731f7016dacc5067c1031367a98ac2fea42d530c7"
+    },
+    {
+      "path": "ako_runs/controlled_followup/robust_gate/audits/matmul_v4_instrument_v1/results/raw/replication_r2.jsonl",
+      "records": 9216,
+      "sha256": "a3423a261d6b4eb58e8d9eab3c2d2f3b95704c9c9db38910192567d0d5a99216"
+    },
+    {
+      "path": "ako_runs/controlled_followup/robust_gate/audits/matmul_v4_instrument_v1/results/raw/replication_r3.jsonl",
+      "records": 9216,
+      "sha256": "236234c7e5721ae37108a2350d5c630dd4a329c9f3d0e40818c59165e7716685"
+    },
+    {
+      "path": "ako_runs/controlled_followup/robust_gate/audits/matmul_v4_instrument_v1/results/raw/synthetic.jsonl",
+      "records": 8484,
+      "sha256": "83d7ac60989a45d7677fb1bb968001aed6abe20ab03f4728a7205e9be046f573"
+    },
+    {
+      "path": "ako_runs/controlled_followup/robust_gate/audits/matmul_v4_instrument_v1/results/raw/real_contact.jsonl",
+      "records": 21504,
+      "sha256": "8e08545345396f3c3dd8e1b33417e15200b76e7f9b1741df85bf1fe78cf69bc2"
+    }
+  ],
+  "schema_version": "1.0",
+  "source_bundle_canonical_sha256": "a3e3c3c03773d85eb20b2a45c55289d89b43890b660184c0a68b6167a88fbec0",
+  "summary_path": "ako_runs/controlled_followup/robust_gate/audits/matmul_v4_instrument_v1/results/summary.json",
+  "summary_sha256": "125e66bbd76012e49695b1226ff39943d52bb61da9a44842b549a53b1f678ebd",
+  "threshold_mutation_authorized": false
+}

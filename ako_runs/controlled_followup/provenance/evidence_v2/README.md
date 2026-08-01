@@ -58,3 +58,12 @@ Output names are immutable. The archive is a deterministic GNU tar stream in
 gzip with timestamp zero and an empty gzip filename. Every regular member uses
 mode `0644`, timestamp `0`, uid/gid `0`, and empty owner/group names. The index
 and embedded manifest use canonical JSON.
+
+The completed-matmul supplement is named `fused_postreview_v3`. It includes the
+matmul-v4 receipts, summary, six raw streams, updated overlays, and the
+cross-DSL errata pointer while leaving `fused_postreview_v1` immutable.
+
+`fused_postreview_v8` additionally includes the derived continuous-threshold
+margin report for the real-kernel contact and the final currency-corrected
+overlays, plus the reusable checked-launch legacy-harness fix; it remains
+diagnostic and cannot alter the frozen gate.

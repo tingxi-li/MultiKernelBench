@@ -26,6 +26,8 @@ README = HERE / "README.md"
 INIT = HERE / "__init__.py"
 TEST = HERE / "test_build_evidence.py"
 AUDIT_GITIGNORE = FOLLOWUP / "robust_gate/audits/.gitignore"
+ERRATA_POINTER = REPO / "ako_runs/CROSS_DSL_ERRATA_POINTER.md"
+LEGACY_FIX = FOLLOWUP / "legacy_cuda_harness_fix"
 
 CLOSURE = FOLLOWUP / "fused_closure_v2"
 ROW_STRESS = FOLLOWUP / "robust_gate/audits/fused_row_sum_stress_v1"
@@ -588,6 +590,7 @@ def select_matmul(selection: Selection) -> dict[str, Any]:
     launch_path = MATMUL_V4 / "receipts/launch_receipt.json"
     completion_path = MATMUL_V4 / "receipts/completion_receipt.json"
     summary_path = MATMUL_V4 / "results/summary.json"
+    margin_path = MATMUL_V4 / "results/margin_report_v1.json"
     freeze = load_json(require_file(freeze_path, expected["freeze_sha256"]))
     launch = load_json(require_file(launch_path, expected["launch_sha256"]))
     completion = load_json(require_file(completion_path))
@@ -630,6 +633,8 @@ def select_matmul(selection: Selection) -> dict[str, Any]:
         selection.add(path, "matmul_v4_instrument_v1:raw", summary_raw[name])
         if line_count(path) != records:
             raise EvidenceError(f"matmul-v4 row count differs: {name}")
+    if margin_path.is_file():
+        selection.add(margin_path, "matmul_v4_instrument_v1:margin_report")
     if any(path.is_file() for path in MATMUL_V4.rglob("*.partial")):
         raise EvidenceError("matmul-v4 partial stream appeared during selection")
     return {
@@ -639,6 +644,7 @@ def select_matmul(selection: Selection) -> dict[str, Any]:
         "raw_files": expected["workloads"],
         "expected_records": summary["expected_records"],
         "summary_sha256": sha256_file(summary_path),
+        "margin_report_sha256": sha256_file(margin_path) if margin_path.is_file() else None,
         "evidence_complete": True,
     }
 
@@ -652,6 +658,9 @@ def select(include_matmul_v4: bool) -> tuple[Selection, dict[str, Any]]:
     selection.add(AUDIT_GITIGNORE, "umbrella:evidence_hygiene")
     selection.add(FOLLOWUP / "REVIEW_RESPONSE_20260730.md", "review_response")
     selection.add(FOLLOWUP / "ERRATA_20260730.md", "review_response")
+    selection.add(ERRATA_POINTER, "review_response")
+    selection.add(LEGACY_FIX / "README.md", "legacy_harness_fix")
+    selection.add(LEGACY_FIX / "checked_cuda_launch.h", "legacy_harness_fix")
     validations: dict[str, Any] = {
         "nested_evidence": select_nested(selection),
         "fused_closure_v2": select_closure(selection),

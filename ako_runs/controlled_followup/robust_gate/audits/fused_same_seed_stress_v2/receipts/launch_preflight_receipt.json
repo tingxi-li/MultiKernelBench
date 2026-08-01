@@ -1,0 +1,17 @@
+{
+  "campaign_id": "controlled-followup-fused-same-seed-stress-v2",
+  "driver_command_returncode": 9,
+  "driver_stderr": "",
+  "driver_stdout": "NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver. Make sure that the latest NVIDIA driver is installed and running.",
+  "freeze_receipt_sha256": "8e12a41e0fd58090e04fccaac34ecce5e9fdeec95e64a9ebb736aa2546767967",
+  "launch_receipt_sha256": "27ff7a6877feead124363b2cf674e9fc90b8bf734d831a14eb35c64d88efb560",
+  "launched": false,
+  "manifest_sha256": "651df0430ffe50d3236af0f81fef10d22f12308dd84e22325bf5dfe0d90b0c42",
+  "observed_utc": "2026-07-31T06:58:01.009687+00:00",
+  "physical_gpu": 2,
+  "reason": "nvidia_driver_unavailable",
+  "record_type": "fused_same_seed_stress_launch_preflight_receipt",
+  "required_gpu_uuid": "GPU-3ed448f2-f23a-09fc-e18b-f580523c4a3f",
+  "schema_version": "2.0",
+  "status": "blocked"
+}

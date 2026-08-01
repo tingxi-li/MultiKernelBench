@@ -1,0 +1,12 @@
+{
+  "campaign_id": "controlled-followup-fused-same-seed-stress-v2",
+  "collection_receipt_sha256": "a61b2d0db5ae0e02cb04d58fcc5bf22729bf0c9c126e93fe04b200d79c4044da",
+  "completed_utc": "2026-07-31T07:14:56.301351+00:00",
+  "effective_shared_seed_n": 512,
+  "evidence_complete": true,
+  "record_type": "fused_same_seed_stress_completion_receipt",
+  "schema_version": "2.0",
+  "summary_path": "results/summary.json",
+  "summary_sha256": "d786cf0e1a42ba1680c132f7e859ca5152b34a691b4712161218670405806758",
+  "threshold_mutation_authorized": false
+}

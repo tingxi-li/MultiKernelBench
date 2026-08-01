@@ -1,0 +1,16 @@
+{"job_id":"cuda_noptx_streamed.g07","record_exists":true,"record_sha256":"1835dfa4524408d7025d5060c2c6529323d00920c4e13407d1738fbe5377636a","rep":0,"returncode":0,"utc":"2026-07-30T19:45:39.215006+00:00"}
+{"job_id":"cuda_noptx_streamed.g11","record_exists":true,"record_sha256":"d3ac24bc0d37dd7f58539919e0acaabb5a388c9d13d2cba69e97146f78f1505d","rep":0,"returncode":0,"utc":"2026-07-30T19:46:19.501957+00:00"}
+{"job_id":"cuda_noptx_streamed.g12","record_exists":true,"record_sha256":"6e282a950a76365a1f25a82cd59ea9ad863cd6de9c4ad0480f633a659333dbc1","rep":0,"returncode":0,"utc":"2026-07-30T19:46:59.535235+00:00"}
+{"job_id":"cuda_noptx_streamed.g05","record_exists":true,"record_sha256":"776f2fa537f5bc2eb45432b71016bef7a7d6fa4e182239e4e6f5171278e486b1","rep":0,"returncode":0,"utc":"2026-07-30T19:47:39.998008+00:00"}
+{"job_id":"cuda_noptx_streamed.g10","record_exists":true,"record_sha256":"9a1340c05c873da6c5c13680c52d053d19ac067de3f572ea5b8a695ac283da8f","rep":0,"returncode":0,"utc":"2026-07-30T19:48:20.983375+00:00"}
+{"job_id":"cuda_noptx_streamed.g09","record_exists":true,"record_sha256":"e5066f8901d4f814c4863aac2d5a8ef6090ccb4593b05ad21cba117cd3e4123a","rep":0,"returncode":0,"utc":"2026-07-30T19:49:02.023147+00:00"}
+{"job_id":"cuda_noptx_streamed.g08","record_exists":true,"record_sha256":"0f8c799f01cf1a9c8bd142cf66ebce37ce4bd26b25c1fd62866d35ccfaff8dce","rep":0,"returncode":0,"utc":"2026-07-30T19:49:42.425131+00:00"}
+{"job_id":"cuda_noptx_streamed.g06","record_exists":true,"record_sha256":"30d40420a905976d6440d3fccdb9d66076ba1520d4a5cc5cc3ae35b6a39b9085","rep":0,"returncode":0,"utc":"2026-07-30T19:50:23.759945+00:00"}
+{"job_id":"cuda_noptx_streamed.g06","record_exists":true,"record_sha256":"251c7c33cde790c7355f10e138e0136a306ca50a2af12a9b57750d8bee279603","rep":1,"returncode":0,"utc":"2026-07-30T19:50:28.459940+00:00"}
+{"job_id":"cuda_noptx_streamed.g05","record_exists":true,"record_sha256":"af559449e927875b28c47f3ce890b2b223142e06dac50c675937bd4671a4c768","rep":1,"returncode":0,"utc":"2026-07-30T19:50:33.485548+00:00"}
+{"job_id":"cuda_noptx_streamed.g12","record_exists":true,"record_sha256":"cfd2614687ce71db1340a7d7e2aa55fb178fc888c04f278122c963690f22c1f7","rep":1,"returncode":0,"utc":"2026-07-30T19:50:38.317457+00:00"}
+{"job_id":"cuda_noptx_streamed.g08","record_exists":true,"record_sha256":"f065272f4a7b7047259fb4b503a7381c58b51ca59a654ba8df9d8531573b2abc","rep":1,"returncode":0,"utc":"2026-07-30T19:50:43.044571+00:00"}
+{"job_id":"cuda_noptx_streamed.g10","record_exists":true,"record_sha256":"78742eaaa0d20549761925551f84a2880de2282d00089c1efcec6983af5aef89","rep":1,"returncode":0,"utc":"2026-07-30T19:50:47.733867+00:00"}
+{"job_id":"cuda_noptx_streamed.g07","record_exists":true,"record_sha256":"93f2e119b7cd0793d2fadb729070655c99dfaba65b19782781fe5c08e719e147","rep":1,"returncode":0,"utc":"2026-07-30T19:50:52.399061+00:00"}
+{"job_id":"cuda_noptx_streamed.g11","record_exists":true,"record_sha256":"98d181a19b9d061f5d4c6feb2c2aea782534e3c6106f1b9603b65d3fb28d4bce","rep":1,"returncode":0,"utc":"2026-07-30T19:50:57.085582+00:00"}
+{"job_id":"cuda_noptx_streamed.g09","record_exists":true,"record_sha256":"27a1d360396a86129c96f8249384bd0a2d4c4965068bdbc555c0a97663aaec8e","rep":1,"returncode":0,"utc":"2026-07-30T19:51:01.789769+00:00"}

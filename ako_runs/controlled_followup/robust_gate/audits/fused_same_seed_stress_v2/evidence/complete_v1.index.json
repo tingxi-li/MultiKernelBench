@@ -1,0 +1,373 @@
+{
+  "bundle_path": "ako_runs/controlled_followup/robust_gate/audits/fused_same_seed_stress_v2/evidence/complete_v1.tar.gz",
+  "bundle_sha256": "9f4b8be60744da896fc14bcdf03fb4cc49780656c85b4e7b41c7a3ea742a450c",
+  "bundle_size": 1406513,
+  "entry_count": 70,
+  "manifest": {
+    "campaign_id": "controlled-followup-fused-same-seed-stress-v2",
+    "completion_receipt_sha256": "054755fc793599d0c3c7faf09675c94c469a7608f43ecf33e3ebacaec5544ed8",
+    "effective_shared_seed_n": 512,
+    "entries": [
+      {
+        "path": "ako_runs/controlled_followup/fused_grid/jobs/fused_gbgs_grid.json",
+        "sha256": "70bfb1219395c4b231dc41d7e6e5661f6a5fd66a5c5cc26cee53283125e006e3",
+        "size": 20535
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_grid/make_robust_manifest.py",
+        "sha256": "85ddccf40212e524db73f47d85ecaf29ef91fdf28bdea2c53dd947e4224d780b",
+        "size": 9321
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_grid/manifest.json",
+        "sha256": "3ca4395603ed60d0f54caf5fc213d245790be84eb29ba36f638c866a48720439",
+        "size": 2640
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_grid/robust_adapter.py",
+        "sha256": "688d9b29673d9314f50a3e8f6a8fc217b8497b27fb3eac13a5234cd9b7a29502",
+        "size": 32811
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_grid/robust_adapter_manifest.json",
+        "sha256": "81e3478b61800e09147a6cb213ba1786b200c137a728a5a9c258241c0a6004ba",
+        "size": 11831
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_grid/robust_launch.py",
+        "sha256": "4e651a0c6557b74f2ac022645e74e99069bb73dbfd73df256934763617295afc",
+        "size": 19229
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_reachability_v2/analyze.py",
+        "sha256": "ef9e06e66d8be32a5ff415e6ae68ee75885a57d16864b50c9e7285e04b15ff37",
+        "size": 13859
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_reachability_v2/bind_robust.py",
+        "sha256": "5df3f84b3c27f81e463c075db46eb7bb06e343576baf800b03e6e0da4446ec1a",
+        "size": 5474
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_reachability_v2/campaign.json",
+        "sha256": "5a52933f19d25088999649cb8e45edadc34dfd35a4cf0e5c34bf7b20c2c1a05d",
+        "size": 2688
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_reachability_v2/candidate.py",
+        "sha256": "84805cd1d44fae40adae81958bc3277453c84de61db85816dfd320399b0af620",
+        "size": 14096
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_reachability_v2/capture_evidence.py",
+        "sha256": "4262bc91888b8b54087ca2d037fbe7ecff1b50a5babbdbba9a8e18809cfa8b5a",
+        "size": 8430
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_reachability_v2/freeze.py",
+        "sha256": "3af55daafed4ec9a2f65df52da20fbae454966fe3d81fdd3e6103093ddc555f4",
+        "size": 4378
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_reachability_v2/jobs.json",
+        "sha256": "ac8291eef06de2c1c21981eff748a42787d50d795d968e21a9c46f19e8f14c99",
+        "size": 6553
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_reachability_v2/launch.py",
+        "sha256": "3433f0dc585f06b03e52de2021ddcbf53ab6d98568eea72e98b305f107a67c0f",
+        "size": 8566
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_reachability_v2/launch_lock.json",
+        "sha256": "7bd24892e29e8d8af4b48a34b397434ed80bd59e2349ff714fb4babe0afcc240",
+        "size": 7545
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_reachability_v2/protocol.py",
+        "sha256": "d826b8df7f6295abe1af2d981df1056c8e9163dbaeb3bc1ce4fa64b2d2cd1a67",
+        "size": 15801
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_reachability_v2/robust_run.py",
+        "sha256": "747f89e370acaf0a98126a56ac0e3580cb34673aef880fbe7994b5e4664c49e5",
+        "size": 14258
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_reachability_v2/run_one.py",
+        "sha256": "ae4ba9a3e246cd8e322c4246d07fb3c463469df86cf2f01cd48fa64b921587ff",
+        "size": 6023
+      },
+      {
+        "path": "ako_runs/controlled_followup/fused_reachability_v2/test_protocol.py",
+        "sha256": "a029124440f2b737016d48ea03c6adf12919d8480f5c910bd99ccb2993f35f72",
+        "size": 4585
+      },
+      {
+        "path": "ako_runs/controlled_followup/robust_gate/__init__.py",
+        "sha256": "c47d3e6a5bc723aaca9e724e736c24be490884a16a91d695f41fed1f2b97b183",
+        "size": 350
+      },
+      {
+        "path": "ako_runs/controlled_followup/robust_gate/audits/__init__.py",
+        "sha256": "6c30b84be5071c594bbddeac7b808b1f332e1fc9a59497fda53f7a08a142720b",
+        "size": 74
+      },
+      {
+        "path": "ako_runs/controlled_followup/robust_gate/audits/fused_row_sum_stress_v1/manifest.json",
+        "sha256": "3b4171c07a7d7bc943bb8228f7ba45ed80dbd4e16c64b3f859b3b8026d20f330",
+        "size": 4127
+      },
+      {
+        "path": "ako_runs/controlled_followup/robust_gate/audits/fused_row_sum_stress_v1/results/raw/winners_gain16.jsonl",
+        "sha256": "d1277c0d33ee24b6ab671b7adb4193a5d1fe9145fc4419ba7a3ea904acda68b7",
+        "size": 5215656
+      },
+      {
+        "path": "ako_runs/controlled_followup/robust_gate/audits/fused_same_seed_stress_v1/README.md",
+        "sha256": "1169bbbe2c102faabf9d98137c8acdcfe9993fc5d6d5e295e4937706eca6f95f",
+        "size": 742
+      },
+      {
+        "path": "ako_runs/controlled_followup/robust_gate/audits/fused_same_seed_stress_v1/results/launcher.lock",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      {
+        "path": "ako_runs/controlled_followup/robust_gate/audits/fused_same_seed_stress_v1/results/launcher.log",
+        "sha256": "a9d43807cc8751378bd6abfdec36ae61e91682cff4c0bed6a65e3dba91f627af",
+        "size": 3012
+      },
+      {
+        "path": "ako_runs/controlled_followup/robust_gate/audits/fused_same_seed_stress_v1/run.py",
+        "sha256": "83b7ab9d539d0cd74c9a736a59dd8522f5a88ce6441b31f2b2241b9a55763dad",
+        "size": 5450
+      },
+      {
+        "path": "ako_runs/controlled_followup/robust_gate/audits/fused_same_seed_stress_v2/.gitignore",
+        "sha256": "b5625b65fc2719018194a6f7d5c7c8155739de4768100dc4edc907b2be7437c3",
+        "size": 93
+      },
+      {
+        "path": "ako_runs/controlled_followup/robust_gate/audits/fused_same_seed_stress_v2/README.md",
+        "sha256": "8ce7078b4cc6f5b301d2c5f8dcf28725a986e5efbf8dadf4556b0c28e1f2fbd7",
+        "size": 1660
+      },
+      {
+        "path": "ako_runs/controlled_followup/robust_gate/audits/fused_same_seed_stress_v2/__init__.py",
+        "sha256": "bebf03c0eb141ffc2d857d2e5a8e877803ea11411870c3c0a0cfef5bba51adc5",
+        "size": 58
+      },
+      {
+        "path": "ako_runs/controlled_followup/robust_gate/audits/fused_same_seed_stress_v2/analyze.py",
+        "sha256": "cc24ca30cdac1553fd0ebf31a1eba67317ea3f424f3886779a861aee94e6ad36",
+        "size": 21614
+      },
+      {
+        "path": "ako_runs/controlled_followup/robust_gate/audits/fused_same_seed_stress_v2/capture_evidence.py",
+        "sha256": "3e0ddf4eb3571f53dc3692245eb9fa0994e91e32a7793092d0f6b4a8da225023",
+        "size": 8890
+      },
+      {
+        "path": "ako_runs/controlled_followup/robust_gate/audits/fused_same_seed_stress_v2/freeze.py",
+        "sha256": "166ef72ae0ed9f4895b8910ffca16204afb5bb35087f92643a40d78c5833686e",
+        "size": 6893
+      },
+      {
+        "path": "ako_runs/controlled_followup/robust_gate/audits/fused_same_seed_stress_v2/inference_policy.json",
+        "sha256": "a578bb09e054267bf8b35581eb89269cbac8f5fb239b96d000b3e794c33d097c",
+        "size": 1810
+      },
+      {
+        "path": "ako_runs/controlled_followup/robust_gate/audits/fused_same_seed_stress_v2/launch.py",
+        "sha256": "ca2254b6a75852dc5d4693d0aa22589f48bbb9f28359242e194528a283c50ad0",
+        "size": 3878
+      },
+      {
+        "path": "ako_runs/controlled_followup/robust_gate/audits/fused_same_seed_stress_v2/legacy_v1_status.json",
+        "sha256": "cfb39c98e5059c21388416e7c6a91c181d20ffe45fafd1540ddb689d174ce62a",
+        "size": 1343
+      },
+      {
+        "path": "ako_runs/controlled_followup/robust_gate/audits/fused_same_seed_stress_v2/manifest.json",
+        "sha256": "651df0430ffe50d3236af0f81fef10d22f12308dd84e22325bf5dfe0d90b0c42",
+        "size": 7934
+      },
+      {
+        "path": "ako_runs/controlled_followup/robust_gate/audits/fused_same_seed_stress_v2/receipts/build_receipt.json",
+        "sha256": "3e27d74ff717e93ec51de3cc750067ae83bbeeae2d0453b323933f579510c031",
+        "size": 16763
+      },
+      {
+        "path": "ako_runs/controlled_followup/robust_gate/audits/fused_same_seed_stress_v2/receipts/collection_receipt.json",
+        "sha256": "a61b2d0db5ae0e02cb04d58fcc5bf22729bf0c9c126e93fe04b200d79c4044da",
+        "size": 1099
+      },
+      {
+        "path": "ako_runs/controlled_followup/robust_gate/audits/fused_same_seed_stress_v2/receipts/completion_receipt.json",
+        "sha256": "054755fc793599d0c3c7faf09675c94c469a7608f43ecf33e3ebacaec5544ed8",
+        "size": 547
+      },
+      {
+        "path": "ako_runs/controlled_followup/robust_gate/audits/fused_same_seed_stress_v2/receipts/freeze_receipt.json",
+        "sha256": "8e12a41e0fd58090e04fccaac34ecce5e9fdeec95e64a9ebb736aa2546767967",
+        "size": 5376
+      },
+      {
+        "path": "ako_runs/controlled_followup/robust_gate/audits/fused_same_seed_stress_v2/receipts/gpu_execution_receipt.json",
+        "sha256": "7b6bdf5533f1c9292d1824e5cf70a25bc5a549e7bd56c8fc9fb790907d155f3c",
+        "size": 1771
+      },
+      {
+        "path": "ako_runs/controlled_followup/robust_gate/audits/fused_same_seed_stress_v2/receipts/launch_preflight_receipt.json",
+        "sha256": "1359a590557012232dc731676cfbd5f9549cd27f80b6b464536c1f9b6be67baf",
+        "size": 893
+      },
+      {
+        "path": "ako_runs/controlled_followup/robust_gate/audits/fused_same_seed_stress_v2/receipts/launch_receipt.json",
+        "sha256": "27ff7a6877feead124363b2cf674e9fc90b8bf734d831a14eb35c64d88efb560",
+        "size": 1699
+      },
+      {
+        "path": "ako_runs/controlled_followup/robust_gate/audits/fused_same_seed_stress_v2/receipts/seed_plan.json",
+        "sha256": "36df9d9155c405718f5b7c0a903a24114a6be4d4809e461834cffd227d7516b9",
+        "size": 134100
+      },
+      {
+        "path": "ako_runs/controlled_followup/robust_gate/audits/fused_same_seed_stress_v2/results/raw/measurements.jsonl",
+        "sha256": "fe07aaa569a395ca172ccf78919e03697e292b9c580705c145ecba01697d10d9",
+        "size": 29576704
+      },
+      {
+        "path": "ako_runs/controlled_followup/robust_gate/audits/fused_same_seed_stress_v2/results/summary.json",
+        "sha256": "d786cf0e1a42ba1680c132f7e859ca5152b34a691b4712161218670405806758",
+        "size": 72383
+      },
+      {
+        "path": "ako_runs/controlled_followup/robust_gate/audits/fused_same_seed_stress_v2/runner.py",
+        "sha256": "f0d844cd8f8dad8dcb7207edc569321889d3469c67fb11ce094004e217ce69ae",
+        "size": 32957
+      },
+      {
+        "path": "ako_runs/controlled_followup/robust_gate/audits/fused_same_seed_stress_v2/tests/__init__.py",
+        "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "size": 1
+      },
+      {
+        "path": "ako_runs/controlled_followup/robust_gate/audits/fused_same_seed_stress_v2/tests/test_same_seed_v2.py",
+        "sha256": "10262d696d2ad1b1b437f86e6150bd9cce6893aa7b6ccf0d3be2dab9f01531db",
+        "size": 7739
+      },
+      {
+        "path": "ako_runs/controlled_followup/robust_gate/calibration/gate_spec_fused_v2.json",
+        "sha256": "b6c3afaadf61f5d380a97c6c541828a1ecacd1a89a00b73b66207fe22d765e2e",
+        "size": 5196
+      },
+      {
+        "path": "ako_runs/controlled_followup/robust_gate/distributions.py",
+        "sha256": "6280fa580a8ff2e648b937435137930a37143d8225bf9afb348b4c4921ccdd77",
+        "size": 5641
+      },
+      {
+        "path": "ako_runs/controlled_followup/robust_gate/manifest.json",
+        "sha256": "28d51cd4f1730bd190e63c7cad60670c37b67784393270e63e859a1685fc8a62",
+        "size": 10142
+      },
+      {
+        "path": "ako_runs/controlled_followup/robust_gate/metrics.py",
+        "sha256": "419b48d8410dfeb42ff06e8ce23be15d176443872ad576779ee071a00045a9fe",
+        "size": 6871
+      },
+      {
+        "path": "ako_runs/controlled_followup/robust_gate/oracles.py",
+        "sha256": "5083b72e14285cfc5582effe4cf4d75f6bac8f548cd1183e2d5256c022d5cace",
+        "size": 8198
+      },
+      {
+        "path": "ako_runs/controlled_followup/robust_gate/schema.py",
+        "sha256": "5ddccc0f4eecda92d97de0676eb9c5f16f0ea3bd426a344aa6acb57169e306ec",
+        "size": 9019
+      },
+      {
+        "path": "ako_runs/controlled_followup/robust_gate/seeds.py",
+        "sha256": "39663de46fdc31f34ec12975d34c43565f16f19a23be0c1e53bf4f1cfe57fdcc",
+        "size": 3689
+      },
+      {
+        "path": "ako_runs/controlled_followup/robust_gate/validate.py",
+        "sha256": "b9436c9b4a0d81228a373c1f6e7e79a7cd68cf78e11ef8afdb06c27b2f5b22ec",
+        "size": 6962
+      },
+      {
+        "path": "ako_runs/phase1_matmul/common.py",
+        "sha256": "7753fcc00891d475db8675423ca7e48fbc0aa0431ac1e1dd4319e6c2900fd0a7",
+        "size": 17310
+      },
+      {
+        "path": "ako_runs/phase1_matmul/variants/__init__.py",
+        "sha256": "0ac322f46ab46fe0bf6d9eb6241c7eacf6b9844f5f6d927dbccfc81a1005a585",
+        "size": 1382
+      },
+      {
+        "path": "ako_runs/phase1_matmul/variants/cuda_noptx_gemm.py",
+        "sha256": "b3935c4e9516304cbbe0b3ab8e32e1fadc1264f48f26ee00fe52aede6e032217",
+        "size": 29762
+      },
+      {
+        "path": "ako_runs/phase1_matmul/variants/cuda_unlimited_gemm.py",
+        "sha256": "c9629300ce871476eb95cdecc5337229c43d3206e674c35d86a7f65d20a87ad5",
+        "size": 27988
+      },
+      {
+        "path": "ako_runs/phase2_fused_sdpa/common2.py",
+        "sha256": "0293cb15fc3285df199daa58281a1a35147a78b9cbccda8b8f88418eecb39c64",
+        "size": 16006
+      },
+      {
+        "path": "ako_runs/phase2_fused_sdpa/runner2.py",
+        "sha256": "d1ade4461bff35058a3c6e967532960f5cc509f5d6a46c69bded78fbd0aac31e",
+        "size": 9270
+      },
+      {
+        "path": "ako_runs/phase2_fused_sdpa/variants2/__init__.py",
+        "sha256": "2afc778f25db9abe2d05299bbd47fa2ad43b7912eee8633936095e6b92662045",
+        "size": 1529
+      },
+      {
+        "path": "ako_runs/phase2_fused_sdpa/variants2/cuda_fused_common.py",
+        "sha256": "c047985e84428246a455a20107cd5309d63528a593374ed2a4418e531c915c36",
+        "size": 8084
+      },
+      {
+        "path": "ako_runs/phase2_fused_sdpa/variants2/fused_cuda_noptx.py",
+        "sha256": "6abbea8ea28d5d6623da90385e417ec279fd5a022cf2144a56ae8fab684e2058",
+        "size": 9476
+      },
+      {
+        "path": "ako_runs/phase2_fused_sdpa/variants2/fused_cuda_unlimited.py",
+        "sha256": "d0c5b1b46f44ae6fe655e78b8ce902b42d46b3567bf26a81574d52b78262f060",
+        "size": 10770
+      },
+      {
+        "path": "ako_runs/phase2_fused_sdpa/variants2/fused_tilelang.py",
+        "sha256": "c2a0704d81bdb4b2f78377870a1bc45c6945db77bccc8e89b2a0fd4b46511684",
+        "size": 12364
+      },
+      {
+        "path": "ako_runs/phase2_fused_sdpa/variants2/fused_triton.py",
+        "sha256": "20c4f27fdc9145beec6b4cdb99ed8e9d57cbdbede87bace51319d782f378272e",
+        "size": 8048
+      }
+    ],
+    "evidence_complete": true,
+    "freeze_receipt_sha256": "8e12a41e0fd58090e04fccaac34ecce5e9fdeec95e64a9ebb736aa2546767967",
+    "launch_receipt_sha256": "27ff7a6877feead124363b2cf674e9fc90b8bf734d831a14eb35c64d88efb560",
+    "raw_sha256": "fe07aaa569a395ca172ccf78919e03697e292b9c580705c145ecba01697d10d9",
+    "record_type": "fused_same_seed_stress_evidence_manifest",
+    "schema_version": "2.0",
+    "summary_sha256": "d786cf0e1a42ba1680c132f7e859ca5152b34a691b4712161218670405806758"
+  },
+  "manifest_sha256": "4b7b10b5c411b1dca0b8762053fbdb4cd5aaf0eb8d0c66b76834471e28f5c8b6",
+  "record_type": "fused_same_seed_stress_evidence_index",
+  "schema_version": "2.0"
+}

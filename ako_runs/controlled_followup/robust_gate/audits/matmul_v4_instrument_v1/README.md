@@ -53,8 +53,14 @@ discard a run. Once all six complete raw files exist, analyze them with:
 
 ```bash
 python -m ako_runs.controlled_followup.robust_gate.audits.matmul_v4_instrument_v1.analyze
+python -m ako_runs.controlled_followup.robust_gate.audits.matmul_v4_instrument_v1.margin_report
 ```
 
 The summary reports evidence completeness, every block/candidate/gate endpoint,
 and every case separately. A failed real candidate is a retained result; it does
 not reopen or authorize mutation of the v4 thresholds.
+
+`margin_report_v2.json` supplements that binary endpoint with per-record maximum
+frozen-threshold utilization, group failure counts and quantiles, and the closest
+and worst failing records. It aborts on missing, nonfinite, or inconsistent
+metrics. The superseded v1 diagnostic remains preserved and is not overwritten.

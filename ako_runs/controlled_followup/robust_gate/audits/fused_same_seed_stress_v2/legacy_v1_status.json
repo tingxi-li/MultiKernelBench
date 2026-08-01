@@ -1,0 +1,26 @@
+{
+  "campaign_id": "controlled-followup-fused-same-seed-stress-v2",
+  "controlling": false,
+  "disposition": "preserved_invalid_unlaunched_pilot",
+  "measurement_files_observed": [],
+  "observed_at_utc": "2026-07-31T06:44:18Z",
+  "reason": "v1 claims to replay the old-winner stress but PRIOR_NS is MKB-fused-reachability-row-sum-gain16-stress-v1-20260730 rather than MKB-fused-row-sum-gain16-stress-v1-20260730",
+  "v1_launcher_lock": {
+    "path": "ako_runs/controlled_followup/robust_gate/audits/fused_same_seed_stress_v1/results/launcher.lock",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "v1_launcher_log": {
+    "last_line": "gpu_driver_unavailable_utc=2026-07-31T04:42:03Z; retry_seconds=60",
+    "path": "ako_runs/controlled_followup/robust_gate/audits/fused_same_seed_stress_v1/results/launcher.log",
+    "sha256": "a9d43807cc8751378bd6abfdec36ae61e91682cff4c0bed6a65e3dba91f627af"
+  },
+  "v1_readme": {
+    "path": "ako_runs/controlled_followup/robust_gate/audits/fused_same_seed_stress_v1/README.md",
+    "sha256": "1169bbbe2c102faabf9d98137c8acdcfe9993fc5d6d5e295e4937706eca6f95f"
+  },
+  "v1_runner": {
+    "path": "ako_runs/controlled_followup/robust_gate/audits/fused_same_seed_stress_v1/run.py",
+    "sha256": "83b7ab9d539d0cd74c9a736a59dd8522f5a88ce6441b31f2b2241b9a55763dad"
+  }
+}
+

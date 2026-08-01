@@ -1,0 +1,258 @@
+{
+  "record_type": "fused_reachability_v2_robust_seed_bundle",
+  "records": [
+    {
+      "adapter_manifest_sha256": "34e147283b02158501f26d1ec92cf1b6fba04531d3f453b812b56d0df7c71d74",
+      "build_metadata": {
+        "adapter_build_wall_s": 0.017258601001231,
+        "artifacts": {
+          "configured_stages": 2,
+          "cuda_source_sha256": "467aae7d3bd22073468bdf407244b5aa309103e48d45c117566293b2c0809b04",
+          "deviations": [],
+          "epilogue_policy": "global_intermediate_then_bias_gelu_softmax",
+          "extension_name": "cfr2_n_128_256_64_t256_s2_kc2048",
+          "lane": "cuda_noptx",
+          "n_kernels": 2,
+          "realized_stages": 2,
+          "shared_bytes": 98304,
+          "shared_padding_halfs": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        "n_kernels": 2,
+        "prospective_campaign": "fused-reachability-streamed-epilogue-v2",
+        "reported_compile_s": 0.01703440200071782
+      },
+      "campaign_id": "controlled-followup-robust-gate-v1",
+      "candidate": "fused-grid:cuda_noptx_streamed.g08:b2e1eddff374",
+      "candidate_wall_s": 0.003990009994595312,
+      "case_id": "legacy_u01_gain1",
+      "contract": {
+        "bias_dtype": "fp32",
+        "gelu": "exact_erf",
+        "operand_dtype": "fp16",
+        "output_dtype": "fp32",
+        "probability_dtype": "fp32",
+        "weight_dtype": "fp16",
+        "x_dtype": "fp16"
+      },
+      "device": "cuda:0",
+      "gate_id": "semantic_mixed",
+      "gate_pass": true,
+      "gate_spec_canonical_sha256": "4898c42d82707ad4588c880f794935efba202f5c32fb656263ec2c8f6c3f22e8",
+      "gate_spec_sha256": "b6c3afaadf61f5d380a97c6c541828a1ecacd1a89a00b73b66207fe22d765e2e",
+      "grid_job": {
+        "grid_id": "g08",
+        "grid_index": 8,
+        "job_id": "cuda_noptx_streamed.g08",
+        "lane": "cuda_noptx",
+        "origin_job_id": "cuda_noptx.g08",
+        "origin_job_sha256": "2199a9366422d3ea696ed7659ef893c176685b32e26758c67d6eadeb25235190",
+        "set": "BM=128,BN=256,BK=64,threads=256,stages=2,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=streamed_global",
+        "variant": "GBGS"
+      },
+      "grid_job_id": "cuda_noptx_streamed.g08",
+      "grid_job_sha256": "b2e1eddff374a724809b3e825dea46fba7dd9b92225c9a490074940a2b2224a8",
+      "grid_jobs_sha256": "ac8291eef06de2c1c21981eff748a42787d50d795d968e21a9c46f19e8f14c99",
+      "grid_manifest_sha256": "5a52933f19d25088999649cb8e45edadc34dfd35a4cf0e5c34bf7b20c2c1a05d",
+      "manifest_sha256": "d017ef44cd63ce2a27bf31ca0ea7631a1f9810d3cbd25f1ddc6155b75a05634a",
+      "metric_wall_s": 0.022668385005090386,
+      "metrics": {
+        "abs_signed_bias": 2.4532285929598864e-13,
+        "max_abs_err": 1.600347185600295e-07,
+        "mean_abs_err": 5.016724651400417e-09,
+        "negative_count": 0.0,
+        "nonfinite_count": 0.0,
+        "nrmse": 6.136794413096518e-05,
+        "reference_abs_max": 0.0004946556199164029,
+        "reference_abs_mean": 0.0001220703125,
+        "row_sum_error_max": 1.4765100786462426e-07,
+        "scaled_max_abs_err": 0.0004459449194939079,
+        "sqrt_js_max": 2.0866099553237927e-05,
+        "top1_mismatch_rate": 0.0,
+        "tv_max": 2.12393912030747e-05,
+        "tv_q99": 2.107759388672731e-05
+      },
+      "ok": true,
+      "op": "fused_softmax",
+      "output_dtype": "torch.float32",
+      "output_shape": [
+        1024,
+        8192
+      ],
+      "phase2_config": {
+        "BK": 64,
+        "BM": 128,
+        "BN": 256,
+        "K": 8192,
+        "M": 1024,
+        "N": 8192,
+        "arith": "fp16",
+        "cast": "precast",
+        "dsl": "cuda_noptx",
+        "extra": {
+          "epilogue": "streamed_global",
+          "wcache": "cached"
+        },
+        "input_dtype": "torch.float16",
+        "kc": 2048,
+        "stages": 2,
+        "threads": 256,
+        "variant": "GBGS"
+      },
+      "record_type": "robust_gate_measurement",
+      "reference_kind": "semantic_fp64",
+      "role": "candidate",
+      "schema_version": "1.0",
+      "seed_index": 61,
+      "shape": {
+        "K": 8192,
+        "M": 1024,
+        "N": 8192
+      },
+      "shared_input_wall_s": 0.29613061499549076,
+      "shared_reference_wall_s": {
+        "contract_mixed": 0.2317298749985639,
+        "semantic_fp64": 0.21813555699191056
+      },
+      "source_bundle_sha256": "ac077b9de182ea9596e97dafa6a6e2ee88771f3d282dec9ed7d19bde90078d2a",
+      "source_sha256": "ac077b9de182ea9596e97dafa6a6e2ee88771f3d282dec9ed7d19bde90078d2a",
+      "split": "validation",
+      "tensor_seeds": {
+        "bias": 7249477068660167231,
+        "weight": 9139610963469518020,
+        "x": 1235902642733583633
+      },
+      "threshold_failures": [],
+      "torch_version": "2.10.0+cu128"
+    },
+    {
+      "adapter_manifest_sha256": "34e147283b02158501f26d1ec92cf1b6fba04531d3f453b812b56d0df7c71d74",
+      "build_metadata": {
+        "adapter_build_wall_s": 0.017258601001231,
+        "artifacts": {
+          "configured_stages": 2,
+          "cuda_source_sha256": "467aae7d3bd22073468bdf407244b5aa309103e48d45c117566293b2c0809b04",
+          "deviations": [],
+          "epilogue_policy": "global_intermediate_then_bias_gelu_softmax",
+          "extension_name": "cfr2_n_128_256_64_t256_s2_kc2048",
+          "lane": "cuda_noptx",
+          "n_kernels": 2,
+          "realized_stages": 2,
+          "shared_bytes": 98304,
+          "shared_padding_halfs": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        "n_kernels": 2,
+        "prospective_campaign": "fused-reachability-streamed-epilogue-v2",
+        "reported_compile_s": 0.01703440200071782
+      },
+      "campaign_id": "controlled-followup-robust-gate-v1",
+      "candidate": "fused-grid:cuda_noptx_streamed.g08:b2e1eddff374",
+      "candidate_wall_s": 0.003990009994595312,
+      "case_id": "legacy_u01_gain1",
+      "contract": {
+        "bias_dtype": "fp32",
+        "gelu": "exact_erf",
+        "operand_dtype": "fp16",
+        "output_dtype": "fp32",
+        "probability_dtype": "fp32",
+        "weight_dtype": "fp16",
+        "x_dtype": "fp16"
+      },
+      "device": "cuda:0",
+      "gate_id": "conformance_mixed",
+      "gate_pass": true,
+      "gate_spec_canonical_sha256": "4898c42d82707ad4588c880f794935efba202f5c32fb656263ec2c8f6c3f22e8",
+      "gate_spec_sha256": "b6c3afaadf61f5d380a97c6c541828a1ecacd1a89a00b73b66207fe22d765e2e",
+      "grid_job": {
+        "grid_id": "g08",
+        "grid_index": 8,
+        "job_id": "cuda_noptx_streamed.g08",
+        "lane": "cuda_noptx",
+        "origin_job_id": "cuda_noptx.g08",
+        "origin_job_sha256": "2199a9366422d3ea696ed7659ef893c176685b32e26758c67d6eadeb25235190",
+        "set": "BM=128,BN=256,BK=64,threads=256,stages=2,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=streamed_global",
+        "variant": "GBGS"
+      },
+      "grid_job_id": "cuda_noptx_streamed.g08",
+      "grid_job_sha256": "b2e1eddff374a724809b3e825dea46fba7dd9b92225c9a490074940a2b2224a8",
+      "grid_jobs_sha256": "ac8291eef06de2c1c21981eff748a42787d50d795d968e21a9c46f19e8f14c99",
+      "grid_manifest_sha256": "5a52933f19d25088999649cb8e45edadc34dfd35a4cf0e5c34bf7b20c2c1a05d",
+      "manifest_sha256": "d017ef44cd63ce2a27bf31ca0ea7631a1f9810d3cbd25f1ddc6155b75a05634a",
+      "metric_wall_s": 0.01924019301077351,
+      "metrics": {
+        "abs_signed_bias": 2.4603496323605256e-13,
+        "max_abs_err": 3.2887328416109085e-09,
+        "mean_abs_err": 6.888268688082233e-11,
+        "negative_count": 0.0,
+        "nonfinite_count": 0.0,
+        "nrmse": 8.718337612301547e-07,
+        "reference_abs_max": 0.0004945893888361752,
+        "reference_abs_mean": 0.0001220703124992879,
+        "row_sum_error_max": 1.4765100786462426e-07,
+        "scaled_max_abs_err": 7.66448337414162e-06,
+        "sqrt_js_max": 2.7724449843937555e-07,
+        "top1_mismatch_rate": 0.0,
+        "tv_max": 3.117238520644605e-07,
+        "tv_q99": 3.009148349519819e-07
+      },
+      "ok": true,
+      "op": "fused_softmax",
+      "output_dtype": "torch.float32",
+      "output_shape": [
+        1024,
+        8192
+      ],
+      "phase2_config": {
+        "BK": 64,
+        "BM": 128,
+        "BN": 256,
+        "K": 8192,
+        "M": 1024,
+        "N": 8192,
+        "arith": "fp16",
+        "cast": "precast",
+        "dsl": "cuda_noptx",
+        "extra": {
+          "epilogue": "streamed_global",
+          "wcache": "cached"
+        },
+        "input_dtype": "torch.float16",
+        "kc": 2048,
+        "stages": 2,
+        "threads": 256,
+        "variant": "GBGS"
+      },
+      "record_type": "robust_gate_measurement",
+      "reference_kind": "contract_mixed",
+      "role": "candidate",
+      "schema_version": "1.0",
+      "seed_index": 61,
+      "shape": {
+        "K": 8192,
+        "M": 1024,
+        "N": 8192
+      },
+      "shared_input_wall_s": 0.29613061499549076,
+      "shared_reference_wall_s": {
+        "contract_mixed": 0.2317298749985639,
+        "semantic_fp64": 0.21813555699191056
+      },
+      "source_bundle_sha256": "ac077b9de182ea9596e97dafa6a6e2ee88771f3d282dec9ed7d19bde90078d2a",
+      "source_sha256": "ac077b9de182ea9596e97dafa6a6e2ee88771f3d282dec9ed7d19bde90078d2a",
+      "split": "validation",
+      "tensor_seeds": {
+        "bias": 7249477068660167231,
+        "weight": 9139610963469518020,
+        "x": 1235902642733583633
+      },
+      "threshold_failures": [],
+      "torch_version": "2.10.0+cu128"
+    }
+  ],
+  "schema_version": 1
+}

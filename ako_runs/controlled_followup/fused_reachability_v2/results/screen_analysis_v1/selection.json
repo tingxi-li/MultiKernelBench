@@ -1,0 +1,67 @@
+{
+  "campaign_id": "fused-reachability-streamed-epilogue-v2",
+  "launch_lock_sha256": "7bd24892e29e8d8af4b48a34b397434ed80bd59e2349ff714fb4babe0afcc240",
+  "record_type": "fused_reachability_v2_screen_selection",
+  "schema_version": 1,
+  "screen_bundle_sha256": "8fdaccb9195a6246606a096b4b3e40a83214bd5e567e122a0d8f1e934e30216a",
+  "screen_summary_path": "ako_runs/controlled_followup/fused_reachability_v2/results/screen_analysis_v1/screen_summary.json",
+  "screen_summary_sha256": "e0013d3bbe1169d2a55d4154a1b1ef6cc48bc08563d5bb1694579e15d3daa753",
+  "selected": [
+    {
+      "grid_id": "g05",
+      "job_id": "cuda_noptx_streamed.g05",
+      "job_sha256": "63d545eae879c043fa5fe5218c27c421473943545ade072ba2fb8f0b71e12a07",
+      "lane": "cuda_noptx",
+      "robust_eligible": false,
+      "screen_median_ms": 1.4755840301513672,
+      "screen_rank": 1
+    },
+    {
+      "grid_id": "g09",
+      "job_id": "cuda_noptx_streamed.g09",
+      "job_sha256": "57cad6b270d1b5b46cd0b3f35b3fd37986220797084f6eb9081737b0dc6e8fec",
+      "lane": "cuda_noptx",
+      "robust_eligible": false,
+      "screen_median_ms": 1.516535997390747,
+      "screen_rank": 2
+    },
+    {
+      "grid_id": "g08",
+      "job_id": "cuda_noptx_streamed.g08",
+      "job_sha256": "b2e1eddff374a724809b3e825dea46fba7dd9b92225c9a490074940a2b2224a8",
+      "lane": "cuda_noptx",
+      "robust_eligible": false,
+      "screen_median_ms": 1.6138080060482025,
+      "screen_rank": 3
+    },
+    {
+      "grid_id": "g06",
+      "job_id": "cuda_unlimited_streamed.g06",
+      "job_sha256": "e067abda00d0366a4a9bd39cc7d49f1b37d7e573dde7e786c77ff3b8663b25b2",
+      "lane": "cuda_unlimited",
+      "robust_eligible": false,
+      "screen_median_ms": 1.3401760160923004,
+      "screen_rank": 1
+    },
+    {
+      "grid_id": "g07",
+      "job_id": "cuda_unlimited_streamed.g07",
+      "job_sha256": "b07ac33981c4b89d7a6453fb531a2dd0882ca2077f66a9718268559373391685",
+      "lane": "cuda_unlimited",
+      "robust_eligible": false,
+      "screen_median_ms": 1.3490319848060608,
+      "screen_rank": 2
+    },
+    {
+      "grid_id": "g05",
+      "job_id": "cuda_unlimited_streamed.g05",
+      "job_sha256": "9b49ed7400e60a015cd58fcf23223e7ec651bbf59c441bb665aef6fd66f8ab7e",
+      "lane": "cuda_unlimited",
+      "robust_eligible": false,
+      "screen_median_ms": 1.407263994216919,
+      "screen_rank": 3
+    }
+  ],
+  "selection_rule": "top three legacy-correct screen cells per lane",
+  "source_bundle_sha256": "ac077b9de182ea9596e97dafa6a6e2ee88771f3d282dec9ed7d19bde90078d2a"
+}

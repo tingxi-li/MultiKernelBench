@@ -1,0 +1,5122 @@
+[
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 0,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 881122881928322012,
+      "weight": 6172531731120214432,
+      "x": 6586910538722553587
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 1,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 6417433037076319080,
+      "weight": 7904349854743203456,
+      "x": 4994561192888014923
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 2,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 1550824358962195392,
+      "weight": 2642838144217974647,
+      "x": 5784003542402640883
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 3,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 4508878084120894197,
+      "weight": 8501138244823139830,
+      "x": 6516254647559333952
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 4,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 3195090077585175761,
+      "weight": 666397029414442675,
+      "x": 4025194234082084560
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 5,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 4646823564544037920,
+      "weight": 5695280638885172426,
+      "x": 2850163842847482089
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 6,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 6755606584834005881,
+      "weight": 1348577570432580912,
+      "x": 2833585250720468064
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 7,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 6371970637229543604,
+      "weight": 6708410188587329223,
+      "x": 6186935794196775139
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 8,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 6032965926808614425,
+      "weight": 891186220834014218,
+      "x": 7143224654895865970
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 9,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 6230037984407273384,
+      "weight": 938319781559603490,
+      "x": 3500088853076040535
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 10,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 4524167694280473379,
+      "weight": 2901955340458884803,
+      "x": 7356445424513632833
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 11,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 7218422611134361341,
+      "weight": 4846046886258407526,
+      "x": 1975766025976691696
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 12,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 7284346248328329124,
+      "weight": 1010166226960372882,
+      "x": 6787038353714903068
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 13,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 3987399942111088588,
+      "weight": 2992731017509545959,
+      "x": 6855458249695302664
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 14,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 423979200886005387,
+      "weight": 6464976230526435599,
+      "x": 6295353394690907517
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 15,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 1290176767689038280,
+      "weight": 4143854303711014008,
+      "x": 7074130712159173272
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 16,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 5193133348515464905,
+      "weight": 8380524718893423932,
+      "x": 44354703349547292
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 17,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 7355549521680913438,
+      "weight": 6212615091743204113,
+      "x": 4222168397866779395
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 18,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 8317010185620316521,
+      "weight": 4456187080820904917,
+      "x": 3516911187577795768
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 19,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 874357085213775895,
+      "weight": 4464796441804479685,
+      "x": 3283484782209031629
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 20,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 1616272185700318812,
+      "weight": 7663281072232532288,
+      "x": 2877255539019214820
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 21,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 635187949925144427,
+      "weight": 4832343699394097858,
+      "x": 6059002607191353184
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 22,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 7531337208683873758,
+      "weight": 103771102781078609,
+      "x": 4345326043427385862
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 23,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 400459402869531689,
+      "weight": 1110252039367973242,
+      "x": 1383123941006891189
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 24,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 5809284541781782731,
+      "weight": 7491260286950732778,
+      "x": 6077435978058121398
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 25,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 5447719896576248351,
+      "weight": 158178756909386320,
+      "x": 6659364280559608316
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 26,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 5393303633000176710,
+      "weight": 6475758427362070312,
+      "x": 1771232142723456898
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 27,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 61700367158197269,
+      "weight": 7401972475148452842,
+      "x": 6094801089224639588
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 28,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 5928901513466877457,
+      "weight": 5270714904286190649,
+      "x": 802625102947934916
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 29,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 5494072056142952185,
+      "weight": 2731708513428877236,
+      "x": 1258073821291529902
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 30,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 4233666268191724393,
+      "weight": 955088550626439966,
+      "x": 8740833454717922256
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 31,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 2328311561514633949,
+      "weight": 2566646254923720125,
+      "x": 8734811277344664085
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 32,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 224403374980592647,
+      "weight": 838348202282001048,
+      "x": 6885341021847649004
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 33,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 1409083278099159206,
+      "weight": 1015405039178812377,
+      "x": 7244751385598829514
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 34,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 6045938882936779315,
+      "weight": 2943290588711299630,
+      "x": 2033888998540256869
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 35,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 2614764432421574195,
+      "weight": 1158805696698652059,
+      "x": 5151569790541419050
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 36,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 8511009677534272819,
+      "weight": 9131346858431916996,
+      "x": 7549909582612101985
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 37,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 2716080305049475268,
+      "weight": 8546496018593901096,
+      "x": 1235442335072394132
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 38,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 1116180219328816342,
+      "weight": 6700385889046331593,
+      "x": 1732115230262240734
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 39,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 6164959542601262990,
+      "weight": 8825136765765687430,
+      "x": 7187949212839105024
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 40,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 7132389353266269223,
+      "weight": 305611822702940597,
+      "x": 7242189588828608196
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 41,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 6436248112719579962,
+      "weight": 467884982683424320,
+      "x": 6847684113240215772
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 42,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 4847734047340124846,
+      "weight": 1460876215870025849,
+      "x": 5770644245086776116
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 43,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 6029508048855171121,
+      "weight": 6010410888075281309,
+      "x": 3767671648744945383
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 44,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 1308059127554619257,
+      "weight": 2546173755243567778,
+      "x": 1831329710855813158
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 45,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 3655990437712984371,
+      "weight": 7120947153954593974,
+      "x": 2693342955563096230
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 46,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 1582349621058658680,
+      "weight": 3696437075905219025,
+      "x": 1232664948401780523
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 47,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 495587447266649439,
+      "weight": 2414928675968110733,
+      "x": 99138712529928347
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 48,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 6958726422137366929,
+      "weight": 3021264717866224717,
+      "x": 209650521425157190
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 49,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 3345453907595072959,
+      "weight": 6766992429227618112,
+      "x": 6171585268940813192
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 50,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 7885684543076595674,
+      "weight": 4924316982548695685,
+      "x": 8626599420020090009
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 51,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 7999476953049144927,
+      "weight": 6687263227688056886,
+      "x": 3331533207784123379
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 52,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 7467896127848276372,
+      "weight": 3796359554400615835,
+      "x": 5823861364218258367
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 53,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 8922618605350719793,
+      "weight": 3997544891711936440,
+      "x": 4342864847815570576
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 54,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 2885473644046754559,
+      "weight": 2861193448150441559,
+      "x": 3041467520214591897
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 55,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 1015943543021692296,
+      "weight": 8121820454349324487,
+      "x": 1266094165651122121
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 56,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 7950315951764598169,
+      "weight": 3482478916146968208,
+      "x": 2295599273375162209
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 57,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 1942272347381892699,
+      "weight": 3530650409654742466,
+      "x": 1312935407687432068
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 58,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 2583965986198006523,
+      "weight": 9077828569587457627,
+      "x": 5454941179625271332
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 59,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 284718566419702557,
+      "weight": 5085791386116034526,
+      "x": 7506064237487366476
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 60,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 1165020202776632411,
+      "weight": 8955737875971022971,
+      "x": 8345706802983538002
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 61,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 9166171832065905792,
+      "weight": 6997408977589061708,
+      "x": 4075430641299907425
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 62,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 140956267681329744,
+      "weight": 8130333966763289673,
+      "x": 2104857951790686455
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 63,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 6987835506979003240,
+      "weight": 3584634578556195960,
+      "x": 5605993793667253280
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 64,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 8340939127418260599,
+      "weight": 6614158019752909117,
+      "x": 8327408285041139310
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 65,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 7923126998086805684,
+      "weight": 761826844332371732,
+      "x": 2496675614239426263
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 66,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 183178441237209457,
+      "weight": 1941684198865653243,
+      "x": 1448282234956836109
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 67,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 8907613276840224858,
+      "weight": 1105672162059333423,
+      "x": 5567731798200258427
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 68,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 9215499474965892826,
+      "weight": 4568588453874390256,
+      "x": 5086253000176576953
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 69,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 4286460323911207498,
+      "weight": 459582514670366359,
+      "x": 2077223631954756370
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 70,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 980632740577455708,
+      "weight": 1646440737696814413,
+      "x": 8327143993857451625
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 71,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 3220038300715541875,
+      "weight": 7722586287513635966,
+      "x": 1120429546849726179
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 72,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 620833306395128814,
+      "weight": 5900495579155911520,
+      "x": 5680374353088818470
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 73,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 4026765342052266666,
+      "weight": 6683578423500529203,
+      "x": 4926049633253154743
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 74,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 5938043714460733177,
+      "weight": 6355568119939463267,
+      "x": 4587485984915336478
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 75,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 492519775625408526,
+      "weight": 9076741156731876776,
+      "x": 2725547839469042152
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 76,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 5627575514646961357,
+      "weight": 8300960778973481478,
+      "x": 2573038659493642815
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 77,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 7525578828884316674,
+      "weight": 6558433794563727867,
+      "x": 5264095770170123312
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 78,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 4571967026392605590,
+      "weight": 2743043429306236904,
+      "x": 7760785062556733249
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 79,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 9035117949375028194,
+      "weight": 6632727647866611187,
+      "x": 5899972008479746482
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 80,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 446790793174286444,
+      "weight": 3403714083071147218,
+      "x": 896049270962722753
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 81,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 2366453033575349742,
+      "weight": 5618156614766068340,
+      "x": 4126120529390371612
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 82,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 5484501218421636188,
+      "weight": 8422551027944060713,
+      "x": 6306578340289730815
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 83,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 7303713418825625501,
+      "weight": 6624343004373345585,
+      "x": 24769333766867912
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 84,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 4471323837947253749,
+      "weight": 5222837979723294870,
+      "x": 1270778446766937804
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 85,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 485833934972366979,
+      "weight": 5986232254967421845,
+      "x": 1094318898341137030
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 86,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 8691090611746052550,
+      "weight": 7735881672924722307,
+      "x": 7958054244273671241
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 87,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 63788774753200454,
+      "weight": 6471444902159173706,
+      "x": 3240642063540917514
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 88,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 3615824471019103240,
+      "weight": 1854994152326418613,
+      "x": 7588685829443821152
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 89,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 1270213767008487402,
+      "weight": 1596933327511670599,
+      "x": 5876586862379660153
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 90,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 7614545210599699614,
+      "weight": 3804959717672532227,
+      "x": 175906952764051484
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 91,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 6777366207109989051,
+      "weight": 4977363076534601752,
+      "x": 2934543708178513747
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 92,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 1054666017619631072,
+      "weight": 1929447331429593559,
+      "x": 7773018975709909997
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 93,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 7242066220637593495,
+      "weight": 972649148074440359,
+      "x": 6026813323000843686
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 94,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 4112527821875016971,
+      "weight": 1450140497970473805,
+      "x": 4092340629711693228
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 95,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 4416198389787782075,
+      "weight": 6465374257618879348,
+      "x": 2091005668955590302
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 96,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 9096702498836500831,
+      "weight": 7512442722465742231,
+      "x": 1263384881229710954
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 97,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 4732330973974746203,
+      "weight": 5266295072487066785,
+      "x": 8293761963500999771
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 98,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 3750163037254375577,
+      "weight": 6489802771841853963,
+      "x": 1429970406852312240
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 99,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 1976346059567945688,
+      "weight": 3216622133908469134,
+      "x": 5603071424441092741
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 100,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 678870201934291418,
+      "weight": 3599693224062716718,
+      "x": 1149756780690038017
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 101,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 1724971582100370787,
+      "weight": 73484621156319048,
+      "x": 2352897591612809904
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 102,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 3393977855144634098,
+      "weight": 3311424706484436554,
+      "x": 4319559034163156589
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 103,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 1128240951593864047,
+      "weight": 2764071506328652610,
+      "x": 4234778151636411667
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 104,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 8513148655671795975,
+      "weight": 3038369256435632867,
+      "x": 8342369379245591255
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 105,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 5956368769053649399,
+      "weight": 7147610251332328485,
+      "x": 5931628619582250320
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 106,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 2299517605703131920,
+      "weight": 4771470500520862379,
+      "x": 6873465103919275606
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 107,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 3528427178161125560,
+      "weight": 4639083486174906865,
+      "x": 6163399366647209334
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 108,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 496534681282876828,
+      "weight": 4314936441275370383,
+      "x": 7014172827022949187
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 109,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 8155924359631131317,
+      "weight": 4639559599278231645,
+      "x": 6599882075345101740
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 110,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 7118171018490467994,
+      "weight": 3827691487687105025,
+      "x": 6553575239522198718
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 111,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 2516034242186443460,
+      "weight": 7552345187199733916,
+      "x": 7820628366361520813
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 112,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 3171735620804641861,
+      "weight": 2789946084550020829,
+      "x": 1913879592066162813
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 113,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 6291331604373591300,
+      "weight": 2970045530644164491,
+      "x": 3233931512052197015
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 114,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 5745027044803343043,
+      "weight": 1500168635033323732,
+      "x": 8999780802020362216
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 115,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 6958840509195648892,
+      "weight": 4029728593182665295,
+      "x": 8674516849371311812
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 116,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 8334442012917054927,
+      "weight": 3045972897783972138,
+      "x": 8908490439887161868
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 117,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 8463697680888909420,
+      "weight": 7385234693144313289,
+      "x": 5645494055576563810
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 118,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 145339464655618116,
+      "weight": 7292626350936371877,
+      "x": 1916915997535574595
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 119,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 76941188984429053,
+      "weight": 1797550162675635677,
+      "x": 8119407725592700571
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 120,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 881975610563694450,
+      "weight": 4626282889601527173,
+      "x": 2441855163761935230
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 121,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 1842250234352557875,
+      "weight": 3609587230229470112,
+      "x": 3530856755820662014
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 122,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 4334298226350251287,
+      "weight": 5142571039377322684,
+      "x": 5872320021813889786
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 123,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 5473438981127440326,
+      "weight": 6812021665972729026,
+      "x": 1769402211619228414
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 124,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 634129453889418612,
+      "weight": 5956249883841502488,
+      "x": 2123117188728221724
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 125,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 8645841151154112990,
+      "weight": 5922188809576310264,
+      "x": 303700484552005223
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 126,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 4816601416856221526,
+      "weight": 3895045063537690312,
+      "x": 3318839027416342969
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 127,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 7848797853273067408,
+      "weight": 179976909039946586,
+      "x": 8024703547659375394
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 128,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 1788278497355086104,
+      "weight": 8128097469129404786,
+      "x": 8826915988369343937
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 129,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 83571037594852067,
+      "weight": 1680546966703362954,
+      "x": 4002704692971541111
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 130,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 2379902261455824081,
+      "weight": 5019081458547242795,
+      "x": 5530342039997255882
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 131,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 4380185574058419411,
+      "weight": 4664291020037065877,
+      "x": 7578658720630768174
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 132,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 4760054825333932586,
+      "weight": 3903005513098365679,
+      "x": 2544534867455047518
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 133,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 5883091888498208880,
+      "weight": 8896555284255248221,
+      "x": 1571094810325255338
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 134,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 7560236748182912288,
+      "weight": 4672486120981694184,
+      "x": 9069314861831011948
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 135,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 1982863047302801743,
+      "weight": 5844637300407491906,
+      "x": 5339809814778848635
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 136,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 7028507185448998934,
+      "weight": 1224084369445351302,
+      "x": 2829383198327929633
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 137,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 8391952570925733747,
+      "weight": 4856405416813849315,
+      "x": 8161023705745887245
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 138,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 4066297625971437580,
+      "weight": 2356671548803757655,
+      "x": 8728476313949769209
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 139,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 749468000406972814,
+      "weight": 6175226922446887124,
+      "x": 1929666516280295447
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 140,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 9120637500828057850,
+      "weight": 7096849552781813878,
+      "x": 2608021890903688052
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 141,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 5559153716169268541,
+      "weight": 2581162348971817203,
+      "x": 949841645195823493
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 142,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 58149980035155430,
+      "weight": 5232620887992698993,
+      "x": 5840672179416873116
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 143,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 3597344955534756844,
+      "weight": 2299870810040525161,
+      "x": 626570475904621846
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 144,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 3575364122551197110,
+      "weight": 1149293760683613662,
+      "x": 7387643753608905747
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 145,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 1864253258861700290,
+      "weight": 2560118822134917335,
+      "x": 8554363683607912332
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 146,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 3918345338005097565,
+      "weight": 6744762757594288322,
+      "x": 3239468930098632819
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 147,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 1392714782631377907,
+      "weight": 8750003683214695964,
+      "x": 2101187744056595294
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 148,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 3796648013197787777,
+      "weight": 7709853635854252780,
+      "x": 6711020436774345244
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 149,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 8434703393056725145,
+      "weight": 2236958362038660560,
+      "x": 6360409255764669850
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 150,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 4297526716383397134,
+      "weight": 1604959845533102858,
+      "x": 8967620455853039650
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 151,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 6894045704520728342,
+      "weight": 4259595250847082154,
+      "x": 50540138259795380
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 152,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 758759806965644363,
+      "weight": 8145596396919084868,
+      "x": 2066093867248800971
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 153,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 8991466140557680874,
+      "weight": 3869559193138690192,
+      "x": 1535982277482933672
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 154,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 4061621006055076634,
+      "weight": 7999013462778225880,
+      "x": 6730336491007651391
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 155,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 8929312021927544692,
+      "weight": 8806586436343059661,
+      "x": 1392879952637290475
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 156,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 263426500221983432,
+      "weight": 4669680647148304855,
+      "x": 7651815225286033432
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 157,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 4107675256525580325,
+      "weight": 4872402949477854896,
+      "x": 1605372363972905616
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 158,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 5468871202317956527,
+      "weight": 3663285614283961967,
+      "x": 7294518439646597869
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 159,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 3662678104003748021,
+      "weight": 3777694227460049769,
+      "x": 3863305967836577219
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 160,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 5649441694610273643,
+      "weight": 3783156590522983179,
+      "x": 3656074351843823782
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 161,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 6741633168723933313,
+      "weight": 6567141194398351187,
+      "x": 8150234274423876754
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 162,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 2489907185787672842,
+      "weight": 5800125335281348327,
+      "x": 3525576202718114398
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 163,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 621125065092714365,
+      "weight": 8586074369182286036,
+      "x": 674407143388875644
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 164,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 5418934714677847840,
+      "weight": 8887160476647085092,
+      "x": 6299945843549404016
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 165,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 1381535383951128014,
+      "weight": 345627147214074381,
+      "x": 5429447730367740138
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 166,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 1851575867893438427,
+      "weight": 16074511737946225,
+      "x": 2461915920864343425
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 167,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 5816344056747341364,
+      "weight": 6452549597846973408,
+      "x": 4658979213725358923
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 168,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 7251625846283948798,
+      "weight": 8065146551689389929,
+      "x": 7673602008253992195
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 169,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 8259696223323548627,
+      "weight": 4720997882346191862,
+      "x": 672320576097610000
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 170,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 9041829557669481000,
+      "weight": 6087075427737404880,
+      "x": 7974612863900921987
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 171,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 6505261246425721113,
+      "weight": 4932098506251681695,
+      "x": 5494149998130768250
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 172,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 443675829179838638,
+      "weight": 1134690438720622467,
+      "x": 9024769750981661164
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 173,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 1526052041749251554,
+      "weight": 1774807570135403518,
+      "x": 5017077119436734507
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 174,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 169985565819521067,
+      "weight": 1039017663907926292,
+      "x": 8019398266850565768
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 175,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 6365010188002357169,
+      "weight": 3219262981792258982,
+      "x": 2431842308762406902
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 176,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 4069054542060606368,
+      "weight": 8360930917330902980,
+      "x": 7652075328079669633
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 177,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 6501081201670242570,
+      "weight": 6522153247776964691,
+      "x": 8138631188296292393
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 178,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 7714223527312148078,
+      "weight": 5118093519493703010,
+      "x": 7275645444910836401
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 179,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 4107470803432770458,
+      "weight": 4411945379735979580,
+      "x": 3421971523848919019
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 180,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 4040697110308073409,
+      "weight": 8226996342141462056,
+      "x": 5435165615704569148
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 181,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 1908606416925333286,
+      "weight": 329923797967391071,
+      "x": 4883821177744058087
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 182,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 3833221774076271136,
+      "weight": 2587256333985463418,
+      "x": 7396742080564385163
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 183,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 8582851485649679294,
+      "weight": 3477961570790522694,
+      "x": 1923733870434472024
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 184,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 593627434945817589,
+      "weight": 6441674302599604961,
+      "x": 6831903872821994664
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 185,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 2529697529701621626,
+      "weight": 1607187414409610679,
+      "x": 6179071099765177580
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 186,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 438066528671610939,
+      "weight": 2733515708989840296,
+      "x": 7928387594506867311
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 187,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 6666845934502600870,
+      "weight": 7744405944779492971,
+      "x": 7207100789442602842
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 188,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 1863286823019346529,
+      "weight": 135491383175950482,
+      "x": 4953927294972858388
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 189,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 7895265994477132066,
+      "weight": 4315292269353153763,
+      "x": 4410763472665844915
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 190,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 3937116793031099813,
+      "weight": 6404265221124564321,
+      "x": 590525001228603961
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 191,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 4650456078014670315,
+      "weight": 4915879785835488543,
+      "x": 7463719988344673395
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 192,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 2704093403730044632,
+      "weight": 7584272754429925187,
+      "x": 1157290402828129940
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 193,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 1535069646038082441,
+      "weight": 7015605637556652697,
+      "x": 60875611556446544
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 194,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 4399140243918554758,
+      "weight": 7925548956950894088,
+      "x": 3703198940734746162
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 195,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 3537972856784460556,
+      "weight": 1712994504186923742,
+      "x": 5537381301990189776
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 196,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 7617289448067302292,
+      "weight": 7800703206285160905,
+      "x": 4537331881351672010
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 197,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 8435418904273984620,
+      "weight": 167026983864710939,
+      "x": 489350623665119054
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 198,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 2898628796712701968,
+      "weight": 7529280334090527643,
+      "x": 1394698989770062860
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 199,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 2812177847736527132,
+      "weight": 3273142241739381045,
+      "x": 4230110599390714696
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 200,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 5273905617273009944,
+      "weight": 8784570464284506332,
+      "x": 8416402742287093990
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 201,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 8654216928546695216,
+      "weight": 1920579262297781428,
+      "x": 5349856322985076714
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 202,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 2172440499363315430,
+      "weight": 499046599229820832,
+      "x": 4066950646993289491
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 203,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 8499181320265553847,
+      "weight": 6544540764558778299,
+      "x": 547915354012817988
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 204,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 1228944791958513771,
+      "weight": 8290212155120873663,
+      "x": 3699585981030814232
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 205,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 976664158906380538,
+      "weight": 7350114152974542184,
+      "x": 3261980494591677049
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 206,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 2877059399826043903,
+      "weight": 8310630696263359067,
+      "x": 2200663389722762038
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 207,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 7421403447276430614,
+      "weight": 5614042274780661096,
+      "x": 6637493642302983049
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 208,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 7645907343071045754,
+      "weight": 1649712936257474738,
+      "x": 6249305248775829799
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 209,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 4111333967933664122,
+      "weight": 9171873433446963880,
+      "x": 2619121571510746372
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 210,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 1602004615464269021,
+      "weight": 6340789065344791289,
+      "x": 7229993291545780164
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 211,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 5241835817649243412,
+      "weight": 4188059838293860794,
+      "x": 8716386688088472516
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 212,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 4367214298597674491,
+      "weight": 124119518610247529,
+      "x": 7592793562291177223
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 213,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 3097223563066512518,
+      "weight": 4325106746872100349,
+      "x": 7012443275486992198
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 214,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 20220018434850598,
+      "weight": 2112863381479712486,
+      "x": 8640294070882229891
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 215,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 4511835985989371815,
+      "weight": 2037433798147282063,
+      "x": 3340751913679789185
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 216,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 4904250425688547745,
+      "weight": 6987605845004260670,
+      "x": 3857897258770179195
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 217,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 1265476982324582705,
+      "weight": 3228965195478424373,
+      "x": 8040263548838411506
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 218,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 8948513314352499331,
+      "weight": 2840558854898939772,
+      "x": 946477128464146094
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 219,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 606990797583094796,
+      "weight": 3761731152225880191,
+      "x": 345711397324859520
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 220,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 6086979343815750010,
+      "weight": 1576680109966729872,
+      "x": 766111302998635536
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 221,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 49255519340329709,
+      "weight": 676695763056776206,
+      "x": 2097077629652704420
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 222,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 2015946725848919173,
+      "weight": 5710282165405859148,
+      "x": 115901337219655688
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 223,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 1262908286889078182,
+      "weight": 8740950602375065523,
+      "x": 4490543776842638064
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 224,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 3818408500200008856,
+      "weight": 7047801829877330109,
+      "x": 5648638489057253988
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 225,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 7000275381834098630,
+      "weight": 5011602074788651381,
+      "x": 6052001355880377174
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 226,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 53404940303678338,
+      "weight": 4017675746218891205,
+      "x": 4011999981354679652
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 227,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 5714289119262422354,
+      "weight": 234149077549563800,
+      "x": 8649687315378489142
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 228,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 3560808213694212767,
+      "weight": 1137746295436290584,
+      "x": 1438285651170476599
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 229,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 8959151598555297103,
+      "weight": 652340726367348010,
+      "x": 9023769931767702953
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 230,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 385124820827334468,
+      "weight": 1262802579382952515,
+      "x": 8306337754627645673
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 231,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 8888303511115821188,
+      "weight": 5786587564252233802,
+      "x": 4578391285005327952
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 232,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 3805890969775606300,
+      "weight": 6547948831519073418,
+      "x": 3777289433403292708
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 233,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 5234227639242890703,
+      "weight": 1386283737865341490,
+      "x": 4067182335500476897
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 234,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 5819756191369704804,
+      "weight": 1600071509354065956,
+      "x": 3878390030170460650
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 235,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 2700382891331217284,
+      "weight": 7820207062267710289,
+      "x": 6282356547881290411
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 236,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 1630141279742165539,
+      "weight": 8481542844700407364,
+      "x": 2974472173463386825
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 237,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 5737341583492973900,
+      "weight": 7751808238619837385,
+      "x": 1232411255163524176
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 238,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 2515348589699714628,
+      "weight": 3539522944512979420,
+      "x": 6544665231539187659
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 239,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 7684223295012404815,
+      "weight": 6336042973341521721,
+      "x": 564709807829963040
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 240,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 1551011508222221699,
+      "weight": 3940989198154550464,
+      "x": 3415969465866585890
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 241,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 7750909941452024763,
+      "weight": 4033081598312731776,
+      "x": 8318448586478573303
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 242,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 2959804282871196023,
+      "weight": 5097168931813378477,
+      "x": 4803162380369595372
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 243,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 7036372504198887556,
+      "weight": 3848497892469287277,
+      "x": 5862198216844048569
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 244,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 145976610835562325,
+      "weight": 4028739477876755818,
+      "x": 8547488380586603008
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 245,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 3055466463604741976,
+      "weight": 3047150444266449745,
+      "x": 1782570375258031576
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 246,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 5968721932500172709,
+      "weight": 4283034714063219591,
+      "x": 2514619690200751187
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 247,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 6968335422903863352,
+      "weight": 1522205651258271259,
+      "x": 6238905737055134215
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 248,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 1463695078212442023,
+      "weight": 3788725206427112008,
+      "x": 4384321526634116839
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 249,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 8067604252948717065,
+      "weight": 2164733829562357783,
+      "x": 4866628671717539388
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 250,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 8615824205653626998,
+      "weight": 2635273410781784074,
+      "x": 3351734941169148514
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 251,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 8658257533576061565,
+      "weight": 406727620491111470,
+      "x": 1408087395370990692
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 252,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 3390292497583844957,
+      "weight": 7424810059147961375,
+      "x": 992572531787678942
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 253,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 387137247722848968,
+      "weight": 1935351390272174430,
+      "x": 7568721916019889842
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 254,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 5949912629641744784,
+      "weight": 5124531345136476818,
+      "x": 911774353758124574
+    }
+  },
+  {
+    "namespace": "MKB-fused-row-sum-gain16-stress-v1-20260730",
+    "seed_index": 255,
+    "segment": "exact_prior_replay",
+    "tensor_seeds": {
+      "bias": 4823179727477441068,
+      "weight": 3875217968388782680,
+      "x": 420124772585020247
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 256,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 6609661428054922786,
+      "weight": 4104433754592451684,
+      "x": 4380354594841489555
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 257,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 4937068720003980125,
+      "weight": 8341543099268987851,
+      "x": 3544628965489381560
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 258,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 507765135735311283,
+      "weight": 7155496048782744496,
+      "x": 3582988476414455286
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 259,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 8332251620667790916,
+      "weight": 8901377932067144642,
+      "x": 1128902039254113806
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 260,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 709924213726150630,
+      "weight": 4982083501674265098,
+      "x": 2636254636419032133
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 261,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 6860209265744559526,
+      "weight": 7841707700826385453,
+      "x": 7244454245414997022
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 262,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 4204574427834198404,
+      "weight": 4747717923916455196,
+      "x": 8543751140122029260
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 263,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 52962727190500746,
+      "weight": 7637925793161671842,
+      "x": 1926573898948106259
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 264,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 8624708809220494046,
+      "weight": 8623806973683574051,
+      "x": 526516361433998729
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 265,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 4590879553649343337,
+      "weight": 3150335543218086146,
+      "x": 145578968403430082
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 266,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 1091899494819699923,
+      "weight": 2048000959923104303,
+      "x": 3881332217426753261
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 267,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 1718743907636805028,
+      "weight": 7791350150875429732,
+      "x": 1230047497648172069
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 268,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 1296491641004014371,
+      "weight": 8682417209653839099,
+      "x": 1078301538318137726
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 269,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 7885133031173275295,
+      "weight": 5045244651798194251,
+      "x": 3404405620492462330
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 270,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 6528899201020893970,
+      "weight": 5838159961806596302,
+      "x": 8032273573155959847
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 271,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 8591263622456770906,
+      "weight": 3062457948268958511,
+      "x": 3875814087838152948
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 272,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 7521940816798554977,
+      "weight": 2369383684514418356,
+      "x": 6871326197058536965
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 273,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 7802806365447715765,
+      "weight": 1649285938997084506,
+      "x": 7260412848069412767
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 274,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 6972448458943598477,
+      "weight": 598962037340711104,
+      "x": 5818277596527253074
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 275,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 4292169919845440524,
+      "weight": 3401742634142844243,
+      "x": 1581387506364306511
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 276,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 6672555340847342229,
+      "weight": 6223303542748933278,
+      "x": 5306923086430275294
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 277,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 5156432121990356104,
+      "weight": 245139268780100273,
+      "x": 2949812505637329845
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 278,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 7496227023312098848,
+      "weight": 8953907085584999282,
+      "x": 5785720875325900512
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 279,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 4510530636671452399,
+      "weight": 3780646978839714937,
+      "x": 866143842594725011
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 280,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 7938411889300671072,
+      "weight": 4708150644798393733,
+      "x": 7615044351657503689
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 281,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 6840486199089847924,
+      "weight": 4806035424401460947,
+      "x": 7440699744794146398
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 282,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 7926637369356209605,
+      "weight": 3330276522391075887,
+      "x": 2849762601729947169
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 283,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 6365808003292071382,
+      "weight": 6046500873361764292,
+      "x": 5816139442122068966
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 284,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 4622354705227643346,
+      "weight": 3183979152778200598,
+      "x": 7302316863623857925
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 285,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 4023347041617162803,
+      "weight": 2251014291022327502,
+      "x": 2250112811256089229
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 286,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 6165905200595187165,
+      "weight": 6812263849002191383,
+      "x": 8989248539735223765
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 287,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 3946587547956386811,
+      "weight": 1379213923211308220,
+      "x": 6528645288754698121
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 288,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 2346697855048708509,
+      "weight": 616137216303469787,
+      "x": 7974797568059292537
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 289,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 2440149806322787386,
+      "weight": 1603024906020172188,
+      "x": 2135342216538421807
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 290,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 6682628729060091249,
+      "weight": 2697228190492393723,
+      "x": 5666552014476894970
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 291,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 4531303573218291566,
+      "weight": 8882565421815623596,
+      "x": 6982086326398555004
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 292,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 9118131595238751177,
+      "weight": 4947312274908446979,
+      "x": 8844217877096797267
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 293,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 7827224340171400040,
+      "weight": 8720872055602434464,
+      "x": 1836872333897371115
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 294,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 5964403444965981857,
+      "weight": 1603460460010272621,
+      "x": 3671206566879606117
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 295,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 5745350463771317331,
+      "weight": 3148170363249330773,
+      "x": 8173932866029224834
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 296,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 7297405941658619454,
+      "weight": 3058812014908047374,
+      "x": 4386362181748721587
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 297,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 2980737899568705163,
+      "weight": 3710814649742507383,
+      "x": 6383602744320584378
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 298,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 215075399081452808,
+      "weight": 7593534094852312375,
+      "x": 3970017658392643686
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 299,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 8546594433269408128,
+      "weight": 6109488595420791588,
+      "x": 6449389679089763006
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 300,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 2620137786549754282,
+      "weight": 4982976940774424877,
+      "x": 4422377753753004201
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 301,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 2699446433641752347,
+      "weight": 3816831944760883149,
+      "x": 8674457285732796239
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 302,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 8767629759035423715,
+      "weight": 2347541771436023404,
+      "x": 8904127144036184613
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 303,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 7459275711748447978,
+      "weight": 2120164832808299951,
+      "x": 5216365176243906371
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 304,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 2659219210119838120,
+      "weight": 5848280025520955928,
+      "x": 284504270049523793
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 305,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 4669104375344734329,
+      "weight": 113881586960025086,
+      "x": 8415020287035837578
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 306,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 2378031158177859234,
+      "weight": 1933693452588287843,
+      "x": 7015092962520741273
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 307,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 8284900162998733077,
+      "weight": 3143604677825522513,
+      "x": 31636099856302656
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 308,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 1824565617528263991,
+      "weight": 6966466742595892399,
+      "x": 8196067135836819067
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 309,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 3913407160246517684,
+      "weight": 575030466745779129,
+      "x": 983686524333518962
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 310,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 6662384490684271889,
+      "weight": 2081633670463902962,
+      "x": 4909704042893694724
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 311,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 5371168019174346795,
+      "weight": 1849167432544854948,
+      "x": 1355276504862352239
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 312,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 1278884631987224573,
+      "weight": 2699684852705748339,
+      "x": 6523084527473021148
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 313,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 3730480499752284650,
+      "weight": 39425507934924015,
+      "x": 7795577352571817444
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 314,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 1107251455530166410,
+      "weight": 2963987605496383100,
+      "x": 4134178112075865834
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 315,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 2903242419721540966,
+      "weight": 5636215318402409969,
+      "x": 3042283871638362234
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 316,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 7282275485577737662,
+      "weight": 2123681039014530211,
+      "x": 2632782895836763661
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 317,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 3695486215457601569,
+      "weight": 7543429461082185358,
+      "x": 6226500682821990918
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 318,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 6949929615761587437,
+      "weight": 5680883976859680958,
+      "x": 1603740695746542934
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 319,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 2059943707953395987,
+      "weight": 412120610533679908,
+      "x": 4412350773323996065
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 320,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 584968923015445137,
+      "weight": 1432716467895763954,
+      "x": 8486405550900765435
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 321,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 7764893306616083990,
+      "weight": 6540720102759569924,
+      "x": 6778609984039119162
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 322,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 166934378051970715,
+      "weight": 3508938186792608706,
+      "x": 7260409915980469339
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 323,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 1163132661675973512,
+      "weight": 4381461694082020269,
+      "x": 6037445665764768989
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 324,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 1809149128824581702,
+      "weight": 2096729834624358955,
+      "x": 1663845231127714674
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 325,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 2349948161437915009,
+      "weight": 5318242518179162621,
+      "x": 1484931223994762348
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 326,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 2654601882205286850,
+      "weight": 1800961291615630226,
+      "x": 7164532429573131562
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 327,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 6709316998108600803,
+      "weight": 90774264727925086,
+      "x": 2869918167781551878
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 328,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 9128154148716505805,
+      "weight": 8492033504732528953,
+      "x": 6038280438003222731
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 329,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 6565673346854296910,
+      "weight": 4506612815143270578,
+      "x": 9036204188121492175
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 330,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 6331427211038106903,
+      "weight": 1505519439962404175,
+      "x": 325135220992772704
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 331,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 3845069487732140040,
+      "weight": 191818779626140029,
+      "x": 3006810880925835814
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 332,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 3904733210733904061,
+      "weight": 8967935851534390571,
+      "x": 5798511475007120534
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 333,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 3636335999185752546,
+      "weight": 7908005496725493056,
+      "x": 6941107536572483395
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 334,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 7843474147487296434,
+      "weight": 9119936310420033718,
+      "x": 3493038565202578942
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 335,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 7588753483774092630,
+      "weight": 2049240908268190701,
+      "x": 8688811848767105440
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 336,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 4671841832917540090,
+      "weight": 5650544545904211947,
+      "x": 5483479757931224148
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 337,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 1481559107862543289,
+      "weight": 3839220455780106622,
+      "x": 7441685044313457868
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 338,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 7252324448984628607,
+      "weight": 5453371123986678076,
+      "x": 8010280021134280285
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 339,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 2662417886750733641,
+      "weight": 8972963449197415393,
+      "x": 5946722591730461810
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 340,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 370538824056845707,
+      "weight": 542985984992463007,
+      "x": 5836521137902712618
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 341,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 5374993792913590744,
+      "weight": 8972034864935137103,
+      "x": 5003486843324865663
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 342,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 4563514850402718663,
+      "weight": 3135207382875713133,
+      "x": 1925611376233913272
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 343,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 6719045057070807694,
+      "weight": 3969026374510491181,
+      "x": 6734067230403094240
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 344,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 3036367071669859407,
+      "weight": 5706667472071096648,
+      "x": 5438505295680443071
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 345,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 3038870228937227730,
+      "weight": 7102785035800638212,
+      "x": 5408035953283247747
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 346,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 5062526172280246060,
+      "weight": 4302978730901957523,
+      "x": 76636523113569163
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 347,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 4353575219134257061,
+      "weight": 8426772138275849427,
+      "x": 3802966200816672288
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 348,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 815915842428039029,
+      "weight": 1715568787105142086,
+      "x": 837661482576976892
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 349,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 2936659779028927887,
+      "weight": 5225187265861066515,
+      "x": 2204286968842221031
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 350,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 5530533929077984734,
+      "weight": 4280184699545340307,
+      "x": 6432882971295231353
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 351,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 9133237316170139678,
+      "weight": 8997855059728460913,
+      "x": 8177781849618950690
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 352,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 4887448615706358795,
+      "weight": 2938938560464016010,
+      "x": 365986001849581593
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 353,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 727029470180587317,
+      "weight": 9108112981353322599,
+      "x": 6092976199655461981
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 354,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 3234722281374405155,
+      "weight": 9135514037875763921,
+      "x": 1164026046415503141
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 355,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 5947842082420775639,
+      "weight": 3072724056336230208,
+      "x": 579157424579109584
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 356,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 2993406681823698240,
+      "weight": 8753630872438000861,
+      "x": 5541150869693790927
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 357,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 3652230403907172796,
+      "weight": 7721888377185238808,
+      "x": 3664595527749938492
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 358,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 191785592555983151,
+      "weight": 8636356588752323904,
+      "x": 8299438503209900939
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 359,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 3845561040666041657,
+      "weight": 5594043692843366186,
+      "x": 253052276661451819
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 360,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 3457818238196160482,
+      "weight": 5304186538492919998,
+      "x": 5986181712884689578
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 361,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 333178561593167499,
+      "weight": 3364667119517858192,
+      "x": 649862162699088039
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 362,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 6639084296895744845,
+      "weight": 8800991301509724648,
+      "x": 2088406097170562402
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 363,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 2844641817142257973,
+      "weight": 3724435471690540937,
+      "x": 5239994262759832686
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 364,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 1282657609572261016,
+      "weight": 1162365079397945849,
+      "x": 7516075201919864961
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 365,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 9069177104417541329,
+      "weight": 3348327378656486645,
+      "x": 8647248736068703675
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 366,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 3987753279501517449,
+      "weight": 7165869692521472367,
+      "x": 1543165366312694495
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 367,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 6425396407757702708,
+      "weight": 4184040138188028685,
+      "x": 5535506397598302191
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 368,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 2289197018332692677,
+      "weight": 3557975072785844624,
+      "x": 7807774476036436000
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 369,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 5599961779123192546,
+      "weight": 6231694767781530298,
+      "x": 3692949662371239065
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 370,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 1817762147563148484,
+      "weight": 5315481942593066743,
+      "x": 6185576538594962309
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 371,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 2069720747130389527,
+      "weight": 8838305444124967834,
+      "x": 4907174910435145080
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 372,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 3431761191067996280,
+      "weight": 8250157611178377371,
+      "x": 3620585269294519329
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 373,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 2977563078365548344,
+      "weight": 3584947153222309970,
+      "x": 5790130507395322232
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 374,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 4625964347558533997,
+      "weight": 8181035889730444233,
+      "x": 5883104288856720200
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 375,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 2276931607047453599,
+      "weight": 1665485018366239017,
+      "x": 5965390941054912842
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 376,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 2645555979874855560,
+      "weight": 8657229409222576662,
+      "x": 8334478365638260847
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 377,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 5304441108888716286,
+      "weight": 7324114000617186911,
+      "x": 1781519259366317601
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 378,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 1203113305058449652,
+      "weight": 5436087403334360607,
+      "x": 1772260230614387597
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 379,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 1191072861637751072,
+      "weight": 2299039571162455004,
+      "x": 1883654872928692040
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 380,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 3848757614416827091,
+      "weight": 4578567735856747692,
+      "x": 5696952437445083708
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 381,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 3385600416277992825,
+      "weight": 39540787236975349,
+      "x": 1240950033460976463
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 382,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 4764068041479373520,
+      "weight": 8572516576644928775,
+      "x": 6204942293016402161
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 383,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 2057686773717672487,
+      "weight": 8785599893948001169,
+      "x": 1965040234796949012
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 384,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 7371228255085419978,
+      "weight": 4705553149377316841,
+      "x": 444627508898411008
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 385,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 6876742759928103076,
+      "weight": 2789150716779359798,
+      "x": 1896666557856689514
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 386,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 7703452975443314162,
+      "weight": 702327557395995406,
+      "x": 7090271100337093856
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 387,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 3961307279034607963,
+      "weight": 3379554107253289903,
+      "x": 4355243950561579078
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 388,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 939602798469950441,
+      "weight": 6084467708252696088,
+      "x": 9174497035098869769
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 389,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 447325880584027247,
+      "weight": 1783377670027672746,
+      "x": 9220181932404073770
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 390,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 4801714110165009912,
+      "weight": 1149685324531986710,
+      "x": 1228285854811499062
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 391,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 1079599229927128236,
+      "weight": 131271522048523479,
+      "x": 7688722873043760325
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 392,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 1833980449107983689,
+      "weight": 1564996970859851720,
+      "x": 154249019020300146
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 393,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 8922273775075557038,
+      "weight": 8265193012811504835,
+      "x": 7676534775499687629
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 394,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 367203849302369226,
+      "weight": 5960848166855761722,
+      "x": 5138379272774830590
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 395,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 1063824309870015585,
+      "weight": 2599629461474023595,
+      "x": 1089138650554371957
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 396,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 7167607198526328563,
+      "weight": 1495478604930020820,
+      "x": 8326031898238912826
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 397,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 136857306428971241,
+      "weight": 603289150382388364,
+      "x": 7021531808857661796
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 398,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 2378248818258081139,
+      "weight": 3348680341021219765,
+      "x": 4946810247370799644
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 399,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 5068505774234238342,
+      "weight": 6728957770390858674,
+      "x": 2746540832208733563
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 400,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 3295360491732299676,
+      "weight": 3018823236251889111,
+      "x": 4938250532120314823
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 401,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 7194994869503385419,
+      "weight": 8669055600521163142,
+      "x": 3071106234464151948
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 402,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 2774113163943453338,
+      "weight": 2585302795636898836,
+      "x": 862961988311094991
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 403,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 8157494948190750051,
+      "weight": 4988332922014490314,
+      "x": 3290902105592422871
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 404,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 7105885477291587719,
+      "weight": 1640698483796049674,
+      "x": 7091156314130807070
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 405,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 6854855361981843125,
+      "weight": 3387971048712725005,
+      "x": 3953922807274790610
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 406,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 8879371781347747209,
+      "weight": 7612995478214494022,
+      "x": 3055006775376467783
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 407,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 6867493017369478443,
+      "weight": 5687581129021149678,
+      "x": 5437946202568797081
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 408,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 3918296702771361069,
+      "weight": 4220554515807911833,
+      "x": 2727152971694830199
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 409,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 8704398678023397621,
+      "weight": 3663649492888859369,
+      "x": 3996378265929511377
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 410,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 1116473598502137336,
+      "weight": 1254391306354527373,
+      "x": 5026977769553941956
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 411,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 6038997475358253683,
+      "weight": 9114042087926676444,
+      "x": 8705165738592885949
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 412,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 1930673197397426754,
+      "weight": 3282261443570166153,
+      "x": 3774295371259001013
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 413,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 3627526224135013763,
+      "weight": 5724370746754232394,
+      "x": 401519853270457774
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 414,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 5457361392237093657,
+      "weight": 7917154040922265885,
+      "x": 5180865776037166423
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 415,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 6397979725844282262,
+      "weight": 548622741206949428,
+      "x": 1621899745879751046
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 416,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 4336060758422792287,
+      "weight": 2490965355929057815,
+      "x": 5662374669017794471
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 417,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 7197492356929219977,
+      "weight": 5482547486636471944,
+      "x": 247422259307519369
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 418,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 4234411412930538926,
+      "weight": 2005963977970002317,
+      "x": 5292188162706671402
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 419,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 7611386167631523051,
+      "weight": 3474769536422610635,
+      "x": 6901722424292334194
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 420,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 7559606530528854634,
+      "weight": 829965770536158824,
+      "x": 5810700722557139056
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 421,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 3676652143398639733,
+      "weight": 6524500668549278337,
+      "x": 8401109879249445961
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 422,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 1471250515033561954,
+      "weight": 8001520977844120141,
+      "x": 8369459162092179606
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 423,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 6027751567685924275,
+      "weight": 6094679405185465755,
+      "x": 4816213548103459557
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 424,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 789213784546691492,
+      "weight": 3685740031353924429,
+      "x": 2527993950757032963
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 425,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 6239016772372942452,
+      "weight": 6533546571849682682,
+      "x": 432370935410903515
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 426,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 2171600087784203818,
+      "weight": 3491154618510291345,
+      "x": 3359226828332963131
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 427,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 2328367170612917567,
+      "weight": 4442486552129695001,
+      "x": 1115476184016839017
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 428,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 6862567064051288992,
+      "weight": 5114971818820922538,
+      "x": 705120881869235045
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 429,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 8190784068948313852,
+      "weight": 2945721331644760373,
+      "x": 7851936560410705184
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 430,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 1665357565445546269,
+      "weight": 8797679026138315103,
+      "x": 4598448552031916021
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 431,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 1514180259282711623,
+      "weight": 873889763588690183,
+      "x": 4273695813925999317
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 432,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 3298624426642176380,
+      "weight": 6875444107273240951,
+      "x": 3934848561725225586
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 433,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 6509214132308967507,
+      "weight": 2807972251301338788,
+      "x": 8170430344241890078
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 434,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 459001673699472378,
+      "weight": 8593390145202949996,
+      "x": 7723173146626466380
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 435,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 1647625364652154453,
+      "weight": 1358831896881933514,
+      "x": 8541243968374201732
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 436,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 8981205659092116400,
+      "weight": 2318465435802986597,
+      "x": 8099252939189914595
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 437,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 125468502841851405,
+      "weight": 1300665099371490664,
+      "x": 535910767929743891
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 438,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 5778560542184849047,
+      "weight": 1755595240354750188,
+      "x": 3232174844269706980
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 439,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 8256176486726963558,
+      "weight": 2653397016029101754,
+      "x": 7573574316975085381
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 440,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 8003320645948966418,
+      "weight": 8075151721586078646,
+      "x": 8698755052920342229
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 441,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 3038243260722913763,
+      "weight": 1576556829499136387,
+      "x": 6891802129021220108
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 442,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 186567625773782672,
+      "weight": 8779397679834974659,
+      "x": 2372261826954564482
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 443,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 7188499803741894216,
+      "weight": 9195195062566240387,
+      "x": 1810495662766959089
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 444,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 6058347596093995863,
+      "weight": 200759323162073932,
+      "x": 2266238552986383792
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 445,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 4525967263650826942,
+      "weight": 5152529427023079768,
+      "x": 2771729314035592759
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 446,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 7387091633694396846,
+      "weight": 6289924587477670195,
+      "x": 7515692595700573918
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 447,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 1810643028495779631,
+      "weight": 174132236293628052,
+      "x": 4638033844040556525
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 448,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 9080474805668386877,
+      "weight": 5213101017952119459,
+      "x": 3950669196514949657
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 449,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 5764667477313108002,
+      "weight": 8463715095006975508,
+      "x": 4064872663705625766
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 450,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 7509149799048774353,
+      "weight": 1236671205736568721,
+      "x": 4462767045144675945
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 451,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 2762605901522889454,
+      "weight": 8328098044684949341,
+      "x": 1399028411754164454
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 452,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 3073518835652192350,
+      "weight": 7360011359062673185,
+      "x": 2415609314518842924
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 453,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 1903123794901762554,
+      "weight": 1243259488848983171,
+      "x": 2133595505445931558
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 454,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 6945655597603152441,
+      "weight": 9036239176007798036,
+      "x": 8360594263690055456
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 455,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 8998580727353631020,
+      "weight": 1919656088514183300,
+      "x": 8659871262832612861
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 456,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 1013844510623130113,
+      "weight": 4871760945921817082,
+      "x": 3407053903255923278
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 457,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 5057656263832164990,
+      "weight": 2510490044054272347,
+      "x": 2595691687414703752
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 458,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 6091626937745645667,
+      "weight": 5396563667038819889,
+      "x": 6691913124642290109
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 459,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 6650292667215726470,
+      "weight": 8082480653015952599,
+      "x": 1182596030960878963
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 460,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 9163869010809397809,
+      "weight": 6869812136480583151,
+      "x": 8726599803651012740
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 461,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 154364741329051783,
+      "weight": 7490988711320221846,
+      "x": 7881156352249999742
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 462,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 5205537486844793220,
+      "weight": 6786859905058118050,
+      "x": 3464618572116670098
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 463,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 7384718920607929616,
+      "weight": 8587543619244152671,
+      "x": 7992756423304249133
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 464,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 853514420441495479,
+      "weight": 3167570393279194312,
+      "x": 2960901512908599572
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 465,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 3634977124119110385,
+      "weight": 3965726635918914203,
+      "x": 1043868598750877211
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 466,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 1002838281849251766,
+      "weight": 1576042228087907779,
+      "x": 6174813825192440807
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 467,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 5157600919715073138,
+      "weight": 2305782696846843914,
+      "x": 3178149342918902707
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 468,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 3702320110057859619,
+      "weight": 2357367911951936218,
+      "x": 2810208181534734322
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 469,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 3110623793578831429,
+      "weight": 3430650556653429962,
+      "x": 4598017901632693822
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 470,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 4507195062132132079,
+      "weight": 7387197368678984756,
+      "x": 3267691439407822176
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 471,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 8114009194964723868,
+      "weight": 5702519345184852016,
+      "x": 4134530249617415823
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 472,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 4412189030883318971,
+      "weight": 4577689507002319777,
+      "x": 429929200613634472
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 473,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 3439478743414853825,
+      "weight": 4862307662376869389,
+      "x": 2865903519709084436
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 474,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 4216263114264120467,
+      "weight": 112857191510484814,
+      "x": 447944104572279777
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 475,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 8783177958817765660,
+      "weight": 7078483446146703358,
+      "x": 9120739758404953844
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 476,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 7511779293314700636,
+      "weight": 2297048436311557728,
+      "x": 2414938227831648831
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 477,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 115659483300884429,
+      "weight": 2278083173190220993,
+      "x": 1424196153242165801
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 478,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 7403376775142025404,
+      "weight": 2106259600483078656,
+      "x": 1403653731601277143
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 479,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 2735861630631463727,
+      "weight": 851277584394049806,
+      "x": 873828760410295954
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 480,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 8737226388556574943,
+      "weight": 1760276989894495491,
+      "x": 2369191097690349434
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 481,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 3608994305582687458,
+      "weight": 4483707418367519935,
+      "x": 4121533720946235553
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 482,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 16271773239446873,
+      "weight": 5971801210846337534,
+      "x": 153323484640400248
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 483,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 2628319121480352887,
+      "weight": 2622296315866223270,
+      "x": 3882820891537484165
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 484,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 7146823481623348479,
+      "weight": 6695072739812774026,
+      "x": 6882380591726025972
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 485,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 1905435465008278902,
+      "weight": 333280963504451832,
+      "x": 7263829765511997793
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 486,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 3418367439167832832,
+      "weight": 3804192281191150915,
+      "x": 2742076842028585300
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 487,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 5941941848363638790,
+      "weight": 8378100259506155818,
+      "x": 3583284587251315920
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 488,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 2699247900622385897,
+      "weight": 3506734840289593262,
+      "x": 992739751966349978
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 489,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 2967117472734057944,
+      "weight": 2932245399424945442,
+      "x": 8717132587917480309
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 490,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 1580792137979229352,
+      "weight": 1971316770273543065,
+      "x": 5505253568184542797
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 491,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 3447610163139409655,
+      "weight": 8954656436125685301,
+      "x": 7169830758303699840
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 492,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 4764350743484198328,
+      "weight": 5884260017021510525,
+      "x": 2695077871175505897
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 493,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 5444819172760555486,
+      "weight": 2009003534735588832,
+      "x": 308772990614596440
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 494,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 5757474952979787336,
+      "weight": 120961319077676529,
+      "x": 3012157064485245540
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 495,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 4937631458708439291,
+      "weight": 7360459206325868280,
+      "x": 2834573274524596496
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 496,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 1041102311916999521,
+      "weight": 3639920697914306978,
+      "x": 6502870736604746941
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 497,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 8532287064425391754,
+      "weight": 6828730864243172958,
+      "x": 3332904207427945020
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 498,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 920401139087696618,
+      "weight": 3467778765762148062,
+      "x": 1536825088055132462
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 499,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 5228600656628846765,
+      "weight": 5482619156217583908,
+      "x": 6773305192004485766
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 500,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 8467852839490787244,
+      "weight": 6299491660837211407,
+      "x": 8073838786058284318
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 501,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 1592127112300584104,
+      "weight": 752573293035966453,
+      "x": 485310727230451365
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 502,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 2476137199652837334,
+      "weight": 3807318174144585405,
+      "x": 5216217457669851147
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 503,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 8317308222329069287,
+      "weight": 108921680395905905,
+      "x": 257427360059443104
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 504,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 233556446131168346,
+      "weight": 1200839310878187992,
+      "x": 2162221986497575804
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 505,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 6748236269051720387,
+      "weight": 4477945722745889729,
+      "x": 2029181929989518101
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 506,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 5281484556009178899,
+      "weight": 4301256744765302253,
+      "x": 7527341474067682510
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 507,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 5642254401155199271,
+      "weight": 4398550501657119377,
+      "x": 1480934532302938305
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 508,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 6623562889009612012,
+      "weight": 6038901605511232724,
+      "x": 7402113966002597667
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 509,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 1776274269293847723,
+      "weight": 454480026390635389,
+      "x": 3197124078875862536
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 510,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 6454691254727363773,
+      "weight": 5371986659375815481,
+      "x": 7512620118978416130
+    }
+  },
+  {
+    "namespace": "MKB-fused-same-seed-gain16-stress-v2-20260731",
+    "seed_index": 511,
+    "segment": "new_extension",
+    "tensor_seeds": {
+      "bias": 6457712566831900036,
+      "weight": 5050435081493613920,
+      "x": 7595904732422034578
+    }
+  }
+]
