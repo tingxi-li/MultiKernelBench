@@ -1,0 +1,1834 @@
+{
+  "analysis": {
+    "claim_limit": "finite_recipe_budget_on_one_shape_one_Ada_host",
+    "paired_randomized_blocks": true,
+    "performance_repetitions": 15,
+    "primary_estimands": [
+      "destination_effect_within_origin_mode_translator",
+      "origin_effect_within_destination_mode_translator",
+      "origin_by_destination_interaction",
+      "translator_bound_for_each_cell"
+    ]
+  },
+  "campaign_id": "standard-matmul-reciprocal-transfer-v2-20260731",
+  "factor_levels": {
+    "destination_dsl": [
+      "tilelang",
+      "triton",
+      "cuda_noptx",
+      "cuda_unlimited"
+    ],
+    "recipe_origin": [
+      "tilelang_phase1_confirmed",
+      "triton_grouped_autotuned",
+      "cuda_unlimited_native_d"
+    ],
+    "transfer_mode": [
+      "literal",
+      "retuned"
+    ],
+    "translator": [
+      "translator_a",
+      "translator_b"
+    ]
+  },
+  "factor_order": [
+    "recipe_origin",
+    "destination_dsl",
+    "transfer_mode",
+    "translator"
+  ],
+  "job_count": 48,
+  "jobs": [
+    {
+      "audit_receipt": "results/audit/receipts/tilelang_phase1_confirmed__to__tilelang__literal__translator_a.json",
+      "build_failures_consume_budget": true,
+      "candidate_attempt_budget": 1,
+      "cell_id": "tilelang_phase1_confirmed__to__tilelang__literal__translator_a",
+      "destination_dsl": "tilelang",
+      "execution": {
+        "phase": "source_and_legality_audit",
+        "required_attempt_records": 1
+      },
+      "gate_in_loop": {
+        "gate": "matmul_v4",
+        "kc_ladder": [
+          8192,
+          4096,
+          2048,
+          1024,
+          512
+        ],
+        "performance_inputs_visible": false,
+        "threshold_changes_permitted": false
+      },
+      "implementation_registry": "dependencies/implementation_registry.json",
+      "job_id": "reciprocal_v2.audit.tilelang_phase1_confirmed__to__tilelang__literal__translator_a",
+      "ordinal": 0,
+      "recipe_card": {
+        "file_sha256": "66f267f18189a2e00599ccb01a57a689bb4b1804e1ef388141dcc708e0a33e3e",
+        "path": "ako_runs/controlled_followup/reciprocal/recipe_cards/tilelang_phase1_confirmed.json",
+        "recipe_id": "tilelang_phase1_confirmed",
+        "sha256": "77ae3ab19bfb333d7ea421c8a4cd5ad175013718d56a7bf6a478662df3cd2814"
+      },
+      "recipe_origin": "tilelang_phase1_confirmed",
+      "retune_plan": null,
+      "transfer_mode": "literal",
+      "translator": "translator_a",
+      "translator_source_root": "translators/translator_a"
+    },
+    {
+      "audit_receipt": "results/audit/receipts/tilelang_phase1_confirmed__to__tilelang__literal__translator_b.json",
+      "build_failures_consume_budget": true,
+      "candidate_attempt_budget": 1,
+      "cell_id": "tilelang_phase1_confirmed__to__tilelang__literal__translator_b",
+      "destination_dsl": "tilelang",
+      "execution": {
+        "phase": "source_and_legality_audit",
+        "required_attempt_records": 1
+      },
+      "gate_in_loop": {
+        "gate": "matmul_v4",
+        "kc_ladder": [
+          8192,
+          4096,
+          2048,
+          1024,
+          512
+        ],
+        "performance_inputs_visible": false,
+        "threshold_changes_permitted": false
+      },
+      "implementation_registry": "dependencies/implementation_registry.json",
+      "job_id": "reciprocal_v2.audit.tilelang_phase1_confirmed__to__tilelang__literal__translator_b",
+      "ordinal": 1,
+      "recipe_card": {
+        "file_sha256": "66f267f18189a2e00599ccb01a57a689bb4b1804e1ef388141dcc708e0a33e3e",
+        "path": "ako_runs/controlled_followup/reciprocal/recipe_cards/tilelang_phase1_confirmed.json",
+        "recipe_id": "tilelang_phase1_confirmed",
+        "sha256": "77ae3ab19bfb333d7ea421c8a4cd5ad175013718d56a7bf6a478662df3cd2814"
+      },
+      "recipe_origin": "tilelang_phase1_confirmed",
+      "retune_plan": null,
+      "transfer_mode": "literal",
+      "translator": "translator_b",
+      "translator_source_root": "translators/translator_b"
+    },
+    {
+      "audit_receipt": "results/audit/receipts/tilelang_phase1_confirmed__to__tilelang__retuned__translator_a.json",
+      "build_failures_consume_budget": true,
+      "candidate_attempt_budget": 19,
+      "cell_id": "tilelang_phase1_confirmed__to__tilelang__retuned__translator_a",
+      "destination_dsl": "tilelang",
+      "execution": {
+        "phase": "source_and_legality_audit",
+        "required_attempt_records": 19
+      },
+      "gate_in_loop": {
+        "gate": "matmul_v4",
+        "kc_ladder": [
+          8192,
+          4096,
+          2048,
+          1024,
+          512
+        ],
+        "performance_inputs_visible": false,
+        "threshold_changes_permitted": false
+      },
+      "implementation_registry": "dependencies/implementation_registry.json",
+      "job_id": "reciprocal_v2.audit.tilelang_phase1_confirmed__to__tilelang__retuned__translator_a",
+      "ordinal": 2,
+      "recipe_card": {
+        "file_sha256": "66f267f18189a2e00599ccb01a57a689bb4b1804e1ef388141dcc708e0a33e3e",
+        "path": "ako_runs/controlled_followup/reciprocal/recipe_cards/tilelang_phase1_confirmed.json",
+        "recipe_id": "tilelang_phase1_confirmed",
+        "sha256": "77ae3ab19bfb333d7ea421c8a4cd5ad175013718d56a7bf6a478662df3cd2814"
+      },
+      "recipe_origin": "tilelang_phase1_confirmed",
+      "retune_plan": "retune_plans/translator_a/tilelang_phase1_confirmed__to__tilelang.json",
+      "transfer_mode": "retuned",
+      "translator": "translator_a",
+      "translator_source_root": "translators/translator_a"
+    },
+    {
+      "audit_receipt": "results/audit/receipts/tilelang_phase1_confirmed__to__tilelang__retuned__translator_b.json",
+      "build_failures_consume_budget": true,
+      "candidate_attempt_budget": 19,
+      "cell_id": "tilelang_phase1_confirmed__to__tilelang__retuned__translator_b",
+      "destination_dsl": "tilelang",
+      "execution": {
+        "phase": "source_and_legality_audit",
+        "required_attempt_records": 19
+      },
+      "gate_in_loop": {
+        "gate": "matmul_v4",
+        "kc_ladder": [
+          8192,
+          4096,
+          2048,
+          1024,
+          512
+        ],
+        "performance_inputs_visible": false,
+        "threshold_changes_permitted": false
+      },
+      "implementation_registry": "dependencies/implementation_registry.json",
+      "job_id": "reciprocal_v2.audit.tilelang_phase1_confirmed__to__tilelang__retuned__translator_b",
+      "ordinal": 3,
+      "recipe_card": {
+        "file_sha256": "66f267f18189a2e00599ccb01a57a689bb4b1804e1ef388141dcc708e0a33e3e",
+        "path": "ako_runs/controlled_followup/reciprocal/recipe_cards/tilelang_phase1_confirmed.json",
+        "recipe_id": "tilelang_phase1_confirmed",
+        "sha256": "77ae3ab19bfb333d7ea421c8a4cd5ad175013718d56a7bf6a478662df3cd2814"
+      },
+      "recipe_origin": "tilelang_phase1_confirmed",
+      "retune_plan": "retune_plans/translator_b/tilelang_phase1_confirmed__to__tilelang.json",
+      "transfer_mode": "retuned",
+      "translator": "translator_b",
+      "translator_source_root": "translators/translator_b"
+    },
+    {
+      "audit_receipt": "results/audit/receipts/tilelang_phase1_confirmed__to__triton__literal__translator_a.json",
+      "build_failures_consume_budget": true,
+      "candidate_attempt_budget": 1,
+      "cell_id": "tilelang_phase1_confirmed__to__triton__literal__translator_a",
+      "destination_dsl": "triton",
+      "execution": {
+        "phase": "source_and_legality_audit",
+        "required_attempt_records": 1
+      },
+      "gate_in_loop": {
+        "gate": "matmul_v4",
+        "kc_ladder": [
+          8192,
+          4096,
+          2048,
+          1024,
+          512
+        ],
+        "performance_inputs_visible": false,
+        "threshold_changes_permitted": false
+      },
+      "implementation_registry": "dependencies/implementation_registry.json",
+      "job_id": "reciprocal_v2.audit.tilelang_phase1_confirmed__to__triton__literal__translator_a",
+      "ordinal": 4,
+      "recipe_card": {
+        "file_sha256": "66f267f18189a2e00599ccb01a57a689bb4b1804e1ef388141dcc708e0a33e3e",
+        "path": "ako_runs/controlled_followup/reciprocal/recipe_cards/tilelang_phase1_confirmed.json",
+        "recipe_id": "tilelang_phase1_confirmed",
+        "sha256": "77ae3ab19bfb333d7ea421c8a4cd5ad175013718d56a7bf6a478662df3cd2814"
+      },
+      "recipe_origin": "tilelang_phase1_confirmed",
+      "retune_plan": null,
+      "transfer_mode": "literal",
+      "translator": "translator_a",
+      "translator_source_root": "translators/translator_a"
+    },
+    {
+      "audit_receipt": "results/audit/receipts/tilelang_phase1_confirmed__to__triton__literal__translator_b.json",
+      "build_failures_consume_budget": true,
+      "candidate_attempt_budget": 1,
+      "cell_id": "tilelang_phase1_confirmed__to__triton__literal__translator_b",
+      "destination_dsl": "triton",
+      "execution": {
+        "phase": "source_and_legality_audit",
+        "required_attempt_records": 1
+      },
+      "gate_in_loop": {
+        "gate": "matmul_v4",
+        "kc_ladder": [
+          8192,
+          4096,
+          2048,
+          1024,
+          512
+        ],
+        "performance_inputs_visible": false,
+        "threshold_changes_permitted": false
+      },
+      "implementation_registry": "dependencies/implementation_registry.json",
+      "job_id": "reciprocal_v2.audit.tilelang_phase1_confirmed__to__triton__literal__translator_b",
+      "ordinal": 5,
+      "recipe_card": {
+        "file_sha256": "66f267f18189a2e00599ccb01a57a689bb4b1804e1ef388141dcc708e0a33e3e",
+        "path": "ako_runs/controlled_followup/reciprocal/recipe_cards/tilelang_phase1_confirmed.json",
+        "recipe_id": "tilelang_phase1_confirmed",
+        "sha256": "77ae3ab19bfb333d7ea421c8a4cd5ad175013718d56a7bf6a478662df3cd2814"
+      },
+      "recipe_origin": "tilelang_phase1_confirmed",
+      "retune_plan": null,
+      "transfer_mode": "literal",
+      "translator": "translator_b",
+      "translator_source_root": "translators/translator_b"
+    },
+    {
+      "audit_receipt": "results/audit/receipts/tilelang_phase1_confirmed__to__triton__retuned__translator_a.json",
+      "build_failures_consume_budget": true,
+      "candidate_attempt_budget": 19,
+      "cell_id": "tilelang_phase1_confirmed__to__triton__retuned__translator_a",
+      "destination_dsl": "triton",
+      "execution": {
+        "phase": "source_and_legality_audit",
+        "required_attempt_records": 19
+      },
+      "gate_in_loop": {
+        "gate": "matmul_v4",
+        "kc_ladder": [
+          8192,
+          4096,
+          2048,
+          1024,
+          512
+        ],
+        "performance_inputs_visible": false,
+        "threshold_changes_permitted": false
+      },
+      "implementation_registry": "dependencies/implementation_registry.json",
+      "job_id": "reciprocal_v2.audit.tilelang_phase1_confirmed__to__triton__retuned__translator_a",
+      "ordinal": 6,
+      "recipe_card": {
+        "file_sha256": "66f267f18189a2e00599ccb01a57a689bb4b1804e1ef388141dcc708e0a33e3e",
+        "path": "ako_runs/controlled_followup/reciprocal/recipe_cards/tilelang_phase1_confirmed.json",
+        "recipe_id": "tilelang_phase1_confirmed",
+        "sha256": "77ae3ab19bfb333d7ea421c8a4cd5ad175013718d56a7bf6a478662df3cd2814"
+      },
+      "recipe_origin": "tilelang_phase1_confirmed",
+      "retune_plan": "retune_plans/translator_a/tilelang_phase1_confirmed__to__triton.json",
+      "transfer_mode": "retuned",
+      "translator": "translator_a",
+      "translator_source_root": "translators/translator_a"
+    },
+    {
+      "audit_receipt": "results/audit/receipts/tilelang_phase1_confirmed__to__triton__retuned__translator_b.json",
+      "build_failures_consume_budget": true,
+      "candidate_attempt_budget": 19,
+      "cell_id": "tilelang_phase1_confirmed__to__triton__retuned__translator_b",
+      "destination_dsl": "triton",
+      "execution": {
+        "phase": "source_and_legality_audit",
+        "required_attempt_records": 19
+      },
+      "gate_in_loop": {
+        "gate": "matmul_v4",
+        "kc_ladder": [
+          8192,
+          4096,
+          2048,
+          1024,
+          512
+        ],
+        "performance_inputs_visible": false,
+        "threshold_changes_permitted": false
+      },
+      "implementation_registry": "dependencies/implementation_registry.json",
+      "job_id": "reciprocal_v2.audit.tilelang_phase1_confirmed__to__triton__retuned__translator_b",
+      "ordinal": 7,
+      "recipe_card": {
+        "file_sha256": "66f267f18189a2e00599ccb01a57a689bb4b1804e1ef388141dcc708e0a33e3e",
+        "path": "ako_runs/controlled_followup/reciprocal/recipe_cards/tilelang_phase1_confirmed.json",
+        "recipe_id": "tilelang_phase1_confirmed",
+        "sha256": "77ae3ab19bfb333d7ea421c8a4cd5ad175013718d56a7bf6a478662df3cd2814"
+      },
+      "recipe_origin": "tilelang_phase1_confirmed",
+      "retune_plan": "retune_plans/translator_b/tilelang_phase1_confirmed__to__triton.json",
+      "transfer_mode": "retuned",
+      "translator": "translator_b",
+      "translator_source_root": "translators/translator_b"
+    },
+    {
+      "audit_receipt": "results/audit/receipts/tilelang_phase1_confirmed__to__cuda_noptx__literal__translator_a.json",
+      "build_failures_consume_budget": true,
+      "candidate_attempt_budget": 1,
+      "cell_id": "tilelang_phase1_confirmed__to__cuda_noptx__literal__translator_a",
+      "destination_dsl": "cuda_noptx",
+      "execution": {
+        "phase": "source_and_legality_audit",
+        "required_attempt_records": 1
+      },
+      "gate_in_loop": {
+        "gate": "matmul_v4",
+        "kc_ladder": [
+          8192,
+          4096,
+          2048,
+          1024,
+          512
+        ],
+        "performance_inputs_visible": false,
+        "threshold_changes_permitted": false
+      },
+      "implementation_registry": "dependencies/implementation_registry.json",
+      "job_id": "reciprocal_v2.audit.tilelang_phase1_confirmed__to__cuda_noptx__literal__translator_a",
+      "ordinal": 8,
+      "recipe_card": {
+        "file_sha256": "66f267f18189a2e00599ccb01a57a689bb4b1804e1ef388141dcc708e0a33e3e",
+        "path": "ako_runs/controlled_followup/reciprocal/recipe_cards/tilelang_phase1_confirmed.json",
+        "recipe_id": "tilelang_phase1_confirmed",
+        "sha256": "77ae3ab19bfb333d7ea421c8a4cd5ad175013718d56a7bf6a478662df3cd2814"
+      },
+      "recipe_origin": "tilelang_phase1_confirmed",
+      "retune_plan": null,
+      "transfer_mode": "literal",
+      "translator": "translator_a",
+      "translator_source_root": "translators/translator_a"
+    },
+    {
+      "audit_receipt": "results/audit/receipts/tilelang_phase1_confirmed__to__cuda_noptx__literal__translator_b.json",
+      "build_failures_consume_budget": true,
+      "candidate_attempt_budget": 1,
+      "cell_id": "tilelang_phase1_confirmed__to__cuda_noptx__literal__translator_b",
+      "destination_dsl": "cuda_noptx",
+      "execution": {
+        "phase": "source_and_legality_audit",
+        "required_attempt_records": 1
+      },
+      "gate_in_loop": {
+        "gate": "matmul_v4",
+        "kc_ladder": [
+          8192,
+          4096,
+          2048,
+          1024,
+          512
+        ],
+        "performance_inputs_visible": false,
+        "threshold_changes_permitted": false
+      },
+      "implementation_registry": "dependencies/implementation_registry.json",
+      "job_id": "reciprocal_v2.audit.tilelang_phase1_confirmed__to__cuda_noptx__literal__translator_b",
+      "ordinal": 9,
+      "recipe_card": {
+        "file_sha256": "66f267f18189a2e00599ccb01a57a689bb4b1804e1ef388141dcc708e0a33e3e",
+        "path": "ako_runs/controlled_followup/reciprocal/recipe_cards/tilelang_phase1_confirmed.json",
+        "recipe_id": "tilelang_phase1_confirmed",
+        "sha256": "77ae3ab19bfb333d7ea421c8a4cd5ad175013718d56a7bf6a478662df3cd2814"
+      },
+      "recipe_origin": "tilelang_phase1_confirmed",
+      "retune_plan": null,
+      "transfer_mode": "literal",
+      "translator": "translator_b",
+      "translator_source_root": "translators/translator_b"
+    },
+    {
+      "audit_receipt": "results/audit/receipts/tilelang_phase1_confirmed__to__cuda_noptx__retuned__translator_a.json",
+      "build_failures_consume_budget": true,
+      "candidate_attempt_budget": 19,
+      "cell_id": "tilelang_phase1_confirmed__to__cuda_noptx__retuned__translator_a",
+      "destination_dsl": "cuda_noptx",
+      "execution": {
+        "phase": "source_and_legality_audit",
+        "required_attempt_records": 19
+      },
+      "gate_in_loop": {
+        "gate": "matmul_v4",
+        "kc_ladder": [
+          8192,
+          4096,
+          2048,
+          1024,
+          512
+        ],
+        "performance_inputs_visible": false,
+        "threshold_changes_permitted": false
+      },
+      "implementation_registry": "dependencies/implementation_registry.json",
+      "job_id": "reciprocal_v2.audit.tilelang_phase1_confirmed__to__cuda_noptx__retuned__translator_a",
+      "ordinal": 10,
+      "recipe_card": {
+        "file_sha256": "66f267f18189a2e00599ccb01a57a689bb4b1804e1ef388141dcc708e0a33e3e",
+        "path": "ako_runs/controlled_followup/reciprocal/recipe_cards/tilelang_phase1_confirmed.json",
+        "recipe_id": "tilelang_phase1_confirmed",
+        "sha256": "77ae3ab19bfb333d7ea421c8a4cd5ad175013718d56a7bf6a478662df3cd2814"
+      },
+      "recipe_origin": "tilelang_phase1_confirmed",
+      "retune_plan": "retune_plans/translator_a/tilelang_phase1_confirmed__to__cuda_noptx.json",
+      "transfer_mode": "retuned",
+      "translator": "translator_a",
+      "translator_source_root": "translators/translator_a"
+    },
+    {
+      "audit_receipt": "results/audit/receipts/tilelang_phase1_confirmed__to__cuda_noptx__retuned__translator_b.json",
+      "build_failures_consume_budget": true,
+      "candidate_attempt_budget": 19,
+      "cell_id": "tilelang_phase1_confirmed__to__cuda_noptx__retuned__translator_b",
+      "destination_dsl": "cuda_noptx",
+      "execution": {
+        "phase": "source_and_legality_audit",
+        "required_attempt_records": 19
+      },
+      "gate_in_loop": {
+        "gate": "matmul_v4",
+        "kc_ladder": [
+          8192,
+          4096,
+          2048,
+          1024,
+          512
+        ],
+        "performance_inputs_visible": false,
+        "threshold_changes_permitted": false
+      },
+      "implementation_registry": "dependencies/implementation_registry.json",
+      "job_id": "reciprocal_v2.audit.tilelang_phase1_confirmed__to__cuda_noptx__retuned__translator_b",
+      "ordinal": 11,
+      "recipe_card": {
+        "file_sha256": "66f267f18189a2e00599ccb01a57a689bb4b1804e1ef388141dcc708e0a33e3e",
+        "path": "ako_runs/controlled_followup/reciprocal/recipe_cards/tilelang_phase1_confirmed.json",
+        "recipe_id": "tilelang_phase1_confirmed",
+        "sha256": "77ae3ab19bfb333d7ea421c8a4cd5ad175013718d56a7bf6a478662df3cd2814"
+      },
+      "recipe_origin": "tilelang_phase1_confirmed",
+      "retune_plan": "retune_plans/translator_b/tilelang_phase1_confirmed__to__cuda_noptx.json",
+      "transfer_mode": "retuned",
+      "translator": "translator_b",
+      "translator_source_root": "translators/translator_b"
+    },
+    {
+      "audit_receipt": "results/audit/receipts/tilelang_phase1_confirmed__to__cuda_unlimited__literal__translator_a.json",
+      "build_failures_consume_budget": true,
+      "candidate_attempt_budget": 1,
+      "cell_id": "tilelang_phase1_confirmed__to__cuda_unlimited__literal__translator_a",
+      "destination_dsl": "cuda_unlimited",
+      "execution": {
+        "phase": "source_and_legality_audit",
+        "required_attempt_records": 1
+      },
+      "gate_in_loop": {
+        "gate": "matmul_v4",
+        "kc_ladder": [
+          8192,
+          4096,
+          2048,
+          1024,
+          512
+        ],
+        "performance_inputs_visible": false,
+        "threshold_changes_permitted": false
+      },
+      "implementation_registry": "dependencies/implementation_registry.json",
+      "job_id": "reciprocal_v2.audit.tilelang_phase1_confirmed__to__cuda_unlimited__literal__translator_a",
+      "ordinal": 12,
+      "recipe_card": {
+        "file_sha256": "66f267f18189a2e00599ccb01a57a689bb4b1804e1ef388141dcc708e0a33e3e",
+        "path": "ako_runs/controlled_followup/reciprocal/recipe_cards/tilelang_phase1_confirmed.json",
+        "recipe_id": "tilelang_phase1_confirmed",
+        "sha256": "77ae3ab19bfb333d7ea421c8a4cd5ad175013718d56a7bf6a478662df3cd2814"
+      },
+      "recipe_origin": "tilelang_phase1_confirmed",
+      "retune_plan": null,
+      "transfer_mode": "literal",
+      "translator": "translator_a",
+      "translator_source_root": "translators/translator_a"
+    },
+    {
+      "audit_receipt": "results/audit/receipts/tilelang_phase1_confirmed__to__cuda_unlimited__literal__translator_b.json",
+      "build_failures_consume_budget": true,
+      "candidate_attempt_budget": 1,
+      "cell_id": "tilelang_phase1_confirmed__to__cuda_unlimited__literal__translator_b",
+      "destination_dsl": "cuda_unlimited",
+      "execution": {
+        "phase": "source_and_legality_audit",
+        "required_attempt_records": 1
+      },
+      "gate_in_loop": {
+        "gate": "matmul_v4",
+        "kc_ladder": [
+          8192,
+          4096,
+          2048,
+          1024,
+          512
+        ],
+        "performance_inputs_visible": false,
+        "threshold_changes_permitted": false
+      },
+      "implementation_registry": "dependencies/implementation_registry.json",
+      "job_id": "reciprocal_v2.audit.tilelang_phase1_confirmed__to__cuda_unlimited__literal__translator_b",
+      "ordinal": 13,
+      "recipe_card": {
+        "file_sha256": "66f267f18189a2e00599ccb01a57a689bb4b1804e1ef388141dcc708e0a33e3e",
+        "path": "ako_runs/controlled_followup/reciprocal/recipe_cards/tilelang_phase1_confirmed.json",
+        "recipe_id": "tilelang_phase1_confirmed",
+        "sha256": "77ae3ab19bfb333d7ea421c8a4cd5ad175013718d56a7bf6a478662df3cd2814"
+      },
+      "recipe_origin": "tilelang_phase1_confirmed",
+      "retune_plan": null,
+      "transfer_mode": "literal",
+      "translator": "translator_b",
+      "translator_source_root": "translators/translator_b"
+    },
+    {
+      "audit_receipt": "results/audit/receipts/tilelang_phase1_confirmed__to__cuda_unlimited__retuned__translator_a.json",
+      "build_failures_consume_budget": true,
+      "candidate_attempt_budget": 19,
+      "cell_id": "tilelang_phase1_confirmed__to__cuda_unlimited__retuned__translator_a",
+      "destination_dsl": "cuda_unlimited",
+      "execution": {
+        "phase": "source_and_legality_audit",
+        "required_attempt_records": 19
+      },
+      "gate_in_loop": {
+        "gate": "matmul_v4",
+        "kc_ladder": [
+          8192,
+          4096,
+          2048,
+          1024,
+          512
+        ],
+        "performance_inputs_visible": false,
+        "threshold_changes_permitted": false
+      },
+      "implementation_registry": "dependencies/implementation_registry.json",
+      "job_id": "reciprocal_v2.audit.tilelang_phase1_confirmed__to__cuda_unlimited__retuned__translator_a",
+      "ordinal": 14,
+      "recipe_card": {
+        "file_sha256": "66f267f18189a2e00599ccb01a57a689bb4b1804e1ef388141dcc708e0a33e3e",
+        "path": "ako_runs/controlled_followup/reciprocal/recipe_cards/tilelang_phase1_confirmed.json",
+        "recipe_id": "tilelang_phase1_confirmed",
+        "sha256": "77ae3ab19bfb333d7ea421c8a4cd5ad175013718d56a7bf6a478662df3cd2814"
+      },
+      "recipe_origin": "tilelang_phase1_confirmed",
+      "retune_plan": "retune_plans/translator_a/tilelang_phase1_confirmed__to__cuda_unlimited.json",
+      "transfer_mode": "retuned",
+      "translator": "translator_a",
+      "translator_source_root": "translators/translator_a"
+    },
+    {
+      "audit_receipt": "results/audit/receipts/tilelang_phase1_confirmed__to__cuda_unlimited__retuned__translator_b.json",
+      "build_failures_consume_budget": true,
+      "candidate_attempt_budget": 19,
+      "cell_id": "tilelang_phase1_confirmed__to__cuda_unlimited__retuned__translator_b",
+      "destination_dsl": "cuda_unlimited",
+      "execution": {
+        "phase": "source_and_legality_audit",
+        "required_attempt_records": 19
+      },
+      "gate_in_loop": {
+        "gate": "matmul_v4",
+        "kc_ladder": [
+          8192,
+          4096,
+          2048,
+          1024,
+          512
+        ],
+        "performance_inputs_visible": false,
+        "threshold_changes_permitted": false
+      },
+      "implementation_registry": "dependencies/implementation_registry.json",
+      "job_id": "reciprocal_v2.audit.tilelang_phase1_confirmed__to__cuda_unlimited__retuned__translator_b",
+      "ordinal": 15,
+      "recipe_card": {
+        "file_sha256": "66f267f18189a2e00599ccb01a57a689bb4b1804e1ef388141dcc708e0a33e3e",
+        "path": "ako_runs/controlled_followup/reciprocal/recipe_cards/tilelang_phase1_confirmed.json",
+        "recipe_id": "tilelang_phase1_confirmed",
+        "sha256": "77ae3ab19bfb333d7ea421c8a4cd5ad175013718d56a7bf6a478662df3cd2814"
+      },
+      "recipe_origin": "tilelang_phase1_confirmed",
+      "retune_plan": "retune_plans/translator_b/tilelang_phase1_confirmed__to__cuda_unlimited.json",
+      "transfer_mode": "retuned",
+      "translator": "translator_b",
+      "translator_source_root": "translators/translator_b"
+    },
+    {
+      "audit_receipt": "results/audit/receipts/triton_grouped_autotuned__to__tilelang__literal__translator_a.json",
+      "build_failures_consume_budget": true,
+      "candidate_attempt_budget": 1,
+      "cell_id": "triton_grouped_autotuned__to__tilelang__literal__translator_a",
+      "destination_dsl": "tilelang",
+      "execution": {
+        "phase": "source_and_legality_audit",
+        "required_attempt_records": 1
+      },
+      "gate_in_loop": {
+        "gate": "matmul_v4",
+        "kc_ladder": [
+          8192,
+          4096,
+          2048,
+          1024,
+          512
+        ],
+        "performance_inputs_visible": false,
+        "threshold_changes_permitted": false
+      },
+      "implementation_registry": "dependencies/implementation_registry.json",
+      "job_id": "reciprocal_v2.audit.triton_grouped_autotuned__to__tilelang__literal__translator_a",
+      "ordinal": 16,
+      "recipe_card": {
+        "file_sha256": "034a74ef0e0452dd858608cd3660403304b9a101ae3130b32dc657beb1abedfe",
+        "path": "ako_runs/controlled_followup/reciprocal/recipe_cards/triton_grouped_autotuned.json",
+        "recipe_id": "triton_grouped_autotuned",
+        "sha256": "913ad1d46a8659ba5c88ae9074f056f4b163c4ae66fc0a63df44196e90fc6693"
+      },
+      "recipe_origin": "triton_grouped_autotuned",
+      "retune_plan": null,
+      "transfer_mode": "literal",
+      "translator": "translator_a",
+      "translator_source_root": "translators/translator_a"
+    },
+    {
+      "audit_receipt": "results/audit/receipts/triton_grouped_autotuned__to__tilelang__literal__translator_b.json",
+      "build_failures_consume_budget": true,
+      "candidate_attempt_budget": 1,
+      "cell_id": "triton_grouped_autotuned__to__tilelang__literal__translator_b",
+      "destination_dsl": "tilelang",
+      "execution": {
+        "phase": "source_and_legality_audit",
+        "required_attempt_records": 1
+      },
+      "gate_in_loop": {
+        "gate": "matmul_v4",
+        "kc_ladder": [
+          8192,
+          4096,
+          2048,
+          1024,
+          512
+        ],
+        "performance_inputs_visible": false,
+        "threshold_changes_permitted": false
+      },
+      "implementation_registry": "dependencies/implementation_registry.json",
+      "job_id": "reciprocal_v2.audit.triton_grouped_autotuned__to__tilelang__literal__translator_b",
+      "ordinal": 17,
+      "recipe_card": {
+        "file_sha256": "034a74ef0e0452dd858608cd3660403304b9a101ae3130b32dc657beb1abedfe",
+        "path": "ako_runs/controlled_followup/reciprocal/recipe_cards/triton_grouped_autotuned.json",
+        "recipe_id": "triton_grouped_autotuned",
+        "sha256": "913ad1d46a8659ba5c88ae9074f056f4b163c4ae66fc0a63df44196e90fc6693"
+      },
+      "recipe_origin": "triton_grouped_autotuned",
+      "retune_plan": null,
+      "transfer_mode": "literal",
+      "translator": "translator_b",
+      "translator_source_root": "translators/translator_b"
+    },
+    {
+      "audit_receipt": "results/audit/receipts/triton_grouped_autotuned__to__tilelang__retuned__translator_a.json",
+      "build_failures_consume_budget": true,
+      "candidate_attempt_budget": 19,
+      "cell_id": "triton_grouped_autotuned__to__tilelang__retuned__translator_a",
+      "destination_dsl": "tilelang",
+      "execution": {
+        "phase": "source_and_legality_audit",
+        "required_attempt_records": 19
+      },
+      "gate_in_loop": {
+        "gate": "matmul_v4",
+        "kc_ladder": [
+          8192,
+          4096,
+          2048,
+          1024,
+          512
+        ],
+        "performance_inputs_visible": false,
+        "threshold_changes_permitted": false
+      },
+      "implementation_registry": "dependencies/implementation_registry.json",
+      "job_id": "reciprocal_v2.audit.triton_grouped_autotuned__to__tilelang__retuned__translator_a",
+      "ordinal": 18,
+      "recipe_card": {
+        "file_sha256": "034a74ef0e0452dd858608cd3660403304b9a101ae3130b32dc657beb1abedfe",
+        "path": "ako_runs/controlled_followup/reciprocal/recipe_cards/triton_grouped_autotuned.json",
+        "recipe_id": "triton_grouped_autotuned",
+        "sha256": "913ad1d46a8659ba5c88ae9074f056f4b163c4ae66fc0a63df44196e90fc6693"
+      },
+      "recipe_origin": "triton_grouped_autotuned",
+      "retune_plan": "retune_plans/translator_a/triton_grouped_autotuned__to__tilelang.json",
+      "transfer_mode": "retuned",
+      "translator": "translator_a",
+      "translator_source_root": "translators/translator_a"
+    },
+    {
+      "audit_receipt": "results/audit/receipts/triton_grouped_autotuned__to__tilelang__retuned__translator_b.json",
+      "build_failures_consume_budget": true,
+      "candidate_attempt_budget": 19,
+      "cell_id": "triton_grouped_autotuned__to__tilelang__retuned__translator_b",
+      "destination_dsl": "tilelang",
+      "execution": {
+        "phase": "source_and_legality_audit",
+        "required_attempt_records": 19
+      },
+      "gate_in_loop": {
+        "gate": "matmul_v4",
+        "kc_ladder": [
+          8192,
+          4096,
+          2048,
+          1024,
+          512
+        ],
+        "performance_inputs_visible": false,
+        "threshold_changes_permitted": false
+      },
+      "implementation_registry": "dependencies/implementation_registry.json",
+      "job_id": "reciprocal_v2.audit.triton_grouped_autotuned__to__tilelang__retuned__translator_b",
+      "ordinal": 19,
+      "recipe_card": {
+        "file_sha256": "034a74ef0e0452dd858608cd3660403304b9a101ae3130b32dc657beb1abedfe",
+        "path": "ako_runs/controlled_followup/reciprocal/recipe_cards/triton_grouped_autotuned.json",
+        "recipe_id": "triton_grouped_autotuned",
+        "sha256": "913ad1d46a8659ba5c88ae9074f056f4b163c4ae66fc0a63df44196e90fc6693"
+      },
+      "recipe_origin": "triton_grouped_autotuned",
+      "retune_plan": "retune_plans/translator_b/triton_grouped_autotuned__to__tilelang.json",
+      "transfer_mode": "retuned",
+      "translator": "translator_b",
+      "translator_source_root": "translators/translator_b"
+    },
+    {
+      "audit_receipt": "results/audit/receipts/triton_grouped_autotuned__to__triton__literal__translator_a.json",
+      "build_failures_consume_budget": true,
+      "candidate_attempt_budget": 1,
+      "cell_id": "triton_grouped_autotuned__to__triton__literal__translator_a",
+      "destination_dsl": "triton",
+      "execution": {
+        "phase": "source_and_legality_audit",
+        "required_attempt_records": 1
+      },
+      "gate_in_loop": {
+        "gate": "matmul_v4",
+        "kc_ladder": [
+          8192,
+          4096,
+          2048,
+          1024,
+          512
+        ],
+        "performance_inputs_visible": false,
+        "threshold_changes_permitted": false
+      },
+      "implementation_registry": "dependencies/implementation_registry.json",
+      "job_id": "reciprocal_v2.audit.triton_grouped_autotuned__to__triton__literal__translator_a",
+      "ordinal": 20,
+      "recipe_card": {
+        "file_sha256": "034a74ef0e0452dd858608cd3660403304b9a101ae3130b32dc657beb1abedfe",
+        "path": "ako_runs/controlled_followup/reciprocal/recipe_cards/triton_grouped_autotuned.json",
+        "recipe_id": "triton_grouped_autotuned",
+        "sha256": "913ad1d46a8659ba5c88ae9074f056f4b163c4ae66fc0a63df44196e90fc6693"
+      },
+      "recipe_origin": "triton_grouped_autotuned",
+      "retune_plan": null,
+      "transfer_mode": "literal",
+      "translator": "translator_a",
+      "translator_source_root": "translators/translator_a"
+    },
+    {
+      "audit_receipt": "results/audit/receipts/triton_grouped_autotuned__to__triton__literal__translator_b.json",
+      "build_failures_consume_budget": true,
+      "candidate_attempt_budget": 1,
+      "cell_id": "triton_grouped_autotuned__to__triton__literal__translator_b",
+      "destination_dsl": "triton",
+      "execution": {
+        "phase": "source_and_legality_audit",
+        "required_attempt_records": 1
+      },
+      "gate_in_loop": {
+        "gate": "matmul_v4",
+        "kc_ladder": [
+          8192,
+          4096,
+          2048,
+          1024,
+          512
+        ],
+        "performance_inputs_visible": false,
+        "threshold_changes_permitted": false
+      },
+      "implementation_registry": "dependencies/implementation_registry.json",
+      "job_id": "reciprocal_v2.audit.triton_grouped_autotuned__to__triton__literal__translator_b",
+      "ordinal": 21,
+      "recipe_card": {
+        "file_sha256": "034a74ef0e0452dd858608cd3660403304b9a101ae3130b32dc657beb1abedfe",
+        "path": "ako_runs/controlled_followup/reciprocal/recipe_cards/triton_grouped_autotuned.json",
+        "recipe_id": "triton_grouped_autotuned",
+        "sha256": "913ad1d46a8659ba5c88ae9074f056f4b163c4ae66fc0a63df44196e90fc6693"
+      },
+      "recipe_origin": "triton_grouped_autotuned",
+      "retune_plan": null,
+      "transfer_mode": "literal",
+      "translator": "translator_b",
+      "translator_source_root": "translators/translator_b"
+    },
+    {
+      "audit_receipt": "results/audit/receipts/triton_grouped_autotuned__to__triton__retuned__translator_a.json",
+      "build_failures_consume_budget": true,
+      "candidate_attempt_budget": 19,
+      "cell_id": "triton_grouped_autotuned__to__triton__retuned__translator_a",
+      "destination_dsl": "triton",
+      "execution": {
+        "phase": "source_and_legality_audit",
+        "required_attempt_records": 19
+      },
+      "gate_in_loop": {
+        "gate": "matmul_v4",
+        "kc_ladder": [
+          8192,
+          4096,
+          2048,
+          1024,
+          512
+        ],
+        "performance_inputs_visible": false,
+        "threshold_changes_permitted": false
+      },
+      "implementation_registry": "dependencies/implementation_registry.json",
+      "job_id": "reciprocal_v2.audit.triton_grouped_autotuned__to__triton__retuned__translator_a",
+      "ordinal": 22,
+      "recipe_card": {
+        "file_sha256": "034a74ef0e0452dd858608cd3660403304b9a101ae3130b32dc657beb1abedfe",
+        "path": "ako_runs/controlled_followup/reciprocal/recipe_cards/triton_grouped_autotuned.json",
+        "recipe_id": "triton_grouped_autotuned",
+        "sha256": "913ad1d46a8659ba5c88ae9074f056f4b163c4ae66fc0a63df44196e90fc6693"
+      },
+      "recipe_origin": "triton_grouped_autotuned",
+      "retune_plan": "retune_plans/translator_a/triton_grouped_autotuned__to__triton.json",
+      "transfer_mode": "retuned",
+      "translator": "translator_a",
+      "translator_source_root": "translators/translator_a"
+    },
+    {
+      "audit_receipt": "results/audit/receipts/triton_grouped_autotuned__to__triton__retuned__translator_b.json",
+      "build_failures_consume_budget": true,
+      "candidate_attempt_budget": 19,
+      "cell_id": "triton_grouped_autotuned__to__triton__retuned__translator_b",
+      "destination_dsl": "triton",
+      "execution": {
+        "phase": "source_and_legality_audit",
+        "required_attempt_records": 19
+      },
+      "gate_in_loop": {
+        "gate": "matmul_v4",
+        "kc_ladder": [
+          8192,
+          4096,
+          2048,
+          1024,
+          512
+        ],
+        "performance_inputs_visible": false,
+        "threshold_changes_permitted": false
+      },
+      "implementation_registry": "dependencies/implementation_registry.json",
+      "job_id": "reciprocal_v2.audit.triton_grouped_autotuned__to__triton__retuned__translator_b",
+      "ordinal": 23,
+      "recipe_card": {
+        "file_sha256": "034a74ef0e0452dd858608cd3660403304b9a101ae3130b32dc657beb1abedfe",
+        "path": "ako_runs/controlled_followup/reciprocal/recipe_cards/triton_grouped_autotuned.json",
+        "recipe_id": "triton_grouped_autotuned",
+        "sha256": "913ad1d46a8659ba5c88ae9074f056f4b163c4ae66fc0a63df44196e90fc6693"
+      },
+      "recipe_origin": "triton_grouped_autotuned",
+      "retune_plan": "retune_plans/translator_b/triton_grouped_autotuned__to__triton.json",
+      "transfer_mode": "retuned",
+      "translator": "translator_b",
+      "translator_source_root": "translators/translator_b"
+    },
+    {
+      "audit_receipt": "results/audit/receipts/triton_grouped_autotuned__to__cuda_noptx__literal__translator_a.json",
+      "build_failures_consume_budget": true,
+      "candidate_attempt_budget": 1,
+      "cell_id": "triton_grouped_autotuned__to__cuda_noptx__literal__translator_a",
+      "destination_dsl": "cuda_noptx",
+      "execution": {
+        "phase": "source_and_legality_audit",
+        "required_attempt_records": 1
+      },
+      "gate_in_loop": {
+        "gate": "matmul_v4",
+        "kc_ladder": [
+          8192,
+          4096,
+          2048,
+          1024,
+          512
+        ],
+        "performance_inputs_visible": false,
+        "threshold_changes_permitted": false
+      },
+      "implementation_registry": "dependencies/implementation_registry.json",
+      "job_id": "reciprocal_v2.audit.triton_grouped_autotuned__to__cuda_noptx__literal__translator_a",
+      "ordinal": 24,
+      "recipe_card": {
+        "file_sha256": "034a74ef0e0452dd858608cd3660403304b9a101ae3130b32dc657beb1abedfe",
+        "path": "ako_runs/controlled_followup/reciprocal/recipe_cards/triton_grouped_autotuned.json",
+        "recipe_id": "triton_grouped_autotuned",
+        "sha256": "913ad1d46a8659ba5c88ae9074f056f4b163c4ae66fc0a63df44196e90fc6693"
+      },
+      "recipe_origin": "triton_grouped_autotuned",
+      "retune_plan": null,
+      "transfer_mode": "literal",
+      "translator": "translator_a",
+      "translator_source_root": "translators/translator_a"
+    },
+    {
+      "audit_receipt": "results/audit/receipts/triton_grouped_autotuned__to__cuda_noptx__literal__translator_b.json",
+      "build_failures_consume_budget": true,
+      "candidate_attempt_budget": 1,
+      "cell_id": "triton_grouped_autotuned__to__cuda_noptx__literal__translator_b",
+      "destination_dsl": "cuda_noptx",
+      "execution": {
+        "phase": "source_and_legality_audit",
+        "required_attempt_records": 1
+      },
+      "gate_in_loop": {
+        "gate": "matmul_v4",
+        "kc_ladder": [
+          8192,
+          4096,
+          2048,
+          1024,
+          512
+        ],
+        "performance_inputs_visible": false,
+        "threshold_changes_permitted": false
+      },
+      "implementation_registry": "dependencies/implementation_registry.json",
+      "job_id": "reciprocal_v2.audit.triton_grouped_autotuned__to__cuda_noptx__literal__translator_b",
+      "ordinal": 25,
+      "recipe_card": {
+        "file_sha256": "034a74ef0e0452dd858608cd3660403304b9a101ae3130b32dc657beb1abedfe",
+        "path": "ako_runs/controlled_followup/reciprocal/recipe_cards/triton_grouped_autotuned.json",
+        "recipe_id": "triton_grouped_autotuned",
+        "sha256": "913ad1d46a8659ba5c88ae9074f056f4b163c4ae66fc0a63df44196e90fc6693"
+      },
+      "recipe_origin": "triton_grouped_autotuned",
+      "retune_plan": null,
+      "transfer_mode": "literal",
+      "translator": "translator_b",
+      "translator_source_root": "translators/translator_b"
+    },
+    {
+      "audit_receipt": "results/audit/receipts/triton_grouped_autotuned__to__cuda_noptx__retuned__translator_a.json",
+      "build_failures_consume_budget": true,
+      "candidate_attempt_budget": 19,
+      "cell_id": "triton_grouped_autotuned__to__cuda_noptx__retuned__translator_a",
+      "destination_dsl": "cuda_noptx",
+      "execution": {
+        "phase": "source_and_legality_audit",
+        "required_attempt_records": 19
+      },
+      "gate_in_loop": {
+        "gate": "matmul_v4",
+        "kc_ladder": [
+          8192,
+          4096,
+          2048,
+          1024,
+          512
+        ],
+        "performance_inputs_visible": false,
+        "threshold_changes_permitted": false
+      },
+      "implementation_registry": "dependencies/implementation_registry.json",
+      "job_id": "reciprocal_v2.audit.triton_grouped_autotuned__to__cuda_noptx__retuned__translator_a",
+      "ordinal": 26,
+      "recipe_card": {
+        "file_sha256": "034a74ef0e0452dd858608cd3660403304b9a101ae3130b32dc657beb1abedfe",
+        "path": "ako_runs/controlled_followup/reciprocal/recipe_cards/triton_grouped_autotuned.json",
+        "recipe_id": "triton_grouped_autotuned",
+        "sha256": "913ad1d46a8659ba5c88ae9074f056f4b163c4ae66fc0a63df44196e90fc6693"
+      },
+      "recipe_origin": "triton_grouped_autotuned",
+      "retune_plan": "retune_plans/translator_a/triton_grouped_autotuned__to__cuda_noptx.json",
+      "transfer_mode": "retuned",
+      "translator": "translator_a",
+      "translator_source_root": "translators/translator_a"
+    },
+    {
+      "audit_receipt": "results/audit/receipts/triton_grouped_autotuned__to__cuda_noptx__retuned__translator_b.json",
+      "build_failures_consume_budget": true,
+      "candidate_attempt_budget": 19,
+      "cell_id": "triton_grouped_autotuned__to__cuda_noptx__retuned__translator_b",
+      "destination_dsl": "cuda_noptx",
+      "execution": {
+        "phase": "source_and_legality_audit",
+        "required_attempt_records": 19
+      },
+      "gate_in_loop": {
+        "gate": "matmul_v4",
+        "kc_ladder": [
+          8192,
+          4096,
+          2048,
+          1024,
+          512
+        ],
+        "performance_inputs_visible": false,
+        "threshold_changes_permitted": false
+      },
+      "implementation_registry": "dependencies/implementation_registry.json",
+      "job_id": "reciprocal_v2.audit.triton_grouped_autotuned__to__cuda_noptx__retuned__translator_b",
+      "ordinal": 27,
+      "recipe_card": {
+        "file_sha256": "034a74ef0e0452dd858608cd3660403304b9a101ae3130b32dc657beb1abedfe",
+        "path": "ako_runs/controlled_followup/reciprocal/recipe_cards/triton_grouped_autotuned.json",
+        "recipe_id": "triton_grouped_autotuned",
+        "sha256": "913ad1d46a8659ba5c88ae9074f056f4b163c4ae66fc0a63df44196e90fc6693"
+      },
+      "recipe_origin": "triton_grouped_autotuned",
+      "retune_plan": "retune_plans/translator_b/triton_grouped_autotuned__to__cuda_noptx.json",
+      "transfer_mode": "retuned",
+      "translator": "translator_b",
+      "translator_source_root": "translators/translator_b"
+    },
+    {
+      "audit_receipt": "results/audit/receipts/triton_grouped_autotuned__to__cuda_unlimited__literal__translator_a.json",
+      "build_failures_consume_budget": true,
+      "candidate_attempt_budget": 1,
+      "cell_id": "triton_grouped_autotuned__to__cuda_unlimited__literal__translator_a",
+      "destination_dsl": "cuda_unlimited",
+      "execution": {
+        "phase": "source_and_legality_audit",
+        "required_attempt_records": 1
+      },
+      "gate_in_loop": {
+        "gate": "matmul_v4",
+        "kc_ladder": [
+          8192,
+          4096,
+          2048,
+          1024,
+          512
+        ],
+        "performance_inputs_visible": false,
+        "threshold_changes_permitted": false
+      },
+      "implementation_registry": "dependencies/implementation_registry.json",
+      "job_id": "reciprocal_v2.audit.triton_grouped_autotuned__to__cuda_unlimited__literal__translator_a",
+      "ordinal": 28,
+      "recipe_card": {
+        "file_sha256": "034a74ef0e0452dd858608cd3660403304b9a101ae3130b32dc657beb1abedfe",
+        "path": "ako_runs/controlled_followup/reciprocal/recipe_cards/triton_grouped_autotuned.json",
+        "recipe_id": "triton_grouped_autotuned",
+        "sha256": "913ad1d46a8659ba5c88ae9074f056f4b163c4ae66fc0a63df44196e90fc6693"
+      },
+      "recipe_origin": "triton_grouped_autotuned",
+      "retune_plan": null,
+      "transfer_mode": "literal",
+      "translator": "translator_a",
+      "translator_source_root": "translators/translator_a"
+    },
+    {
+      "audit_receipt": "results/audit/receipts/triton_grouped_autotuned__to__cuda_unlimited__literal__translator_b.json",
+      "build_failures_consume_budget": true,
+      "candidate_attempt_budget": 1,
+      "cell_id": "triton_grouped_autotuned__to__cuda_unlimited__literal__translator_b",
+      "destination_dsl": "cuda_unlimited",
+      "execution": {
+        "phase": "source_and_legality_audit",
+        "required_attempt_records": 1
+      },
+      "gate_in_loop": {
+        "gate": "matmul_v4",
+        "kc_ladder": [
+          8192,
+          4096,
+          2048,
+          1024,
+          512
+        ],
+        "performance_inputs_visible": false,
+        "threshold_changes_permitted": false
+      },
+      "implementation_registry": "dependencies/implementation_registry.json",
+      "job_id": "reciprocal_v2.audit.triton_grouped_autotuned__to__cuda_unlimited__literal__translator_b",
+      "ordinal": 29,
+      "recipe_card": {
+        "file_sha256": "034a74ef0e0452dd858608cd3660403304b9a101ae3130b32dc657beb1abedfe",
+        "path": "ako_runs/controlled_followup/reciprocal/recipe_cards/triton_grouped_autotuned.json",
+        "recipe_id": "triton_grouped_autotuned",
+        "sha256": "913ad1d46a8659ba5c88ae9074f056f4b163c4ae66fc0a63df44196e90fc6693"
+      },
+      "recipe_origin": "triton_grouped_autotuned",
+      "retune_plan": null,
+      "transfer_mode": "literal",
+      "translator": "translator_b",
+      "translator_source_root": "translators/translator_b"
+    },
+    {
+      "audit_receipt": "results/audit/receipts/triton_grouped_autotuned__to__cuda_unlimited__retuned__translator_a.json",
+      "build_failures_consume_budget": true,
+      "candidate_attempt_budget": 19,
+      "cell_id": "triton_grouped_autotuned__to__cuda_unlimited__retuned__translator_a",
+      "destination_dsl": "cuda_unlimited",
+      "execution": {
+        "phase": "source_and_legality_audit",
+        "required_attempt_records": 19
+      },
+      "gate_in_loop": {
+        "gate": "matmul_v4",
+        "kc_ladder": [
+          8192,
+          4096,
+          2048,
+          1024,
+          512
+        ],
+        "performance_inputs_visible": false,
+        "threshold_changes_permitted": false
+      },
+      "implementation_registry": "dependencies/implementation_registry.json",
+      "job_id": "reciprocal_v2.audit.triton_grouped_autotuned__to__cuda_unlimited__retuned__translator_a",
+      "ordinal": 30,
+      "recipe_card": {
+        "file_sha256": "034a74ef0e0452dd858608cd3660403304b9a101ae3130b32dc657beb1abedfe",
+        "path": "ako_runs/controlled_followup/reciprocal/recipe_cards/triton_grouped_autotuned.json",
+        "recipe_id": "triton_grouped_autotuned",
+        "sha256": "913ad1d46a8659ba5c88ae9074f056f4b163c4ae66fc0a63df44196e90fc6693"
+      },
+      "recipe_origin": "triton_grouped_autotuned",
+      "retune_plan": "retune_plans/translator_a/triton_grouped_autotuned__to__cuda_unlimited.json",
+      "transfer_mode": "retuned",
+      "translator": "translator_a",
+      "translator_source_root": "translators/translator_a"
+    },
+    {
+      "audit_receipt": "results/audit/receipts/triton_grouped_autotuned__to__cuda_unlimited__retuned__translator_b.json",
+      "build_failures_consume_budget": true,
+      "candidate_attempt_budget": 19,
+      "cell_id": "triton_grouped_autotuned__to__cuda_unlimited__retuned__translator_b",
+      "destination_dsl": "cuda_unlimited",
+      "execution": {
+        "phase": "source_and_legality_audit",
+        "required_attempt_records": 19
+      },
+      "gate_in_loop": {
+        "gate": "matmul_v4",
+        "kc_ladder": [
+          8192,
+          4096,
+          2048,
+          1024,
+          512
+        ],
+        "performance_inputs_visible": false,
+        "threshold_changes_permitted": false
+      },
+      "implementation_registry": "dependencies/implementation_registry.json",
+      "job_id": "reciprocal_v2.audit.triton_grouped_autotuned__to__cuda_unlimited__retuned__translator_b",
+      "ordinal": 31,
+      "recipe_card": {
+        "file_sha256": "034a74ef0e0452dd858608cd3660403304b9a101ae3130b32dc657beb1abedfe",
+        "path": "ako_runs/controlled_followup/reciprocal/recipe_cards/triton_grouped_autotuned.json",
+        "recipe_id": "triton_grouped_autotuned",
+        "sha256": "913ad1d46a8659ba5c88ae9074f056f4b163c4ae66fc0a63df44196e90fc6693"
+      },
+      "recipe_origin": "triton_grouped_autotuned",
+      "retune_plan": "retune_plans/translator_b/triton_grouped_autotuned__to__cuda_unlimited.json",
+      "transfer_mode": "retuned",
+      "translator": "translator_b",
+      "translator_source_root": "translators/translator_b"
+    },
+    {
+      "audit_receipt": "results/audit/receipts/cuda_unlimited_native_d__to__tilelang__literal__translator_a.json",
+      "build_failures_consume_budget": true,
+      "candidate_attempt_budget": 1,
+      "cell_id": "cuda_unlimited_native_d__to__tilelang__literal__translator_a",
+      "destination_dsl": "tilelang",
+      "execution": {
+        "phase": "source_and_legality_audit",
+        "required_attempt_records": 1
+      },
+      "gate_in_loop": {
+        "gate": "matmul_v4",
+        "kc_ladder": [
+          8192,
+          4096,
+          2048,
+          1024,
+          512
+        ],
+        "performance_inputs_visible": false,
+        "threshold_changes_permitted": false
+      },
+      "implementation_registry": "dependencies/implementation_registry.json",
+      "job_id": "reciprocal_v2.audit.cuda_unlimited_native_d__to__tilelang__literal__translator_a",
+      "ordinal": 32,
+      "recipe_card": {
+        "file_sha256": "cdf83101659e59e1ae4bfd801b496b60b250fc555b6648ec78f3c0320759fc62",
+        "path": "ako_runs/controlled_followup/reciprocal_v2/recipe_cards/cuda_unlimited_native_d.json",
+        "recipe_id": "cuda_unlimited_native_d",
+        "sha256": "fecb460062a8010cd265732615c98a483af0f5d890c4f41eda3ef45bab755b03"
+      },
+      "recipe_origin": "cuda_unlimited_native_d",
+      "retune_plan": null,
+      "transfer_mode": "literal",
+      "translator": "translator_a",
+      "translator_source_root": "translators/translator_a"
+    },
+    {
+      "audit_receipt": "results/audit/receipts/cuda_unlimited_native_d__to__tilelang__literal__translator_b.json",
+      "build_failures_consume_budget": true,
+      "candidate_attempt_budget": 1,
+      "cell_id": "cuda_unlimited_native_d__to__tilelang__literal__translator_b",
+      "destination_dsl": "tilelang",
+      "execution": {
+        "phase": "source_and_legality_audit",
+        "required_attempt_records": 1
+      },
+      "gate_in_loop": {
+        "gate": "matmul_v4",
+        "kc_ladder": [
+          8192,
+          4096,
+          2048,
+          1024,
+          512
+        ],
+        "performance_inputs_visible": false,
+        "threshold_changes_permitted": false
+      },
+      "implementation_registry": "dependencies/implementation_registry.json",
+      "job_id": "reciprocal_v2.audit.cuda_unlimited_native_d__to__tilelang__literal__translator_b",
+      "ordinal": 33,
+      "recipe_card": {
+        "file_sha256": "cdf83101659e59e1ae4bfd801b496b60b250fc555b6648ec78f3c0320759fc62",
+        "path": "ako_runs/controlled_followup/reciprocal_v2/recipe_cards/cuda_unlimited_native_d.json",
+        "recipe_id": "cuda_unlimited_native_d",
+        "sha256": "fecb460062a8010cd265732615c98a483af0f5d890c4f41eda3ef45bab755b03"
+      },
+      "recipe_origin": "cuda_unlimited_native_d",
+      "retune_plan": null,
+      "transfer_mode": "literal",
+      "translator": "translator_b",
+      "translator_source_root": "translators/translator_b"
+    },
+    {
+      "audit_receipt": "results/audit/receipts/cuda_unlimited_native_d__to__tilelang__retuned__translator_a.json",
+      "build_failures_consume_budget": true,
+      "candidate_attempt_budget": 19,
+      "cell_id": "cuda_unlimited_native_d__to__tilelang__retuned__translator_a",
+      "destination_dsl": "tilelang",
+      "execution": {
+        "phase": "source_and_legality_audit",
+        "required_attempt_records": 19
+      },
+      "gate_in_loop": {
+        "gate": "matmul_v4",
+        "kc_ladder": [
+          8192,
+          4096,
+          2048,
+          1024,
+          512
+        ],
+        "performance_inputs_visible": false,
+        "threshold_changes_permitted": false
+      },
+      "implementation_registry": "dependencies/implementation_registry.json",
+      "job_id": "reciprocal_v2.audit.cuda_unlimited_native_d__to__tilelang__retuned__translator_a",
+      "ordinal": 34,
+      "recipe_card": {
+        "file_sha256": "cdf83101659e59e1ae4bfd801b496b60b250fc555b6648ec78f3c0320759fc62",
+        "path": "ako_runs/controlled_followup/reciprocal_v2/recipe_cards/cuda_unlimited_native_d.json",
+        "recipe_id": "cuda_unlimited_native_d",
+        "sha256": "fecb460062a8010cd265732615c98a483af0f5d890c4f41eda3ef45bab755b03"
+      },
+      "recipe_origin": "cuda_unlimited_native_d",
+      "retune_plan": "retune_plans/translator_a/cuda_unlimited_native_d__to__tilelang.json",
+      "transfer_mode": "retuned",
+      "translator": "translator_a",
+      "translator_source_root": "translators/translator_a"
+    },
+    {
+      "audit_receipt": "results/audit/receipts/cuda_unlimited_native_d__to__tilelang__retuned__translator_b.json",
+      "build_failures_consume_budget": true,
+      "candidate_attempt_budget": 19,
+      "cell_id": "cuda_unlimited_native_d__to__tilelang__retuned__translator_b",
+      "destination_dsl": "tilelang",
+      "execution": {
+        "phase": "source_and_legality_audit",
+        "required_attempt_records": 19
+      },
+      "gate_in_loop": {
+        "gate": "matmul_v4",
+        "kc_ladder": [
+          8192,
+          4096,
+          2048,
+          1024,
+          512
+        ],
+        "performance_inputs_visible": false,
+        "threshold_changes_permitted": false
+      },
+      "implementation_registry": "dependencies/implementation_registry.json",
+      "job_id": "reciprocal_v2.audit.cuda_unlimited_native_d__to__tilelang__retuned__translator_b",
+      "ordinal": 35,
+      "recipe_card": {
+        "file_sha256": "cdf83101659e59e1ae4bfd801b496b60b250fc555b6648ec78f3c0320759fc62",
+        "path": "ako_runs/controlled_followup/reciprocal_v2/recipe_cards/cuda_unlimited_native_d.json",
+        "recipe_id": "cuda_unlimited_native_d",
+        "sha256": "fecb460062a8010cd265732615c98a483af0f5d890c4f41eda3ef45bab755b03"
+      },
+      "recipe_origin": "cuda_unlimited_native_d",
+      "retune_plan": "retune_plans/translator_b/cuda_unlimited_native_d__to__tilelang.json",
+      "transfer_mode": "retuned",
+      "translator": "translator_b",
+      "translator_source_root": "translators/translator_b"
+    },
+    {
+      "audit_receipt": "results/audit/receipts/cuda_unlimited_native_d__to__triton__literal__translator_a.json",
+      "build_failures_consume_budget": true,
+      "candidate_attempt_budget": 1,
+      "cell_id": "cuda_unlimited_native_d__to__triton__literal__translator_a",
+      "destination_dsl": "triton",
+      "execution": {
+        "phase": "source_and_legality_audit",
+        "required_attempt_records": 1
+      },
+      "gate_in_loop": {
+        "gate": "matmul_v4",
+        "kc_ladder": [
+          8192,
+          4096,
+          2048,
+          1024,
+          512
+        ],
+        "performance_inputs_visible": false,
+        "threshold_changes_permitted": false
+      },
+      "implementation_registry": "dependencies/implementation_registry.json",
+      "job_id": "reciprocal_v2.audit.cuda_unlimited_native_d__to__triton__literal__translator_a",
+      "ordinal": 36,
+      "recipe_card": {
+        "file_sha256": "cdf83101659e59e1ae4bfd801b496b60b250fc555b6648ec78f3c0320759fc62",
+        "path": "ako_runs/controlled_followup/reciprocal_v2/recipe_cards/cuda_unlimited_native_d.json",
+        "recipe_id": "cuda_unlimited_native_d",
+        "sha256": "fecb460062a8010cd265732615c98a483af0f5d890c4f41eda3ef45bab755b03"
+      },
+      "recipe_origin": "cuda_unlimited_native_d",
+      "retune_plan": null,
+      "transfer_mode": "literal",
+      "translator": "translator_a",
+      "translator_source_root": "translators/translator_a"
+    },
+    {
+      "audit_receipt": "results/audit/receipts/cuda_unlimited_native_d__to__triton__literal__translator_b.json",
+      "build_failures_consume_budget": true,
+      "candidate_attempt_budget": 1,
+      "cell_id": "cuda_unlimited_native_d__to__triton__literal__translator_b",
+      "destination_dsl": "triton",
+      "execution": {
+        "phase": "source_and_legality_audit",
+        "required_attempt_records": 1
+      },
+      "gate_in_loop": {
+        "gate": "matmul_v4",
+        "kc_ladder": [
+          8192,
+          4096,
+          2048,
+          1024,
+          512
+        ],
+        "performance_inputs_visible": false,
+        "threshold_changes_permitted": false
+      },
+      "implementation_registry": "dependencies/implementation_registry.json",
+      "job_id": "reciprocal_v2.audit.cuda_unlimited_native_d__to__triton__literal__translator_b",
+      "ordinal": 37,
+      "recipe_card": {
+        "file_sha256": "cdf83101659e59e1ae4bfd801b496b60b250fc555b6648ec78f3c0320759fc62",
+        "path": "ako_runs/controlled_followup/reciprocal_v2/recipe_cards/cuda_unlimited_native_d.json",
+        "recipe_id": "cuda_unlimited_native_d",
+        "sha256": "fecb460062a8010cd265732615c98a483af0f5d890c4f41eda3ef45bab755b03"
+      },
+      "recipe_origin": "cuda_unlimited_native_d",
+      "retune_plan": null,
+      "transfer_mode": "literal",
+      "translator": "translator_b",
+      "translator_source_root": "translators/translator_b"
+    },
+    {
+      "audit_receipt": "results/audit/receipts/cuda_unlimited_native_d__to__triton__retuned__translator_a.json",
+      "build_failures_consume_budget": true,
+      "candidate_attempt_budget": 19,
+      "cell_id": "cuda_unlimited_native_d__to__triton__retuned__translator_a",
+      "destination_dsl": "triton",
+      "execution": {
+        "phase": "source_and_legality_audit",
+        "required_attempt_records": 19
+      },
+      "gate_in_loop": {
+        "gate": "matmul_v4",
+        "kc_ladder": [
+          8192,
+          4096,
+          2048,
+          1024,
+          512
+        ],
+        "performance_inputs_visible": false,
+        "threshold_changes_permitted": false
+      },
+      "implementation_registry": "dependencies/implementation_registry.json",
+      "job_id": "reciprocal_v2.audit.cuda_unlimited_native_d__to__triton__retuned__translator_a",
+      "ordinal": 38,
+      "recipe_card": {
+        "file_sha256": "cdf83101659e59e1ae4bfd801b496b60b250fc555b6648ec78f3c0320759fc62",
+        "path": "ako_runs/controlled_followup/reciprocal_v2/recipe_cards/cuda_unlimited_native_d.json",
+        "recipe_id": "cuda_unlimited_native_d",
+        "sha256": "fecb460062a8010cd265732615c98a483af0f5d890c4f41eda3ef45bab755b03"
+      },
+      "recipe_origin": "cuda_unlimited_native_d",
+      "retune_plan": "retune_plans/translator_a/cuda_unlimited_native_d__to__triton.json",
+      "transfer_mode": "retuned",
+      "translator": "translator_a",
+      "translator_source_root": "translators/translator_a"
+    },
+    {
+      "audit_receipt": "results/audit/receipts/cuda_unlimited_native_d__to__triton__retuned__translator_b.json",
+      "build_failures_consume_budget": true,
+      "candidate_attempt_budget": 19,
+      "cell_id": "cuda_unlimited_native_d__to__triton__retuned__translator_b",
+      "destination_dsl": "triton",
+      "execution": {
+        "phase": "source_and_legality_audit",
+        "required_attempt_records": 19
+      },
+      "gate_in_loop": {
+        "gate": "matmul_v4",
+        "kc_ladder": [
+          8192,
+          4096,
+          2048,
+          1024,
+          512
+        ],
+        "performance_inputs_visible": false,
+        "threshold_changes_permitted": false
+      },
+      "implementation_registry": "dependencies/implementation_registry.json",
+      "job_id": "reciprocal_v2.audit.cuda_unlimited_native_d__to__triton__retuned__translator_b",
+      "ordinal": 39,
+      "recipe_card": {
+        "file_sha256": "cdf83101659e59e1ae4bfd801b496b60b250fc555b6648ec78f3c0320759fc62",
+        "path": "ako_runs/controlled_followup/reciprocal_v2/recipe_cards/cuda_unlimited_native_d.json",
+        "recipe_id": "cuda_unlimited_native_d",
+        "sha256": "fecb460062a8010cd265732615c98a483af0f5d890c4f41eda3ef45bab755b03"
+      },
+      "recipe_origin": "cuda_unlimited_native_d",
+      "retune_plan": "retune_plans/translator_b/cuda_unlimited_native_d__to__triton.json",
+      "transfer_mode": "retuned",
+      "translator": "translator_b",
+      "translator_source_root": "translators/translator_b"
+    },
+    {
+      "audit_receipt": "results/audit/receipts/cuda_unlimited_native_d__to__cuda_noptx__literal__translator_a.json",
+      "build_failures_consume_budget": true,
+      "candidate_attempt_budget": 1,
+      "cell_id": "cuda_unlimited_native_d__to__cuda_noptx__literal__translator_a",
+      "destination_dsl": "cuda_noptx",
+      "execution": {
+        "phase": "source_and_legality_audit",
+        "required_attempt_records": 1
+      },
+      "gate_in_loop": {
+        "gate": "matmul_v4",
+        "kc_ladder": [
+          8192,
+          4096,
+          2048,
+          1024,
+          512
+        ],
+        "performance_inputs_visible": false,
+        "threshold_changes_permitted": false
+      },
+      "implementation_registry": "dependencies/implementation_registry.json",
+      "job_id": "reciprocal_v2.audit.cuda_unlimited_native_d__to__cuda_noptx__literal__translator_a",
+      "ordinal": 40,
+      "recipe_card": {
+        "file_sha256": "cdf83101659e59e1ae4bfd801b496b60b250fc555b6648ec78f3c0320759fc62",
+        "path": "ako_runs/controlled_followup/reciprocal_v2/recipe_cards/cuda_unlimited_native_d.json",
+        "recipe_id": "cuda_unlimited_native_d",
+        "sha256": "fecb460062a8010cd265732615c98a483af0f5d890c4f41eda3ef45bab755b03"
+      },
+      "recipe_origin": "cuda_unlimited_native_d",
+      "retune_plan": null,
+      "transfer_mode": "literal",
+      "translator": "translator_a",
+      "translator_source_root": "translators/translator_a"
+    },
+    {
+      "audit_receipt": "results/audit/receipts/cuda_unlimited_native_d__to__cuda_noptx__literal__translator_b.json",
+      "build_failures_consume_budget": true,
+      "candidate_attempt_budget": 1,
+      "cell_id": "cuda_unlimited_native_d__to__cuda_noptx__literal__translator_b",
+      "destination_dsl": "cuda_noptx",
+      "execution": {
+        "phase": "source_and_legality_audit",
+        "required_attempt_records": 1
+      },
+      "gate_in_loop": {
+        "gate": "matmul_v4",
+        "kc_ladder": [
+          8192,
+          4096,
+          2048,
+          1024,
+          512
+        ],
+        "performance_inputs_visible": false,
+        "threshold_changes_permitted": false
+      },
+      "implementation_registry": "dependencies/implementation_registry.json",
+      "job_id": "reciprocal_v2.audit.cuda_unlimited_native_d__to__cuda_noptx__literal__translator_b",
+      "ordinal": 41,
+      "recipe_card": {
+        "file_sha256": "cdf83101659e59e1ae4bfd801b496b60b250fc555b6648ec78f3c0320759fc62",
+        "path": "ako_runs/controlled_followup/reciprocal_v2/recipe_cards/cuda_unlimited_native_d.json",
+        "recipe_id": "cuda_unlimited_native_d",
+        "sha256": "fecb460062a8010cd265732615c98a483af0f5d890c4f41eda3ef45bab755b03"
+      },
+      "recipe_origin": "cuda_unlimited_native_d",
+      "retune_plan": null,
+      "transfer_mode": "literal",
+      "translator": "translator_b",
+      "translator_source_root": "translators/translator_b"
+    },
+    {
+      "audit_receipt": "results/audit/receipts/cuda_unlimited_native_d__to__cuda_noptx__retuned__translator_a.json",
+      "build_failures_consume_budget": true,
+      "candidate_attempt_budget": 19,
+      "cell_id": "cuda_unlimited_native_d__to__cuda_noptx__retuned__translator_a",
+      "destination_dsl": "cuda_noptx",
+      "execution": {
+        "phase": "source_and_legality_audit",
+        "required_attempt_records": 19
+      },
+      "gate_in_loop": {
+        "gate": "matmul_v4",
+        "kc_ladder": [
+          8192,
+          4096,
+          2048,
+          1024,
+          512
+        ],
+        "performance_inputs_visible": false,
+        "threshold_changes_permitted": false
+      },
+      "implementation_registry": "dependencies/implementation_registry.json",
+      "job_id": "reciprocal_v2.audit.cuda_unlimited_native_d__to__cuda_noptx__retuned__translator_a",
+      "ordinal": 42,
+      "recipe_card": {
+        "file_sha256": "cdf83101659e59e1ae4bfd801b496b60b250fc555b6648ec78f3c0320759fc62",
+        "path": "ako_runs/controlled_followup/reciprocal_v2/recipe_cards/cuda_unlimited_native_d.json",
+        "recipe_id": "cuda_unlimited_native_d",
+        "sha256": "fecb460062a8010cd265732615c98a483af0f5d890c4f41eda3ef45bab755b03"
+      },
+      "recipe_origin": "cuda_unlimited_native_d",
+      "retune_plan": "retune_plans/translator_a/cuda_unlimited_native_d__to__cuda_noptx.json",
+      "transfer_mode": "retuned",
+      "translator": "translator_a",
+      "translator_source_root": "translators/translator_a"
+    },
+    {
+      "audit_receipt": "results/audit/receipts/cuda_unlimited_native_d__to__cuda_noptx__retuned__translator_b.json",
+      "build_failures_consume_budget": true,
+      "candidate_attempt_budget": 19,
+      "cell_id": "cuda_unlimited_native_d__to__cuda_noptx__retuned__translator_b",
+      "destination_dsl": "cuda_noptx",
+      "execution": {
+        "phase": "source_and_legality_audit",
+        "required_attempt_records": 19
+      },
+      "gate_in_loop": {
+        "gate": "matmul_v4",
+        "kc_ladder": [
+          8192,
+          4096,
+          2048,
+          1024,
+          512
+        ],
+        "performance_inputs_visible": false,
+        "threshold_changes_permitted": false
+      },
+      "implementation_registry": "dependencies/implementation_registry.json",
+      "job_id": "reciprocal_v2.audit.cuda_unlimited_native_d__to__cuda_noptx__retuned__translator_b",
+      "ordinal": 43,
+      "recipe_card": {
+        "file_sha256": "cdf83101659e59e1ae4bfd801b496b60b250fc555b6648ec78f3c0320759fc62",
+        "path": "ako_runs/controlled_followup/reciprocal_v2/recipe_cards/cuda_unlimited_native_d.json",
+        "recipe_id": "cuda_unlimited_native_d",
+        "sha256": "fecb460062a8010cd265732615c98a483af0f5d890c4f41eda3ef45bab755b03"
+      },
+      "recipe_origin": "cuda_unlimited_native_d",
+      "retune_plan": "retune_plans/translator_b/cuda_unlimited_native_d__to__cuda_noptx.json",
+      "transfer_mode": "retuned",
+      "translator": "translator_b",
+      "translator_source_root": "translators/translator_b"
+    },
+    {
+      "audit_receipt": "results/audit/receipts/cuda_unlimited_native_d__to__cuda_unlimited__literal__translator_a.json",
+      "build_failures_consume_budget": true,
+      "candidate_attempt_budget": 1,
+      "cell_id": "cuda_unlimited_native_d__to__cuda_unlimited__literal__translator_a",
+      "destination_dsl": "cuda_unlimited",
+      "execution": {
+        "phase": "source_and_legality_audit",
+        "required_attempt_records": 1
+      },
+      "gate_in_loop": {
+        "gate": "matmul_v4",
+        "kc_ladder": [
+          8192,
+          4096,
+          2048,
+          1024,
+          512
+        ],
+        "performance_inputs_visible": false,
+        "threshold_changes_permitted": false
+      },
+      "implementation_registry": "dependencies/implementation_registry.json",
+      "job_id": "reciprocal_v2.audit.cuda_unlimited_native_d__to__cuda_unlimited__literal__translator_a",
+      "ordinal": 44,
+      "recipe_card": {
+        "file_sha256": "cdf83101659e59e1ae4bfd801b496b60b250fc555b6648ec78f3c0320759fc62",
+        "path": "ako_runs/controlled_followup/reciprocal_v2/recipe_cards/cuda_unlimited_native_d.json",
+        "recipe_id": "cuda_unlimited_native_d",
+        "sha256": "fecb460062a8010cd265732615c98a483af0f5d890c4f41eda3ef45bab755b03"
+      },
+      "recipe_origin": "cuda_unlimited_native_d",
+      "retune_plan": null,
+      "transfer_mode": "literal",
+      "translator": "translator_a",
+      "translator_source_root": "translators/translator_a"
+    },
+    {
+      "audit_receipt": "results/audit/receipts/cuda_unlimited_native_d__to__cuda_unlimited__literal__translator_b.json",
+      "build_failures_consume_budget": true,
+      "candidate_attempt_budget": 1,
+      "cell_id": "cuda_unlimited_native_d__to__cuda_unlimited__literal__translator_b",
+      "destination_dsl": "cuda_unlimited",
+      "execution": {
+        "phase": "source_and_legality_audit",
+        "required_attempt_records": 1
+      },
+      "gate_in_loop": {
+        "gate": "matmul_v4",
+        "kc_ladder": [
+          8192,
+          4096,
+          2048,
+          1024,
+          512
+        ],
+        "performance_inputs_visible": false,
+        "threshold_changes_permitted": false
+      },
+      "implementation_registry": "dependencies/implementation_registry.json",
+      "job_id": "reciprocal_v2.audit.cuda_unlimited_native_d__to__cuda_unlimited__literal__translator_b",
+      "ordinal": 45,
+      "recipe_card": {
+        "file_sha256": "cdf83101659e59e1ae4bfd801b496b60b250fc555b6648ec78f3c0320759fc62",
+        "path": "ako_runs/controlled_followup/reciprocal_v2/recipe_cards/cuda_unlimited_native_d.json",
+        "recipe_id": "cuda_unlimited_native_d",
+        "sha256": "fecb460062a8010cd265732615c98a483af0f5d890c4f41eda3ef45bab755b03"
+      },
+      "recipe_origin": "cuda_unlimited_native_d",
+      "retune_plan": null,
+      "transfer_mode": "literal",
+      "translator": "translator_b",
+      "translator_source_root": "translators/translator_b"
+    },
+    {
+      "audit_receipt": "results/audit/receipts/cuda_unlimited_native_d__to__cuda_unlimited__retuned__translator_a.json",
+      "build_failures_consume_budget": true,
+      "candidate_attempt_budget": 19,
+      "cell_id": "cuda_unlimited_native_d__to__cuda_unlimited__retuned__translator_a",
+      "destination_dsl": "cuda_unlimited",
+      "execution": {
+        "phase": "source_and_legality_audit",
+        "required_attempt_records": 19
+      },
+      "gate_in_loop": {
+        "gate": "matmul_v4",
+        "kc_ladder": [
+          8192,
+          4096,
+          2048,
+          1024,
+          512
+        ],
+        "performance_inputs_visible": false,
+        "threshold_changes_permitted": false
+      },
+      "implementation_registry": "dependencies/implementation_registry.json",
+      "job_id": "reciprocal_v2.audit.cuda_unlimited_native_d__to__cuda_unlimited__retuned__translator_a",
+      "ordinal": 46,
+      "recipe_card": {
+        "file_sha256": "cdf83101659e59e1ae4bfd801b496b60b250fc555b6648ec78f3c0320759fc62",
+        "path": "ako_runs/controlled_followup/reciprocal_v2/recipe_cards/cuda_unlimited_native_d.json",
+        "recipe_id": "cuda_unlimited_native_d",
+        "sha256": "fecb460062a8010cd265732615c98a483af0f5d890c4f41eda3ef45bab755b03"
+      },
+      "recipe_origin": "cuda_unlimited_native_d",
+      "retune_plan": "retune_plans/translator_a/cuda_unlimited_native_d__to__cuda_unlimited.json",
+      "transfer_mode": "retuned",
+      "translator": "translator_a",
+      "translator_source_root": "translators/translator_a"
+    },
+    {
+      "audit_receipt": "results/audit/receipts/cuda_unlimited_native_d__to__cuda_unlimited__retuned__translator_b.json",
+      "build_failures_consume_budget": true,
+      "candidate_attempt_budget": 19,
+      "cell_id": "cuda_unlimited_native_d__to__cuda_unlimited__retuned__translator_b",
+      "destination_dsl": "cuda_unlimited",
+      "execution": {
+        "phase": "source_and_legality_audit",
+        "required_attempt_records": 19
+      },
+      "gate_in_loop": {
+        "gate": "matmul_v4",
+        "kc_ladder": [
+          8192,
+          4096,
+          2048,
+          1024,
+          512
+        ],
+        "performance_inputs_visible": false,
+        "threshold_changes_permitted": false
+      },
+      "implementation_registry": "dependencies/implementation_registry.json",
+      "job_id": "reciprocal_v2.audit.cuda_unlimited_native_d__to__cuda_unlimited__retuned__translator_b",
+      "ordinal": 47,
+      "recipe_card": {
+        "file_sha256": "cdf83101659e59e1ae4bfd801b496b60b250fc555b6648ec78f3c0320759fc62",
+        "path": "ako_runs/controlled_followup/reciprocal_v2/recipe_cards/cuda_unlimited_native_d.json",
+        "recipe_id": "cuda_unlimited_native_d",
+        "sha256": "fecb460062a8010cd265732615c98a483af0f5d890c4f41eda3ef45bab755b03"
+      },
+      "recipe_origin": "cuda_unlimited_native_d",
+      "retune_plan": "retune_plans/translator_b/cuda_unlimited_native_d__to__cuda_unlimited.json",
+      "transfer_mode": "retuned",
+      "translator": "translator_b",
+      "translator_source_root": "translators/translator_b"
+    }
+  ],
+  "manifest_kind": "audit",
+  "required_locks": [
+    "dependencies/recipe_resolution_lock.json",
+    "dependencies/implementation_registry.json",
+    "dependencies/prelaunch_provenance.json"
+  ],
+  "robust_gate": {
+    "acceptance_receipt": "ako_runs/controlled_followup/robust_gate/validation/v4_acceptance_receipt.json",
+    "lock": "dependencies/gate_lock.json",
+    "spec": "ako_runs/controlled_followup/robust_gate/calibration/gate_spec_matmul_v4.json",
+    "summary": "ako_runs/controlled_followup/robust_gate/validation/matmul_holdout_summary_v4.json"
+  },
+  "schema_version": 2,
+  "status": "preregistered_not_launched"
+}

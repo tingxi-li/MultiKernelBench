@@ -1,0 +1,16 @@
+{
+  "acceptance_receipt": "../robust_gate/validation/v4_acceptance_receipt.json",
+  "acceptance_receipt_sha256": "7714808ea46d5a6a8db369cc0351632d530a52ea073015cd866c173af5e66743",
+  "calibration_records_sha256": "f6293c1d7a8b6033657777450fb463432c39961c7e69f16b8da64d9793fa5f23",
+  "campaign_id": "controlled-followup-robust-gate-matmul-v4",
+  "gate_spec": "../robust_gate/calibration/gate_spec_matmul_v4.json",
+  "gate_spec_file_sha256": "70bb3bc8f217c40ba5fcab90dc84ef798d06e22b5d1f0e4d27a2031069a295fb",
+  "gate_spec_sha256": "838c21d696febb2e712d03eff120326375fd34c5169a3d9c4978a2f8b6160aca",
+  "manifest_sha256": "c26683f1eb2add7d5b0b57da9f2ff66473042437c05e6019eac7adb3672a7314",
+  "operation": "matmul",
+  "schema_version": 1,
+  "state": "frozen",
+  "validation_summary": "../robust_gate/validation/matmul_holdout_summary_v4.json",
+  "validation_summary_sha256": "ce72771d1dfe7cd833120e0634aed8fd892f5c6fab8fa209788e495894b20b69"
+}
+

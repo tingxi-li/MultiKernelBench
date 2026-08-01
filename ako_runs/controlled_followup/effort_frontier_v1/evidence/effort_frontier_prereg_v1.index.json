@@ -1,0 +1,155 @@
+{
+  "bundle_filename": "effort_frontier_prereg_v1.tar.gz",
+  "bundle_sha256": "50d1642c1a7c22f38ba95b08d9b77fc7793e022d99cade3f052030beab267ad6",
+  "bundle_size": 44858,
+  "campaign_id": "fused-effort-frontier-v1-20260731",
+  "entry_count": 21,
+  "manifest": {
+    "analysis_canonical_sha256": null,
+    "campaign_id": "fused-effort-frontier-v1-20260731",
+    "entries": [
+      {
+        "path": "ako_runs/controlled_followup/effort_frontier_v1/.gitignore",
+        "sha256": "29a08c8a681c5b744df478afe8df70d1c941f868da051ecf3e9046c7ff3f2513",
+        "size": 53
+      },
+      {
+        "path": "ako_runs/controlled_followup/effort_frontier_v1/EXECUTOR_TREATMENT_ARTIFACT.md",
+        "sha256": "ba1771066dd7fb1304bc667e010a911ac7405f3436f7920f6ba58061b530e665",
+        "size": 4591
+      },
+      {
+        "path": "ako_runs/controlled_followup/effort_frontier_v1/README.md",
+        "sha256": "8130d36d1796e8b10d06d3f059883e4aad4dae81b76b3c55a5face78ea2b9479",
+        "size": 9165
+      },
+      {
+        "path": "ako_runs/controlled_followup/effort_frontier_v1/__init__.py",
+        "sha256": "ab3a829b140946e856acb7f80d1e7ffde6fb8bb3961cb4420cf614c286035b4e",
+        "size": 57
+      },
+      {
+        "path": "ako_runs/controlled_followup/effort_frontier_v1/analyze.py",
+        "sha256": "2bfa090979df052049731525d53a5969f895fabf99463ff27d56c3ead01d974b",
+        "size": 45439
+      },
+      {
+        "path": "ako_runs/controlled_followup/effort_frontier_v1/campaign.py",
+        "sha256": "8644406ac4ee1be4737c6634ba48c637d5ea99411693f9adb62e1849944c19a5",
+        "size": 4925
+      },
+      {
+        "path": "ako_runs/controlled_followup/effort_frontier_v1/capture_evidence.py",
+        "sha256": "b585fbbc5ea2e3020ebb5ba8c715c3c8104d9d539fca418fde40a9b6f4d504d3",
+        "size": 15251
+      },
+      {
+        "path": "ako_runs/controlled_followup/effort_frontier_v1/confirmation.py",
+        "sha256": "72f0353e3dcdfe54533e489e9920d5bb5410c05a75a2dde3437ea2b020da24c6",
+        "size": 13050
+      },
+      {
+        "path": "ako_runs/controlled_followup/effort_frontier_v1/controller.py",
+        "sha256": "5981552f0984090c4534f9704517e6dec63b6ebe4c02d90b1122a18ffe64ed60",
+        "size": 22089
+      },
+      {
+        "path": "ako_runs/controlled_followup/effort_frontier_v1/events.py",
+        "sha256": "ff3ba895ce0f337101544a196caa18ae16e3d3936432d412854e977afb70d41f",
+        "size": 8069
+      },
+      {
+        "path": "ako_runs/controlled_followup/effort_frontier_v1/launch.py",
+        "sha256": "ebe840514309a588ead2a8b0393d64c4db52729048bfb45afa20a5a1b5c7aec9",
+        "size": 2778
+      },
+      {
+        "path": "ako_runs/controlled_followup/effort_frontier_v1/locks/model_resolution_lock.json",
+        "sha256": "1c5a9e684a390bf8521817598c6b1b1b0692300d3911cde22277db19c14a1a83",
+        "size": 360
+      },
+      {
+        "path": "ako_runs/controlled_followup/effort_frontier_v1/make_manifest.py",
+        "sha256": "d7e6f6f96e52de7ed6d88b7501a2b49cc1a45df184a9f4add05d0e5a3ec8bc00",
+        "size": 8703
+      },
+      {
+        "path": "ako_runs/controlled_followup/effort_frontier_v1/manifest.json",
+        "sha256": "c946a08e6417acf4d466e7e1fa8de7ea025385ff0803fb2d92428519e8b926a5",
+        "size": 18263
+      },
+      {
+        "path": "ako_runs/controlled_followup/effort_frontier_v1/prompts/system.md",
+        "sha256": "b4fd19e2061a6078c3493af8f56e8cd5101242f4d0359a828fc49053f0cbd70d",
+        "size": 601
+      },
+      {
+        "path": "ako_runs/controlled_followup/effort_frontier_v1/prompts/task.md",
+        "sha256": "1dbab5e675dfa30456aabfc6dbb0875189c6e3e2465b339fc1c81886b6954e21",
+        "size": 449
+      },
+      {
+        "path": "ako_runs/controlled_followup/effort_frontier_v1/tests/__init__.py",
+        "sha256": "35cc04fa86816c940365061a7232ea3247013b08dab473fd4bcc8ac7cedab561",
+        "size": 45
+      },
+      {
+        "path": "ako_runs/controlled_followup/effort_frontier_v1/tests/test_protocol.py",
+        "sha256": "6eb41cbe9ba1d00ed87a54f7e52163797d2f9c078bd4146f7c3ad0aef787ab45",
+        "size": 18747
+      },
+      {
+        "path": "ako_runs/controlled_followup/effort_frontier_v1/validate.py",
+        "sha256": "1d1b870f0d78d1f3065a58f2f61f5f9bdfd44b0d8e0edb0d06097939a0407a86",
+        "size": 12851
+      },
+      {
+        "path": "ako_runs/controlled_followup/robust_gate/calibration/gate_spec_fused_v2.json",
+        "sha256": "b6c3afaadf61f5d380a97c6c541828a1ecacd1a89a00b73b66207fe22d765e2e",
+        "size": 5196
+      },
+      {
+        "path": "ako_runs/controlled_followup/robust_gate/validation/fused_gate_acceptance_v2.json",
+        "sha256": "4907fddefa2cac3f7215033cb93caaaa550cecd4a6c70971f29c5f331cb0485c",
+        "size": 2200
+      }
+    ],
+    "exclusion_policy": {
+      "names": [
+        ".confirmation.lock",
+        ".launcher.lock",
+        "active.lock"
+      ],
+      "partial_names": true,
+      "parts": [
+        ".pytest_cache",
+        ".torch_ext",
+        "__pycache__",
+        "build",
+        "dist",
+        "evidence"
+      ],
+      "suffixes": [
+        ".a",
+        ".cubin",
+        ".gz",
+        ".lock",
+        ".ninja",
+        ".o",
+        ".ptx",
+        ".pyc",
+        ".pyo",
+        ".so",
+        ".tar",
+        ".zip"
+      ]
+    },
+    "record_type": "effort_frontier_evidence_manifest",
+    "schema_version": 1,
+    "stage": "prereg"
+  },
+  "manifest_canonical_sha256": "37036212c5020878b796b6347a1c44a9b85dfc191ca99d861a47dfb45bc5e2cf",
+  "record_type": "effort_frontier_evidence_index",
+  "schema_version": 1,
+  "stage": "prereg"
+}

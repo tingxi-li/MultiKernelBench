@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "campaign_id": "20260731_controlled_followup_convergence_v2",
+  "state": "unresolved",
+  "resolutions": [
+    {
+      "provider": "openai",
+      "requested_alias": "gpt-5.6-sol",
+      "immutable_revision": null,
+      "provider_attested_immutable": false,
+      "resolved_at_utc": null,
+      "resolution_evidence_sha256": null
+    },
+    {
+      "provider": "anthropic",
+      "requested_alias": "claude-opus-4.8",
+      "immutable_revision": null,
+      "provider_attested_immutable": false,
+      "resolved_at_utc": null,
+      "resolution_evidence_sha256": null
+    }
+  ],
+  "instructions": "Populate only from direct provider resolution evidence; aliases or self-asserted dates are not immutable revisions."
+}
+

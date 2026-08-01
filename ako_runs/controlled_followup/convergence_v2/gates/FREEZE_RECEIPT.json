@@ -1,0 +1,10 @@
+{
+  "campaign_id": "20260731_controlled_followup_convergence_v2",
+  "completed_gate_claimed": false,
+  "files": {
+    "gates/sdpa_gate_preregistration.json": "b3a28ad52ec5a02d612465f184af51bb29f46a62e69c8f75d7c0cdd50ca2d13d",
+    "gates/sum_gate_preregistration.json": "4b94498c29298af9a5cc08585da31812ea8922f10857f8b92d3364cdeef1248f"
+  },
+  "schema_version": 1,
+  "state": "preregistrations_frozen_not_executed"
+}

@@ -1,0 +1,41 @@
+{
+  "campaign_id": "20260731_controlled_followup_convergence_v2",
+  "core_completed_evaluation_gpu_hours": 35.2,
+  "core_trajectories": 192,
+  "gpu_assignment": "each eight-replicate cell has exactly two rows per GPU slot",
+  "launch_state": "blocked_pending_validate_launch",
+  "manifests": {
+    "core_192.jsonl": "719cbb4ee6e315895f1e4a0e7bd4184f458864e7b056a6cb212b679621f07e36",
+    "prompt_extension_128.jsonl": "0150f6226c1ca169cff546926618d5529325a493f64c244f637df7875d97afea"
+  },
+  "non_negotiable_blockers": [
+    "both aliases resolved to provider-attested immutable model revisions",
+    "four concrete distinct GPU UUIDs bound to the frozen slots",
+    "prompt/system/tool hash lock verifies",
+    "sum and SDPA robust gates completed and frozen",
+    "hidden tuning and terminal holdout services bound to distinct datasets/principals",
+    "provider credentials present without being serialized"
+  ],
+  "operation_budgets_s": {
+    "scaled_dot_product_attention": 900,
+    "standard_matrix_multiplication": 600,
+    "sum_reduction_over_a_dimension": 480
+  },
+  "prompt_extension_completed_evaluation_gpu_hours": 21.333333333333332,
+  "prompt_extension_trajectories": 128,
+  "requested_models": [
+    {
+      "display_name": "GPT-5.6-sol",
+      "provider": "openai",
+      "requested_alias": "gpt-5.6-sol"
+    },
+    {
+      "display_name": "Claude Opus 4.8",
+      "provider": "anthropic",
+      "requested_alias": "claude-opus-4.8"
+    }
+  ],
+  "schema_version": 2,
+  "total_completed_evaluation_gpu_hours": 56.53333333333333,
+  "total_trajectories": 320
+}

@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "campaign_id": "20260731_controlled_followup_convergence_v2",
+  "state": "unresolved",
+  "operations": {
+    "sum_reduction_over_a_dimension": {
+      "gate_state": "preregistered_not_executed",
+      "preregistration": "gates/sum_gate_preregistration.json",
+      "tuning": null,
+      "terminal": null
+    },
+    "standard_matrix_multiplication": {
+      "gate_state": "completed_evidence_available_service_unbound",
+      "source_manifest": "../robust_gate/manifest_matmul_v4.json",
+      "source_manifest_sha256": "0b4bff1b17ee8c1e30e7e1ece5515ce6cfee74bd1d386f8162588fd91e5accb4",
+      "gate_spec_sha256": "70bb3bc8f217c40ba5fcab90dc84ef798d06e22b5d1f0e4d27a2031069a295fb",
+      "holdout_summary_sha256": "ce72771d1dfe7cd833120e0634aed8fd892f5c6fab8fa209788e495894b20b69",
+      "tuning": null,
+      "terminal": null
+    },
+    "scaled_dot_product_attention": {
+      "gate_state": "preregistered_not_executed",
+      "preregistration": "gates/sdpa_gate_preregistration.json",
+      "tuning": null,
+      "terminal": null
+    }
+  },
+  "instructions": "Do not set resolved until each gate is completed/frozen and distinct hidden tuning/terminal services are hash-bound to separate principals."
+}
+

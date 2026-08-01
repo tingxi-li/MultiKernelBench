@@ -1,0 +1,263 @@
+{
+  "campaign_id": "standard-matmul-reciprocal-transfer-v2-20260731",
+  "candidates": [
+    {
+      "attempt": 0,
+      "config": {
+        "BK": 32,
+        "BM": 128,
+        "BN": 128,
+        "stages": 2,
+        "threads": 256
+      },
+      "failure_consumes_attempt": true,
+      "kc": "from_recipe_resolution_lock"
+    },
+    {
+      "attempt": 1,
+      "config": {
+        "BK": 32,
+        "BM": 128,
+        "BN": 128,
+        "stages": 3,
+        "threads": 256
+      },
+      "failure_consumes_attempt": true,
+      "kc": "from_recipe_resolution_lock"
+    },
+    {
+      "attempt": 2,
+      "config": {
+        "BK": 32,
+        "BM": 128,
+        "BN": 128,
+        "stages": 4,
+        "threads": 256
+      },
+      "failure_consumes_attempt": true,
+      "kc": "from_recipe_resolution_lock"
+    },
+    {
+      "attempt": 3,
+      "config": {
+        "BK": 64,
+        "BM": 128,
+        "BN": 128,
+        "stages": 2,
+        "threads": 256
+      },
+      "failure_consumes_attempt": true,
+      "kc": "from_recipe_resolution_lock"
+    },
+    {
+      "attempt": 4,
+      "config": {
+        "BK": 64,
+        "BM": 128,
+        "BN": 128,
+        "stages": 3,
+        "threads": 256
+      },
+      "failure_consumes_attempt": true,
+      "kc": "from_recipe_resolution_lock"
+    },
+    {
+      "attempt": 5,
+      "config": {
+        "BK": 32,
+        "BM": 128,
+        "BN": 256,
+        "stages": 2,
+        "threads": 256
+      },
+      "failure_consumes_attempt": true,
+      "kc": "from_recipe_resolution_lock"
+    },
+    {
+      "attempt": 6,
+      "config": {
+        "BK": 32,
+        "BM": 128,
+        "BN": 256,
+        "stages": 3,
+        "threads": 256
+      },
+      "failure_consumes_attempt": true,
+      "kc": "from_recipe_resolution_lock"
+    },
+    {
+      "attempt": 7,
+      "config": {
+        "BK": 32,
+        "BM": 128,
+        "BN": 256,
+        "stages": 4,
+        "threads": 256
+      },
+      "failure_consumes_attempt": true,
+      "kc": "from_recipe_resolution_lock"
+    },
+    {
+      "attempt": 8,
+      "config": {
+        "BK": 64,
+        "BM": 128,
+        "BN": 256,
+        "stages": 2,
+        "threads": 256
+      },
+      "failure_consumes_attempt": true,
+      "kc": "from_recipe_resolution_lock"
+    },
+    {
+      "attempt": 9,
+      "config": {
+        "BK": 32,
+        "BM": 256,
+        "BN": 128,
+        "stages": 2,
+        "threads": 256
+      },
+      "failure_consumes_attempt": true,
+      "kc": "from_recipe_resolution_lock"
+    },
+    {
+      "attempt": 10,
+      "config": {
+        "BK": 32,
+        "BM": 256,
+        "BN": 128,
+        "stages": 3,
+        "threads": 256
+      },
+      "failure_consumes_attempt": true,
+      "kc": "from_recipe_resolution_lock"
+    },
+    {
+      "attempt": 11,
+      "config": {
+        "BK": 32,
+        "BM": 256,
+        "BN": 128,
+        "stages": 4,
+        "threads": 256
+      },
+      "failure_consumes_attempt": true,
+      "kc": "from_recipe_resolution_lock"
+    },
+    {
+      "attempt": 12,
+      "config": {
+        "BK": 64,
+        "BM": 256,
+        "BN": 128,
+        "stages": 2,
+        "threads": 256
+      },
+      "failure_consumes_attempt": true,
+      "kc": "from_recipe_resolution_lock"
+    },
+    {
+      "attempt": 13,
+      "config": {
+        "BK": 64,
+        "BM": 64,
+        "BN": 128,
+        "stages": 2,
+        "threads": 256
+      },
+      "failure_consumes_attempt": true,
+      "kc": "from_recipe_resolution_lock"
+    },
+    {
+      "attempt": 14,
+      "config": {
+        "BK": 64,
+        "BM": 64,
+        "BN": 128,
+        "stages": 3,
+        "threads": 256
+      },
+      "failure_consumes_attempt": true,
+      "kc": "from_recipe_resolution_lock"
+    },
+    {
+      "attempt": 15,
+      "config": {
+        "BK": 64,
+        "BM": 64,
+        "BN": 128,
+        "stages": 4,
+        "threads": 256
+      },
+      "failure_consumes_attempt": true,
+      "kc": "from_recipe_resolution_lock"
+    },
+    {
+      "attempt": 16,
+      "config": {
+        "BK": 64,
+        "BM": 128,
+        "BN": 64,
+        "stages": 2,
+        "threads": 256
+      },
+      "failure_consumes_attempt": true,
+      "kc": "from_recipe_resolution_lock"
+    },
+    {
+      "attempt": 17,
+      "config": {
+        "BK": 64,
+        "BM": 128,
+        "BN": 64,
+        "stages": 3,
+        "threads": 256
+      },
+      "failure_consumes_attempt": true,
+      "kc": "from_recipe_resolution_lock"
+    },
+    {
+      "attempt": 18,
+      "config": {
+        "BK": 64,
+        "BM": 128,
+        "BN": 64,
+        "stages": 4,
+        "threads": 256
+      },
+      "failure_consumes_attempt": true,
+      "kc": "from_recipe_resolution_lock"
+    }
+  ],
+  "destination_dsl": "cuda_unlimited",
+  "frozen_before_screening": true,
+  "performance_split_visible": false,
+  "plan_kind": "recipient_native_retune",
+  "preserve": [
+    "plain_2d_n_then_m",
+    "fp16_tensor_core_operands",
+    "fp32_chunk_accumulator",
+    "fp32_outer_accumulator",
+    "in_block_k_chunk_flush",
+    "no_cross_block_split_k",
+    "no_vendor_gemm"
+  ],
+  "recipe_origin": "cuda_unlimited_native_d",
+  "schema_version": 2,
+  "selection": {
+    "attempted_candidates": 19,
+    "build_failures_consume_budget": true,
+    "confirm_top_k": 2,
+    "confirmation_blocks": 15,
+    "gate_in_loop": "matmul_v4_all_required_cases",
+    "screen_repetitions": 2,
+    "winner_rule": "minimum_median_ms_among_all_v4_legal_candidates"
+  },
+  "source_grid": {
+    "path": "ako_runs/phase1_matmul/jobs/native_tuned.json",
+    "projection": "the 19 Phase-1 cuda_unlimited D configurations",
+    "sha256": "1b1c0977eaebdcab45782877e8ca9b577b37a17b4f8343d3bb45b3ed86b0b1a7"
+  },
+  "translator": "translator_b"
+}

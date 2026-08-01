@@ -1,0 +1,10 @@
+{
+  "archive_sha256": "31c508de83b7e62984496fecc52bbf352a1d734a053ad9a5a25186f1999cdb42",
+  "archive_size": 80422,
+  "campaign_id": "20260731_controlled_followup_convergence_v2",
+  "capture_mode": "prereg",
+  "evidence_manifest_sha256": "d9504cd303df6e7ff4994cb537cbf22013e943e3d07d2900a929c088ef116b27",
+  "file_count": 40,
+  "schema_version": 1,
+  "state_sha256": "f3b1107fa4e28365bdbfa92f49053b44642a5f85bf9b8cee8d33d4f176ec7adb"
+}

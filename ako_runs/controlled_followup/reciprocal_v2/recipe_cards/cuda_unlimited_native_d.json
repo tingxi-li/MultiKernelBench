@@ -1,0 +1,94 @@
+{
+  "algorithm": {
+    "BK": 32,
+    "BM": 128,
+    "BN": 128,
+    "cross_block_split_k": false,
+    "grid_mapping": "plain_2d_n_then_m",
+    "inline_ptx_permitted_at_origin": true,
+    "outer_accumulator_dtype": "fp32",
+    "stages": 3,
+    "tensor_accumulator_dtype": "fp32",
+    "tensor_core": true,
+    "threads": 256,
+    "vendor_gemm": false
+  },
+  "card_kind": "frozen_source_recipe",
+  "correctness_amendment": {
+    "candidate_kc_order": [
+      8192,
+      4096,
+      2048,
+      1024,
+      512
+    ],
+    "historical_kc": 2048,
+    "kind": "in_block_accumulator_flush_only",
+    "no_other_literal_change_permitted": true,
+    "selection": "largest_common_all_destination_all_translator_v4_pass"
+  },
+  "evidence": [
+    {
+      "path": "ako_runs/phase1_matmul/variants/cuda_unlimited_gemm.py",
+      "role": "parameterized Phase-1 implementation",
+      "sha256": "c9629300ce871476eb95cdecc5337229c43d3206e674c35d86a7f65d20a87ad5"
+    },
+    {
+      "path": "ako_runs/phase1_matmul/results/native_tuned/raw/cuda_unlimited__D__primary__BM128_BN128_BK32_stages3_kc2048__rand__rep0.json",
+      "role": "frozen native-search donor record",
+      "sha256": "cec4e9a167a3126180ac940e9e879304c706a502ef62e42d8fc537f570c1d6b1"
+    },
+    {
+      "path": "ako_runs/phase1_matmul/results/code_inspection.json",
+      "role": "generated-code inspection registry",
+      "sha256": "5826fda12dc1b372f255312d27044eab64310b262bf173de7cd83c9798685a1d"
+    }
+  ],
+  "literal_treatment": {
+    "configs": [
+      {
+        "BK": 32,
+        "BM": 128,
+        "BN": 128,
+        "kc": 2048,
+        "stages": 3,
+        "threads": 256
+      }
+    ],
+    "preserve": [
+      "plain_2d_n_then_m_mapping",
+      "tensor_core_fragment_mapping",
+      "pipeline_depth",
+      "thread_count",
+      "in_block_chunk_then_fp32_outer_accumulate"
+    ]
+  },
+  "origin": {
+    "dsl": "cuda_unlimited",
+    "historical_key": "cuda_unlimited.D.128x128x32.kc2048.s3.fp16.precast",
+    "implementation": "ako_runs/phase1_matmul/variants/cuda_unlimited_gemm.py"
+  },
+  "recipe_id": "cuda_unlimited_native_d",
+  "retuned_treatment": {
+    "attempted_candidates": 19,
+    "build_failures_consume_budget": true,
+    "preserve": [
+      "plain_2d_n_then_m_mapping",
+      "fp16_tensor_core_operands",
+      "fp32_chunk_and_outer_accumulators",
+      "no_cross_block_split_k",
+      "no_vendor_gemm"
+    ]
+  },
+  "schema_version": 2,
+  "workload": {
+    "operand_storage": "fp16_precast_outside_timed_region",
+    "operation": "matmul",
+    "output_dtype": "fp32",
+    "shape": {
+      "K": 8192,
+      "M": 2048,
+      "N": 4096
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "access_policy": {
+    "network_must_be_disabled": true,
+    "other_translator_source_must_be_inaccessible": true,
+    "performance_results_must_be_inaccessible": true
+  },
+  "campaign_id": "standard-matmul-reciprocal-transfer-v2-20260731",
+  "candidate_attempt_budget": 1,
+  "cell_id": "triton_grouped_autotuned__to__tilelang__literal__translator_b",
+  "claim": "request_only_no_source_or_treatment_outcome_is_asserted",
+  "destination_dsl": "tilelang",
+  "output_contract": {
+    "request_and_isolation_hash_bindings_required": true,
+    "source_must_be_regular_nonempty_and_unique": true,
+    "source_path": "ako_runs/controlled_followup/reciprocal_v2/translators/translator_b/implementations/triton_grouped_autotuned__to__tilelang__literal__translator_b.py",
+    "translation_receipt_path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/outputs/translations/translator_b/triton_grouped_autotuned__to__tilelang__literal__translator_b.json"
+  },
+  "recipe_card": {
+    "file_sha256": "034a74ef0e0452dd858608cd3660403304b9a101ae3130b32dc657beb1abedfe",
+    "path": "ako_runs/controlled_followup/reciprocal/recipe_cards/triton_grouped_autotuned.json",
+    "recipe_id": "triton_grouped_autotuned",
+    "sha256": "913ad1d46a8659ba5c88ae9074f056f4b163c4ae66fc0a63df44196e90fc6693"
+  },
+  "recipe_origin": "triton_grouped_autotuned",
+  "record_type": "reciprocal_v2_translation_request",
+  "retune_plan": null,
+  "schema_version": 1,
+  "state": "unexecuted_treatment_request",
+  "supplement_id": "reciprocal-v2-production-v1-20260731",
+  "transfer_mode": "literal",
+  "translator": "translator_b"
+}

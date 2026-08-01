@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "tools": [
+    {
+      "name": "submit_candidate",
+      "description": "Build and evaluate a content-addressed candidate on the hidden tuning gate.",
+      "input": {
+        "candidate_id": "nonempty string",
+        "source_sha256": "64 lowercase hexadecimal characters",
+        "artifact_sha256": "64 lowercase hexadecimal characters"
+      },
+      "output_visible_to_searcher": ["passed", "failed_metric_names", "decision_id"]
+    },
+    {
+      "name": "benchmark_candidate",
+      "description": "Time a tuning-legal candidate; elapsed build/autotune/benchmark time is charged.",
+      "input": {"candidate_id": "previously submitted candidate"},
+      "output_visible_to_searcher": ["runtime_ms", "candidate_id"]
+    },
+    {
+      "name": "profile_candidate",
+      "description": "Use one controller-granted NCU opportunity; NCU seconds are logged separately.",
+      "input": {"candidate_id": "previously submitted candidate"},
+      "output_visible_to_searcher": ["registered_counter_summary", "ncu_s"]
+    }
+  ],
+  "forbidden_outputs": [
+    "hidden inputs",
+    "metric thresholds",
+    "per-case metric values",
+    "terminal holdout identity",
+    "terminal holdout results before trajectory completion"
+  ]
+}
+

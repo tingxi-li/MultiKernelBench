@@ -1,0 +1,629 @@
+{
+  "analysis": {
+    "confirmation_normalization": "candidate/control latency ratio paired within distribution and block, then reduced to one median technical-block ratio per search trajectory",
+    "control_inference": "exact two-sided sign tests across five trajectory summaries with Holm correction over four lanes per checkpoint and distribution",
+    "distribution_stability": "positive-versus-signed lane-rank Spearman agreement with an exact four-item permutation p-value (Holm across checkpoints), plus exact paired trajectory sign tests (Holm across lanes within checkpoint)",
+    "failure_ordering": "a checkpoint without a terminal-holdout-legal candidate ranks worse than every finite legal latency; failures tie; success counts are always shown",
+    "no_endpoint_only_claim": true,
+    "pairwise": "exact two-sided permutation Mann-Whitney tests (tie-aware enumeration of all 10 choose 5 assignments) with Holm correction over six lane pairs separately at each checkpoint",
+    "primary": "latency versus cumulative active effort frontier curves",
+    "replicate_distribution": "five independent search contexts per programmable lane"
+  },
+  "campaign_id": "fused-effort-frontier-v1-20260731",
+  "confirmation": {
+    "analysis_unit": "the independent search trajectory; timing blocks are paired technical replicates and are not promoted to independent search replicates",
+    "candidates": "one frozen selection per trajectory/checkpoint when the best tuning candidate passes its hidden terminal holdout; failed/missing selections remain failures and are not replaced after checkpoint freeze",
+    "distributions": [
+      "positive_rand_seed0",
+      "signed_mixed_withheld"
+    ],
+    "include_control_every_block": true,
+    "order": "deterministic SHA-256 permutation of all eligible selections plus the control independently within each distribution and block",
+    "physical_gpu": 0,
+    "randomized_complete_blocks": 15,
+    "required_gpu_uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae",
+    "timed_trials_per_record": 100,
+    "warmup_iterations_per_record": 25
+  },
+  "effort_clock": {
+    "checkpoint_labels": [
+      "0p5h",
+      "2h",
+      "8h"
+    ],
+    "checkpoints_s": [
+      1800,
+      7200,
+      28800
+    ],
+    "controller_compute_definition": "measured prompt/feedback construction, response parsing, candidate persistence, evaluator-response validation, and checkpoint selection; event serialization and lifecycle bookkeeping are protocol overhead",
+    "human_intervention_rule": "zero by default; any nonzero intervention is timestamped, described, and cannot be silently converted to agent effort",
+    "primary_clock": "completed active controller + provider wait + evaluator compute seconds; queue and infrastructure outage time excluded",
+    "separately_logged": [
+      "provider_wait_s",
+      "controller_compute_s",
+      "gpu_evaluation_s",
+      "human_intervention_s",
+      "input_tokens",
+      "output_tokens",
+      "reasoning_tokens",
+      "cache_read_tokens",
+      "cache_write_tokens"
+    ]
+  },
+  "lanes": {
+    "control": {
+      "id": "torch_contract_fp32",
+      "kind": "frozen_nonprogrammable_timing_anchor",
+      "search_effort": 0
+    },
+    "cublaslt_scope": {
+      "claim_limit": "tested cuBLASLt implementation, not vendor-expert performance",
+      "implementations_permitted": [
+        "cublaslt_matmul_with_GELU_BIAS_epilogue_if_exactly_gate_legal",
+        "cublaslt_matmul_plus_exact_nonvendor_postprocess"
+      ],
+      "selection": "fused-v2 gate in loop; unsupported/failing paths consume effort"
+    },
+    "programmable": [
+      "cublaslt",
+      "triton",
+      "tilelang",
+      "cuda_unlimited"
+    ]
+  },
+  "launch_blocker_classes": {
+    "coordination": "clean committed/pushed externally timestamped prelaunch provenance",
+    "external": [
+      "provider-attested immutable model resolution and credential",
+      "four frozen Ada GPUs visible through a working NVIDIA driver"
+    ],
+    "known_local_controller_gaps": [],
+    "treatment_artifact": {
+      "item": "content-addressed external executor registry and implementations",
+      "not_mechanically_derivable_from_existing_fixed_runners": true,
+      "reasoning": "ako_runs/controlled_followup/effort_frontier_v1/EXECUTOR_TREATMENT_ARTIFACT.md",
+      "reasoning_sha256": "ba1771066dd7fb1304bc667e010a911ac7405f3436f7920f6ba58061b530e665"
+    }
+  },
+  "optimizer": {
+    "immutable_resolution_lock": "locks/model_resolution_lock.json",
+    "provider": "openai",
+    "requested_alias": "gpt-5.6-sol",
+    "same_controller_and_prompt_across_programmable_lanes": true,
+    "sampling_seed_note": "provider sampling seeds are not assumed supported; search_seed labels independent contexts and stochastic request IDs"
+  },
+  "provenance_contract": {
+    "campaign_files": [
+      "README.md",
+      "EXECUTOR_TREATMENT_ARTIFACT.md",
+      "__init__.py",
+      "analyze.py",
+      "campaign.py",
+      "capture_evidence.py",
+      "confirmation.py",
+      "controller.py",
+      "events.py",
+      "launch.py",
+      "make_manifest.py",
+      "manifest.json",
+      "prompts/system.md",
+      "prompts/task.md",
+      "validate.py"
+    ],
+    "external_executor_sources": "content-addressed by locks/executor_registry.json",
+    "result_policy": "append-only hash-chained plain JSONL; no partial result is complete"
+  },
+  "required_prelaunch_locks": [
+    "locks/model_resolution_lock.json",
+    "locks/executor_registry.json",
+    "locks/prelaunch_provenance.json"
+  ],
+  "research_question": "How does best fused-v2-legal latency evolve with cumulative active optimization effort across abstraction levels?",
+  "robust_gate": {
+    "acceptance_receipt": "ako_runs/controlled_followup/robust_gate/validation/fused_gate_acceptance_v2.json",
+    "acceptance_receipt_sha256": "4907fddefa2cac3f7215033cb93caaaa550cecd4a6c70971f29c5f331cb0485c",
+    "candidate_rule": "lane policy, build, and all registered fused-v2 cases pass or candidate is ineligible",
+    "hidden_terminal_holdout": true,
+    "spec": "ako_runs/controlled_followup/robust_gate/calibration/gate_spec_fused_v2.json",
+    "spec_sha256": "b6c3afaadf61f5d380a97c6c541828a1ecacd1a89a00b73b66207fe22d765e2e",
+    "threshold_changes_permitted": false
+  },
+  "schema_version": 1,
+  "scope": "implementation-specific, one fused operation/shape, RTX 6000 Ada only",
+  "search_replicates_per_programmable_lane": 5,
+  "status": "preregistered_not_launched",
+  "trajectories": [
+    {
+      "checkpoints": [
+        {
+          "active_effort_s": 1800,
+          "label": "0p5h"
+        },
+        {
+          "active_effort_s": 7200,
+          "label": "2h"
+        },
+        {
+          "active_effort_s": 28800,
+          "label": "8h"
+        }
+      ],
+      "lane": "cublaslt",
+      "logical_device": "cuda:0",
+      "ordinal": 0,
+      "physical_gpu": 0,
+      "replicate": 0,
+      "required_gpu_uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae",
+      "search_seed": 97307362310139848,
+      "trajectory_id": "effort_v1.cublaslt.r0"
+    },
+    {
+      "checkpoints": [
+        {
+          "active_effort_s": 1800,
+          "label": "0p5h"
+        },
+        {
+          "active_effort_s": 7200,
+          "label": "2h"
+        },
+        {
+          "active_effort_s": 28800,
+          "label": "8h"
+        }
+      ],
+      "lane": "cublaslt",
+      "logical_device": "cuda:0",
+      "ordinal": 1,
+      "physical_gpu": 1,
+      "replicate": 1,
+      "required_gpu_uuid": "GPU-91b61ae6-d21e-485e-43b3-7505d62149b1",
+      "search_seed": 1317908428091790085,
+      "trajectory_id": "effort_v1.cublaslt.r1"
+    },
+    {
+      "checkpoints": [
+        {
+          "active_effort_s": 1800,
+          "label": "0p5h"
+        },
+        {
+          "active_effort_s": 7200,
+          "label": "2h"
+        },
+        {
+          "active_effort_s": 28800,
+          "label": "8h"
+        }
+      ],
+      "lane": "cublaslt",
+      "logical_device": "cuda:0",
+      "ordinal": 2,
+      "physical_gpu": 2,
+      "replicate": 2,
+      "required_gpu_uuid": "GPU-3ed448f2-f23a-09fc-e18b-f580523c4a3f",
+      "search_seed": 4341563396817338225,
+      "trajectory_id": "effort_v1.cublaslt.r2"
+    },
+    {
+      "checkpoints": [
+        {
+          "active_effort_s": 1800,
+          "label": "0p5h"
+        },
+        {
+          "active_effort_s": 7200,
+          "label": "2h"
+        },
+        {
+          "active_effort_s": 28800,
+          "label": "8h"
+        }
+      ],
+      "lane": "cublaslt",
+      "logical_device": "cuda:0",
+      "ordinal": 3,
+      "physical_gpu": 3,
+      "replicate": 3,
+      "required_gpu_uuid": "GPU-eafdd6ce-8857-40fd-f494-47a7240bf6b5",
+      "search_seed": 2359765019618229538,
+      "trajectory_id": "effort_v1.cublaslt.r3"
+    },
+    {
+      "checkpoints": [
+        {
+          "active_effort_s": 1800,
+          "label": "0p5h"
+        },
+        {
+          "active_effort_s": 7200,
+          "label": "2h"
+        },
+        {
+          "active_effort_s": 28800,
+          "label": "8h"
+        }
+      ],
+      "lane": "cublaslt",
+      "logical_device": "cuda:0",
+      "ordinal": 4,
+      "physical_gpu": 0,
+      "replicate": 4,
+      "required_gpu_uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae",
+      "search_seed": 8573510357694237564,
+      "trajectory_id": "effort_v1.cublaslt.r4"
+    },
+    {
+      "checkpoints": [
+        {
+          "active_effort_s": 1800,
+          "label": "0p5h"
+        },
+        {
+          "active_effort_s": 7200,
+          "label": "2h"
+        },
+        {
+          "active_effort_s": 28800,
+          "label": "8h"
+        }
+      ],
+      "lane": "triton",
+      "logical_device": "cuda:0",
+      "ordinal": 5,
+      "physical_gpu": 1,
+      "replicate": 0,
+      "required_gpu_uuid": "GPU-91b61ae6-d21e-485e-43b3-7505d62149b1",
+      "search_seed": 9192751835338271066,
+      "trajectory_id": "effort_v1.triton.r0"
+    },
+    {
+      "checkpoints": [
+        {
+          "active_effort_s": 1800,
+          "label": "0p5h"
+        },
+        {
+          "active_effort_s": 7200,
+          "label": "2h"
+        },
+        {
+          "active_effort_s": 28800,
+          "label": "8h"
+        }
+      ],
+      "lane": "triton",
+      "logical_device": "cuda:0",
+      "ordinal": 6,
+      "physical_gpu": 2,
+      "replicate": 1,
+      "required_gpu_uuid": "GPU-3ed448f2-f23a-09fc-e18b-f580523c4a3f",
+      "search_seed": 7812570037931846272,
+      "trajectory_id": "effort_v1.triton.r1"
+    },
+    {
+      "checkpoints": [
+        {
+          "active_effort_s": 1800,
+          "label": "0p5h"
+        },
+        {
+          "active_effort_s": 7200,
+          "label": "2h"
+        },
+        {
+          "active_effort_s": 28800,
+          "label": "8h"
+        }
+      ],
+      "lane": "triton",
+      "logical_device": "cuda:0",
+      "ordinal": 7,
+      "physical_gpu": 3,
+      "replicate": 2,
+      "required_gpu_uuid": "GPU-eafdd6ce-8857-40fd-f494-47a7240bf6b5",
+      "search_seed": 7368512688335219817,
+      "trajectory_id": "effort_v1.triton.r2"
+    },
+    {
+      "checkpoints": [
+        {
+          "active_effort_s": 1800,
+          "label": "0p5h"
+        },
+        {
+          "active_effort_s": 7200,
+          "label": "2h"
+        },
+        {
+          "active_effort_s": 28800,
+          "label": "8h"
+        }
+      ],
+      "lane": "triton",
+      "logical_device": "cuda:0",
+      "ordinal": 8,
+      "physical_gpu": 0,
+      "replicate": 3,
+      "required_gpu_uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae",
+      "search_seed": 8451721013530587924,
+      "trajectory_id": "effort_v1.triton.r3"
+    },
+    {
+      "checkpoints": [
+        {
+          "active_effort_s": 1800,
+          "label": "0p5h"
+        },
+        {
+          "active_effort_s": 7200,
+          "label": "2h"
+        },
+        {
+          "active_effort_s": 28800,
+          "label": "8h"
+        }
+      ],
+      "lane": "triton",
+      "logical_device": "cuda:0",
+      "ordinal": 9,
+      "physical_gpu": 1,
+      "replicate": 4,
+      "required_gpu_uuid": "GPU-91b61ae6-d21e-485e-43b3-7505d62149b1",
+      "search_seed": 2419471791523664255,
+      "trajectory_id": "effort_v1.triton.r4"
+    },
+    {
+      "checkpoints": [
+        {
+          "active_effort_s": 1800,
+          "label": "0p5h"
+        },
+        {
+          "active_effort_s": 7200,
+          "label": "2h"
+        },
+        {
+          "active_effort_s": 28800,
+          "label": "8h"
+        }
+      ],
+      "lane": "tilelang",
+      "logical_device": "cuda:0",
+      "ordinal": 10,
+      "physical_gpu": 2,
+      "replicate": 0,
+      "required_gpu_uuid": "GPU-3ed448f2-f23a-09fc-e18b-f580523c4a3f",
+      "search_seed": 1033739108305629597,
+      "trajectory_id": "effort_v1.tilelang.r0"
+    },
+    {
+      "checkpoints": [
+        {
+          "active_effort_s": 1800,
+          "label": "0p5h"
+        },
+        {
+          "active_effort_s": 7200,
+          "label": "2h"
+        },
+        {
+          "active_effort_s": 28800,
+          "label": "8h"
+        }
+      ],
+      "lane": "tilelang",
+      "logical_device": "cuda:0",
+      "ordinal": 11,
+      "physical_gpu": 3,
+      "replicate": 1,
+      "required_gpu_uuid": "GPU-eafdd6ce-8857-40fd-f494-47a7240bf6b5",
+      "search_seed": 1618489158734101894,
+      "trajectory_id": "effort_v1.tilelang.r1"
+    },
+    {
+      "checkpoints": [
+        {
+          "active_effort_s": 1800,
+          "label": "0p5h"
+        },
+        {
+          "active_effort_s": 7200,
+          "label": "2h"
+        },
+        {
+          "active_effort_s": 28800,
+          "label": "8h"
+        }
+      ],
+      "lane": "tilelang",
+      "logical_device": "cuda:0",
+      "ordinal": 12,
+      "physical_gpu": 0,
+      "replicate": 2,
+      "required_gpu_uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae",
+      "search_seed": 7743311401033509714,
+      "trajectory_id": "effort_v1.tilelang.r2"
+    },
+    {
+      "checkpoints": [
+        {
+          "active_effort_s": 1800,
+          "label": "0p5h"
+        },
+        {
+          "active_effort_s": 7200,
+          "label": "2h"
+        },
+        {
+          "active_effort_s": 28800,
+          "label": "8h"
+        }
+      ],
+      "lane": "tilelang",
+      "logical_device": "cuda:0",
+      "ordinal": 13,
+      "physical_gpu": 1,
+      "replicate": 3,
+      "required_gpu_uuid": "GPU-91b61ae6-d21e-485e-43b3-7505d62149b1",
+      "search_seed": 5254308023239207022,
+      "trajectory_id": "effort_v1.tilelang.r3"
+    },
+    {
+      "checkpoints": [
+        {
+          "active_effort_s": 1800,
+          "label": "0p5h"
+        },
+        {
+          "active_effort_s": 7200,
+          "label": "2h"
+        },
+        {
+          "active_effort_s": 28800,
+          "label": "8h"
+        }
+      ],
+      "lane": "tilelang",
+      "logical_device": "cuda:0",
+      "ordinal": 14,
+      "physical_gpu": 2,
+      "replicate": 4,
+      "required_gpu_uuid": "GPU-3ed448f2-f23a-09fc-e18b-f580523c4a3f",
+      "search_seed": 7151663139811734274,
+      "trajectory_id": "effort_v1.tilelang.r4"
+    },
+    {
+      "checkpoints": [
+        {
+          "active_effort_s": 1800,
+          "label": "0p5h"
+        },
+        {
+          "active_effort_s": 7200,
+          "label": "2h"
+        },
+        {
+          "active_effort_s": 28800,
+          "label": "8h"
+        }
+      ],
+      "lane": "cuda_unlimited",
+      "logical_device": "cuda:0",
+      "ordinal": 15,
+      "physical_gpu": 3,
+      "replicate": 0,
+      "required_gpu_uuid": "GPU-eafdd6ce-8857-40fd-f494-47a7240bf6b5",
+      "search_seed": 2544834120737576839,
+      "trajectory_id": "effort_v1.cuda_unlimited.r0"
+    },
+    {
+      "checkpoints": [
+        {
+          "active_effort_s": 1800,
+          "label": "0p5h"
+        },
+        {
+          "active_effort_s": 7200,
+          "label": "2h"
+        },
+        {
+          "active_effort_s": 28800,
+          "label": "8h"
+        }
+      ],
+      "lane": "cuda_unlimited",
+      "logical_device": "cuda:0",
+      "ordinal": 16,
+      "physical_gpu": 0,
+      "replicate": 1,
+      "required_gpu_uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae",
+      "search_seed": 7931381812146428065,
+      "trajectory_id": "effort_v1.cuda_unlimited.r1"
+    },
+    {
+      "checkpoints": [
+        {
+          "active_effort_s": 1800,
+          "label": "0p5h"
+        },
+        {
+          "active_effort_s": 7200,
+          "label": "2h"
+        },
+        {
+          "active_effort_s": 28800,
+          "label": "8h"
+        }
+      ],
+      "lane": "cuda_unlimited",
+      "logical_device": "cuda:0",
+      "ordinal": 17,
+      "physical_gpu": 1,
+      "replicate": 2,
+      "required_gpu_uuid": "GPU-91b61ae6-d21e-485e-43b3-7505d62149b1",
+      "search_seed": 1947281284642378473,
+      "trajectory_id": "effort_v1.cuda_unlimited.r2"
+    },
+    {
+      "checkpoints": [
+        {
+          "active_effort_s": 1800,
+          "label": "0p5h"
+        },
+        {
+          "active_effort_s": 7200,
+          "label": "2h"
+        },
+        {
+          "active_effort_s": 28800,
+          "label": "8h"
+        }
+      ],
+      "lane": "cuda_unlimited",
+      "logical_device": "cuda:0",
+      "ordinal": 18,
+      "physical_gpu": 2,
+      "replicate": 3,
+      "required_gpu_uuid": "GPU-3ed448f2-f23a-09fc-e18b-f580523c4a3f",
+      "search_seed": 2463944485891208369,
+      "trajectory_id": "effort_v1.cuda_unlimited.r3"
+    },
+    {
+      "checkpoints": [
+        {
+          "active_effort_s": 1800,
+          "label": "0p5h"
+        },
+        {
+          "active_effort_s": 7200,
+          "label": "2h"
+        },
+        {
+          "active_effort_s": 28800,
+          "label": "8h"
+        }
+      ],
+      "lane": "cuda_unlimited",
+      "logical_device": "cuda:0",
+      "ordinal": 19,
+      "physical_gpu": 3,
+      "replicate": 4,
+      "required_gpu_uuid": "GPU-eafdd6ce-8857-40fd-f494-47a7240bf6b5",
+      "search_seed": 1991252900711303570,
+      "trajectory_id": "effort_v1.cuda_unlimited.r4"
+    }
+  ],
+  "trajectory_count": 20,
+  "workload": {
+    "operation": "matmul_bias_gelu_softmax",
+    "output_dtype": "fp32",
+    "shape": {
+      "K": 8192,
+      "M": 1024,
+      "N": 8192
+    },
+    "timed_region": "precast_inputs_to_fp32_output"
+  }
+}

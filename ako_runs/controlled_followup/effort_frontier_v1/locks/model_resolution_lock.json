@@ -1,0 +1,16 @@
+{
+  "campaign_id": "fused-effort-frontier-v1-20260731",
+  "resolutions": [
+    {
+      "immutable_revision": null,
+      "provider": "openai",
+      "provider_attested_immutable": false,
+      "requested_alias": "gpt-5.6-sol",
+      "resolution_evidence_sha256": null,
+      "resolved_at_utc": null
+    }
+  ],
+  "schema_version": 1,
+  "state": "unresolved"
+}
+

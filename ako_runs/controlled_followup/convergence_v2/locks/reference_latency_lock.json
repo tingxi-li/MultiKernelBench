@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "campaign_id": "20260731_controlled_followup_convergence_v2",
+  "state": "unresolved",
+  "gpu_uuid": null,
+  "references": {},
+  "required_operations": [
+    "sum_reduction_over_a_dimension",
+    "standard_matrix_multiplication",
+    "scaled_dot_product_attention"
+  ],
+  "instructions": "For every operation, bind one terminal-gate-legal content-addressed reference and positive finite latency before any trajectory is exposed."
+}
+

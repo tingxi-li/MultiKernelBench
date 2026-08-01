@@ -1,0 +1,216 @@
+{
+  "campaign_id": "standard-matmul-reciprocal-transfer-v2-20260731",
+  "cell_count": 24,
+  "cells": [
+    {
+      "cell_key": "tilelang_phase1_confirmed__to__tilelang__translator_a",
+      "destination_dsl": "tilelang",
+      "literal_cell_id": "tilelang_phase1_confirmed__to__tilelang__literal__translator_a",
+      "ordinal": 0,
+      "recipe_origin": "tilelang_phase1_confirmed",
+      "translator": "translator_a"
+    },
+    {
+      "cell_key": "tilelang_phase1_confirmed__to__tilelang__translator_b",
+      "destination_dsl": "tilelang",
+      "literal_cell_id": "tilelang_phase1_confirmed__to__tilelang__literal__translator_b",
+      "ordinal": 1,
+      "recipe_origin": "tilelang_phase1_confirmed",
+      "translator": "translator_b"
+    },
+    {
+      "cell_key": "tilelang_phase1_confirmed__to__triton__translator_a",
+      "destination_dsl": "triton",
+      "literal_cell_id": "tilelang_phase1_confirmed__to__triton__literal__translator_a",
+      "ordinal": 2,
+      "recipe_origin": "tilelang_phase1_confirmed",
+      "translator": "translator_a"
+    },
+    {
+      "cell_key": "tilelang_phase1_confirmed__to__triton__translator_b",
+      "destination_dsl": "triton",
+      "literal_cell_id": "tilelang_phase1_confirmed__to__triton__literal__translator_b",
+      "ordinal": 3,
+      "recipe_origin": "tilelang_phase1_confirmed",
+      "translator": "translator_b"
+    },
+    {
+      "cell_key": "tilelang_phase1_confirmed__to__cuda_noptx__translator_a",
+      "destination_dsl": "cuda_noptx",
+      "literal_cell_id": "tilelang_phase1_confirmed__to__cuda_noptx__literal__translator_a",
+      "ordinal": 4,
+      "recipe_origin": "tilelang_phase1_confirmed",
+      "translator": "translator_a"
+    },
+    {
+      "cell_key": "tilelang_phase1_confirmed__to__cuda_noptx__translator_b",
+      "destination_dsl": "cuda_noptx",
+      "literal_cell_id": "tilelang_phase1_confirmed__to__cuda_noptx__literal__translator_b",
+      "ordinal": 5,
+      "recipe_origin": "tilelang_phase1_confirmed",
+      "translator": "translator_b"
+    },
+    {
+      "cell_key": "tilelang_phase1_confirmed__to__cuda_unlimited__translator_a",
+      "destination_dsl": "cuda_unlimited",
+      "literal_cell_id": "tilelang_phase1_confirmed__to__cuda_unlimited__literal__translator_a",
+      "ordinal": 6,
+      "recipe_origin": "tilelang_phase1_confirmed",
+      "translator": "translator_a"
+    },
+    {
+      "cell_key": "tilelang_phase1_confirmed__to__cuda_unlimited__translator_b",
+      "destination_dsl": "cuda_unlimited",
+      "literal_cell_id": "tilelang_phase1_confirmed__to__cuda_unlimited__literal__translator_b",
+      "ordinal": 7,
+      "recipe_origin": "tilelang_phase1_confirmed",
+      "translator": "translator_b"
+    },
+    {
+      "cell_key": "triton_grouped_autotuned__to__tilelang__translator_a",
+      "destination_dsl": "tilelang",
+      "literal_cell_id": "triton_grouped_autotuned__to__tilelang__literal__translator_a",
+      "ordinal": 8,
+      "recipe_origin": "triton_grouped_autotuned",
+      "translator": "translator_a"
+    },
+    {
+      "cell_key": "triton_grouped_autotuned__to__tilelang__translator_b",
+      "destination_dsl": "tilelang",
+      "literal_cell_id": "triton_grouped_autotuned__to__tilelang__literal__translator_b",
+      "ordinal": 9,
+      "recipe_origin": "triton_grouped_autotuned",
+      "translator": "translator_b"
+    },
+    {
+      "cell_key": "triton_grouped_autotuned__to__triton__translator_a",
+      "destination_dsl": "triton",
+      "literal_cell_id": "triton_grouped_autotuned__to__triton__literal__translator_a",
+      "ordinal": 10,
+      "recipe_origin": "triton_grouped_autotuned",
+      "translator": "translator_a"
+    },
+    {
+      "cell_key": "triton_grouped_autotuned__to__triton__translator_b",
+      "destination_dsl": "triton",
+      "literal_cell_id": "triton_grouped_autotuned__to__triton__literal__translator_b",
+      "ordinal": 11,
+      "recipe_origin": "triton_grouped_autotuned",
+      "translator": "translator_b"
+    },
+    {
+      "cell_key": "triton_grouped_autotuned__to__cuda_noptx__translator_a",
+      "destination_dsl": "cuda_noptx",
+      "literal_cell_id": "triton_grouped_autotuned__to__cuda_noptx__literal__translator_a",
+      "ordinal": 12,
+      "recipe_origin": "triton_grouped_autotuned",
+      "translator": "translator_a"
+    },
+    {
+      "cell_key": "triton_grouped_autotuned__to__cuda_noptx__translator_b",
+      "destination_dsl": "cuda_noptx",
+      "literal_cell_id": "triton_grouped_autotuned__to__cuda_noptx__literal__translator_b",
+      "ordinal": 13,
+      "recipe_origin": "triton_grouped_autotuned",
+      "translator": "translator_b"
+    },
+    {
+      "cell_key": "triton_grouped_autotuned__to__cuda_unlimited__translator_a",
+      "destination_dsl": "cuda_unlimited",
+      "literal_cell_id": "triton_grouped_autotuned__to__cuda_unlimited__literal__translator_a",
+      "ordinal": 14,
+      "recipe_origin": "triton_grouped_autotuned",
+      "translator": "translator_a"
+    },
+    {
+      "cell_key": "triton_grouped_autotuned__to__cuda_unlimited__translator_b",
+      "destination_dsl": "cuda_unlimited",
+      "literal_cell_id": "triton_grouped_autotuned__to__cuda_unlimited__literal__translator_b",
+      "ordinal": 15,
+      "recipe_origin": "triton_grouped_autotuned",
+      "translator": "translator_b"
+    },
+    {
+      "cell_key": "cuda_unlimited_native_d__to__tilelang__translator_a",
+      "destination_dsl": "tilelang",
+      "literal_cell_id": "cuda_unlimited_native_d__to__tilelang__literal__translator_a",
+      "ordinal": 16,
+      "recipe_origin": "cuda_unlimited_native_d",
+      "translator": "translator_a"
+    },
+    {
+      "cell_key": "cuda_unlimited_native_d__to__tilelang__translator_b",
+      "destination_dsl": "tilelang",
+      "literal_cell_id": "cuda_unlimited_native_d__to__tilelang__literal__translator_b",
+      "ordinal": 17,
+      "recipe_origin": "cuda_unlimited_native_d",
+      "translator": "translator_b"
+    },
+    {
+      "cell_key": "cuda_unlimited_native_d__to__triton__translator_a",
+      "destination_dsl": "triton",
+      "literal_cell_id": "cuda_unlimited_native_d__to__triton__literal__translator_a",
+      "ordinal": 18,
+      "recipe_origin": "cuda_unlimited_native_d",
+      "translator": "translator_a"
+    },
+    {
+      "cell_key": "cuda_unlimited_native_d__to__triton__translator_b",
+      "destination_dsl": "triton",
+      "literal_cell_id": "cuda_unlimited_native_d__to__triton__literal__translator_b",
+      "ordinal": 19,
+      "recipe_origin": "cuda_unlimited_native_d",
+      "translator": "translator_b"
+    },
+    {
+      "cell_key": "cuda_unlimited_native_d__to__cuda_noptx__translator_a",
+      "destination_dsl": "cuda_noptx",
+      "literal_cell_id": "cuda_unlimited_native_d__to__cuda_noptx__literal__translator_a",
+      "ordinal": 20,
+      "recipe_origin": "cuda_unlimited_native_d",
+      "translator": "translator_a"
+    },
+    {
+      "cell_key": "cuda_unlimited_native_d__to__cuda_noptx__translator_b",
+      "destination_dsl": "cuda_noptx",
+      "literal_cell_id": "cuda_unlimited_native_d__to__cuda_noptx__literal__translator_b",
+      "ordinal": 21,
+      "recipe_origin": "cuda_unlimited_native_d",
+      "translator": "translator_b"
+    },
+    {
+      "cell_key": "cuda_unlimited_native_d__to__cuda_unlimited__translator_a",
+      "destination_dsl": "cuda_unlimited",
+      "literal_cell_id": "cuda_unlimited_native_d__to__cuda_unlimited__literal__translator_a",
+      "ordinal": 22,
+      "recipe_origin": "cuda_unlimited_native_d",
+      "translator": "translator_a"
+    },
+    {
+      "cell_key": "cuda_unlimited_native_d__to__cuda_unlimited__translator_b",
+      "destination_dsl": "cuda_unlimited",
+      "literal_cell_id": "cuda_unlimited_native_d__to__cuda_unlimited__literal__translator_b",
+      "ordinal": 23,
+      "recipe_origin": "cuda_unlimited_native_d",
+      "translator": "translator_b"
+    }
+  ],
+  "claim": "plan_only_no_gpu_evaluation_or_selected_kc_is_asserted",
+  "gate_lock_path": "ako_runs/controlled_followup/reciprocal_v2/dependencies/gate_lock.json",
+  "gate_lock_sha256": "6596468a37e53e92f1859d31bdc6a95c172a8d4642fe1f7bf8c90b937f2e02a7",
+  "kc_ladder": [
+    8192,
+    4096,
+    2048,
+    1024,
+    512
+  ],
+  "raw_validation_required": true,
+  "record_type": "reciprocal_v2_kc_resolution_plan",
+  "request_rule": "only_next_kc_after_complete_failed_predecessor",
+  "schema_version": 1,
+  "selection_rule": "first_largest_kc_with_all_24_cells_passing_all_v4_cases",
+  "state": "preregistered_not_executed",
+  "stop_rule": "stop_after_first_all_cell_pass_or_terminal_no_common_kc",
+  "supplement_id": "reciprocal-v2-production-v1-20260731"
+}

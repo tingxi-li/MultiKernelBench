@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "all_cells_all_v4_cases_pass": {
+      "type": "boolean"
+    },
+    "campaign_id": {
+      "const": "standard-matmul-reciprocal-transfer-v2-20260731"
+    },
+    "cells": {
+      "items": {
+        "additionalProperties": true,
+        "required": [
+          "cell_key",
+          "implementation_sha256",
+          "raw_path",
+          "raw_sha256",
+          "v4_summary_path",
+          "v4_summary_sha256",
+          "robust_validation_sha256",
+          "all_required_cases_pass"
+        ],
+        "type": "object"
+      },
+      "maxItems": 24,
+      "minItems": 24,
+      "type": "array"
+    },
+    "coverage_complete": {
+      "const": true
+    },
+    "kc": {
+      "enum": [
+        8192,
+        4096,
+        2048,
+        1024,
+        512
+      ]
+    },
+    "record_type": {
+      "const": "reciprocal_v2_kc_attempt_summary"
+    },
+    "schema_version": {
+      "const": 1
+    }
+  },
+  "required": [
+    "schema_version",
+    "record_type",
+    "campaign_id",
+    "kc",
+    "request_path",
+    "request_sha256",
+    "coverage_complete",
+    "all_cells_all_v4_cases_pass",
+    "cells"
+  ],
+  "title": "Reciprocal-v2 independently recomputed KC attempt",
+  "type": "object"
+}

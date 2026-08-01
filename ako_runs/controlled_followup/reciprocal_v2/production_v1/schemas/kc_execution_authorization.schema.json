@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "authorized_gpu_uuids": {
+      "items": {
+        "pattern": "^GPU-",
+        "type": "string"
+      },
+      "maxItems": 4,
+      "minItems": 4,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "campaign_id": {
+      "const": "standard-matmul-reciprocal-transfer-v2-20260731"
+    },
+    "git_commit": {
+      "pattern": "^[0-9a-f]{40,64}$",
+      "type": "string"
+    },
+    "record_type": {
+      "const": "reciprocal_v2_kc_execution_authorization"
+    },
+    "remote_push_verified": {
+      "const": true
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "state": {
+      "const": "authorized"
+    },
+    "supplement_id": {
+      "const": "reciprocal-v2-production-v1-20260731"
+    }
+  },
+  "required": [
+    "schema_version",
+    "record_type",
+    "supplement_id",
+    "campaign_id",
+    "state",
+    "legacy_source_freeze_sha256",
+    "supplement_source_freeze_sha256",
+    "translator_isolation_sha256",
+    "implementation_registry_sha256",
+    "kc_plan_sha256",
+    "gate_lock_sha256",
+    "runner_path",
+    "runner_sha256",
+    "remote_push_verified",
+    "git_commit",
+    "external_timestamp_utc",
+    "authorized_gpu_uuids"
+  ],
+  "title": "Reciprocal-v2 KC execution authorization",
+  "type": "object"
+}

@@ -1,0 +1,28 @@
+{
+  "campaign_id": "20260731_controlled_followup_convergence_v2",
+  "excludes_mutable_resolution_locks": true,
+  "execution_claimed": false,
+  "files": {
+    "analyze.py": "9a07cbec443265bbb3abcf50874b0137704325d0dc73b35374533253f48b697b",
+    "campaign.py": "f6162f915c435c20f8838401691a5d776bec8ab26b74fe40eb5ed8f5606a65c6",
+    "controller.py": "eaa0f1467cb6ff63dc5d925dc286969346e7b3b8a5a5feae8db0df90f9ed1baf",
+    "gates/sdpa_gate_preregistration.json": "b3a28ad52ec5a02d612465f184af51bb29f46a62e69c8f75d7c0cdd50ca2d13d",
+    "gates/sum_gate_preregistration.json": "4b94498c29298af9a5cc08585da31812ea8922f10857f8b92d3364cdeef1248f",
+    "hidden_gate.py": "3518fc25165f5896ce0b9dbffccf0d27539ce6629802b8b7a4a27394eff41910",
+    "make_manifest.py": "afc3bf44bf9ee5ed76dbc6b3e21d6f24e55069499690fc3996ee7edc2b156e8c",
+    "manifests/core_192.jsonl": "719cbb4ee6e315895f1e4a0e7bd4184f458864e7b056a6cb212b679621f07e36",
+    "manifests/prompt_extension_128.jsonl": "0150f6226c1ca169cff546926618d5529325a493f64c244f637df7875d97afea",
+    "manifests/summary.json": "f1c7a4a3ffb92d1d4db21281953dbd3eca1e529f62267e822355cd384504fd50",
+    "model_resolution.py": "7bd28b05bc51d11d5caf1d3b357ffcb53c51efe5aadedd69bcaaf45bfc62f77f",
+    "prompts/misleading_prior.md": "38c1c7529b36fad8586781e12ec71c33964eda6a8b600db6bf248900e7954741",
+    "prompts/neutral.md": "a58f5b0098f972c0a7278dc8de5d0a4372b89099a365de547725c14138f1f855",
+    "prompts/system.md": "aa1cd6eb2079c7ba6b9b7d43b48004b9ea98764579d577fca86f43ae859b3402",
+    "prompts/tool_contract.json": "d5211ef2fe512700ef847e3295818ec44bdd93f6d89f98b1d446135c698836fa",
+    "prompts/valid_mechanism_hint.md": "f4db78ae7036cdd1960aca3b1ca9f6b31beee6c0b4970c38c38dab0a57417e59",
+    "provider_adapters.py": "641b9b4c67f90098a50e34c7ee6740db5a5d24b5cb6183fa5675e0454a2bd86b",
+    "schemas/event.schema.json": "7c720881ba7b4599e0933826f1c95767df38e37eb5bf22ea83cbf7bea6aca2ff",
+    "validate_launch.py": "919286fc36ce041260aad2abcb8a84b876b681e28a7c0d28099db04d431f79b7"
+  },
+  "schema_version": 1,
+  "state": "frozen_not_launch_ready"
+}

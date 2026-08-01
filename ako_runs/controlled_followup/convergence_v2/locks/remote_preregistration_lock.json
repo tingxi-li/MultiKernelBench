@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "campaign_id": "20260731_controlled_followup_convergence_v2",
+  "state": "unresolved",
+  "commit_sha": null,
+  "remote_ref": null,
+  "pushed_at_utc": null,
+  "remote_receipt_sha256": null,
+  "instructions": "Resolve only after the frozen protocol and preregistrations are committed and visible at the recorded remote ref."
+}
+

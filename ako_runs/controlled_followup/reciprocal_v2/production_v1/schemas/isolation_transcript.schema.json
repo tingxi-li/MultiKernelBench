@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "boundary_kind": {
+      "enum": [
+        "container",
+        "mount_namespace",
+        "distinct_os_user"
+      ]
+    },
+    "boundary_runner_path": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "boundary_runner_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "campaign_id": {
+      "const": "standard-matmul-reciprocal-transfer-v2-20260731"
+    },
+    "execution_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "network_namespace_disabled": {
+      "const": true
+    },
+    "performance_results_accessible": {
+      "const": false
+    },
+    "probe_observations": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "command": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "exit_code": {
+            "type": "integer"
+          },
+          "probe": {
+            "enum": [
+              "repository_root_accessible",
+              "other_translator_source_accessible",
+              "performance_results_accessible",
+              "network_accessible",
+              "own_source_root_writable"
+            ]
+          }
+        },
+        "required": [
+          "probe",
+          "command",
+          "exit_code"
+        ],
+        "type": "object"
+      },
+      "maxItems": 5,
+      "minItems": 5,
+      "type": "array"
+    },
+    "produced_sources": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "path": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "path",
+          "sha256"
+        ],
+        "type": "object"
+      },
+      "maxItems": 24,
+      "minItems": 24,
+      "type": "array"
+    },
+    "record_type": {
+      "const": "reciprocal_v2_boundary_wrapper_transcript"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "state": {
+      "const": "boundary_run_complete"
+    },
+    "supplement_id": {
+      "const": "reciprocal-v2-production-v1-20260731"
+    },
+    "translator": {
+      "enum": [
+        "translator_a",
+        "translator_b"
+      ]
+    },
+    "worktree_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "workspace_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "record_type",
+    "supplement_id",
+    "campaign_id",
+    "translator",
+    "state",
+    "boundary_kind",
+    "execution_id",
+    "workspace_id",
+    "worktree_id",
+    "boundary_runner_path",
+    "boundary_runner_sha256",
+    "network_namespace_disabled",
+    "other_translator_source_accessible",
+    "performance_results_accessible",
+    "probe_observations",
+    "produced_sources"
+  ],
+  "title": "Reciprocal-v2 boundary-wrapper transcript",
+  "type": "object"
+}

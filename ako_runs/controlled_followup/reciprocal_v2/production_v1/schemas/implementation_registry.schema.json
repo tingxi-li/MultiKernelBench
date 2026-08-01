@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "campaign_id": {
+      "const": "standard-matmul-reciprocal-transfer-v2-20260731"
+    },
+    "implementation_count": {
+      "const": 48
+    },
+    "implementations": {
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "cell_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "source": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "translator": {
+            "enum": [
+              "translator_a",
+              "translator_b"
+            ]
+          }
+        },
+        "required": [
+          "cell_id",
+          "recipe_origin",
+          "destination_dsl",
+          "transfer_mode",
+          "translator",
+          "source",
+          "sha256",
+          "translation_request_path",
+          "translation_request_sha256",
+          "translation_receipt_path",
+          "translation_receipt_sha256"
+        ],
+        "type": "object"
+      },
+      "maxItems": 48,
+      "minItems": 48,
+      "type": "array"
+    },
+    "record_type": {
+      "const": "reciprocal_v2_implementation_registry"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "state": {
+      "const": "frozen"
+    }
+  },
+  "required": [
+    "schema_version",
+    "record_type",
+    "campaign_id",
+    "state",
+    "source_freeze_sha256",
+    "supplement_source_freeze_sha256",
+    "translator_isolation_sha256",
+    "translation_request_bundle_sha256",
+    "implementation_count",
+    "identical_source_groups_disclosed",
+    "implementations"
+  ],
+  "title": "Reciprocal-v2 implementation registry",
+  "type": "object"
+}

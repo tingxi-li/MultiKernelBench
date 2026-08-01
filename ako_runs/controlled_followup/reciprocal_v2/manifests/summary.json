@@ -1,0 +1,13 @@
+{
+  "audit_cells": 48,
+  "campaign_id": "standard-matmul-reciprocal-transfer-v2-20260731",
+  "confirmation_blocks": 15,
+  "destinations": 4,
+  "origins": 3,
+  "primary_cells": 48,
+  "retune_attempts_per_retuned_cell": 19,
+  "schema_version": 2,
+  "total_cells": 96,
+  "transfer_modes": 2,
+  "translators": 2
+}

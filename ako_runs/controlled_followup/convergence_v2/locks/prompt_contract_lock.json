@@ -1,0 +1,13 @@
+{
+  "campaign_id": "20260731_controlled_followup_convergence_v2",
+  "files": {
+    "prompts/misleading_prior.md": "38c1c7529b36fad8586781e12ec71c33964eda6a8b600db6bf248900e7954741",
+    "prompts/neutral.md": "a58f5b0098f972c0a7278dc8de5d0a4372b89099a365de547725c14138f1f855",
+    "prompts/system.md": "aa1cd6eb2079c7ba6b9b7d43b48004b9ea98764579d577fca86f43ae859b3402",
+    "prompts/tool_contract.json": "d5211ef2fe512700ef847e3295818ec44bdd93f6d89f98b1d446135c698836fa",
+    "prompts/valid_mechanism_hint.md": "f4db78ae7036cdd1960aca3b1ca9f6b31beee6c0b4970c38c38dab0a57417e59"
+  },
+  "mutation_policy": "any byte change requires a new campaign version",
+  "schema_version": 1,
+  "state": "frozen"
+}

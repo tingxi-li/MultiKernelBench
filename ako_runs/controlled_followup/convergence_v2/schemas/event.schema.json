@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "convergence-v2-event.schema.json",
+  "title": "Convergence v2 append-only trajectory event",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "campaign_id",
+    "trajectory_id",
+    "sequence",
+    "event_id",
+    "event_type",
+    "recorded_at_utc",
+    "monotonic_ns",
+    "previous_event_sha256",
+    "payload",
+    "event_sha256"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "campaign_id": {"type": "string", "minLength": 1},
+    "trajectory_id": {"type": "string", "minLength": 1},
+    "sequence": {"type": "integer", "minimum": 0},
+    "event_id": {"type": "string", "minLength": 1},
+    "event_type": {
+      "enum": [
+        "trajectory_started",
+        "provider_usage",
+        "candidate_materialized",
+        "evaluation_started",
+        "evaluation_finished",
+        "tuning_gate_result",
+        "ncu_result",
+        "terminal_validation_result",
+        "trajectory_succeeded",
+        "trajectory_censored",
+        "trajectory_failed_closed"
+      ]
+    },
+    "recorded_at_utc": {"type": "string", "format": "date-time"},
+    "monotonic_ns": {"type": "integer", "minimum": 0},
+    "previous_event_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "payload": {"type": "object"},
+    "event_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  }
+}

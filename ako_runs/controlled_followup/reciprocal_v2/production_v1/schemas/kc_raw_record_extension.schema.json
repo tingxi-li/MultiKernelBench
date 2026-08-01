@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "implementation_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "reciprocal_campaign_id": {
+      "const": "standard-matmul-reciprocal-transfer-v2-20260731"
+    },
+    "reciprocal_cell_key": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reciprocal_kc": {
+      "enum": [
+        8192,
+        4096,
+        2048,
+        1024,
+        512
+      ]
+    }
+  },
+  "required": [
+    "candidate",
+    "reciprocal_campaign_id",
+    "reciprocal_cell_key",
+    "reciprocal_kc",
+    "implementation_sha256"
+  ],
+  "title": "Reciprocal-v2 fields extending each robust-v4 raw record",
+  "type": "object"
+}

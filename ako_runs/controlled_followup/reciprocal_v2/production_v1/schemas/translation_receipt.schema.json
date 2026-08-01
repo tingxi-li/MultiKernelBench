@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "campaign_id": {
+      "const": "standard-matmul-reciprocal-transfer-v2-20260731"
+    },
+    "cell_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "execution_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "other_translator_source_accessible": {
+      "const": false
+    },
+    "performance_results_accessible": {
+      "const": false
+    },
+    "record_type": {
+      "const": "reciprocal_v2_translation_receipt"
+    },
+    "request_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "source_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "state": {
+      "const": "completed_treatment_output"
+    },
+    "supplement_id": {
+      "const": "reciprocal-v2-production-v1-20260731"
+    },
+    "translator": {
+      "enum": [
+        "translator_a",
+        "translator_b"
+      ]
+    },
+    "workspace_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "record_type",
+    "supplement_id",
+    "campaign_id",
+    "state",
+    "cell_id",
+    "translator",
+    "request_path",
+    "request_sha256",
+    "source_path",
+    "source_sha256",
+    "workspace_id",
+    "execution_id",
+    "isolation_transcript_path",
+    "isolation_transcript_sha256",
+    "other_translator_source_accessible",
+    "performance_results_accessible",
+    "completed_utc"
+  ],
+  "title": "Reciprocal-v2 translation receipt",
+  "type": "object"
+}

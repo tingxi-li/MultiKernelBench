@@ -1,0 +1,27 @@
+{
+  "campaign_id": "standard-matmul-reciprocal-transfer-v2-20260731",
+  "claim_limit": "evidence-production repair only; no treatment or outcome claim",
+  "defect": "bundle_destination_variable_shadowed_by_source_loop_variable",
+  "defective_builder_path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/capture_evidence.py",
+  "defective_builder_sha256": "5e74703976d1844143fff232c82102da000af4b5eb437fff2498195491c440ff",
+  "effective_builder_path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/evidence_fix_v1/capture_evidence.py",
+  "effective_builder_sha256": "448ae0ebb663ed83204e1270348e68869faa2b1d14dd487d9042a95d0d8c168c",
+  "fix_id": "reciprocal-v2-production-v1-evidence-fix-v1-20260731",
+  "frozen_utc": "2026-07-31T08:02:06.916035+00:00",
+  "git_commit_at_local_freeze": "4ddfc88d5712959e12161da75ce991f8c9a20248",
+  "parent_source_freeze_sha256": "abf550ce0b71083b36af076c319b995ccb94aefa681536fa4e76760c275bcaa4",
+  "performance_results_opened": false,
+  "record_type": "reciprocal_v2_evidence_builder_fix_freeze",
+  "remote_push_claimed": false,
+  "schema_version": 1,
+  "source_bundle_sha256": "b3d58dc17b1634f2ec742d44fde84ad724ccfd74e92b664c55758a59ccb699b6",
+  "source_sha256": {
+    "ako_runs/controlled_followup/reciprocal_v2/production_v1/evidence_fix_v1/README.md": "5c94431a878e3235864c5b35e913197cbf921fada75a0a1ac81235fa28375303",
+    "ako_runs/controlled_followup/reciprocal_v2/production_v1/evidence_fix_v1/__init__.py": "692b4482c09f8de4d39f8048ba35ee6941f595c36fe670cadde0bf7b465d559e",
+    "ako_runs/controlled_followup/reciprocal_v2/production_v1/evidence_fix_v1/capture_evidence.py": "448ae0ebb663ed83204e1270348e68869faa2b1d14dd487d9042a95d0d8c168c",
+    "ako_runs/controlled_followup/reciprocal_v2/production_v1/evidence_fix_v1/freeze.py": "f17d3b1173f24be8087ac20981fd39e7f22a1423865b93c31d228a08e2cd4933",
+    "ako_runs/controlled_followup/reciprocal_v2/production_v1/evidence_fix_v1/test_evidence_fix_v1.py": "cc8f14f31665f60fd3a23217486b5396f97877c2e6dae12065b1133d96c80cb6"
+  },
+  "state": "frozen_append_only_erratum",
+  "treatment_artifacts_opened": false
+}

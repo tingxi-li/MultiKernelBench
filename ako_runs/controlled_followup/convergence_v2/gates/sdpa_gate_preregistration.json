@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "campaign_id": "20260731_sdpa_robust_gate_v1",
+  "freeze_state": "preregistered_not_executed",
+  "operation": "scaled_dot_product_attention",
+  "reference": "reference/attention/scaled_dot_product_attention.py",
+  "shape": {"B": 32, "H": 32, "S": 512, "D": 1024},
+  "contract": {"operand_dtype": "fp16", "score_dtype": "fp32", "probability_dtype": "fp16", "output_dtype": "fp32", "is_causal": false},
+  "cases": [
+    {"id": "legacy_u01", "qk_distribution": "uniform_positive", "v_distribution": "uniform_positive"},
+    {"id": "all_signed_normal", "qk_distribution": "normal_zero", "v_distribution": "normal_zero"},
+    {"id": "signed_qk_positive_v", "qk_distribution": "normal_zero", "v_distribution": "uniform_positive"},
+    {"id": "positive_qk_signed_v", "qk_distribution": "uniform_positive", "v_distribution": "normal_zero"},
+    {"id": "correlated_qk", "qk_distribution": "normal_zero", "v_distribution": "normal_zero", "correlated_qk": true, "correlation_noise": 0.1},
+    {"id": "signed_temperature16", "qk_distribution": "normal_zero", "v_distribution": "normal_zero", "score_temperature": 16.0}
+  ],
+  "gates": [
+    {
+      "id": "conformance_mixed",
+      "reference": "contract_mixed",
+      "metrics": ["max_abs_err", "nrmse", "query_relative_l2_max", "cosine_distance_max", "scaled_max_abs_err"],
+      "fixed_requirements": {"nonfinite_count": 0, "shape_exact": true, "dtype_exact": true}
+    },
+    {
+      "id": "semantic_fp64",
+      "reference": "semantic_fp64",
+      "metrics": ["max_abs_err", "nrmse", "query_relative_l2_max", "cosine_distance_max", "scaled_max_abs_err"],
+      "fixed_requirements": {"nonfinite_count": 0, "shape_exact": true, "dtype_exact": true}
+    }
+  ],
+  "threshold_policy": {
+    "state": "unset_pending_calibration",
+    "candidate_independent_anchors": ["native_mixed", "contract_mixed", "native_fp32"],
+    "safety_factor": 1.25,
+    "rounding": "next-1-2-5",
+    "no_post_launch_refit": true
+  },
+  "seed_plan": {
+    "calibration_namespace": "MKB-sdpa-gate-v1-calibration-20260731",
+    "calibration_seeds_per_case": 32,
+    "validation_namespace": "MKB-sdpa-gate-v1-validation-20260731",
+    "validation_seeds_per_case": 64,
+    "splits_disjoint": true
+  },
+  "negative_controls": {
+    "structural": ["wrong_shape_transpose_sequence_embedding", "wrong_dtype_fp16_output", "nan_injection"],
+    "wrong_attention": ["uniform_attention_weights", "omit_inverse_sqrt_d_scaling", "softmax_over_query_axis", "return_attention_probabilities_instead_of_pv"]
+  },
+  "success_rule": "Every case, gate, metric, structural check, and all 64 validation seeds must pass; all negative controls must reject; missing or nonfinite records fail closed."
+}

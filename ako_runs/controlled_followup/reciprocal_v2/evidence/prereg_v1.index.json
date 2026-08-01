@@ -1,0 +1,329 @@
+{
+  "bundle_path": "ako_runs/controlled_followup/reciprocal_v2/evidence/prereg_v1.tar.gz",
+  "bundle_sha256": "2de75d240cfee932d2ced6d435cc33c8a05efb380d0cee50303739498e51f615",
+  "bundle_size": 1211993,
+  "entry_count": 62,
+  "manifest": {
+    "campaign_id": "standard-matmul-reciprocal-transfer-v2-20260731",
+    "entries": [
+      {
+        "path": "ako_runs/controlled_followup/reciprocal/recipe_cards/tilelang_phase1_confirmed.json",
+        "sha256": "66f267f18189a2e00599ccb01a57a689bb4b1804e1ef388141dcc708e0a33e3e",
+        "size": 4084
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal/recipe_cards/triton_grouped_autotuned.json",
+        "sha256": "034a74ef0e0452dd858608cd3660403304b9a101ae3130b32dc657beb1abedfe",
+        "size": 6393
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/.gitignore",
+        "sha256": "a3787017f9d1cd4ebb4a54dfe24ea680ecf05cde41cad5c168acdc836b12addc",
+        "size": 57
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/README.md",
+        "sha256": "a0d756afc02ad66a4ec942531f8c78901f4308f8d6a785727c6c908eb74ab3a4",
+        "size": 4621
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/__init__.py",
+        "sha256": "dd84db3ec308068a437b422573941d0c64d1eb32f50ba4597464340c5e64742a",
+        "size": 52
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/analyze.py",
+        "sha256": "9ea6b0edc5935ccb877dc9188f411168f87f7585bcae5cfbafe5e5a29ed870dc",
+        "size": 18259
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/capture_evidence.py",
+        "sha256": "2db7d10c0910b54cec2825fa2c3bb701357cfda3228b5d53df5c4af9f142ac6d",
+        "size": 6963
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/dependencies/gate_lock.json",
+        "sha256": "6596468a37e53e92f1859d31bdc6a95c172a8d4642fe1f7bf8c90b937f2e02a7",
+        "size": 941
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/freeze.py",
+        "sha256": "242a6372f82b8fc21d6369f655852530a152f7d964b5af20116ee4a2287eb014",
+        "size": 5643
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/launch.py",
+        "sha256": "eb8e4fc411fb224aa80f05c48184f5ac3e59406abfa8908d9e9a6eaf4f127700",
+        "size": 5489
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/make_manifests.py",
+        "sha256": "e40bd66798854adc309da2e773ae1bdae0c3bc67968f5c0f047e358d585843f1",
+        "size": 10828
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/make_retune_plans.py",
+        "sha256": "6a237bea968267803481412189410460b89bd2d5d17f13a1d6839eac7a038609",
+        "size": 4356
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/manifests/audit.json",
+        "sha256": "fc91c41617351a897808d4646d07eb8638c106cce1718e7abcb0f50c650ff552",
+        "size": 74405
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/manifests/primary.json",
+        "sha256": "4ca5e237ca7af016d385d91b10e434d4aa48a4686577c1a030b5a56d7cbebf0a",
+        "size": 81295
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/manifests/summary.json",
+        "sha256": "50605863985725250c680a5ce7dbf42f1792dbba04b963dd13dc42a2ee86c1f0",
+        "size": 310
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/protocol.py",
+        "sha256": "40a78ef776e679402b8e9250f910151be8b6df23acfa184963fce066f2a3a7b1",
+        "size": 4246
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/receipts/source_freeze.json",
+        "sha256": "6222c1ae56d795dd4f36ba928129a56862829f75f4bbe258285b91e98966b5c0",
+        "size": 10984
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/recipe_cards/cuda_unlimited_native_d.json",
+        "sha256": "cdf83101659e59e1ae4bfd801b496b60b250fc555b6648ec78f3c0320759fc62",
+        "size": 2617
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/retune_plans/translator_a/cuda_unlimited_native_d__to__cuda_noptx.json",
+        "sha256": "fa218845051d7b356da420938efcc3a65b4ff195981f56e6d486d9d73e62689f",
+        "size": 5697
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/retune_plans/translator_a/cuda_unlimited_native_d__to__cuda_unlimited.json",
+        "sha256": "e3744e7095e112733e8834c9b600efe0b2dc545d7d638423313876e15d43d685",
+        "size": 5705
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/retune_plans/translator_a/cuda_unlimited_native_d__to__tilelang.json",
+        "sha256": "28806df975ff8675021e2fa89dbf6552eae9e6256519db8fddfd231f962a061e",
+        "size": 5693
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/retune_plans/translator_a/cuda_unlimited_native_d__to__triton.json",
+        "sha256": "ce3579ffd27052119b7ced3ed64c9fe2b8468290d5d300b8c20ccc58a283ffd6",
+        "size": 6069
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/retune_plans/translator_a/tilelang_phase1_confirmed__to__cuda_noptx.json",
+        "sha256": "70e6bc81b0dca94341c5b1ebb715d337280b84ad743719d351e9828dcd69ee52",
+        "size": 5699
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/retune_plans/translator_a/tilelang_phase1_confirmed__to__cuda_unlimited.json",
+        "sha256": "d7312ed376720145b8805e1495c4b8c96d86746a976d93b006245a2c81051474",
+        "size": 5707
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/retune_plans/translator_a/tilelang_phase1_confirmed__to__tilelang.json",
+        "sha256": "d93f386b983719527e10888b6ad12c5f907ac3ab122d6b8bc1b60fe26701f552",
+        "size": 5695
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/retune_plans/translator_a/tilelang_phase1_confirmed__to__triton.json",
+        "sha256": "1f488e355e0b752c68e7d569f3b0a40a3f55c4d040f5a4caea514b26a284d564",
+        "size": 6071
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/retune_plans/translator_a/triton_grouped_autotuned__to__cuda_noptx.json",
+        "sha256": "f59df333a4fd326cee7d607421721987ba7d3828d6e93274af7232b708a2929f",
+        "size": 5713
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/retune_plans/translator_a/triton_grouped_autotuned__to__cuda_unlimited.json",
+        "sha256": "68b0b3f8521f0e17ee6534a55cd638f49dbf0717ed76222beb6839efa547bd30",
+        "size": 5721
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/retune_plans/translator_a/triton_grouped_autotuned__to__tilelang.json",
+        "sha256": "aaf8f2126ae32101e16eb8b5ad4f6578920973e3623ebb1cb2d8fc9daee7db6d",
+        "size": 5709
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/retune_plans/translator_a/triton_grouped_autotuned__to__triton.json",
+        "sha256": "44fc87527341fd2377f2d12415fdcfc22a376d371b2f708893d525bdbd3d568e",
+        "size": 6085
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/retune_plans/translator_b/cuda_unlimited_native_d__to__cuda_noptx.json",
+        "sha256": "be0f3dc727f57e78032351f09fe934091ea5c64ba259f83b2ccca413d68be655",
+        "size": 5697
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/retune_plans/translator_b/cuda_unlimited_native_d__to__cuda_unlimited.json",
+        "sha256": "9bfe7229c19bea35fde867b28b9669c4191c8edaab56c75197893c2638f88c22",
+        "size": 5705
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/retune_plans/translator_b/cuda_unlimited_native_d__to__tilelang.json",
+        "sha256": "2f05288159e0241bd4c53fb3863ba9cc40f6a762f50e6fbbdadec2dd23a207e1",
+        "size": 5693
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/retune_plans/translator_b/cuda_unlimited_native_d__to__triton.json",
+        "sha256": "d741b75c47654465495ab207ea12a4441ddf931ddcf7f2bfaf25d905f30f38a9",
+        "size": 6069
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/retune_plans/translator_b/tilelang_phase1_confirmed__to__cuda_noptx.json",
+        "sha256": "fcf0058a9184610b998c858e637543f4d2c1830624e3b9c6ecd707a7bb715ce4",
+        "size": 5699
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/retune_plans/translator_b/tilelang_phase1_confirmed__to__cuda_unlimited.json",
+        "sha256": "723edd07a72665ed25a48d1f45dcdb173958b4dd05b73d53d25da1cd8fee746e",
+        "size": 5707
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/retune_plans/translator_b/tilelang_phase1_confirmed__to__tilelang.json",
+        "sha256": "61a18f6ce4e1db40b0829962e4321053a2a4330f0fd197d60cf8dd0410247183",
+        "size": 5695
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/retune_plans/translator_b/tilelang_phase1_confirmed__to__triton.json",
+        "sha256": "734b574f8c39b54c8ef189260fcb84c36dea93de99482b64c6ab8f4b9c679f54",
+        "size": 6071
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/retune_plans/translator_b/triton_grouped_autotuned__to__cuda_noptx.json",
+        "sha256": "6dee34cd104cb08d7c028ac181186e680fdd685831a45a79bb5a63980b63fdd2",
+        "size": 5713
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/retune_plans/translator_b/triton_grouped_autotuned__to__cuda_unlimited.json",
+        "sha256": "c948103b8aded0815496241f40271bc0b407ee2cee051eff1bff219162b2607d",
+        "size": 5721
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/retune_plans/translator_b/triton_grouped_autotuned__to__tilelang.json",
+        "sha256": "16618d35a79f69dde99a12c8d3ef0699de76e439b9931e3de84be081bdc00f0b",
+        "size": 5709
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/retune_plans/translator_b/triton_grouped_autotuned__to__triton.json",
+        "sha256": "db39c2c7458fe8da64781ef4b6111931a3b44762b55acddc52bc60971afeb143",
+        "size": 6085
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/test_reciprocal_v2.py",
+        "sha256": "2b34b8520b74ec53376e95335ebe5170ef00a9801269f3663447da963145b29a",
+        "size": 6127
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/translators/translator_a/README.md",
+        "sha256": "0f95847bb1d191ca519867f6e7158d987874e720448a48397bfbb34a934420eb",
+        "size": 428
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/translators/translator_b/README.md",
+        "sha256": "1f158b388d155a4db7e4d3fa6b173494aba370d54f559ea7f7e085617ebdd260",
+        "size": 428
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/validate.py",
+        "sha256": "89ce3bfc264ff19ca5bf9ee2baf97112171cace17c09a08b400a1f5760d2c90c",
+        "size": 35083
+      },
+      {
+        "path": "ako_runs/controlled_followup/robust_gate/calibration/gate_spec_matmul_v4.json",
+        "sha256": "70bb3bc8f217c40ba5fcab90dc84ef798d06e22b5d1f0e4d27a2031069a295fb",
+        "size": 5777
+      },
+      {
+        "path": "ako_runs/controlled_followup/robust_gate/validation/matmul_holdout_summary_v4.json",
+        "sha256": "ce72771d1dfe7cd833120e0634aed8fd892f5c6fab8fa209788e495894b20b69",
+        "size": 1427
+      },
+      {
+        "path": "ako_runs/controlled_followup/robust_gate/validation/raw/matmul_conformance_native_gpu2_v4.jsonl",
+        "sha256": "8f0cc382d5d8bd6678c63e22d5069bace236c947a203af38c808e1c80d5ada70",
+        "size": 3928179
+      },
+      {
+        "path": "ako_runs/controlled_followup/robust_gate/validation/raw/matmul_semantic_native_gpu1_v4.jsonl",
+        "sha256": "7d34eca5991be6fb0d17445f3b1aa8ab53f8948a77a16a7cbab10d53b8ad5dff",
+        "size": 3918905
+      },
+      {
+        "path": "ako_runs/controlled_followup/robust_gate/validation/raw/matmul_semantic_q32_native_gpu3_v4.jsonl",
+        "sha256": "eb2486b45b6c906637609317544287aeb2ef9dc019ccb3d2c6d510836bdf21e4",
+        "size": 3975357
+      },
+      {
+        "path": "ako_runs/controlled_followup/robust_gate/validation/v4_acceptance_receipt.json",
+        "sha256": "7714808ea46d5a6a8db369cc0351632d530a52ea073015cd866c173af5e66743",
+        "size": 2079
+      },
+      {
+        "path": "ako_runs/matmul_gelu_softmax/triton/solution/matmul_gelu_softmax.py",
+        "sha256": "f197d8f9b4efad5a8e751f7d03b458ed51da6477147b35ed0a829ff7604e91ae",
+        "size": 6442
+      },
+      {
+        "path": "ako_runs/phase1_matmul/jobs/confirm.json",
+        "sha256": "6157450784b71d4782ac7ae38b36134b56b08a42cafe7d5616c096f812eee5ba",
+        "size": 934
+      },
+      {
+        "path": "ako_runs/phase1_matmul/jobs/native_tuned.json",
+        "sha256": "1b1c0977eaebdcab45782877e8ca9b577b37a17b4f8343d3bb45b3ed86b0b1a7",
+        "size": 9592
+      },
+      {
+        "path": "ako_runs/phase1_matmul/results/code_inspection.json",
+        "sha256": "5826fda12dc1b372f255312d27044eab64310b262bf173de7cd83c9798685a1d",
+        "size": 96273
+      },
+      {
+        "path": "ako_runs/phase1_matmul/results/confirm/summary.json",
+        "sha256": "a7f5008993d98c3ecbfc33a7d643f96baf1c750c184b43922fc29f375c917e60",
+        "size": 187320
+      },
+      {
+        "path": "ako_runs/phase1_matmul/results/native_tuned/raw/cuda_unlimited__D__primary__BM128_BN128_BK32_stages3_kc2048__rand__rep0.json",
+        "sha256": "cec4e9a167a3126180ac940e9e879304c706a502ef62e42d8fc537f570c1d6b1",
+        "size": 3777
+      },
+      {
+        "path": "ako_runs/phase1_matmul/variants/SPEC.md",
+        "sha256": "ff517a2c30b9142864095e3910317632c74079d0d8e531264ceaed1f08eb6d2a",
+        "size": 7169
+      },
+      {
+        "path": "ako_runs/phase1_matmul/variants/cuda_unlimited_gemm.py",
+        "sha256": "c9629300ce871476eb95cdecc5337229c43d3206e674c35d86a7f65d20a87ad5",
+        "size": 27988
+      },
+      {
+        "path": "ako_runs/phase1_matmul/variants/tilelang_gemm.py",
+        "sha256": "07d40bb5fee951ecec7ad1a7ca1815b5fae6761b3bb42e81f81c15ef806af268",
+        "size": 14229
+      },
+      {
+        "path": "ako_runs/phase1_matmul/variants/triton_gemm.py",
+        "sha256": "8c9cc3d60d549eb941dcb68a0ee7b0a6173b849a368eb55c75ec91c68612e108",
+        "size": 9633
+      }
+    ],
+    "record_type": "reciprocal_v2_evidence_manifest",
+    "schema_version": 2,
+    "source_bundle_sha256": "cde61903dca690d797076a79373445cca5453709e9a74f65823033826fbb8cff",
+    "source_freeze_sha256": "6222c1ae56d795dd4f36ba928129a56862829f75f4bbe258285b91e98966b5c0",
+    "stage": "prereg"
+  },
+  "manifest_sha256": "41ee2c318b38eee3da3ec5af59ae2717579dbc57d4fc9afa49429697842c8f6b",
+  "record_type": "reciprocal_v2_evidence_index",
+  "schema_version": 2
+}

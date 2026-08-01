@@ -1,0 +1,35 @@
+{
+  "access_policy": {
+    "network_must_be_disabled": true,
+    "other_translator_source_must_be_inaccessible": true,
+    "performance_results_must_be_inaccessible": true
+  },
+  "campaign_id": "standard-matmul-reciprocal-transfer-v2-20260731",
+  "candidate_attempt_budget": 19,
+  "cell_id": "tilelang_phase1_confirmed__to__cuda_unlimited__retuned__translator_a",
+  "claim": "request_only_no_source_or_treatment_outcome_is_asserted",
+  "destination_dsl": "cuda_unlimited",
+  "output_contract": {
+    "request_and_isolation_hash_bindings_required": true,
+    "source_must_be_regular_nonempty_and_unique": true,
+    "source_path": "ako_runs/controlled_followup/reciprocal_v2/translators/translator_a/implementations/tilelang_phase1_confirmed__to__cuda_unlimited__retuned__translator_a.py",
+    "translation_receipt_path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/outputs/translations/translator_a/tilelang_phase1_confirmed__to__cuda_unlimited__retuned__translator_a.json"
+  },
+  "recipe_card": {
+    "file_sha256": "66f267f18189a2e00599ccb01a57a689bb4b1804e1ef388141dcc708e0a33e3e",
+    "path": "ako_runs/controlled_followup/reciprocal/recipe_cards/tilelang_phase1_confirmed.json",
+    "recipe_id": "tilelang_phase1_confirmed",
+    "sha256": "77ae3ab19bfb333d7ea421c8a4cd5ad175013718d56a7bf6a478662df3cd2814"
+  },
+  "recipe_origin": "tilelang_phase1_confirmed",
+  "record_type": "reciprocal_v2_translation_request",
+  "retune_plan": {
+    "path": "ako_runs/controlled_followup/reciprocal_v2/retune_plans/translator_a/tilelang_phase1_confirmed__to__cuda_unlimited.json",
+    "sha256": "d7312ed376720145b8805e1495c4b8c96d86746a976d93b006245a2c81051474"
+  },
+  "schema_version": 1,
+  "state": "unexecuted_treatment_request",
+  "supplement_id": "reciprocal-v2-production-v1-20260731",
+  "transfer_mode": "retuned",
+  "translator": "translator_a"
+}

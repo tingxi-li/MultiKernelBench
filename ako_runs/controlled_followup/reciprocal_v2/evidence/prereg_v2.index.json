@@ -1,0 +1,427 @@
+{
+  "bundle_path": "ako_runs/controlled_followup/reciprocal_v2/evidence/prereg_v2.tar.gz",
+  "bundle_sha256": "8bfa1d6d06b986836defeddac276e91bb75701a902412f40af6de765e5e868df",
+  "bundle_size": 1257930,
+  "campaign_id": "standard-matmul-reciprocal-transfer-v2-20260731",
+  "entry_count": 77,
+  "manifest": {
+    "campaign_id": "standard-matmul-reciprocal-transfer-v2-20260731",
+    "claim_limit": "prepared fail-closed production protocol plus append-only evidence-builder repair; no boundary, treatment, GPU, KC, or launch-success claim",
+    "effective_builder_path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/evidence_fix_v1/capture_evidence.py",
+    "effective_builder_sha256": "448ae0ebb663ed83204e1270348e68869faa2b1d14dd487d9042a95d0d8c168c",
+    "entries": [
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/evidence/prereg_v1.index.json",
+        "sha256": "f2ed15eb5d6bbe76ca52d949c59d354cc6205bdc53cf43fa9e96a93827139946",
+        "size": 14951
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/evidence/prereg_v1.tar.gz",
+        "sha256": "2de75d240cfee932d2ced6d435cc33c8a05efb380d0cee50303739498e51f615",
+        "size": 1211993
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/README.md",
+        "sha256": "b5eb6e09b106ad24d2eefd6fe019aed22b78ea4fd29c120fd50e002996133c75",
+        "size": 4815
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/__init__.py",
+        "sha256": "b622edd1c85d611478b01e7f7339fabf08b7f21bd4b5f629484b5e149fe5f98c",
+        "size": 65
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/capture_evidence.py",
+        "sha256": "5e74703976d1844143fff232c82102da000af4b5eb437fff2498195491c440ff",
+        "size": 9471
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/common.py",
+        "sha256": "aa0f620a320e682717f8b6b3530d94378f25c64e0c0b2a528892fb9217fee87b",
+        "size": 3467
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/dependencies/kc_resolution_plan.json",
+        "sha256": "438de625de8a5e3f9faae7ae30a714be22369b05509c8c87b5db0e7fe805093b",
+        "size": 8665
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/evidence_fix_v1/README.md",
+        "sha256": "5c94431a878e3235864c5b35e913197cbf921fada75a0a1ac81235fa28375303",
+        "size": 1822
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/evidence_fix_v1/__init__.py",
+        "sha256": "692b4482c09f8de4d39f8048ba35ee6941f595c36fe670cadde0bf7b465d559e",
+        "size": 72
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/evidence_fix_v1/capture_evidence.py",
+        "sha256": "448ae0ebb663ed83204e1270348e68869faa2b1d14dd487d9042a95d0d8c168c",
+        "size": 11035
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/evidence_fix_v1/freeze.py",
+        "sha256": "f17d3b1173f24be8087ac20981fd39e7f22a1423865b93c31d228a08e2cd4933",
+        "size": 6219
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/evidence_fix_v1/receipts/source_freeze.json",
+        "sha256": "e6939e1ae5bf4740910e87683edd090a313daa20b6c66dd79a59c6e18a210747",
+        "size": 2126
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/evidence_fix_v1/test_evidence_fix_v1.py",
+        "sha256": "cc8f14f31665f60fd3a23217486b5396f97877c2e6dae12065b1133d96c80cb6",
+        "size": 3666
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/freeze.py",
+        "sha256": "6357e489698b9cdf674040e0ba2cf0d4e0acee01a992d34ea77610fbe938d845",
+        "size": 6644
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/isolation.py",
+        "sha256": "f7268ea88722b4cc91646154528037e1f6025037834318c8df11a654a450193d",
+        "size": 11784
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/kc_ladder.py",
+        "sha256": "29e5467442c2819a33b41e5ffc85bd87c57c74f1049ffefcd2532799bcb727b7",
+        "size": 24810
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/receipts/source_freeze.json",
+        "sha256": "abf550ce0b71083b36af076c319b995ccb94aefa681536fa4e76760c275bcaa4",
+        "size": 15561
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/registry.py",
+        "sha256": "1be4181e51742346bef8783eb98583b35ae3c980eca8b344bc784468fd5f6226",
+        "size": 8862
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/requests/isolation/translator_a.json",
+        "sha256": "8ad9e30d23053d1abe7812095896a56d50a14ccf6090b35d343ddf42929ba8aa",
+        "size": 1754
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/requests/isolation/translator_b.json",
+        "sha256": "bca53ba92a7f943233e192ad67440d5ccbe0bed30f97ff9b5e46e2ea8c1e8580",
+        "size": 1754
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/requests/translations/translator_a/cuda_unlimited_native_d__to__cuda_noptx__literal__translator_a.json",
+        "sha256": "8be0c2152e2eed308f2dcee6b375834d1246a4ea492160415c18cf9b4e2452f7",
+        "size": 1616
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/requests/translations/translator_a/cuda_unlimited_native_d__to__cuda_noptx__retuned__translator_a.json",
+        "sha256": "fa53c1eccfd6e97b41e50de25758d921aff64ae8aad35867fc5acf4f149b4086",
+        "size": 1828
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/requests/translations/translator_a/cuda_unlimited_native_d__to__cuda_unlimited__literal__translator_a.json",
+        "sha256": "40608f26e68c2f3b4fa5c0e3e5e694c2f5302a866f25d8e1ebfcb95bfa2377b9",
+        "size": 1632
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/requests/translations/translator_a/cuda_unlimited_native_d__to__cuda_unlimited__retuned__translator_a.json",
+        "sha256": "ea62c5d93f8a72672fae7fbee8aafedb55bd43608237a86e82425ec91a4bb876",
+        "size": 1848
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/requests/translations/translator_a/cuda_unlimited_native_d__to__tilelang__literal__translator_a.json",
+        "sha256": "e0f150fd026ce9c882ab93e2dfad0f771e5855dda0cd57cc10758c43af0966e3",
+        "size": 1608
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/requests/translations/translator_a/cuda_unlimited_native_d__to__tilelang__retuned__translator_a.json",
+        "sha256": "44adf5ad99374918548b4850876def4fc0a2af73a2fec087c2518bb58cdbaed9",
+        "size": 1818
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/requests/translations/translator_a/cuda_unlimited_native_d__to__triton__literal__translator_a.json",
+        "sha256": "e5ccc8e570ffe0f0677a4d32b6f80420f2a01146e97a691230db5396e8904bd1",
+        "size": 1600
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/requests/translations/translator_a/cuda_unlimited_native_d__to__triton__retuned__translator_a.json",
+        "sha256": "3ed6549827e31538fc542d11eac76822f7b979fe586b9ba62c3430b4c3c683b8",
+        "size": 1808
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/requests/translations/translator_a/tilelang_phase1_confirmed__to__cuda_noptx__literal__translator_a.json",
+        "sha256": "f0707c5a03084979c1084e11714fe86a6d7e14dcd8bd7a9c4364afd1fa64b68c",
+        "size": 1625
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/requests/translations/translator_a/tilelang_phase1_confirmed__to__cuda_noptx__retuned__translator_a.json",
+        "sha256": "297b23eee0dcd7c2e52992ae98c674f3e82d4aeabb2a9be4f37cf16ab7d2992c",
+        "size": 1839
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/requests/translations/translator_a/tilelang_phase1_confirmed__to__cuda_unlimited__literal__translator_a.json",
+        "sha256": "d188f9c2d135554d0374479fd65615cef61a9805fcb6f082935cc7021261bf5b",
+        "size": 1641
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/requests/translations/translator_a/tilelang_phase1_confirmed__to__cuda_unlimited__retuned__translator_a.json",
+        "sha256": "c2eae64475e2e3bcb43e6a7b7ef0e4a139393a409cf624e0dad869bfc2895074",
+        "size": 1859
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/requests/translations/translator_a/tilelang_phase1_confirmed__to__tilelang__literal__translator_a.json",
+        "sha256": "189511114982f3a8c8d956660bf78ac07b37478ddf2ef17c6a6bb861506abe6a",
+        "size": 1617
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/requests/translations/translator_a/tilelang_phase1_confirmed__to__tilelang__retuned__translator_a.json",
+        "sha256": "19e9a2c0aefd160556475e1c7b86c2c7ea125d8fb293f903571160c1b84f8fa2",
+        "size": 1829
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/requests/translations/translator_a/tilelang_phase1_confirmed__to__triton__literal__translator_a.json",
+        "sha256": "7e004478390e274c0110d14cb5a537eb74417fb575fca59274812e587d8204cf",
+        "size": 1609
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/requests/translations/translator_a/tilelang_phase1_confirmed__to__triton__retuned__translator_a.json",
+        "sha256": "25ef1b4766afce154299e47f0e9041a7d18a16b1293f1a0c21b8f94460862d53",
+        "size": 1819
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/requests/translations/translator_a/triton_grouped_autotuned__to__cuda_noptx__literal__translator_a.json",
+        "sha256": "d88cf0645c24870b45481b9098087c24e77f77856a687bc075d91dbed6e4b466",
+        "size": 1619
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/requests/translations/translator_a/triton_grouped_autotuned__to__cuda_noptx__retuned__translator_a.json",
+        "sha256": "449eb35d2cbc7eb25c888f189949af18852b0c0695f45bf4ba41eb2cac93c01f",
+        "size": 1832
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/requests/translations/translator_a/triton_grouped_autotuned__to__cuda_unlimited__literal__translator_a.json",
+        "sha256": "b3c2b7bfd158090413cd3f30f29d319f56649dd9b88d16d8341913480cd6b524",
+        "size": 1635
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/requests/translations/translator_a/triton_grouped_autotuned__to__cuda_unlimited__retuned__translator_a.json",
+        "sha256": "532ce90643022e5724a15fd7955a6d8b27ffffc7ccf91befca218c9378473162",
+        "size": 1852
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/requests/translations/translator_a/triton_grouped_autotuned__to__tilelang__literal__translator_a.json",
+        "sha256": "5836f833c649a77044d0a7742da11af4fc0ce9a0931fa1c8dfc2d7e6f665a923",
+        "size": 1611
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/requests/translations/translator_a/triton_grouped_autotuned__to__tilelang__retuned__translator_a.json",
+        "sha256": "abc6d29d5a183ad26c7994e4d5293ab0a49508e93a18b336d764daf023836945",
+        "size": 1822
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/requests/translations/translator_a/triton_grouped_autotuned__to__triton__literal__translator_a.json",
+        "sha256": "9edb6faae2cb323cb04d69a80cf98cbe1d743c279ebe33e5e461586297ad2c20",
+        "size": 1603
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/requests/translations/translator_a/triton_grouped_autotuned__to__triton__retuned__translator_a.json",
+        "sha256": "5817ba536627455dfe081222064f97928cab7235b2a4a750dcaf56351b9ce53c",
+        "size": 1812
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/requests/translations/translator_b/cuda_unlimited_native_d__to__cuda_noptx__literal__translator_b.json",
+        "sha256": "a47b30408c9cee7a82a85336ce328c2acd7c197aeae0335466121257a3851c3a",
+        "size": 1616
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/requests/translations/translator_b/cuda_unlimited_native_d__to__cuda_noptx__retuned__translator_b.json",
+        "sha256": "a64b7ed905cae60633fac1b83ac7b9040dfb572d8762a39a775af870f44ca21e",
+        "size": 1828
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/requests/translations/translator_b/cuda_unlimited_native_d__to__cuda_unlimited__literal__translator_b.json",
+        "sha256": "962e9cc6e9aaf1a09c48866be453270292b3d7cb1770374a3d03d195ca1c6e82",
+        "size": 1632
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/requests/translations/translator_b/cuda_unlimited_native_d__to__cuda_unlimited__retuned__translator_b.json",
+        "sha256": "a6727ae6015bfcb3b997b2c93bf7567f4566aa7591ce181f1c11014a381469e1",
+        "size": 1848
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/requests/translations/translator_b/cuda_unlimited_native_d__to__tilelang__literal__translator_b.json",
+        "sha256": "880621b728888dcfb40da1c205b2bd40eafc68beec65356b1126524d54a62d88",
+        "size": 1608
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/requests/translations/translator_b/cuda_unlimited_native_d__to__tilelang__retuned__translator_b.json",
+        "sha256": "7b64b9c0396edd4f8d502175eaa2a83696239c48d02f1519ebda854510c4989f",
+        "size": 1818
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/requests/translations/translator_b/cuda_unlimited_native_d__to__triton__literal__translator_b.json",
+        "sha256": "aa63fc75e5607d9a7adfb10cc6958ae8990d17439c397b08c4cddb64f4cf07d5",
+        "size": 1600
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/requests/translations/translator_b/cuda_unlimited_native_d__to__triton__retuned__translator_b.json",
+        "sha256": "21bd9b7829261202aa774b77bdf609090aa1ed6034c7a942b292ab2122d60eab",
+        "size": 1808
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/requests/translations/translator_b/tilelang_phase1_confirmed__to__cuda_noptx__literal__translator_b.json",
+        "sha256": "640a2a7191f54f402281ecc2eb95c8521f258492862aa7aee1421df8b5ad4ab5",
+        "size": 1625
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/requests/translations/translator_b/tilelang_phase1_confirmed__to__cuda_noptx__retuned__translator_b.json",
+        "sha256": "9fa9852d0a748ef114b4544f4dc0c6f4b0b9b81a12597a420fa1b39ea68e0887",
+        "size": 1839
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/requests/translations/translator_b/tilelang_phase1_confirmed__to__cuda_unlimited__literal__translator_b.json",
+        "sha256": "250bf4cbd8eddb523a35c760ac89dc3427217af1a2afcaa9d84cd221fafd03e1",
+        "size": 1641
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/requests/translations/translator_b/tilelang_phase1_confirmed__to__cuda_unlimited__retuned__translator_b.json",
+        "sha256": "7b5e1abdb65c6b52ca9989aa89a54492c9be352fd3e3c7ec39d90266ebb04d8e",
+        "size": 1859
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/requests/translations/translator_b/tilelang_phase1_confirmed__to__tilelang__literal__translator_b.json",
+        "sha256": "ba49c32e7a1f4c02baacb2b61a05bd9eba4ce2875b77e341431204cb2c34588e",
+        "size": 1617
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/requests/translations/translator_b/tilelang_phase1_confirmed__to__tilelang__retuned__translator_b.json",
+        "sha256": "4e420b11eb304f67ad7265aae8f1cbf12b7d623a43f8ecf9b3f60f9a012635e8",
+        "size": 1829
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/requests/translations/translator_b/tilelang_phase1_confirmed__to__triton__literal__translator_b.json",
+        "sha256": "5a3f798c35b1c896a0df9969375ccd54cf00dca8038df45fb3eb5edbdd7abcd9",
+        "size": 1609
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/requests/translations/translator_b/tilelang_phase1_confirmed__to__triton__retuned__translator_b.json",
+        "sha256": "98300dfd5d8cb4febd3be710b8c8a1cacb3f671f2862aa3586a6bef86c0a5c9f",
+        "size": 1819
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/requests/translations/translator_b/triton_grouped_autotuned__to__cuda_noptx__literal__translator_b.json",
+        "sha256": "e01b00e3cd3676169a0e528e7eaa98ee8a95a4a0aa7707837b52ec35a32f77d0",
+        "size": 1619
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/requests/translations/translator_b/triton_grouped_autotuned__to__cuda_noptx__retuned__translator_b.json",
+        "sha256": "eb5218bb61530fdd6df0321f0aa25fee63518493c5ede3c8f9148eec31118186",
+        "size": 1832
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/requests/translations/translator_b/triton_grouped_autotuned__to__cuda_unlimited__literal__translator_b.json",
+        "sha256": "967c95d4cabb34772cf9aa5d6c725e9c607f5ff77e0ca580e9a7e40eb528daf2",
+        "size": 1635
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/requests/translations/translator_b/triton_grouped_autotuned__to__cuda_unlimited__retuned__translator_b.json",
+        "sha256": "004bad7a7d4ab8e3acfb98f98f43129f5ffebdd2db408a5a59d64f8fd7d465bd",
+        "size": 1852
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/requests/translations/translator_b/triton_grouped_autotuned__to__tilelang__literal__translator_b.json",
+        "sha256": "d2a9b3090fb89b1b2035728ae4bf95d7559334153afef9c8c2a15bfd67954f85",
+        "size": 1611
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/requests/translations/translator_b/triton_grouped_autotuned__to__tilelang__retuned__translator_b.json",
+        "sha256": "9e6db3ac6d8dd871f1e8219cbf6b1c0447da1af3fec9be299cd551b55763f848",
+        "size": 1822
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/requests/translations/translator_b/triton_grouped_autotuned__to__triton__literal__translator_b.json",
+        "sha256": "208087caa4e1b49320a18821a098a857853a784b98a240debc856553b041f227",
+        "size": 1603
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/requests/translations/translator_b/triton_grouped_autotuned__to__triton__retuned__translator_b.json",
+        "sha256": "c99f372ec2dbbadd25d74acf2e836fb50598cf77ba2cc974af329e751254979a",
+        "size": 1812
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/schemas/implementation_registry.schema.json",
+        "sha256": "6863fb86aac7311ed8aa5842546128323e7611af8a8c96177b4006cd6b93c553",
+        "size": 1844
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/schemas/isolation_transcript.schema.json",
+        "sha256": "3500c3be96cb715a9887eb52d7f5e8f2f7b008a5e85bdf4343be19756153f968",
+        "size": 3114
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/schemas/kc_attempt_summary.schema.json",
+        "sha256": "f6bf5b9b763c8cd0e5bfdf9d15ada9392b700fef659558aaf32f90df567dd62f",
+        "size": 1306
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/schemas/kc_execution_authorization.schema.json",
+        "sha256": "8f907bcdcd1dbad6de88af0eb43b6f13bbc3979b8bf138cbc9403f893b8d5f87",
+        "size": 1357
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/schemas/kc_raw_record_extension.schema.json",
+        "sha256": "9427794bcf2aad6988cad2fb9ef1f15f48def518bdc4100b9091236d4190cd3b",
+        "size": 756
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/schemas/translation_receipt.schema.json",
+        "sha256": "14e1dc72cf2f81a6a5fc1d3906308cad5887cf31e46efe125c53371193610426",
+        "size": 1626
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/test_production_v1.py",
+        "sha256": "c4f5b56a04169ebf4b0d220b3fafe959f2db445cc0af4501ff2b98bee192aca2",
+        "size": 8022
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/treatment_plan.py",
+        "sha256": "35867daaaa59ff1b16c9e5e8f87d94809ee1c76e9d9bffc93b6886f3be95463d",
+        "size": 7361
+      },
+      {
+        "path": "ako_runs/controlled_followup/reciprocal_v2/receipts/source_freeze.json",
+        "sha256": "6222c1ae56d795dd4f36ba928129a56862829f75f4bbe258285b91e98966b5c0",
+        "size": 10984
+      }
+    ],
+    "evidence_fix_id": "reciprocal-v2-production-v1-evidence-fix-v1-20260731",
+    "evidence_fix_source_bundle_sha256": "b3d58dc17b1634f2ec742d44fde84ad724ccfd74e92b664c55758a59ccb699b6",
+    "evidence_fix_source_freeze_sha256": "e6939e1ae5bf4740910e87683edd090a313daa20b6c66dd79a59c6e18a210747",
+    "legacy_identities": {
+      "prereg_bundle_sha256": "2de75d240cfee932d2ced6d435cc33c8a05efb380d0cee50303739498e51f615",
+      "prereg_index_sha256": "f2ed15eb5d6bbe76ca52d949c59d354cc6205bdc53cf43fa9e96a93827139946",
+      "source_bundle_sha256": "cde61903dca690d797076a79373445cca5453709e9a74f65823033826fbb8cff",
+      "source_freeze_sha256": "6222c1ae56d795dd4f36ba928129a56862829f75f4bbe258285b91e98966b5c0"
+    },
+    "performance_results_included": false,
+    "preserves_legacy_preregistration": true,
+    "record_type": "reciprocal_v2_production_supplement_evidence_manifest",
+    "schema_version": 1,
+    "stage": "prereg",
+    "success_locks_included": false,
+    "superseded_builder_defect": "bundle_destination_variable_shadowed_by_source_loop_variable",
+    "superseded_builder_path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/capture_evidence.py",
+    "superseded_builder_sha256": "5e74703976d1844143fff232c82102da000af4b5eb437fff2498195491c440ff",
+    "supersedes_for_production_protocol": "prereg_v1",
+    "supplement_id": "reciprocal-v2-production-v1-20260731",
+    "supplement_source_bundle_sha256": "4e8525b85af79999ffda4ceac74ce636c92b2866c8e8e02dd07001f42f480b69",
+    "supplement_source_freeze_sha256": "abf550ce0b71083b36af076c319b995ccb94aefa681536fa4e76760c275bcaa4",
+    "treatment_artifacts_included": false
+  },
+  "manifest_sha256": "58f4916cc9157deeb9521e29cd16fc4739e19b8f9d299aca0b543bc4849b07a3",
+  "record_type": "reciprocal_v2_production_supplement_evidence_index",
+  "schema_version": 1,
+  "supplement_id": "reciprocal-v2-production-v1-20260731"
+}

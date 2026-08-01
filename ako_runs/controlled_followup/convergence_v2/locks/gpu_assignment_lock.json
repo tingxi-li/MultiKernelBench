@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "campaign_id": "20260731_controlled_followup_convergence_v2",
+  "state": "resolved",
+  "slots": [
+    {"slot": 0, "placeholder": "GPU_UUID_SLOT_0", "gpu_uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae"},
+    {"slot": 1, "placeholder": "GPU_UUID_SLOT_1", "gpu_uuid": "GPU-91b61ae6-d21e-485e-43b3-7505d62149b1"},
+    {"slot": 2, "placeholder": "GPU_UUID_SLOT_2", "gpu_uuid": "GPU-3ed448f2-f23a-09fc-e18b-f580523c4a3f"},
+    {"slot": 3, "placeholder": "GPU_UUID_SLOT_3", "gpu_uuid": "GPU-eafdd6ce-8857-40fd-f494-47a7240bf6b5"}
+  ],
+  "binding_receipt": "../receipts/gpu_assignment_binding_20260731.json",
+  "binding_receipt_sha256": "a24614f3d9fd2fc8f55a2b3a372807201f4b5ae77c4f33f56932776c61bb75b1",
+  "policy": "Each eight-replicate cell is assigned exactly twice to every slot; UUID binding occurs once before launch. Live UUID equality remains a mandatory validate_launch runtime check."
+}

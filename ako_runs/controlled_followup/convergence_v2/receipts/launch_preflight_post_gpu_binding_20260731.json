@@ -1,0 +1,63 @@
+{
+  "action": "launch_forbidden_diagnostic_gpu_check_skipped",
+  "campaign_id": "20260731_controlled_followup_convergence_v2",
+  "checks": [
+    {
+      "detail": "ok",
+      "name": "trajectory_manifests",
+      "passed": true
+    },
+    {
+      "detail": "ok",
+      "name": "prompt_contract_lock",
+      "passed": true
+    },
+    {
+      "detail": "ok",
+      "name": "protocol_freeze_receipt",
+      "passed": true
+    },
+    {
+      "detail": "ok",
+      "name": "gate_preregistration_receipt",
+      "passed": true
+    },
+    {
+      "detail": "model resolution lock state is not resolved",
+      "name": "immutable_model_resolution",
+      "passed": false
+    },
+    {
+      "detail": "ok",
+      "name": "gpu_uuid_binding",
+      "passed": true
+    },
+    {
+      "detail": "gate binding lock is not resolved",
+      "name": "robust_hidden_gate_bindings",
+      "passed": false
+    },
+    {
+      "detail": "remote preregistration lock is unresolved",
+      "name": "remote_preregistration",
+      "passed": false
+    },
+    {
+      "detail": "OPENAI_API_KEY and ANTHROPIC_API_KEY must both be present",
+      "name": "provider_credentials",
+      "passed": false
+    },
+    {
+      "detail": "ok",
+      "name": "provider_sdks",
+      "passed": true
+    },
+    {
+      "detail": "reference latency lock is not frozen on an assigned GPU",
+      "name": "frozen_reference_latencies",
+      "passed": false
+    }
+  ],
+  "ready": false,
+  "schema_version": 1
+}

@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "campaign_id": "20260731_sum_robust_gate_v1",
+  "freeze_state": "preregistered_not_executed",
+  "operation": "sum_reduction_over_a_dimension",
+  "reference": "reference/reduce/sum_reduction_over_a_dimension.py",
+  "shape": [128, 4096, 4096],
+  "reduce_dim": 1,
+  "keepdim": true,
+  "contract": {"input_dtype": "fp32", "output_dtype": "fp32"},
+  "cases": [
+    {"id": "legacy_u01", "distribution": "uniform_positive", "params": {"low": 0.0, "high": 1.0}},
+    {"id": "signed_normal", "distribution": "normal_zero", "params": {"mean": 0.0, "std": 1.0}},
+    {"id": "rademacher", "distribution": "rademacher", "params": {"values": [-1.0, 1.0]}},
+    {"id": "signed_log_uniform", "distribution": "signed_log_uniform", "params": {"exp_low": -4.0, "exp_high": 4.0}},
+    {"id": "opposing_means", "distribution": "alternating_mean_shifted_normal", "params": {"mean_abs": 0.5, "std": 1.0}},
+    {"id": "paired_cancellation", "distribution": "paired_cancellation", "params": {"pair_axis": 1}}
+  ],
+  "gates": [
+    {
+      "id": "conformance_fp32",
+      "reference": "torch_fp32_sum",
+      "metrics": ["max_abs_err", "scaled_rmse", "abs_signed_bias", "componentwise_backward_error"],
+      "fixed_requirements": {"nonfinite_count": 0, "shape_exact": true, "dtype_exact": true}
+    },
+    {
+      "id": "semantic_fp64",
+      "reference": "fp64_pairwise_sum",
+      "metrics": ["max_abs_err", "scaled_rmse", "abs_signed_bias", "componentwise_backward_error"],
+      "fixed_requirements": {"nonfinite_count": 0, "shape_exact": true, "dtype_exact": true}
+    }
+  ],
+  "threshold_policy": {
+    "state": "unset_pending_calibration",
+    "candidate_independent_anchors": ["torch_fp32_sum", "fp64_pairwise_sum"],
+    "safety_factor": 1.25,
+    "rounding": "next-1-2-5",
+    "no_post_launch_refit": true
+  },
+  "seed_plan": {
+    "calibration_namespace": "MKB-sum-gate-v1-calibration-20260731",
+    "calibration_seeds_per_case": 128,
+    "validation_namespace": "MKB-sum-gate-v1-validation-20260731",
+    "validation_seeds_per_case": 512,
+    "splits_disjoint": true
+  },
+  "power_design": {
+    "target_defect_prevalence": 0.01,
+    "probability_of_at_least_one_detection_at_512_seeds": 0.994176023,
+    "negative_controls_must_reject": "all"
+  },
+  "negative_controls": [
+    "all_zero_output_on_nonzero_positive_case",
+    "nan_injection",
+    "reduce_wrong_axis_2",
+    "drop_second_half_of_reduction",
+    "wrong_keepdim_shape"
+  ],
+  "success_rule": "Every case, gate, metric, structural check, and all 512 validation seeds must pass; missing or nonfinite records fail closed."
+}
+

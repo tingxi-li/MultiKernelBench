@@ -1,0 +1,32 @@
+{
+  "access_policy": {
+    "network_must_be_disabled": true,
+    "other_translator_source_must_be_inaccessible": true,
+    "performance_results_must_be_inaccessible": true
+  },
+  "campaign_id": "standard-matmul-reciprocal-transfer-v2-20260731",
+  "candidate_attempt_budget": 1,
+  "cell_id": "cuda_unlimited_native_d__to__triton__literal__translator_a",
+  "claim": "request_only_no_source_or_treatment_outcome_is_asserted",
+  "destination_dsl": "triton",
+  "output_contract": {
+    "request_and_isolation_hash_bindings_required": true,
+    "source_must_be_regular_nonempty_and_unique": true,
+    "source_path": "ako_runs/controlled_followup/reciprocal_v2/translators/translator_a/implementations/cuda_unlimited_native_d__to__triton__literal__translator_a.py",
+    "translation_receipt_path": "ako_runs/controlled_followup/reciprocal_v2/production_v1/outputs/translations/translator_a/cuda_unlimited_native_d__to__triton__literal__translator_a.json"
+  },
+  "recipe_card": {
+    "file_sha256": "cdf83101659e59e1ae4bfd801b496b60b250fc555b6648ec78f3c0320759fc62",
+    "path": "ako_runs/controlled_followup/reciprocal_v2/recipe_cards/cuda_unlimited_native_d.json",
+    "recipe_id": "cuda_unlimited_native_d",
+    "sha256": "fecb460062a8010cd265732615c98a483af0f5d890c4f41eda3ef45bab755b03"
+  },
+  "recipe_origin": "cuda_unlimited_native_d",
+  "record_type": "reciprocal_v2_translation_request",
+  "retune_plan": null,
+  "schema_version": 1,
+  "state": "unexecuted_treatment_request",
+  "supplement_id": "reciprocal-v2-production-v1-20260731",
+  "transfer_mode": "literal",
+  "translator": "translator_a"
+}
