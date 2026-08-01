@@ -1,0 +1,30 @@
+{
+  "campaign_id": "fused-epilogue-crossed-v1",
+  "complete": true,
+  "expected_records": 900,
+  "failed_processes": 0,
+  "gpu_after": {
+    "clocks.mem": "10001",
+    "clocks.sm": "2505",
+    "compute_cap": "8.9",
+    "driver_version": "610.43.02",
+    "index": "0",
+    "memory.total": "49140",
+    "memory.used": "2",
+    "name": "NVIDIA RTX 6000 Ada Generation",
+    "power.limit": "300.00",
+    "pstate": "P0",
+    "temperature.gpu": "70",
+    "utilization.gpu": "23",
+    "uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae"
+  },
+  "observed_records": 900,
+  "parent_launch_lock_sha256": "fe9a0123cc1e3aa64f5d0026e09d89b918838174c7964c85c4580b0962767e8a",
+  "parent_source_bundle_sha256": "f8d7745416c7254d10cfdd144d80d91409f745d521d0debb5f5f8cc87c9de0b6",
+  "phase": "confirmation",
+  "recovery_git_commit": "3c5beb19c25fb083c80efd2e5a7839d201e200ec",
+  "recovery_id": "fused-epilogue-crossed-v1r1-reporting-fix",
+  "recovery_lock_sha256": "919827539cce29d8a5aa134cd88f4afe14241703615a1b1ba29d40aabde31b63",
+  "recovery_source_bundle_sha256": "40cb91ec9739f9b2073347cce55ea01b89aebcd5c94526589b323d247ebfb251",
+  "result_tag": "crossed_v1r1"
+}

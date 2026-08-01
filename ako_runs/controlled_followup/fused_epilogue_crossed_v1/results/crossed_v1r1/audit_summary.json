@@ -1,0 +1,2273 @@
+{
+  "all_factor_common_feasible_grid_ids": [],
+  "campaign_id": "fused-epilogue-crossed-v1",
+  "cells": [
+    {
+      "cell_id": "register_fused.tilelang.g00",
+      "gate_max_over_threshold_ratio": 0.9595156558184215,
+      "gate_minimum_headroom_fraction": 0.040484344181578535,
+      "record_sha256": "0465c531af80f7d98d05717eeca2d36cb4cb2841b809fb641803ae18bc974817",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "register_fused.tilelang.g01",
+      "gate_max_over_threshold_ratio": 0.9595156558184215,
+      "gate_minimum_headroom_fraction": 0.040484344181578535,
+      "record_sha256": "e99a79fbc9388602351a1683b9dff91b4319edfff80afcf059bacb4a48eb0a8d",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "register_fused.tilelang.g02",
+      "gate_max_over_threshold_ratio": 0.9595156558184215,
+      "gate_minimum_headroom_fraction": 0.040484344181578535,
+      "record_sha256": "3ce2e43287163be8604484df3f39e8127a41e2b9e6a4a525c040227493d55b6c",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "register_fused.tilelang.g03",
+      "gate_max_over_threshold_ratio": 0.9595156558184215,
+      "gate_minimum_headroom_fraction": 0.040484344181578535,
+      "record_sha256": "42e8940c4408021b59b400469f9ac985df14cd07155b6e0d367132d81d92d9ca",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "register_fused.tilelang.g04",
+      "gate_max_over_threshold_ratio": 0.9595156558184215,
+      "gate_minimum_headroom_fraction": 0.040484344181578535,
+      "record_sha256": "38deaf1805a88813fe8dd1c2624ad9f4c1b349ab6548e6f5be7a123d9cebd694",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "register_fused.tilelang.g05",
+      "gate_max_over_threshold_ratio": 0.9595156558184215,
+      "gate_minimum_headroom_fraction": 0.040484344181578535,
+      "record_sha256": "fe9f5fe770c3baac6321a2f714b83a509c50c828f0cfb060b96785a3968404bb",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "register_fused.tilelang.g06",
+      "gate_max_over_threshold_ratio": 0.9595156558184215,
+      "gate_minimum_headroom_fraction": 0.040484344181578535,
+      "record_sha256": "803c9f95d56f3f9f47af59da430e8c886feb508b1cf4f46c9bf0b3a381f2a28c",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "register_fused.tilelang.g07",
+      "gate_max_over_threshold_ratio": 0.9595156558184215,
+      "gate_minimum_headroom_fraction": 0.040484344181578535,
+      "record_sha256": "2a83a149ffe5bf0ef1c33c0c43e61eb1c1031540ae77f34bc91744030898d600",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "register_fused.tilelang.g08",
+      "gate_max_over_threshold_ratio": 0.9595156558184215,
+      "gate_minimum_headroom_fraction": 0.040484344181578535,
+      "record_sha256": "216f9af5f7c8ef525a0c2b67babb50cc7c68bcaeb9796b6abf4429c06ba1c233",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "register_fused.tilelang.g09",
+      "gate_max_over_threshold_ratio": 0.9595156558184215,
+      "gate_minimum_headroom_fraction": 0.040484344181578535,
+      "record_sha256": "23343ece0090f78e10f568021d99cfc68a557f2d4ad57f88e27128242146a087",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "register_fused.tilelang.g10",
+      "gate_max_over_threshold_ratio": 0.9595156558184215,
+      "gate_minimum_headroom_fraction": 0.040484344181578535,
+      "record_sha256": "ee5ae4012043f2cb379cd5e89fefd8e6dcbd491af53bebae57390a9bee202e42",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "register_fused.tilelang.g11",
+      "gate_max_over_threshold_ratio": 0.9595156558184215,
+      "gate_minimum_headroom_fraction": 0.040484344181578535,
+      "record_sha256": "88fc82331a4f991d99c926974c32be296641b08fcbf4f49ffeb42271599207d5",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "register_fused.tilelang.g12",
+      "gate_max_over_threshold_ratio": 0.9595156558184215,
+      "gate_minimum_headroom_fraction": 0.040484344181578535,
+      "record_sha256": "60509f7c20d5320385cc317892d10cef181f9afea1b93aed98f0bddbbc88b68d",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "register_fused.tilelang.g13",
+      "gate_max_over_threshold_ratio": 0.9595156558184215,
+      "gate_minimum_headroom_fraction": 0.040484344181578535,
+      "record_sha256": "ef0e773783e4851f94be71ad007134e5601b47a9313a17e285f5d9371fb97d06",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "register_fused.tilelang.g14",
+      "gate_max_over_threshold_ratio": 0.9595156558184215,
+      "gate_minimum_headroom_fraction": 0.040484344181578535,
+      "record_sha256": "1d9bbb079eb01232daa63ebb3c1bfc26a09988c52a0d226ac5c7f3e66d25510d",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "register_fused.tilelang.g15",
+      "gate_max_over_threshold_ratio": 0.9595156558184215,
+      "gate_minimum_headroom_fraction": 0.040484344181578535,
+      "record_sha256": "459349b8ca16c7f00879a813b2e4c51fe3a87c43b5adc257e673be6c293dd711",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "register_fused.tilelang.g16",
+      "gate_max_over_threshold_ratio": 0.9595156558184215,
+      "gate_minimum_headroom_fraction": 0.040484344181578535,
+      "record_sha256": "bbdd47a689f23d9b2788cfaeeb8e66b1fccef8e110f8c6d284e68a5a779afd4d",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "register_fused.tilelang.g17",
+      "gate_max_over_threshold_ratio": 0.9595156558184215,
+      "gate_minimum_headroom_fraction": 0.040484344181578535,
+      "record_sha256": "fd459c424f27aed29d5659f1e04ebed282a3cc6c16c3c6c42ac7203ec58839be",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "register_fused.tilelang.g18",
+      "gate_max_over_threshold_ratio": 0.9595156558184215,
+      "gate_minimum_headroom_fraction": 0.040484344181578535,
+      "record_sha256": "341d9667e0e33eb45f83227ec0c65bf3489a3228615e6d8e9202e7a25fa0f8ee",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "register_fused.triton.g00",
+      "gate_max_over_threshold_ratio": 0.9512837921832329,
+      "gate_minimum_headroom_fraction": 0.04871620781676711,
+      "record_sha256": "07ebe4f52032d013b87541288acd6dd70f8dece8d23a5f59d8bdc2627a4a59b6",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "register_fused.triton.g01",
+      "gate_max_over_threshold_ratio": 0.9512837921832329,
+      "gate_minimum_headroom_fraction": 0.04871620781676711,
+      "record_sha256": "ebcbcc17285444b43617ee5f4d87b2d1cd19bdc3e6523a2d157b1824c4bb4775",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "register_fused.triton.g02",
+      "gate_max_over_threshold_ratio": 0.9512837921832329,
+      "gate_minimum_headroom_fraction": 0.04871620781676711,
+      "record_sha256": "618593de84dd84c627f899d5f8292b045b8f106c202df7dec6bd33f2904fa377",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "register_fused.triton.g03",
+      "gate_max_over_threshold_ratio": 0.9512837921832329,
+      "gate_minimum_headroom_fraction": 0.04871620781676711,
+      "record_sha256": "1ba2090617b8beb13e55d3c6cd36a5f9a4de704197bb2176f999700ded0abd2e",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "register_fused.triton.g04",
+      "gate_max_over_threshold_ratio": 0.9512837921832329,
+      "gate_minimum_headroom_fraction": 0.04871620781676711,
+      "record_sha256": "a1708c42f8dc00f3e6cc2818e5baa4c492413476d37b9a2f285e30e95bee6738",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "register_fused.triton.g05",
+      "gate_max_over_threshold_ratio": 0.9512837921832329,
+      "gate_minimum_headroom_fraction": 0.04871620781676711,
+      "record_sha256": "d065b9883849c2da733e2e6e978b955e669f1705c7f0fff395dd8f672e2b2e01",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "register_fused.triton.g06",
+      "gate_max_over_threshold_ratio": 0.9512837921832329,
+      "gate_minimum_headroom_fraction": 0.04871620781676711,
+      "record_sha256": "667aa8f171697fd37e6c4251f460ee3ae4021184407294bf3171c00e21cc75c1",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "register_fused.triton.g07",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "94304c720cc12fcc39c3c6f06f90b05fa472832df97aebda7f9efb9f08884199",
+      "terminal_outcome": "BUILD_FAILED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "register_fused.triton.g08",
+      "gate_max_over_threshold_ratio": 0.9512837921832329,
+      "gate_minimum_headroom_fraction": 0.04871620781676711,
+      "record_sha256": "ba462524462f8b401a922162fa1012028c0cbca2a6dbe1c7d2f334a11b4148aa",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "register_fused.triton.g09",
+      "gate_max_over_threshold_ratio": 0.9512837921832329,
+      "gate_minimum_headroom_fraction": 0.04871620781676711,
+      "record_sha256": "ee658164fbc74ad7cf5444320c8b86cdd509438617ce72f08f6a6efadcab79d0",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "register_fused.triton.g10",
+      "gate_max_over_threshold_ratio": 0.9512837921832329,
+      "gate_minimum_headroom_fraction": 0.04871620781676711,
+      "record_sha256": "2581f0c050b0267ffdb28b2e57270429f7f6b7582471ffd4bc974c589b8f77c5",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "register_fused.triton.g11",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "af478598d76ce688a923a63e8d8a1cb5bc5280922d578b01e5b88a446f1709fd",
+      "terminal_outcome": "BUILD_FAILED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "register_fused.triton.g12",
+      "gate_max_over_threshold_ratio": 0.9512837921832329,
+      "gate_minimum_headroom_fraction": 0.04871620781676711,
+      "record_sha256": "031b29d683fb42d6a0cd1e8b2fe37c460ba0de1254274212fda4043ae9a27000",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "register_fused.triton.g13",
+      "gate_max_over_threshold_ratio": 0.9512837921832329,
+      "gate_minimum_headroom_fraction": 0.04871620781676711,
+      "record_sha256": "0a9fc2e413a609b009bbc8ec9d4da51b2d0e26506f7a43604a9b70471364aaa6",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "register_fused.triton.g14",
+      "gate_max_over_threshold_ratio": 0.9512837921832329,
+      "gate_minimum_headroom_fraction": 0.04871620781676711,
+      "record_sha256": "641b392986d6c2a2ecfe15d3cb74cbca483dc429fd5b069f6a62c37e2164ed26",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "register_fused.triton.g15",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "4b90065723dec14a85a3c031ec7651bed004e4c204b9942e19617c5ea2e960a1",
+      "terminal_outcome": "BUILD_FAILED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "register_fused.triton.g16",
+      "gate_max_over_threshold_ratio": 0.9512837921832329,
+      "gate_minimum_headroom_fraction": 0.04871620781676711,
+      "record_sha256": "bb3e98633521ab71d811e7ebaaf1f2e3a22c889b0e977caaafb7f7db5eebc829",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "register_fused.triton.g17",
+      "gate_max_over_threshold_ratio": 0.9512837921832329,
+      "gate_minimum_headroom_fraction": 0.04871620781676711,
+      "record_sha256": "4aa567b8f8628aefec433d25368bb4e317592e7c969564ed505dd22da1ba4c2c",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "register_fused.triton.g18",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "dd1f214baf867da36fb46b77c1b5dd3ecc0405bf58ef397d4b4b4c2fdc3d208f",
+      "terminal_outcome": "BUILD_FAILED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "register_fused.cuda_noptx.g00",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "887745dc125dffb94f36fa2bdc72a845ce2db1ea36d200c48b6fac2fce123a52",
+      "terminal_outcome": "UNSUPPORTED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "register_fused.cuda_noptx.g01",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "2fa604ec5862333564f983408c77836c22815e3eb2e2154c97fda488653a48b9",
+      "terminal_outcome": "UNSUPPORTED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "register_fused.cuda_noptx.g02",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "c42994cd967258068079cb64708dd87210d863b8db88248bd2c56b517d702b59",
+      "terminal_outcome": "UNSUPPORTED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "register_fused.cuda_noptx.g03",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "706de24b2cae67236afaa17d1c5822a247dacc4e89cb638bb45eab336ddc51b0",
+      "terminal_outcome": "UNSUPPORTED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "register_fused.cuda_noptx.g04",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "4a1375605826e937ecb6f82ff4fbec99ebed5fc0d677391947a1db813e326e9b",
+      "terminal_outcome": "UNSUPPORTED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "register_fused.cuda_noptx.g05",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "8f964aa292c409264ce9107cab12e6d0bed04e0414d379be31e30ea0befac666",
+      "terminal_outcome": "UNSUPPORTED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "register_fused.cuda_noptx.g06",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "145cdac48a1b4ae6cc5fc46733290d289e8d1f5b585546a0e4613725aae2165b",
+      "terminal_outcome": "UNSUPPORTED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "register_fused.cuda_noptx.g07",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "20f404af1d6c0f4f5b837bb83418fb6c69e884fec3f7fde54d455e2709776c40",
+      "terminal_outcome": "UNSUPPORTED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "register_fused.cuda_noptx.g08",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "a52db3a13aacf3d6c05562875261f8d2c007419f07ecc2a7fe06d60577852e32",
+      "terminal_outcome": "UNSUPPORTED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "register_fused.cuda_noptx.g09",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "4f1143fc3ff77d8872729938614902a8597bb19972b4b53ac7af7e54cdfb3f2a",
+      "terminal_outcome": "UNSUPPORTED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "register_fused.cuda_noptx.g10",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "7798b3896376bd517348b145eed04f3db33274c5d21ef8f0289337ac532ed220",
+      "terminal_outcome": "UNSUPPORTED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "register_fused.cuda_noptx.g11",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "85d3ea78fc10af8b8cbf7202008f5b08cebfd02d57419e6fbff8367ed2e3090f",
+      "terminal_outcome": "UNSUPPORTED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "register_fused.cuda_noptx.g12",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "7f9b9ea6f78bec315c07bb0b8ce219a4fd6355a11bf868554ba6757ec5ee4f5d",
+      "terminal_outcome": "UNSUPPORTED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "register_fused.cuda_noptx.g13",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "04e8463b935b70ae959e07849a1cefcda9911a907e56c4c8deb0d255b32a8201",
+      "terminal_outcome": "UNSUPPORTED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "register_fused.cuda_noptx.g14",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "d3a122284b1e9ca44c6b1353abbf281cde19d28274b93ac1e6d5cafb5208261f",
+      "terminal_outcome": "UNSUPPORTED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "register_fused.cuda_noptx.g15",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "e258c44913f9c8f6a5dd5550ea2073cad5772a6f01c982aea33775b8b281fb6e",
+      "terminal_outcome": "UNSUPPORTED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "register_fused.cuda_noptx.g16",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "39336693088d4df9e5708858788e359a5e67a5aa9b4707cb7cdb50c565265ea1",
+      "terminal_outcome": "UNSUPPORTED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "register_fused.cuda_noptx.g17",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "614afb1e437c49c7a7f4aabfc935bc82484421015d5087c68e3caee296f35b0f",
+      "terminal_outcome": "UNSUPPORTED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "register_fused.cuda_noptx.g18",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "8873e4959a7ace1851230ce284b3b23ba53109b6242274cd0e248873298983ec",
+      "terminal_outcome": "UNSUPPORTED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "register_fused.cuda_unlimited.g00",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "552106ebf9bdf4560ec38dda60979e0721c5960d2fb53c6cfca7053c9b5ebaa9",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "register_fused.cuda_unlimited.g01",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "2612b5bd8010f10e57bf2df286776a62b80fec54dff9adfbff42d903b2cb478e",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "register_fused.cuda_unlimited.g02",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "7133e5b689d74c54112d8d6cd5386eb682a6bb3ae631d09a6bdecb7ab2d81c09",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "register_fused.cuda_unlimited.g03",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "2441d95efd97daacda9ea3b2597dc7da60f14f094b53c57103ce0b272226ddac",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "register_fused.cuda_unlimited.g04",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "a051c9836c1709e3391dafeed3d5889809b1413731eeabce34656213308e3a1c",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "register_fused.cuda_unlimited.g05",
+      "gate_max_over_threshold_ratio": 189946.1107526714,
+      "gate_minimum_headroom_fraction": -189945.1107526714,
+      "record_sha256": "8efa2bc2990967abe27a62697009633d237aa1fcf5d8333c9ec030a214939b73",
+      "terminal_outcome": "LAUNCH_FAILED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "register_fused.cuda_unlimited.g06",
+      "gate_max_over_threshold_ratio": 54886.06863981289,
+      "gate_minimum_headroom_fraction": -54885.06863981289,
+      "record_sha256": "1903d0a64d5d353a6161001e6f723724d18e87485763023a426d32f7e97c0767",
+      "terminal_outcome": "GATE_FAILED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "register_fused.cuda_unlimited.g07",
+      "gate_max_over_threshold_ratio": 190512.76335737752,
+      "gate_minimum_headroom_fraction": -190511.76335737752,
+      "record_sha256": "9da885ca2d7908dcd07094d97aec69e9650ddb783aaa223b8727fdfb7d586443",
+      "terminal_outcome": "LAUNCH_FAILED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "register_fused.cuda_unlimited.g08",
+      "gate_max_over_threshold_ratio": 190653.22889831846,
+      "gate_minimum_headroom_fraction": -190652.22889831846,
+      "record_sha256": "03fabe979f6738f4a28f26b4763fe5a33b5e753bf1d455a1729e429932c0088a",
+      "terminal_outcome": "LAUNCH_FAILED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "register_fused.cuda_unlimited.g09",
+      "gate_max_over_threshold_ratio": 189946.1107526714,
+      "gate_minimum_headroom_fraction": -189945.1107526714,
+      "record_sha256": "7c085b678936991e4e1f16b64190a78fe6bfc5e9dbe4fdf6abe2d407336792ad",
+      "terminal_outcome": "LAUNCH_FAILED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "register_fused.cuda_unlimited.g10",
+      "gate_max_over_threshold_ratio": 54886.06863981289,
+      "gate_minimum_headroom_fraction": -54885.06863981289,
+      "record_sha256": "ea35f7c33053d7c4fb2f79173017c14041b85726b399d78a41322e2934767a26",
+      "terminal_outcome": "GATE_FAILED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "register_fused.cuda_unlimited.g11",
+      "gate_max_over_threshold_ratio": 190512.76335737752,
+      "gate_minimum_headroom_fraction": -190511.76335737752,
+      "record_sha256": "3fe92b989c649f1afb6fcf3716cbe051d4e65e0099890ba053acd9f1964bc2fb",
+      "terminal_outcome": "LAUNCH_FAILED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "register_fused.cuda_unlimited.g12",
+      "gate_max_over_threshold_ratio": 190653.22889831846,
+      "gate_minimum_headroom_fraction": -190652.22889831846,
+      "record_sha256": "9c33304befd65890525a544896f11e9bc7af731282f3a47ee72a81e7cb0a91cd",
+      "terminal_outcome": "LAUNCH_FAILED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "register_fused.cuda_unlimited.g13",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "07e2e1be2f18c2e494f5b6014bf51d93a1c1b3dcaf4ef4618c21d07389aa73f8",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "register_fused.cuda_unlimited.g14",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "f86a479b57f7ed5239bfb597dc39b9445bfae7643f988d58955ad61e5afa16ed",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "register_fused.cuda_unlimited.g15",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "dbc91c60f1d495948102ea43b1ebe60c525fda388bd7a13858274265251aabe5",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "register_fused.cuda_unlimited.g16",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "df23dea72e002b6bf67501557288115e0db5a52620e3b28d9f33856c0418caf0",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "register_fused.cuda_unlimited.g17",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "88f4ecfdebffa2657545e52d045c270797e88a8390d2f25f0c2dfe31592f9081",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "register_fused.cuda_unlimited.g18",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "e84aa11db57b5fd80d47e05ffb1f5aedd11f56034ef9ebb6621adbcbf8b2393c",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g00",
+      "gate_max_over_threshold_ratio": 0.9595156558184215,
+      "gate_minimum_headroom_fraction": 0.040484344181578535,
+      "record_sha256": "6898072f6a6505d6ff873a6e0d534632f1eee25ac9b6ced4ff9f449ca87ae5f6",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g01",
+      "gate_max_over_threshold_ratio": 0.9595156558184215,
+      "gate_minimum_headroom_fraction": 0.040484344181578535,
+      "record_sha256": "ae430a8d6aff22e397f9f2e88c0725f04248c8918b3bd0fa8e81f18c9d9d19b8",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g02",
+      "gate_max_over_threshold_ratio": 0.9595156558184215,
+      "gate_minimum_headroom_fraction": 0.040484344181578535,
+      "record_sha256": "e1e27804782405231ec04c2b4c1f65f3eea901dc258cce45ac48707da6027a6f",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g03",
+      "gate_max_over_threshold_ratio": 0.9595156558184215,
+      "gate_minimum_headroom_fraction": 0.040484344181578535,
+      "record_sha256": "f65b8850be211e45a124976cd87a0cfc02d91a5f294fa58b692a32b3c9382f51",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g04",
+      "gate_max_over_threshold_ratio": 0.9595156558184215,
+      "gate_minimum_headroom_fraction": 0.040484344181578535,
+      "record_sha256": "36e574b318edabaf0caa024e0aed10ddc2766d011a37c1251dcacb652a16275b",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g05",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "8b0ef3e3a18e9402bfade85b2e39690381132d0e5b440675f57063675e17e4f3",
+      "terminal_outcome": "BUILD_FAILED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g06",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "bcd005b5447fa3daa767daf24be0c591aee91aa204d17eb04cb259290ab4b9a5",
+      "terminal_outcome": "BUILD_FAILED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g07",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "9f95f37c3c8e75d0ef1b3265d2f3f5b9b3302962f23ca9edb549cf4040e12928",
+      "terminal_outcome": "BUILD_FAILED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g08",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "3b1ebf2b0808b823f36018895a8787bf2f823f8f19f121e9af378648cc6e4c9b",
+      "terminal_outcome": "BUILD_FAILED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g09",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "e5d4de1f9e5a7d1efea33d116a20bed28cbb1ca790cb0ceb669037351f6ea52b",
+      "terminal_outcome": "BUILD_FAILED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g10",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "8ca10ea55f42169530e94de5b3d469bca6684a83bc393be6744b6489aab44f4b",
+      "terminal_outcome": "BUILD_FAILED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g11",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "92daa64298c1eaeac41f09e1a5e7ee164a4dfa6b501fd0aaa319b675aa62e9f2",
+      "terminal_outcome": "BUILD_FAILED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g12",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "15a65941e4a8549c1430664540d5ac4bdbbd1fb1b5aeb3953ce9bf58114259c0",
+      "terminal_outcome": "BUILD_FAILED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g13",
+      "gate_max_over_threshold_ratio": 0.9595156558184215,
+      "gate_minimum_headroom_fraction": 0.040484344181578535,
+      "record_sha256": "1a83e0f7394f6eea5f55564dc4ffc5737e1022dba7bf02669338f3ff7f1040d9",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g14",
+      "gate_max_over_threshold_ratio": 0.9595156558184215,
+      "gate_minimum_headroom_fraction": 0.040484344181578535,
+      "record_sha256": "7c8a5c1af5d1835cb5f6d4df8674c9c4025602b4bfe3d029bb5c49b4f421e668",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g15",
+      "gate_max_over_threshold_ratio": 0.9595156558184215,
+      "gate_minimum_headroom_fraction": 0.040484344181578535,
+      "record_sha256": "55f1ab8797636142c70833b3840a7b0c3012662772e1a5dc22bb0cb1248b3265",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g16",
+      "gate_max_over_threshold_ratio": 0.9595156558184215,
+      "gate_minimum_headroom_fraction": 0.040484344181578535,
+      "record_sha256": "59b53df3d78de7a8246058fd07892d27b777598194a4f8255f1683ea0772f3e9",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g17",
+      "gate_max_over_threshold_ratio": 0.9595156558184215,
+      "gate_minimum_headroom_fraction": 0.040484344181578535,
+      "record_sha256": "5db938a38f171843386e8fa987338ffdae49245efd44e3ea203980215eb9657c",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g18",
+      "gate_max_over_threshold_ratio": 0.9595156558184215,
+      "gate_minimum_headroom_fraction": 0.040484344181578535,
+      "record_sha256": "ce57d4b699a11173ff677a1adce1ce877bcf2d7fa3a5553b9f2a83479c83b4fd",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "smem_staged.triton.g00",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "8ea4ff417ff0f23119e00c9cf2441a4b3d533aaf2e751ddf44fe56d3eb7047b8",
+      "terminal_outcome": "UNSUPPORTED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "smem_staged.triton.g01",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "9118839efbf38b4e4e49fda253959aaa796790e20fa5dfb5d72f4efdf2ec1a91",
+      "terminal_outcome": "UNSUPPORTED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "smem_staged.triton.g02",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "919b24c8bc9df4ff2bec3c1a9fcc0600f600bae7af15eccdf979a5ac96802f37",
+      "terminal_outcome": "UNSUPPORTED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "smem_staged.triton.g03",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "c481672f859f9afedeea8bc6b1fb584aba5ef42f9004a3b3677ca927ef5317f1",
+      "terminal_outcome": "UNSUPPORTED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "smem_staged.triton.g04",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "f03b599380cfc3c7a27fef44b64b3e7ea9d003f75d5c80711a20500c79cb7f5e",
+      "terminal_outcome": "UNSUPPORTED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "smem_staged.triton.g05",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "7e57c44c983393f3908e17415f682b43fdf7242cf729e120150f8bb748292a7a",
+      "terminal_outcome": "UNSUPPORTED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "smem_staged.triton.g06",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "8d8fbc0d5008fdeaba19083cc9ef8fcdfadf8ccfa4789d1241b9fe847226416b",
+      "terminal_outcome": "UNSUPPORTED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "smem_staged.triton.g07",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "eeed79783c6020217b0b2bc2f8ede2e9196d446c8be98ce3e9d97b878d9a6d92",
+      "terminal_outcome": "UNSUPPORTED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "smem_staged.triton.g08",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "aacd61bebf2705f357de304a9278c8067bc9fbe5e0c6e6e93551a09a3d3af258",
+      "terminal_outcome": "UNSUPPORTED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "smem_staged.triton.g09",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "09a08485b40dcb3ad342b5f4619e26f0897a97a752cfc2ffaa133b23aa1035b3",
+      "terminal_outcome": "UNSUPPORTED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "smem_staged.triton.g10",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "ab0bfc76c86de1b09478d47da722c3970792e224c2db82b825650e5a61a98e8b",
+      "terminal_outcome": "UNSUPPORTED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "smem_staged.triton.g11",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "018a4a38e2ec9af0e1a820236ed8a022fff2ad07b2f4813759e002a4956c6d12",
+      "terminal_outcome": "UNSUPPORTED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "smem_staged.triton.g12",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "364a19e327667fd0b51945925e9eefb72046fa22ba6fd7eace25f8295ee9febd",
+      "terminal_outcome": "UNSUPPORTED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "smem_staged.triton.g13",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "15d0c6e6287e29961309a1e172ec7e0cc90974089c0939ceaf9e19138812c948",
+      "terminal_outcome": "UNSUPPORTED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "smem_staged.triton.g14",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "74fee305f616d2d2d2e7ebe6d45476ae02b42f5fec2c4c96664707c470bacce4",
+      "terminal_outcome": "UNSUPPORTED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "smem_staged.triton.g15",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "7618757929db3d1872d0dced034bfb14be3c44232b8e787009216c72c159347f",
+      "terminal_outcome": "UNSUPPORTED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "smem_staged.triton.g16",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "c9593e3dc6c73abb717486da4dfa252732f0dd6e44e2475b0006eb3364abce23",
+      "terminal_outcome": "UNSUPPORTED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "smem_staged.triton.g17",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "089c5c5cef31796eb582bd15c81fae40f4a462df43c7061ea0c6fdf2cc20b1d6",
+      "terminal_outcome": "UNSUPPORTED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "smem_staged.triton.g18",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "d9c3e499f247d1ed694c6c2bc431adf82361d910df0687c7f9d2c4b3b4c3e02a",
+      "terminal_outcome": "UNSUPPORTED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "smem_staged.cuda_noptx.g00",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "2cbe7887bfb72edec80cfcbfccc1547d91c4c5dc13085825707f5a35b726b689",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "smem_staged.cuda_noptx.g01",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "a922b759e017e77e562de5ac5af6b01931e9fd0d29a0524a36a2dc3dc36e849e",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "smem_staged.cuda_noptx.g02",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "a3723af4c4abd6637dbebcd826d71e4c5c9592da9ffcd8f99b74eba156eb680c",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "smem_staged.cuda_noptx.g03",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "4538cb6714838ebb1513e369dc14123accb028fee7d3e6658c9ae957c99a5b1e",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "smem_staged.cuda_noptx.g04",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "8853fd1d57dbb69836df809c6c8e10f4581d303e0bf3139758dea0c4df2bd82b",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "smem_staged.cuda_noptx.g05",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "963033ff98ebc4c9006f51081d45f9e7886c6048aa6f79acbaccaa4dba1bee8a",
+      "terminal_outcome": "BUILD_FAILED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "smem_staged.cuda_noptx.g06",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "ac7293f4e180da1b1183813e919755bb0ccf8f428c85232b899dd207fbb0c5f9",
+      "terminal_outcome": "BUILD_FAILED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "smem_staged.cuda_noptx.g07",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "345291fda11588d8bedf9e23b0f80fd0d55acacf0f60f5df5dddb801c03c5991",
+      "terminal_outcome": "BUILD_FAILED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "smem_staged.cuda_noptx.g08",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "e6adcb5e2162c2ff28906f80487deb4f9884481bd71ef8b0aab224b805980b47",
+      "terminal_outcome": "BUILD_FAILED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "smem_staged.cuda_noptx.g09",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "31456566f3086e288bfebd19394f66e568689c4ddd4b6ca8b81412566daae4e1",
+      "terminal_outcome": "BUILD_FAILED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "smem_staged.cuda_noptx.g10",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "5f1e863b4515d6bd8470e5202a7732ce7d21d0ac8e9cdc82e746d031cdd043a3",
+      "terminal_outcome": "BUILD_FAILED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "smem_staged.cuda_noptx.g11",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "71c132f51223937203d4bb58b1da9d8977c186d97008208e8417175726275148",
+      "terminal_outcome": "BUILD_FAILED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "smem_staged.cuda_noptx.g12",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "132deb285cad67ea6a9303a7c2fcb8db0244abc5071d15bbb08a855b18ac5811",
+      "terminal_outcome": "BUILD_FAILED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "smem_staged.cuda_noptx.g13",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "c1b2f437af18c91cac23861d4dd957bb7c39e0aac2a54ae991d347c3e661b1cb",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "smem_staged.cuda_noptx.g14",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "46761d5aedbf7a55b5afec0440e56351e74a6db3d39103e122529559f62c4687",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "smem_staged.cuda_noptx.g15",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "9d89af944ee873e78a785eee3e0a01ed15a20884faaacf44c3966bbce4e2478d",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "smem_staged.cuda_noptx.g16",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "822528e2534c6bfe5ba02524dc7bd6598b5652653340efc8ae22755fff82ae2d",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "smem_staged.cuda_noptx.g17",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "7708253a49d01ade8cbeab93ad02ae2f44f64ca886eea2c97b1b8ce13d8b0013",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "smem_staged.cuda_noptx.g18",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "cd900cd6a178bcc2e80be9ea3923fc43cf390b1d23aeafeca93c9a36ad6d9db7",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "smem_staged.cuda_unlimited.g00",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "4d29cd49cf78b3bc5eb4837b8ea38c64ef2f62af68cc0c6ea3968eed54100993",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "smem_staged.cuda_unlimited.g01",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "2fd19b149ec963016efed7c3a2f674d27560e3223b05fc9eaa2d71e805c2b8f3",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "smem_staged.cuda_unlimited.g02",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "5be8fa10c7f81dfe3f5bcc1b4358fab219ce68f3bf3b02389fd73eca5a7d8fbe",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "smem_staged.cuda_unlimited.g03",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "a4a305119c92f0312556a1f3afe0dad29fa5e6369a9830dbb32c5703042f0445",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "smem_staged.cuda_unlimited.g04",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "92f0392f035cda300b6124f2db9fc5202c1ea315bb8ed4b907f206ac763bf62a",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "smem_staged.cuda_unlimited.g05",
+      "gate_max_over_threshold_ratio": 190512.76335737752,
+      "gate_minimum_headroom_fraction": -190511.76335737752,
+      "record_sha256": "9fc88a3492f9b0063c99a26a2447eae54424d8e1249130255fbdf92eb0a5904c",
+      "terminal_outcome": "LAUNCH_FAILED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "smem_staged.cuda_unlimited.g06",
+      "gate_max_over_threshold_ratio": 54886.06863981289,
+      "gate_minimum_headroom_fraction": -54885.06863981289,
+      "record_sha256": "64fc4dbbcc49c81caa5aa34af05fdaf9a2ff489740cfe15639bbf1594b8c5c59",
+      "terminal_outcome": "GATE_FAILED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "smem_staged.cuda_unlimited.g07",
+      "gate_max_over_threshold_ratio": 54873.06706802406,
+      "gate_minimum_headroom_fraction": -54872.06706802406,
+      "record_sha256": "6430cc1f4db95c72ded5585df3dc20eab6f03068b3cfb4caf2a96dee394e70c1",
+      "terminal_outcome": "LAUNCH_FAILED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "smem_staged.cuda_unlimited.g08",
+      "gate_max_over_threshold_ratio": 190653.22889831846,
+      "gate_minimum_headroom_fraction": -190652.22889831846,
+      "record_sha256": "a572354587016e2baea83b0649d96c4f35cd75cc9afa6fe3c955a85bf77e5e98",
+      "terminal_outcome": "LAUNCH_FAILED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "smem_staged.cuda_unlimited.g09",
+      "gate_max_over_threshold_ratio": 190512.76335737752,
+      "gate_minimum_headroom_fraction": -190511.76335737752,
+      "record_sha256": "a44017c24dbeb309de5758b96fdeb3b152de0c9bf4701339a72ba529489d91ac",
+      "terminal_outcome": "LAUNCH_FAILED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "smem_staged.cuda_unlimited.g10",
+      "gate_max_over_threshold_ratio": 54886.06863981289,
+      "gate_minimum_headroom_fraction": -54885.06863981289,
+      "record_sha256": "b672f9b722133b06dcad989c850c77faf55185dabdcf4a4a83f4c98329bc0e90",
+      "terminal_outcome": "GATE_FAILED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "smem_staged.cuda_unlimited.g11",
+      "gate_max_over_threshold_ratio": 54873.06706802406,
+      "gate_minimum_headroom_fraction": -54872.06706802406,
+      "record_sha256": "68ab5e2bc2b7ff308b03d7bdc3e011f1b8b3f2c0618436df7ff246019a107cc6",
+      "terminal_outcome": "LAUNCH_FAILED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "smem_staged.cuda_unlimited.g12",
+      "gate_max_over_threshold_ratio": 190653.22889831846,
+      "gate_minimum_headroom_fraction": -190652.22889831846,
+      "record_sha256": "fab6b2a7f8d9a65d15cb27cb854d1b6e211095a41937353e91c57fdedff68f15",
+      "terminal_outcome": "LAUNCH_FAILED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "smem_staged.cuda_unlimited.g13",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "3392d178693ad6f2ef56520c2df9c4531fec348931767253dac8086a6cca7aec",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "smem_staged.cuda_unlimited.g14",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "75c48e48615225c108f0ff6b94b42e6de0fcc10100b0fbff81b0915d291438e7",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "smem_staged.cuda_unlimited.g15",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "f03ea904ede304df6ced890dbdb5feebf537b342a59da428939cada3a894ce88",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "smem_staged.cuda_unlimited.g16",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "8d998c8f01bac458546d1ecd4f62a7ce70d638f0bc1056c35d7b4c263d9b0ced",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "smem_staged.cuda_unlimited.g17",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "bf61644dd491a8cc323672cc17091ee11c9b90c6119550e57074ed0dd96d090e",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "smem_staged.cuda_unlimited.g18",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "ddde45164efbf808b6d424fe58f6604a51852af696b6a858bccea4d38e852cb8",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g00",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "074508f507398c70c013db5b8f189e8c8c4fb3756ba2f140b82bdcf9b90ccc17",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g01",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "0e20082280eb9b81612ad3cfd4b084f9093283dda240382919857b09f7b96d10",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g02",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "5937ff48ccb9a4d52050f15ed6cc8d413cfe3d29349be23cafc933a5aa8f5bf2",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g03",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "a9f45a0dcd20a2ac0347d758a0d02e7c110186372d98c08d104314fb7dedd81c",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g04",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "b2234e6e6605920a6698a0ce91d53eb55e8ef891fae9d582cc0dd32fa2c3511d",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g05",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "94ddbcd1e3e584b220dd13f1f0ba7b0a9caa6ca461fd03f10313ac8fa0138747",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g06",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "ecb6836650c63486a0452bb04ff82464f7818a039dbeba58c00a544d97fca1fd",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g07",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "b01945ca86079f0faa49388125e89c8151f09e11e2456e0dd7c61c4a13aae154",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g08",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "7862f3fd1ab136f9de55d725d7e5965878cdc32d6eb857fe38fbdd0637940c25",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g09",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "2ac7ebedc6ff6fe42f7a14e92f81d8b81e408359e58b2795f45f00433c8f6d48",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g10",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "873a31fd72b50536f28196b0e4e570e7391b656e0f99a7af38e41425c6c6ee9f",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g11",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "583f0f097c327f6faf5c79fb16698d94f9b483ba467d9152f89d51dd69f14773",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g12",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "b6bd66fd9abaff0fa87d6e2ecf89ea801b27079175effd79e6d69de0bebabd94",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g13",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "2bbabe7cb7a7b7b2df5ee5b65234374120828f7ceee17169a49592055a145723",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g14",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "923566ff4b7f2060284671084fffe11fad406fda4ef3355d42b25cb584e25c4b",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g15",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "647b413bea0847e1c317c256fa6705b87b633fd193b4d75d0e1546f708c70232",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g16",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "411af1abc41c81d09b6daeef5c6d5cb9923727021e7c69bc0383a999b48ebeec",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g17",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "edcee5d418970150892acbd21a9661b13bc4b8798d76c35e73126d043a760276",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g18",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "3ef5c3beb5b1ad0082a65aa30f4685b7f1554eea36a2037d7ee9bff070c2fe13",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.triton.g00",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "18c03f006d7e0b44b43495b0f7166b1d021da2f14d8e947074807256b20d1981",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.triton.g01",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "624dbc428ddbb4e27137b71218b4bb3af58d9cbf80581fa821d0d6a08117bc64",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.triton.g02",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "986bfdeb772695e71d5a360897954f9c5c0776d4c26fe04426ef164e0174d4b7",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.triton.g03",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "f7c64d980083fc50cc521c5dd4a80b6323416e1c668bd6a9bfff8df6d7075bd8",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.triton.g04",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "9b94c85d4a4d1335f320f84b68b839970a016704423decd2aab09432b414a1bf",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.triton.g05",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "500ea6c9146405358bf3ca52bc90a008b6e597c9a5b8c77bc0f93490b49516d8",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.triton.g06",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "cc677feec0ddd9c854c6c4d5151a0cbffbdd8e57f6a053c23f36fc29f9fedf13",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.triton.g07",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "6351a5bf04998219994c8b5c22b657f5a2d8cd8b66ec895a8389f509d3eb718e",
+      "terminal_outcome": "BUILD_FAILED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "global_intermediate.triton.g08",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "0a154e233685613d422c834c57b9f278b3e498e36a88438567c63f807d5125d2",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.triton.g09",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "d38ba823e7e536488e6778927d94905ea073d4ee0b1fd48e41fec7d51bad0630",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.triton.g10",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "a1dccd7e855a5c482e80f1e08615b13b4a0d921a25fedec4e843188197cb04a3",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.triton.g11",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "a9af30e0a1faf3f58e1fe9bfb7efa1ddb916ec4517c5b4d74eaf046593c1af23",
+      "terminal_outcome": "BUILD_FAILED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "global_intermediate.triton.g12",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "d9a18c29c9ead4306af20bed9d0b3c6f0ed3d7d2827ec02d7604a79088f9476c",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.triton.g13",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "8f7b2a80b580470ed271778bd0cc80264640a7443ed910eb5c7465afd137d4c7",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.triton.g14",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "7f199308c5bd101670527b73aee9d9c30f040f2c3f63380f611a3903c2fa9620",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.triton.g15",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "65228492c8b9bc2bd5ccb87e7de561792f7fbde706dd1dadc62953d5a065e0af",
+      "terminal_outcome": "BUILD_FAILED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "global_intermediate.triton.g16",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "9e12310a2615985003e72282d7fbe02b083a2f01126056a3e960020bc4473b90",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.triton.g17",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "ecc129d01e5211e30bc9b0203101569bf1219fac23202bb3b9426be0df2b511b",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.triton.g18",
+      "gate_max_over_threshold_ratio": null,
+      "gate_minimum_headroom_fraction": null,
+      "record_sha256": "0f9e4b4ed680becd57ee21661af28c569d73d95e066dfddb741b954452291121",
+      "terminal_outcome": "BUILD_FAILED",
+      "timing_eligible": false
+    },
+    {
+      "cell_id": "global_intermediate.cuda_noptx.g00",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "080bae6b384588f4c958d51e80e2ac9d7d38e693453cd3af706f1693b9bbadb0",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.cuda_noptx.g01",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "5cc8cf67e77a3acff7078661070b11d3cdd50d1ec4b42ca3aed04f2bafb06d30",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.cuda_noptx.g02",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "9a06528b84a70a91758a209d6f227c8b0cec474dd9ed147572a34de8afe87212",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.cuda_noptx.g03",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "c7456d69040f69233885730ca70f3fcc2011f5fb01862b47cd1ceaebd4317bb9",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.cuda_noptx.g04",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "2a249e71d71a31de0be1fb69ea7f55f7520b818f43a03d540a92e79b60ef34e1",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.cuda_noptx.g05",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "50d6b8b3c1d825a379ca7094c965c06506c26ceba03593eeb4527a13077a79af",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.cuda_noptx.g06",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "e23585c79f2a72fdbed1f41318021c0801b2ed4db608071551a062020cf86117",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.cuda_noptx.g07",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "e7215007fc228bacd605b557f256c4d34164d7e8bf1fcd2f567a9a11dd7ef005",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.cuda_noptx.g08",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "6336ad7886eb0596e0b6de94408dda4fbeeb11bd6648b40ed604cc2b141a69a8",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.cuda_noptx.g09",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "9b7330bbc02bfd52a2d83707062f952d1b18a75776175dbd17c085e02fd00343",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.cuda_noptx.g10",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "9b5d7b5175edc772a20eb343b3a5953e9759d83822fab12cfca7f949256c2ba6",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.cuda_noptx.g11",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "0043c1a653ebc5654a5129ecef4ba336019c665f85bb3e7d1e3355a17534d62e",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.cuda_noptx.g12",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "64536bfd898548b796d531630a2e8aadec3169687ac289ba74ee466cff99ded3",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.cuda_noptx.g13",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "c5359fb72880e49ebbf1c4d9551047ed306aec5036213e8b8ad7efc770e6a5f4",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.cuda_noptx.g14",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "ae4493bc413fdc3143b6480a6400a1180689d9f2518e8ac93d2bcb0f49c689ae",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.cuda_noptx.g15",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "e19874546e3aa1b6be1273d058d74ed5d780ae355fc187fc64c14f89866530c6",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.cuda_noptx.g16",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "1b596faf803e7f742e50f5f18b6873f9a340fa6f373fe685542b76b75d4b80cf",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.cuda_noptx.g17",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "e5ef0187632bf040245dc8f16bc35653433f4adbc5f3b6627352a9be1221441d",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.cuda_noptx.g18",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "7b83500e2504c7fe736c8e7120d921660d52a4c42c9a227e76b9e305f2254b33",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.cuda_unlimited.g00",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "10abeffb31378fe8909b26cfbb9090a7cb7019d22f6d5f1d132fdf3ebca6183d",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.cuda_unlimited.g01",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "6858590024dcb03fcee88ab3bc58d088d7add11afddb58592e3d24b1cdd2f54d",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.cuda_unlimited.g02",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "525f9453ae918c3ca77bfce3828a096c5fc39a412ed29104fe72451a7b63b548",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.cuda_unlimited.g03",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "916e500e5f1dd8b3e57025c1561f21364bf16c1038d1d367e4571602a27230e8",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.cuda_unlimited.g04",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "78164cde03a21799293b5b3c83ac85a1587bc1c4667c62e451dcd194a71365e1",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.cuda_unlimited.g05",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "07c64e509a0dad527bfd803ab854116364a92673c432473ce2740ec026aed82f",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.cuda_unlimited.g06",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "da97b15fd0718627fd9e83ad6973350b5212292b04d1b3af1b5ccb34ffbfdd91",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.cuda_unlimited.g07",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "8472014648882b249145553c9c7900ed3fdb9ad7b504e1d04d4f309c631bd5f4",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.cuda_unlimited.g08",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "88e89174396cc4b1f87ae6b01e9b16173aadeb8bbc57c711e9e34630bcd337e1",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.cuda_unlimited.g09",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "b379df8cacd9892ddb893ea51617ab086679ea6899258c3db453b68d1a0bd49d",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.cuda_unlimited.g10",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "a514e1e829bc963dbaf55ce511bfff13dcc5fabcc55fa857ed98aaacbf2e6e7a",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.cuda_unlimited.g11",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "37a69ae54bee86854030f1043c97f0ff1638769ea00622dff1e638a1400a0e35",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.cuda_unlimited.g12",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "439ccfa81ddcf5a5703923bdfa8f5d11e3ff4eaeb9c7d422d8bf176d2684bc12",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.cuda_unlimited.g13",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "ad1935fc908bcbeaae21231f22da54843234ffd183b541d5464d6740100e3fed",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.cuda_unlimited.g14",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "c5caf9472364c19566a68d202a03dcadeea107a8f5975c44cf22f7bbba03dd6c",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.cuda_unlimited.g15",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "b9eb5a342be6b21e75b2855ceff42b1025e74a18ecd0beed89d5b36d53754826",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.cuda_unlimited.g16",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "55ae5d7d5f89d0b00905a56c943da69cb496984d1926e8fc52447e218718923a",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.cuda_unlimited.g17",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "bbe90ea79a5d4c44110d176804523102cd0456412421076e6df9988eacaa55c0",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    },
+    {
+      "cell_id": "global_intermediate.cuda_unlimited.g18",
+      "gate_max_over_threshold_ratio": 0.9633653546003984,
+      "gate_minimum_headroom_fraction": 0.036634645399601595,
+      "record_sha256": "ad524437b95c1464ef4c86a93f47d71ca75415306dacf429954a63020b370dcd",
+      "terminal_outcome": "GATE_PASSED",
+      "timing_eligible": true
+    }
+  ],
+  "common_feasible_grid_ids_by_lane": {
+    "cuda_noptx": [],
+    "cuda_unlimited": [
+      "g00",
+      "g01",
+      "g02",
+      "g03",
+      "g04",
+      "g13",
+      "g14",
+      "g15",
+      "g16",
+      "g17",
+      "g18"
+    ],
+    "tilelang": [
+      "g00",
+      "g01",
+      "g02",
+      "g03",
+      "g04",
+      "g13",
+      "g14",
+      "g15",
+      "g16",
+      "g17",
+      "g18"
+    ],
+    "triton": []
+  },
+  "common_feasible_grid_ids_by_strategy": {
+    "global_intermediate": [
+      "g00",
+      "g01",
+      "g02",
+      "g03",
+      "g04",
+      "g05",
+      "g06",
+      "g08",
+      "g09",
+      "g10",
+      "g12",
+      "g13",
+      "g14",
+      "g16",
+      "g17"
+    ],
+    "register_fused": [],
+    "smem_staged": []
+  },
+  "complete": true,
+  "feasibility_strategy_x_lane_interactions": [
+    {
+      "difference_in_differences_vs_register_tilelang": -0.368421052631579,
+      "lane": "triton",
+      "strategy": "smem_staged"
+    },
+    {
+      "difference_in_differences_vs_register_tilelang": 1.0,
+      "lane": "cuda_noptx",
+      "strategy": "smem_staged"
+    },
+    {
+      "difference_in_differences_vs_register_tilelang": 0.42105263157894735,
+      "lane": "cuda_unlimited",
+      "strategy": "smem_staged"
+    },
+    {
+      "difference_in_differences_vs_register_tilelang": 0.0,
+      "lane": "triton",
+      "strategy": "global_intermediate"
+    },
+    {
+      "difference_in_differences_vs_register_tilelang": 1.0,
+      "lane": "cuda_noptx",
+      "strategy": "global_intermediate"
+    },
+    {
+      "difference_in_differences_vs_register_tilelang": 0.42105263157894735,
+      "lane": "cuda_unlimited",
+      "strategy": "global_intermediate"
+    }
+  ],
+  "launch_lock_sha256": "fe9a0123cc1e3aa64f5d0026e09d89b918838174c7964c85c4580b0962767e8a",
+  "outcome_counts": {
+    "BUILD_FAILED": 24,
+    "GATE_FAILED": 4,
+    "GATE_PASSED": 150,
+    "LAUNCH_FAILED": 12,
+    "UNSUPPORTED": 38
+  },
+  "outcomes_by_strategy_lane": [
+    {
+      "counts": {
+        "BUILD_FAILED": 0,
+        "GATE_FAILED": 0,
+        "GATE_PASSED": 19,
+        "LAUNCH_FAILED": 0,
+        "UNSUPPORTED": 0
+      },
+      "gate_legal_rate_over_requested": 1.0,
+      "lane": "tilelang",
+      "requested_cells": 19,
+      "strategy": "register_fused"
+    },
+    {
+      "counts": {
+        "BUILD_FAILED": 4,
+        "GATE_FAILED": 0,
+        "GATE_PASSED": 15,
+        "LAUNCH_FAILED": 0,
+        "UNSUPPORTED": 0
+      },
+      "gate_legal_rate_over_requested": 0.7894736842105263,
+      "lane": "triton",
+      "requested_cells": 19,
+      "strategy": "register_fused"
+    },
+    {
+      "counts": {
+        "BUILD_FAILED": 0,
+        "GATE_FAILED": 0,
+        "GATE_PASSED": 0,
+        "LAUNCH_FAILED": 0,
+        "UNSUPPORTED": 19
+      },
+      "gate_legal_rate_over_requested": 0.0,
+      "lane": "cuda_noptx",
+      "requested_cells": 19,
+      "strategy": "register_fused"
+    },
+    {
+      "counts": {
+        "BUILD_FAILED": 0,
+        "GATE_FAILED": 2,
+        "GATE_PASSED": 11,
+        "LAUNCH_FAILED": 6,
+        "UNSUPPORTED": 0
+      },
+      "gate_legal_rate_over_requested": 0.5789473684210527,
+      "lane": "cuda_unlimited",
+      "requested_cells": 19,
+      "strategy": "register_fused"
+    },
+    {
+      "counts": {
+        "BUILD_FAILED": 8,
+        "GATE_FAILED": 0,
+        "GATE_PASSED": 11,
+        "LAUNCH_FAILED": 0,
+        "UNSUPPORTED": 0
+      },
+      "gate_legal_rate_over_requested": 0.5789473684210527,
+      "lane": "tilelang",
+      "requested_cells": 19,
+      "strategy": "smem_staged"
+    },
+    {
+      "counts": {
+        "BUILD_FAILED": 0,
+        "GATE_FAILED": 0,
+        "GATE_PASSED": 0,
+        "LAUNCH_FAILED": 0,
+        "UNSUPPORTED": 19
+      },
+      "gate_legal_rate_over_requested": 0.0,
+      "lane": "triton",
+      "requested_cells": 19,
+      "strategy": "smem_staged"
+    },
+    {
+      "counts": {
+        "BUILD_FAILED": 8,
+        "GATE_FAILED": 0,
+        "GATE_PASSED": 11,
+        "LAUNCH_FAILED": 0,
+        "UNSUPPORTED": 0
+      },
+      "gate_legal_rate_over_requested": 0.5789473684210527,
+      "lane": "cuda_noptx",
+      "requested_cells": 19,
+      "strategy": "smem_staged"
+    },
+    {
+      "counts": {
+        "BUILD_FAILED": 0,
+        "GATE_FAILED": 2,
+        "GATE_PASSED": 11,
+        "LAUNCH_FAILED": 6,
+        "UNSUPPORTED": 0
+      },
+      "gate_legal_rate_over_requested": 0.5789473684210527,
+      "lane": "cuda_unlimited",
+      "requested_cells": 19,
+      "strategy": "smem_staged"
+    },
+    {
+      "counts": {
+        "BUILD_FAILED": 0,
+        "GATE_FAILED": 0,
+        "GATE_PASSED": 19,
+        "LAUNCH_FAILED": 0,
+        "UNSUPPORTED": 0
+      },
+      "gate_legal_rate_over_requested": 1.0,
+      "lane": "tilelang",
+      "requested_cells": 19,
+      "strategy": "global_intermediate"
+    },
+    {
+      "counts": {
+        "BUILD_FAILED": 4,
+        "GATE_FAILED": 0,
+        "GATE_PASSED": 15,
+        "LAUNCH_FAILED": 0,
+        "UNSUPPORTED": 0
+      },
+      "gate_legal_rate_over_requested": 0.7894736842105263,
+      "lane": "triton",
+      "requested_cells": 19,
+      "strategy": "global_intermediate"
+    },
+    {
+      "counts": {
+        "BUILD_FAILED": 0,
+        "GATE_FAILED": 0,
+        "GATE_PASSED": 19,
+        "LAUNCH_FAILED": 0,
+        "UNSUPPORTED": 0
+      },
+      "gate_legal_rate_over_requested": 1.0,
+      "lane": "cuda_noptx",
+      "requested_cells": 19,
+      "strategy": "global_intermediate"
+    },
+    {
+      "counts": {
+        "BUILD_FAILED": 0,
+        "GATE_FAILED": 0,
+        "GATE_PASSED": 19,
+        "LAUNCH_FAILED": 0,
+        "UNSUPPORTED": 0
+      },
+      "gate_legal_rate_over_requested": 1.0,
+      "lane": "cuda_unlimited",
+      "requested_cells": 19,
+      "strategy": "global_intermediate"
+    }
+  ],
+  "parent_launch_lock_sha256": "fe9a0123cc1e3aa64f5d0026e09d89b918838174c7964c85c4580b0962767e8a",
+  "parent_source_bundle_sha256": "f8d7745416c7254d10cfdd144d80d91409f745d521d0debb5f5f8cc87c9de0b6",
+  "record_type": "fused_crossed_audit_summary",
+  "recovery_git_commit": "3c5beb19c25fb083c80efd2e5a7839d201e200ec",
+  "recovery_id": "fused-epilogue-crossed-v1r1-reporting-fix",
+  "recovery_lock_sha256": "919827539cce29d8a5aa134cd88f4afe14241703615a1b1ba29d40aabde31b63",
+  "recovery_source_bundle_sha256": "40cb91ec9739f9b2073347cce55ea01b89aebcd5c94526589b323d247ebfb251",
+  "requested_cells": 228,
+  "result_tag": "crossed_v1r1",
+  "schema_version": 1,
+  "shard_receipts": [
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/audit/receipts/shard00.json",
+      "physical_gpu": 0,
+      "sha256": "7323ee17363b44cbf0a8f3741811d2c77ee8e7cfba6f3c2768dd5b98f6b248b6",
+      "status_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/audit/receipts/shard00_status.json",
+      "status_sha256": "ac6c97cd47311aa395833dae3ff4bfb61a81844cec3fd4fea3d4eca3c7da5e61"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/audit/receipts/shard01.json",
+      "physical_gpu": 1,
+      "sha256": "4f28c764351aa6add5e6b042c0938f9d41b3bfee1e5ce5d4e691cc0646f0580e",
+      "status_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/audit/receipts/shard01_status.json",
+      "status_sha256": "173a2a4ba4d0e4d8f3a17643ba8d64f5a23ff4f1f5500da89100764443e90760"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/audit/receipts/shard02.json",
+      "physical_gpu": 2,
+      "sha256": "fb02b20d746ea03dc945884ba5620db50af668ab7357559f0d10af743a1022a0",
+      "status_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/audit/receipts/shard02_status.json",
+      "status_sha256": "c1c8ea3d981ed3a03267b941ccdf1ac7d7e8d9ec01332703157eba516a03712e"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/audit/receipts/shard03.json",
+      "physical_gpu": 3,
+      "sha256": "bad48e9969f947df42e7e395918cd65e8314deee75aa644bc10f3d318866c6da",
+      "status_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/audit/receipts/shard03_status.json",
+      "status_sha256": "ff35abe080f67e0bf83b1d702453b74fe37df3c0737654d77bb5cfd8a85cb3d8"
+    }
+  ],
+  "source_bundle_sha256": "f8d7745416c7254d10cfdd144d80d91409f745d521d0debb5f5f8cc87c9de0b6",
+  "timing_eligible_cell_ids": [
+    "global_intermediate.cuda_noptx.g00",
+    "global_intermediate.cuda_noptx.g01",
+    "global_intermediate.cuda_noptx.g02",
+    "global_intermediate.cuda_noptx.g03",
+    "global_intermediate.cuda_noptx.g04",
+    "global_intermediate.cuda_noptx.g05",
+    "global_intermediate.cuda_noptx.g06",
+    "global_intermediate.cuda_noptx.g07",
+    "global_intermediate.cuda_noptx.g08",
+    "global_intermediate.cuda_noptx.g09",
+    "global_intermediate.cuda_noptx.g10",
+    "global_intermediate.cuda_noptx.g11",
+    "global_intermediate.cuda_noptx.g12",
+    "global_intermediate.cuda_noptx.g13",
+    "global_intermediate.cuda_noptx.g14",
+    "global_intermediate.cuda_noptx.g15",
+    "global_intermediate.cuda_noptx.g16",
+    "global_intermediate.cuda_noptx.g17",
+    "global_intermediate.cuda_noptx.g18",
+    "global_intermediate.cuda_unlimited.g00",
+    "global_intermediate.cuda_unlimited.g01",
+    "global_intermediate.cuda_unlimited.g02",
+    "global_intermediate.cuda_unlimited.g03",
+    "global_intermediate.cuda_unlimited.g04",
+    "global_intermediate.cuda_unlimited.g05",
+    "global_intermediate.cuda_unlimited.g06",
+    "global_intermediate.cuda_unlimited.g07",
+    "global_intermediate.cuda_unlimited.g08",
+    "global_intermediate.cuda_unlimited.g09",
+    "global_intermediate.cuda_unlimited.g10",
+    "global_intermediate.cuda_unlimited.g11",
+    "global_intermediate.cuda_unlimited.g12",
+    "global_intermediate.cuda_unlimited.g13",
+    "global_intermediate.cuda_unlimited.g14",
+    "global_intermediate.cuda_unlimited.g15",
+    "global_intermediate.cuda_unlimited.g16",
+    "global_intermediate.cuda_unlimited.g17",
+    "global_intermediate.cuda_unlimited.g18",
+    "global_intermediate.tilelang.g00",
+    "global_intermediate.tilelang.g01",
+    "global_intermediate.tilelang.g02",
+    "global_intermediate.tilelang.g03",
+    "global_intermediate.tilelang.g04",
+    "global_intermediate.tilelang.g05",
+    "global_intermediate.tilelang.g06",
+    "global_intermediate.tilelang.g07",
+    "global_intermediate.tilelang.g08",
+    "global_intermediate.tilelang.g09",
+    "global_intermediate.tilelang.g10",
+    "global_intermediate.tilelang.g11",
+    "global_intermediate.tilelang.g12",
+    "global_intermediate.tilelang.g13",
+    "global_intermediate.tilelang.g14",
+    "global_intermediate.tilelang.g15",
+    "global_intermediate.tilelang.g16",
+    "global_intermediate.tilelang.g17",
+    "global_intermediate.tilelang.g18",
+    "global_intermediate.triton.g00",
+    "global_intermediate.triton.g01",
+    "global_intermediate.triton.g02",
+    "global_intermediate.triton.g03",
+    "global_intermediate.triton.g04",
+    "global_intermediate.triton.g05",
+    "global_intermediate.triton.g06",
+    "global_intermediate.triton.g08",
+    "global_intermediate.triton.g09",
+    "global_intermediate.triton.g10",
+    "global_intermediate.triton.g12",
+    "global_intermediate.triton.g13",
+    "global_intermediate.triton.g14",
+    "global_intermediate.triton.g16",
+    "global_intermediate.triton.g17",
+    "register_fused.cuda_unlimited.g00",
+    "register_fused.cuda_unlimited.g01",
+    "register_fused.cuda_unlimited.g02",
+    "register_fused.cuda_unlimited.g03",
+    "register_fused.cuda_unlimited.g04",
+    "register_fused.cuda_unlimited.g13",
+    "register_fused.cuda_unlimited.g14",
+    "register_fused.cuda_unlimited.g15",
+    "register_fused.cuda_unlimited.g16",
+    "register_fused.cuda_unlimited.g17",
+    "register_fused.cuda_unlimited.g18",
+    "register_fused.tilelang.g00",
+    "register_fused.tilelang.g01",
+    "register_fused.tilelang.g02",
+    "register_fused.tilelang.g03",
+    "register_fused.tilelang.g04",
+    "register_fused.tilelang.g05",
+    "register_fused.tilelang.g06",
+    "register_fused.tilelang.g07",
+    "register_fused.tilelang.g08",
+    "register_fused.tilelang.g09",
+    "register_fused.tilelang.g10",
+    "register_fused.tilelang.g11",
+    "register_fused.tilelang.g12",
+    "register_fused.tilelang.g13",
+    "register_fused.tilelang.g14",
+    "register_fused.tilelang.g15",
+    "register_fused.tilelang.g16",
+    "register_fused.tilelang.g17",
+    "register_fused.tilelang.g18",
+    "register_fused.triton.g00",
+    "register_fused.triton.g01",
+    "register_fused.triton.g02",
+    "register_fused.triton.g03",
+    "register_fused.triton.g04",
+    "register_fused.triton.g05",
+    "register_fused.triton.g06",
+    "register_fused.triton.g08",
+    "register_fused.triton.g09",
+    "register_fused.triton.g10",
+    "register_fused.triton.g12",
+    "register_fused.triton.g13",
+    "register_fused.triton.g14",
+    "register_fused.triton.g16",
+    "register_fused.triton.g17",
+    "smem_staged.cuda_noptx.g00",
+    "smem_staged.cuda_noptx.g01",
+    "smem_staged.cuda_noptx.g02",
+    "smem_staged.cuda_noptx.g03",
+    "smem_staged.cuda_noptx.g04",
+    "smem_staged.cuda_noptx.g13",
+    "smem_staged.cuda_noptx.g14",
+    "smem_staged.cuda_noptx.g15",
+    "smem_staged.cuda_noptx.g16",
+    "smem_staged.cuda_noptx.g17",
+    "smem_staged.cuda_noptx.g18",
+    "smem_staged.cuda_unlimited.g00",
+    "smem_staged.cuda_unlimited.g01",
+    "smem_staged.cuda_unlimited.g02",
+    "smem_staged.cuda_unlimited.g03",
+    "smem_staged.cuda_unlimited.g04",
+    "smem_staged.cuda_unlimited.g13",
+    "smem_staged.cuda_unlimited.g14",
+    "smem_staged.cuda_unlimited.g15",
+    "smem_staged.cuda_unlimited.g16",
+    "smem_staged.cuda_unlimited.g17",
+    "smem_staged.cuda_unlimited.g18",
+    "smem_staged.tilelang.g00",
+    "smem_staged.tilelang.g01",
+    "smem_staged.tilelang.g02",
+    "smem_staged.tilelang.g03",
+    "smem_staged.tilelang.g04",
+    "smem_staged.tilelang.g13",
+    "smem_staged.tilelang.g14",
+    "smem_staged.tilelang.g15",
+    "smem_staged.tilelang.g16",
+    "smem_staged.tilelang.g17",
+    "smem_staged.tilelang.g18"
+  ]
+}

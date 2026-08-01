@@ -1,0 +1,17 @@
+{
+  "bundle_path": "ako_runs/controlled_followup/provenance/evidence_v3/fused_crossed_v1r1_complete_v1.tar.gz",
+  "bundle_sha256": "b48d5b1d8087d6c777e0530d602920258c405529f59ce3c8dd6a081fea337d91",
+  "bundle_size": 19603043,
+  "campaign_id": "fused-epilogue-crossed-v1",
+  "entry_count": 1644,
+  "manifest_sha256": "745e1ea6bcf6e6de1e0c103c423867488966b65c9fb7c23657962eeb344b80ea",
+  "parent_launch_lock_sha256": "fe9a0123cc1e3aa64f5d0026e09d89b918838174c7964c85c4580b0962767e8a",
+  "parent_source_bundle_sha256": "f8d7745416c7254d10cfdd144d80d91409f745d521d0debb5f5f8cc87c9de0b6",
+  "record_type": "fused_crossed_v1r1_evidence_index",
+  "recovery_git_commit": "3c5beb19c25fb083c80efd2e5a7839d201e200ec",
+  "recovery_id": "fused-epilogue-crossed-v1r1-reporting-fix",
+  "recovery_lock_sha256": "919827539cce29d8a5aa134cd88f4afe14241703615a1b1ba29d40aabde31b63",
+  "recovery_source_bundle_sha256": "40cb91ec9739f9b2073347cce55ea01b89aebcd5c94526589b323d247ebfb251",
+  "result_tag": "crossed_v1r1",
+  "schema_version": 1
+}

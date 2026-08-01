@@ -1,0 +1,42 @@
+{
+  "build_attempted": false,
+  "campaign_id": "fused-epilogue-crossed-v1",
+  "cell": {
+    "cell_id": "register_fused.cuda_noptx.g07",
+    "cell_index": 45,
+    "grid_id": "g07",
+    "grid_index": 7,
+    "lane": "cuda_noptx",
+    "origin_job": {
+      "dsl": "cuda_noptx",
+      "geom": "fused",
+      "grid_id": "g07",
+      "grid_index": 7,
+      "job_id": "cuda_noptx.g07",
+      "set": "BM=128,BN=256,BK=32,threads=256,stages=4,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=smem",
+      "variant": "GBGS"
+    },
+    "origin_job_sha256": "dbcc0e90dfcc89fc80c568684c10fad795ec6d090929e965d8362a949400e37f",
+    "requested": true,
+    "strategy": "register_fused",
+    "support_declared": false,
+    "support_detail": "nvcuda::wmma fragment element layout is opaque; no safe register epilogue exists without inline PTX or a strategy substitution"
+  },
+  "cell_sha256": "ff73010543d18f944026610408221779be216cb5c7327084f4c69d5143abd14b",
+  "created_utc": "2026-07-31T16:56:55.721249+00:00",
+  "gate_attempted": false,
+  "host": "cs265655.utdallas.edu",
+  "launch_lock_sha256": "fe9a0123cc1e3aa64f5d0026e09d89b918838174c7964c85c4580b0962767e8a",
+  "parent_launch_lock_sha256": "fe9a0123cc1e3aa64f5d0026e09d89b918838174c7964c85c4580b0962767e8a",
+  "parent_source_bundle_sha256": "f8d7745416c7254d10cfdd144d80d91409f745d521d0debb5f5f8cc87c9de0b6",
+  "physical_gpu": 1,
+  "recovery_git_commit": "3c5beb19c25fb083c80efd2e5a7839d201e200ec",
+  "recovery_id": "fused-epilogue-crossed-v1r1-reporting-fix",
+  "recovery_lock_sha256": "919827539cce29d8a5aa134cd88f4afe14241703615a1b1ba29d40aabde31b63",
+  "recovery_source_bundle_sha256": "40cb91ec9739f9b2073347cce55ea01b89aebcd5c94526589b323d247ebfb251",
+  "result_tag": "crossed_v1r1",
+  "schema_version": 1,
+  "source_bundle_sha256": "f8d7745416c7254d10cfdd144d80d91409f745d521d0debb5f5f8cc87c9de0b6",
+  "terminal_outcome": "UNSUPPORTED",
+  "terminal_reason": "nvcuda::wmma fragment element layout is opaque; no safe register epilogue exists without inline PTX or a strategy substitution"
+}

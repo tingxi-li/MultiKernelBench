@@ -1,0 +1,126 @@
+{
+  "build_attempted": true,
+  "build_metadata": {
+    "artifacts": {
+      "gemm": {
+        "backend_detail": "T.gemm(fp16 smem -> fp32 fragment) = ptx mma.sync m16n8k16 f16.f16.f32; kc=2048 (Cchunk cleared/flushed into fp32 Cacc every 2048 K); T.Pipelined(num_stages=2) = 2-deep multi-buffered smem pipeline; cast=precast (global dtype float16)",
+        "block": [
+          256,
+          1,
+          1
+        ],
+        "cuda_source": {
+          "bytes": 8573,
+          "sha256": "de579fa9eb361266379179bb50a39a3f15c59451a1d42297475d937d3b4380d3"
+        },
+        "global_dtype": "float16",
+        "grid": [
+          64,
+          8,
+          1
+        ],
+        "shared_bytes": 65536,
+        "smem_dtype": "float16",
+        "tilelang_disk_cache": false,
+        "tilelang_version": "0.1.11"
+      },
+      "postprocess": {
+        "backend_detail": "common CUDA combined bias + exact-erf GELU + row-softmax kernel",
+        "block": [
+          256,
+          1,
+          1
+        ],
+        "cuda_source_sha256": "129e4a188a6bf0ecc51cbe4d6af7b8249f2f74057187d3a62c35255e12e31a1e",
+        "grid": [
+          1024,
+          1,
+          1
+        ],
+        "n_kernels": 1
+      },
+      "strategy": "global_intermediate"
+    },
+    "build_wall_s": 40.52046260799398,
+    "builder": "phase1:tilelang+crossed-v1:combined_postprocess",
+    "isolated_artifact_root": "/home/lxt230026/tmp/fused_epilogue_crossed_v1/pid2380378/global_intermediate.tilelang.g03",
+    "n_kernels": 2,
+    "notes": "lane-native GEMM writes fp32 global intermediate; one common CUDA kernel performs bias+exact-GELU+softmax",
+    "reported_compile_s_components": {
+      "gemm": 3.619025957013946,
+      "postprocess": 36.90033655602019
+    }
+  },
+  "build_wall_s": 174.83065899298526,
+  "campaign_id": "fused-epilogue-crossed-v1",
+  "cell": {
+    "cell_id": "global_intermediate.tilelang.g03",
+    "cell_index": 155,
+    "grid_id": "g03",
+    "grid_index": 3,
+    "lane": "tilelang",
+    "origin_job": {
+      "dsl": "tilelang",
+      "geom": "fused",
+      "grid_id": "g03",
+      "grid_index": 3,
+      "job_id": "tilelang.g03",
+      "set": "BM=128,BN=128,BK=64,threads=256,stages=2,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=smem",
+      "variant": "GBGS"
+    },
+    "origin_job_sha256": "0bb2ead3b958fd2045e4048482e19650d054fdab2738c10f7c2155d5d4addd67",
+    "requested": true,
+    "strategy": "global_intermediate",
+    "support_declared": true,
+    "support_detail": "phase1 TileLang GEMM plus common combined postprocess"
+  },
+  "cell_sha256": "d1737c659bf645bf852cac1976dc66f60d20c73077b938cc5965184185a6c8e9",
+  "created_utc": "2026-07-31T17:37:27.476203+00:00",
+  "gate_attempted": true,
+  "gate_jsonl_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/audit/gate/global_intermediate__tilelang__g03.jsonl",
+  "gate_jsonl_sha256": "9290bf9f9a23d4fd29296f9581248c4c41926fc1175371e3925fc5895908742c",
+  "gate_summary": {
+    "complete": true,
+    "expected_records": 512,
+    "failed_records": 0,
+    "full_gate_pass": true,
+    "max_over_threshold_ratio": 0.9633653546003984,
+    "max_over_threshold_ratio_by_metric": {
+      "conformance_mixed/max_abs_err": 0.2884864807128906,
+      "conformance_mixed/nrmse": 0.4252176393522083,
+      "conformance_mixed/row_sum_error_max": 0.9633653546003984,
+      "conformance_mixed/scaled_max_abs_err": 0.19746902555798526,
+      "conformance_mixed/sqrt_js_max": 0.21692588526674558,
+      "conformance_mixed/tv_max": 0.2888564036901409,
+      "semantic_mixed/max_abs_err": 0.37844748787867477,
+      "semantic_mixed/nrmse": 0.446346721228331,
+      "semantic_mixed/row_sum_error_max": 0.9633653546003984,
+      "semantic_mixed/scaled_max_abs_err": 0.533779464248654,
+      "semantic_mixed/sqrt_js_max": 0.7250454120354177,
+      "semantic_mixed/tv_max": 0.3796545615401497
+    },
+    "minimum_headroom_fraction": 0.036634645399601595,
+    "observed_records": 512,
+    "zero_threshold_max_observed_by_metric": {
+      "conformance_mixed/negative_count": 0.0,
+      "conformance_mixed/nonfinite_count": 0.0,
+      "semantic_mixed/negative_count": 0.0,
+      "semantic_mixed/nonfinite_count": 0.0
+    },
+    "zero_threshold_violation_records_by_metric": {}
+  },
+  "host": "cs265655.utdallas.edu",
+  "launch_lock_sha256": "fe9a0123cc1e3aa64f5d0026e09d89b918838174c7964c85c4580b0962767e8a",
+  "parent_launch_lock_sha256": "fe9a0123cc1e3aa64f5d0026e09d89b918838174c7964c85c4580b0962767e8a",
+  "parent_source_bundle_sha256": "f8d7745416c7254d10cfdd144d80d91409f745d521d0debb5f5f8cc87c9de0b6",
+  "physical_gpu": 3,
+  "recovery_git_commit": "3c5beb19c25fb083c80efd2e5a7839d201e200ec",
+  "recovery_id": "fused-epilogue-crossed-v1r1-reporting-fix",
+  "recovery_lock_sha256": "919827539cce29d8a5aa134cd88f4afe14241703615a1b1ba29d40aabde31b63",
+  "recovery_source_bundle_sha256": "40cb91ec9739f9b2073347cce55ea01b89aebcd5c94526589b323d247ebfb251",
+  "reported_compile_s": 40.51936251303414,
+  "result_tag": "crossed_v1r1",
+  "schema_version": 1,
+  "source_bundle_sha256": "f8d7745416c7254d10cfdd144d80d91409f745d521d0debb5f5f8cc87c9de0b6",
+  "terminal_outcome": "GATE_PASSED"
+}

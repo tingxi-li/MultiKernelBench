@@ -1,0 +1,96 @@
+{
+  "build_attempted": true,
+  "build_metadata": {
+    "artifacts": {
+      "backend_detail": "inline PTX mma.sync.aligned.m16n8k16.f32.f16.f16.f32 + ldmatrix.sync.aligned.m8n8.x4[.trans] + cp.async.cg.shared.global x 3 stages; KCB=64; epilogue=regs (bias applied directly to accumulator registers -- possible only because this lane knows its own mma fragment layout); bias=True gelu=True (erff, exact form); + row-softmax kernel (256 thr, 32 elem/thread cached in registers, __shfl_down_sync + smem tree)",
+      "block": "(256,1,1)",
+      "cuda_source": {
+        "bytes": 16937,
+        "sha256": "39e540be90ccbd83da4e130b1655a62c543c7d6ebf70a5808e71fda2de381202"
+      },
+      "epilogue": "regs",
+      "ext_name": "p2unl_GBGS_256x128x32_t256_kc2048_s3_cached_regs",
+      "grid": "(64,4)",
+      "n_kernels": 2,
+      "shared_bytes": 87552,
+      "wcache": "cached"
+    },
+    "build_wall_s": 36.02591156100971,
+    "builder": "phase2:cuda_unlimited",
+    "isolated_artifact_root": "/home/lxt230026/tmp/fused_epilogue_crossed_v1/pid2380378/register_fused.cuda_unlimited.g10",
+    "n_kernels": 2,
+    "notes": "cuda_unlimited fused arm GBGS (+ softmax (full op)) wcache=cached epilogue=regs"
+  },
+  "build_wall_s": 170.33873595899786,
+  "campaign_id": "fused-epilogue-crossed-v1",
+  "cell": {
+    "cell_id": "register_fused.cuda_unlimited.g10",
+    "cell_index": 67,
+    "grid_id": "g10",
+    "grid_index": 10,
+    "lane": "cuda_unlimited",
+    "origin_job": {
+      "dsl": "cuda_unlimited",
+      "geom": "fused",
+      "grid_id": "g10",
+      "grid_index": 10,
+      "job_id": "cuda_unlimited.g10",
+      "set": "BM=256,BN=128,BK=32,threads=256,stages=3,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=smem",
+      "variant": "GBGS"
+    },
+    "origin_job_sha256": "aa568a2ab5798cb033a60189c1e220bad9d194b6d47e90c2d054268d1ad0e3e7",
+    "requested": true,
+    "strategy": "register_fused",
+    "support_declared": true,
+    "support_detail": "phase2 explicit-MMA register epilogue"
+  },
+  "cell_sha256": "1bc5ce4118a2678bbc8ee95b233556fdcfd2d11d9af237740bf3d69ece9eab6d",
+  "created_utc": "2026-07-31T17:00:05.402966+00:00",
+  "gate_attempted": true,
+  "gate_jsonl_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/audit/gate/register_fused__cuda_unlimited__g10.jsonl",
+  "gate_jsonl_sha256": "cfab51e8eab5a06a7add93f1332c6fecb0c9c6e3f0a60a928e0ffdd4317cd489",
+  "gate_summary": {
+    "complete": true,
+    "expected_records": 512,
+    "failed_records": 512,
+    "full_gate_pass": false,
+    "max_over_threshold_ratio": 54886.06863981289,
+    "max_over_threshold_ratio_by_metric": {
+      "conformance_mixed/max_abs_err": 19999.61836170769,
+      "conformance_mixed/nrmse": 54886.06863981289,
+      "conformance_mixed/row_sum_error_max": 0.6946374924154952,
+      "conformance_mixed/scaled_max_abs_err": 9282.207393867793,
+      "conformance_mixed/sqrt_js_max": 16649.983567991007,
+      "conformance_mixed/tv_max": 19999.616568792706,
+      "semantic_mixed/max_abs_err": 199.99617908570184,
+      "semantic_mixed/nrmse": 548.8606902817804,
+      "semantic_mixed/row_sum_error_max": 0.6946374924154952,
+      "semantic_mixed/scaled_max_abs_err": 232.055185142439,
+      "semantic_mixed/sqrt_js_max": 416.24958188034486,
+      "semantic_mixed/tv_max": 199.9961624299435
+    },
+    "minimum_headroom_fraction": -54885.06863981289,
+    "observed_records": 512,
+    "zero_threshold_max_observed_by_metric": {
+      "conformance_mixed/negative_count": 0.0,
+      "conformance_mixed/nonfinite_count": 0.0,
+      "semantic_mixed/negative_count": 0.0,
+      "semantic_mixed/nonfinite_count": 0.0
+    },
+    "zero_threshold_violation_records_by_metric": {}
+  },
+  "host": "cs265655.utdallas.edu",
+  "launch_lock_sha256": "fe9a0123cc1e3aa64f5d0026e09d89b918838174c7964c85c4580b0962767e8a",
+  "parent_launch_lock_sha256": "fe9a0123cc1e3aa64f5d0026e09d89b918838174c7964c85c4580b0962767e8a",
+  "parent_source_bundle_sha256": "f8d7745416c7254d10cfdd144d80d91409f745d521d0debb5f5f8cc87c9de0b6",
+  "physical_gpu": 3,
+  "recovery_git_commit": "3c5beb19c25fb083c80efd2e5a7839d201e200ec",
+  "recovery_id": "fused-epilogue-crossed-v1r1-reporting-fix",
+  "recovery_lock_sha256": "919827539cce29d8a5aa134cd88f4afe14241703615a1b1ba29d40aabde31b63",
+  "recovery_source_bundle_sha256": "40cb91ec9739f9b2073347cce55ea01b89aebcd5c94526589b323d247ebfb251",
+  "reported_compile_s": 36.025701525999466,
+  "result_tag": "crossed_v1r1",
+  "schema_version": 1,
+  "source_bundle_sha256": "f8d7745416c7254d10cfdd144d80d91409f745d521d0debb5f5f8cc87c9de0b6",
+  "terminal_outcome": "GATE_FAILED"
+}

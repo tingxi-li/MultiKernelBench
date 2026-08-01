@@ -1,0 +1,129 @@
+{
+  "build_attempted": true,
+  "build_metadata": {
+    "artifacts": {
+      "gemm": {
+        "backend_detail": "triton 3.6.0; tl.dot on fp16 operands -> mma.sync.m16n8k16.f32.f16.f16.f32; KC=2048 (chunk accumulator flushed into acc every 2048 of K); num_stages=3 (software pipeline ON), ptx cp.async=26, ptx mma.sync=32; cast=precast; grid=(64, 16) (plain 2-D, no swizzle); num_warps=8; no autotune, no split-K, no atomics",
+        "block": [
+          256,
+          1,
+          1
+        ],
+        "cubin_path": "/home/lxt230026/tmp/fused_epilogue_crossed_v1/pid2380376/global_intermediate.triton.g14/phase1/triton/triton.D.64x128x64.kc2048.s3.fp16.precast.cubin",
+        "grid": [
+          64,
+          16
+        ],
+        "n_regs": 248,
+        "n_spills": 0,
+        "num_stages": 3,
+        "num_warps": 8,
+        "ptx": {
+          "bytes": 46069,
+          "sha256": "f7ededa87e63218756224c93ea7ca1c7df3339e5505b1819ee47dba1842e0143"
+        },
+        "ptx_cp_async_count": 26,
+        "ptx_mma_sync_count": 32,
+        "ptx_path": "/home/lxt230026/tmp/fused_epilogue_crossed_v1/pid2380376/global_intermediate.triton.g14/phase1/triton/triton.D.64x128x64.kc2048.s3.fp16.precast.ptx",
+        "shared_bytes": 81920
+      },
+      "postprocess": {
+        "backend_detail": "common CUDA combined bias + exact-erf GELU + row-softmax kernel",
+        "block": [
+          256,
+          1,
+          1
+        ],
+        "cuda_source_sha256": "129e4a188a6bf0ecc51cbe4d6af7b8249f2f74057187d3a62c35255e12e31a1e",
+        "grid": [
+          1024,
+          1,
+          1
+        ],
+        "n_kernels": 1
+      },
+      "strategy": "global_intermediate"
+    },
+    "build_wall_s": 0.061173113994300365,
+    "builder": "phase1:triton+crossed-v1:combined_postprocess",
+    "isolated_artifact_root": "/home/lxt230026/tmp/fused_epilogue_crossed_v1/pid2380376/global_intermediate.triton.g14",
+    "n_kernels": 2,
+    "notes": "lane-native GEMM writes fp32 global intermediate; one common CUDA kernel performs bias+exact-GELU+softmax",
+    "reported_compile_s_components": {
+      "gemm": 0.060371116996975616,
+      "postprocess": 0.0002801939845085144
+    }
+  },
+  "build_wall_s": 136.54880078401766,
+  "campaign_id": "fused-epilogue-crossed-v1",
+  "cell": {
+    "cell_id": "global_intermediate.triton.g14",
+    "cell_index": 185,
+    "grid_id": "g14",
+    "grid_index": 14,
+    "lane": "triton",
+    "origin_job": {
+      "dsl": "triton",
+      "geom": "fused",
+      "grid_id": "g14",
+      "grid_index": 14,
+      "job_id": "triton.g14",
+      "set": "BM=64,BN=128,BK=64,threads=256,stages=3,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=smem",
+      "variant": "GBGS"
+    },
+    "origin_job_sha256": "d259f5c79cef78cb13cb6fb73db5c4b0f158e60d4c8db7b28ea0859703d94b9a",
+    "requested": true,
+    "strategy": "global_intermediate",
+    "support_declared": true,
+    "support_detail": "phase1 Triton GEMM plus common combined postprocess"
+  },
+  "cell_sha256": "04860cd4e802433b42748d24161297186521907880ab7acfe2d6634a956e14ad",
+  "created_utc": "2026-07-31T17:58:32.146658+00:00",
+  "gate_attempted": true,
+  "gate_jsonl_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/audit/gate/global_intermediate__triton__g14.jsonl",
+  "gate_jsonl_sha256": "5b31b17e929a9b5ddbffaf600d1126743af82c9a0c5f346f5d9d6b5ca47b6490",
+  "gate_summary": {
+    "complete": true,
+    "expected_records": 512,
+    "failed_records": 0,
+    "full_gate_pass": true,
+    "max_over_threshold_ratio": 0.9633653546003984,
+    "max_over_threshold_ratio_by_metric": {
+      "conformance_mixed/max_abs_err": 0.2884864807128906,
+      "conformance_mixed/nrmse": 0.4252176393522083,
+      "conformance_mixed/row_sum_error_max": 0.9633653546003984,
+      "conformance_mixed/scaled_max_abs_err": 0.19746902555798526,
+      "conformance_mixed/sqrt_js_max": 0.21692588526674558,
+      "conformance_mixed/tv_max": 0.2888564036901409,
+      "semantic_mixed/max_abs_err": 0.37844748787867477,
+      "semantic_mixed/nrmse": 0.446346721228331,
+      "semantic_mixed/row_sum_error_max": 0.9633653546003984,
+      "semantic_mixed/scaled_max_abs_err": 0.533779464248654,
+      "semantic_mixed/sqrt_js_max": 0.7250454120354177,
+      "semantic_mixed/tv_max": 0.3796545615401497
+    },
+    "minimum_headroom_fraction": 0.036634645399601595,
+    "observed_records": 512,
+    "zero_threshold_max_observed_by_metric": {
+      "conformance_mixed/negative_count": 0.0,
+      "conformance_mixed/nonfinite_count": 0.0,
+      "semantic_mixed/negative_count": 0.0,
+      "semantic_mixed/nonfinite_count": 0.0
+    },
+    "zero_threshold_violation_records_by_metric": {}
+  },
+  "host": "cs265655.utdallas.edu",
+  "launch_lock_sha256": "fe9a0123cc1e3aa64f5d0026e09d89b918838174c7964c85c4580b0962767e8a",
+  "parent_launch_lock_sha256": "fe9a0123cc1e3aa64f5d0026e09d89b918838174c7964c85c4580b0962767e8a",
+  "parent_source_bundle_sha256": "f8d7745416c7254d10cfdd144d80d91409f745d521d0debb5f5f8cc87c9de0b6",
+  "physical_gpu": 1,
+  "recovery_git_commit": "3c5beb19c25fb083c80efd2e5a7839d201e200ec",
+  "recovery_id": "fused-epilogue-crossed-v1r1-reporting-fix",
+  "recovery_lock_sha256": "919827539cce29d8a5aa134cd88f4afe14241703615a1b1ba29d40aabde31b63",
+  "recovery_source_bundle_sha256": "40cb91ec9739f9b2073347cce55ea01b89aebcd5c94526589b323d247ebfb251",
+  "reported_compile_s": 0.06065131098148413,
+  "result_tag": "crossed_v1r1",
+  "schema_version": 1,
+  "source_bundle_sha256": "f8d7745416c7254d10cfdd144d80d91409f745d521d0debb5f5f8cc87c9de0b6",
+  "terminal_outcome": "GATE_PASSED"
+}

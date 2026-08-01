@@ -1,0 +1,1929 @@
+{
+  "audit_summary_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/audit_summary.json",
+  "audit_summary_sha256": "229b8a34c7a0f6be24668a14a60cfe4606e523f6adc3138c1b60ea7b095ad74f",
+  "campaign_id": "fused-epilogue-crossed-v1",
+  "complete": true,
+  "failed_screen_processes": [],
+  "feasibility": {
+    "all_factor_common_feasible_grid_ids": [],
+    "common_feasible_grid_ids_by_lane": {
+      "cuda_noptx": [],
+      "cuda_unlimited": [
+        "g00",
+        "g01",
+        "g02",
+        "g03",
+        "g04",
+        "g13",
+        "g14",
+        "g15",
+        "g16",
+        "g17",
+        "g18"
+      ],
+      "tilelang": [
+        "g00",
+        "g01",
+        "g02",
+        "g03",
+        "g04",
+        "g13",
+        "g14",
+        "g15",
+        "g16",
+        "g17",
+        "g18"
+      ],
+      "triton": []
+    },
+    "common_feasible_grid_ids_by_strategy": {
+      "global_intermediate": [
+        "g00",
+        "g01",
+        "g02",
+        "g03",
+        "g04",
+        "g05",
+        "g06",
+        "g08",
+        "g09",
+        "g10",
+        "g12",
+        "g13",
+        "g14",
+        "g16",
+        "g17"
+      ],
+      "register_fused": [],
+      "smem_staged": []
+    },
+    "feasibility_strategy_x_lane_interactions": [
+      {
+        "difference_in_differences_vs_register_tilelang": -0.368421052631579,
+        "lane": "triton",
+        "strategy": "smem_staged"
+      },
+      {
+        "difference_in_differences_vs_register_tilelang": 1.0,
+        "lane": "cuda_noptx",
+        "strategy": "smem_staged"
+      },
+      {
+        "difference_in_differences_vs_register_tilelang": 0.42105263157894735,
+        "lane": "cuda_unlimited",
+        "strategy": "smem_staged"
+      },
+      {
+        "difference_in_differences_vs_register_tilelang": 0.0,
+        "lane": "triton",
+        "strategy": "global_intermediate"
+      },
+      {
+        "difference_in_differences_vs_register_tilelang": 1.0,
+        "lane": "cuda_noptx",
+        "strategy": "global_intermediate"
+      },
+      {
+        "difference_in_differences_vs_register_tilelang": 0.42105263157894735,
+        "lane": "cuda_unlimited",
+        "strategy": "global_intermediate"
+      }
+    ],
+    "outcome_counts": {
+      "BUILD_FAILED": 24,
+      "GATE_FAILED": 4,
+      "GATE_PASSED": 150,
+      "LAUNCH_FAILED": 12,
+      "UNSUPPORTED": 38
+    },
+    "outcomes_by_strategy_lane": [
+      {
+        "counts": {
+          "BUILD_FAILED": 0,
+          "GATE_FAILED": 0,
+          "GATE_PASSED": 19,
+          "LAUNCH_FAILED": 0,
+          "UNSUPPORTED": 0
+        },
+        "gate_legal_rate_over_requested": 1.0,
+        "lane": "tilelang",
+        "requested_cells": 19,
+        "strategy": "register_fused"
+      },
+      {
+        "counts": {
+          "BUILD_FAILED": 4,
+          "GATE_FAILED": 0,
+          "GATE_PASSED": 15,
+          "LAUNCH_FAILED": 0,
+          "UNSUPPORTED": 0
+        },
+        "gate_legal_rate_over_requested": 0.7894736842105263,
+        "lane": "triton",
+        "requested_cells": 19,
+        "strategy": "register_fused"
+      },
+      {
+        "counts": {
+          "BUILD_FAILED": 0,
+          "GATE_FAILED": 0,
+          "GATE_PASSED": 0,
+          "LAUNCH_FAILED": 0,
+          "UNSUPPORTED": 19
+        },
+        "gate_legal_rate_over_requested": 0.0,
+        "lane": "cuda_noptx",
+        "requested_cells": 19,
+        "strategy": "register_fused"
+      },
+      {
+        "counts": {
+          "BUILD_FAILED": 0,
+          "GATE_FAILED": 2,
+          "GATE_PASSED": 11,
+          "LAUNCH_FAILED": 6,
+          "UNSUPPORTED": 0
+        },
+        "gate_legal_rate_over_requested": 0.5789473684210527,
+        "lane": "cuda_unlimited",
+        "requested_cells": 19,
+        "strategy": "register_fused"
+      },
+      {
+        "counts": {
+          "BUILD_FAILED": 8,
+          "GATE_FAILED": 0,
+          "GATE_PASSED": 11,
+          "LAUNCH_FAILED": 0,
+          "UNSUPPORTED": 0
+        },
+        "gate_legal_rate_over_requested": 0.5789473684210527,
+        "lane": "tilelang",
+        "requested_cells": 19,
+        "strategy": "smem_staged"
+      },
+      {
+        "counts": {
+          "BUILD_FAILED": 0,
+          "GATE_FAILED": 0,
+          "GATE_PASSED": 0,
+          "LAUNCH_FAILED": 0,
+          "UNSUPPORTED": 19
+        },
+        "gate_legal_rate_over_requested": 0.0,
+        "lane": "triton",
+        "requested_cells": 19,
+        "strategy": "smem_staged"
+      },
+      {
+        "counts": {
+          "BUILD_FAILED": 8,
+          "GATE_FAILED": 0,
+          "GATE_PASSED": 11,
+          "LAUNCH_FAILED": 0,
+          "UNSUPPORTED": 0
+        },
+        "gate_legal_rate_over_requested": 0.5789473684210527,
+        "lane": "cuda_noptx",
+        "requested_cells": 19,
+        "strategy": "smem_staged"
+      },
+      {
+        "counts": {
+          "BUILD_FAILED": 0,
+          "GATE_FAILED": 2,
+          "GATE_PASSED": 11,
+          "LAUNCH_FAILED": 6,
+          "UNSUPPORTED": 0
+        },
+        "gate_legal_rate_over_requested": 0.5789473684210527,
+        "lane": "cuda_unlimited",
+        "requested_cells": 19,
+        "strategy": "smem_staged"
+      },
+      {
+        "counts": {
+          "BUILD_FAILED": 0,
+          "GATE_FAILED": 0,
+          "GATE_PASSED": 19,
+          "LAUNCH_FAILED": 0,
+          "UNSUPPORTED": 0
+        },
+        "gate_legal_rate_over_requested": 1.0,
+        "lane": "tilelang",
+        "requested_cells": 19,
+        "strategy": "global_intermediate"
+      },
+      {
+        "counts": {
+          "BUILD_FAILED": 4,
+          "GATE_FAILED": 0,
+          "GATE_PASSED": 15,
+          "LAUNCH_FAILED": 0,
+          "UNSUPPORTED": 0
+        },
+        "gate_legal_rate_over_requested": 0.7894736842105263,
+        "lane": "triton",
+        "requested_cells": 19,
+        "strategy": "global_intermediate"
+      },
+      {
+        "counts": {
+          "BUILD_FAILED": 0,
+          "GATE_FAILED": 0,
+          "GATE_PASSED": 19,
+          "LAUNCH_FAILED": 0,
+          "UNSUPPORTED": 0
+        },
+        "gate_legal_rate_over_requested": 1.0,
+        "lane": "cuda_noptx",
+        "requested_cells": 19,
+        "strategy": "global_intermediate"
+      },
+      {
+        "counts": {
+          "BUILD_FAILED": 0,
+          "GATE_FAILED": 0,
+          "GATE_PASSED": 19,
+          "LAUNCH_FAILED": 0,
+          "UNSUPPORTED": 0
+        },
+        "gate_legal_rate_over_requested": 1.0,
+        "lane": "cuda_unlimited",
+        "requested_cells": 19,
+        "strategy": "global_intermediate"
+      }
+    ]
+  },
+  "launch_lock_sha256": "fe9a0123cc1e3aa64f5d0026e09d89b918838174c7964c85c4580b0962767e8a",
+  "parent_launch_lock_sha256": "fe9a0123cc1e3aa64f5d0026e09d89b918838174c7964c85c4580b0962767e8a",
+  "parent_source_bundle_sha256": "f8d7745416c7254d10cfdd144d80d91409f745d521d0debb5f5f8cc87c9de0b6",
+  "record_hashes": [
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__cuda_noptx__g14__positive__rep00.json",
+      "sha256": "86b9bb41f826a42471646a53d9343e56f6f351761cf9a753b5db2db2cf829066"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_noptx__g18__positive__rep00.json",
+      "sha256": "ebbecc7a8e0209778671f657c4e6fe648afa83be6f4a18ebbbf9ccb3a6c2e64e"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_unlimited__g07__positive__rep00.json",
+      "sha256": "12cf5e417cd47c95d2b0d6a4746b899625ce4fdabe17b8fdde2ce01e62cab91a"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_unlimited__g16__positive__rep00.json",
+      "sha256": "2002cb4f962444d1d5a020a6ed1862081600ec92fa913282a5d451c7f3564c5d"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_noptx__g04__positive__rep00.json",
+      "sha256": "4a0d274512a3c76577596c2e527c4a6041002a9e1a92945cad2a93d9200b161c"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__tilelang__g02__positive__rep00.json",
+      "sha256": "f6719555a95247097d89de5b03f1d3a90298f3b027e7db040c5f6e5aada2f720"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__cuda_unlimited__g00__positive__rep00.json",
+      "sha256": "74fef42be3405a84203f0e05a0b120beab81c381b354f02b91625864fa35388b"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_noptx__g12__positive__rep00.json",
+      "sha256": "017701b830a0d4da8fa675fffa00d6f17c1de5a7d4c0bdce76a54443802d45bb"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__tilelang__g13__positive__rep00.json",
+      "sha256": "d4b6f861bf68a9b3d7d1f9332fe54d5ed5a3c38d675d978a76e0f2fe284f474b"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_unlimited__g02__positive__rep00.json",
+      "sha256": "46d5a08f6b5f91dd756054c2c3aa7095943e3c5b60c397258543c91bf256dab1"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__cuda_noptx__g03__positive__rep00.json",
+      "sha256": "94006d678aec6409959076d7b8a98ac6e183433c2106cd7852ddabfef40e1f43"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__tilelang__g14__positive__rep00.json",
+      "sha256": "97739c812b0d3b382311a08ad8dadaf5e553f5134ca1d6b4beb4751008f8562a"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__triton__g10__positive__rep00.json",
+      "sha256": "b9f4a1fbb8baa864e6c72b47f538a3d665c1cd73049ac82d9acb06709e4198b7"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__tilelang__g09__positive__rep00.json",
+      "sha256": "a127c4e3cbfa19cbb5c61c765fae64964837bcb849c271b24102c27e60f2bc25"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__cuda_noptx__g00__positive__rep00.json",
+      "sha256": "3734e47d6ddb0d3e1eee14f342d66b83b086d2b190a349a5c2d15ca64476b591"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_unlimited__g13__positive__rep00.json",
+      "sha256": "68396a711e0349a69b7ebc8c7b0dfceebef3d022a382651b8b8e0b43191ff93c"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__triton__g00__positive__rep00.json",
+      "sha256": "20a6a4f1dea360658198bde00c48bfc52b5340cbe52b96bd62fa2e70bbe0c6dc"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__tilelang__g10__positive__rep00.json",
+      "sha256": "32831330ec18694dddb49edffaeaa63d812fd204699e8d841d8477d04b1e3902"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_noptx__g03__positive__rep00.json",
+      "sha256": "e806a4bce6cd39d5545ff6bf68140456c4256f712385cbcf53f394b46903aece"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__cuda_noptx__g13__positive__rep00.json",
+      "sha256": "4f5f0a4aa6b7362e37a1322977dc0330fce87c4877baa893fcbb9a0c5bb39e5d"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__triton__g13__positive__rep00.json",
+      "sha256": "47c54eb108bd8dfc53ef10d6ae2c30ef703bda7edce35906016621954c4d8ebb"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__cuda_noptx__g02__positive__rep00.json",
+      "sha256": "a9f94a45fb1cf89279d33561950c1ff0cd7bade7939fb8cbce00bd6c247c3793"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__triton__g04__positive__rep00.json",
+      "sha256": "7b4ef47fe456e68aaae15d0e6adb951b8e2f2ef2cdd9e1754526c502307824d3"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__cuda_unlimited__g00__positive__rep00.json",
+      "sha256": "924e55b99fc0a926f8b732c9b9dca834bfde8c20122f830e479537d23ae1f661"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__cuda_unlimited__g15__positive__rep00.json",
+      "sha256": "be9d6e779980a5b8323c5ca84827fb6e02721b2fdcbdf332b443c9c1414b43e7"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_noptx__g06__positive__rep00.json",
+      "sha256": "c5681c9a517d1cf5fb60fd091e9d4ee5f479ac823fdcd012f7bb1e6b1e75b9bd"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__cuda_unlimited__g04__positive__rep00.json",
+      "sha256": "7ae59b7c88cbe80899795b3a17b192debbd07559abcd2c2fc1522df3d76edc6b"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_noptx__g08__positive__rep00.json",
+      "sha256": "cbcfdb726fded09188b33fab21baa3f7cf849de9af93708ea995233f17dfa88e"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__cuda_unlimited__g13__positive__rep00.json",
+      "sha256": "022dc8bc3570c078befb1f08a1b8b11f84ba3b49110b17a93a6eafde3a489fec"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_unlimited__g18__positive__rep00.json",
+      "sha256": "9db44293634f33b15632447a94eeea1d015bec4d279f6c2ab991fc3217146070"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_unlimited__g00__positive__rep00.json",
+      "sha256": "88c55d147195091d3d9f9f3bb5fe85fd814cee65291a0afa9c6b554f11c4f3a7"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_unlimited__g15__positive__rep00.json",
+      "sha256": "86dee9bd90f051b2ce911818d10c377b587779ecbe20d7d58e6207b96be0d212"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__cuda_unlimited__g04__positive__rep00.json",
+      "sha256": "38339f5bfe09a7f39b6cda5d3e272cd319d621129df1dd614e56ab6d39ce2b90"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__triton__g16__positive__rep00.json",
+      "sha256": "a6892209274ccf1e2787d201a4f67dac490e0da55b31d661530d2526e9fa9340"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__tilelang__g01__positive__rep00.json",
+      "sha256": "246db104f8662e9836e3f4f5bd5951db633685acafa8dd150ab567a2bbf910f6"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__cuda_unlimited__g13__positive__rep00.json",
+      "sha256": "d05dc5c0bac1ec4457614212e6e92eaebe39644eca8dd4dcae0e567664b72ca3"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__tilelang__g00__positive__rep00.json",
+      "sha256": "cd386d5d0231668f10f4a18ed6655e1c9fe0fb026d97e979a6f130cf492571ff"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__tilelang__g01__positive__rep00.json",
+      "sha256": "ba2314cd837029773ae464efbcf32e9797e8de05abdb947e28ef3a92aa39e6a9"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__triton__g08__positive__rep00.json",
+      "sha256": "19db68535672a78d272c139f20018a9d67a38bf28432086318f21a8bde5d659b"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__tilelang__g14__positive__rep00.json",
+      "sha256": "e0daca056dd73e163713e843ffb61a8437f92495404717c15d6f9faacf00bdbe"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__cuda_unlimited__g17__positive__rep00.json",
+      "sha256": "3368ce7611f9a2cbcb3ebba336b68ec024bf9794803d4b9c59e3180fdb848ef8"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_unlimited__g01__positive__rep00.json",
+      "sha256": "434d28536c6b2f860c0514ba4fde8660dec4450e13a3854055b0a0ab2337db0f"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_unlimited__g09__positive__rep00.json",
+      "sha256": "3e3431b290252bf03b6142806138fb6ed815a36c92edbdf2365f68a4ffa2516c"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__tilelang__g15__positive__rep00.json",
+      "sha256": "b60727aa102397c101ac9b0e29c5caf15d2dc69e18336009b35d1941a4ea8e45"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__cuda_unlimited__g03__positive__rep00.json",
+      "sha256": "9c76b5e2a4ed33f254b5668cf84f95d3b3f5bf7982518650097fbdc642414c6b"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_noptx__g00__positive__rep00.json",
+      "sha256": "bfb465e12b35da01990397f5a2ad8193bba6fd0059b1d54faea2351c6f9e0f25"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__tilelang__g13__positive__rep00.json",
+      "sha256": "8ab4d32aa021ab29c2bef78b2cf39eb2ec2df81ab349026d640b236097599e70"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__cuda_unlimited__g02__positive__rep00.json",
+      "sha256": "36be9de3bc42d4b7ed3737585cfcece077942bcda1b453a63044bed86a91218c"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__tilelang__g03__positive__rep00.json",
+      "sha256": "7fdf5ee8073bddd79eb7086838d54048acec98675bd3ac6877887d4b657a3df6"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__cuda_unlimited__g14__positive__rep00.json",
+      "sha256": "39f07bca1509a157bc3d583d84068a83fcf28d7f9fc82f7c0b5ccd39204131fd"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__tilelang__g17__positive__rep00.json",
+      "sha256": "262e0ed8cdea0b5b2fc562abefcc12766d8953a12ff4952267ac6a2aa6ece9ab"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__triton__g03__positive__rep00.json",
+      "sha256": "37e86b73bff8ff5cc7f1bb4f472cbfc56b89a1e7ed0e0f5b46bace8fa0d19d67"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__cuda_noptx__g17__positive__rep00.json",
+      "sha256": "50ce104c82e12d86f6b507990caefc98e71523ebdd98b68b4b83f54aa0ec255d"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__tilelang__g14__positive__rep00.json",
+      "sha256": "4278d9147ebb079a5e183a753753267bc89060cc1c465bbfd4f7d50ab2f64d69"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__tilelang__g16__positive__rep00.json",
+      "sha256": "40c37710d473918183feb2c83888cef15599fa5a688978f606ce41ded3d571e6"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__triton__g01__positive__rep00.json",
+      "sha256": "e6634dd3576577180536beee1945fd3f5cde3d3ce96941d77b18186b2a85d284"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_noptx__g10__positive__rep00.json",
+      "sha256": "f41654cd10377efa6a0d24d0edb75b048e9de4a50a9b13163b5236f06a1aca8d"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__tilelang__g18__positive__rep00.json",
+      "sha256": "1494144887012f3a311cfcdb3b424943406da70eac077f78d9a94ccd8335d375"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__tilelang__g10__positive__rep00.json",
+      "sha256": "dbb8bdafb3cbc8b585de35c09e01698415defcad0fe57a1fa3d6eaa0024c1e62"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__cuda_unlimited__g17__positive__rep00.json",
+      "sha256": "80ad091afbd4a3fd1333ec322496176e760d6f424d7af619e26eec34c5364fab"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__cuda_unlimited__g18__positive__rep00.json",
+      "sha256": "40941aede3fbf9f0946a3bec6369e2ac09149046af86fd08ac6b62ad568378bd"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_noptx__g17__positive__rep00.json",
+      "sha256": "ec3bb44154647f23069046f1aac45a0dee1c88c923f93fb03980a6c3b04dc5be"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__cuda_unlimited__g03__positive__rep00.json",
+      "sha256": "613a9518c1c31aa4a310390200e9db336a38eb68d891a6422478f6dd6e09dbb3"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__tilelang__g00__positive__rep00.json",
+      "sha256": "84a0f4939dfcf50d2658c8cac6b3f48cb0109a3f2a87863f3c3eca1074cf4a5c"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_noptx__g05__positive__rep00.json",
+      "sha256": "396a354baa3ba37ddad0213a067f852afd7e54637763123037e1e92c01778839"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__tilelang__g04__positive__rep00.json",
+      "sha256": "93888193e284c77d65890627ff1f2b5c49e53d5c7d0617fac04e180e13c6a9f0"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__cuda_unlimited__g01__positive__rep00.json",
+      "sha256": "98aee256ba0526e7a56583c1c5f625edb0502ad1b6b87eb7027d0e3d5102af8e"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__tilelang__g17__positive__rep00.json",
+      "sha256": "b43b83e3c7e764bfeb92bd13c99b6ef5e1cc01ed362ef52e106d046e523e45cd"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__triton__g04__positive__rep00.json",
+      "sha256": "729636e0d5afab71687e61354d6069e8cb9b275e624d371c3643ff19dc1cfbdf"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__cuda_noptx__g15__positive__rep00.json",
+      "sha256": "6c10581a92841bcd434b1efac05f183f3737bb5864b7d2cd063833d54c57f33c"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__tilelang__g02__positive__rep00.json",
+      "sha256": "fab2ace78a0730b5a3530954a98f10eeefab37b9fef6113a460335fd87dce219"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_unlimited__g04__positive__rep00.json",
+      "sha256": "f176cf4402e30e69aafa59c88984bc44078618c2d658639d6a044e16f3c4dea4"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__tilelang__g15__positive__rep00.json",
+      "sha256": "0db5139fce17bedeaa94e27787c78e514af472463f027d567c0d7945433d50f6"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__cuda_noptx__g16__positive__rep00.json",
+      "sha256": "6c0c2622798f916db524fe4d3c873ef12360f4330a83ef877e39e382b71d84cf"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__cuda_unlimited__g02__positive__rep00.json",
+      "sha256": "cb1ae7bc34fd1c225e42874c5b6f63503508307860e163054ae22f6c289ffa7b"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__cuda_unlimited__g16__positive__rep00.json",
+      "sha256": "b3db1d16b4cad1ef349f66a1b2edfad40417bc24d18b097f53b659ea5c227b6d"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__triton__g12__positive__rep00.json",
+      "sha256": "1d29e8f0bc906d089e6ac16e901b8a53c763ddee9356e6062d4143f4a692b749"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_noptx__g09__positive__rep00.json",
+      "sha256": "00c3e1e3292d450c5661c5b1168761eea26634f7efe406993f87137f948c7841"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__triton__g05__positive__rep00.json",
+      "sha256": "650af6c60910691b1f13a67189a552c3fe9be47377cd70194ebb11d7c345e583"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__triton__g06__positive__rep00.json",
+      "sha256": "b60fb1ec4ce64aae87a4a3556c6c70d4347ee5fb5ae1dcec442e2b071c2c48e8"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__tilelang__g05__positive__rep00.json",
+      "sha256": "c9f80182a83936a63f54f8e4c587c79896490738c85c4687144115970955abf3"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__cuda_noptx__g01__positive__rep00.json",
+      "sha256": "a47aea3a42106e31eab41595e2a677594a323e2d51997384684f6dda67f69464"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__tilelang__g03__positive__rep00.json",
+      "sha256": "fe683496cbe56dbf7d01913ddf88dd36b4d2931f49b84621b7c1a03ed0c08644"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__triton__g05__positive__rep00.json",
+      "sha256": "26cf8136dd6c0d58e12dc8fc0d524dc7c5017b563ef4a2553be2843f7cd775ac"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__triton__g14__positive__rep00.json",
+      "sha256": "aaeb7d63b0dfabe44e0e2d1a18dc798d8322215139501dd28153bea2c915086d"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_unlimited__g08__positive__rep00.json",
+      "sha256": "449682d32527ff76258a3d41063cf0821f50c220f327e68df4dd31e5dda9adbd"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__tilelang__g00__positive__rep00.json",
+      "sha256": "b8f113502a33b7f5a9f396e365630ba55815ccf04759b123a4430d2236ee183e"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__tilelang__g11__positive__rep00.json",
+      "sha256": "cece2b55cecdfe06b9a2983bb38c675c3e5bb496d0a15c02750b04c46827ade8"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__tilelang__g03__positive__rep00.json",
+      "sha256": "4e95d1d8c26d38488ba60b92c27ff9fa4f1f0ec1e5ed6862549927cced1cb238"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__triton__g16__positive__rep00.json",
+      "sha256": "b987762c70b8cad0ef1c38ca28fbe2e6d617d1289d4e91788bd64fb2cfe1041c"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__tilelang__g02__positive__rep00.json",
+      "sha256": "869f78955cd7c3424dafdb9c75f7b8b474635654218ac11f3cf10822e52bc6c8"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_unlimited__g06__positive__rep00.json",
+      "sha256": "c38624ec4fecbf2357e1797c021182dd2bb6c7297ac5327234e827b89f827943"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_noptx__g14__positive__rep00.json",
+      "sha256": "3b80563782cc1ab9ec0f7e438c10e5f87828c14b6ee7aab6ba5fff6028491569"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__tilelang__g04__positive__rep00.json",
+      "sha256": "58ac6747522e4bf245d26bc9b8108eaa51b4316b94cad6b3ae10665d6ac3dc18"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__triton__g17__positive__rep00.json",
+      "sha256": "170e7106cfe869c675905db3112d817fbc7cdfd2c74d04d218481aab779c3077"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_noptx__g13__positive__rep00.json",
+      "sha256": "efbb11115096103d97c9e332e9c0e575bbfdf0c11c2ecbc9b5d65749b291bf3e"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__tilelang__g12__positive__rep00.json",
+      "sha256": "f585d37f60582940a79586fe39f33d279efdf744a627a2087c8256849ce92197"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__tilelang__g06__positive__rep00.json",
+      "sha256": "6d9da94bb112cc1795773059eb3973e0795956e534f8249a4f7c94fecdc921d4"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__tilelang__g16__positive__rep00.json",
+      "sha256": "90797173d3263227f128034324a92bd5e2727bfd32c9a49e08940159bfe4e3f2"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_noptx__g07__positive__rep00.json",
+      "sha256": "5db0296793415f3f863083c98606f0a7ff8f6ba703b17876343ec2480d1d961e"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__cuda_noptx__g04__positive__rep00.json",
+      "sha256": "06f418e34d04ba55f5219a253bb4c31b952a51609e941977853a9af4641b2f48"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_noptx__g01__positive__rep00.json",
+      "sha256": "fb81b762f098864c13ff7a4e5ac1c4670f3e5db67eff2f1914491ff81498908b"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_unlimited__g10__positive__rep00.json",
+      "sha256": "3cff9c4cd663adcc6ef248c99152d6ebbde90860e64691fb2a73826507f88e19"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__tilelang__g04__positive__rep00.json",
+      "sha256": "7af007eade19d42331d81e460f00f2fae899ab1f48015869aa4c339c532daff9"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_noptx__g02__positive__rep00.json",
+      "sha256": "ee0ca184b1080e50a172f2ae5319ffa555ef5ee184121f88b6f676a18f1733b8"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__tilelang__g06__positive__rep00.json",
+      "sha256": "24f6a7946d20201b47106054265f04060dbbf43b18e9f67fbcdef4bfec84dfd8"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__tilelang__g18__positive__rep00.json",
+      "sha256": "1ab4100d049a357bbeb0ece42d1cc6406433da5daed96ac1886bf5cb78b85522"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__triton__g02__positive__rep00.json",
+      "sha256": "1a3eb24251e8fdd3a00f275f894321ecfd443d4c494e16a4881f2995416b7e9d"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__tilelang__g09__positive__rep00.json",
+      "sha256": "d3be85bb1d43fbb702c1d66599675d593724b2bf4524ccc651fb1dead81103df"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__tilelang__g01__positive__rep00.json",
+      "sha256": "b9bf284dd631d4aefd75a3e79a0dbdf15f47d219766a98eea83058871769fbd4"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__triton__g14__positive__rep00.json",
+      "sha256": "2c3afc4c12525b28c4ce4acbdeab99e6dbaaa3f2dd262f65b126f1b3d7f85b6c"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__triton__g08__positive__rep00.json",
+      "sha256": "77eb2a68304d78e72e2c871ee9763ae9b50d6083764c262d8134158ee923d379"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__cuda_noptx__g18__positive__rep00.json",
+      "sha256": "bee1b8467b9e5abd615c26dcbcb202c3773f677aa6059b88448eb79eb657cb49"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__tilelang__g12__positive__rep00.json",
+      "sha256": "cf032a22af082c217591eeaf7b6e0320d747c39aa5179ac81acedbf5d9f1a6ae"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__triton__g09__positive__rep00.json",
+      "sha256": "8f3568b743dcc0f93fab4747f302267f033c23c54c0224baff484813d28be463"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__cuda_unlimited__g18__positive__rep00.json",
+      "sha256": "d434b57db2f6400f32d354684affe3e705c45285352bdbd2533bd614e75a8233"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__triton__g09__positive__rep00.json",
+      "sha256": "40c8ec86870b2144b1e11cba92b1650db230e12676f882138a20044ac9f42239"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__cuda_unlimited__g16__positive__rep00.json",
+      "sha256": "ebdd9c02d42647ad212373ea51ee52772d9e26f923fc46adb55ae3cd3cb3d008"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__tilelang__g17__positive__rep00.json",
+      "sha256": "f1d3de183e5c1136731b4a7b8afc72a6318406f9b1c4585ef3d40f32d8d6a9da"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__cuda_unlimited__g01__positive__rep00.json",
+      "sha256": "c17dfe8954852be383e197605be46af66fbfbd4c349603d210e6707603a30339"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__tilelang__g16__positive__rep00.json",
+      "sha256": "50230923223f4143323e7d2d0da482be1e8eb4fba7d9629dbbd93969c44ec893"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__cuda_unlimited__g14__positive__rep00.json",
+      "sha256": "96544e4e62b3499ed557c47dd27cf797aba3d3289ff5683296a11fddc38b5215"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__triton__g00__positive__rep00.json",
+      "sha256": "1bdee6f19debf431f2ddb3014e65a757f639661fb4b2726feaaa178f02aa61c1"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__triton__g06__positive__rep00.json",
+      "sha256": "554b07e25ea0134f2ea8c439bbd00c098e499af6c6df5c25f36282bc6ab8edcb"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__tilelang__g07__positive__rep00.json",
+      "sha256": "2df768d0866426a512a89ad14bea531e786443c824dbbba28e182ecbd469d511"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__triton__g03__positive__rep00.json",
+      "sha256": "4a3a15c53640425003c1121e0922f38d408738a7d062c1cbc5d0af28138265f2"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__triton__g17__positive__rep00.json",
+      "sha256": "4d07a9f40d16ed77f52bc3ff2a7a9504e7ac3eecb1a4d3ce737be44e1a12d35e"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_noptx__g15__positive__rep00.json",
+      "sha256": "2a467a139fbb81020adc9c900273d3dc58e3df00e5b68f60108ce4e2f157088c"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__triton__g01__positive__rep00.json",
+      "sha256": "987baf1e5eba318dc11d72ad4525878aeab6f0a35d1abad76319c901c6acc963"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__tilelang__g13__positive__rep00.json",
+      "sha256": "2dfa236425140ee434406c1a42692ba8c8c5a5432f999403c7503b5bf1d8c7da"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__tilelang__g11__positive__rep00.json",
+      "sha256": "7d2891450d3448f74437c5d0559571dab2fa4b8db00af164a9439759c9acd8bb"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__triton__g02__positive__rep00.json",
+      "sha256": "f37b35a2e933798ad2dc6cff58c78c2ea083c7319e79935ee32b1d6631e1ba53"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_noptx__g16__positive__rep00.json",
+      "sha256": "0ac033468686a4204c3fd20e594edae13e7fd5a12efc1b281c2b7667190c0d73"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_unlimited__g12__positive__rep00.json",
+      "sha256": "7f0b02e7957d9c77ba4e4e202ed49355ae7042e296d942e73f4411a7219a11f6"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_unlimited__g03__positive__rep00.json",
+      "sha256": "3b7e55f99f8457f2f1d1eb0c24e241646e6cecef2220fa9dfa507e363295165a"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__triton__g10__positive__rep00.json",
+      "sha256": "1eae9b082e7f516d6243c6d2e03e33a8f6ebbac395b4af3da462ecccca2a8fd4"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_unlimited__g11__positive__rep00.json",
+      "sha256": "b4782ae0993f2f0c30c8fa54d743587fd510472e12cfb85407fd07f4382673d6"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__tilelang__g18__positive__rep00.json",
+      "sha256": "60aa7a149eb229d376673d02d8ddb0ebe7ec6552d7549f7c29c1536a52f6174e"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_unlimited__g17__positive__rep00.json",
+      "sha256": "7103c0f16220224d18959fb1178f7f0eda121289b08af7739ca2a9b4eb81464a"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__tilelang__g07__positive__rep00.json",
+      "sha256": "fb57e52db588ef73177f4494df6262afb9e15e6df27bb5c9fd18e6d8dacc42e2"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__tilelang__g15__positive__rep00.json",
+      "sha256": "b5b5acb1ea6188403d3ee922032d8356e04fb74c987ed171d35302dceaf38d5c"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_noptx__g11__positive__rep00.json",
+      "sha256": "9c4abbf40e06307ec2ff56a8ecdf0f3e852436c7d8e485166d5e9f73798b09f2"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_unlimited__g14__positive__rep00.json",
+      "sha256": "5bf0679554a3799425289d9a0248c0e45a875c006c7ed0554b8d9399022b659e"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__cuda_unlimited__g15__positive__rep00.json",
+      "sha256": "4bc645de2c8c318a14c0dcd50ed5f16b4271409e5d05e23d4588e9a9674d6dba"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_unlimited__g05__positive__rep00.json",
+      "sha256": "7148f801831c45e82600c62df63ef279aa0b531a5ad0ef8e8f9dc3bbcf5f22a1"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__tilelang__g05__positive__rep00.json",
+      "sha256": "e714fea657f0c2f25f1e0d775321873b92955eb87ab0147aefadafae85bd98cc"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__tilelang__g08__positive__rep00.json",
+      "sha256": "6e0532cbb2ab2c22cf4111190cd0f3099c9399381649ff7788a3c1c1d8d65cd0"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__triton__g13__positive__rep00.json",
+      "sha256": "bf78d0503acf43f6e2d4bcc7cc838f0e2f195ce167a259132dd2a3d1e95a5e4e"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__tilelang__g08__positive__rep00.json",
+      "sha256": "e737ac790ce9a502393e02284dd34db6750c24dfaf060153f9b0fefdc9b6e395"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__triton__g12__positive__rep00.json",
+      "sha256": "438c4f552bd4772315dc5bc44bde3f529124c2b2844ba865520e06a83757d2aa"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__cuda_unlimited__g01__positive__rep01.json",
+      "sha256": "b8514a318a88d70d9d600ee60d2f4143ccdbd836425db30420615938993544dd"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_noptx__g18__positive__rep01.json",
+      "sha256": "d9514e79d8444e5e582c542b9db665040751a192758b6da65f2809333aa3fef4"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__triton__g06__positive__rep01.json",
+      "sha256": "f40c4177a6b1e799cecf94c7a8621a0577354e3aac8dc2e6c7dfb9382bcbf340"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__cuda_unlimited__g16__positive__rep01.json",
+      "sha256": "f873a68b92e0dace8e2138b0977ce82f7c1486ad0c7aae9c68a93c88903ae3ce"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__cuda_unlimited__g00__positive__rep01.json",
+      "sha256": "0cacd3eb11f8c2dc3eef60f02ab90c5f0c3276f830a6bd377315659e23e63ef8"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_unlimited__g17__positive__rep01.json",
+      "sha256": "7dd38544ad9c1d88fc225c19836a267875f0a637a22b84e9804bfc675e63139d"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_noptx__g16__positive__rep01.json",
+      "sha256": "c4fe0f388938b57874c1ca90d16fe7a6e56b922927228f05e971805d3ccdd1d7"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_noptx__g13__positive__rep01.json",
+      "sha256": "d70133f6d28713e5b5cd07662d595c5e3394e88f6c683838678cc854a5d7b4b4"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__tilelang__g09__positive__rep01.json",
+      "sha256": "d426d8eedaea06a8502f6c156db71376f2e81cff575475c9f6e51d7ab688babf"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__cuda_unlimited__g14__positive__rep01.json",
+      "sha256": "3b0d8636f8ec4c258357aad6a91354e8adee0ad3b58cd153603090b44090dc5a"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_unlimited__g00__positive__rep01.json",
+      "sha256": "d21b373fe20dbed916101826adc9acf407f70937c4700dbef50e9b8264a54554"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__cuda_unlimited__g13__positive__rep01.json",
+      "sha256": "76557086ca5e2458efc4fcac83f99f5d3569303bd48ad1226371ef6eba0784ef"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__triton__g10__positive__rep01.json",
+      "sha256": "a70e8badab9bfc8e9e1effc8d36ec33f92220144b900d86ec9d65b408fbfc72f"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__cuda_unlimited__g02__positive__rep01.json",
+      "sha256": "8c58ec5487fe17f0305ddfa93409a9644933b9743c1c0dc3f42338b8eab166bf"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__cuda_unlimited__g15__positive__rep01.json",
+      "sha256": "d41af532c6bd7d0c3aa05eab29c41df6c874e1db30a18633c51bdabfb0052b8b"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__triton__g02__positive__rep01.json",
+      "sha256": "09c5c03863ae822b9bb50061a4e31b7358df58bb0ca4bc66e1fd4d1f72bc3b17"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__cuda_unlimited__g14__positive__rep01.json",
+      "sha256": "bdcff11613ae295ba5dcc141e5e72b81512f04681943cd3be81f3a8324aee620"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__triton__g14__positive__rep01.json",
+      "sha256": "5340c750418a25142c84fdf475de09e22deb37eb82fe518a59b5e1f15d1cfc25"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_unlimited__g08__positive__rep01.json",
+      "sha256": "f056900fdb0604c0363d6eca9b25111c559a4815cdbc2e30a7d346912aea51ce"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_unlimited__g05__positive__rep01.json",
+      "sha256": "8a0cda64517ee84c3fb6826be82a0fc268e922de94ffb98ae2346d2aead03ba2"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__tilelang__g13__positive__rep01.json",
+      "sha256": "b44e97bdd6ad7118b5f59f004e40b3ae6321c9727566418418a2d3b7ffcd2b2b"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__tilelang__g00__positive__rep01.json",
+      "sha256": "47f71f0f64a9d8c961bdb435371727a1f75f174d31ca481c28ab9b053020e755"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__tilelang__g05__positive__rep01.json",
+      "sha256": "1d77b72b380abbb3ffa064ba0ec03130a59efb06df458a87311d7cbbec27b8a3"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__cuda_noptx__g04__positive__rep01.json",
+      "sha256": "ad1d9ba1014dab7c7162c7f745ab3dee7253ee0dccc48036d1cfcea8708f2ae8"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__tilelang__g03__positive__rep01.json",
+      "sha256": "55b72644778a02671841c35585d31578084d6274b81ba3152295b3d45522ea5e"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__tilelang__g04__positive__rep01.json",
+      "sha256": "fb3c2b9fb0cd3159a5d6f103010e311ba6ffe3ce5d5a98bf01654e9e23e3ecfc"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_noptx__g15__positive__rep01.json",
+      "sha256": "ff8ad26b7d64937338a311851c932e50bb62af01eeb40186e5cbb8798c9476ee"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__cuda_noptx__g03__positive__rep01.json",
+      "sha256": "2a671fc880ee332fcaca2d84380dcb6ca5f6c0c65385294ddf9d012ce5ebef20"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__triton__g04__positive__rep01.json",
+      "sha256": "c3d9ba7a40a9b44e7a99ea0efceb3fa804bc52e727302f7a7b011e242cc7aac3"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__triton__g09__positive__rep01.json",
+      "sha256": "f65361d809352dd4acf4f495398b8462611232df3eaf4aafbdf66ec3528be8a8"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__cuda_noptx__g14__positive__rep01.json",
+      "sha256": "dc2ac9257c7e6fb4f479ff520e50312f9f628f8cd19b7e76108e07d268058245"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__tilelang__g13__positive__rep01.json",
+      "sha256": "a1c9a456c6def0f5285e3a731bbe1cced4dbdf4132942112a1514ceb65914072"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__tilelang__g14__positive__rep01.json",
+      "sha256": "2948179a5eefc5634fd45d9f39839a510d812d0406c7ba6fb09e2e475cce3ca9"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_unlimited__g04__positive__rep01.json",
+      "sha256": "2ffe802c86f65a76012a2337a565f6849e2dc6cca89bfc622e9ee57f73b975c2"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__tilelang__g03__positive__rep01.json",
+      "sha256": "16db43e64737d435657e39e143766499f7d3bf7836a4fb2d0c86802b2bb78db8"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__tilelang__g14__positive__rep01.json",
+      "sha256": "31f36a8f3c9a3f3470a7ab624621c10083a019562d125c8a4c81e0f8e6e314b0"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__tilelang__g17__positive__rep01.json",
+      "sha256": "65eae7879a8b175e5ef82e6d3c57043ac101121e62de31f379c90c883ab3ea1a"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__cuda_noptx__g16__positive__rep01.json",
+      "sha256": "66ca28733e071794adfffa7db2dff0566103c7f42305e713a8eb2a1bbebc6ed1"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__cuda_unlimited__g15__positive__rep01.json",
+      "sha256": "090343ce2458c0185a06216ff3a0a3a86fd848d2c9293716d1b62bd8506b7edd"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_noptx__g09__positive__rep01.json",
+      "sha256": "661c963092075296221d366f70f3efc71495528e419f02f259e251197f387725"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__tilelang__g16__positive__rep01.json",
+      "sha256": "504929d95f4d906fe74cbe068f6709b1a44a5eeb09365f186e0fff76f115517f"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__tilelang__g11__positive__rep01.json",
+      "sha256": "b7d5d1c52e07ee35cc109b11e234cf001eb609217647725288cef29388235797"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__tilelang__g09__positive__rep01.json",
+      "sha256": "7350e037fd872d9d673f225769b5a14cec6c32d02434d13e7d07dc7a919811d2"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__tilelang__g07__positive__rep01.json",
+      "sha256": "3129afb83714b0917cc8c79465db5c7a52e1ead80935574c0e75da7b7e5c77e1"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__tilelang__g18__positive__rep01.json",
+      "sha256": "dce7473c279bb0465f660073d8a3edb3b1fd0b0399ab86b120c86cecbd138dc8"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__cuda_unlimited__g13__positive__rep01.json",
+      "sha256": "ef5149f6b9f7b7848d229681888cbb240bce8bae6494bbc97284afae769ff9c6"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_noptx__g14__positive__rep01.json",
+      "sha256": "71142c5741b45cfd1c7b31df2eadd17da1955cf0605338bb030912c8e62b060f"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__triton__g01__positive__rep01.json",
+      "sha256": "84c0e20ba507d3ca5fdef9075f8ebd790ee3eb9be38a87b738a5a09862ac6b32"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_unlimited__g14__positive__rep01.json",
+      "sha256": "06c14071243fbeb3a3a6eb68d6c6e80bc38a1f691629cefeb95c9ee1c4d89e42"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_unlimited__g09__positive__rep01.json",
+      "sha256": "afcda8f8eb0e46aefe2b01bc4bdd42279b348bb35ae2c4f799714423d2fc7217"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__tilelang__g14__positive__rep01.json",
+      "sha256": "ac23164a82e2298d1ba7d43737c10f7d6088522008eb76cd9a5bd6cbe959f6ab"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_unlimited__g07__positive__rep01.json",
+      "sha256": "c2477124c8f1f48d937d118e968ad393379cbeccd85a8fae5495693439412b25"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__tilelang__g08__positive__rep01.json",
+      "sha256": "63dca65fc88be00d517d855f05002b2a85d25e11c1fdb3ccba2557c0c4bbb5db"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_unlimited__g10__positive__rep01.json",
+      "sha256": "4041016626b56ad74ff736bd0e144e828b63ab4fd5a886e93f39a135b3bc2237"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__triton__g13__positive__rep01.json",
+      "sha256": "c361c7f501c8204519542bf8ac4cbb88b6b8d7bc72df09fa6d399a3f613eef83"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__triton__g09__positive__rep01.json",
+      "sha256": "35c4cf712e724e287f5cefaf57c5670b5f3c5d187658bda9d5b97707ccee80f3"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__triton__g16__positive__rep01.json",
+      "sha256": "1f57d9b09353a5cafda6a4270474ee383ad99c9dab3fe71fe14f9028f14f0704"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__triton__g02__positive__rep01.json",
+      "sha256": "443df9c8308a58f2820c9866f9d988dd5b30e21fd588a0162fedcfb3bc5c82a8"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__tilelang__g02__positive__rep01.json",
+      "sha256": "a9deb6d0d29c8a0c06de98cf2893000264096774db9ea602cea23acf1082ed13"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__cuda_unlimited__g03__positive__rep01.json",
+      "sha256": "7a98b7e5e69a58fd01cae9eeecae3f8c4ebab1c61596d72270d5db574f9f1d34"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_unlimited__g18__positive__rep01.json",
+      "sha256": "9bece3790a25931379d4e55751db92bfce87a00aeb63063e1920a246a5b2ff7f"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_unlimited__g02__positive__rep01.json",
+      "sha256": "4e5b19e1a487d04874efd2284396e6c6f023f8dc3d5908817a92814d3deb7d4b"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__cuda_unlimited__g03__positive__rep01.json",
+      "sha256": "b6305f53931b1c0b382d596385033e24ed7ed327aea91710cbc3838182f48387"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__tilelang__g12__positive__rep01.json",
+      "sha256": "1a2dae1df14e9ec2b90414e10cf6211326b5a1586db7447aeb8d7466bfdf3694"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__tilelang__g00__positive__rep01.json",
+      "sha256": "854d4d75e92cfa9a894cf3805364ab0ce3342c117592b863d11f904ac869265a"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__cuda_noptx__g02__positive__rep01.json",
+      "sha256": "cf83da8013b7420056d11b066eefa437932b2441c1240b6e2192b9e4daba41e0"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__cuda_noptx__g15__positive__rep01.json",
+      "sha256": "fb08fa37dc55a3db065ca7777038f942e115f462c8b052eb81a8935893b28ff5"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__tilelang__g01__positive__rep01.json",
+      "sha256": "b77f6b41a42137f72c956de3181bba0fd5fd436366d765b3c938d01aba1e032d"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__cuda_noptx__g01__positive__rep01.json",
+      "sha256": "17b766fbbc4631b65825d198c502791d2e985200b270d12b9f1fd3f105232fc1"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__triton__g03__positive__rep01.json",
+      "sha256": "fda4d819b3f374fb822ede1618ae0931f482aa2be31a7b110341147f61e11c82"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__cuda_unlimited__g17__positive__rep01.json",
+      "sha256": "4fc558b3318fcc804df143b48dfdbff93c0171a0ea62f0b7eaa453229a92318b"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__tilelang__g10__positive__rep01.json",
+      "sha256": "320fa017ba0506244bd32fb1aabebaa7f8915078ca51582be7f5449c40c0bb24"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__triton__g00__positive__rep01.json",
+      "sha256": "bd71a829d404d5d459ab28d2e3f66f4ba176b72acaab960eed117362fd1cce54"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__triton__g05__positive__rep01.json",
+      "sha256": "d6954c04be01476b5f43c371b66bd185d0782d0bcfb39d67ad33eb2ed9359ebf"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__triton__g10__positive__rep01.json",
+      "sha256": "2adc0e1a79d04ca176334e3eb97c7df7ff965396f1472c192bcdbe4c0bafb9c3"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__triton__g00__positive__rep01.json",
+      "sha256": "c57088f6568733d5b20a3afccd0c817cc3227840f180253ab1bcc02c41643f7f"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__tilelang__g06__positive__rep01.json",
+      "sha256": "8094c681619c928e75aa62c0ccf585a83c500d25d044b0ea275317d982353086"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__triton__g13__positive__rep01.json",
+      "sha256": "e428480b1b55e338857b00e1267e9b138d3fabff9038379bf6eb25fc7e7db403"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__cuda_unlimited__g04__positive__rep01.json",
+      "sha256": "ffc8df4b4f298d43c11469c445fb8c8297fa501ac54031df36b06e3ef2914fd8"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__cuda_unlimited__g02__positive__rep01.json",
+      "sha256": "8bf57f7402b0422fea41e54cc76ef8e9ddce25a1dfa51c564faf3d8f75810be4"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__cuda_unlimited__g00__positive__rep01.json",
+      "sha256": "a56d71c1b9e9e96da4c9e564adfc76607307d3b7a4a2b14d8697be32ec599f0c"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__triton__g04__positive__rep01.json",
+      "sha256": "7c971deb3aa8dc93bc66fefe9effe4494ab7b26e7e4102a0755c6e1ae0b365de"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__cuda_unlimited__g01__positive__rep01.json",
+      "sha256": "08108feca1d40acdc632841ad2ccd75a71411fd9815e507d54190e94bfcf21d0"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__tilelang__g18__positive__rep01.json",
+      "sha256": "2f362afe74e8c887524fb0e855419941f3cada6a02f57c7d9f1518cda1fe0e45"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__cuda_unlimited__g18__positive__rep01.json",
+      "sha256": "a266a825559808c4993331c81dadc7b2017bad4e8183c563fc1b708f047e250c"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__tilelang__g10__positive__rep01.json",
+      "sha256": "e4eb91fa0e1d8838943facc4c42858c9693af9ac2be4f4152919d53cf88e5d8d"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_unlimited__g01__positive__rep01.json",
+      "sha256": "173797b561cae68306c26b449c21422b7d33a2b29e9e8ebe6065332779065bdb"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__cuda_unlimited__g16__positive__rep01.json",
+      "sha256": "0467929e862f1c516ae4d15d4e1e6dcb100819a6a5c86e1b5e4dae7d80ed76fb"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__triton__g06__positive__rep01.json",
+      "sha256": "5527cdc4ddf82ba867cce5efabcb1e564124fc3712d8d34b6df942331624b7c1"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__tilelang__g00__positive__rep01.json",
+      "sha256": "77f022701c4cd93abfce5f0ca8026e91d8b465b549de14b523a62cf276aa524f"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__triton__g05__positive__rep01.json",
+      "sha256": "bf03fcf0b7fe953a04810f4cecd973a9fa1df4406d83a25d9fe9bbb3d12db349"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_noptx__g04__positive__rep01.json",
+      "sha256": "aeef9631bb601e7d00fb3636a2d80854fb4f6d746cd6c80230e0ba8d612ff87c"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_noptx__g17__positive__rep01.json",
+      "sha256": "ed678b9e01e856c9822a589635899dd1a8243de69c66e5d90cd07c554609a128"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__tilelang__g01__positive__rep01.json",
+      "sha256": "8a5c6cd0f1e38b7e02f0073515839e7768c966225a7769a9ec49a895495e3188"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__triton__g16__positive__rep01.json",
+      "sha256": "26c8a58a014a5aa706e54c424ea36b04f355e4d392d1e7327eb9279785ebe064"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__triton__g14__positive__rep01.json",
+      "sha256": "a82c83e225dc715de4eb9ed6bd0c8c3b041bf85200c840bff7359500a4a853f6"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__triton__g17__positive__rep01.json",
+      "sha256": "5a0928468fec619e8d7962b7ecfabb510977125d969b2c945fb6f51aff88e86c"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__tilelang__g01__positive__rep01.json",
+      "sha256": "b674c1547b28206fa4ef176951ba3fbb1de1e508d03b2ed3d85055996fcd7ef1"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__tilelang__g16__positive__rep01.json",
+      "sha256": "40191e267b8a76a95b91dcf21854c43da06130c8e74507993fa82e6f2de54e1f"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_unlimited__g16__positive__rep01.json",
+      "sha256": "64b4fe1ffd15636faea7bb19059645b0f3b0e37edf698940c2861f59913380f8"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__tilelang__g16__positive__rep01.json",
+      "sha256": "8864e79d4b599eb8bf487a9335292b43b30d443fd7db92c447e1d554112e1c75"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__tilelang__g03__positive__rep01.json",
+      "sha256": "39669784c719966743b6a023872b6f88c1f9813618898c0df6bcffcfdaf24412"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__cuda_noptx__g00__positive__rep01.json",
+      "sha256": "2cf8e8c1e480f8d8ba77b220f396f539c62578a5885dd0a802e8eb4b26139d0f"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__tilelang__g15__positive__rep01.json",
+      "sha256": "567e1872474b415a8adcefe1ac493721c30e69b23c3c77d36b30ed89e6a62b28"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_noptx__g02__positive__rep01.json",
+      "sha256": "027b459777ed55f90be79eb550e27185b901e2b9e120d5eb7d91a3e4e711a93f"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__tilelang__g18__positive__rep01.json",
+      "sha256": "fff85f2566cf380a33460b77bdb72033d7d4d9e31b089b1c827d562d35a58231"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_noptx__g11__positive__rep01.json",
+      "sha256": "3f936b45d12a1adac97385649b5b70fe19c5ecfd6479a5ba9f74b7644c7cab8d"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__tilelang__g17__positive__rep01.json",
+      "sha256": "f838db799bbd2eb1f5406165aa38a0798550e8f93a12639d08980677ff036f3b"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__tilelang__g08__positive__rep01.json",
+      "sha256": "6a8105081396232226632c72b67b1b8889105a8e97df8699f5a384b76710694c"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__triton__g08__positive__rep01.json",
+      "sha256": "8070a32fa6c4bb721266b131a4e4e6c254e8551613633a7031e5995c319581ae"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__triton__g01__positive__rep01.json",
+      "sha256": "7697fbee3ba42fc832b912018229b7c9662857fc0648ce1260a8ac19b136b17f"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__tilelang__g17__positive__rep01.json",
+      "sha256": "9cf76bfb6bfd5e4d7f4a936430fb23f731733f47486480311ec64c7d33ef4ba7"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__cuda_unlimited__g04__positive__rep01.json",
+      "sha256": "d0780cdfd60262cf9c078537297053427109aa36b23254555194c833e4d44d76"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_noptx__g00__positive__rep01.json",
+      "sha256": "905bb658c6471c10a768795e6de52b16b6501e8f91c13e731e4f3337bd842ba2"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_unlimited__g03__positive__rep01.json",
+      "sha256": "f01a5de6d257509f05c68dbea8f9aecf0e563a9afa18aef0793a8b03c03fdd52"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_unlimited__g11__positive__rep01.json",
+      "sha256": "5a67e4217e789e2ba0be642d47a68c960036b484feb4a4df7eccab76afb0ad7b"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__tilelang__g04__positive__rep01.json",
+      "sha256": "61f8121f9b780f4326a8029468e50d2ba0bf420ef9a8b6ee791c1b22de46765d"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__tilelang__g04__positive__rep01.json",
+      "sha256": "4371c8bef29387b0104d639fa55dd77f2f01ffa3885260284c82f39c1709c825"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_unlimited__g12__positive__rep01.json",
+      "sha256": "d5ee6c5427de92591600e3bb43ac968f1a489ef12a93f2d1265223c7dd4809d6"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__cuda_noptx__g13__positive__rep01.json",
+      "sha256": "d9190441f40423fc241c2995e6e8f6d4da7b3681a884250a50a6d6769402df90"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__tilelang__g11__positive__rep01.json",
+      "sha256": "b50cfd8a8fc33fa0f645cb2f49c359909b6ce887fd7bf1811cb35b3ea5a87183"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_noptx__g12__positive__rep01.json",
+      "sha256": "3933ac441d960408385289ebf301c86ca9fcd13da0e4e10178a0b555806ff0f1"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_noptx__g05__positive__rep01.json",
+      "sha256": "b625e87a62e30d3399e06823ac2a5b44e0ae46db5d72e5f7c48b7e1a26dc30c4"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__tilelang__g07__positive__rep01.json",
+      "sha256": "38be8421ac3ee7cd2b7eed7fc955f95a9bdec4c5dcf612443a607d9aac64f8af"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__tilelang__g15__positive__rep01.json",
+      "sha256": "4c52686574ea14592b5bbc6baeaba72c60591ad39066c707fe86da2bce518ecc"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__tilelang__g02__positive__rep01.json",
+      "sha256": "5cf1e5ed72cce687228b329faeebda6100b66bda02d38250f92845ba833deeb9"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_noptx__g08__positive__rep01.json",
+      "sha256": "8b84d8845c3d60b539f669ff8fed3c2b3ca269694f2c72543e42d725956ac9aa"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__tilelang__g12__positive__rep01.json",
+      "sha256": "07370bd7b1c9723e792c81b7dd7eed3ac442bbc43e6bc1725e51f50d6535d91e"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__cuda_unlimited__g17__positive__rep01.json",
+      "sha256": "d616852fd5cda711b23691e58cd2771956cfa127b910d08903138d77753fc661"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_noptx__g10__positive__rep01.json",
+      "sha256": "9e6d3f5d255945eac33cc0e7fbf12f34662990e371e54e5266a96a4b7bd12d5b"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__triton__g12__positive__rep01.json",
+      "sha256": "674ceb797c9e71ae3748fdfc72992bb96f47f624a41760e45f19c644e41c1145"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__triton__g08__positive__rep01.json",
+      "sha256": "ddceb5c873a53f36b1253ea6c758f6567d67d00ba421b8f41ca9f2e210d2b959"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__tilelang__g13__positive__rep01.json",
+      "sha256": "ccf499b4844e69f5b52022db962120123994ab0cb1af33d550da768279e16800"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__tilelang__g05__positive__rep01.json",
+      "sha256": "55cbd68792dcc4b781038a942fddb05792ba647f61451f6c3668d50e3c56586b"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_unlimited__g06__positive__rep01.json",
+      "sha256": "18cdc7d4c95c9c078d641e53ba04e816fd2f30bd2e103b9fbf143d7e602c0b6f"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__triton__g12__positive__rep01.json",
+      "sha256": "91354c2c9ef00dbd965bc590f825bbe323336d6c503d5c2d5827ad350e313784"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_unlimited__g15__positive__rep01.json",
+      "sha256": "9c0b94e8d48c8605e7c8f348d586347c72215440e0b35948ec174455e6acaa59"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__cuda_noptx__g18__positive__rep01.json",
+      "sha256": "6f088bda31072f8762407d0266f34be88d9960e62092da171789ca093788a432"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_noptx__g03__positive__rep01.json",
+      "sha256": "623fe5664cf0c77f88c25a31f7e3aca3c28de3b141dcb0de90009f8cbcc2d3b0"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__tilelang__g06__positive__rep01.json",
+      "sha256": "f427499d66475ccdfeca1684b6abbe4c055aa5bd2491be40bc849c29258e4d0a"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__tilelang__g15__positive__rep01.json",
+      "sha256": "bac36dce7fa1ffede99673e94782378233c6293f811e90779aae4bba86d58fa8"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__triton__g17__positive__rep01.json",
+      "sha256": "95816abe51e72c6ff0ebaba1a4b3c6ed1ad5cd398cf37f7bd1bcf80cac440aaf"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_noptx__g06__positive__rep01.json",
+      "sha256": "165bf2b40ad328a2f0f6beeebc281f87a5c2bc11af2752d542f858759b88be2e"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__tilelang__g02__positive__rep01.json",
+      "sha256": "a2fa59a2dd7cef5af6d9703137848d48cbf0bd0e9c6c01a81a61ac0ae5320edd"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_noptx__g01__positive__rep01.json",
+      "sha256": "2fcd8654d8124bd594a16eccb235d11566132453b55d1664df7bf897c4314b22"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__cuda_noptx__g17__positive__rep01.json",
+      "sha256": "7aeadd22ac719f082befe54e369e83c107c5e5d3f8bd2c54c4c9f61717ab0d01"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_unlimited__g13__positive__rep01.json",
+      "sha256": "f573cb026363f4e2742d3eec9537c52752cb504d01a33de579e4b69e69f8ba22"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/register_fused__triton__g03__positive__rep01.json",
+      "sha256": "e2e8f923fc04ef6992cfa9645b7544b200c320b5f67cf835c4240ea6cfca8bad"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/smem_staged__cuda_unlimited__g18__positive__rep01.json",
+      "sha256": "24e3172f07d21df707b30cd41afd1554e6b5464608465b7751ae244e877bc2e0"
+    },
+    {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/raw/global_intermediate__cuda_noptx__g07__positive__rep01.json",
+      "sha256": "523a66f17cf572275538c1ab7377a3236b55197525aa362a20cbf0fd8989ca6f"
+    }
+  ],
+  "record_type": "fused_crossed_confirmation_selection",
+  "recovery_git_commit": "3c5beb19c25fb083c80efd2e5a7839d201e200ec",
+  "recovery_id": "fused-epilogue-crossed-v1r1-reporting-fix",
+  "recovery_lock_sha256": "919827539cce29d8a5aa134cd88f4afe14241703615a1b1ba29d40aabde31b63",
+  "recovery_source_bundle_sha256": "40cb91ec9739f9b2073347cce55ea01b89aebcd5c94526589b323d247ebfb251",
+  "result_tag": "crossed_v1r1",
+  "schema_version": 1,
+  "screen_receipt_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/screen/launch_receipt.json",
+  "screen_receipt_sha256": "a00a2804c18095e78045d7cded761d75733403e85573f7c8ff3d34696316ff45",
+  "selected": [
+    {
+      "cell_id": "register_fused.tilelang.g11",
+      "grid_id": "g11",
+      "lane": "tilelang",
+      "screen_median_of_two_process_medians_ms": 1.146535962820053,
+      "screen_rank": 1,
+      "selection_reason": "top_two",
+      "strategy": "register_fused"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g03",
+      "grid_id": "g03",
+      "lane": "tilelang",
+      "screen_median_of_two_process_medians_ms": 1.1507039964199066,
+      "screen_rank": 2,
+      "selection_reason": "top_two",
+      "strategy": "register_fused"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g01",
+      "grid_id": "g01",
+      "lane": "tilelang",
+      "screen_median_of_two_process_medians_ms": 1.5319039821624756,
+      "screen_rank": 13,
+      "selection_reason": "g01_gate_legal_positive_control",
+      "strategy": "register_fused"
+    },
+    {
+      "cell_id": "register_fused.triton.g05",
+      "grid_id": "g05",
+      "lane": "triton",
+      "screen_median_of_two_process_medians_ms": 1.181447982788086,
+      "screen_rank": 1,
+      "selection_reason": "top_two",
+      "strategy": "register_fused"
+    },
+    {
+      "cell_id": "register_fused.triton.g09",
+      "grid_id": "g09",
+      "lane": "triton",
+      "screen_median_of_two_process_medians_ms": 1.216256022453308,
+      "screen_rank": 2,
+      "selection_reason": "top_two",
+      "strategy": "register_fused"
+    },
+    {
+      "cell_id": "register_fused.triton.g01",
+      "grid_id": "g01",
+      "lane": "triton",
+      "screen_median_of_two_process_medians_ms": 1.5887359976768494,
+      "screen_rank": 7,
+      "selection_reason": "g01_gate_legal_positive_control",
+      "strategy": "register_fused"
+    },
+    {
+      "cell_id": "register_fused.cuda_unlimited.g00",
+      "grid_id": "g00",
+      "lane": "cuda_unlimited",
+      "screen_median_of_two_process_medians_ms": 1.6299760043621063,
+      "screen_rank": 1,
+      "selection_reason": "top_two",
+      "strategy": "register_fused"
+    },
+    {
+      "cell_id": "register_fused.cuda_unlimited.g03",
+      "grid_id": "g03",
+      "lane": "cuda_unlimited",
+      "screen_median_of_two_process_medians_ms": 1.7359839975833893,
+      "screen_rank": 2,
+      "selection_reason": "top_two",
+      "strategy": "register_fused"
+    },
+    {
+      "cell_id": "register_fused.cuda_unlimited.g01",
+      "grid_id": "g01",
+      "lane": "cuda_unlimited",
+      "screen_median_of_two_process_medians_ms": 1.751039981842041,
+      "screen_rank": 3,
+      "selection_reason": "g01_gate_legal_positive_control",
+      "strategy": "register_fused"
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g03",
+      "grid_id": "g03",
+      "lane": "tilelang",
+      "screen_median_of_two_process_medians_ms": 1.2577279806137085,
+      "screen_rank": 1,
+      "selection_reason": "top_two",
+      "strategy": "smem_staged"
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g00",
+      "grid_id": "g00",
+      "lane": "tilelang",
+      "screen_median_of_two_process_medians_ms": 1.4046719670295715,
+      "screen_rank": 2,
+      "selection_reason": "top_two",
+      "strategy": "smem_staged"
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g01",
+      "grid_id": "g01",
+      "lane": "tilelang",
+      "screen_median_of_two_process_medians_ms": 1.5429120063781738,
+      "screen_rank": 5,
+      "selection_reason": "g01_gate_legal_positive_control",
+      "strategy": "smem_staged"
+    },
+    {
+      "cell_id": "smem_staged.cuda_noptx.g00",
+      "grid_id": "g00",
+      "lane": "cuda_noptx",
+      "screen_median_of_two_process_medians_ms": 1.7871359884738922,
+      "screen_rank": 1,
+      "selection_reason": "top_two",
+      "strategy": "smem_staged"
+    },
+    {
+      "cell_id": "smem_staged.cuda_noptx.g04",
+      "grid_id": "g04",
+      "lane": "cuda_noptx",
+      "screen_median_of_two_process_medians_ms": 1.8205919861793518,
+      "screen_rank": 2,
+      "selection_reason": "top_two",
+      "strategy": "smem_staged"
+    },
+    {
+      "cell_id": "smem_staged.cuda_noptx.g01",
+      "grid_id": "g01",
+      "lane": "cuda_noptx",
+      "screen_median_of_two_process_medians_ms": 1.9128320217132568,
+      "screen_rank": 5,
+      "selection_reason": "g01_gate_legal_positive_control",
+      "strategy": "smem_staged"
+    },
+    {
+      "cell_id": "smem_staged.cuda_unlimited.g02",
+      "grid_id": "g02",
+      "lane": "cuda_unlimited",
+      "screen_median_of_two_process_medians_ms": 1.6547840237617493,
+      "screen_rank": 1,
+      "selection_reason": "top_two",
+      "strategy": "smem_staged"
+    },
+    {
+      "cell_id": "smem_staged.cuda_unlimited.g04",
+      "grid_id": "g04",
+      "lane": "cuda_unlimited",
+      "screen_median_of_two_process_medians_ms": 1.7851919829845428,
+      "screen_rank": 2,
+      "selection_reason": "top_two",
+      "strategy": "smem_staged"
+    },
+    {
+      "cell_id": "smem_staged.cuda_unlimited.g01",
+      "grid_id": "g01",
+      "lane": "cuda_unlimited",
+      "screen_median_of_two_process_medians_ms": 1.798911988735199,
+      "screen_rank": 3,
+      "selection_reason": "g01_gate_legal_positive_control",
+      "strategy": "smem_staged"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g05",
+      "grid_id": "g05",
+      "lane": "tilelang",
+      "screen_median_of_two_process_medians_ms": 1.1192960143089294,
+      "screen_rank": 1,
+      "selection_reason": "top_two",
+      "strategy": "global_intermediate"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g12",
+      "grid_id": "g12",
+      "lane": "tilelang",
+      "screen_median_of_two_process_medians_ms": 1.2403199970722198,
+      "screen_rank": 2,
+      "selection_reason": "top_two",
+      "strategy": "global_intermediate"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g01",
+      "grid_id": "g01",
+      "lane": "tilelang",
+      "screen_median_of_two_process_medians_ms": 1.408511996269226,
+      "screen_rank": 11,
+      "selection_reason": "g01_gate_legal_positive_control",
+      "strategy": "global_intermediate"
+    },
+    {
+      "cell_id": "global_intermediate.triton.g09",
+      "grid_id": "g09",
+      "lane": "triton",
+      "screen_median_of_two_process_medians_ms": 1.3657920062541962,
+      "screen_rank": 1,
+      "selection_reason": "top_two",
+      "strategy": "global_intermediate"
+    },
+    {
+      "cell_id": "global_intermediate.triton.g05",
+      "grid_id": "g05",
+      "lane": "triton",
+      "screen_median_of_two_process_medians_ms": 1.4008319973945618,
+      "screen_rank": 2,
+      "selection_reason": "top_two",
+      "strategy": "global_intermediate"
+    },
+    {
+      "cell_id": "global_intermediate.triton.g01",
+      "grid_id": "g01",
+      "lane": "triton",
+      "screen_median_of_two_process_medians_ms": 1.6522240042686462,
+      "screen_rank": 8,
+      "selection_reason": "g01_gate_legal_positive_control",
+      "strategy": "global_intermediate"
+    },
+    {
+      "cell_id": "global_intermediate.cuda_noptx.g05",
+      "grid_id": "g05",
+      "lane": "cuda_noptx",
+      "screen_median_of_two_process_medians_ms": 1.4150879979133606,
+      "screen_rank": 1,
+      "selection_reason": "top_two",
+      "strategy": "global_intermediate"
+    },
+    {
+      "cell_id": "global_intermediate.cuda_noptx.g09",
+      "grid_id": "g09",
+      "lane": "cuda_noptx",
+      "screen_median_of_two_process_medians_ms": 1.5263519883155823,
+      "screen_rank": 2,
+      "selection_reason": "top_two",
+      "strategy": "global_intermediate"
+    },
+    {
+      "cell_id": "global_intermediate.cuda_noptx.g01",
+      "grid_id": "g01",
+      "lane": "cuda_noptx",
+      "screen_median_of_two_process_medians_ms": 1.8931200206279755,
+      "screen_rank": 13,
+      "selection_reason": "g01_gate_legal_positive_control",
+      "strategy": "global_intermediate"
+    },
+    {
+      "cell_id": "global_intermediate.cuda_unlimited.g07",
+      "grid_id": "g07",
+      "lane": "cuda_unlimited",
+      "screen_median_of_two_process_medians_ms": 1.2938560247421265,
+      "screen_rank": 1,
+      "selection_reason": "top_two",
+      "strategy": "global_intermediate"
+    },
+    {
+      "cell_id": "global_intermediate.cuda_unlimited.g06",
+      "grid_id": "g06",
+      "lane": "cuda_unlimited",
+      "screen_median_of_two_process_medians_ms": 1.3992480039596558,
+      "screen_rank": 2,
+      "selection_reason": "top_two",
+      "strategy": "global_intermediate"
+    },
+    {
+      "cell_id": "global_intermediate.cuda_unlimited.g01",
+      "grid_id": "g01",
+      "lane": "cuda_unlimited",
+      "screen_median_of_two_process_medians_ms": 1.7912319898605347,
+      "screen_rank": 11,
+      "selection_reason": "g01_gate_legal_positive_control",
+      "strategy": "global_intermediate"
+    }
+  ],
+  "selected_cell_ids": [
+    "register_fused.tilelang.g11",
+    "register_fused.tilelang.g03",
+    "register_fused.tilelang.g01",
+    "register_fused.triton.g05",
+    "register_fused.triton.g09",
+    "register_fused.triton.g01",
+    "register_fused.cuda_unlimited.g00",
+    "register_fused.cuda_unlimited.g03",
+    "register_fused.cuda_unlimited.g01",
+    "smem_staged.tilelang.g03",
+    "smem_staged.tilelang.g00",
+    "smem_staged.tilelang.g01",
+    "smem_staged.cuda_noptx.g00",
+    "smem_staged.cuda_noptx.g04",
+    "smem_staged.cuda_noptx.g01",
+    "smem_staged.cuda_unlimited.g02",
+    "smem_staged.cuda_unlimited.g04",
+    "smem_staged.cuda_unlimited.g01",
+    "global_intermediate.tilelang.g05",
+    "global_intermediate.tilelang.g12",
+    "global_intermediate.tilelang.g01",
+    "global_intermediate.triton.g09",
+    "global_intermediate.triton.g05",
+    "global_intermediate.triton.g01",
+    "global_intermediate.cuda_noptx.g05",
+    "global_intermediate.cuda_noptx.g09",
+    "global_intermediate.cuda_noptx.g01",
+    "global_intermediate.cuda_unlimited.g07",
+    "global_intermediate.cuda_unlimited.g06",
+    "global_intermediate.cuda_unlimited.g01"
+  ],
+  "source_bundle_sha256": "f8d7745416c7254d10cfdd144d80d91409f745d521d0debb5f5f8cc87c9de0b6",
+  "timing_eligible_cell_ids": [
+    "global_intermediate.cuda_noptx.g00",
+    "global_intermediate.cuda_noptx.g01",
+    "global_intermediate.cuda_noptx.g02",
+    "global_intermediate.cuda_noptx.g03",
+    "global_intermediate.cuda_noptx.g04",
+    "global_intermediate.cuda_noptx.g05",
+    "global_intermediate.cuda_noptx.g06",
+    "global_intermediate.cuda_noptx.g07",
+    "global_intermediate.cuda_noptx.g08",
+    "global_intermediate.cuda_noptx.g09",
+    "global_intermediate.cuda_noptx.g10",
+    "global_intermediate.cuda_noptx.g11",
+    "global_intermediate.cuda_noptx.g12",
+    "global_intermediate.cuda_noptx.g13",
+    "global_intermediate.cuda_noptx.g14",
+    "global_intermediate.cuda_noptx.g15",
+    "global_intermediate.cuda_noptx.g16",
+    "global_intermediate.cuda_noptx.g17",
+    "global_intermediate.cuda_noptx.g18",
+    "global_intermediate.cuda_unlimited.g00",
+    "global_intermediate.cuda_unlimited.g01",
+    "global_intermediate.cuda_unlimited.g02",
+    "global_intermediate.cuda_unlimited.g03",
+    "global_intermediate.cuda_unlimited.g04",
+    "global_intermediate.cuda_unlimited.g05",
+    "global_intermediate.cuda_unlimited.g06",
+    "global_intermediate.cuda_unlimited.g07",
+    "global_intermediate.cuda_unlimited.g08",
+    "global_intermediate.cuda_unlimited.g09",
+    "global_intermediate.cuda_unlimited.g10",
+    "global_intermediate.cuda_unlimited.g11",
+    "global_intermediate.cuda_unlimited.g12",
+    "global_intermediate.cuda_unlimited.g13",
+    "global_intermediate.cuda_unlimited.g14",
+    "global_intermediate.cuda_unlimited.g15",
+    "global_intermediate.cuda_unlimited.g16",
+    "global_intermediate.cuda_unlimited.g17",
+    "global_intermediate.cuda_unlimited.g18",
+    "global_intermediate.tilelang.g00",
+    "global_intermediate.tilelang.g01",
+    "global_intermediate.tilelang.g02",
+    "global_intermediate.tilelang.g03",
+    "global_intermediate.tilelang.g04",
+    "global_intermediate.tilelang.g05",
+    "global_intermediate.tilelang.g06",
+    "global_intermediate.tilelang.g07",
+    "global_intermediate.tilelang.g08",
+    "global_intermediate.tilelang.g09",
+    "global_intermediate.tilelang.g10",
+    "global_intermediate.tilelang.g11",
+    "global_intermediate.tilelang.g12",
+    "global_intermediate.tilelang.g13",
+    "global_intermediate.tilelang.g14",
+    "global_intermediate.tilelang.g15",
+    "global_intermediate.tilelang.g16",
+    "global_intermediate.tilelang.g17",
+    "global_intermediate.tilelang.g18",
+    "global_intermediate.triton.g00",
+    "global_intermediate.triton.g01",
+    "global_intermediate.triton.g02",
+    "global_intermediate.triton.g03",
+    "global_intermediate.triton.g04",
+    "global_intermediate.triton.g05",
+    "global_intermediate.triton.g06",
+    "global_intermediate.triton.g08",
+    "global_intermediate.triton.g09",
+    "global_intermediate.triton.g10",
+    "global_intermediate.triton.g12",
+    "global_intermediate.triton.g13",
+    "global_intermediate.triton.g14",
+    "global_intermediate.triton.g16",
+    "global_intermediate.triton.g17",
+    "register_fused.cuda_unlimited.g00",
+    "register_fused.cuda_unlimited.g01",
+    "register_fused.cuda_unlimited.g02",
+    "register_fused.cuda_unlimited.g03",
+    "register_fused.cuda_unlimited.g04",
+    "register_fused.cuda_unlimited.g13",
+    "register_fused.cuda_unlimited.g14",
+    "register_fused.cuda_unlimited.g15",
+    "register_fused.cuda_unlimited.g16",
+    "register_fused.cuda_unlimited.g17",
+    "register_fused.cuda_unlimited.g18",
+    "register_fused.tilelang.g00",
+    "register_fused.tilelang.g01",
+    "register_fused.tilelang.g02",
+    "register_fused.tilelang.g03",
+    "register_fused.tilelang.g04",
+    "register_fused.tilelang.g05",
+    "register_fused.tilelang.g06",
+    "register_fused.tilelang.g07",
+    "register_fused.tilelang.g08",
+    "register_fused.tilelang.g09",
+    "register_fused.tilelang.g10",
+    "register_fused.tilelang.g11",
+    "register_fused.tilelang.g12",
+    "register_fused.tilelang.g13",
+    "register_fused.tilelang.g14",
+    "register_fused.tilelang.g15",
+    "register_fused.tilelang.g16",
+    "register_fused.tilelang.g17",
+    "register_fused.tilelang.g18",
+    "register_fused.triton.g00",
+    "register_fused.triton.g01",
+    "register_fused.triton.g02",
+    "register_fused.triton.g03",
+    "register_fused.triton.g04",
+    "register_fused.triton.g05",
+    "register_fused.triton.g06",
+    "register_fused.triton.g08",
+    "register_fused.triton.g09",
+    "register_fused.triton.g10",
+    "register_fused.triton.g12",
+    "register_fused.triton.g13",
+    "register_fused.triton.g14",
+    "register_fused.triton.g16",
+    "register_fused.triton.g17",
+    "smem_staged.cuda_noptx.g00",
+    "smem_staged.cuda_noptx.g01",
+    "smem_staged.cuda_noptx.g02",
+    "smem_staged.cuda_noptx.g03",
+    "smem_staged.cuda_noptx.g04",
+    "smem_staged.cuda_noptx.g13",
+    "smem_staged.cuda_noptx.g14",
+    "smem_staged.cuda_noptx.g15",
+    "smem_staged.cuda_noptx.g16",
+    "smem_staged.cuda_noptx.g17",
+    "smem_staged.cuda_noptx.g18",
+    "smem_staged.cuda_unlimited.g00",
+    "smem_staged.cuda_unlimited.g01",
+    "smem_staged.cuda_unlimited.g02",
+    "smem_staged.cuda_unlimited.g03",
+    "smem_staged.cuda_unlimited.g04",
+    "smem_staged.cuda_unlimited.g13",
+    "smem_staged.cuda_unlimited.g14",
+    "smem_staged.cuda_unlimited.g15",
+    "smem_staged.cuda_unlimited.g16",
+    "smem_staged.cuda_unlimited.g17",
+    "smem_staged.cuda_unlimited.g18",
+    "smem_staged.tilelang.g00",
+    "smem_staged.tilelang.g01",
+    "smem_staged.tilelang.g02",
+    "smem_staged.tilelang.g03",
+    "smem_staged.tilelang.g04",
+    "smem_staged.tilelang.g13",
+    "smem_staged.tilelang.g14",
+    "smem_staged.tilelang.g15",
+    "smem_staged.tilelang.g16",
+    "smem_staged.tilelang.g17",
+    "smem_staged.tilelang.g18"
+  ]
+}

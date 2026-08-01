@@ -1,0 +1,16 @@
+{
+  "branch": "cross-dsl-6op-ncu-redo",
+  "campaign_id": "fused-epilogue-crossed-v1",
+  "commit": "4ddfc88d5712959e12161da75ce991f8c9a20248",
+  "launch_lock_sha256": "fe9a0123cc1e3aa64f5d0026e09d89b918838174c7964c85c4580b0962767e8a",
+  "record_type": "remote_ref_verification_receipt",
+  "remote": "origin",
+  "remote_ref": "refs/heads/cross-dsl-6op-ncu-redo",
+  "remote_url": "git@github.com:tingxi-li/MultiKernelBench.git",
+  "schema_version": 1,
+  "source_bundle_sha256": "f8d7745416c7254d10cfdd144d80d91409f745d521d0debb5f5f8cc87c9de0b6",
+  "verification_command": "git ls-remote origin refs/heads/cross-dsl-6op-ncu-redo",
+  "verified_remote_commit": "4ddfc88d5712959e12161da75ce991f8c9a20248",
+  "verified_remote_ref": true,
+  "verified_utc": "2026-07-31T14:12:21Z"
+}

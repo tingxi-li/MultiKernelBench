@@ -1,0 +1,102 @@
+{
+  "build_attempted": true,
+  "build_metadata": {
+    "artifacts": {
+      "b_global_dtype": "float16",
+      "backend_detail": "tl.dot on fp16 operands -> mma.sync.m16n8k16.f32.f16.f16.f32; KC=2048; num_stages=3 num_warps=8; epilogue bias=True gelu=True (tl.math.erf, exact form); NO autotune; + row-softmax kernel, one row per program, BN=N so exp is computed once in registers",
+      "block": [
+        256,
+        1,
+        1
+      ],
+      "grid": [
+        64,
+        8,
+        1
+      ],
+      "n_kernels": 2,
+      "num_stages": 3,
+      "num_warps": 8,
+      "transpose_b": false,
+      "triton_version": "3.6.0",
+      "wcache": "cached"
+    },
+    "build_wall_s": 0.3500184559961781,
+    "builder": "phase2:triton",
+    "isolated_artifact_root": "/home/lxt230026/tmp/fused_epilogue_crossed_v1/pid2366038/register_fused.triton.g01",
+    "n_kernels": 2,
+    "notes": "triton 3.6.0 fused arm GBGS (+ softmax (full op)) wcache=cached: 128x128x32 kc=2048 stages=3 warps=8"
+  },
+  "build_wall_s": 127.16673138798797,
+  "campaign_id": "fused-epilogue-crossed-v1",
+  "cell": {
+    "cell_id": "register_fused.triton.g01",
+    "cell_index": 20,
+    "grid_id": "g01",
+    "grid_index": 1,
+    "lane": "triton",
+    "origin_job": {
+      "dsl": "triton",
+      "geom": "fused",
+      "grid_id": "g01",
+      "grid_index": 1,
+      "job_id": "triton.g01",
+      "set": "BM=128,BN=128,BK=32,threads=256,stages=3,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=smem",
+      "variant": "GBGS"
+    },
+    "origin_job_sha256": "0ce16cc1e8320947dd45512b44e503e430239ef1bb62b28f544f5687405f25a1",
+    "requested": true,
+    "strategy": "register_fused",
+    "support_declared": true,
+    "support_detail": "phase2 Triton accumulator epilogue"
+  },
+  "cell_sha256": "611c10909824301c04dadcca1eb6d2ecc52110919f31ec88b881b9d6d3926c5e",
+  "created_utc": "2026-07-31T16:32:11.479687+00:00",
+  "gate_attempted": true,
+  "gate_jsonl_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/audit/gate/register_fused__triton__g01.jsonl",
+  "gate_jsonl_sha256": "4c14c76f14f6e71f870bc1df3db89bf43d464dfcf87ae38fbbf66b93ee418ce8",
+  "gate_summary": {
+    "complete": true,
+    "expected_records": 512,
+    "failed_records": 0,
+    "full_gate_pass": true,
+    "max_over_threshold_ratio": 0.9512837921832329,
+    "max_over_threshold_ratio_by_metric": {
+      "conformance_mixed/max_abs_err": 0.2884864807128906,
+      "conformance_mixed/nrmse": 0.4250651934881507,
+      "conformance_mixed/row_sum_error_max": 0.9512837921832329,
+      "conformance_mixed/scaled_max_abs_err": 0.19767710672295677,
+      "conformance_mixed/sqrt_js_max": 0.21690695126162862,
+      "conformance_mixed/tv_max": 0.28860312783207664,
+      "semantic_mixed/max_abs_err": 0.37845940880762985,
+      "semantic_mixed/nrmse": 0.4463465197550131,
+      "semantic_mixed/row_sum_error_max": 0.9512837921832329,
+      "semantic_mixed/scaled_max_abs_err": 0.533779464248654,
+      "semantic_mixed/sqrt_js_max": 0.7250436487023398,
+      "semantic_mixed/tv_max": 0.37965638351704684
+    },
+    "minimum_headroom_fraction": 0.04871620781676711,
+    "observed_records": 512,
+    "zero_threshold_max_observed_by_metric": {
+      "conformance_mixed/negative_count": 0.0,
+      "conformance_mixed/nonfinite_count": 0.0,
+      "semantic_mixed/negative_count": 0.0,
+      "semantic_mixed/nonfinite_count": 0.0
+    },
+    "zero_threshold_violation_records_by_metric": {}
+  },
+  "host": "cs265655.utdallas.edu",
+  "launch_lock_sha256": "fe9a0123cc1e3aa64f5d0026e09d89b918838174c7964c85c4580b0962767e8a",
+  "parent_launch_lock_sha256": "fe9a0123cc1e3aa64f5d0026e09d89b918838174c7964c85c4580b0962767e8a",
+  "parent_source_bundle_sha256": "f8d7745416c7254d10cfdd144d80d91409f745d521d0debb5f5f8cc87c9de0b6",
+  "physical_gpu": 0,
+  "recovery_git_commit": "3c5beb19c25fb083c80efd2e5a7839d201e200ec",
+  "recovery_id": "fused-epilogue-crossed-v1r1-reporting-fix",
+  "recovery_lock_sha256": "919827539cce29d8a5aa134cd88f4afe14241703615a1b1ba29d40aabde31b63",
+  "recovery_source_bundle_sha256": "40cb91ec9739f9b2073347cce55ea01b89aebcd5c94526589b323d247ebfb251",
+  "reported_compile_s": 0.30821067799115553,
+  "result_tag": "crossed_v1r1",
+  "schema_version": 1,
+  "source_bundle_sha256": "f8d7745416c7254d10cfdd144d80d91409f745d521d0debb5f5f8cc87c9de0b6",
+  "terminal_outcome": "GATE_PASSED"
+}

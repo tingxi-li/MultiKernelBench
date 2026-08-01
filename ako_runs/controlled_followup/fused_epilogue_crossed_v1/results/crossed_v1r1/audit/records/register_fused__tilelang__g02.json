@@ -1,0 +1,106 @@
+{
+  "build_attempted": true,
+  "build_metadata": {
+    "artifacts": {
+      "b_global_dtype": "float16",
+      "backend_detail": "T.gemm(fp16 smem -> fp32 fragment) kc=2048 T.Pipelined(num_stages=4); epilogue bias=True gelu=True (T.erf, exact form); + row-softmax kernel (F4: warp shuffle + cached exp, 256 thr)",
+      "block": [
+        256,
+        1,
+        1
+      ],
+      "cuda_source": {
+        "bytes": 14581,
+        "sha256": "a49f1bc4fd2a6c3d96a45c217c260f2bc55eb5edd0247fd26eb580f5183e08cb"
+      },
+      "cuda_source_softmax": "#if defined(_MSC_VER) && !defined(__clang__) && _MSC_VER < 1940\n#define _tl_orig_alignas alignas\n#define alignas(N) _tl_orig_alignas((N) <= 64 ? (N) : 64)\n#include <cuda.h>\n#undef alignas\n#define alignas _tl_orig_alignas\n#endif\n#include <tl_templates/cuda/gemm.h>\n#include <tl_templates/cuda/copy.h>\n#include <tl_templates/cuda/reduce.h>\n#include <tl_templates/cuda/scan.h>\n#include <tl_templates/cuda/ldsm.h>\n#include <tl_templates/cuda/threadblock_swizzle.h>\n#include <tl_templates/cuda/debug.h>\n#ifdef ENABLE_BF16\n#include <tl_templates/cuda/cuda_bf16_fallbacks.cuh>\n#endif\n\nextern \"C\" __global__ void main_kernel(float* __restrict__ Out, const float* __restrict__ X);\nextern \"C\" __global__ void __launch_bounds__(256, 1) main_kernel(float* __restrict__ Out, const float* __restrict__ X) {\n  extern __shared__ __align__(1024) uchar buf_dyn_shmem[];\n  void* smem_m = ((void*)((char*)buf_dyn_shmem + 0));\n  void* smem_s = ((void*)((char*)buf_dyn_shmem + 32));\n  float lmax[1];\n  float lsum[1];\n  float lexp[32];\n  lmax[0] = -0x1.fffffdff07036p+127f/*-3.402823e+38*/;\n  for (int k = 0; k < 32; ++k) {\n    float v = X[(((((int)blockIdx.x) * 8192) + (((int)threadIdx.x) * 32)) + k)];\n    if (lmax[0] < v) {\n      lmax[0] = v;\n    }\n  }\n  lmax[0] = max(lmax[0], __shfl_down_sync((uint)4294967295, lmax[0], 16, 32));\n  lmax[0] = max(lmax[0], __shfl_down_sync((uint)4294967295, lmax[0], 8, 32));\n  lmax[0] = max(lmax[0], __shfl_down_sync((uint)4294967295, lmax[0], 4, 32));\n  lmax[0] = max(lmax[0], __shfl_down_sync((uint)4294967295, lmax[0], 2, 32));\n  lmax[0] = max(lmax[0], __shfl_down_sync((uint)4294967295, lmax[0], 1, 32));\n  if ((((int)threadIdx.x) & 31) == 0) {\n    ((float*)smem_m)[(((int)threadIdx.x) >> 5)] = lmax[0];\n  }\n  __syncthreads();\n  for (int _lvl = 0; _lvl < 3; ++_lvl) {\n    if (((int)threadIdx.x) < (8 >> (_lvl + 1))) {\n      ((float*)smem_m)[((int)threadIdx.x)] = max(((float*)smem_m)[((int)threadIdx.x)], ((float*)smem_m)[(((int)threadIdx.x) + (8 >> (_lvl + 1)))]);\n    }\n    __syncthreads();\n  }\n  float row_max = ((float*)smem_m)[0];\n  lsum[0] = 0x0p+0f/*0.000000e+00*/;\n  for (int k_1 = 0; k_1 < 32; ++k_1) {\n    float e = expf((X[(((((int)blockIdx.x) * 8192) + (((int)threadIdx.x) * 32)) + k_1)] - row_max));\n    lexp[k_1] = e;\n    lsum[0] = (lsum[0] + e);\n  }\n  lsum[0] = (lsum[0] + __shfl_down_sync((uint)4294967295, lsum[0], 16, 32));\n  lsum[0] = (lsum[0] + __shfl_down_sync((uint)4294967295, lsum[0], 8, 32));\n  lsum[0] = (lsum[0] + __shfl_down_sync((uint)4294967295, lsum[0], 4, 32));\n  lsum[0] = (lsum[0] + __shfl_down_sync((uint)4294967295, lsum[0], 2, 32));\n  lsum[0] = (lsum[0] + __shfl_down_sync((uint)4294967295, lsum[0], 1, 32));\n  if ((((int)threadIdx.x) & 31) == 0) {\n    ((float*)smem_s)[(((int)threadIdx.x) >> 5)] = lsum[0];\n  }\n  __syncthreads();\n  for (int _lvl_1 = 0; _lvl_1 < 3; ++_lvl_1) {\n    if (((int)threadIdx.x) < (8 >> (_lvl_1 + 1))) {\n      ((float*)smem_s)[((int)threadIdx.x)] = (((float*)smem_s)[((int)threadIdx.x)] + ((float*)smem_s)[(((int)threadIdx.x) + (8 >> (_lvl_1 + 1)))]);\n    }\n    __syncthreads();\n  }\n  float inv_sum = (0x1p+0f/*1.000000e+00*/ / ((float*)smem_s)[0]);\n  for (int k_2 = 0; k_2 < 32; ++k_2) {\n    Out[(((((int)blockIdx.x) * 8192) + (((int)threadIdx.x) * 32)) + k_2)] = (lexp[k_2] * inv_sum);\n  }\n}\n\n",
+      "grid": [
+        64,
+        8,
+        1
+      ],
+      "n_kernels": 2,
+      "tilelang_disk_cache": false,
+      "tilelang_version": "0.1.11",
+      "transpose_b": false,
+      "wcache": "cached"
+    },
+    "build_wall_s": 8.700846225983696,
+    "builder": "phase2:tilelang",
+    "isolated_artifact_root": "/home/lxt230026/tmp/fused_epilogue_crossed_v1/pid2365947/register_fused.tilelang.g02",
+    "n_kernels": 2,
+    "notes": "tilelang 0.1.11 fused arm GBGS (+ softmax (full op)) wcache=cached: 128x128x32/256thr kc=2048 stages=4"
+  },
+  "build_wall_s": 144.74768965298426,
+  "campaign_id": "fused-epilogue-crossed-v1",
+  "cell": {
+    "cell_id": "register_fused.tilelang.g02",
+    "cell_index": 2,
+    "grid_id": "g02",
+    "grid_index": 2,
+    "lane": "tilelang",
+    "origin_job": {
+      "dsl": "tilelang",
+      "geom": "fused",
+      "grid_id": "g02",
+      "grid_index": 2,
+      "job_id": "tilelang.g02",
+      "set": "BM=128,BN=128,BK=32,threads=256,stages=4,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=smem",
+      "variant": "GBGS"
+    },
+    "origin_job_sha256": "c2682701bcf2eabe44ead3c3cb6e6d9db7acb756f0957f3a6c1cfc7baa55dd66",
+    "requested": true,
+    "strategy": "register_fused",
+    "support_declared": true,
+    "support_detail": "phase2 TileLang accumulator-fragment epilogue"
+  },
+  "cell_sha256": "e839ce37949d41deded3d17f3a238e10a4177aa5f90f5989eb331ff2e7d17391",
+  "created_utc": "2026-07-31T16:20:22.364283+00:00",
+  "gate_attempted": true,
+  "gate_jsonl_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/audit/gate/register_fused__tilelang__g02.jsonl",
+  "gate_jsonl_sha256": "362c08342d3129e40e957b839b1c3ab0819b8977ad6ba857e22b857ea3e93cfd",
+  "gate_summary": {
+    "complete": true,
+    "expected_records": 512,
+    "failed_records": 0,
+    "full_gate_pass": true,
+    "max_over_threshold_ratio": 0.9595156558184215,
+    "max_over_threshold_ratio_by_metric": {
+      "conformance_mixed/max_abs_err": 0.2884864807128906,
+      "conformance_mixed/nrmse": 0.42456632096520674,
+      "conformance_mixed/row_sum_error_max": 0.9595156558184215,
+      "conformance_mixed/scaled_max_abs_err": 0.19663670089809912,
+      "conformance_mixed/sqrt_js_max": 0.21687461354351986,
+      "conformance_mixed/tv_max": 0.28892432453131445,
+      "semantic_mixed/max_abs_err": 0.37844748787867477,
+      "semantic_mixed/nrmse": 0.44633978331670643,
+      "semantic_mixed/row_sum_error_max": 0.9595156558184215,
+      "semantic_mixed/scaled_max_abs_err": 0.5337989698484292,
+      "semantic_mixed/sqrt_js_max": 0.7250444527851402,
+      "semantic_mixed/tv_max": 0.37965396437804105
+    },
+    "minimum_headroom_fraction": 0.040484344181578535,
+    "observed_records": 512,
+    "zero_threshold_max_observed_by_metric": {
+      "conformance_mixed/negative_count": 0.0,
+      "conformance_mixed/nonfinite_count": 0.0,
+      "semantic_mixed/negative_count": 0.0,
+      "semantic_mixed/nonfinite_count": 0.0
+    },
+    "zero_threshold_violation_records_by_metric": {}
+  },
+  "host": "cs265655.utdallas.edu",
+  "launch_lock_sha256": "fe9a0123cc1e3aa64f5d0026e09d89b918838174c7964c85c4580b0962767e8a",
+  "parent_launch_lock_sha256": "fe9a0123cc1e3aa64f5d0026e09d89b918838174c7964c85c4580b0962767e8a",
+  "parent_source_bundle_sha256": "f8d7745416c7254d10cfdd144d80d91409f745d521d0debb5f5f8cc87c9de0b6",
+  "physical_gpu": 2,
+  "recovery_git_commit": "3c5beb19c25fb083c80efd2e5a7839d201e200ec",
+  "recovery_id": "fused-epilogue-crossed-v1r1-reporting-fix",
+  "recovery_lock_sha256": "919827539cce29d8a5aa134cd88f4afe14241703615a1b1ba29d40aabde31b63",
+  "recovery_source_bundle_sha256": "40cb91ec9739f9b2073347cce55ea01b89aebcd5c94526589b323d247ebfb251",
+  "reported_compile_s": 8.135054213023977,
+  "result_tag": "crossed_v1r1",
+  "schema_version": 1,
+  "source_bundle_sha256": "f8d7745416c7254d10cfdd144d80d91409f745d521d0debb5f5f8cc87c9de0b6",
+  "terminal_outcome": "GATE_PASSED"
+}

@@ -1,0 +1,42 @@
+{
+  "build_attempted": false,
+  "campaign_id": "fused-epilogue-crossed-v1",
+  "cell": {
+    "cell_id": "smem_staged.triton.g08",
+    "cell_index": 103,
+    "grid_id": "g08",
+    "grid_index": 8,
+    "lane": "triton",
+    "origin_job": {
+      "dsl": "triton",
+      "geom": "fused",
+      "grid_id": "g08",
+      "grid_index": 8,
+      "job_id": "triton.g08",
+      "set": "BM=128,BN=256,BK=64,threads=256,stages=2,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=smem",
+      "variant": "GBGS"
+    },
+    "origin_job_sha256": "a0f6d28da0a5b424d2da8bfa911fc61bd3ffeb934b5602218a46c3b2e1593376",
+    "requested": true,
+    "strategy": "smem_staged",
+    "support_declared": false,
+    "support_detail": "the pinned Triton API has no explicit user-managed shared-memory accumulator allocation; global scratch would be the global_intermediate strategy"
+  },
+  "cell_sha256": "30fc2ac2684103755f496fc17b370dceb4331fd602efb71a88ac2d8b97fea0aa",
+  "created_utc": "2026-07-31T17:13:32.149559+00:00",
+  "gate_attempted": false,
+  "host": "cs265655.utdallas.edu",
+  "launch_lock_sha256": "fe9a0123cc1e3aa64f5d0026e09d89b918838174c7964c85c4580b0962767e8a",
+  "parent_launch_lock_sha256": "fe9a0123cc1e3aa64f5d0026e09d89b918838174c7964c85c4580b0962767e8a",
+  "parent_source_bundle_sha256": "f8d7745416c7254d10cfdd144d80d91409f745d521d0debb5f5f8cc87c9de0b6",
+  "physical_gpu": 3,
+  "recovery_git_commit": "3c5beb19c25fb083c80efd2e5a7839d201e200ec",
+  "recovery_id": "fused-epilogue-crossed-v1r1-reporting-fix",
+  "recovery_lock_sha256": "919827539cce29d8a5aa134cd88f4afe14241703615a1b1ba29d40aabde31b63",
+  "recovery_source_bundle_sha256": "40cb91ec9739f9b2073347cce55ea01b89aebcd5c94526589b323d247ebfb251",
+  "result_tag": "crossed_v1r1",
+  "schema_version": 1,
+  "source_bundle_sha256": "f8d7745416c7254d10cfdd144d80d91409f745d521d0debb5f5f8cc87c9de0b6",
+  "terminal_outcome": "UNSUPPORTED",
+  "terminal_reason": "the pinned Triton API has no explicit user-managed shared-memory accumulator allocation; global scratch would be the global_intermediate strategy"
+}

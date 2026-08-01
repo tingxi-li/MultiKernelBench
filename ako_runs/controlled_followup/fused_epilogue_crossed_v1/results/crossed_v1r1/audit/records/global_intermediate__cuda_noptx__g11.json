@@ -1,0 +1,146 @@
+{
+  "build_attempted": true,
+  "build_metadata": {
+    "artifacts": {
+      "gemm": {
+        "backend_detail": "nvcuda::wmma 16x16x16 half x half -> float accumulator; warp grid 4x2, warp tile 64x64 (4x4 fragments/warp), smem ldm A=32 B=128 halfs; kc flush every 64 BK-tiles into a plain float[4x4][8] register array via fragment.x[] + fill_fragment(0); loads = __pipeline_memcpy_async x 4 buffers | zero inline PTX (asserted at build time)",
+        "block": "(256,1,1)",
+        "cu_path": "/home/lxt230026/tmp/fused_epilogue_crossed_v1/pid2380376/global_intermediate.cuda_noptx.g11/phase1/cuda_noptx/noptx_D_256x128x32_t256_kc2048_s4_fp16_precast.cu",
+        "cubin_path": "/home/lxt230026/tmp/fused_epilogue_crossed_v1/pid2380376/global_intermediate.cuda_noptx.g11/phase1/cuda_noptx/noptx_D_256x128x32_t256_kc2048_s4_fp16_precast.cubin",
+        "cuda_source": {
+          "bytes": 15959,
+          "sha256": "383ac82be88161c41d5baa9f941d269aafdf602df0c2cbce687071a3e0051bc2"
+        },
+        "ext_name": "noptx_D_256x128x32_t256_kc2048_s4_fp16_precast",
+        "geom_info": {
+          "BK": 32,
+          "BM": 256,
+          "BN": 128,
+          "block": "(256,1,1)",
+          "frags": "4x4",
+          "grid": "(64,4)",
+          "kc_tiles": 64,
+          "pad_halfs": 0,
+          "smem_bytes": 98304,
+          "stages_smem": 4,
+          "threads": 256,
+          "use_async": true,
+          "warp_grid": "4x2",
+          "warp_tile": "64x64"
+        },
+        "grid": "(64,4)",
+        "kernel_source": {
+          "bytes": 14475,
+          "sha256": "77833eb13c6e062fade609f54a4bdca490ea3dd7dbd438a3a344e6e297c3889d"
+        },
+        "n_regs": 255,
+        "n_spills": 316,
+        "ptxas_log": "ptxas info    : 0 bytes gmem\nptxas info    : Compiling entry function '_Z11gemm_kernelPK6__halfS1_Pf' for 'sm_89'\nptxas info    : Function properties for _Z11gemm_kernelPK6__halfS1_Pf\n    184 bytes stack frame, 316 bytes spill stores, 200 bytes spill loads\nptxas info    : Used 255 registers, used 1 barriers, 184 bytes cumulative stack size, 376 bytes cmem[0]\nptxas info    : Compile time = 69.663 ms",
+        "sass_ffma_count": 0,
+        "sass_hmma_count": 64,
+        "sass_imma_count": 0,
+        "sass_ldgsts_count": 56,
+        "sass_path": "/home/lxt230026/tmp/fused_epilogue_crossed_v1/pid2380376/global_intermediate.cuda_noptx.g11/phase1/cuda_noptx/noptx_D_256x128x32_t256_kc2048_s4_fp16_precast.sass",
+        "shared_bytes": 98304,
+        "stack_frame_bytes": 184
+      },
+      "postprocess": {
+        "backend_detail": "common CUDA combined bias + exact-erf GELU + row-softmax kernel",
+        "block": [
+          256,
+          1,
+          1
+        ],
+        "cuda_source_sha256": "129e4a188a6bf0ecc51cbe4d6af7b8249f2f74057187d3a62c35255e12e31a1e",
+        "grid": [
+          1024,
+          1,
+          1
+        ],
+        "n_kernels": 1
+      },
+      "strategy": "global_intermediate"
+    },
+    "build_wall_s": 37.58315106399823,
+    "builder": "phase1:cuda_noptx+crossed-v1:combined_postprocess",
+    "isolated_artifact_root": "/home/lxt230026/tmp/fused_epilogue_crossed_v1/pid2380376/global_intermediate.cuda_noptx.g11",
+    "n_kernels": 2,
+    "notes": "lane-native GEMM writes fp32 global intermediate; one common CUDA kernel performs bias+exact-GELU+softmax",
+    "reported_compile_s_components": {
+      "gemm": 36.787473922013305,
+      "postprocess": 0.0003356850065756589
+    }
+  },
+  "build_wall_s": 170.8934661759995,
+  "campaign_id": "fused-epilogue-crossed-v1",
+  "cell": {
+    "cell_id": "global_intermediate.cuda_noptx.g11",
+    "cell_index": 201,
+    "grid_id": "g11",
+    "grid_index": 11,
+    "lane": "cuda_noptx",
+    "origin_job": {
+      "dsl": "cuda_noptx",
+      "geom": "fused",
+      "grid_id": "g11",
+      "grid_index": 11,
+      "job_id": "cuda_noptx.g11",
+      "set": "BM=256,BN=128,BK=32,threads=256,stages=4,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=smem",
+      "variant": "GBGS"
+    },
+    "origin_job_sha256": "669c5c5b9f97fc7dca54d66110efcb25fdd4e6b90cf34322bb5dc935e6382c4e",
+    "requested": true,
+    "strategy": "global_intermediate",
+    "support_declared": true,
+    "support_detail": "phase1 WMMA GEMM plus common combined postprocess"
+  },
+  "cell_sha256": "d4c619c105f10cca050e53e0ad0d5c369ae8040e27725708a97f919fd228fa06",
+  "created_utc": "2026-07-31T18:06:31.725609+00:00",
+  "gate_attempted": true,
+  "gate_jsonl_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/audit/gate/global_intermediate__cuda_noptx__g11.jsonl",
+  "gate_jsonl_sha256": "34b5a4d61f5bbee1266a2c167a33d2c7a703ff7442e4006903aac916a4b9590b",
+  "gate_summary": {
+    "complete": true,
+    "expected_records": 512,
+    "failed_records": 0,
+    "full_gate_pass": true,
+    "max_over_threshold_ratio": 0.9633653546003984,
+    "max_over_threshold_ratio_by_metric": {
+      "conformance_mixed/max_abs_err": 0.2884864807128906,
+      "conformance_mixed/nrmse": 0.4252176393522083,
+      "conformance_mixed/row_sum_error_max": 0.9633653546003984,
+      "conformance_mixed/scaled_max_abs_err": 0.19746902555798526,
+      "conformance_mixed/sqrt_js_max": 0.21692588526674558,
+      "conformance_mixed/tv_max": 0.2888564036901409,
+      "semantic_mixed/max_abs_err": 0.37844748787867477,
+      "semantic_mixed/nrmse": 0.446346721228331,
+      "semantic_mixed/row_sum_error_max": 0.9633653546003984,
+      "semantic_mixed/scaled_max_abs_err": 0.533779464248654,
+      "semantic_mixed/sqrt_js_max": 0.7250454120354177,
+      "semantic_mixed/tv_max": 0.3796545615401497
+    },
+    "minimum_headroom_fraction": 0.036634645399601595,
+    "observed_records": 512,
+    "zero_threshold_max_observed_by_metric": {
+      "conformance_mixed/negative_count": 0.0,
+      "conformance_mixed/nonfinite_count": 0.0,
+      "semantic_mixed/negative_count": 0.0,
+      "semantic_mixed/nonfinite_count": 0.0
+    },
+    "zero_threshold_violation_records_by_metric": {}
+  },
+  "host": "cs265655.utdallas.edu",
+  "launch_lock_sha256": "fe9a0123cc1e3aa64f5d0026e09d89b918838174c7964c85c4580b0962767e8a",
+  "parent_launch_lock_sha256": "fe9a0123cc1e3aa64f5d0026e09d89b918838174c7964c85c4580b0962767e8a",
+  "parent_source_bundle_sha256": "f8d7745416c7254d10cfdd144d80d91409f745d521d0debb5f5f8cc87c9de0b6",
+  "physical_gpu": 1,
+  "recovery_git_commit": "3c5beb19c25fb083c80efd2e5a7839d201e200ec",
+  "recovery_id": "fused-epilogue-crossed-v1r1-reporting-fix",
+  "recovery_lock_sha256": "919827539cce29d8a5aa134cd88f4afe14241703615a1b1ba29d40aabde31b63",
+  "recovery_source_bundle_sha256": "40cb91ec9739f9b2073347cce55ea01b89aebcd5c94526589b323d247ebfb251",
+  "reported_compile_s": 36.78780960701988,
+  "result_tag": "crossed_v1r1",
+  "schema_version": 1,
+  "source_bundle_sha256": "f8d7745416c7254d10cfdd144d80d91409f745d521d0debb5f5f8cc87c9de0b6",
+  "terminal_outcome": "GATE_PASSED"
+}

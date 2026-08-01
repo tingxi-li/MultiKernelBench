@@ -1,0 +1,41 @@
+{
+  "campaign_id": "fused-epilogue-crossed-v1",
+  "complete": true,
+  "completed_utc": "2026-07-31T18:23:33.161157+00:00",
+  "expected_cells": 57,
+  "gpu_after": {
+    "clocks.mem": "9501",
+    "clocks.sm": "2715",
+    "compute_cap": "8.9",
+    "driver_version": "610.43.02",
+    "index": "0",
+    "memory.total": "49140",
+    "memory.used": "2494",
+    "name": "NVIDIA RTX 6000 Ada Generation",
+    "power.limit": "300.00",
+    "pstate": "P2",
+    "temperature.gpu": "75",
+    "utilization.gpu": "100",
+    "uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae"
+  },
+  "launch_lock_sha256": "fe9a0123cc1e3aa64f5d0026e09d89b918838174c7964c85c4580b0962767e8a",
+  "observed_cells": 57,
+  "outcome_counts": {
+    "BUILD_FAILED": 4,
+    "GATE_FAILED": 0,
+    "GATE_PASSED": 39,
+    "LAUNCH_FAILED": 4,
+    "UNSUPPORTED": 10
+  },
+  "parent_launch_lock_sha256": "fe9a0123cc1e3aa64f5d0026e09d89b918838174c7964c85c4580b0962767e8a",
+  "parent_source_bundle_sha256": "f8d7745416c7254d10cfdd144d80d91409f745d521d0debb5f5f8cc87c9de0b6",
+  "receipt_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/audit/receipts/shard00.json",
+  "receipt_sha256": "7323ee17363b44cbf0a8f3741811d2c77ee8e7cfba6f3c2768dd5b98f6b248b6",
+  "record_type": "fused_crossed_audit_shard_status",
+  "recovery_git_commit": "3c5beb19c25fb083c80efd2e5a7839d201e200ec",
+  "recovery_id": "fused-epilogue-crossed-v1r1-reporting-fix",
+  "recovery_lock_sha256": "919827539cce29d8a5aa134cd88f4afe14241703615a1b1ba29d40aabde31b63",
+  "recovery_source_bundle_sha256": "40cb91ec9739f9b2073347cce55ea01b89aebcd5c94526589b323d247ebfb251",
+  "result_tag": "crossed_v1r1",
+  "schema_version": 1
+}

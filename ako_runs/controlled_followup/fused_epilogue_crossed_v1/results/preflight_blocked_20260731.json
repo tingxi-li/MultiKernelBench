@@ -1,0 +1,16 @@
+{
+  "campaign_id": "fused-epilogue-crossed-v1",
+  "checked_utc": "2026-07-31T07:21:30Z",
+  "local_commit": "4ddfc88d5712959e12161da75ce991f8c9a20248",
+  "launch_lock_sha256": "fe9a0123cc1e3aa64f5d0026e09d89b918838174c7964c85c4580b0962767e8a",
+  "launch_ready": false,
+  "provider": "git",
+  "reason": "launch commit is not present on the configured upstream",
+  "record_type": "fused_crossed_launch_preflight",
+  "remote": "origin",
+  "remote_branch": "cross-dsl-6op-ncu-redo",
+  "remote_commit_observed": "d34ef719da080518523a9cd8ef3b7c6e3b00805d",
+  "schema_version": 1,
+  "source_bundle_sha256": "f8d7745416c7254d10cfdd144d80d91409f745d521d0debb5f5f8cc87c9de0b6",
+  "zero_gpu_processes_started": true
+}
