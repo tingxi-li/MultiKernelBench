@@ -1,15 +1,27 @@
 # Controlled cross-DSL follow-up
 
-This subtree is the prospective follow-up to `CONTROLLED_CROSS_DSL_REPORT.md`
-and its cross-read.  It does not overwrite or reinterpret the historical
-results.  New campaigns must write to this subtree, carry a campaign manifest,
-and bind every result to the exact source used to produce it.
+This subtree is the follow-up to `CONTROLLED_CROSS_DSL_REPORT.md` and its
+cross-reads. It does not overwrite frozen results or gates. Historical reports
+carry a current-corrections pointer, with their pre/post identities preserved
+in `provenance/historical_document_corrections_20260731.json`. New campaigns
+must write to this subtree, carry a campaign manifest, and bind every result to
+the exact source used to produce it.
 
-Execution status and evidence hashes are recorded in
-[`RUN_20260730.md`](RUN_20260730.md). The fused equal-grid campaign and matmul
-v4 correctness-gate experiment are complete. Reciprocal recipe transfer and
-replicated convergence remain explicitly launch-blocked and have no claimed
-performance results.
+Current interpretation and execution status are recorded in
+[`REVIEW_ROUND2_RESPONSE_20260731.md`](REVIEW_ROUND2_RESPONSE_20260731.md) and
+[`RUN_20260731.md`](RUN_20260731.md). The fused campaigns, the 66,852-record
+matmul-v4 instrument audit, the corrected same-seed robustness campaign, and the
+228-cell crossed epilogue campaign (result tag `crossed_v1r1`) are complete.
+Reciprocal recipe transfer, replicated convergence, and the effort frontier are
+implemented and preregistered but contribute no result until their own treatment,
+launch, and completion requirements are satisfied.
+
+Design critique and the prioritized plan for what remains — including
+`RUN`/`REDESIGN`/`KILL` verdicts on those three programs — are in
+[`DESIGN_REFLECTION_20260731.md`](DESIGN_REFLECTION_20260731.md). Read it before
+quoting any lane-level performance number from the crossed campaign: the only
+strategy expressible in all four lanes shares one CUDA epilogue kernel across
+them, so those contrasts do not isolate the language factor.
 
 The launch order is dependency driven:
 
