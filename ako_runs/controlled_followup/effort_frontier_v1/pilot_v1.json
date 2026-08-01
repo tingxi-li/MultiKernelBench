@@ -1,0 +1,99 @@
+{
+  "budget": {
+    "aggregate_active_effort_ceiling_s": 28800,
+    "checkpoint_observations": 8,
+    "provider_token_admission_budget": 400000,
+    "trajectory_count": 4
+  },
+  "campaign_id": "fused-effort-frontier-v1-pilot-20260731",
+  "checkpoints": [
+    {
+      "active_effort_s": 1800,
+      "label": "0p5h"
+    },
+    {
+      "active_effort_s": 7200,
+      "label": "2h"
+    }
+  ],
+  "execution_policy": {
+    "executor_registry_required_for": [
+      "cublaslt",
+      "triton"
+    ],
+    "launchable": false,
+    "missing_executors_are_blockers": true,
+    "reuse_full_campaign_launcher": false
+  },
+  "historical_parent": {
+    "campaign_id": "fused-effort-frontier-v1-20260731",
+    "manifest_path": "manifest.json",
+    "manifest_sha256": "c946a08e6417acf4d466e7e1fa8de7ea025385ff0803fb2d92428519e8b926a5",
+    "manifest_status": "preserved_historical_preregistration",
+    "prereg_index_path": "evidence/effort_frontier_prereg_v1.index.json",
+    "prereg_index_sha256": "d7858996de38be5078b7aceeb54c5e6099df0fecd3fa7ba811eb7b4e1af655cb"
+  },
+  "model_identity_policy": {
+    "immutable_revision_required": false,
+    "provider": "openai",
+    "record_on_every_provider_response": [
+      "requested_alias",
+      "response_model",
+      "resolved_at_utc"
+    ],
+    "requested_alias": "gpt-5.6-sol",
+    "response_model_drift": "retain all responses and report as a threat to validity"
+  },
+  "pilot_design": {
+    "checkpoint_count": 2,
+    "controlling": false,
+    "lanes": [
+      "cublaslt",
+      "triton"
+    ],
+    "replicates_per_lane": 2,
+    "trajectory_count": 4
+  },
+  "record_type": "effort_frontier_noncontrolling_pilot_protocol",
+  "schema_version": 1,
+  "state": "design_only_noncontrolling_not_launchable",
+  "token_policy": {
+    "accounting": "sum provider-reported usage.total_tokens from durable provider_response events",
+    "final_response_overshoot": "retain, report, and stop the trajectory before another request",
+    "new_request_after_cap": "forbidden",
+    "per_trajectory_provider_token_admission_cap": 100000
+  },
+  "trajectories": [
+    {
+      "gpu_slot": 0,
+      "lane": "cublaslt",
+      "replicate": 0,
+      "trajectory_id": "effort_pilot_v1.cublaslt.r0"
+    },
+    {
+      "gpu_slot": 1,
+      "lane": "cublaslt",
+      "replicate": 1,
+      "trajectory_id": "effort_pilot_v1.cublaslt.r1"
+    },
+    {
+      "gpu_slot": 1,
+      "lane": "triton",
+      "replicate": 0,
+      "trajectory_id": "effort_pilot_v1.triton.r0"
+    },
+    {
+      "gpu_slot": 2,
+      "lane": "triton",
+      "replicate": 1,
+      "trajectory_id": "effort_pilot_v1.triton.r1"
+    }
+  ],
+  "use_and_claim_limits": {
+    "decision": "prove effort-clock accounting and failure ordering before considering a full campaign",
+    "lane_performance_inference_permitted": false,
+    "named_limitation": "lane_by_gpu_imbalance",
+    "named_limitation_detail": "cuBLASLt uses slots 0/1 and Triton uses slots 1/2; the pilot does not estimate a lane effect",
+    "pilot_results_may_control_full_campaign_claims": false
+  }
+}

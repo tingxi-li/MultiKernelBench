@@ -1,8 +1,15 @@
 # Replicated convergence v2
 
-This directory is a launch-blocked implementation of the round-2 convergence
-protocol. It does **not** claim provider calls, GPU trajectories, completed sum/SDPA
-gates, or performance results.
+Status: **retired; never launch**. The official `launch.py` only refuses execution.
+The frozen protocol, manifests, receipts, and preregistration evidence remain as
+historical records; `validate_launch.py` is now a historical diagnostic and cannot
+authorize work. The 128-trajectory prompt extension is preserved but permanently
+excluded from this campaign and any successor launch. See
+`RETIREMENT_20260731.md` and `retirement.json`.
+
+This directory records the retired round-2 convergence protocol. It does **not**
+claim provider calls, GPU trajectories, completed sum/SDPA gates, or performance
+results.
 
 ## Frozen design
 
@@ -36,7 +43,7 @@ plus structural/semantic negative controls. SDPA reuses the six registered case
 families with 32 calibration and 64 locked validation seeds per case, plus structural
 and wrong-attention controls.
 
-## Launch barrier
+## Historical launch barrier
 
 Run:
 
@@ -44,13 +51,14 @@ Run:
 python validate_launch.py
 ```
 
-The command exits 2 and says `launch_forbidden` until all of the following are real
+The historical command exits 2 and says `launch_forbidden` until all of the following are real
 and hash-bound: immutable model resolutions, four live GPU UUIDs, completed/frozen
 sum and SDPA gates, distinct hidden-tuning and terminal-holdout services/principals,
 gate-legal frozen reference latencies, provider credentials/SDKs, and a remote
 preregistration receipt. `--skip-gpu-runtime` is diagnostic and can never authorize a
-launch. Secrets are read from environment variables only and are rejected from event
-payloads.
+launch. Retirement now supersedes that conditional readiness: satisfying every old
+check still does not authorize launch. Secrets are read from environment variables
+only and are rejected from event payloads.
 
 The reusable model-lock API is:
 
@@ -116,7 +124,7 @@ python capture_evidence.py verify --index evidence/prereg_v2.index.json
 superseded by `prereg_v2`, which additionally contains this verifier and its
 tests; neither v1 file is overwritten or deleted.
 
-After a real campaign, complete capture is fail-closed:
+The retired protocol's historical complete-capture contract was:
 
 ```bash
 python capture_evidence.py complete \
@@ -127,7 +135,9 @@ python capture_evidence.py complete \
   --output-prefix evidence/complete_v2
 ```
 
-Complete mode requires a `launch_permitted` receipt whose checks all passed and
+This command is retained for artifact interpretation, not as a current workflow;
+retirement forbids producing the prerequisite launch. Complete mode requires a
+`launch_permitted` receipt whose checks all passed and
 whose `artifact_sha256` map binds every frozen and mutable lock named by the tool.
 It then verifies exactly 320 terminal hash-chained journals, their immutable model
 revision and frozen GPU UUID bindings, at least one retained provider-usage event

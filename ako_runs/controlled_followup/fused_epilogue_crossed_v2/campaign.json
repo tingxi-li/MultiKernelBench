@@ -1,0 +1,74 @@
+{
+  "campaign_id": "fused-epilogue-crossed-v2",
+  "claim_limit": "One fused GEMM+bias+exact-GELU+row-softmax shape. Ada performance claims require the frozen RTX 6000 Ada run; cross-architecture work is feasibility-only.",
+  "factors": {
+    "grid_ids": ["g00", "g01", "g02", "g03", "g04", "g05", "g06", "g07", "g08", "g09", "g10", "g11", "g12", "g13", "g14", "g15", "g16", "g17", "g18"],
+    "lanes": ["tilelang", "triton", "cuda_noptx", "cuda_unlimited"],
+    "strategies": ["register_fused", "smem_staged", "global_intermediate", "register_common_postprocess"]
+  },
+  "fixed_contract": {
+    "activation_input": "fp16_precast",
+    "arithmetic": "fp16_operands_fp32_accumulator",
+    "bias_dtype": "fp32",
+    "gelu": "exact_erf",
+    "operation": "GEMM+bias+GELU+row-softmax",
+    "shape": {"K": 8192, "M": 1024, "N": 8192},
+    "weight_cache": "cached_fp16_KN"
+  },
+  "frozen_gate": {
+    "case_ids": ["legacy_u01_gain1", "signed_normal_gain1", "rademacher_gain4", "signed_normal_gain16"],
+    "gate_ids": ["semantic_mixed", "conformance_mixed"],
+    "seed_indices": {"split": "validation", "start": 0, "stop_exclusive": 64},
+    "timing_eligibility": "Every launchable cell passes all 4 cases x 64 seeds x 2 gates before timing."
+  },
+  "hardware": {
+    "allowed_gpu_uuids": [
+      "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae",
+      "GPU-91b61ae6-d21e-485e-43b3-7505d62149b1",
+      "GPU-3ed448f2-f23a-09fc-e18b-f580523c4a3f",
+      "GPU-eafdd6ce-8857-40fd-f494-47a7240bf6b5"
+    ],
+    "required_compute_capability": "8.9",
+    "required_name": "NVIDIA RTX 6000 Ada Generation",
+    "timing_gpu": 0
+  },
+  "inference": {
+    "primary_trials": {"start_inclusive": 60, "stop_exclusive": 100},
+    "full_window_role": "diagnostic_only",
+    "selection_rule": "Top two gate-legal screen cells plus g01 per strategy x lane, deduplicated.",
+    "sham_base_cell": "register_common_postprocess.tilelang.g01",
+    "sham_publication_rule": "On log-ratio scale, the floor is max(abs(log(CI endpoints))) across sham distributions. An effect is reportable only when its entire CI lies outside plus/minus that floor.",
+    "support_rule": "The cuda_noptx register and Triton explicit-smem paths remain unresolved until each has 19 retained probe outcomes. One gate-passing attempt establishes measured support; otherwise all failures must share a captured API/compiler limitation."
+  },
+  "performance": {
+    "confirmation": {
+      "blocks_per_distribution": 15,
+      "distributions": [
+        {"dist": "rand", "label": "positive", "seed": 0},
+        {"dist": "randn", "label": "withheld_signed", "seed": 2026073101}
+      ],
+      "order_seed": 2026073103
+    },
+    "flush_l2": true,
+    "screen": {"dist": "rand", "order_seed": 2026073102, "processes": 2, "seed": 0},
+    "trials": 100,
+    "warmup_s": 2.0
+  },
+  "parent": {
+    "campaign_id": "fused-epilogue-crossed-v1",
+    "controlling_result": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/final_summary.json",
+    "controlling_result_sha256": "98552e48aa67411ba738e160d454e5c387e1c33cb1c543aa53a20198e4c0a70d",
+    "tail_overlay": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/reanalysis_tail_v1.json",
+    "tail_overlay_sha256": "e7296ce10585169e7dcf1f0d66c6bc59bf079d367d30491c46f42a8b3d03d1e5"
+  },
+  "preregistration_policy": "Resolve and seal both support probes, freeze all source/dependency hashes, commit, push, and verify the launch commit on its configured upstream before campaign GPU work.",
+  "requested_cells": 304,
+  "schema_version": 2,
+  "status": "implemented_probe_blocked",
+  "strategy_contracts": {
+    "global_intermediate": "Lane-native GEMM writes fp32 global scratch; one common checked CUDA kernel performs bias, exact GELU, and row softmax.",
+    "register_fused": "Bias and exact GELU are expressed directly on lane-native accumulator values before global store, with no explicit fp32 epilogue tile; compiler spills are retained descriptively. Lane-native softmax follows.",
+    "register_common_postprocess": "Lane-native GBG applies bias and exact GELU directly to accumulator values without an explicit fp32 epilogue tile; one byte-identical common CUDA kernel performs only row softmax, and compiler spills are retained descriptively.",
+    "smem_staged": "The accumulator tile is explicitly staged through per-block shared memory before bias and exact GELU, followed by the lane-native softmax."
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "campaign_id": "fused-epilogue-crossed-v2",
+  "probes": {
+    "cuda_noptx_register": {
+      "lane": "cuda_noptx",
+      "result_index_path": null,
+      "result_index_sha256": null,
+      "status": "preregistered_not_executed",
+      "strategies": ["register_fused", "register_common_postprocess"]
+    },
+    "triton_smem": {
+      "lane": "triton",
+      "result_index_path": null,
+      "result_index_sha256": null,
+      "status": "preregistered_not_executed",
+      "strategies": ["smem_staged"]
+    }
+  },
+  "resolution_policy": "Each probe retains exactly 19 grid attempts. Any GATE_PASSED attempt resolves supported. Unsupported requires 19 terminal attempts and one shared captured API/compiler limitation; missing or mixed evidence stays unresolved.",
+  "schema_version": 1,
+  "status": "unresolved"
+}

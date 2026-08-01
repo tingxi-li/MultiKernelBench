@@ -12,9 +12,11 @@ Current interpretation and execution status are recorded in
 [`RUN_20260731.md`](RUN_20260731.md). The fused campaigns, the 66,852-record
 matmul-v4 instrument audit, the corrected same-seed robustness campaign, and the
 228-cell crossed epilogue campaign (result tag `crossed_v1r1`) are complete.
-Reciprocal recipe transfer, replicated convergence, and the effort frontier are
-implemented and preregistered but contribute no result until their own treatment,
-launch, and completion requirements are satisfied.
+Its corrective 304-cell successor is CPU-ready but blocked before measured
+support probes by live GPU preflight. Reciprocal transfer now has a one-honest-
+translator 24-cell corrective design and fail-closed runner admission; the
+effort frontier has a non-controlling cuBLASLt/Triton pilot protocol; and
+`convergence_v2` is retired unlaunched. None contributes a result.
 
 Design critique and the prioritized plan for what remains — including
 `RUN`/`REDESIGN`/`KILL` verdicts on those three programs — are in
@@ -22,6 +24,8 @@ Design critique and the prioritized plan for what remains — including
 quoting any lane-level performance number from the crossed campaign: the only
 strategy expressible in all four lanes shares one CUDA epilogue kernel across
 them, so those contrasts do not isolate the language factor.
+Second-architecture, paper-scope, and default RQ(e) retirement rules are in
+[`LATER_WORK_POLICY_20260731.md`](LATER_WORK_POLICY_20260731.md).
 
 The launch order is dependency driven:
 

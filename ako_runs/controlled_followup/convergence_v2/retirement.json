@@ -1,0 +1,42 @@
+{
+  "campaign_id": "20260731_controlled_followup_convergence_v2",
+  "effective_date": "2026-07-31",
+  "execution_claimed": false,
+  "historical_artifacts": {
+    "core_manifest": {
+      "path": "manifests/core_192.jsonl",
+      "sha256": "719cbb4ee6e315895f1e4a0e7bd4184f458864e7b056a6cb212b679621f07e36",
+      "status": "preserved_historical_never_launched"
+    },
+    "prompt_extension_manifest": {
+      "path": "manifests/prompt_extension_128.jsonl",
+      "sha256": "0150f6226c1ca169cff546926618d5529325a493f64c244f637df7875d97afea",
+      "status": "preserved_historical_permanently_excluded_from_launch"
+    },
+    "protocol_freeze_receipt": {
+      "path": "locks/protocol_freeze_receipt.json",
+      "sha256": "7f34ef8e1bb891fe9b8831da032595bea941465faec88ce2c6507a0632c6765b"
+    }
+  },
+  "launch_policy": {
+    "allowed_manifest_paths": [],
+    "launch_allowed": false,
+    "official_entrypoint": "launch.py",
+    "old_validator_role": "historical_diagnostic_only",
+    "retirement_is_not_reversible_by_satisfying_old_preflight_checks": true
+  },
+  "prompt_extension_policy": {
+    "artifact_action": "preserve",
+    "future_launch_action": "exclude",
+    "may_be_carried_into_successor": false
+  },
+  "reasons": [
+    "no executor, trajectory driver, worktree provisioner, or outcomes writer",
+    "primary tau was not preregistered",
+    "standalone novelty is decaying"
+  ],
+  "record_type": "convergence_v2_retirement",
+  "revival_policy": "use a new campaign identifier and preregistration; do not mutate or launch these artifacts",
+  "schema_version": 1,
+  "state": "retired_never_launched"
+}

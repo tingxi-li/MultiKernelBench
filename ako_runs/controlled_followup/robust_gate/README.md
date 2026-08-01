@@ -26,6 +26,12 @@ holdout magnitudes; it completed 23,040 calibration records and passed all
 [`validation/matmul_holdout_summary_v4.json`](validation/matmul_holdout_summary_v4.json),
 and [`validation/v4_acceptance_receipt.json`](validation/v4_acceptance_receipt.json).
 
+The post-campaign
+[`FUSED_V2_GATE_SATURATION_20260731.md`](FUSED_V2_GATE_SATURATION_20260731.md)
+reports that all 150 crossed-v1r1 passes sit within 3.7--4.9% of the frozen
+fused-v2 row-sum threshold and would fail at its unrounded calibrated value.
+It is a sensitivity report only; no frozen threshold was changed.
+
 ## Frozen protocols
 
 - Fused v2 uses 32 domain-separated calibration seeds and 64 locked validation
