@@ -1,0 +1,147 @@
+{
+  "build_attempted": true,
+  "build_metadata": {
+    "artifacts": {
+      "lane_gbg": {
+        "backend_detail": "corrected inline-PTX MMA descendant; checked attribute and launches; source-level epilogue=regs; bias=True gelu=True; KCB=32; physical spills are reported by the per-kernel ptxas census when compilation is fresh",
+        "block": [
+          256,
+          1,
+          1
+        ],
+        "build_log_path": "/home/lxt230026/tmp/fused_epilogue_crossed_v2/pid496745/register_common_postprocess.cuda_unlimited.g12/phase1/crossed_v2_unl_GBG_256x128x64_t256_kc2048_s2_regs_17b909c2.ptxas.log",
+        "cuda_source": {
+          "bytes": 14826,
+          "sha256": "17b909c2a5790e4ff29ddb71228fe73368afe1c4ad653fec0565759438fc3f22"
+        },
+        "cuda_source_sha256": "17b909c2a5790e4ff29ddb71228fe73368afe1c4ad653fec0565759438fc3f22",
+        "dynamic_smem_bytes": 98304,
+        "epilogue": "regs",
+        "epilogue_tile_bytes": 0,
+        "epilogue_tile_shared_bytes": 0,
+        "grid": [
+          64,
+          4,
+          1
+        ],
+        "has_bias": true,
+        "has_gelu": true,
+        "kernel_resources": {
+          "entry": "_Z8mma_gemmPKvS0_PKfPfiii",
+          "kernel": "mma_gemm",
+          "registers": 255,
+          "spill_load_bytes": 464,
+          "spill_store_bytes": 464,
+          "stack_frame_bytes": 272,
+          "static_shared_bytes": null
+        },
+        "kernel_resources_error": null,
+        "n_kernels": 1,
+        "operand_shared_bytes": 98304,
+        "operand_smem_bytes": 98304,
+        "ptxas_log": "[1/3] c++ -MMD -MF main.o.d -DTORCH_EXTENSION_NAME=crossed_v2_unl_GBG_256x128x64_t256_kc2048_s2_regs_17b909c2 -DTORCH_API_INCLUDE_EXTENSION_H -I/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/legacy_cuda_harness_fix -isystem /home/lxt230026/miniconda3/lib/python3.13/site-packages/torch/include -isystem /home/lxt230026/miniconda3/lib/python3.13/site-packages/torch/include/torch/csrc/api/include -isystem /usr/local/cuda-13.1/include -isystem /home/lxt230026/miniconda3/include/python3.13 -fPIC -std=c++17 -c /home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/fused_epilogue_crossed_v2/.torch_ext/gpu1/crossed_v2_unl_GBG_256x128x64_t256_kc2048_s2_regs_17b909c2/main.cpp -o main.o \n[2/3] /usr/local/cuda-13.1/bin/nvcc --generate-dependencies-with-compile --dependency-output cuda.cuda.o.d -DTORCH_EXTENSION_NAME=crossed_v2_unl_GBG_256x128x64_t256_kc2048_s2_regs_17b909c2 -DTORCH_API_INCLUDE_EXTENSION_H -I/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/legacy_cuda_harness_fix -isystem /home/lxt230026/miniconda3/lib/python3.13/site-packages/torch/include -isystem /home/lxt230026/miniconda3/lib/python3.13/site-packages/torch/include/torch/csrc/api/include -isystem /usr/local/cuda-13.1/include -isystem /home/lxt230026/miniconda3/include/python3.13 -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options '-fPIC' -O3 -std=c++17 -Xptxas=-v -gencode=arch=compute_89,code=sm_89 -c /home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/fused_epilogue_crossed_v2/.torch_ext/gpu1/crossed_v2_unl_GBG_256x128x64_t256_kc2048_s2_regs_17b909c2/cuda.cu -o cuda.cuda.o \nptxas info    : 31 bytes gmem, 248 bytes cmem[4]\nptxas info    : Compiling entry function '_Z8mma_gemmPKvS0_PKfPfiii' for 'sm_89'\nptxas info    : Function properties for _Z8mma_gemmPKvS0_PKfPfiii\n    272 bytes stack frame, 464 bytes spill stores, 464 bytes spill loads\nptxas info    : Used 255 registers, used 1 barriers, 272 bytes cumulative stack size, 396 bytes cmem[0]\nptxas info    : Compile time = 386.702 ms\n[3/3] c++ main.o cuda.cuda.o -shared -L/home/lxt230026/miniconda3/lib/python3.13/site-packages/torch/lib -lc10 -lc10_cuda -ltorch_cpu -ltorch_cuda -ltorch -ltorch_python -L/usr/local/cuda-13.1/lib64 -lcudart -o crossed_v2_unl_GBG_256x128x64_t256_kc2048_s2_regs_17b909c2.so\n",
+        "shared_bytes": 98304,
+        "total_dynamic_shared_bytes": 98304,
+        "total_dynamic_smem_bytes": 98304,
+        "wcache": "cached"
+      },
+      "postprocess": {
+        "backend_detail": "common CUDA compile-time bias/GELU plus row-softmax",
+        "block": [
+          256,
+          1,
+          1
+        ],
+        "cuda_source_sha256": "c03d2e32b61d48d4da5df401aaf5767b9b99762e1a275e96e2d3f5266d1279bb",
+        "epilogue_tile_bytes": 0,
+        "grid": [
+          1024,
+          1,
+          1
+        ],
+        "has_bias": false,
+        "has_gelu": false,
+        "n_kernels": 1,
+        "operand_smem_bytes": 0,
+        "shared_bytes": 0,
+        "softmax_source_sha256": "758a6ad3dc8f4635cd1146dd9c6fd102b590410ce4f710c10c72f470d2bbf96f",
+        "total_dynamic_shared_bytes": 0
+      },
+      "strategy": "register_common_postprocess"
+    },
+    "build_wall_s": 35.90204316299787,
+    "builder": "crossed-v2:cuda_unlimited:GBG-regs+common-softmax",
+    "common_softmax_source_sha256": "758a6ad3dc8f4635cd1146dd9c6fd102b590410ce4f710c10c72f470d2bbf96f",
+    "epilogue_request": "regs",
+    "implementation_sha256": "3225d37b74cc4b69b2b008319705cb146c91d5f5f5598cb880bac8f0985a3e29",
+    "isolated_artifact_root": "/home/lxt230026/tmp/fused_epilogue_crossed_v2/pid496745/register_common_postprocess.cuda_unlimited.g12",
+    "n_kernels": 2,
+    "notes": "lane-native register bias+exact-GELU followed by byte-identical common softmax"
+  },
+  "build_wall_s": 167.81422772000224,
+  "campaign_id": "fused-epilogue-crossed-v2",
+  "cell": {
+    "cell_id": "register_common_postprocess.cuda_unlimited.g12",
+    "cell_index": 297,
+    "grid_id": "g12",
+    "grid_index": 12,
+    "lane": "cuda_unlimited",
+    "origin_job": {
+      "dsl": "cuda_unlimited",
+      "geom": "fused",
+      "grid_id": "g12",
+      "grid_index": 12,
+      "job_id": "cuda_unlimited.g12",
+      "set": "BM=256,BN=128,BK=64,threads=256,stages=2,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=smem",
+      "variant": "GBGS"
+    },
+    "origin_job_sha256": "ad6eb6e3305fed809c53c6936d890df9156f520b65135821a30c663a79437d01",
+    "requested": true,
+    "strategy": "register_common_postprocess",
+    "support_declared": true,
+    "support_detail": "supported by an inspected checked builder",
+    "support_probe_key": null
+  },
+  "cell_sha256": "d755f85b937a3be4fcfce03d50accb7664b038a2f6041d5380c4580e6fcc47e8",
+  "created_utc": "2026-08-01T18:42:35.274696+00:00",
+  "gate_attempted": true,
+  "gate_jsonl_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r1/audit/gate/register_common_postprocess__cuda_unlimited__g12.jsonl",
+  "gate_jsonl_sha256": "929f5743faae2facdb74030d473ca3f8083c206bc855b77ddd48a7e75c2524c5",
+  "gate_summary": {
+    "complete": true,
+    "expected_records": 512,
+    "failed_records": 0,
+    "full_gate_pass": true,
+    "max_over_threshold_ratio": 0.9633653546003984,
+    "max_over_threshold_ratio_by_metric": {
+      "conformance_mixed/max_abs_err": 0.2884864807128906,
+      "conformance_mixed/nrmse": 0.4252176393522083,
+      "conformance_mixed/row_sum_error_max": 0.9633653546003984,
+      "conformance_mixed/scaled_max_abs_err": 0.19746902555798526,
+      "conformance_mixed/sqrt_js_max": 0.21692588526674558,
+      "conformance_mixed/tv_max": 0.2888564036901409,
+      "semantic_mixed/max_abs_err": 0.37844748787867477,
+      "semantic_mixed/nrmse": 0.446346721228331,
+      "semantic_mixed/row_sum_error_max": 0.9633653546003984,
+      "semantic_mixed/scaled_max_abs_err": 0.533779464248654,
+      "semantic_mixed/sqrt_js_max": 0.7250454120354177,
+      "semantic_mixed/tv_max": 0.3796545615401497
+    },
+    "minimum_headroom_fraction": 0.036634645399601595,
+    "observed_records": 512,
+    "zero_threshold_max_observed_by_metric": {
+      "conformance_mixed/negative_count": 0.0,
+      "conformance_mixed/nonfinite_count": 0.0,
+      "semantic_mixed/negative_count": 0.0,
+      "semantic_mixed/nonfinite_count": 0.0
+    },
+    "zero_threshold_violation_records_by_metric": {}
+  },
+  "host": "cs265655.utdallas.edu",
+  "launch_lock_sha256": "43c6f38fe4c750dd5009111fe514416ac992451e7a50d033dadd227449ea6622",
+  "physical_gpu": 1,
+  "reported_compile_s": 35.90181221399689,
+  "schema_version": 2,
+  "source_bundle_sha256": "7f4ab0d17b4d84d462741f64883b8a5dcb225925dab282e18281f346463faab7",
+  "terminal_outcome": "GATE_PASSED"
+}

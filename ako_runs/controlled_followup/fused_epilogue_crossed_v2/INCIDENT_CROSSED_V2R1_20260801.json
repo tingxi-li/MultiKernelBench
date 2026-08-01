@@ -1,0 +1,66 @@
+{
+  "artifact_closure": {
+    "algorithm": "sha256(canonical_json(sorted([{path,sha256,size}])))",
+    "file_count": 561,
+    "root": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r1",
+    "sha256": "08a201af5390e47318270386a75c2018492fd561e4271d4dcb76415f72549868",
+    "total_bytes": 869639781
+  },
+  "campaign_id": "fused-epilogue-crossed-v2",
+  "corrective_result_tag": "crossed_v2r2",
+  "created_utc": "2026-08-01T22:05:53+00:00",
+  "diagnosis": {
+    "effect": "the 304-cell audit completed, but the frozen analyzer exited before writing audit_summary.json",
+    "exception": "RuntimeError: supported register_common_postprocess cells did not produce the full two-kernel operation: ['register_common_postprocess.triton.g07', 'register_common_postprocess.triton.g11', 'register_common_postprocess.triton.g15', 'register_common_postprocess.triton.g18']",
+    "location": "analyze.py:_validate_fourth_strategy_acceptance",
+    "mechanism": "the analyzer equated measured strategy support with success at every grid and rejected four expected Triton stages=4 shared-memory resource failures",
+    "scientific_effect": "the retained audit is non-controlling; no screen or confirmation timing was launched and no post-hoc overlay will promote these records"
+  },
+  "failed_result_tag": "crossed_v2r1",
+  "outcome_counts": {
+    "BUILD_FAILED": 36,
+    "GATE_PASSED": 249,
+    "UNSUPPORTED": 19
+  },
+  "parent_git_commit": "31566c4759b586e6b32f2ed4306110c16d99676b",
+  "parent_launch_lock_sha256": "43c6f38fe4c750dd5009111fe514416ac992451e7a50d033dadd227449ea6622",
+  "parent_source_bundle_sha256": "7f4ab0d17b4d84d462741f64883b8a5dcb225925dab282e18281f346463faab7",
+  "record_type": "fused_crossed_v2_failed_analysis_incident_receipt",
+  "rejected_cells": [
+    {
+      "cell_id": "register_common_postprocess.triton.g07",
+      "hardware_limit_bytes": 101376,
+      "required_shared_memory_bytes": 106496,
+      "terminal_outcome": "BUILD_FAILED"
+    },
+    {
+      "cell_id": "register_common_postprocess.triton.g11",
+      "hardware_limit_bytes": 101376,
+      "required_shared_memory_bytes": 106496,
+      "terminal_outcome": "BUILD_FAILED"
+    },
+    {
+      "cell_id": "register_common_postprocess.triton.g15",
+      "hardware_limit_bytes": 101376,
+      "required_shared_memory_bytes": 106496,
+      "terminal_outcome": "BUILD_FAILED"
+    },
+    {
+      "cell_id": "register_common_postprocess.triton.g18",
+      "hardware_limit_bytes": 101376,
+      "required_shared_memory_bytes": 106496,
+      "terminal_outcome": "BUILD_FAILED"
+    }
+  ],
+  "schema_version": 1,
+  "sealed_outcome_census": {
+    "audit_cell_records": 304,
+    "audit_summary": 0,
+    "confirmation_timing_records": 0,
+    "gate_jsonl": 249,
+    "screen_timing_records": 0,
+    "sealed_terminal_outcomes": 304,
+    "shard_receipts": 4,
+    "shard_statuses": 4
+  }
+}

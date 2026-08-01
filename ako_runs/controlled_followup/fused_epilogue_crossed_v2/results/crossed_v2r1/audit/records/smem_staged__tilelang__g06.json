@@ -1,0 +1,38 @@
+{
+  "build_attempted": true,
+  "build_wall_s": 4.526299744611606e-05,
+  "campaign_id": "fused-epilogue-crossed-v2",
+  "cell": {
+    "cell_id": "smem_staged.tilelang.g06",
+    "cell_index": 82,
+    "grid_id": "g06",
+    "grid_index": 6,
+    "lane": "tilelang",
+    "origin_job": {
+      "dsl": "tilelang",
+      "geom": "fused",
+      "grid_id": "g06",
+      "grid_index": 6,
+      "job_id": "tilelang.g06",
+      "set": "BM=128,BN=256,BK=32,threads=256,stages=3,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=smem",
+      "variant": "GBGS"
+    },
+    "origin_job_sha256": "82238fc1f965d8c0609235917aac524a317c77f1abe35aafd8fd1109f34511b7",
+    "requested": true,
+    "strategy": "smem_staged",
+    "support_declared": true,
+    "support_detail": "supported by an inspected checked builder",
+    "support_probe_key": null
+  },
+  "cell_sha256": "f144443c32d7669e8b0cbdf330e5637f972edd29960e3a7e86e2dc19134eab9b",
+  "created_utc": "2026-08-01T16:49:56.446452+00:00",
+  "error": "ProtocolError: smem epilogue tile 133120 B exceeds the sm_89 cap at setup",
+  "gate_attempted": false,
+  "host": "cs265655.utdallas.edu",
+  "launch_lock_sha256": "43c6f38fe4c750dd5009111fe514416ac992451e7a50d033dadd227449ea6622",
+  "physical_gpu": 2,
+  "schema_version": 2,
+  "source_bundle_sha256": "7f4ab0d17b4d84d462741f64883b8a5dcb225925dab282e18281f346463faab7",
+  "terminal_outcome": "BUILD_FAILED",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/fused_epilogue_crossed_v2/campaign_runner.py\", line 238, in _audit_cell\n    built = build(cell)\n  File \"/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/fused_epilogue_crossed_v2/candidates.py\", line 304, in build\n    return _build_tilelang_smem(cell) if lane == \"tilelang\" else _build_phase2(cell, \"smem\", \"GBGS\")\n           ~~~~~~~~~~~~~~~~~~~~^^^^^^\n  File \"/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/fused_epilogue_crossed_v2/candidates.py\", line 198, in _build_tilelang_smem\n    raise ProtocolError(\n        f\"smem epilogue tile {epilogue_bytes} B exceeds the sm_89 cap at setup\"\n    )\nako_runs.controlled_followup.fused_epilogue_crossed_v1.core.ProtocolError: smem epilogue tile 133120 B exceeds the sm_89 cap at setup\n"
+}

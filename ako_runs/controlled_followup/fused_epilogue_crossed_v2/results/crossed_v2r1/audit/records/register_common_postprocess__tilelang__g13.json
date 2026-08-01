@@ -1,0 +1,133 @@
+{
+  "build_attempted": true,
+  "build_metadata": {
+    "artifacts": {
+      "lane_gbg": {
+        "b_global_dtype": "float16",
+        "backend_detail": "T.gemm(fp16 smem -> fp32 fragment) kc=2048 T.Pipelined(num_stages=2); epilogue bias=True gelu=True (T.erf, exact form)",
+        "block": [
+          256,
+          1,
+          1
+        ],
+        "cuda_source": {
+          "bytes": 9085,
+          "sha256": "8015a943791409d26923b77d0af49d316cfbf95e548fc083575225dfdfc1a211"
+        },
+        "dynamic_smem_bytes": null,
+        "epilogue_tile_bytes": 0,
+        "grid": [
+          64,
+          16,
+          1
+        ],
+        "n_kernels": 1,
+        "operand_smem_bytes": null,
+        "shared_bytes": null,
+        "tilelang_disk_cache": false,
+        "tilelang_version": "0.1.11",
+        "total_dynamic_shared_bytes": null,
+        "total_dynamic_smem_bytes": null,
+        "transpose_b": false,
+        "wcache": "cached"
+      },
+      "postprocess": {
+        "backend_detail": "common CUDA compile-time bias/GELU plus row-softmax",
+        "block": [
+          256,
+          1,
+          1
+        ],
+        "cuda_source_sha256": "c03d2e32b61d48d4da5df401aaf5767b9b99762e1a275e96e2d3f5266d1279bb",
+        "epilogue_tile_bytes": 0,
+        "grid": [
+          1024,
+          1,
+          1
+        ],
+        "has_bias": false,
+        "has_gelu": false,
+        "n_kernels": 1,
+        "operand_smem_bytes": 0,
+        "shared_bytes": 0,
+        "softmax_source_sha256": "758a6ad3dc8f4635cd1146dd9c6fd102b590410ce4f710c10c72f470d2bbf96f",
+        "total_dynamic_shared_bytes": 0
+      },
+      "strategy": "register_common_postprocess"
+    },
+    "build_wall_s": 3.5511859340040246,
+    "builder": "crossed-v2:tilelang:GBG-regs+common-softmax",
+    "common_softmax_source_sha256": "758a6ad3dc8f4635cd1146dd9c6fd102b590410ce4f710c10c72f470d2bbf96f",
+    "epilogue_request": "regs",
+    "implementation_sha256": "c9c251c21232800086419dfca1a4a4ee1cab70f6f5bcaf7d00d4c8cb950611c7",
+    "isolated_artifact_root": "/home/lxt230026/tmp/fused_epilogue_crossed_v2/pid496745/register_common_postprocess.tilelang.g13",
+    "n_kernels": 2,
+    "notes": "lane-native register bias+exact-GELU followed by byte-identical common softmax"
+  },
+  "build_wall_s": 137.2898304019982,
+  "campaign_id": "fused-epilogue-crossed-v2",
+  "cell": {
+    "cell_id": "register_common_postprocess.tilelang.g13",
+    "cell_index": 241,
+    "grid_id": "g13",
+    "grid_index": 13,
+    "lane": "tilelang",
+    "origin_job": {
+      "dsl": "tilelang",
+      "geom": "fused",
+      "grid_id": "g13",
+      "grid_index": 13,
+      "job_id": "tilelang.g13",
+      "set": "BM=64,BN=128,BK=64,threads=256,stages=2,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=smem",
+      "variant": "GBGS"
+    },
+    "origin_job_sha256": "5dd3d4995669aae66074338c66e959c2de73f89ebbc720cc365b2b2b8da23100",
+    "requested": true,
+    "strategy": "register_common_postprocess",
+    "support_declared": true,
+    "support_detail": "supported by an inspected checked builder",
+    "support_probe_key": null
+  },
+  "cell_sha256": "b9ccad3182e2c2823fb39676378fdbf41d00c0a9136c0fb70498308aff8abd8e",
+  "created_utc": "2026-08-01T18:08:48.366613+00:00",
+  "gate_attempted": true,
+  "gate_jsonl_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r1/audit/gate/register_common_postprocess__tilelang__g13.jsonl",
+  "gate_jsonl_sha256": "be5b4168e1ca41193d3eb1ecbd5f5b7466850cf3512b7a7234e1ffc14f45861d",
+  "gate_summary": {
+    "complete": true,
+    "expected_records": 512,
+    "failed_records": 0,
+    "full_gate_pass": true,
+    "max_over_threshold_ratio": 0.9633653546003984,
+    "max_over_threshold_ratio_by_metric": {
+      "conformance_mixed/max_abs_err": 0.2884864807128906,
+      "conformance_mixed/nrmse": 0.4252176393522083,
+      "conformance_mixed/row_sum_error_max": 0.9633653546003984,
+      "conformance_mixed/scaled_max_abs_err": 0.19746902555798526,
+      "conformance_mixed/sqrt_js_max": 0.21692588526674558,
+      "conformance_mixed/tv_max": 0.2888564036901409,
+      "semantic_mixed/max_abs_err": 0.37844748787867477,
+      "semantic_mixed/nrmse": 0.446346721228331,
+      "semantic_mixed/row_sum_error_max": 0.9633653546003984,
+      "semantic_mixed/scaled_max_abs_err": 0.533779464248654,
+      "semantic_mixed/sqrt_js_max": 0.7250454120354177,
+      "semantic_mixed/tv_max": 0.3796545615401497
+    },
+    "minimum_headroom_fraction": 0.036634645399601595,
+    "observed_records": 512,
+    "zero_threshold_max_observed_by_metric": {
+      "conformance_mixed/negative_count": 0.0,
+      "conformance_mixed/nonfinite_count": 0.0,
+      "semantic_mixed/negative_count": 0.0,
+      "semantic_mixed/nonfinite_count": 0.0
+    },
+    "zero_threshold_violation_records_by_metric": {}
+  },
+  "host": "cs265655.utdallas.edu",
+  "launch_lock_sha256": "43c6f38fe4c750dd5009111fe514416ac992451e7a50d033dadd227449ea6622",
+  "physical_gpu": 1,
+  "reported_compile_s": 3.550888332996692,
+  "schema_version": 2,
+  "source_bundle_sha256": "7f4ab0d17b4d84d462741f64883b8a5dcb225925dab282e18281f346463faab7",
+  "terminal_outcome": "GATE_PASSED"
+}

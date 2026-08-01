@@ -1,0 +1,104 @@
+{
+  "build_attempted": true,
+  "build_metadata": {
+    "artifacts": {
+      "b_global_dtype": "float16",
+      "backend_detail": "tl.dot on fp16 operands -> mma.sync.m16n8k16.f32.f16.f16.f32; KC=2048; num_stages=3 num_warps=8; epilogue bias=True gelu=True (tl.math.erf, exact form); NO autotune; + row-softmax kernel, one row per program, BN=N so exp is computed once in registers",
+      "block": [
+        256,
+        1,
+        1
+      ],
+      "dynamic_smem_bytes": null,
+      "epilogue_tile_bytes": 0,
+      "grid": [
+        64,
+        8,
+        1
+      ],
+      "n_kernels": 2,
+      "num_stages": 3,
+      "num_warps": 8,
+      "operand_smem_bytes": null,
+      "shared_bytes": null,
+      "total_dynamic_shared_bytes": null,
+      "total_dynamic_smem_bytes": null,
+      "transpose_b": false,
+      "triton_version": "3.6.0",
+      "wcache": "cached"
+    },
+    "build_wall_s": 0.3984521320016938,
+    "builder": "crossed-v2:triton:GBGS:regs",
+    "epilogue_request": "regs",
+    "implementation_sha256": "99451b9fed6ff4054dfa20075de3dc8609827f921870fe4683feee8b331d79bd",
+    "isolated_artifact_root": "/home/lxt230026/tmp/fused_epilogue_crossed_v2/pid496620/register_fused.triton.g01",
+    "n_kernels": 2,
+    "notes": "triton 3.6.0 fused arm GBGS (+ softmax (full op)) wcache=cached: 128x128x32 kc=2048 stages=3 warps=8"
+  },
+  "build_wall_s": 135.07952526299778,
+  "campaign_id": "fused-epilogue-crossed-v2",
+  "cell": {
+    "cell_id": "register_fused.triton.g01",
+    "cell_index": 20,
+    "grid_id": "g01",
+    "grid_index": 1,
+    "lane": "triton",
+    "origin_job": {
+      "dsl": "triton",
+      "geom": "fused",
+      "grid_id": "g01",
+      "grid_index": 1,
+      "job_id": "triton.g01",
+      "set": "BM=128,BN=128,BK=32,threads=256,stages=3,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=smem",
+      "variant": "GBGS"
+    },
+    "origin_job_sha256": "0ce16cc1e8320947dd45512b44e503e430239ef1bb62b28f544f5687405f25a1",
+    "requested": true,
+    "strategy": "register_fused",
+    "support_declared": true,
+    "support_detail": "supported by an inspected checked builder",
+    "support_probe_key": null
+  },
+  "cell_sha256": "40af58232001ce63a105786baee65134970b9cfda17775e6d9a0e7a0c57adb3b",
+  "created_utc": "2026-08-01T16:15:43.407308+00:00",
+  "gate_attempted": true,
+  "gate_jsonl_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r1/audit/gate/register_fused__triton__g01.jsonl",
+  "gate_jsonl_sha256": "6858306a212181ca6eff2999715bf0059c5c9b1f0284e97f4a1433aa54379284",
+  "gate_summary": {
+    "complete": true,
+    "expected_records": 512,
+    "failed_records": 0,
+    "full_gate_pass": true,
+    "max_over_threshold_ratio": 0.9512837921832329,
+    "max_over_threshold_ratio_by_metric": {
+      "conformance_mixed/max_abs_err": 0.2884864807128906,
+      "conformance_mixed/nrmse": 0.4250651934881507,
+      "conformance_mixed/row_sum_error_max": 0.9512837921832329,
+      "conformance_mixed/scaled_max_abs_err": 0.19767710672295677,
+      "conformance_mixed/sqrt_js_max": 0.21690695126162862,
+      "conformance_mixed/tv_max": 0.28860312783207664,
+      "semantic_mixed/max_abs_err": 0.37845940880762985,
+      "semantic_mixed/nrmse": 0.4463465197550131,
+      "semantic_mixed/row_sum_error_max": 0.9512837921832329,
+      "semantic_mixed/scaled_max_abs_err": 0.533779464248654,
+      "semantic_mixed/sqrt_js_max": 0.7250436487023398,
+      "semantic_mixed/tv_max": 0.37965638351704684
+    },
+    "minimum_headroom_fraction": 0.04871620781676711,
+    "observed_records": 512,
+    "zero_threshold_max_observed_by_metric": {
+      "conformance_mixed/negative_count": 0.0,
+      "conformance_mixed/nonfinite_count": 0.0,
+      "semantic_mixed/negative_count": 0.0,
+      "semantic_mixed/nonfinite_count": 0.0
+    },
+    "zero_threshold_violation_records_by_metric": {}
+  },
+  "host": "cs265655.utdallas.edu",
+  "launch_lock_sha256": "43c6f38fe4c750dd5009111fe514416ac992451e7a50d033dadd227449ea6622",
+  "physical_gpu": 0,
+  "reported_compile_s": 0.34433702800015453,
+  "schema_version": 2,
+  "source_bundle_sha256": "7f4ab0d17b4d84d462741f64883b8a5dcb225925dab282e18281f346463faab7",
+  "terminal_outcome": "GATE_PASSED"
+}

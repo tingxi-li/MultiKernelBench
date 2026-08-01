@@ -1,0 +1,107 @@
+{
+  "build_attempted": true,
+  "build_metadata": {
+    "artifacts": {
+      "backend_detail": "TileLang explicit fp32 accumulator tile in shared memory, then exact GELU; common TileLang row-softmax",
+      "block": [
+        256,
+        1,
+        1
+      ],
+      "cuda_source_gemm": {
+        "bytes": 12172,
+        "sha256": "e8b93bd1ac88d46799165202195572494da282ead8d2e66f059af5f479ad0803"
+      },
+      "cuda_source_softmax": "#if defined(_MSC_VER) && !defined(__clang__) && _MSC_VER < 1940\n#define _tl_orig_alignas alignas\n#define alignas(N) _tl_orig_alignas((N) <= 64 ? (N) : 64)\n#include <cuda.h>\n#undef alignas\n#define alignas _tl_orig_alignas\n#endif\n#include <tl_templates/cuda/gemm.h>\n#include <tl_templates/cuda/copy.h>\n#include <tl_templates/cuda/reduce.h>\n#include <tl_templates/cuda/scan.h>\n#include <tl_templates/cuda/ldsm.h>\n#include <tl_templates/cuda/threadblock_swizzle.h>\n#include <tl_templates/cuda/debug.h>\n#ifdef ENABLE_BF16\n#include <tl_templates/cuda/cuda_bf16_fallbacks.cuh>\n#endif\n\nextern \"C\" __global__ void main_kernel(float* __restrict__ Out, const float* __restrict__ X);\nextern \"C\" __global__ void __launch_bounds__(256, 1) main_kernel(float* __restrict__ Out, const float* __restrict__ X) {\n  extern __shared__ __align__(1024) uchar buf_dyn_shmem[];\n  void* smem_m = ((void*)((char*)buf_dyn_shmem + 0));\n  void* smem_s = ((void*)((char*)buf_dyn_shmem + 32));\n  float lmax[1];\n  float lsum[1];\n  float lexp[32];\n  lmax[0] = -0x1.fffffdff07036p+127f/*-3.402823e+38*/;\n  for (int k = 0; k < 32; ++k) {\n    float v = X[(((((int)blockIdx.x) * 8192) + (((int)threadIdx.x) * 32)) + k)];\n    if (lmax[0] < v) {\n      lmax[0] = v;\n    }\n  }\n  lmax[0] = max(lmax[0], __shfl_down_sync((uint)4294967295, lmax[0], 16, 32));\n  lmax[0] = max(lmax[0], __shfl_down_sync((uint)4294967295, lmax[0], 8, 32));\n  lmax[0] = max(lmax[0], __shfl_down_sync((uint)4294967295, lmax[0], 4, 32));\n  lmax[0] = max(lmax[0], __shfl_down_sync((uint)4294967295, lmax[0], 2, 32));\n  lmax[0] = max(lmax[0], __shfl_down_sync((uint)4294967295, lmax[0], 1, 32));\n  if ((((int)threadIdx.x) & 31) == 0) {\n    ((float*)smem_m)[(((int)threadIdx.x) >> 5)] = lmax[0];\n  }\n  __syncthreads();\n  for (int _lvl = 0; _lvl < 3; ++_lvl) {\n    if (((int)threadIdx.x) < (8 >> (_lvl + 1))) {\n      ((float*)smem_m)[((int)threadIdx.x)] = max(((float*)smem_m)[((int)threadIdx.x)], ((float*)smem_m)[(((int)threadIdx.x) + (8 >> (_lvl + 1)))]);\n    }\n    __syncthreads();\n  }\n  float row_max = ((float*)smem_m)[0];\n  lsum[0] = 0x0p+0f/*0.000000e+00*/;\n  for (int k_1 = 0; k_1 < 32; ++k_1) {\n    float e = expf((X[(((((int)blockIdx.x) * 8192) + (((int)threadIdx.x) * 32)) + k_1)] - row_max));\n    lexp[k_1] = e;\n    lsum[0] = (lsum[0] + e);\n  }\n  lsum[0] = (lsum[0] + __shfl_down_sync((uint)4294967295, lsum[0], 16, 32));\n  lsum[0] = (lsum[0] + __shfl_down_sync((uint)4294967295, lsum[0], 8, 32));\n  lsum[0] = (lsum[0] + __shfl_down_sync((uint)4294967295, lsum[0], 4, 32));\n  lsum[0] = (lsum[0] + __shfl_down_sync((uint)4294967295, lsum[0], 2, 32));\n  lsum[0] = (lsum[0] + __shfl_down_sync((uint)4294967295, lsum[0], 1, 32));\n  if ((((int)threadIdx.x) & 31) == 0) {\n    ((float*)smem_s)[(((int)threadIdx.x) >> 5)] = lsum[0];\n  }\n  __syncthreads();\n  for (int _lvl_1 = 0; _lvl_1 < 3; ++_lvl_1) {\n    if (((int)threadIdx.x) < (8 >> (_lvl_1 + 1))) {\n      ((float*)smem_s)[((int)threadIdx.x)] = (((float*)smem_s)[((int)threadIdx.x)] + ((float*)smem_s)[(((int)threadIdx.x) + (8 >> (_lvl_1 + 1)))]);\n    }\n    __syncthreads();\n  }\n  float inv_sum = (0x1p+0f/*1.000000e+00*/ / ((float*)smem_s)[0]);\n  for (int k_2 = 0; k_2 < 32; ++k_2) {\n    Out[(((((int)blockIdx.x) * 8192) + (((int)threadIdx.x) * 32)) + k_2)] = (lexp[k_2] * inv_sum);\n  }\n}\n\n",
+      "dynamic_allocation_accounting": "TileLang source allocations: stages*(As+Bs), lifetime-overlapped with Cs",
+      "dynamic_smem_bytes": 67584,
+      "epilogue": "smem_staged",
+      "epilogue_tile_bytes": 67584,
+      "grid": [
+        64,
+        8,
+        1
+      ],
+      "n_kernels": 2,
+      "operand_smem_bytes": 49152,
+      "shared_bytes": 67584,
+      "shared_epilogue_bytes": 67584,
+      "total_dynamic_shared_bytes": 67584,
+      "total_dynamic_smem_bytes": 67584,
+      "wcache": "cached"
+    },
+    "build_wall_s": 7.203275851003127,
+    "builder": "crossed-v2:tilelang-smem",
+    "epilogue_request": "smem",
+    "implementation_sha256": "c5b3aa8275793827662f19c0b09ffc98fbbc6030803e5647d5ccc8db615f67b2",
+    "isolated_artifact_root": "/home/lxt230026/tmp/fused_epilogue_crossed_v2/pid496745/smem_staged.tilelang.g01",
+    "n_kernels": 2,
+    "notes": "crossed-v1 TileLang explicitly shared-staged bias/exact-GELU plus common softmax"
+  },
+  "build_wall_s": 146.76049549299933,
+  "campaign_id": "fused-epilogue-crossed-v2",
+  "cell": {
+    "cell_id": "smem_staged.tilelang.g01",
+    "cell_index": 77,
+    "grid_id": "g01",
+    "grid_index": 1,
+    "lane": "tilelang",
+    "origin_job": {
+      "dsl": "tilelang",
+      "geom": "fused",
+      "grid_id": "g01",
+      "grid_index": 1,
+      "job_id": "tilelang.g01",
+      "set": "BM=128,BN=128,BK=32,threads=256,stages=3,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=smem",
+      "variant": "GBGS"
+    },
+    "origin_job_sha256": "312f4b630296fb199fdf6dc7e695b2bc5382dfc54b002d27b148c2659f73ec0a",
+    "requested": true,
+    "strategy": "smem_staged",
+    "support_declared": true,
+    "support_detail": "supported by an inspected checked builder",
+    "support_probe_key": null
+  },
+  "cell_sha256": "6dfebb1b8922d0f1bcfc95311ece792693bfbb0e2c2171bebc0f5aab2dd885df",
+  "created_utc": "2026-08-01T16:51:41.691248+00:00",
+  "gate_attempted": true,
+  "gate_jsonl_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r1/audit/gate/smem_staged__tilelang__g01.jsonl",
+  "gate_jsonl_sha256": "cbd11b3c1dc6bc1794a7b37731f732f5cc674c1f4b31fb676f6fc0c0613f14eb",
+  "gate_summary": {
+    "complete": true,
+    "expected_records": 512,
+    "failed_records": 0,
+    "full_gate_pass": true,
+    "max_over_threshold_ratio": 0.9595156558184215,
+    "max_over_threshold_ratio_by_metric": {
+      "conformance_mixed/max_abs_err": 0.2884864807128906,
+      "conformance_mixed/nrmse": 0.42456632096520674,
+      "conformance_mixed/row_sum_error_max": 0.9595156558184215,
+      "conformance_mixed/scaled_max_abs_err": 0.19663670089809912,
+      "conformance_mixed/sqrt_js_max": 0.21687461354351986,
+      "conformance_mixed/tv_max": 0.28892432453131445,
+      "semantic_mixed/max_abs_err": 0.37844748787867477,
+      "semantic_mixed/nrmse": 0.44633978331670643,
+      "semantic_mixed/row_sum_error_max": 0.9595156558184215,
+      "semantic_mixed/scaled_max_abs_err": 0.5337989698484292,
+      "semantic_mixed/sqrt_js_max": 0.7250444527851402,
+      "semantic_mixed/tv_max": 0.37965396437804105
+    },
+    "minimum_headroom_fraction": 0.040484344181578535,
+    "observed_records": 512,
+    "zero_threshold_max_observed_by_metric": {
+      "conformance_mixed/negative_count": 0.0,
+      "conformance_mixed/nonfinite_count": 0.0,
+      "semantic_mixed/negative_count": 0.0,
+      "semantic_mixed/nonfinite_count": 0.0
+    },
+    "zero_threshold_violation_records_by_metric": {}
+  },
+  "host": "cs265655.utdallas.edu",
+  "launch_lock_sha256": "43c6f38fe4c750dd5009111fe514416ac992451e7a50d033dadd227449ea6622",
+  "physical_gpu": 1,
+  "reported_compile_s": 7.1882439049950335,
+  "schema_version": 2,
+  "source_bundle_sha256": "7f4ab0d17b4d84d462741f64883b8a5dcb225925dab282e18281f346463faab7",
+  "terminal_outcome": "GATE_PASSED"
+}
