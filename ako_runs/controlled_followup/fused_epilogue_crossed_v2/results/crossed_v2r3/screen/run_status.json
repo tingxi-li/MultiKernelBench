@@ -1,0 +1,23 @@
+{
+  "campaign_id": "fused-epilogue-crossed-v2",
+  "complete": true,
+  "expected_records": 498,
+  "gpu_after": {
+    "clocks.mem": "10001",
+    "clocks.sm": "2715",
+    "compute_cap": "8.9",
+    "driver_version": "610.43.02",
+    "index": "0",
+    "memory.total": "49140",
+    "memory.used": "2",
+    "name": "NVIDIA RTX 6000 Ada Generation",
+    "power.limit": "300.00",
+    "pstate": "P0",
+    "temperature.gpu": "71",
+    "utilization.gpu": "21",
+    "uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae"
+  },
+  "launch_receipt_sha256": "bc54fe68db4eeefba98dbef4b35ba30f2af8ca1e38d55f38ea11a4b60f95c454",
+  "observed_records": 498,
+  "phase": "screen"
+}

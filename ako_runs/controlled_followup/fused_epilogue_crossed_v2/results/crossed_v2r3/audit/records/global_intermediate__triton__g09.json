@@ -1,0 +1,133 @@
+{
+  "build_attempted": true,
+  "build_metadata": {
+    "artifacts": {
+      "gemm": {
+        "backend_detail": "triton 3.6.0; tl.dot on fp16 operands -> mma.sync.m16n8k16.f32.f16.f16.f32; KC=2048 (chunk accumulator flushed into acc every 2048 of K); num_stages=2 (software pipeline ON), ptx cp.async=18, ptx mma.sync=64; cast=precast; grid=(64, 4) (plain 2-D, no swizzle); num_warps=8; no autotune, no split-K, no atomics",
+        "block": [
+          256,
+          1,
+          1
+        ],
+        "cubin_path": "/home/lxt230026/tmp/fused_epilogue_crossed_v2/pid1362737/global_intermediate.triton.g09/phase1/triton/triton.D.256x128x32.kc2048.s2.fp16.precast.cubin",
+        "dynamic_smem_bytes": 57344,
+        "epilogue_tile_bytes": null,
+        "grid": [
+          64,
+          4
+        ],
+        "n_regs": 255,
+        "n_spills": 172,
+        "num_stages": 2,
+        "num_warps": 8,
+        "operand_smem_bytes": null,
+        "ptx": {
+          "bytes": 63029,
+          "sha256": "6c9b2a64f4ae3948e239a1e4800a13b4df9dc3cd7a3cabda7a0d59be67b4cc2c"
+        },
+        "ptx_cp_async_count": 18,
+        "ptx_mma_sync_count": 64,
+        "ptx_path": "/home/lxt230026/tmp/fused_epilogue_crossed_v2/pid1362737/global_intermediate.triton.g09/phase1/triton/triton.D.256x128x32.kc2048.s2.fp16.precast.ptx",
+        "shared_bytes": 57344,
+        "total_dynamic_shared_bytes": 57344,
+        "total_dynamic_smem_bytes": 57344
+      },
+      "postprocess": {
+        "backend_detail": "common CUDA compile-time bias/GELU plus row-softmax",
+        "block": [
+          256,
+          1,
+          1
+        ],
+        "cuda_source_sha256": "788714f21a6cbe343a81b997a03928ad7965599c58aa87c1a1129b41333e8368",
+        "epilogue_tile_bytes": 0,
+        "grid": [
+          1024,
+          1,
+          1
+        ],
+        "has_bias": true,
+        "has_gelu": true,
+        "n_kernels": 1,
+        "operand_smem_bytes": 0,
+        "shared_bytes": 0,
+        "softmax_source_sha256": "758a6ad3dc8f4635cd1146dd9c6fd102b590410ce4f710c10c72f470d2bbf96f",
+        "total_dynamic_shared_bytes": 0
+      },
+      "strategy": "global_intermediate"
+    },
+    "build_wall_s": 0.02329772899975069,
+    "builder": "phase1:triton+crossed-v2:common-postprocess",
+    "common_softmax_source_sha256": "758a6ad3dc8f4635cd1146dd9c6fd102b590410ce4f710c10c72f470d2bbf96f",
+    "implementation_sha256": "e2f9119f190ff044a82f18c98b1afbd0618bd5280a97d524dd5b6b1a040da8bb",
+    "isolated_artifact_root": "/home/lxt230026/tmp/fused_epilogue_crossed_v2/pid1362737/global_intermediate.triton.g09",
+    "n_kernels": 2,
+    "notes": "lane-native GEMM plus common bias+exact-GELU+softmax"
+  },
+  "build_wall_s": 134.90908665499592,
+  "campaign_id": "fused-epilogue-crossed-v2",
+  "cell": {
+    "cell_id": "global_intermediate.triton.g09",
+    "cell_index": 180,
+    "grid_id": "g09",
+    "grid_index": 9,
+    "lane": "triton",
+    "origin_job": {
+      "dsl": "triton",
+      "geom": "fused",
+      "grid_id": "g09",
+      "grid_index": 9,
+      "job_id": "triton.g09",
+      "set": "BM=256,BN=128,BK=32,threads=256,stages=2,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=smem",
+      "variant": "GBGS"
+    },
+    "origin_job_sha256": "4e2355f36eaa95f1faae5a7f75f9187a1d011a88cb543b41508f3601da2f0435",
+    "requested": true,
+    "strategy": "global_intermediate",
+    "support_declared": true,
+    "support_detail": "supported by an inspected checked builder",
+    "support_probe_key": null
+  },
+  "cell_sha256": "1dd9aff7a5bd13b9325ae188c234a3ba18adf26b9b922a66b15649282ff7fee5",
+  "created_utc": "2026-08-02T04:41:05.312011+00:00",
+  "gate_attempted": true,
+  "gate_jsonl_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/gate/global_intermediate__triton__g09.jsonl",
+  "gate_jsonl_sha256": "744125d634ccaf822961e46cdbdb860f052dede4f02f11e7de36a08b1ec168c3",
+  "gate_summary": {
+    "complete": true,
+    "expected_records": 512,
+    "failed_records": 0,
+    "full_gate_pass": true,
+    "max_over_threshold_ratio": 0.9633653546003984,
+    "max_over_threshold_ratio_by_metric": {
+      "conformance_mixed/max_abs_err": 0.2884864807128906,
+      "conformance_mixed/nrmse": 0.4252176393522083,
+      "conformance_mixed/row_sum_error_max": 0.9633653546003984,
+      "conformance_mixed/scaled_max_abs_err": 0.19746902555798526,
+      "conformance_mixed/sqrt_js_max": 0.21692588526674558,
+      "conformance_mixed/tv_max": 0.2888564036901409,
+      "semantic_mixed/max_abs_err": 0.37844748787867477,
+      "semantic_mixed/nrmse": 0.446346721228331,
+      "semantic_mixed/row_sum_error_max": 0.9633653546003984,
+      "semantic_mixed/scaled_max_abs_err": 0.533779464248654,
+      "semantic_mixed/sqrt_js_max": 0.7250454120354177,
+      "semantic_mixed/tv_max": 0.3796545615401497
+    },
+    "minimum_headroom_fraction": 0.036634645399601595,
+    "observed_records": 512,
+    "zero_threshold_max_observed_by_metric": {
+      "conformance_mixed/negative_count": 0.0,
+      "conformance_mixed/nonfinite_count": 0.0,
+      "semantic_mixed/negative_count": 0.0,
+      "semantic_mixed/nonfinite_count": 0.0
+    },
+    "zero_threshold_violation_records_by_metric": {}
+  },
+  "host": "cs265655.utdallas.edu",
+  "launch_lock_sha256": "206b75387acf4d60b688a8e19b3aff094a8ef69d5a0a1b72269d8b24f48be1b6",
+  "physical_gpu": 0,
+  "reported_compile_s": 0.022783325010095723,
+  "schema_version": 2,
+  "source_bundle_sha256": "abe6873e89686ca94a2dc096b633feff615c7dbfd8fb4e91546850ed26cae20b",
+  "terminal_outcome": "GATE_PASSED"
+}

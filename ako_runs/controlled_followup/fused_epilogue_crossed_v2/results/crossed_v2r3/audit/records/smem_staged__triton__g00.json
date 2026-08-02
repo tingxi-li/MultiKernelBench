@@ -1,0 +1,39 @@
+{
+  "build_attempted": false,
+  "campaign_id": "fused-epilogue-crossed-v2",
+  "cell": {
+    "cell_id": "smem_staged.triton.g00",
+    "cell_index": 95,
+    "grid_id": "g00",
+    "grid_index": 0,
+    "lane": "triton",
+    "origin_job": {
+      "dsl": "triton",
+      "geom": "fused",
+      "grid_id": "g00",
+      "grid_index": 0,
+      "job_id": "triton.g00",
+      "set": "BM=128,BN=128,BK=32,threads=256,stages=2,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=smem",
+      "variant": "GBGS"
+    },
+    "origin_job_sha256": "f2d746c75bc9b2492ce215d6a446d9ab4eeb657513cd336215d33ecdfb94660f",
+    "requested": true,
+    "strategy": "smem_staged",
+    "support_declared": false,
+    "support_detail": "measured unsupported by triton_smem 19-grid probe",
+    "support_probe_key": "triton_smem"
+  },
+  "cell_sha256": "05c97f4d90b053949dfc9cbdf63946b51c2d880f867d9cb3b868b2b89002eb89",
+  "created_utc": "2026-08-02T04:11:18.328662+00:00",
+  "gate_attempted": false,
+  "host": "cs265655.utdallas.edu",
+  "launch_lock_sha256": "206b75387acf4d60b688a8e19b3aff094a8ef69d5a0a1b72269d8b24f48be1b6",
+  "physical_gpu": 3,
+  "schema_version": 2,
+  "source_bundle_sha256": "abe6873e89686ca94a2dc096b633feff615c7dbfd8fb4e91546850ed26cae20b",
+  "support_probe_index_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/support_probes/triton_smem/index.json",
+  "support_probe_index_sha256": "090cfa2863e23c9f14ccb4ad37ba6f15786a01789e3df75982366beb209c0f25",
+  "support_probe_key": "triton_smem",
+  "terminal_outcome": "UNSUPPORTED",
+  "terminal_reason": "measured unsupported by triton_smem 19-grid probe"
+}

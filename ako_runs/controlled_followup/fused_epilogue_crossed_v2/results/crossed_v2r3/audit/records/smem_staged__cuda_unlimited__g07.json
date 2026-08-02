@@ -1,0 +1,38 @@
+{
+  "build_attempted": true,
+  "build_wall_s": 0.00017700500029604882,
+  "campaign_id": "fused-epilogue-crossed-v2",
+  "cell": {
+    "cell_id": "smem_staged.cuda_unlimited.g07",
+    "cell_index": 140,
+    "grid_id": "g07",
+    "grid_index": 7,
+    "lane": "cuda_unlimited",
+    "origin_job": {
+      "dsl": "cuda_unlimited",
+      "geom": "fused",
+      "grid_id": "g07",
+      "grid_index": 7,
+      "job_id": "cuda_unlimited.g07",
+      "set": "BM=128,BN=256,BK=32,threads=256,stages=4,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=smem",
+      "variant": "GBGS"
+    },
+    "origin_job_sha256": "d2a695579296f69d17e59cc5a0e21921f954e312ae47ef70caf58a1c3821b2dd",
+    "requested": true,
+    "strategy": "smem_staged",
+    "support_declared": true,
+    "support_detail": "supported by an inspected checked builder",
+    "support_probe_key": null
+  },
+  "cell_sha256": "d10ef1fd41c16b1d219386b7f47c820aec5a658040d8f69465a5082482219c21",
+  "created_utc": "2026-08-02T04:22:46.129931+00:00",
+  "error": "RuntimeError: dynamic shared memory 133120 B exceeds the sm_89 cap 101376 B",
+  "gate_attempted": false,
+  "host": "cs265655.utdallas.edu",
+  "launch_lock_sha256": "206b75387acf4d60b688a8e19b3aff094a8ef69d5a0a1b72269d8b24f48be1b6",
+  "physical_gpu": 0,
+  "schema_version": 2,
+  "source_bundle_sha256": "abe6873e89686ca94a2dc096b633feff615c7dbfd8fb4e91546850ed26cae20b",
+  "terminal_outcome": "BUILD_FAILED",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/fused_epilogue_crossed_v2/campaign_runner.py\", line 238, in _audit_cell\n    built = build(cell)\n  File \"/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/fused_epilogue_crossed_v2/candidates.py\", line 304, in build\n    return _build_tilelang_smem(cell) if lane == \"tilelang\" else _build_phase2(cell, \"smem\", \"GBGS\")\n                                                                 ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/fused_epilogue_crossed_v2/candidates.py\", line 169, in _build_phase2\n    built = v2_cuda_unlimited.build(cfg)\n  File \"/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/fused_epilogue_crossed_v2/cuda_unlimited.py\", line 197, in build\n    generated = make_source(cfg)\n  File \"/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/fused_epilogue_crossed_v2/cuda_unlimited.py\", line 146, in make_source\n    epilogue, apad, bpad, operand, epilogue_tile, dynamic = _geometry(cfg)\n                                                            ~~~~~~~~~^^^^^\n  File \"/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/fused_epilogue_crossed_v2/cuda_unlimited.py\", line 138, in _geometry\n    raise RuntimeError(\n    ...<2 lines>...\n    )\nRuntimeError: dynamic shared memory 133120 B exceeds the sm_89 cap 101376 B\n"
+}
