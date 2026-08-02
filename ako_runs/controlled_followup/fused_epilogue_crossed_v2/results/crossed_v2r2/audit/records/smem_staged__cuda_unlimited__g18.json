@@ -1,0 +1,113 @@
+{
+  "build_attempted": true,
+  "build_metadata": {
+    "artifacts": {
+      "backend_detail": "corrected inline-PTX MMA descendant; checked attribute and launches; source-level epilogue=smem; bias=True gelu=True; KCB=32; physical spills are reported by the per-kernel ptxas census when compilation is fresh",
+      "block": [
+        256,
+        1,
+        1
+      ],
+      "build_log_path": "/home/lxt230026/tmp/fused_epilogue_crossed_v2/pid864653/smem_staged.cuda_unlimited.g18/phase1/crossed_v2_unl_GBGS_128x64x64_t256_kc2048_s4_smem_97fab497.ptxas.log",
+      "cuda_source": {
+        "bytes": 17338,
+        "sha256": "97fab4973cd86b9a894adfa06227c6f7901a88538997a25cf4d9b31c821c5b62"
+      },
+      "cuda_source_sha256": "97fab4973cd86b9a894adfa06227c6f7901a88538997a25cf4d9b31c821c5b62",
+      "dynamic_smem_bytes": 98304,
+      "epilogue": "smem",
+      "epilogue_tile_bytes": 34816,
+      "epilogue_tile_shared_bytes": 34816,
+      "grid": [
+        128,
+        8,
+        1
+      ],
+      "has_bias": true,
+      "has_gelu": true,
+      "kernel_resources": null,
+      "kernel_resources_error": "ptxas log contains 0 entries for mma_gemm",
+      "n_kernels": 2,
+      "operand_shared_bytes": 98304,
+      "operand_smem_bytes": 98304,
+      "ptxas_log": "ninja: no work to do.\n",
+      "shared_bytes": 98304,
+      "total_dynamic_shared_bytes": 98304,
+      "total_dynamic_smem_bytes": 98304,
+      "wcache": "cached"
+    },
+    "build_wall_s": 0.03447235800558701,
+    "builder": "crossed-v2:cuda_unlimited:GBGS:smem",
+    "epilogue_request": "smem",
+    "implementation_sha256": "98c1991e9f18e013642807296f838d1d28d27ff3c869ee3807a9dbcc80f3cbb6",
+    "isolated_artifact_root": "/home/lxt230026/tmp/fused_epilogue_crossed_v2/pid864653/smem_staged.cuda_unlimited.g18",
+    "n_kernels": 2,
+    "notes": "crossed-v2 corrected cuda_unlimited GBGS epilogue=smem"
+  },
+  "build_wall_s": 134.43832076099352,
+  "campaign_id": "fused-epilogue-crossed-v2",
+  "cell": {
+    "cell_id": "smem_staged.cuda_unlimited.g18",
+    "cell_index": 151,
+    "grid_id": "g18",
+    "grid_index": 18,
+    "lane": "cuda_unlimited",
+    "origin_job": {
+      "dsl": "cuda_unlimited",
+      "geom": "fused",
+      "grid_id": "g18",
+      "grid_index": 18,
+      "job_id": "cuda_unlimited.g18",
+      "set": "BM=128,BN=64,BK=64,threads=256,stages=4,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=smem",
+      "variant": "GBGS"
+    },
+    "origin_job_sha256": "668c6daf82c8060ad722d75d2b77e5de3b0a0f5478c729d4692c4045eea2c718",
+    "requested": true,
+    "strategy": "smem_staged",
+    "support_declared": true,
+    "support_detail": "supported by an inspected checked builder",
+    "support_probe_key": null
+  },
+  "cell_sha256": "f8ef86e393b1d91ec9760f6758c9eefe9e50082351da6cb27421250801a0c182",
+  "created_utc": "2026-08-01T23:12:09.307959+00:00",
+  "gate_attempted": true,
+  "gate_jsonl_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r2/audit/gate/smem_staged__cuda_unlimited__g18.jsonl",
+  "gate_jsonl_sha256": "0819b1b3cc428404c9676cad5e2f826e7463a696b6cc1777e3b2391b9ebd2475",
+  "gate_summary": {
+    "complete": true,
+    "expected_records": 512,
+    "failed_records": 0,
+    "full_gate_pass": true,
+    "max_over_threshold_ratio": 0.9633653546003984,
+    "max_over_threshold_ratio_by_metric": {
+      "conformance_mixed/max_abs_err": 0.2884864807128906,
+      "conformance_mixed/nrmse": 0.4252176393522083,
+      "conformance_mixed/row_sum_error_max": 0.9633653546003984,
+      "conformance_mixed/scaled_max_abs_err": 0.19746902555798526,
+      "conformance_mixed/sqrt_js_max": 0.21692588526674558,
+      "conformance_mixed/tv_max": 0.2888564036901409,
+      "semantic_mixed/max_abs_err": 0.37844748787867477,
+      "semantic_mixed/nrmse": 0.446346721228331,
+      "semantic_mixed/row_sum_error_max": 0.9633653546003984,
+      "semantic_mixed/scaled_max_abs_err": 0.533779464248654,
+      "semantic_mixed/sqrt_js_max": 0.7250454120354177,
+      "semantic_mixed/tv_max": 0.3796545615401497
+    },
+    "minimum_headroom_fraction": 0.036634645399601595,
+    "observed_records": 512,
+    "zero_threshold_max_observed_by_metric": {
+      "conformance_mixed/negative_count": 0.0,
+      "conformance_mixed/nonfinite_count": 0.0,
+      "semantic_mixed/negative_count": 0.0,
+      "semantic_mixed/nonfinite_count": 0.0
+    },
+    "zero_threshold_violation_records_by_metric": {}
+  },
+  "host": "cs265655.utdallas.edu",
+  "launch_lock_sha256": "aea48f30ded092dc101f1da6a8232c8fd6acf40519c88e099924e0b90f207542",
+  "physical_gpu": 3,
+  "reported_compile_s": 0.03425801498815417,
+  "schema_version": 2,
+  "source_bundle_sha256": "3be3c9e32a71b3d4941755db99e1e4994041f37f965c53d23504dff694b78b25",
+  "terminal_outcome": "GATE_PASSED"
+}

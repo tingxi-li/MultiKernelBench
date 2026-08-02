@@ -1,0 +1,38 @@
+{
+  "build_attempted": true,
+  "build_wall_s": 0.027076997997937724,
+  "campaign_id": "fused-epilogue-crossed-v2",
+  "cell": {
+    "cell_id": "smem_staged.cuda_noptx.g06",
+    "cell_index": 120,
+    "grid_id": "g06",
+    "grid_index": 6,
+    "lane": "cuda_noptx",
+    "origin_job": {
+      "dsl": "cuda_noptx",
+      "geom": "fused",
+      "grid_id": "g06",
+      "grid_index": 6,
+      "job_id": "cuda_noptx.g06",
+      "set": "BM=128,BN=256,BK=32,threads=256,stages=3,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=smem",
+      "variant": "GBGS"
+    },
+    "origin_job_sha256": "dde8665c584f5ac0df16ae4ca5c0d73ecd5045544e1a41721289dd2ef7359939",
+    "requested": true,
+    "strategy": "smem_staged",
+    "support_declared": true,
+    "support_detail": "supported by an inspected checked builder",
+    "support_probe_key": null
+  },
+  "cell_sha256": "6dfdf889cf77a9efb76b10f079fef36bf27173eef19bd1ab6a33392396c52a13",
+  "created_utc": "2026-08-01T23:05:36.151992+00:00",
+  "error": "RuntimeError: cudaFuncSetAttribute(133120) failed: invalid argument",
+  "gate_attempted": false,
+  "host": "cs265655.utdallas.edu",
+  "launch_lock_sha256": "aea48f30ded092dc101f1da6a8232c8fd6acf40519c88e099924e0b90f207542",
+  "physical_gpu": 0,
+  "schema_version": 2,
+  "source_bundle_sha256": "3be3c9e32a71b3d4941755db99e1e4994041f37f965c53d23504dff694b78b25",
+  "terminal_outcome": "BUILD_FAILED",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/fused_epilogue_crossed_v2/campaign_runner.py\", line 238, in _audit_cell\n    built = build(cell)\n  File \"/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/fused_epilogue_crossed_v2/candidates.py\", line 304, in build\n    return _build_tilelang_smem(cell) if lane == \"tilelang\" else _build_phase2(cell, \"smem\", \"GBGS\")\n                                                                 ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/fused_epilogue_crossed_v2/candidates.py\", line 173, in _build_phase2\n    built = variants2.build(\"fused\", cfg)\n  File \"/home/lxt230026/MultiKernelBench/ako_runs/phase2_fused_sdpa/variants2/__init__.py\", line 44, in build\n    return get_module(op, cfg.dsl).build(cfg)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^\n  File \"/home/lxt230026/MultiKernelBench/ako_runs/phase2_fused_sdpa/variants2/fused_cuda_noptx.py\", line 218, in build\n    mod.fused(xw, Bw, bw)\n    ~~~~~~~~~^^^^^^^^^^^^\nRuntimeError: cudaFuncSetAttribute(133120) failed: invalid argument\n"
+}

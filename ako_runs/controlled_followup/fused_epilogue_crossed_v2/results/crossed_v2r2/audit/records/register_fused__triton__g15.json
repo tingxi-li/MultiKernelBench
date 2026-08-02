@@ -1,0 +1,38 @@
+{
+  "build_attempted": true,
+  "build_wall_s": 0.0016624169948045164,
+  "campaign_id": "fused-epilogue-crossed-v2",
+  "cell": {
+    "cell_id": "register_fused.triton.g15",
+    "cell_index": 34,
+    "grid_id": "g15",
+    "grid_index": 15,
+    "lane": "triton",
+    "origin_job": {
+      "dsl": "triton",
+      "geom": "fused",
+      "grid_id": "g15",
+      "grid_index": 15,
+      "job_id": "triton.g15",
+      "set": "BM=64,BN=128,BK=64,threads=256,stages=4,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=smem",
+      "variant": "GBGS"
+    },
+    "origin_job_sha256": "537c70d438fd209850671985762541b18e311d6dd65ecf6446728852df8fde96",
+    "requested": true,
+    "strategy": "register_fused",
+    "support_declared": true,
+    "support_detail": "supported by an inspected checked builder",
+    "support_probe_key": null
+  },
+  "cell_sha256": "7993adc0e3a5a678d521a0b13011df7d826ff06fa1ca3c0395317c269ac4ca02",
+  "created_utc": "2026-08-01T22:27:09.963374+00:00",
+  "error": "OutOfResources: out of resource: shared memory, Required: 106496, Hardware limit: 101376. Reducing block sizes or `num_stages` may help.",
+  "gate_attempted": false,
+  "host": "cs265655.utdallas.edu",
+  "launch_lock_sha256": "aea48f30ded092dc101f1da6a8232c8fd6acf40519c88e099924e0b90f207542",
+  "physical_gpu": 2,
+  "schema_version": 2,
+  "source_bundle_sha256": "3be3c9e32a71b3d4941755db99e1e4994041f37f965c53d23504dff694b78b25",
+  "terminal_outcome": "BUILD_FAILED",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/fused_epilogue_crossed_v2/campaign_runner.py\", line 238, in _audit_cell\n    built = build(cell)\n  File \"/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/fused_epilogue_crossed_v2/candidates.py\", line 302, in build\n    return _build_phase2(cell, \"regs\", \"GBGS\")\n  File \"/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/fused_epilogue_crossed_v2/candidates.py\", line 173, in _build_phase2\n    built = variants2.build(\"fused\", cfg)\n  File \"/home/lxt230026/MultiKernelBench/ako_runs/phase2_fused_sdpa/variants2/__init__.py\", line 44, in build\n    return get_module(op, cfg.dsl).build(cfg)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^\n  File \"/home/lxt230026/MultiKernelBench/ako_runs/phase2_fused_sdpa/variants2/fused_triton.py\", line 162, in build\n    _fused_gemm_kernel[grid](\n    ~~~~~~~~~~~~~~~~~~~~~~~~^\n        xw, Bw, bw, Cw, M, N, K, xw.stride(0), xw.stride(1),\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<5 lines>...\n        HAS_BIAS=arm[\"bias\"], HAS_GELU=arm[\"gelu\"],\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        num_warps=num_warps, num_stages=num_stages)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/lxt230026/miniconda3/lib/python3.13/site-packages/triton/runtime/jit.py\", line 370, in <lambda>\n    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)\n                                   ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/lxt230026/miniconda3/lib/python3.13/site-packages/triton/runtime/jit.py\", line 743, in run\n    launch_metadata = kernel.launch_metadata(grid, stream, *bound_args.values())\n  File \"/home/lxt230026/miniconda3/lib/python3.13/site-packages/triton/compiler/compiler.py\", line 482, in launch_metadata\n    self._init_handles()\n    ~~~~~~~~~~~~~~~~~~^^\n  File \"/home/lxt230026/miniconda3/lib/python3.13/site-packages/triton/compiler/compiler.py\", line 456, in _init_handles\n    raise_(OutOfResources(self.metadata.shared, max_shared, \"shared memory\"))\n    ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/lxt230026/miniconda3/lib/python3.13/site-packages/triton/compiler/compiler.py\", line 448, in raise_\n    raise err\ntriton.runtime.errors.OutOfResources: out of resource: shared memory, Required: 106496, Hardware limit: 101376. Reducing block sizes or `num_stages` may help.\n"
+}

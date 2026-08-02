@@ -1,0 +1,45 @@
+{
+  "artifact_closure": {
+    "algorithm": "sha256(canonical_json(sorted([{path,sha256,size}])))",
+    "file_count": 1064,
+    "root": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r2",
+    "sha256": "0b2e9538fde871955c15fb3022c46743118b50fea11ff7617a7e5ab1fd573e2e",
+    "total_bytes": 805139083
+  },
+  "campaign_id": "fused-epilogue-crossed-v2",
+  "corrective_result_tag": "crossed_v2r3",
+  "created_utc": "2026-08-02T03:16:52+00:00",
+  "diagnosis": {
+    "effect": "the 304-cell audit and 498-record screen completed, but the frozen analyzer exited before writing confirmation_selection.json",
+    "exception": "NameError: name 'SHAM_BASE_CELL' is not defined",
+    "location": "analyze.py:screen_selection",
+    "mechanism": "analyze.py used the core SHAM_BASE_CELL constant in screen and confirmation validation without importing it",
+    "scientific_effect": "the retained audit and screen are non-controlling; confirmation was not launched and no post-hoc selection or overlay will promote these records"
+  },
+  "failed_result_tag": "crossed_v2r2",
+  "parent_git_commit": "ffc511ee96a3784d3d83845923eed05255b44143",
+  "parent_launch_lock_sha256": "aea48f30ded092dc101f1da6a8232c8fd6acf40519c88e099924e0b90f207542",
+  "parent_source_bundle_sha256": "3be3c9e32a71b3d4941755db99e1e4994041f37f965c53d23504dff694b78b25",
+  "record_type": "fused_crossed_v2_failed_analysis_incident_receipt",
+  "schema_version": 1,
+  "sealed_outcome_census": {
+    "audit_cell_records": 304,
+    "audit_summary": 1,
+    "confirmation_selection": 0,
+    "confirmation_timing_records": 0,
+    "gate_jsonl": 249,
+    "screen_timing_records": 498,
+    "sealed_terminal_outcomes": {
+      "BUILD_FAILED": 36,
+      "GATE_PASSED": 249,
+      "UNSUPPORTED": 19
+    },
+    "shard_receipts": 4,
+    "shard_statuses": 4
+  },
+  "summary_hashes": {
+    "audit_summary_sha256": "cd5833783e36bda87622b3fba9b2773d61ff816c429cc53d3991373a5988caa6",
+    "screen_launch_receipt_sha256": "19cc9a5f6df7da64931fabeae0609a43863f66e57f1299b321dec4ed60c5adf4",
+    "screen_run_status_sha256": "189d02e34c716f883acd3c9f51ec204b4c6434bf2d9e0442640413d70da4d649"
+  }
+}

@@ -1,0 +1,3519 @@
+{
+  "contract": {
+    "campaign_id": "fused-epilogue-crossed-v2",
+    "eligibility_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r2/audit_summary.json",
+    "eligibility_sha256": "cd5833783e36bda87622b3fba9b2773d61ff816c429cc53d3991373a5988caa6",
+    "execution_order": [
+      {
+        "cell_id": "register_common_postprocess.triton.g03",
+        "distribution": "positive",
+        "label": "register_common_postprocess.triton.g03",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.tilelang.g09",
+        "distribution": "positive",
+        "label": "register_common_postprocess.tilelang.g09",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_noptx.g04",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_noptx.g04",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.tilelang.g10",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g10",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.tilelang.g07",
+        "distribution": "positive",
+        "label": "register_common_postprocess.tilelang.g07",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "smem_staged.tilelang.g01",
+        "distribution": "positive",
+        "label": "smem_staged.tilelang.g01",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.tilelang.g14",
+        "distribution": "positive",
+        "label": "global_intermediate.tilelang.g14",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.cuda_noptx.g14",
+        "distribution": "positive",
+        "label": "register_fused.cuda_noptx.g14",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.cuda_noptx.g18",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_noptx.g18",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.cuda_noptx.g10",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_noptx.g10",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_unlimited.g13",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_unlimited.g13",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.triton.g04",
+        "distribution": "positive",
+        "label": "register_common_postprocess.triton.g04",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.cuda_noptx.g02",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_noptx.g02",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.tilelang.g05",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g05",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.cuda_unlimited.g08",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_unlimited.g08",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.cuda_unlimited.g11",
+        "distribution": "positive",
+        "label": "register_fused.cuda_unlimited.g11",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.triton.g14",
+        "distribution": "positive",
+        "label": "register_fused.triton.g14",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.triton.g09",
+        "distribution": "positive",
+        "label": "global_intermediate.triton.g09",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.tilelang.g01",
+        "distribution": "positive",
+        "label": "global_intermediate.tilelang.g01",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.tilelang.g08",
+        "distribution": "positive",
+        "label": "register_common_postprocess.tilelang.g08",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.triton.g12",
+        "distribution": "positive",
+        "label": "register_fused.triton.g12",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "smem_staged.tilelang.g15",
+        "distribution": "positive",
+        "label": "smem_staged.tilelang.g15",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.tilelang.g18",
+        "distribution": "positive",
+        "label": "register_common_postprocess.tilelang.g18",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.tilelang.g09",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g09",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.cuda_noptx.g03",
+        "distribution": "positive",
+        "label": "register_fused.cuda_noptx.g03",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.triton.g01",
+        "distribution": "positive",
+        "label": "register_fused.triton.g01",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.tilelang.g17",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g17",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_noptx.g13",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_noptx.g13",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.tilelang.g04",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g04",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.cuda_noptx.g08",
+        "distribution": "positive",
+        "label": "register_fused.cuda_noptx.g08",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.cuda_noptx.g01",
+        "distribution": "positive",
+        "label": "register_fused.cuda_noptx.g01",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.triton.g02",
+        "distribution": "positive",
+        "label": "global_intermediate.triton.g02",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "smem_staged.cuda_unlimited.g15",
+        "distribution": "positive",
+        "label": "smem_staged.cuda_unlimited.g15",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.triton.g03",
+        "distribution": "positive",
+        "label": "register_fused.triton.g03",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.cuda_noptx.g09",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_noptx.g09",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.triton.g09",
+        "distribution": "positive",
+        "label": "register_common_postprocess.triton.g09",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.triton.g13",
+        "distribution": "positive",
+        "label": "global_intermediate.triton.g13",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "smem_staged.tilelang.g17",
+        "distribution": "positive",
+        "label": "smem_staged.tilelang.g17",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.cuda_noptx.g05",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_noptx.g05",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.tilelang.g11",
+        "distribution": "positive",
+        "label": "global_intermediate.tilelang.g11",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.tilelang.g02",
+        "distribution": "positive",
+        "label": "register_common_postprocess.tilelang.g02",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_noptx.g00",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_noptx.g00",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.tilelang.g06",
+        "distribution": "positive",
+        "label": "global_intermediate.tilelang.g06",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.cuda_unlimited.g03",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_unlimited.g03",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_unlimited.g14",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_unlimited.g14",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.cuda_unlimited.g15",
+        "distribution": "positive",
+        "label": "register_fused.cuda_unlimited.g15",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.triton.g09",
+        "distribution": "positive",
+        "label": "register_fused.triton.g09",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.cuda_unlimited.g18",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_unlimited.g18",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.cuda_unlimited.g01",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_unlimited.g01",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.cuda_noptx.g12",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_noptx.g12",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.cuda_unlimited.g00",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_unlimited.g00",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.cuda_noptx.g16",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_noptx.g16",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.cuda_noptx.g07",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_noptx.g07",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "smem_staged.cuda_noptx.g04",
+        "distribution": "positive",
+        "label": "smem_staged.cuda_noptx.g04",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "smem_staged.tilelang.g16",
+        "distribution": "positive",
+        "label": "smem_staged.tilelang.g16",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.tilelang.g14",
+        "distribution": "positive",
+        "label": "register_common_postprocess.tilelang.g14",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_noptx.g16",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_noptx.g16",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "smem_staged.cuda_noptx.g01",
+        "distribution": "positive",
+        "label": "smem_staged.cuda_noptx.g01",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_unlimited.g15",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_unlimited.g15",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.tilelang.g10",
+        "distribution": "positive",
+        "label": "register_common_postprocess.tilelang.g10",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.triton.g08",
+        "distribution": "positive",
+        "label": "register_fused.triton.g08",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.cuda_unlimited.g10",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_unlimited.g10",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.triton.g06",
+        "distribution": "positive",
+        "label": "register_common_postprocess.triton.g06",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.cuda_noptx.g18",
+        "distribution": "positive",
+        "label": "register_fused.cuda_noptx.g18",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_noptx.g03",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_noptx.g03",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.cuda_noptx.g01",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_noptx.g01",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.tilelang.g12",
+        "distribution": "positive",
+        "label": "global_intermediate.tilelang.g12",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_unlimited.g06",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_unlimited.g06",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.cuda_unlimited.g00",
+        "distribution": "positive",
+        "label": "register_fused.cuda_unlimited.g00",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.tilelang.g07",
+        "distribution": "positive",
+        "label": "global_intermediate.tilelang.g07",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.triton.g08",
+        "distribution": "positive",
+        "label": "register_common_postprocess.triton.g08",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.triton.g05",
+        "distribution": "positive",
+        "label": "register_common_postprocess.triton.g05",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "smem_staged.cuda_unlimited.g01",
+        "distribution": "positive",
+        "label": "smem_staged.cuda_unlimited.g01",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.tilelang.g14",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g14",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_noptx.g17",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_noptx.g17",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.cuda_unlimited.g16",
+        "distribution": "positive",
+        "label": "register_fused.cuda_unlimited.g16",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.triton.g17",
+        "distribution": "positive",
+        "label": "register_fused.triton.g17",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "smem_staged.cuda_unlimited.g13",
+        "distribution": "positive",
+        "label": "smem_staged.cuda_unlimited.g13",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.tilelang.g03",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g03",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_unlimited.g04",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_unlimited.g04",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.tilelang.g08",
+        "distribution": "positive",
+        "label": "global_intermediate.tilelang.g08",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_noptx.g18",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_noptx.g18",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.triton.g08",
+        "distribution": "positive",
+        "label": "global_intermediate.triton.g08",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "smem_staged.cuda_unlimited.g14",
+        "distribution": "positive",
+        "label": "smem_staged.cuda_unlimited.g14",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.tilelang.g01",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g01",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.cuda_unlimited.g03",
+        "distribution": "positive",
+        "label": "register_fused.cuda_unlimited.g03",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.tilelang.g13",
+        "distribution": "positive",
+        "label": "register_common_postprocess.tilelang.g13",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_unlimited.g11",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_unlimited.g11",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.cuda_noptx.g13",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_noptx.g13",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "smem_staged.tilelang.g14",
+        "distribution": "positive",
+        "label": "smem_staged.tilelang.g14",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.tilelang.g05",
+        "distribution": "positive",
+        "label": "register_common_postprocess.tilelang.g05",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.cuda_unlimited.g14",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_unlimited.g14",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.triton.g17",
+        "distribution": "positive",
+        "label": "global_intermediate.triton.g17",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_unlimited.g07",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_unlimited.g07",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_noptx.g14",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_noptx.g14",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_noptx.g02",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_noptx.g02",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "smem_staged.cuda_unlimited.g17",
+        "distribution": "positive",
+        "label": "smem_staged.cuda_unlimited.g17",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.tilelang.g09",
+        "distribution": "positive",
+        "label": "global_intermediate.tilelang.g09",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.triton.g13",
+        "distribution": "positive",
+        "label": "register_common_postprocess.triton.g13",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.cuda_unlimited.g16",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_unlimited.g16",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "smem_staged.cuda_unlimited.g16",
+        "distribution": "positive",
+        "label": "smem_staged.cuda_unlimited.g16",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.tilelang.g04",
+        "distribution": "positive",
+        "label": "global_intermediate.tilelang.g04",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "smem_staged.tilelang.g04",
+        "distribution": "positive",
+        "label": "smem_staged.tilelang.g04",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.tilelang.g06",
+        "distribution": "positive",
+        "label": "register_common_postprocess.tilelang.g06",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_noptx.g12",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_noptx.g12",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.cuda_unlimited.g13",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_unlimited.g13",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_unlimited.g10",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_unlimited.g10",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.triton.g06",
+        "distribution": "positive",
+        "label": "global_intermediate.triton.g06",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.cuda_noptx.g14",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_noptx.g14",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.triton.g16",
+        "distribution": "positive",
+        "label": "register_common_postprocess.triton.g16",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.cuda_unlimited.g06",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_unlimited.g06",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.cuda_noptx.g06",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_noptx.g06",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.tilelang.g13",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g13",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "smem_staged.tilelang.g13",
+        "distribution": "positive",
+        "label": "smem_staged.tilelang.g13",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.tilelang.g03",
+        "distribution": "positive",
+        "label": "register_common_postprocess.tilelang.g03",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.tilelang.g15",
+        "distribution": "positive",
+        "label": "global_intermediate.tilelang.g15",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "smem_staged.tilelang.g02",
+        "distribution": "positive",
+        "label": "smem_staged.tilelang.g02",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.triton.g00",
+        "distribution": "positive",
+        "label": "global_intermediate.triton.g00",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.cuda_unlimited.g05",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_unlimited.g05",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.cuda_noptx.g02",
+        "distribution": "positive",
+        "label": "register_fused.cuda_noptx.g02",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_unlimited.g01",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_unlimited.g01",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.cuda_noptx.g05",
+        "distribution": "positive",
+        "label": "register_fused.cuda_noptx.g05",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.cuda_noptx.g06",
+        "distribution": "positive",
+        "label": "register_fused.cuda_noptx.g06",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.cuda_unlimited.g17",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_unlimited.g17",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "smem_staged.cuda_noptx.g15",
+        "distribution": "positive",
+        "label": "smem_staged.cuda_noptx.g15",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "smem_staged.cuda_unlimited.g03",
+        "distribution": "positive",
+        "label": "smem_staged.cuda_unlimited.g03",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_noptx.g10",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_noptx.g10",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.triton.g01",
+        "distribution": "positive",
+        "label": "global_intermediate.triton.g01",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.tilelang.g17",
+        "distribution": "positive",
+        "label": "global_intermediate.tilelang.g17",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.cuda_noptx.g04",
+        "distribution": "positive",
+        "label": "register_fused.cuda_noptx.g04",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_unlimited.g05",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_unlimited.g05",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "smem_staged.cuda_unlimited.g18",
+        "distribution": "positive",
+        "label": "smem_staged.cuda_unlimited.g18",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.tilelang.g06",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g06",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_noptx.g15",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_noptx.g15",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.tilelang.g16",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g16",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.tilelang.g00",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g00",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "smem_staged.tilelang.g00",
+        "distribution": "positive",
+        "label": "smem_staged.tilelang.g00",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_unlimited.g18",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_unlimited.g18",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.cuda_unlimited.g08",
+        "distribution": "positive",
+        "label": "register_fused.cuda_unlimited.g08",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.cuda_unlimited.g07",
+        "distribution": "positive",
+        "label": "register_fused.cuda_unlimited.g07",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.tilelang.g11",
+        "distribution": "positive",
+        "label": "register_common_postprocess.tilelang.g11",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.cuda_unlimited.g10",
+        "distribution": "positive",
+        "label": "register_fused.cuda_unlimited.g10",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "smem_staged.cuda_noptx.g17",
+        "distribution": "positive",
+        "label": "smem_staged.cuda_noptx.g17",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "positive",
+        "label": "register_common_postprocess.tilelang.g01",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.tilelang.g00",
+        "distribution": "positive",
+        "label": "register_common_postprocess.tilelang.g00",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "smem_staged.cuda_noptx.g13",
+        "distribution": "positive",
+        "label": "smem_staged.cuda_noptx.g13",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.triton.g00",
+        "distribution": "positive",
+        "label": "register_fused.triton.g00",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.cuda_unlimited.g05",
+        "distribution": "positive",
+        "label": "register_fused.cuda_unlimited.g05",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "smem_staged.tilelang.g18",
+        "distribution": "positive",
+        "label": "smem_staged.tilelang.g18",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.tilelang.g16",
+        "distribution": "positive",
+        "label": "register_common_postprocess.tilelang.g16",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "smem_staged.tilelang.g03",
+        "distribution": "positive",
+        "label": "smem_staged.tilelang.g03",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.cuda_noptx.g09",
+        "distribution": "positive",
+        "label": "register_fused.cuda_noptx.g09",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.tilelang.g13",
+        "distribution": "positive",
+        "label": "global_intermediate.tilelang.g13",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.triton.g01",
+        "distribution": "positive",
+        "label": "register_common_postprocess.triton.g01",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.triton.g12",
+        "distribution": "positive",
+        "label": "register_common_postprocess.triton.g12",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_unlimited.g03",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_unlimited.g03",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.cuda_noptx.g12",
+        "distribution": "positive",
+        "label": "register_fused.cuda_noptx.g12",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.triton.g16",
+        "distribution": "positive",
+        "label": "global_intermediate.triton.g16",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.tilelang.g03",
+        "distribution": "positive",
+        "label": "global_intermediate.tilelang.g03",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.cuda_noptx.g13",
+        "distribution": "positive",
+        "label": "register_fused.cuda_noptx.g13",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_noptx.g05",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_noptx.g05",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "smem_staged.cuda_unlimited.g00",
+        "distribution": "positive",
+        "label": "smem_staged.cuda_unlimited.g00",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.cuda_unlimited.g04",
+        "distribution": "positive",
+        "label": "register_fused.cuda_unlimited.g04",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.tilelang.g00",
+        "distribution": "positive",
+        "label": "global_intermediate.tilelang.g00",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.triton.g05",
+        "distribution": "positive",
+        "label": "global_intermediate.triton.g05",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.cuda_noptx.g00",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_noptx.g00",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.cuda_noptx.g11",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_noptx.g11",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.cuda_unlimited.g06",
+        "distribution": "positive",
+        "label": "register_fused.cuda_unlimited.g06",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.triton.g17",
+        "distribution": "positive",
+        "label": "register_common_postprocess.triton.g17",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.cuda_noptx.g15",
+        "distribution": "positive",
+        "label": "register_fused.cuda_noptx.g15",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.cuda_unlimited.g15",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_unlimited.g15",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.tilelang.g11",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g11",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.cuda_unlimited.g09",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_unlimited.g09",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.tilelang.g10",
+        "distribution": "positive",
+        "label": "global_intermediate.tilelang.g10",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.cuda_unlimited.g04",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_unlimited.g04",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_noptx.g01",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_noptx.g01",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.cuda_unlimited.g09",
+        "distribution": "positive",
+        "label": "register_fused.cuda_unlimited.g09",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.tilelang.g15",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g15",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_noptx.g07",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_noptx.g07",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.triton.g04",
+        "distribution": "positive",
+        "label": "register_fused.triton.g04",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "smem_staged.cuda_unlimited.g02",
+        "distribution": "positive",
+        "label": "smem_staged.cuda_unlimited.g02",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.cuda_unlimited.g12",
+        "distribution": "positive",
+        "label": "register_fused.cuda_unlimited.g12",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_noptx.g09",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_noptx.g09",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.tilelang.g05",
+        "distribution": "positive",
+        "label": "global_intermediate.tilelang.g05",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.cuda_unlimited.g13",
+        "distribution": "positive",
+        "label": "register_fused.cuda_unlimited.g13",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_noptx.g06",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_noptx.g06",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.triton.g00",
+        "distribution": "positive",
+        "label": "register_common_postprocess.triton.g00",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.cuda_noptx.g10",
+        "distribution": "positive",
+        "label": "register_fused.cuda_noptx.g10",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.tilelang.g04",
+        "distribution": "positive",
+        "label": "register_common_postprocess.tilelang.g04",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.tilelang.g12",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g12",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.triton.g16",
+        "distribution": "positive",
+        "label": "register_fused.triton.g16",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.cuda_unlimited.g18",
+        "distribution": "positive",
+        "label": "register_fused.cuda_unlimited.g18",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.tilelang.g16",
+        "distribution": "positive",
+        "label": "global_intermediate.tilelang.g16",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.triton.g05",
+        "distribution": "positive",
+        "label": "register_fused.triton.g05",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.cuda_noptx.g17",
+        "distribution": "positive",
+        "label": "register_fused.cuda_noptx.g17",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.cuda_unlimited.g07",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_unlimited.g07",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.cuda_unlimited.g01",
+        "distribution": "positive",
+        "label": "register_fused.cuda_unlimited.g01",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.cuda_unlimited.g11",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_unlimited.g11",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.tilelang.g15",
+        "distribution": "positive",
+        "label": "register_common_postprocess.tilelang.g15",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.triton.g02",
+        "distribution": "positive",
+        "label": "register_common_postprocess.triton.g02",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.tilelang.g18",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g18",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.tilelang.g02",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g02",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.triton.g10",
+        "distribution": "positive",
+        "label": "global_intermediate.triton.g10",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.triton.g06",
+        "distribution": "positive",
+        "label": "register_fused.triton.g06",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_unlimited.g02",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_unlimited.g02",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_noptx.g11",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_noptx.g11",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "smem_staged.cuda_noptx.g02",
+        "distribution": "positive",
+        "label": "smem_staged.cuda_noptx.g02",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.cuda_noptx.g00",
+        "distribution": "positive",
+        "label": "register_fused.cuda_noptx.g00",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.cuda_unlimited.g17",
+        "distribution": "positive",
+        "label": "register_fused.cuda_unlimited.g17",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.tilelang.g12",
+        "distribution": "positive",
+        "label": "register_common_postprocess.tilelang.g12",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.cuda_noptx.g08",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_noptx.g08",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.tilelang.g17",
+        "distribution": "positive",
+        "label": "register_common_postprocess.tilelang.g17",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.cuda_noptx.g16",
+        "distribution": "positive",
+        "label": "register_fused.cuda_noptx.g16",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.cuda_unlimited.g12",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_unlimited.g12",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.cuda_noptx.g11",
+        "distribution": "positive",
+        "label": "register_fused.cuda_noptx.g11",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.cuda_unlimited.g14",
+        "distribution": "positive",
+        "label": "register_fused.cuda_unlimited.g14",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.triton.g03",
+        "distribution": "positive",
+        "label": "global_intermediate.triton.g03",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "smem_staged.cuda_unlimited.g04",
+        "distribution": "positive",
+        "label": "smem_staged.cuda_unlimited.g04",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "smem_staged.cuda_noptx.g16",
+        "distribution": "positive",
+        "label": "smem_staged.cuda_noptx.g16",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.triton.g10",
+        "distribution": "positive",
+        "label": "register_common_postprocess.triton.g10",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.cuda_unlimited.g02",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_unlimited.g02",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.triton.g14",
+        "distribution": "positive",
+        "label": "register_common_postprocess.triton.g14",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "smem_staged.cuda_noptx.g14",
+        "distribution": "positive",
+        "label": "smem_staged.cuda_noptx.g14",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.cuda_noptx.g04",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_noptx.g04",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.triton.g02",
+        "distribution": "positive",
+        "label": "register_fused.triton.g02",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.triton.g04",
+        "distribution": "positive",
+        "label": "global_intermediate.triton.g04",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_noptx.g08",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_noptx.g08",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_unlimited.g09",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_unlimited.g09",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.cuda_noptx.g15",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_noptx.g15",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.triton.g12",
+        "distribution": "positive",
+        "label": "global_intermediate.triton.g12",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.triton.g10",
+        "distribution": "positive",
+        "label": "register_fused.triton.g10",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_unlimited.g08",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_unlimited.g08",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.cuda_unlimited.g02",
+        "distribution": "positive",
+        "label": "register_fused.cuda_unlimited.g02",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_unlimited.g17",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_unlimited.g17",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.tilelang.g07",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g07",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "smem_staged.cuda_noptx.g18",
+        "distribution": "positive",
+        "label": "smem_staged.cuda_noptx.g18",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.cuda_noptx.g03",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_noptx.g03",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.tilelang.g18",
+        "distribution": "positive",
+        "label": "global_intermediate.tilelang.g18",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_unlimited.g12",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_unlimited.g12",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.cuda_noptx.g07",
+        "distribution": "positive",
+        "label": "register_fused.cuda_noptx.g07",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.cuda_noptx.g17",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_noptx.g17",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.triton.g14",
+        "distribution": "positive",
+        "label": "global_intermediate.triton.g14",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "smem_staged.cuda_noptx.g00",
+        "distribution": "positive",
+        "label": "smem_staged.cuda_noptx.g00",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "smem_staged.cuda_noptx.g03",
+        "distribution": "positive",
+        "label": "smem_staged.cuda_noptx.g03",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_unlimited.g16",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_unlimited.g16",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.triton.g13",
+        "distribution": "positive",
+        "label": "register_fused.triton.g13",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_unlimited.g00",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_unlimited.g00",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "register_fused.tilelang.g08",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g08",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.tilelang.g02",
+        "distribution": "positive",
+        "label": "global_intermediate.tilelang.g02",
+        "record_kind": "cell",
+        "rep": 0
+      },
+      {
+        "cell_id": "global_intermediate.tilelang.g11",
+        "distribution": "positive",
+        "label": "global_intermediate.tilelang.g11",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.tilelang.g02",
+        "distribution": "positive",
+        "label": "register_common_postprocess.tilelang.g02",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.cuda_unlimited.g13",
+        "distribution": "positive",
+        "label": "register_fused.cuda_unlimited.g13",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.cuda_unlimited.g10",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_unlimited.g10",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.tilelang.g08",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g08",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_noptx.g17",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_noptx.g17",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.triton.g05",
+        "distribution": "positive",
+        "label": "global_intermediate.triton.g05",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.triton.g03",
+        "distribution": "positive",
+        "label": "register_fused.triton.g03",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.cuda_noptx.g09",
+        "distribution": "positive",
+        "label": "register_fused.cuda_noptx.g09",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "smem_staged.tilelang.g03",
+        "distribution": "positive",
+        "label": "smem_staged.tilelang.g03",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.tilelang.g05",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g05",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.tilelang.g10",
+        "distribution": "positive",
+        "label": "global_intermediate.tilelang.g10",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.cuda_unlimited.g08",
+        "distribution": "positive",
+        "label": "register_fused.cuda_unlimited.g08",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.cuda_unlimited.g13",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_unlimited.g13",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.cuda_unlimited.g17",
+        "distribution": "positive",
+        "label": "register_fused.cuda_unlimited.g17",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.tilelang.g16",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g16",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.tilelang.g13",
+        "distribution": "positive",
+        "label": "register_common_postprocess.tilelang.g13",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.triton.g02",
+        "distribution": "positive",
+        "label": "register_fused.triton.g02",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.cuda_noptx.g01",
+        "distribution": "positive",
+        "label": "register_fused.cuda_noptx.g01",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_noptx.g05",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_noptx.g05",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.triton.g00",
+        "distribution": "positive",
+        "label": "register_fused.triton.g00",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.tilelang.g01",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g01",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.tilelang.g04",
+        "distribution": "positive",
+        "label": "global_intermediate.tilelang.g04",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.cuda_unlimited.g18",
+        "distribution": "positive",
+        "label": "register_fused.cuda_unlimited.g18",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.triton.g10",
+        "distribution": "positive",
+        "label": "register_fused.triton.g10",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.cuda_noptx.g01",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_noptx.g01",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "smem_staged.tilelang.g15",
+        "distribution": "positive",
+        "label": "smem_staged.tilelang.g15",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.triton.g16",
+        "distribution": "positive",
+        "label": "global_intermediate.triton.g16",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.tilelang.g05",
+        "distribution": "positive",
+        "label": "global_intermediate.tilelang.g05",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.triton.g17",
+        "distribution": "positive",
+        "label": "register_common_postprocess.triton.g17",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.cuda_unlimited.g00",
+        "distribution": "positive",
+        "label": "register_fused.cuda_unlimited.g00",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.triton.g06",
+        "distribution": "positive",
+        "label": "global_intermediate.triton.g06",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_unlimited.g11",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_unlimited.g11",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "smem_staged.tilelang.g02",
+        "distribution": "positive",
+        "label": "smem_staged.tilelang.g02",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.cuda_unlimited.g18",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_unlimited.g18",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "smem_staged.tilelang.g01",
+        "distribution": "positive",
+        "label": "smem_staged.tilelang.g01",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_unlimited.g13",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_unlimited.g13",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.tilelang.g18",
+        "distribution": "positive",
+        "label": "register_common_postprocess.tilelang.g18",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_noptx.g06",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_noptx.g06",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "smem_staged.cuda_unlimited.g18",
+        "distribution": "positive",
+        "label": "smem_staged.cuda_unlimited.g18",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "smem_staged.cuda_unlimited.g16",
+        "distribution": "positive",
+        "label": "smem_staged.cuda_unlimited.g16",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.cuda_noptx.g18",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_noptx.g18",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "smem_staged.cuda_unlimited.g02",
+        "distribution": "positive",
+        "label": "smem_staged.cuda_unlimited.g02",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.cuda_unlimited.g09",
+        "distribution": "positive",
+        "label": "register_fused.cuda_unlimited.g09",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.cuda_noptx.g06",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_noptx.g06",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.cuda_unlimited.g05",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_unlimited.g05",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.cuda_noptx.g17",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_noptx.g17",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "smem_staged.cuda_unlimited.g15",
+        "distribution": "positive",
+        "label": "smem_staged.cuda_unlimited.g15",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_unlimited.g16",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_unlimited.g16",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.tilelang.g07",
+        "distribution": "positive",
+        "label": "global_intermediate.tilelang.g07",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.triton.g03",
+        "distribution": "positive",
+        "label": "global_intermediate.triton.g03",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.cuda_unlimited.g05",
+        "distribution": "positive",
+        "label": "register_fused.cuda_unlimited.g05",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.cuda_unlimited.g03",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_unlimited.g03",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_noptx.g02",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_noptx.g02",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.cuda_unlimited.g08",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_unlimited.g08",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_unlimited.g06",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_unlimited.g06",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.tilelang.g17",
+        "distribution": "positive",
+        "label": "global_intermediate.tilelang.g17",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.cuda_noptx.g13",
+        "distribution": "positive",
+        "label": "register_fused.cuda_noptx.g13",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "smem_staged.cuda_noptx.g17",
+        "distribution": "positive",
+        "label": "smem_staged.cuda_noptx.g17",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.cuda_unlimited.g17",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_unlimited.g17",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.triton.g01",
+        "distribution": "positive",
+        "label": "global_intermediate.triton.g01",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.triton.g04",
+        "distribution": "positive",
+        "label": "register_common_postprocess.triton.g04",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.tilelang.g03",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g03",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.tilelang.g14",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g14",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.cuda_noptx.g13",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_noptx.g13",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.cuda_noptx.g18",
+        "distribution": "positive",
+        "label": "register_fused.cuda_noptx.g18",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.tilelang.g07",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g07",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.cuda_unlimited.g04",
+        "distribution": "positive",
+        "label": "register_fused.cuda_unlimited.g04",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_unlimited.g17",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_unlimited.g17",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "smem_staged.cuda_unlimited.g13",
+        "distribution": "positive",
+        "label": "smem_staged.cuda_unlimited.g13",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.triton.g16",
+        "distribution": "positive",
+        "label": "register_common_postprocess.triton.g16",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.triton.g04",
+        "distribution": "positive",
+        "label": "global_intermediate.triton.g04",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.tilelang.g15",
+        "distribution": "positive",
+        "label": "register_common_postprocess.tilelang.g15",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.triton.g05",
+        "distribution": "positive",
+        "label": "register_fused.triton.g05",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.tilelang.g00",
+        "distribution": "positive",
+        "label": "register_common_postprocess.tilelang.g00",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.cuda_noptx.g16",
+        "distribution": "positive",
+        "label": "register_fused.cuda_noptx.g16",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.cuda_unlimited.g02",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_unlimited.g02",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.cuda_noptx.g14",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_noptx.g14",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_unlimited.g05",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_unlimited.g05",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.cuda_unlimited.g07",
+        "distribution": "positive",
+        "label": "register_fused.cuda_unlimited.g07",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_noptx.g03",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_noptx.g03",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.triton.g14",
+        "distribution": "positive",
+        "label": "global_intermediate.triton.g14",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "smem_staged.tilelang.g00",
+        "distribution": "positive",
+        "label": "smem_staged.tilelang.g00",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "smem_staged.cuda_noptx.g04",
+        "distribution": "positive",
+        "label": "smem_staged.cuda_noptx.g04",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.cuda_unlimited.g12",
+        "distribution": "positive",
+        "label": "register_fused.cuda_unlimited.g12",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_unlimited.g10",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_unlimited.g10",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.tilelang.g15",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g15",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.cuda_unlimited.g15",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_unlimited.g15",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_unlimited.g04",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_unlimited.g04",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "smem_staged.cuda_noptx.g18",
+        "distribution": "positive",
+        "label": "smem_staged.cuda_noptx.g18",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.cuda_noptx.g17",
+        "distribution": "positive",
+        "label": "register_fused.cuda_noptx.g17",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_unlimited.g08",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_unlimited.g08",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.triton.g04",
+        "distribution": "positive",
+        "label": "register_fused.triton.g04",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.triton.g17",
+        "distribution": "positive",
+        "label": "register_fused.triton.g17",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.triton.g02",
+        "distribution": "positive",
+        "label": "global_intermediate.triton.g02",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_noptx.g04",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_noptx.g04",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.triton.g14",
+        "distribution": "positive",
+        "label": "register_fused.triton.g14",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "smem_staged.cuda_unlimited.g03",
+        "distribution": "positive",
+        "label": "smem_staged.cuda_unlimited.g03",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "smem_staged.cuda_noptx.g14",
+        "distribution": "positive",
+        "label": "smem_staged.cuda_noptx.g14",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.tilelang.g13",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g13",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.tilelang.g04",
+        "distribution": "positive",
+        "label": "register_common_postprocess.tilelang.g04",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.triton.g12",
+        "distribution": "positive",
+        "label": "register_fused.triton.g12",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.tilelang.g04",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g04",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.tilelang.g12",
+        "distribution": "positive",
+        "label": "global_intermediate.tilelang.g12",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "smem_staged.cuda_noptx.g15",
+        "distribution": "positive",
+        "label": "smem_staged.cuda_noptx.g15",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "smem_staged.cuda_noptx.g01",
+        "distribution": "positive",
+        "label": "smem_staged.cuda_noptx.g01",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.tilelang.g15",
+        "distribution": "positive",
+        "label": "global_intermediate.tilelang.g15",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.tilelang.g17",
+        "distribution": "positive",
+        "label": "register_common_postprocess.tilelang.g17",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.triton.g10",
+        "distribution": "positive",
+        "label": "global_intermediate.triton.g10",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.triton.g17",
+        "distribution": "positive",
+        "label": "global_intermediate.triton.g17",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_unlimited.g01",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_unlimited.g01",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.triton.g01",
+        "distribution": "positive",
+        "label": "register_fused.triton.g01",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.tilelang.g06",
+        "distribution": "positive",
+        "label": "register_common_postprocess.tilelang.g06",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.cuda_noptx.g06",
+        "distribution": "positive",
+        "label": "register_fused.cuda_noptx.g06",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.cuda_noptx.g02",
+        "distribution": "positive",
+        "label": "register_fused.cuda_noptx.g02",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.cuda_noptx.g12",
+        "distribution": "positive",
+        "label": "register_fused.cuda_noptx.g12",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.cuda_noptx.g00",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_noptx.g00",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.triton.g06",
+        "distribution": "positive",
+        "label": "register_fused.triton.g06",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.cuda_noptx.g04",
+        "distribution": "positive",
+        "label": "register_fused.cuda_noptx.g04",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.triton.g12",
+        "distribution": "positive",
+        "label": "register_common_postprocess.triton.g12",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.cuda_unlimited.g09",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_unlimited.g09",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_unlimited.g15",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_unlimited.g15",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.cuda_noptx.g08",
+        "distribution": "positive",
+        "label": "register_fused.cuda_noptx.g08",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.cuda_noptx.g08",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_noptx.g08",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_noptx.g15",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_noptx.g15",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "smem_staged.tilelang.g16",
+        "distribution": "positive",
+        "label": "smem_staged.tilelang.g16",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.cuda_unlimited.g07",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_unlimited.g07",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.cuda_noptx.g03",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_noptx.g03",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.cuda_unlimited.g16",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_unlimited.g16",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "smem_staged.cuda_unlimited.g04",
+        "distribution": "positive",
+        "label": "smem_staged.cuda_unlimited.g04",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_unlimited.g03",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_unlimited.g03",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.triton.g13",
+        "distribution": "positive",
+        "label": "register_common_postprocess.triton.g13",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.cuda_noptx.g09",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_noptx.g09",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.triton.g09",
+        "distribution": "positive",
+        "label": "register_fused.triton.g09",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.tilelang.g10",
+        "distribution": "positive",
+        "label": "register_common_postprocess.tilelang.g10",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.cuda_noptx.g14",
+        "distribution": "positive",
+        "label": "register_fused.cuda_noptx.g14",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.cuda_noptx.g16",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_noptx.g16",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.cuda_unlimited.g11",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_unlimited.g11",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_unlimited.g09",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_unlimited.g09",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.cuda_noptx.g11",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_noptx.g11",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "smem_staged.cuda_noptx.g13",
+        "distribution": "positive",
+        "label": "smem_staged.cuda_noptx.g13",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.cuda_noptx.g05",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_noptx.g05",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.cuda_noptx.g12",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_noptx.g12",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.tilelang.g13",
+        "distribution": "positive",
+        "label": "global_intermediate.tilelang.g13",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.tilelang.g16",
+        "distribution": "positive",
+        "label": "global_intermediate.tilelang.g16",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.cuda_unlimited.g01",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_unlimited.g01",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.cuda_noptx.g05",
+        "distribution": "positive",
+        "label": "register_fused.cuda_noptx.g05",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "smem_staged.tilelang.g13",
+        "distribution": "positive",
+        "label": "smem_staged.tilelang.g13",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.tilelang.g02",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g02",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_noptx.g13",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_noptx.g13",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_unlimited.g12",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_unlimited.g12",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "positive",
+        "label": "register_common_postprocess.tilelang.g01",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_unlimited.g18",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_unlimited.g18",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "smem_staged.tilelang.g04",
+        "distribution": "positive",
+        "label": "smem_staged.tilelang.g04",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.cuda_noptx.g07",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_noptx.g07",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_noptx.g11",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_noptx.g11",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.tilelang.g12",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g12",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.triton.g13",
+        "distribution": "positive",
+        "label": "global_intermediate.triton.g13",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.tilelang.g11",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g11",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.triton.g06",
+        "distribution": "positive",
+        "label": "register_common_postprocess.triton.g06",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.cuda_noptx.g11",
+        "distribution": "positive",
+        "label": "register_fused.cuda_noptx.g11",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.tilelang.g16",
+        "distribution": "positive",
+        "label": "register_common_postprocess.tilelang.g16",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.cuda_unlimited.g01",
+        "distribution": "positive",
+        "label": "register_fused.cuda_unlimited.g01",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.tilelang.g09",
+        "distribution": "positive",
+        "label": "register_common_postprocess.tilelang.g09",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.cuda_unlimited.g14",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_unlimited.g14",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.cuda_unlimited.g06",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_unlimited.g06",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.tilelang.g00",
+        "distribution": "positive",
+        "label": "global_intermediate.tilelang.g00",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "smem_staged.cuda_noptx.g03",
+        "distribution": "positive",
+        "label": "smem_staged.cuda_noptx.g03",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "smem_staged.cuda_unlimited.g01",
+        "distribution": "positive",
+        "label": "smem_staged.cuda_unlimited.g01",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.triton.g10",
+        "distribution": "positive",
+        "label": "register_common_postprocess.triton.g10",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.triton.g01",
+        "distribution": "positive",
+        "label": "register_common_postprocess.triton.g01",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_noptx.g12",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_noptx.g12",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.triton.g02",
+        "distribution": "positive",
+        "label": "register_common_postprocess.triton.g02",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.triton.g08",
+        "distribution": "positive",
+        "label": "global_intermediate.triton.g08",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.cuda_unlimited.g02",
+        "distribution": "positive",
+        "label": "register_fused.cuda_unlimited.g02",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.tilelang.g18",
+        "distribution": "positive",
+        "label": "global_intermediate.tilelang.g18",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.cuda_unlimited.g16",
+        "distribution": "positive",
+        "label": "register_fused.cuda_unlimited.g16",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.triton.g09",
+        "distribution": "positive",
+        "label": "register_common_postprocess.triton.g09",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.triton.g08",
+        "distribution": "positive",
+        "label": "register_fused.triton.g08",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.cuda_unlimited.g14",
+        "distribution": "positive",
+        "label": "register_fused.cuda_unlimited.g14",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.tilelang.g03",
+        "distribution": "positive",
+        "label": "global_intermediate.tilelang.g03",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.triton.g14",
+        "distribution": "positive",
+        "label": "register_common_postprocess.triton.g14",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.tilelang.g01",
+        "distribution": "positive",
+        "label": "global_intermediate.tilelang.g01",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.tilelang.g09",
+        "distribution": "positive",
+        "label": "global_intermediate.tilelang.g09",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_unlimited.g02",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_unlimited.g02",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "smem_staged.tilelang.g14",
+        "distribution": "positive",
+        "label": "smem_staged.tilelang.g14",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.tilelang.g07",
+        "distribution": "positive",
+        "label": "register_common_postprocess.tilelang.g07",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.tilelang.g17",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g17",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "smem_staged.cuda_noptx.g00",
+        "distribution": "positive",
+        "label": "smem_staged.cuda_noptx.g00",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.cuda_noptx.g04",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_noptx.g04",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.cuda_unlimited.g12",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_unlimited.g12",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_noptx.g01",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_noptx.g01",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_unlimited.g07",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_unlimited.g07",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.triton.g03",
+        "distribution": "positive",
+        "label": "register_common_postprocess.triton.g03",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.tilelang.g08",
+        "distribution": "positive",
+        "label": "register_common_postprocess.tilelang.g08",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.cuda_noptx.g02",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_noptx.g02",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.tilelang.g08",
+        "distribution": "positive",
+        "label": "global_intermediate.tilelang.g08",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.cuda_noptx.g00",
+        "distribution": "positive",
+        "label": "register_fused.cuda_noptx.g00",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "smem_staged.cuda_noptx.g02",
+        "distribution": "positive",
+        "label": "smem_staged.cuda_noptx.g02",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.tilelang.g00",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g00",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_noptx.g09",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_noptx.g09",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_noptx.g07",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_noptx.g07",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_noptx.g00",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_noptx.g00",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "smem_staged.cuda_unlimited.g14",
+        "distribution": "positive",
+        "label": "smem_staged.cuda_unlimited.g14",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.cuda_noptx.g15",
+        "distribution": "positive",
+        "label": "register_fused.cuda_noptx.g15",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "smem_staged.cuda_unlimited.g00",
+        "distribution": "positive",
+        "label": "smem_staged.cuda_unlimited.g00",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.tilelang.g02",
+        "distribution": "positive",
+        "label": "global_intermediate.tilelang.g02",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.tilelang.g06",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g06",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.cuda_noptx.g10",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_noptx.g10",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_noptx.g16",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_noptx.g16",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.triton.g13",
+        "distribution": "positive",
+        "label": "register_fused.triton.g13",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.triton.g00",
+        "distribution": "positive",
+        "label": "global_intermediate.triton.g00",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_noptx.g18",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_noptx.g18",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.triton.g08",
+        "distribution": "positive",
+        "label": "register_common_postprocess.triton.g08",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.tilelang.g11",
+        "distribution": "positive",
+        "label": "register_common_postprocess.tilelang.g11",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_noptx.g10",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_noptx.g10",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.tilelang.g18",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g18",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.tilelang.g10",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g10",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.cuda_noptx.g15",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_noptx.g15",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.tilelang.g14",
+        "distribution": "positive",
+        "label": "global_intermediate.tilelang.g14",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.tilelang.g03",
+        "distribution": "positive",
+        "label": "register_common_postprocess.tilelang.g03",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "smem_staged.tilelang.g17",
+        "distribution": "positive",
+        "label": "smem_staged.tilelang.g17",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "smem_staged.cuda_noptx.g16",
+        "distribution": "positive",
+        "label": "smem_staged.cuda_noptx.g16",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.cuda_unlimited.g04",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_unlimited.g04",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.triton.g00",
+        "distribution": "positive",
+        "label": "register_common_postprocess.triton.g00",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.cuda_unlimited.g03",
+        "distribution": "positive",
+        "label": "register_fused.cuda_unlimited.g03",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "smem_staged.cuda_unlimited.g17",
+        "distribution": "positive",
+        "label": "smem_staged.cuda_unlimited.g17",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_unlimited.g00",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_unlimited.g00",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_unlimited.g14",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_unlimited.g14",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.triton.g09",
+        "distribution": "positive",
+        "label": "global_intermediate.triton.g09",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.cuda_noptx.g10",
+        "distribution": "positive",
+        "label": "register_fused.cuda_noptx.g10",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.cuda_noptx.g03",
+        "distribution": "positive",
+        "label": "register_fused.cuda_noptx.g03",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.tilelang.g12",
+        "distribution": "positive",
+        "label": "register_common_postprocess.tilelang.g12",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.cuda_noptx.g07",
+        "distribution": "positive",
+        "label": "register_fused.cuda_noptx.g07",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.cuda_unlimited.g15",
+        "distribution": "positive",
+        "label": "register_fused.cuda_unlimited.g15",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.cuda_unlimited.g00",
+        "distribution": "positive",
+        "label": "global_intermediate.cuda_unlimited.g00",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_noptx.g08",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_noptx.g08",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_noptx.g14",
+        "distribution": "positive",
+        "label": "register_common_postprocess.cuda_noptx.g14",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.tilelang.g05",
+        "distribution": "positive",
+        "label": "register_common_postprocess.tilelang.g05",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "smem_staged.tilelang.g18",
+        "distribution": "positive",
+        "label": "smem_staged.tilelang.g18",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.tilelang.g14",
+        "distribution": "positive",
+        "label": "register_common_postprocess.tilelang.g14",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.cuda_unlimited.g10",
+        "distribution": "positive",
+        "label": "register_fused.cuda_unlimited.g10",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.cuda_unlimited.g06",
+        "distribution": "positive",
+        "label": "register_fused.cuda_unlimited.g06",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.tilelang.g09",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g09",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.triton.g16",
+        "distribution": "positive",
+        "label": "register_fused.triton.g16",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.triton.g12",
+        "distribution": "positive",
+        "label": "global_intermediate.triton.g12",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_common_postprocess.triton.g05",
+        "distribution": "positive",
+        "label": "register_common_postprocess.triton.g05",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "global_intermediate.tilelang.g06",
+        "distribution": "positive",
+        "label": "global_intermediate.tilelang.g06",
+        "record_kind": "cell",
+        "rep": 1
+      },
+      {
+        "cell_id": "register_fused.cuda_unlimited.g11",
+        "distribution": "positive",
+        "label": "register_fused.cuda_unlimited.g11",
+        "record_kind": "cell",
+        "rep": 1
+      }
+    ],
+    "git_commit": "ffc511ee96a3784d3d83845923eed05255b44143",
+    "launch_lock_sha256": "aea48f30ded092dc101f1da6a8232c8fd6acf40519c88e099924e0b90f207542",
+    "phase": "screen",
+    "physical_gpu": 0,
+    "source_bundle_sha256": "3be3c9e32a71b3d4941755db99e1e4994041f37f965c53d23504dff694b78b25",
+    "tag": "crossed_v2r2"
+  },
+  "created_utc": "2026-08-02T00:40:39.447945+00:00",
+  "gpu": {
+    "clocks.mem": "810",
+    "clocks.sm": "300",
+    "compute_cap": "8.9",
+    "driver_version": "610.43.02",
+    "index": "0",
+    "memory.total": "49140",
+    "memory.used": "2",
+    "name": "NVIDIA RTX 6000 Ada Generation",
+    "power.limit": "300.00",
+    "pstate": "P0",
+    "temperature.gpu": "63",
+    "utilization.gpu": "0",
+    "uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae"
+  },
+  "record_type": "fused_crossed_v2_timing_receipt",
+  "schema_version": 2
+}
