@@ -36,6 +36,12 @@ artifact closure and adjacent incident receipt are preserved as non-controlling;
 no timing ran and no post-hoc overlay will reuse it. The corrective result tag is
 `crossed_v2r2`.
 
+The `crossed_v2r2` audit and 498-record screen completed, but its frozen
+analyzer omitted the imported sham-base constant and exited before writing a
+confirmation selection. Its complete artifact closure and adjacent incident
+receipt are preserved as non-controlling; no confirmation ran and no post-hoc
+selection will reuse it. The corrective result tag is `crossed_v2r3`.
+
 ## CPU validation and probe preregistration
 
 ```bash
@@ -90,25 +96,25 @@ Audit shards may use the four frozen GPUs; timing is fixed to physical GPU 0:
 ```bash
 for shard in 0 1 2 3; do
   python ako_runs/controlled_followup/fused_epilogue_crossed_v2/campaign_runner.py audit \
-    --tag crossed_v2r2 --gpu "$shard" --shard-index "$shard" --shard-count 4
+    --tag crossed_v2r3 --gpu "$shard" --shard-index "$shard" --shard-count 4
 done
 python ako_runs/controlled_followup/fused_epilogue_crossed_v2/analyze.py audit \
-  --result-root ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r2 \
-  --out ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r2/audit_summary.json
+  --result-root ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3 \
+  --out ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit_summary.json
 python ako_runs/controlled_followup/fused_epilogue_crossed_v2/campaign_runner.py screen \
-  --tag crossed_v2r2 --gpu 0 \
-  --eligibility ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r2/audit_summary.json
+  --tag crossed_v2r3 --gpu 0 \
+  --eligibility ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit_summary.json
 python ako_runs/controlled_followup/fused_epilogue_crossed_v2/analyze.py screen \
-  --result-root ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r2 \
-  --audit-summary ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r2/audit_summary.json \
-  --out ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r2/confirmation_selection.json
+  --result-root ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3 \
+  --audit-summary ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit_summary.json \
+  --out ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/confirmation_selection.json
 python ako_runs/controlled_followup/fused_epilogue_crossed_v2/campaign_runner.py confirmation \
-  --tag crossed_v2r2 --gpu 0 \
-  --eligibility ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r2/confirmation_selection.json
+  --tag crossed_v2r3 --gpu 0 \
+  --eligibility ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/confirmation_selection.json
 python ako_runs/controlled_followup/fused_epilogue_crossed_v2/analyze.py confirmation \
-  --result-root ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r2 \
-  --selection ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r2/confirmation_selection.json \
-  --out ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r2/final_summary.json
+  --result-root ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3 \
+  --selection ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/confirmation_selection.json \
+  --out ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/final_summary.json
 ```
 
 Trials 60–99 are controlling. Full-window and first/last-decile drift summaries
@@ -120,9 +126,9 @@ Build and verify complete evidence only after the final summary is complete:
 
 ```bash
 python ako_runs/controlled_followup/fused_epilogue_crossed_v2/capture_evidence.py build \
-  --tag crossed_v2r2 \
-  --summary ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r2/final_summary.json \
-  --out-prefix ako_runs/controlled_followup/fused_epilogue_crossed_v2/evidence/crossed_v2r2_complete_v1
+  --tag crossed_v2r3 \
+  --summary ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/final_summary.json \
+  --out-prefix ako_runs/controlled_followup/fused_epilogue_crossed_v2/evidence/crossed_v2r3_complete_v1
 python ako_runs/controlled_followup/fused_epilogue_crossed_v2/capture_evidence.py verify \
-  --index ako_runs/controlled_followup/fused_epilogue_crossed_v2/evidence/crossed_v2r2_complete_v1.index.json
+  --index ako_runs/controlled_followup/fused_epilogue_crossed_v2/evidence/crossed_v2r3_complete_v1.index.json
 ```

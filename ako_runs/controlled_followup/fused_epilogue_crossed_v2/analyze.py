@@ -11,7 +11,7 @@ from typing import Any
 
 try:
     from .core import (
-        GRID_IDS, LANES, LOCK_PATH, REPO_ROOT, SHAM_LABELS, STRATEGIES,
+        GRID_IDS, LANES, LOCK_PATH, REPO_ROOT, SHAM_BASE_CELL, SHAM_LABELS, STRATEGIES,
         TERMINAL_AUDIT_OUTCOMES, canonical_sha256, confirmation_plan,
         effect_is_reportable, exact_median_interval, file_sha256, load_contract,
         read_json, resolution_floor, screen_plan, spearman_rank, stable_write,
@@ -23,6 +23,7 @@ except ImportError:  # direct script execution
     LANES,
     LOCK_PATH,
     REPO_ROOT,
+    SHAM_BASE_CELL,
     SHAM_LABELS,
     STRATEGIES,
     TERMINAL_AUDIT_OUTCOMES,

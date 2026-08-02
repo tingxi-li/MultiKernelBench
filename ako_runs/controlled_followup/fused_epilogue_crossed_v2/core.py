@@ -116,6 +116,7 @@ DEPENDENCY_PATHS = (
     "ako_runs/controlled_followup/legacy_cuda_harness_fix/checked_cuda_launch.h",
     "ako_runs/controlled_followup/fused_epilogue_crossed_v2/INCIDENT_CROSSED_V2_20260801.json",
     "ako_runs/controlled_followup/fused_epilogue_crossed_v2/INCIDENT_CROSSED_V2R1_20260801.json",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v2/INCIDENT_CROSSED_V2R2_20260801.json",
     "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/audit/receipts/shard00.json",
     "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/audit/receipts/shard01.json",
     "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/audit/receipts/shard02.json",

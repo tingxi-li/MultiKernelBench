@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import math
+import runpy
 import sys
 from collections import Counter
 from pathlib import Path
@@ -20,6 +21,12 @@ from ako_runs.controlled_followup.fused_epilogue_crossed_v2 import (
     core,
     validate as validation,
 )
+
+
+def test_analyzer_binds_sham_base_cell_in_both_import_modes():
+    assert analyze.SHAM_BASE_CELL == core.SHAM_BASE_CELL
+    direct = runpy.run_path(str(HERE / "analyze.py"), run_name="crossed_v2_analyze_test")
+    assert direct["SHAM_BASE_CELL"] == core.SHAM_BASE_CELL
 
 
 def test_requested_manifest_is_deterministic_304_cell_cross():
