@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "record_type": "gpu_dsl_experiment_kickoff_preflight",
+  "captured_at_utc": "2026-08-05T23:21:06Z",
+  "launch_attempted": false,
+  "launch_decision": "BLOCKED_BY_PREREQUISITES",
+  "repository": {
+    "branch": "cross-dsl-6op-ncu-redo",
+    "commit": "35165f2013237b3c4130919f8d283546e3c02faa",
+    "upstream_ref": "origin/cross-dsl-6op-ncu-redo",
+    "upstream_commit": "35165f2013237b3c4130919f8d283546e3c02faa",
+    "upstream_verified_at_utc": "2026-08-05T23:22:59Z",
+    "upstream_verification": "git ls-remote origin refs/heads/cross-dsl-6op-ncu-redo",
+    "worktree_clean": true
+  },
+  "bindings": {
+    "later_work_policy_sha256": "9963133ff8167078b743ccbaff433e75af61ba26c5f4dec637ad2c29393a32fd",
+    "experiment_design_sha256": "e22e3eba580cb60841b7a03d089eec9661a836429941f52a186b06de5fe75fe2",
+    "finite_frontier_protocol_sha256": "1a3df9b4340a5df44e936f931e7c6023eb4dc6588bc6199b589f8d9dea6e09b2",
+    "trajectory_transfer_protocol_sha256": "f354004754f9e2e9747c24a8815377e9b34e57c3dc381554d74ea45de8499e56",
+    "tilelang_abstraction_protocol_sha256": "b31a44a03ab883f5582238223e5d0a9a091add0fef70740c0323d06491d060ec",
+    "decision_complexity_protocol_sha256": "ad31f69861142159b73ba30731697c39c87e2d82206298174565adc57a4dd3ec"
+  },
+  "toolchain": {
+    "driver": "610.43.02",
+    "python": "3.13.5",
+    "torch": "2.10.0+cu128",
+    "torch_cuda_runtime": "12.8",
+    "triton": "3.6.0",
+    "tilelang": "0.1.11",
+    "nvcc_path": "/usr/local/cuda-13.1/bin/nvcc",
+    "nvcc": "13.1.115"
+  },
+  "gpus": [
+    {
+      "index": 0,
+      "uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae",
+      "name": "NVIDIA RTX 6000 Ada Generation",
+      "pci_bus_id": "00000000:16:00.0",
+      "compute_capability": "8.9",
+      "memory_total_mib": 49140,
+      "memory_free_mib": 48537,
+      "temperature_c": 44,
+      "active_compute_processes": 0,
+      "smoke_test": {
+        "operation": "sum(square(arange(1024)))",
+        "result": 357389824,
+        "passed": true
+      }
+    },
+    {
+      "index": 1,
+      "uuid": "GPU-91b61ae6-d21e-485e-43b3-7505d62149b1",
+      "name": "NVIDIA RTX 6000 Ada Generation",
+      "pci_bus_id": "00000000:34:00.0",
+      "compute_capability": "8.9",
+      "memory_total_mib": 49140,
+      "memory_free_mib": 48537,
+      "temperature_c": 43,
+      "active_compute_processes": 0,
+      "smoke_test": {
+        "operation": "sum(square(arange(1024)))",
+        "result": 357389824,
+        "passed": true
+      }
+    },
+    {
+      "index": 2,
+      "uuid": "GPU-3ed448f2-f23a-09fc-e18b-f580523c4a3f",
+      "name": "NVIDIA RTX 6000 Ada Generation",
+      "pci_bus_id": "00000000:AC:00.0",
+      "compute_capability": "8.9",
+      "memory_total_mib": 49140,
+      "memory_free_mib": 48520,
+      "temperature_c": 44,
+      "active_compute_processes": 0,
+      "smoke_test": {
+        "operation": "sum(square(arange(1024)))",
+        "result": 357389824,
+        "passed": true
+      }
+    },
+    {
+      "index": 3,
+      "uuid": "GPU-eafdd6ce-8857-40fd-f494-47a7240bf6b5",
+      "name": "NVIDIA RTX 6000 Ada Generation",
+      "pci_bus_id": "00000000:CA:00.0",
+      "compute_capability": "8.9",
+      "memory_total_mib": 49140,
+      "memory_free_mib": 48537,
+      "temperature_c": 44,
+      "active_compute_processes": 0,
+      "smoke_test": {
+        "operation": "sum(square(arange(1024)))",
+        "result": 357389824,
+        "passed": true
+      }
+    }
+  ],
+  "experiment_readiness": {
+    "F0": {
+      "state": "BLOCKED_NO_NON_SM89_GPU",
+      "reason": "All four detected GPUs are sm_89; F0 changes architecture and forbids timing."
+    },
+    "F1": {
+      "state": "BLOCKED_BY_F0_AND_MATERIALS",
+      "reason": "Requires the F0 matrix, post-paper authorization, and a frozen public task/candidate corpus."
+    },
+    "T0_T1": {
+      "state": "BLOCKED_BY_MATERIALS",
+      "reason": "Requires verified donor artifacts, translation ABI, frozen successor, and F1 references."
+    },
+    "A1_A2": {
+      "state": "BLOCKED_BY_MATERIALS",
+      "reason": "Requires material receipt verification, multi-task matched implementations, power, preregistration, and a frozen successor."
+    },
+    "C1_C2": {
+      "state": "BLOCKED_BY_MATERIALS",
+      "reason": "Requires frozen tasks/searcher/holdout/reference, power-derived replicates, independent evaluator receipts, preregistration, and a frozen successor."
+    }
+  }
+}
