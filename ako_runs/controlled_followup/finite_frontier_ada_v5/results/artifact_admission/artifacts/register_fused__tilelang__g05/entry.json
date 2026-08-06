@@ -1,0 +1,136 @@
+{
+  "admission_row_sha256": "8e4656a912a0db7ee4962ab82bbefc988d85f3fc603d45b2b59574791a64adb1",
+  "artifact_sha256": "b11358f3a4be697d3f17f66f4aa1cf37526b7dd92acc2a8ceed5c2d33fece6b4",
+  "build_record_path": "ako_runs/controlled_followup/finite_frontier_ada_v5/results/artifact_admission/artifacts/register_fused__tilelang__g05/build_record.json",
+  "build_record_sha256": "17ef417436463f92ded370a7b22abdfd5f9c01199b4ad43db4a61fdddb26b6b9",
+  "cache": {
+    "cache_root": "ako_runs/controlled_followup/finite_frontier_ada_v5/results/artifact_admission/artifacts/register_fused__tilelang__g05/cache",
+    "file_count": 12,
+    "files": [
+      {
+        "path": "tilelang/0.1.11-x86_64/frontend/b99b4b29b6aac24d9a91bfb41567cad2e43e368d3164e753aa5a54ceb327b6a7.json",
+        "sha256": "8a86152cc9adf76adcce3da3a2e62e0f98a98f7d30b4a190a028ab6a70865a89",
+        "size": 82
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/frontend/efe8876b4a66a383ffcb348b23ed5f1f749053f1a21bee0de9fa6dfedef3d500.json",
+        "sha256": "caaf53cbfb26353167deaa3adf6de8421860174180f71301a920bc22c41bc24f",
+        "size": 82
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/6c3b9bdb2bee0cc1a12e6df7924ff747b6a090a77fa234e985e4db229ef64cec/device_kernel.cu",
+        "sha256": "d878e39240f492abc8cb99ac5cee2b2e9ca715e4e34764a87d40b8939982753c",
+        "size": 3278
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/6c3b9bdb2bee0cc1a12e6df7924ff747b6a090a77fa234e985e4db229ef64cec/executable.so",
+        "sha256": "f6603aab770dc049617d0e74da3d4c7077d37e3de6d2874bea195dcea795d963",
+        "size": 65864
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/6c3b9bdb2bee0cc1a12e6df7924ff747b6a090a77fa234e985e4db229ef64cec/host_kernel.cu",
+        "sha256": "b99a138ba355de2c8a84e31367c6fc6f64f0fc35f0264b75a8e5456c52526c7e",
+        "size": 13959
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/6c3b9bdb2bee0cc1a12e6df7924ff747b6a090a77fa234e985e4db229ef64cec/params.pkl",
+        "sha256": "2d3f7b607199ad2d30072dad5ccce15dbe7ead8ceb4f7d509268dbe1be2dfb5b",
+        "size": 297
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/6c3b9bdb2bee0cc1a12e6df7924ff747b6a090a77fa234e985e4db229ef64cec/prim_func.pkl",
+        "sha256": "6ea06cf517ba15631beb204fd1664c133ae06f6511b3ffa74ed27f1779479b51",
+        "size": 34394
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/a1d42b0989ca43804dd4e36d38a3b549a6cefe7c95f5c6e494c91f36540be3a2/device_kernel.cu",
+        "sha256": "2b7e146dcf65a708cb63f60269daaa17d9e6597307e809cda73d5881d69f73b4",
+        "size": 8638
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/a1d42b0989ca43804dd4e36d38a3b549a6cefe7c95f5c6e494c91f36540be3a2/executable.so",
+        "sha256": "d6a53dfadbb32d258b8ca24d306cf1e53448e34a7980b5720388236aaaaef6ea",
+        "size": 332104
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/a1d42b0989ca43804dd4e36d38a3b549a6cefe7c95f5c6e494c91f36540be3a2/host_kernel.cu",
+        "sha256": "a335e71bdc523ecf2aa90655c4f27a224f0e7b70a0bf6d688806ce74a8d594f8",
+        "size": 23732
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/a1d42b0989ca43804dd4e36d38a3b549a6cefe7c95f5c6e494c91f36540be3a2/params.pkl",
+        "sha256": "d381d8ac3f09dce4567aaa0d48e640df5ead50bef1da2b08e504694eddea17c5",
+        "size": 421
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/a1d42b0989ca43804dd4e36d38a3b549a6cefe7c95f5c6e494c91f36540be3a2/prim_func.pkl",
+        "sha256": "25d7a9bf18216aa9de8e02a7c25e0f48c5fc992e470cf4fe48c85f860ffa24d4",
+        "size": 28506
+      }
+    ],
+    "files_sha256": "fa2df62d90a64b54936a1122355f0f6db61636c42eed14a7567228c8f4842274",
+    "generated_sources": [
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/6c3b9bdb2bee0cc1a12e6df7924ff747b6a090a77fa234e985e4db229ef64cec/device_kernel.cu",
+        "sha256": "d878e39240f492abc8cb99ac5cee2b2e9ca715e4e34764a87d40b8939982753c",
+        "size": 3278
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/6c3b9bdb2bee0cc1a12e6df7924ff747b6a090a77fa234e985e4db229ef64cec/host_kernel.cu",
+        "sha256": "b99a138ba355de2c8a84e31367c6fc6f64f0fc35f0264b75a8e5456c52526c7e",
+        "size": 13959
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/a1d42b0989ca43804dd4e36d38a3b549a6cefe7c95f5c6e494c91f36540be3a2/device_kernel.cu",
+        "sha256": "2b7e146dcf65a708cb63f60269daaa17d9e6597307e809cda73d5881d69f73b4",
+        "size": 8638
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/a1d42b0989ca43804dd4e36d38a3b549a6cefe7c95f5c6e494c91f36540be3a2/host_kernel.cu",
+        "sha256": "a335e71bdc523ecf2aa90655c4f27a224f0e7b70a0bf6d688806ce74a8d594f8",
+        "size": 23732
+      }
+    ],
+    "loadable_code_objects": [
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/6c3b9bdb2bee0cc1a12e6df7924ff747b6a090a77fa234e985e4db229ef64cec/executable.so",
+        "sha256": "f6603aab770dc049617d0e74da3d4c7077d37e3de6d2874bea195dcea795d963",
+        "size": 65864
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/a1d42b0989ca43804dd4e36d38a3b549a6cefe7c95f5c6e494c91f36540be3a2/executable.so",
+        "sha256": "d6a53dfadbb32d258b8ca24d306cf1e53448e34a7980b5720388236aaaaef6ea",
+        "size": 332104
+      }
+    ]
+  },
+  "campaign_id": "finite-frontier-ada-v5",
+  "cell_id": "register_fused.tilelang.g05",
+  "config": {
+    "BK": 32,
+    "BM": 128,
+    "BN": 256,
+    "K": 8192,
+    "M": 1024,
+    "N": 8192,
+    "arith": "fp16",
+    "cast": "precast",
+    "dsl": "tilelang",
+    "extra": {
+      "epilogue": "regs",
+      "wcache": "cached"
+    },
+    "input_dtype": "torch.float16",
+    "kc": 2048,
+    "stages": 2,
+    "threads": 256,
+    "variant": "GBGS"
+  },
+  "implementation_sha256": "8c328ceb42df591bf80223bf9d6d06e7164ea3e14716669638d03d61a5e5bebf",
+  "performance_observations": [],
+  "record_type": "finite_frontier_ada_admitted_artifact",
+  "role": "candidate",
+  "schema_version": 1,
+  "verify_record_path": "ako_runs/controlled_followup/finite_frontier_ada_v5/results/artifact_admission/artifacts/register_fused__tilelang__g05/verify_record.json",
+  "verify_record_sha256": "50023671a2fd505746e6ac94887d49d10aef6c9598fe0e5260fc0ebfd682d012"
+}

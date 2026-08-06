@@ -1,0 +1,116 @@
+{
+  "admission_plan": [
+    {
+      "cell_id": "register_fused.tilelang.g09",
+      "entry_id": "register_fused.tilelang.g09",
+      "position": 0,
+      "role": "candidate"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g05",
+      "entry_id": "register_fused.tilelang.g05",
+      "position": 1,
+      "role": "candidate"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g12",
+      "entry_id": "global_intermediate.tilelang.g12",
+      "position": 2,
+      "role": "candidate"
+    },
+    {
+      "cell_id": "register_fused.triton.g09",
+      "entry_id": "register_fused.triton.g09",
+      "position": 3,
+      "role": "candidate"
+    },
+    {
+      "cell_id": "register_fused.triton.g05",
+      "entry_id": "register_fused.triton.g05",
+      "position": 4,
+      "role": "candidate"
+    },
+    {
+      "cell_id": "register_common_postprocess.triton.g05",
+      "entry_id": "register_common_postprocess.triton.g05",
+      "position": 5,
+      "role": "candidate"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g01",
+      "entry_id": "register_common_postprocess.tilelang.g01",
+      "position": 6,
+      "role": "shared_sham_base"
+    }
+  ],
+  "admission_plan_sha256": "3675836570785762640a53127f7ad9fcad49d4570f75d014f8231a1f68cd6edd",
+  "campaign_id": "finite-frontier-ada-v5",
+  "complete": true,
+  "entries": [
+    {
+      "artifact_sha256": "46e56bc08ecfadebe8c6e024a18fa5ee32eb5565fc205497c937751d77934e55",
+      "cell_id": "register_fused.tilelang.g09",
+      "entry_path": "ako_runs/controlled_followup/finite_frontier_ada_v5/results/artifact_admission/artifacts/register_fused__tilelang__g09/entry.json",
+      "entry_sha256": "31a1eb7577242ea40be5c6688e921a87edb236d343b5a3d43f5ed0c01d700b8b",
+      "role": "candidate"
+    },
+    {
+      "artifact_sha256": "b11358f3a4be697d3f17f66f4aa1cf37526b7dd92acc2a8ceed5c2d33fece6b4",
+      "cell_id": "register_fused.tilelang.g05",
+      "entry_path": "ako_runs/controlled_followup/finite_frontier_ada_v5/results/artifact_admission/artifacts/register_fused__tilelang__g05/entry.json",
+      "entry_sha256": "fbfe3dfe7fa46b268290a4d24c029c22b5e4c3a1792e6931c71e3724022d0b85",
+      "role": "candidate"
+    },
+    {
+      "artifact_sha256": "4b356afc578a2a3bb5205cb5b44a4ca938492787ece9d2f940077106bfa135b6",
+      "cell_id": "global_intermediate.tilelang.g12",
+      "entry_path": "ako_runs/controlled_followup/finite_frontier_ada_v5/results/artifact_admission/artifacts/global_intermediate__tilelang__g12/entry.json",
+      "entry_sha256": "872ed1f56970265109412acd4006448a6cabbf31a46599c1143a8f872aac2070",
+      "role": "candidate"
+    },
+    {
+      "artifact_sha256": "fb0ec4409f0b487d3d72903cda79db628f7ac1d527ae053c5f61e0149c4faf28",
+      "cell_id": "register_fused.triton.g09",
+      "entry_path": "ako_runs/controlled_followup/finite_frontier_ada_v5/results/artifact_admission/artifacts/register_fused__triton__g09/entry.json",
+      "entry_sha256": "e7c1d180dde237dd3737baa46c1bfcf113862d49ff43abe7724a2cf4c3c982ec",
+      "role": "candidate"
+    },
+    {
+      "artifact_sha256": "7b1f7013841ed965bb0f03247fa894a0b40e120cf18b8e5795e84b92202ff74a",
+      "cell_id": "register_fused.triton.g05",
+      "entry_path": "ako_runs/controlled_followup/finite_frontier_ada_v5/results/artifact_admission/artifacts/register_fused__triton__g05/entry.json",
+      "entry_sha256": "53a1ddfbbf8d5490c47457055ac08396c2061ff335bd1f978271f15ecdce359e",
+      "role": "candidate"
+    },
+    {
+      "artifact_sha256": "38810d15dc48e226bf9ed19ebf1e6bf945712f289067fef38eba478ed98783db",
+      "cell_id": "register_common_postprocess.triton.g05",
+      "entry_path": "ako_runs/controlled_followup/finite_frontier_ada_v5/results/artifact_admission/artifacts/register_common_postprocess__triton__g05/entry.json",
+      "entry_sha256": "56f323e4bb0da50e4f9b3ef562a08bd66ca2e0f47faa7d0ed40298efaaf5c828",
+      "role": "candidate"
+    },
+    {
+      "artifact_sha256": "ded318d6f456bf451f43348650d8c1007f3ca9e1cb78281aa6fb69509a813d49",
+      "cell_id": "register_common_postprocess.tilelang.g01",
+      "entry_path": "ako_runs/controlled_followup/finite_frontier_ada_v5/results/artifact_admission/artifacts/register_common_postprocess__tilelang__g01/entry.json",
+      "entry_sha256": "7100c782d0e12e038b637517c2357f6cfa5334ae550c4908f115a7cef9ae57a4",
+      "role": "shared_sham_base"
+    }
+  ],
+  "entry_count": 7,
+  "execution_lock_sha256": "7c39921bf281b2258b0442bbbd83c0101d8c247d50c9ec2a9b3de120b780ddb3",
+  "launch_receipt_path": "ako_runs/controlled_followup/finite_frontier_ada_v5/results/artifact_admission/launch_receipt.json",
+  "launch_receipt_sha256": "6128e85d659a8fbdb754d9020a3aa55729d706cc8227fc22b86a47aa99c9e040",
+  "performance_blind": true,
+  "predecessor_admission_incident_path": "ako_runs/controlled_followup/finite_frontier_ada_v2/INCIDENT_ADMISSION_20260806.json",
+  "predecessor_admission_incident_sha256": "89571304d78dcb6fa0e09e997218c66c6d6564af074af50d00e578571c1d4a6e",
+  "predecessor_frontend_incident_path": "ako_runs/controlled_followup/finite_frontier_ada_v3/INCIDENT_ADMISSION_20260806.json",
+  "predecessor_frontend_incident_sha256": "8791a13fa6bee8745c70a630f58ff5d5ba9894de6d12838f604b323be3f7f365",
+  "predecessor_incident_path": "ako_runs/controlled_followup/finite_frontier_ada_v1/INCIDENT_SELECTION_20260806.json",
+  "predecessor_incident_sha256": "bef0a1e0eba76849420c918734d7837050e8b5a99a51d70b3307836cd081d9d2",
+  "predecessor_readiness_incident_path": "ako_runs/controlled_followup/finite_frontier_ada_v4/INCIDENT_SELECTION_READINESS_20260806.json",
+  "predecessor_readiness_incident_sha256": "a5498dfbf32ba51da1639c642e4c5cdb3313d8b8f4fceffe8705f8f5f5d94d96",
+  "record_type": "finite_frontier_ada_artifact_admission_manifest",
+  "schema_version": 1,
+  "shared_sham_artifact_count": 1
+}

@@ -1,0 +1,216 @@
+{
+  "admission_row_sha256": "6559ae51bbe2c4f5d946d19ee8a3c32fd2eb7f424f825034732fa4460b0102e0",
+  "artifact_sha256": "fb0ec4409f0b487d3d72903cda79db628f7ac1d527ae053c5f61e0149c4faf28",
+  "build_record_path": "ako_runs/controlled_followup/finite_frontier_ada_v5/results/artifact_admission/artifacts/register_fused__triton__g09/build_record.json",
+  "build_record_sha256": "ea83ed98e7700ebd03dee3b43ea764215aba2e0d4c7e7ebeff45f08c3ab26a68",
+  "cache": {
+    "cache_root": "ako_runs/controlled_followup/finite_frontier_ada_v5/results/artifact_admission/artifacts/register_fused__triton__g09/cache",
+    "file_count": 19,
+    "files": [
+      {
+        "path": "triton/AWV65CFK4VSINHFP5TBTHUU6AFF32WKZOM65KNT4W3JCSCYCOBSQ/__grp___softmax_kernel.json",
+        "sha256": "331142f239efe3a2267d9db5c25ce1e9b5c9e7cb32baba5a4f504f3da526298f",
+        "size": 1871
+      },
+      {
+        "path": "triton/AWV65CFK4VSINHFP5TBTHUU6AFF32WKZOM65KNT4W3JCSCYCOBSQ/_softmax_kernel.cubin",
+        "sha256": "779d5f5f7f1c6231db31e41765d17c42e3b946d39359d61e31affb2ddf15680a",
+        "size": 25696
+      },
+      {
+        "path": "triton/AWV65CFK4VSINHFP5TBTHUU6AFF32WKZOM65KNT4W3JCSCYCOBSQ/_softmax_kernel.json",
+        "sha256": "75d489a669ca5f824bf75f986e9df67732147c092b1ed23d9371bec3918d8b46",
+        "size": 1104
+      },
+      {
+        "path": "triton/AWV65CFK4VSINHFP5TBTHUU6AFF32WKZOM65KNT4W3JCSCYCOBSQ/_softmax_kernel.llir",
+        "sha256": "52b2ef7c201e0e612f50b6121ae8f00b978f0a7bc5049a2df9b8553bfbbff5ff",
+        "size": 31641
+      },
+      {
+        "path": "triton/AWV65CFK4VSINHFP5TBTHUU6AFF32WKZOM65KNT4W3JCSCYCOBSQ/_softmax_kernel.ptx",
+        "sha256": "3f6dacc616135fff2c4355772d511c565f3822920a472ffa5f97ced81ddc27d4",
+        "size": 26639
+      },
+      {
+        "path": "triton/AWV65CFK4VSINHFP5TBTHUU6AFF32WKZOM65KNT4W3JCSCYCOBSQ/_softmax_kernel.source",
+        "sha256": "672f252fde9fbc42041ac9b9cbd541723ff674a7bc7662bbb8f595cca71d4f01",
+        "size": 8997
+      },
+      {
+        "path": "triton/AWV65CFK4VSINHFP5TBTHUU6AFF32WKZOM65KNT4W3JCSCYCOBSQ/_softmax_kernel.ttgir",
+        "sha256": "f3a9f48905fc27396a9e6aec9affec76046155860cefd5c5597e7fb4e9862045",
+        "size": 5247
+      },
+      {
+        "path": "triton/AWV65CFK4VSINHFP5TBTHUU6AFF32WKZOM65KNT4W3JCSCYCOBSQ/_softmax_kernel.ttir",
+        "sha256": "7347f181a9057b2ea711e813b2c9d05a7466ee52d55bc16b6b7418c0e54f2256",
+        "size": 4861
+      },
+      {
+        "path": "triton/E4CATZJ5VO3IA6KHZOGHQWCP42VADBXUTDTYOGC42T6HVULCY3CQ/__triton_launcher.cpython-313-x86_64-linux-gnu.so",
+        "sha256": "173593b91a4d30476b6373904d3321f7dd05ec2a6cc612deea85ec790d1b4f13",
+        "size": 22448
+      },
+      {
+        "path": "triton/FTDKWADHZDQUQRLZQDNS2SXYVGVOQXATG2IDNWCFIIMNUSATLKCQ/__triton_launcher.cpython-313-x86_64-linux-gnu.so",
+        "sha256": "7db28977e36e7ff08b0049a0cbbd964881dc404cd1b25bf8978eb37057df36dd",
+        "size": 22448
+      },
+      {
+        "path": "triton/HLFIHKBQ5IJP6L6XSCXOP544UFGGQX2L4DHAOXOQ724A4T26JW6A/__grp___fused_gemm_kernel.json",
+        "sha256": "1fa16ced0970c712e219ba17e8e04787cf08a433f3d7a0c4b56a70e11a9905ed",
+        "size": 1913
+      },
+      {
+        "path": "triton/HLFIHKBQ5IJP6L6XSCXOP544UFGGQX2L4DHAOXOQ724A4T26JW6A/_fused_gemm_kernel.cubin",
+        "sha256": "7be9d4e2c25d98a49299c3423dd6ec994b72636f29d98ea5a1130c9a1c106462",
+        "size": 389040
+      },
+      {
+        "path": "triton/HLFIHKBQ5IJP6L6XSCXOP544UFGGQX2L4DHAOXOQ724A4T26JW6A/_fused_gemm_kernel.json",
+        "sha256": "d1075162ce80aba2c7bad86c8454ce7803d532bd45b6e09c303f2d8743c22787",
+        "size": 1110
+      },
+      {
+        "path": "triton/HLFIHKBQ5IJP6L6XSCXOP544UFGGQX2L4DHAOXOQ724A4T26JW6A/_fused_gemm_kernel.llir",
+        "sha256": "f52e25b4260b99280d4a24ade936569eb04fcbac6bf5bf1c49b95daadf28e508",
+        "size": 893512
+      },
+      {
+        "path": "triton/HLFIHKBQ5IJP6L6XSCXOP544UFGGQX2L4DHAOXOQ724A4T26JW6A/_fused_gemm_kernel.ptx",
+        "sha256": "5871c758e2e0ec7f05a0ec3ebb502f87a3e56c26364a16207c0533b1b67a3b4b",
+        "size": 296600
+      },
+      {
+        "path": "triton/HLFIHKBQ5IJP6L6XSCXOP544UFGGQX2L4DHAOXOQ724A4T26JW6A/_fused_gemm_kernel.source",
+        "sha256": "daebc7eaefb321f497f1857b33c01d4c3879287aa78d01eb6c1e10380021625e",
+        "size": 29012
+      },
+      {
+        "path": "triton/HLFIHKBQ5IJP6L6XSCXOP544UFGGQX2L4DHAOXOQ724A4T26JW6A/_fused_gemm_kernel.ttgir",
+        "sha256": "8585adb54bab0ca48901a96bd9e33cf1610f5d0fbe89ca5fe044c4f02f456a28",
+        "size": 21828
+      },
+      {
+        "path": "triton/HLFIHKBQ5IJP6L6XSCXOP544UFGGQX2L4DHAOXOQ724A4T26JW6A/_fused_gemm_kernel.ttir",
+        "sha256": "87492a272e542be53aab9415e932e3a6bc99eb38f63c3488400184efe6941cdb",
+        "size": 13708
+      },
+      {
+        "path": "triton/XU5DT2AO5BD5AEHEYGLPP5LRDFHHCUEJT4LGDVLB4STXUGVGHFPA/cuda_utils.cpython-313-x86_64-linux-gnu.so",
+        "sha256": "5c0145a4bd5d702d11d7caf5dede9d5970d4c85bc8b875a656e2d838392db54a",
+        "size": 28600
+      }
+    ],
+    "files_sha256": "54cec03d69b0dcd484b355a0bd6ea83e1f28cbe05d95a6e9d3d56863393e8f69",
+    "generated_sources": [
+      {
+        "path": "triton/AWV65CFK4VSINHFP5TBTHUU6AFF32WKZOM65KNT4W3JCSCYCOBSQ/_softmax_kernel.llir",
+        "sha256": "52b2ef7c201e0e612f50b6121ae8f00b978f0a7bc5049a2df9b8553bfbbff5ff",
+        "size": 31641
+      },
+      {
+        "path": "triton/AWV65CFK4VSINHFP5TBTHUU6AFF32WKZOM65KNT4W3JCSCYCOBSQ/_softmax_kernel.ptx",
+        "sha256": "3f6dacc616135fff2c4355772d511c565f3822920a472ffa5f97ced81ddc27d4",
+        "size": 26639
+      },
+      {
+        "path": "triton/AWV65CFK4VSINHFP5TBTHUU6AFF32WKZOM65KNT4W3JCSCYCOBSQ/_softmax_kernel.source",
+        "sha256": "672f252fde9fbc42041ac9b9cbd541723ff674a7bc7662bbb8f595cca71d4f01",
+        "size": 8997
+      },
+      {
+        "path": "triton/AWV65CFK4VSINHFP5TBTHUU6AFF32WKZOM65KNT4W3JCSCYCOBSQ/_softmax_kernel.ttgir",
+        "sha256": "f3a9f48905fc27396a9e6aec9affec76046155860cefd5c5597e7fb4e9862045",
+        "size": 5247
+      },
+      {
+        "path": "triton/AWV65CFK4VSINHFP5TBTHUU6AFF32WKZOM65KNT4W3JCSCYCOBSQ/_softmax_kernel.ttir",
+        "sha256": "7347f181a9057b2ea711e813b2c9d05a7466ee52d55bc16b6b7418c0e54f2256",
+        "size": 4861
+      },
+      {
+        "path": "triton/HLFIHKBQ5IJP6L6XSCXOP544UFGGQX2L4DHAOXOQ724A4T26JW6A/_fused_gemm_kernel.llir",
+        "sha256": "f52e25b4260b99280d4a24ade936569eb04fcbac6bf5bf1c49b95daadf28e508",
+        "size": 893512
+      },
+      {
+        "path": "triton/HLFIHKBQ5IJP6L6XSCXOP544UFGGQX2L4DHAOXOQ724A4T26JW6A/_fused_gemm_kernel.ptx",
+        "sha256": "5871c758e2e0ec7f05a0ec3ebb502f87a3e56c26364a16207c0533b1b67a3b4b",
+        "size": 296600
+      },
+      {
+        "path": "triton/HLFIHKBQ5IJP6L6XSCXOP544UFGGQX2L4DHAOXOQ724A4T26JW6A/_fused_gemm_kernel.source",
+        "sha256": "daebc7eaefb321f497f1857b33c01d4c3879287aa78d01eb6c1e10380021625e",
+        "size": 29012
+      },
+      {
+        "path": "triton/HLFIHKBQ5IJP6L6XSCXOP544UFGGQX2L4DHAOXOQ724A4T26JW6A/_fused_gemm_kernel.ttgir",
+        "sha256": "8585adb54bab0ca48901a96bd9e33cf1610f5d0fbe89ca5fe044c4f02f456a28",
+        "size": 21828
+      },
+      {
+        "path": "triton/HLFIHKBQ5IJP6L6XSCXOP544UFGGQX2L4DHAOXOQ724A4T26JW6A/_fused_gemm_kernel.ttir",
+        "sha256": "87492a272e542be53aab9415e932e3a6bc99eb38f63c3488400184efe6941cdb",
+        "size": 13708
+      }
+    ],
+    "loadable_code_objects": [
+      {
+        "path": "triton/AWV65CFK4VSINHFP5TBTHUU6AFF32WKZOM65KNT4W3JCSCYCOBSQ/_softmax_kernel.cubin",
+        "sha256": "779d5f5f7f1c6231db31e41765d17c42e3b946d39359d61e31affb2ddf15680a",
+        "size": 25696
+      },
+      {
+        "path": "triton/E4CATZJ5VO3IA6KHZOGHQWCP42VADBXUTDTYOGC42T6HVULCY3CQ/__triton_launcher.cpython-313-x86_64-linux-gnu.so",
+        "sha256": "173593b91a4d30476b6373904d3321f7dd05ec2a6cc612deea85ec790d1b4f13",
+        "size": 22448
+      },
+      {
+        "path": "triton/FTDKWADHZDQUQRLZQDNS2SXYVGVOQXATG2IDNWCFIIMNUSATLKCQ/__triton_launcher.cpython-313-x86_64-linux-gnu.so",
+        "sha256": "7db28977e36e7ff08b0049a0cbbd964881dc404cd1b25bf8978eb37057df36dd",
+        "size": 22448
+      },
+      {
+        "path": "triton/HLFIHKBQ5IJP6L6XSCXOP544UFGGQX2L4DHAOXOQ724A4T26JW6A/_fused_gemm_kernel.cubin",
+        "sha256": "7be9d4e2c25d98a49299c3423dd6ec994b72636f29d98ea5a1130c9a1c106462",
+        "size": 389040
+      },
+      {
+        "path": "triton/XU5DT2AO5BD5AEHEYGLPP5LRDFHHCUEJT4LGDVLB4STXUGVGHFPA/cuda_utils.cpython-313-x86_64-linux-gnu.so",
+        "sha256": "5c0145a4bd5d702d11d7caf5dede9d5970d4c85bc8b875a656e2d838392db54a",
+        "size": 28600
+      }
+    ]
+  },
+  "campaign_id": "finite-frontier-ada-v5",
+  "cell_id": "register_fused.triton.g09",
+  "config": {
+    "BK": 32,
+    "BM": 256,
+    "BN": 128,
+    "K": 8192,
+    "M": 1024,
+    "N": 8192,
+    "arith": "fp16",
+    "cast": "precast",
+    "dsl": "triton",
+    "extra": {
+      "epilogue": "regs",
+      "wcache": "cached"
+    },
+    "input_dtype": "torch.float16",
+    "kc": 2048,
+    "stages": 2,
+    "threads": 256,
+    "variant": "GBGS"
+  },
+  "implementation_sha256": "63cd2bf3c2f080bf28ce7c3cbcd3fe19487880bf56d2c1e2cb53937227fb8188",
+  "performance_observations": [],
+  "record_type": "finite_frontier_ada_admitted_artifact",
+  "role": "candidate",
+  "schema_version": 1,
+  "verify_record_path": "ako_runs/controlled_followup/finite_frontier_ada_v5/results/artifact_admission/artifacts/register_fused__triton__g09/verify_record.json",
+  "verify_record_sha256": "fd4786e940b385b43f10d81a3b7ecabe5f7492ad872fa78d5ba1b5082833bb65"
+}

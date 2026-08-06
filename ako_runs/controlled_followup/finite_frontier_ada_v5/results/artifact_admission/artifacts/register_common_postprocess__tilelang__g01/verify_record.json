@@ -1,0 +1,242 @@
+{
+  "admission_provenance": {
+    "cache_environment": {
+      "FINITE_FRONTIER_ARTIFACT_CELL": "register_common_postprocess.tilelang.g01",
+      "FINITE_FRONTIER_ARTIFACT_MODE": "load_only",
+      "PHASE1_TL_CACHE": "1",
+      "PHASE2_TL_CACHE": "1",
+      "TEMP": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/finite_frontier_ada_v5/results/artifact_admission/artifacts/register_common_postprocess__tilelang__g01/runtime_tmp",
+      "TILELANG_CACHE_DIR": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/finite_frontier_ada_v5/results/artifact_admission/artifacts/register_common_postprocess__tilelang__g01/cache/tilelang",
+      "TILELANG_CLEAR_CACHE": "0",
+      "TILELANG_DISABLE_CACHE": "0",
+      "TILELANG_EXECUTION_BACKEND": "tvm_ffi",
+      "TILELANG_TARGET": "cuda",
+      "TILELANG_TMP_DIR": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/finite_frontier_ada_v5/results/artifact_admission/artifacts/register_common_postprocess__tilelang__g01/runtime_tmp/tilelang",
+      "TMP": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/finite_frontier_ada_v5/results/artifact_admission/artifacts/register_common_postprocess__tilelang__g01/runtime_tmp",
+      "TMPDIR": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/finite_frontier_ada_v5/results/artifact_admission/artifacts/register_common_postprocess__tilelang__g01/runtime_tmp",
+      "TORCH_EXTENSIONS_DIR": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/finite_frontier_ada_v5/results/artifact_admission/artifacts/register_common_postprocess__tilelang__g01/cache/torch_extensions",
+      "TRITON_ALWAYS_COMPILE": "0",
+      "TRITON_CACHE_DIR": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/finite_frontier_ada_v5/results/artifact_admission/artifacts/register_common_postprocess__tilelang__g01/cache/triton",
+      "TRITON_CACHE_MANAGER": "ako_runs.controlled_followup.finite_frontier_ada_v5.artifacts:ReadOnlyTritonCacheManager",
+      "TRITON_KERNEL_DUMP": "0",
+      "TRITON_KERNEL_OVERRIDE": "0"
+    },
+    "execution_lock_sha256": "7c39921bf281b2258b0442bbbd83c0101d8c247d50c9ec2a9b3de120b780ddb3",
+    "gpu_idle_postflight": {
+      "checked_at_unix": 1786050637.1944015,
+      "compute_processes": [
+        {
+          "pid": 78590,
+          "used_memory_mib": "1558"
+        }
+      ],
+      "foreign_compute_processes": [],
+      "idle_except_self": true,
+      "phase": "record_post",
+      "returncode": 0,
+      "self_pid": 78590,
+      "stderr": ""
+    },
+    "gpu_idle_preflight": {
+      "checked_at_unix": 1786050636.5118353,
+      "compute_processes": [],
+      "foreign_compute_processes": [],
+      "idle_except_self": true,
+      "phase": "record_pre",
+      "returncode": 0,
+      "self_pid": 78590,
+      "stderr": ""
+    },
+    "gpu_preflight": {
+      "clocks.mem": "810",
+      "clocks.sm": "645",
+      "compute_cap": "8.9",
+      "driver_version": "610.43.02",
+      "index": "0",
+      "memory.total": "49140",
+      "memory.used": "4",
+      "name": "NVIDIA RTX 6000 Ada Generation",
+      "power.limit": "300.00",
+      "pstate": "P5",
+      "temperature.gpu": "50",
+      "utilization.gpu": "0",
+      "uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae"
+    },
+    "launch_receipt_path": "ako_runs/controlled_followup/finite_frontier_ada_v5/results/artifact_admission/launch_receipt.json",
+    "launch_receipt_sha256": "6128e85d659a8fbdb754d9020a3aa55729d706cc8227fc22b86a47aa99c9e040",
+    "parent_pid": 74083,
+    "process_pid": 78590,
+    "toolchain": {
+      "nvcc_release": "V13.1.115",
+      "python": "3.13.5",
+      "tilelang": "0.1.11",
+      "torch": "2.10.0+cu128",
+      "triton": "3.6.0"
+    }
+  },
+  "admission_row_sha256": "a799e3ead76128df958dcd3d07b092fa30b6a9119255c5ad760b5ccdf3d3f1dc",
+  "atomic_temp_device": {
+    "cache_root": "ako_runs/controlled_followup/finite_frontier_ada_v5/results/artifact_admission/artifacts/register_common_postprocess__tilelang__g01/cache",
+    "cache_st_dev": 64770,
+    "runtime_tmp_root": "ako_runs/controlled_followup/finite_frontier_ada_v5/results/artifact_admission/artifacts/register_common_postprocess__tilelang__g01/runtime_tmp",
+    "runtime_tmp_st_dev": 64770,
+    "same_filesystem": true
+  },
+  "build_record_sha256": "6388d7eb61e8360dfd4505e12bd7340bb1f434fba170db31fba895546711ea15",
+  "cache": {
+    "cache_root": "ako_runs/controlled_followup/finite_frontier_ada_v5/results/artifact_admission/artifacts/register_common_postprocess__tilelang__g01/cache",
+    "file_count": 14,
+    "files": [
+      {
+        "path": "tilelang/0.1.11-x86_64/frontend/b99b4b29b6aac24d9a91bfb41567cad2e43e368d3164e753aa5a54ceb327b6a7.json",
+        "sha256": "25f54a097e68645fe4200f6ff02f4314aceb37a4b8bb1dec143f64239354669a",
+        "size": 82
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/device_kernel.cu",
+        "sha256": "20ab268ebd77d380afcbde457e4d6cb040f9bd376fc1644955fb8fcdc1d3b45f",
+        "size": 11625
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/executable.so",
+        "sha256": "e3633b8918921635a5c452f008a5058cd50946ccb1af676ef411c827eb50c15c",
+        "size": 307528
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/host_kernel.cu",
+        "sha256": "f593a773c5c2df30198579f0e340fd8768c123a2577bfb255d1e28da4023c494",
+        "size": 23732
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/params.pkl",
+        "sha256": "d381d8ac3f09dce4567aaa0d48e640df5ead50bef1da2b08e504694eddea17c5",
+        "size": 421
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/prim_func.pkl",
+        "sha256": "52f1c37fb143ac3542aad6cea01120984c783c4bb82dda27a26ac9d37b64208f",
+        "size": 28506
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/.ninja_deps",
+        "sha256": "491b4f54ee9f47226f510298467e653c21371c17ef35cbd4f97b9bf964a776dd",
+        "size": 630512
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/.ninja_log",
+        "sha256": "8ef82a12f6d8ee380c0e3282ac5fea1335c16ef032e8ea080479eb316fcf5856",
+        "size": 208
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/build.ninja",
+        "sha256": "51ae95f4fe125b2c9807019b87169ee7e30138e04568b7970f795d0b71399b99",
+        "size": 2510
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/cuda.cu",
+        "sha256": "4c33965e833e1bb724a1e0a031ebacc23c5e1601ad440c7f38f5f11f454847d0",
+        "size": 3665
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/cuda.cuda.o",
+        "sha256": "7f2ee4bd26c0a4716e58d3d64f3e544af9c5740d4b97b698f45b66ce5a1e0fd1",
+        "size": 216976
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/fused_crossed_v2_pp_c03d2e32b61d.so",
+        "sha256": "52bad723a0d17c9489669848583d233df80c86622faae6cae567c6c5cad34078",
+        "size": 1351176
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/main.cpp",
+        "sha256": "70fda7e9ebc6feb970681bfd6fdd9814aef02d2d31c1659f88bd825bb5c821a1",
+        "size": 277
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/main.o",
+        "sha256": "5f72645122f1144e1984e77bb9f8534af5e541a51e270cc84ab2e073b04b8e21",
+        "size": 2152608
+      }
+    ],
+    "files_sha256": "006d978c47ffe575593764ecbc523708659b743dcea6dd4d5eaeb0c32ff6f4ab",
+    "generated_sources": [
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/device_kernel.cu",
+        "sha256": "20ab268ebd77d380afcbde457e4d6cb040f9bd376fc1644955fb8fcdc1d3b45f",
+        "size": 11625
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/host_kernel.cu",
+        "sha256": "f593a773c5c2df30198579f0e340fd8768c123a2577bfb255d1e28da4023c494",
+        "size": 23732
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/cuda.cu",
+        "sha256": "4c33965e833e1bb724a1e0a031ebacc23c5e1601ad440c7f38f5f11f454847d0",
+        "size": 3665
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/main.cpp",
+        "sha256": "70fda7e9ebc6feb970681bfd6fdd9814aef02d2d31c1659f88bd825bb5c821a1",
+        "size": 277
+      }
+    ],
+    "loadable_code_objects": [
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/executable.so",
+        "sha256": "e3633b8918921635a5c452f008a5058cd50946ccb1af676ef411c827eb50c15c",
+        "size": 307528
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/fused_crossed_v2_pp_c03d2e32b61d.so",
+        "sha256": "52bad723a0d17c9489669848583d233df80c86622faae6cae567c6c5cad34078",
+        "size": 1351176
+      }
+    ]
+  },
+  "campaign_id": "finite-frontier-ada-v5",
+  "cell_id": "register_common_postprocess.tilelang.g01",
+  "correctness": {
+    "budget_mean": 0.00010001220703127959,
+    "err_q100": 1.525913830846548e-07,
+    "err_q50": 3.179593477398157e-09,
+    "err_q90": 1.1918018572032452e-08,
+    "err_q99": 2.713932190090418e-08,
+    "err_q999": 4.5649358071386814e-08,
+    "gate_pass": true,
+    "max_abs_err": 1.525913830846548e-07,
+    "mean_abs_err": 5.038479120034189e-09,
+    "pct_elems_failing_gate": 0.0,
+    "ref_abs_mean": 0.00012207031279582326,
+    "signed_mean_err": -1.4300366446562407e-13
+  },
+  "implementation_sha256": "fdc96ede2b4be3cf308b47427eb543627c454d5517035a728b26c3ee6032bc76",
+  "load_evidence": {
+    "mode": "load_only",
+    "postprocess_loads": [
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/fused_crossed_v2_pp_c03d2e32b61d.so",
+        "sha256": "52bad723a0d17c9489669848583d233df80c86622faae6cae567c6c5cad34078",
+        "size": 1351176
+      }
+    ],
+    "tilelang_cache_hits": [
+      {
+        "cache_path": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/finite_frontier_ada_v5/results/artifact_admission/artifacts/register_common_postprocess__tilelang__g01/cache/tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b",
+        "loadable_code_objects": [
+          {
+            "path": "tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/executable.so",
+            "sha256": "e3633b8918921635a5c452f008a5058cd50946ccb1af676ef411c827eb50c15c",
+            "size": 307528
+          }
+        ]
+      }
+    ],
+    "triton_cache_hits": [],
+    "triton_kernel_loads": []
+  },
+  "n_kernels": 2,
+  "performance_observations": [],
+  "record_type": "finite_frontier_ada_artifact_verify_record",
+  "schema_version": 1
+}

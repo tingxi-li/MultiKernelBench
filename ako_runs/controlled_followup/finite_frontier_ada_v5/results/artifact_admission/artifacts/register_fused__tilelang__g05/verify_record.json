@@ -1,0 +1,236 @@
+{
+  "admission_provenance": {
+    "cache_environment": {
+      "FINITE_FRONTIER_ARTIFACT_CELL": "register_fused.tilelang.g05",
+      "FINITE_FRONTIER_ARTIFACT_MODE": "load_only",
+      "PHASE1_TL_CACHE": "1",
+      "PHASE2_TL_CACHE": "1",
+      "TEMP": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/finite_frontier_ada_v5/results/artifact_admission/artifacts/register_fused__tilelang__g05/runtime_tmp",
+      "TILELANG_CACHE_DIR": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/finite_frontier_ada_v5/results/artifact_admission/artifacts/register_fused__tilelang__g05/cache/tilelang",
+      "TILELANG_CLEAR_CACHE": "0",
+      "TILELANG_DISABLE_CACHE": "0",
+      "TILELANG_EXECUTION_BACKEND": "tvm_ffi",
+      "TILELANG_TARGET": "cuda",
+      "TILELANG_TMP_DIR": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/finite_frontier_ada_v5/results/artifact_admission/artifacts/register_fused__tilelang__g05/runtime_tmp/tilelang",
+      "TMP": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/finite_frontier_ada_v5/results/artifact_admission/artifacts/register_fused__tilelang__g05/runtime_tmp",
+      "TMPDIR": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/finite_frontier_ada_v5/results/artifact_admission/artifacts/register_fused__tilelang__g05/runtime_tmp",
+      "TORCH_EXTENSIONS_DIR": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/finite_frontier_ada_v5/results/artifact_admission/artifacts/register_fused__tilelang__g05/cache/torch_extensions",
+      "TRITON_ALWAYS_COMPILE": "0",
+      "TRITON_CACHE_DIR": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/finite_frontier_ada_v5/results/artifact_admission/artifacts/register_fused__tilelang__g05/cache/triton",
+      "TRITON_CACHE_MANAGER": "ako_runs.controlled_followup.finite_frontier_ada_v5.artifacts:ReadOnlyTritonCacheManager",
+      "TRITON_KERNEL_DUMP": "0",
+      "TRITON_KERNEL_OVERRIDE": "0"
+    },
+    "execution_lock_sha256": "7c39921bf281b2258b0442bbbd83c0101d8c247d50c9ec2a9b3de120b780ddb3",
+    "gpu_idle_postflight": {
+      "checked_at_unix": 1786050470.8024633,
+      "compute_processes": [
+        {
+          "pid": 75223,
+          "used_memory_mib": "1558"
+        }
+      ],
+      "foreign_compute_processes": [],
+      "idle_except_self": true,
+      "phase": "record_post",
+      "returncode": 0,
+      "self_pid": 75223,
+      "stderr": ""
+    },
+    "gpu_idle_preflight": {
+      "checked_at_unix": 1786050470.1609988,
+      "compute_processes": [],
+      "foreign_compute_processes": [],
+      "idle_except_self": true,
+      "phase": "record_pre",
+      "returncode": 0,
+      "self_pid": 75223,
+      "stderr": ""
+    },
+    "gpu_preflight": {
+      "clocks.mem": "810",
+      "clocks.sm": "675",
+      "compute_cap": "8.9",
+      "driver_version": "610.43.02",
+      "index": "0",
+      "memory.total": "49140",
+      "memory.used": "4",
+      "name": "NVIDIA RTX 6000 Ada Generation",
+      "power.limit": "300.00",
+      "pstate": "P5",
+      "temperature.gpu": "46",
+      "utilization.gpu": "0",
+      "uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae"
+    },
+    "launch_receipt_path": "ako_runs/controlled_followup/finite_frontier_ada_v5/results/artifact_admission/launch_receipt.json",
+    "launch_receipt_sha256": "6128e85d659a8fbdb754d9020a3aa55729d706cc8227fc22b86a47aa99c9e040",
+    "parent_pid": 74083,
+    "process_pid": 75223,
+    "toolchain": {
+      "nvcc_release": "V13.1.115",
+      "python": "3.13.5",
+      "tilelang": "0.1.11",
+      "torch": "2.10.0+cu128",
+      "triton": "3.6.0"
+    }
+  },
+  "admission_row_sha256": "8e4656a912a0db7ee4962ab82bbefc988d85f3fc603d45b2b59574791a64adb1",
+  "atomic_temp_device": {
+    "cache_root": "ako_runs/controlled_followup/finite_frontier_ada_v5/results/artifact_admission/artifacts/register_fused__tilelang__g05/cache",
+    "cache_st_dev": 64770,
+    "runtime_tmp_root": "ako_runs/controlled_followup/finite_frontier_ada_v5/results/artifact_admission/artifacts/register_fused__tilelang__g05/runtime_tmp",
+    "runtime_tmp_st_dev": 64770,
+    "same_filesystem": true
+  },
+  "build_record_sha256": "17ef417436463f92ded370a7b22abdfd5f9c01199b4ad43db4a61fdddb26b6b9",
+  "cache": {
+    "cache_root": "ako_runs/controlled_followup/finite_frontier_ada_v5/results/artifact_admission/artifacts/register_fused__tilelang__g05/cache",
+    "file_count": 12,
+    "files": [
+      {
+        "path": "tilelang/0.1.11-x86_64/frontend/b99b4b29b6aac24d9a91bfb41567cad2e43e368d3164e753aa5a54ceb327b6a7.json",
+        "sha256": "8a86152cc9adf76adcce3da3a2e62e0f98a98f7d30b4a190a028ab6a70865a89",
+        "size": 82
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/frontend/efe8876b4a66a383ffcb348b23ed5f1f749053f1a21bee0de9fa6dfedef3d500.json",
+        "sha256": "caaf53cbfb26353167deaa3adf6de8421860174180f71301a920bc22c41bc24f",
+        "size": 82
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/6c3b9bdb2bee0cc1a12e6df7924ff747b6a090a77fa234e985e4db229ef64cec/device_kernel.cu",
+        "sha256": "d878e39240f492abc8cb99ac5cee2b2e9ca715e4e34764a87d40b8939982753c",
+        "size": 3278
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/6c3b9bdb2bee0cc1a12e6df7924ff747b6a090a77fa234e985e4db229ef64cec/executable.so",
+        "sha256": "f6603aab770dc049617d0e74da3d4c7077d37e3de6d2874bea195dcea795d963",
+        "size": 65864
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/6c3b9bdb2bee0cc1a12e6df7924ff747b6a090a77fa234e985e4db229ef64cec/host_kernel.cu",
+        "sha256": "b99a138ba355de2c8a84e31367c6fc6f64f0fc35f0264b75a8e5456c52526c7e",
+        "size": 13959
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/6c3b9bdb2bee0cc1a12e6df7924ff747b6a090a77fa234e985e4db229ef64cec/params.pkl",
+        "sha256": "2d3f7b607199ad2d30072dad5ccce15dbe7ead8ceb4f7d509268dbe1be2dfb5b",
+        "size": 297
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/6c3b9bdb2bee0cc1a12e6df7924ff747b6a090a77fa234e985e4db229ef64cec/prim_func.pkl",
+        "sha256": "6ea06cf517ba15631beb204fd1664c133ae06f6511b3ffa74ed27f1779479b51",
+        "size": 34394
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/a1d42b0989ca43804dd4e36d38a3b549a6cefe7c95f5c6e494c91f36540be3a2/device_kernel.cu",
+        "sha256": "2b7e146dcf65a708cb63f60269daaa17d9e6597307e809cda73d5881d69f73b4",
+        "size": 8638
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/a1d42b0989ca43804dd4e36d38a3b549a6cefe7c95f5c6e494c91f36540be3a2/executable.so",
+        "sha256": "d6a53dfadbb32d258b8ca24d306cf1e53448e34a7980b5720388236aaaaef6ea",
+        "size": 332104
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/a1d42b0989ca43804dd4e36d38a3b549a6cefe7c95f5c6e494c91f36540be3a2/host_kernel.cu",
+        "sha256": "a335e71bdc523ecf2aa90655c4f27a224f0e7b70a0bf6d688806ce74a8d594f8",
+        "size": 23732
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/a1d42b0989ca43804dd4e36d38a3b549a6cefe7c95f5c6e494c91f36540be3a2/params.pkl",
+        "sha256": "d381d8ac3f09dce4567aaa0d48e640df5ead50bef1da2b08e504694eddea17c5",
+        "size": 421
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/a1d42b0989ca43804dd4e36d38a3b549a6cefe7c95f5c6e494c91f36540be3a2/prim_func.pkl",
+        "sha256": "25d7a9bf18216aa9de8e02a7c25e0f48c5fc992e470cf4fe48c85f860ffa24d4",
+        "size": 28506
+      }
+    ],
+    "files_sha256": "fa2df62d90a64b54936a1122355f0f6db61636c42eed14a7567228c8f4842274",
+    "generated_sources": [
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/6c3b9bdb2bee0cc1a12e6df7924ff747b6a090a77fa234e985e4db229ef64cec/device_kernel.cu",
+        "sha256": "d878e39240f492abc8cb99ac5cee2b2e9ca715e4e34764a87d40b8939982753c",
+        "size": 3278
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/6c3b9bdb2bee0cc1a12e6df7924ff747b6a090a77fa234e985e4db229ef64cec/host_kernel.cu",
+        "sha256": "b99a138ba355de2c8a84e31367c6fc6f64f0fc35f0264b75a8e5456c52526c7e",
+        "size": 13959
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/a1d42b0989ca43804dd4e36d38a3b549a6cefe7c95f5c6e494c91f36540be3a2/device_kernel.cu",
+        "sha256": "2b7e146dcf65a708cb63f60269daaa17d9e6597307e809cda73d5881d69f73b4",
+        "size": 8638
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/a1d42b0989ca43804dd4e36d38a3b549a6cefe7c95f5c6e494c91f36540be3a2/host_kernel.cu",
+        "sha256": "a335e71bdc523ecf2aa90655c4f27a224f0e7b70a0bf6d688806ce74a8d594f8",
+        "size": 23732
+      }
+    ],
+    "loadable_code_objects": [
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/6c3b9bdb2bee0cc1a12e6df7924ff747b6a090a77fa234e985e4db229ef64cec/executable.so",
+        "sha256": "f6603aab770dc049617d0e74da3d4c7077d37e3de6d2874bea195dcea795d963",
+        "size": 65864
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/a1d42b0989ca43804dd4e36d38a3b549a6cefe7c95f5c6e494c91f36540be3a2/executable.so",
+        "sha256": "d6a53dfadbb32d258b8ca24d306cf1e53448e34a7980b5720388236aaaaef6ea",
+        "size": 332104
+      }
+    ]
+  },
+  "campaign_id": "finite-frontier-ada-v5",
+  "cell_id": "register_fused.tilelang.g05",
+  "correctness": {
+    "budget_mean": 0.00010001220703127959,
+    "err_q100": 1.5264959074556828e-07,
+    "err_q50": 3.179593477398157e-09,
+    "err_q90": 1.1918018572032452e-08,
+    "err_q99": 2.7153873816132545e-08,
+    "err_q999": 4.5649358071386814e-08,
+    "gate_pass": true,
+    "max_abs_err": 1.5264959074556828e-07,
+    "mean_abs_err": 5.0384704628966825e-09,
+    "pct_elems_failing_gate": 0.0,
+    "ref_abs_mean": 0.00012207031279582326,
+    "signed_mean_err": -4.222134794562571e-13
+  },
+  "implementation_sha256": "8c328ceb42df591bf80223bf9d6d06e7164ea3e14716669638d03d61a5e5bebf",
+  "load_evidence": {
+    "mode": "load_only",
+    "postprocess_loads": [],
+    "tilelang_cache_hits": [
+      {
+        "cache_path": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/finite_frontier_ada_v5/results/artifact_admission/artifacts/register_fused__tilelang__g05/cache/tilelang/0.1.11-x86_64/kernels/a1d42b0989ca43804dd4e36d38a3b549a6cefe7c95f5c6e494c91f36540be3a2",
+        "loadable_code_objects": [
+          {
+            "path": "tilelang/0.1.11-x86_64/kernels/a1d42b0989ca43804dd4e36d38a3b549a6cefe7c95f5c6e494c91f36540be3a2/executable.so",
+            "sha256": "d6a53dfadbb32d258b8ca24d306cf1e53448e34a7980b5720388236aaaaef6ea",
+            "size": 332104
+          }
+        ]
+      },
+      {
+        "cache_path": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/finite_frontier_ada_v5/results/artifact_admission/artifacts/register_fused__tilelang__g05/cache/tilelang/0.1.11-x86_64/kernels/6c3b9bdb2bee0cc1a12e6df7924ff747b6a090a77fa234e985e4db229ef64cec",
+        "loadable_code_objects": [
+          {
+            "path": "tilelang/0.1.11-x86_64/kernels/6c3b9bdb2bee0cc1a12e6df7924ff747b6a090a77fa234e985e4db229ef64cec/executable.so",
+            "sha256": "f6603aab770dc049617d0e74da3d4c7077d37e3de6d2874bea195dcea795d963",
+            "size": 65864
+          }
+        ]
+      }
+    ],
+    "triton_cache_hits": [],
+    "triton_kernel_loads": []
+  },
+  "n_kernels": 2,
+  "performance_observations": [],
+  "record_type": "finite_frontier_ada_artifact_verify_record",
+  "schema_version": 1
+}
