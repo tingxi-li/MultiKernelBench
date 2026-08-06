@@ -1,0 +1,224 @@
+{
+  "campaign_id": "tilelang-abstraction-v4-ada",
+  "campaign_lock_sha256": "be32135011f206c38ad76ab26875e519e9668cbf36431c0fc0e28e3d4a270759",
+  "created_utc": "2026-08-06T20:30:24.922854+00:00",
+  "dependency_bundle_sha256": "d468d0a5c5d45e71205eed634c6b0ce5279ec002b8243e122665edd1c4dcdacd",
+  "family": "fused_softmax",
+  "gate_manifest_sha256": "28d51cd4f1730bd190e63c7cad60670c37b67784393270e63e859a1685fc8a62",
+  "gate_path": "ako_runs/controlled_followup/tilelang_abstraction_v4/results/ada_v4r1/admission/fused_softmax_f1_f4c__high.gate.jsonl",
+  "gate_sha256": "da606f998d391191b17c4d49a5b5b03c978e5be5c8f14269394c837aebcf5d4a",
+  "gate_spec_sha256": "b6c3afaadf61f5d380a97c6c541828a1ecacd1a89a00b73b66207fe22d765e2e",
+  "gate_summary": {
+    "complete": true,
+    "expected_records": 512,
+    "failed_records": 0,
+    "full_gate_pass": true,
+    "max_over_threshold_ratio": 0.8189609408404408,
+    "max_over_threshold_ratio_by_metric": {
+      "conformance_mixed/max_abs_err": 0.2884864807128906,
+      "conformance_mixed/nrmse": 0.42424005599754255,
+      "conformance_mixed/row_sum_error_max": 0.8189609408404408,
+      "conformance_mixed/scaled_max_abs_err": 0.19684478206307066,
+      "conformance_mixed/sqrt_js_max": 0.21700626559110395,
+      "conformance_mixed/tv_max": 0.28870145733161934,
+      "semantic_mixed/max_abs_err": 0.3784355669497197,
+      "semantic_mixed/nrmse": 0.44633746701640026,
+      "semantic_mixed/row_sum_error_max": 0.8189609408404408,
+      "semantic_mixed/scaled_max_abs_err": 0.5338022207817251,
+      "semantic_mixed/sqrt_js_max": 0.7250420420669903,
+      "semantic_mixed/tv_max": 0.3796505465686972
+    },
+    "minimum_headroom_fraction": 0.1810390591595592,
+    "observed_records": 512,
+    "zero_threshold_max_observed_by_metric": {
+      "conformance_mixed/negative_count": 0.0,
+      "conformance_mixed/nonfinite_count": 0.0,
+      "semantic_mixed/negative_count": 0.0,
+      "semantic_mixed/nonfinite_count": 0.0
+    },
+    "zero_threshold_violation_records_by_metric": {}
+  },
+  "generated": {
+    "bundle_sha256": "3da858156b44dfaacf411895bece5eb4fc085bb140cb80957216848dcf1835e3",
+    "complete": true,
+    "files": {
+      "cuda": {
+        "bytes": 2211,
+        "path": "ako_runs/controlled_followup/tilelang_abstraction_v4/results/ada_v4r1/admission/fused_softmax_f1_f4c__high_generated/tilelang_abs.F1.128x128x32.kc2048.s3.fp16.precast.soft_only1.wcachecached.cu",
+        "sha256": "456d6b96858e26ec77b1d00e1cb452b3ab60a4e56ccea97d4335e29fa7785968"
+      },
+      "ptx": {
+        "bytes": 46473,
+        "path": "ako_runs/controlled_followup/tilelang_abstraction_v4/results/ada_v4r1/admission/fused_softmax_f1_f4c__high_generated/tilelang_abs.F1.128x128x32.kc2048.s3.fp16.precast.soft_only1.wcachecached.ptx",
+        "sha256": "a9c5d572348bc9e0cec3c67b29da503401ec744ee78a0e4d3510d611db846ede"
+      },
+      "sass": {
+        "bytes": 309371,
+        "path": "ako_runs/controlled_followup/tilelang_abstraction_v4/results/ada_v4r1/admission/fused_softmax_f1_f4c__high_generated/tilelang_abs.F1.128x128x32.kc2048.s3.fp16.precast.soft_only1.wcachecached.sass",
+        "sha256": "6013bff19c3958dabcbfff2d7d8e4777e6ecabc6febb4b14425945c311094b90"
+      }
+    },
+    "identity_sha256": "0ac7cc0a5f27f0370f659fe37c60cd99039941b4dee639761fdd8f83e37a4d55"
+  },
+  "gpu": {
+    "compute_capability": "8.9",
+    "driver_version": "610.43.02",
+    "ncu_sha256": "99b61b4937aa4d473ccb4ef2395d69d5f3de64908a7d65d96bc8f9b73f72476a",
+    "nvcc_sha256": "d51da6fa301a0c63b030c6a9e45b942c5fe2228e63c0ec276a445943cf0bc6f6",
+    "physical_index": 0,
+    "product_name": "NVIDIA RTX 6000 Ada Generation",
+    "uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae"
+  },
+  "gpu_idle_postflight": {
+    "checked_at_unix": 1786048362.4260256,
+    "compute_processes": [
+      {
+        "pid": 32273,
+        "used_memory_mib": "2482"
+      }
+    ],
+    "phase": "admission_child_post",
+    "self_pid": 32273,
+    "stderr": ""
+  },
+  "gpu_idle_preflight": {
+    "checked_at_unix": 1786048224.081963,
+    "compute_processes": [],
+    "phase": "admission_child_pre",
+    "self_pid": 32273,
+    "stderr": ""
+  },
+  "implementation_sha256": "0ac7cc0a5f27f0370f659fe37c60cd99039941b4dee639761fdd8f83e37a4d55",
+  "implementation_source_sha256": "ac0cbbbba5046d2ffcfd4b21b4d9aadcdaad5728d3a742dee1f77696178a724f",
+  "metadata": {
+    "compile_s": 7.248052599999937,
+    "config": {
+      "BK": 32,
+      "BM": 128,
+      "BN": 128,
+      "K": 8192,
+      "M": 1024,
+      "N": 8192,
+      "arith": "fp16",
+      "cast": "precast",
+      "dsl": "tilelang_abs",
+      "extra": {
+        "soft_only": "1",
+        "wcache": "cached"
+      },
+      "input_dtype": "torch.float16",
+      "kc": 2048,
+      "stages": 3,
+      "threads": 256,
+      "variant": "F1"
+    },
+    "notes": "tilelang softmax-abstraction arm F1 (T.reduce_max / T.reduce_sum over a (1,N) fragment) wcache=cached SOFTMAX-ONLY",
+    "reported_artifacts": {
+      "backend_detail": "GEMM held fixed (matched Phase-1 D + T.Parallel bias/erf-GELU epilogue); softmax = T.reduce_max / T.reduce_sum over a (1,N) fragment; 256 threads, 32 elements/thread",
+      "block": [
+        256,
+        1,
+        1
+      ],
+      "grid": [
+        64,
+        8,
+        1
+      ],
+      "n_kernels": 1
+    }
+  },
+  "pair_id": "fused_softmax_f1_f4c",
+  "parent_pid": 31962,
+  "physical_gpu": 0,
+  "process_pid": 32273,
+  "remote_authorization": {
+    "head_commit": "ce8aa4661b0968a31b378de6fa6156303debe60f",
+    "head_equals_configured_upstream": true,
+    "live_upstream_commit": "ce8aa4661b0968a31b378de6fa6156303debe60f",
+    "lock_git_blob": "d4fa1df336e1123036073bdbb14f0edc730a736a",
+    "lock_path": "ako_runs/controlled_followup/tilelang_abstraction_v4/campaign_lock.json",
+    "lock_sha256": "be32135011f206c38ad76ab26875e519e9668cbf36431c0fc0e28e3d4a270759",
+    "upstream_commit": "ce8aa4661b0968a31b378de6fa6156303debe60f",
+    "upstream_ref": "refs/heads/cross-dsl-6op-ncu-redo",
+    "upstream_remote": "origin"
+  },
+  "schema_version": 1,
+  "set": "x_soft_only=1,x_wcache=cached",
+  "side": "high",
+  "t_end": 1786048362.4260309,
+  "t_start": 1786048224.9228997,
+  "terminal_outcome": "GATE_PASSED",
+  "toolchain": {
+    "cuda_tools": {
+      "ncu": {
+        "binary_sha256": "18d8a8aa13c156cd43ebdf24ac950b5386cb229f2a4c931db47ef91cfe785920",
+        "path": "/usr/local/cuda-13.1/bin/ncu",
+        "version_sha256": "99b61b4937aa4d473ccb4ef2395d69d5f3de64908a7d65d96bc8f9b73f72476a"
+      },
+      "nvcc": {
+        "binary_sha256": "6ce80365abc2f14ff5f9e069fe687a93d4eaacc555dbf1d1696ee899d39df52a",
+        "path": "/usr/local/cuda-13.1/bin/nvcc",
+        "version_sha256": "d51da6fa301a0c63b030c6a9e45b942c5fe2228e63c0ec276a445943cf0bc6f6"
+      }
+    },
+    "local_modules": {
+      "analyze": {
+        "path": "ako_runs/controlled_followup/tilelang_abstraction_v4/analyze.py",
+        "sha256": "d74113eacdf5785dc877fe4e8d716ad6b48ad3c3fb6935e204b664c956df03e2"
+      },
+      "campaign_runner": {
+        "path": "ako_runs/controlled_followup/tilelang_abstraction_v4/campaign_runner.py",
+        "sha256": "e7a85134385386da7b65452a1dbb5fe6c4d360f218fb24042306ba9315fc7523"
+      },
+      "fused_abstraction": {
+        "path": "ako_runs/phase2_fused_sdpa/variants2/fused_tilelang_abstraction.py",
+        "sha256": "ac0cbbbba5046d2ffcfd4b21b4d9aadcdaad5728d3a742dee1f77696178a724f"
+      },
+      "phase2_common": {
+        "path": "ako_runs/phase2_fused_sdpa/common2.py",
+        "sha256": "0293cb15fc3285df199daa58281a1a35147a78b9cbccda8b8f88418eecb39c64"
+      },
+      "phase2_ncu": {
+        "path": "ako_runs/phase2_fused_sdpa/ncu_collect2.py",
+        "sha256": "a3f4c091f44ba0377d81ce26d8e4df350f9677137d84d7bc2b8a795dba824f4b"
+      },
+      "phase2_runner": {
+        "path": "ako_runs/phase2_fused_sdpa/runner2.py",
+        "sha256": "d1ade4461bff35058a3c6e967532960f5cc509f5d6a46c69bded78fbd0aac31e"
+      },
+      "phase2_variants": {
+        "path": "ako_runs/phase2_fused_sdpa/variants2/__init__.py",
+        "sha256": "2afc778f25db9abe2d05299bbd47fa2ad43b7912eee8633936095e6b92662045"
+      },
+      "protocol": {
+        "path": "ako_runs/controlled_followup/tilelang_abstraction_v4/protocol.py",
+        "sha256": "251982a4919aa3b715ae180280fb680a6a407a2346e7aa0b56e3266580bd94aa"
+      }
+    },
+    "package_modules": {
+      "tilelang": {
+        "path": "/home/lxt230026/miniconda3/lib/python3.13/site-packages/tilelang/__init__.py",
+        "sha256": "216c868c8010f149974a8ac04ddfeb107b6edf82f9f6cf710ffd144b122ebd8b"
+      },
+      "torch": {
+        "path": "/home/lxt230026/miniconda3/lib/python3.13/site-packages/torch/__init__.py",
+        "sha256": "d6388b1e3b16c1f9a22a87898e5f205fa13a97bd65c163f4829a157e0d9d602f"
+      },
+      "triton": {
+        "path": "/home/lxt230026/miniconda3/lib/python3.13/site-packages/triton/__init__.py",
+        "sha256": "96e68192cab5dd11fa30d5dc95d56c29ceecda53477fc3af8f37bee026b7a021"
+      }
+    },
+    "python_executable": "/home/lxt230026/miniconda3/bin/python3.13",
+    "python_executable_sha256": "73bb21a7bd68a5ad09bef6fa8587bd7df33734784cc5248d112926536117e115",
+    "python_implementation": "CPython",
+    "python_version": "3.13.5",
+    "tilelang_version": "0.1.11",
+    "torch_cuda_version": "12.8",
+    "torch_version": "2.10.0+cu128",
+    "triton_version": "3.6.0"
+  },
+  "variant": "F1",
+  "wall_s": 137.50313115119934
+}

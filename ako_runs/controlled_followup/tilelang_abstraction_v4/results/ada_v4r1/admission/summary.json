@@ -1,0 +1,63 @@
+{
+  "campaign_id": "tilelang-abstraction-v4-ada",
+  "campaign_lock_sha256": "be32135011f206c38ad76ab26875e519e9668cbf36431c0fc0e28e3d4a270759",
+  "census": {
+    "current_gate_unavailable": 0,
+    "excluded": 1,
+    "requested_pairs": 1,
+    "timing_eligible": 0
+  },
+  "claim_scope": "local_pair_only",
+  "complete": true,
+  "dependency_bundle_sha256": "d468d0a5c5d45e71205eed634c6b0ce5279ec002b8243e122665edd1c4dcdacd",
+  "evidence_bundle_sha256": "701b13f13d145c89523e15e2cff464b1b6b2ea36748e936b0210bef75d51e466",
+  "evidence_sha256": {
+    "ako_runs/controlled_followup/tilelang_abstraction_v4/results/ada_v4r1/admission/fused_softmax_f1_f4c__high.gate.jsonl": "da606f998d391191b17c4d49a5b5b03c978e5be5c8f14269394c837aebcf5d4a",
+    "ako_runs/controlled_followup/tilelang_abstraction_v4/results/ada_v4r1/admission/fused_softmax_f1_f4c__high.json": "7fed799f48930dd7b6638d38afd57541c3727ad2f9914275a5f479756fc24017",
+    "ako_runs/controlled_followup/tilelang_abstraction_v4/results/ada_v4r1/admission/fused_softmax_f1_f4c__high.profile.json": "bd4e9988283504994fb2ce2add356a5c2cb21ddd7ad48191aa39138020350599",
+    "ako_runs/controlled_followup/tilelang_abstraction_v4/results/ada_v4r1/admission/fused_softmax_f1_f4c__high.profile.raw.json": "57f0d0030bae5951f0faf00b0481a0ded02b2c04282d6bdf831e50a5319c3980",
+    "ako_runs/controlled_followup/tilelang_abstraction_v4/results/ada_v4r1/admission/fused_softmax_f1_f4c__high.profile_generated/tilelang_abs.F1.128x128x32.kc2048.s3.fp16.precast.soft_only1.wcachecached.cu": "456d6b96858e26ec77b1d00e1cb452b3ab60a4e56ccea97d4335e29fa7785968",
+    "ako_runs/controlled_followup/tilelang_abstraction_v4/results/ada_v4r1/admission/fused_softmax_f1_f4c__high.profile_generated/tilelang_abs.F1.128x128x32.kc2048.s3.fp16.precast.soft_only1.wcachecached.ptx": "f665bdf9c1282e4c873cfed7c3e1ce193c0cf2509b40e6523cabafa00c3c61a7",
+    "ako_runs/controlled_followup/tilelang_abstraction_v4/results/ada_v4r1/admission/fused_softmax_f1_f4c__high.profile_generated/tilelang_abs.F1.128x128x32.kc2048.s3.fp16.precast.soft_only1.wcachecached.sass": "9054ee7bafcd06f4dca9fb7232f19047b75cfec7bdfe9a8dfecf1be1b991761b",
+    "ako_runs/controlled_followup/tilelang_abstraction_v4/results/ada_v4r1/admission/fused_softmax_f1_f4c__high_generated/tilelang_abs.F1.128x128x32.kc2048.s3.fp16.precast.soft_only1.wcachecached.cu": "456d6b96858e26ec77b1d00e1cb452b3ab60a4e56ccea97d4335e29fa7785968",
+    "ako_runs/controlled_followup/tilelang_abstraction_v4/results/ada_v4r1/admission/fused_softmax_f1_f4c__high_generated/tilelang_abs.F1.128x128x32.kc2048.s3.fp16.precast.soft_only1.wcachecached.ptx": "a9c5d572348bc9e0cec3c67b29da503401ec744ee78a0e4d3510d611db846ede",
+    "ako_runs/controlled_followup/tilelang_abstraction_v4/results/ada_v4r1/admission/fused_softmax_f1_f4c__high_generated/tilelang_abs.F1.128x128x32.kc2048.s3.fp16.precast.soft_only1.wcachecached.sass": "6013bff19c3958dabcbfff2d7d8e4777e6ecabc6febb4b14425945c311094b90",
+    "ako_runs/controlled_followup/tilelang_abstraction_v4/results/ada_v4r1/admission/fused_softmax_f1_f4c__low.gate.jsonl": "1d7ee11e150994d24dabce41881af275135fb6f3df5e0f1fe83a650940cdc1d8",
+    "ako_runs/controlled_followup/tilelang_abstraction_v4/results/ada_v4r1/admission/fused_softmax_f1_f4c__low.json": "fac66206884c63ca93cc8fa39c38f1575efce4a8fd707a57ae30852fb2b5415d",
+    "ako_runs/controlled_followup/tilelang_abstraction_v4/results/ada_v4r1/admission/fused_softmax_f1_f4c__low.profile.json": "c587f0161fbf30e63be9aef97b4269bb2019ba82fdfb3042a7afa5ceb72e0aa1",
+    "ako_runs/controlled_followup/tilelang_abstraction_v4/results/ada_v4r1/admission/fused_softmax_f1_f4c__low.profile.raw.json": "f9093e0995248d0a1104a9e7c745eb2134a291e18992de457e887b7f8d0cf066",
+    "ako_runs/controlled_followup/tilelang_abstraction_v4/results/ada_v4r1/admission/fused_softmax_f1_f4c__low.profile_generated/tilelang_abs.F4c.128x128x32.kc2048.s3.fp16.precast.soft_only1.wcachecached.cu": "f3491f74f3e740ac4c4aed364a000570768ca50c5572a9ababc9579957ff6302",
+    "ako_runs/controlled_followup/tilelang_abstraction_v4/results/ada_v4r1/admission/fused_softmax_f1_f4c__low.profile_generated/tilelang_abs.F4c.128x128x32.kc2048.s3.fp16.precast.soft_only1.wcachecached.ptx": "6c6d878753c07d701db85606c6cf58f4477ad2c36302b5175c6467da1e474763",
+    "ako_runs/controlled_followup/tilelang_abstraction_v4/results/ada_v4r1/admission/fused_softmax_f1_f4c__low.profile_generated/tilelang_abs.F4c.128x128x32.kc2048.s3.fp16.precast.soft_only1.wcachecached.sass": "2f24da7d0b4c4d48ba6db4929f270d88ce509e20952dca6652170517236897c1",
+    "ako_runs/controlled_followup/tilelang_abstraction_v4/results/ada_v4r1/admission/fused_softmax_f1_f4c__low_generated/tilelang_abs.F4c.128x128x32.kc2048.s3.fp16.precast.soft_only1.wcachecached.cu": "f3491f74f3e740ac4c4aed364a000570768ca50c5572a9ababc9579957ff6302",
+    "ako_runs/controlled_followup/tilelang_abstraction_v4/results/ada_v4r1/admission/fused_softmax_f1_f4c__low_generated/tilelang_abs.F4c.128x128x32.kc2048.s3.fp16.precast.soft_only1.wcachecached.ptx": "a3c3aff4000751d04f1a929954dc9d7b0f52f7465202bb857f30b8c587f2db98",
+    "ako_runs/controlled_followup/tilelang_abstraction_v4/results/ada_v4r1/admission/fused_softmax_f1_f4c__low_generated/tilelang_abs.F4c.128x128x32.kc2048.s3.fp16.precast.soft_only1.wcachecached.sass": "228880dc7e9e6ebc7e675f3737629c2689174fde82be398737abd3c3ee065406",
+    "ako_runs/controlled_followup/tilelang_abstraction_v4/results/ada_v4r1/admission/launch_receipt.json": "ec3b1555cc89cb4349c911c9367f38be109407ac16df90d3307f9236438f94c9",
+    "ako_runs/controlled_followup/tilelang_abstraction_v4/results/ada_v4r1/admission/run_status.json": "41cad6f1997a7af8f77b049715373bc405c32d59e3653c245e0201a72b388433"
+  },
+  "generalization_design_ready": false,
+  "launch_receipt_path": "ako_runs/controlled_followup/tilelang_abstraction_v4/results/ada_v4r1/admission/launch_receipt.json",
+  "launch_receipt_sha256": "ec3b1555cc89cb4349c911c9367f38be109407ac16df90d3307f9236438f94c9",
+  "material_receipts_verified": true,
+  "pairs": [
+    {
+      "arm_receipts": {},
+      "artifact_identity_sha256": {},
+      "classification": "excluded_fail_closed",
+      "family": "fused_softmax",
+      "gate_available": true,
+      "measured_match_audit": null,
+      "pair_id": "fused_softmax_f1_f4c",
+      "reasons": [
+        "high: profile receipt coordinates differ: ok,implementation_sha256,artifact_identity_match",
+        "low: profile receipt coordinates differ: ok,implementation_sha256,artifact_identity_match"
+      ],
+      "timing_eligible": false
+    }
+  ],
+  "record_type": "tilelang_abstraction_v4_admission_summary",
+  "run_status_path": "ako_runs/controlled_followup/tilelang_abstraction_v4/results/ada_v4r1/admission/run_status.json",
+  "run_status_sha256": "41cad6f1997a7af8f77b049715373bc405c32d59e3653c245e0201a72b388433",
+  "schema_version": 1,
+  "timing_eligible_pair_ids": []
+}

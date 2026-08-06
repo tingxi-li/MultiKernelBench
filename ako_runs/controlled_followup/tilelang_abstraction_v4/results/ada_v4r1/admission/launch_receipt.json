@@ -1,0 +1,109 @@
+{
+  "campaign_id": "tilelang-abstraction-v4-ada",
+  "campaign_lock_sha256": "be32135011f206c38ad76ab26875e519e9668cbf36431c0fc0e28e3d4a270759",
+  "created_utc": "2026-08-06T20:30:21.702761+00:00",
+  "dependency_bundle_sha256": "d468d0a5c5d45e71205eed634c6b0ce5279ec002b8243e122665edd1c4dcdacd",
+  "expected_pair_ids": [
+    "fused_softmax_f1_f4c"
+  ],
+  "gpu": {
+    "compute_capability": "8.9",
+    "driver_version": "610.43.02",
+    "ncu_sha256": "99b61b4937aa4d473ccb4ef2395d69d5f3de64908a7d65d96bc8f9b73f72476a",
+    "nvcc_sha256": "d51da6fa301a0c63b030c6a9e45b942c5fe2228e63c0ec276a445943cf0bc6f6",
+    "physical_index": 0,
+    "product_name": "NVIDIA RTX 6000 Ada Generation",
+    "uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae"
+  },
+  "gpu_idle_preflight": {
+    "checked_at_unix": 1786048220.906793,
+    "compute_processes": [],
+    "phase": "admission_stage_pre",
+    "self_pid": 31962,
+    "stderr": ""
+  },
+  "gpu_lock_id": "multikernelbench-GPU-45af34ad-0c74-74d0-ef3a-652090d837ae-timing",
+  "physical_gpu": 0,
+  "remote_authorization": {
+    "head_commit": "ce8aa4661b0968a31b378de6fa6156303debe60f",
+    "head_equals_configured_upstream": true,
+    "live_upstream_commit": "ce8aa4661b0968a31b378de6fa6156303debe60f",
+    "lock_git_blob": "d4fa1df336e1123036073bdbb14f0edc730a736a",
+    "lock_path": "ako_runs/controlled_followup/tilelang_abstraction_v4/campaign_lock.json",
+    "lock_sha256": "be32135011f206c38ad76ab26875e519e9668cbf36431c0fc0e28e3d4a270759",
+    "upstream_commit": "ce8aa4661b0968a31b378de6fa6156303debe60f",
+    "upstream_ref": "refs/heads/cross-dsl-6op-ncu-redo",
+    "upstream_remote": "origin"
+  },
+  "schema_version": 1,
+  "toolchain": {
+    "cuda_tools": {
+      "ncu": {
+        "binary_sha256": "18d8a8aa13c156cd43ebdf24ac950b5386cb229f2a4c931db47ef91cfe785920",
+        "path": "/usr/local/cuda-13.1/bin/ncu",
+        "version_sha256": "99b61b4937aa4d473ccb4ef2395d69d5f3de64908a7d65d96bc8f9b73f72476a"
+      },
+      "nvcc": {
+        "binary_sha256": "6ce80365abc2f14ff5f9e069fe687a93d4eaacc555dbf1d1696ee899d39df52a",
+        "path": "/usr/local/cuda-13.1/bin/nvcc",
+        "version_sha256": "d51da6fa301a0c63b030c6a9e45b942c5fe2228e63c0ec276a445943cf0bc6f6"
+      }
+    },
+    "local_modules": {
+      "analyze": {
+        "path": "ako_runs/controlled_followup/tilelang_abstraction_v4/analyze.py",
+        "sha256": "d74113eacdf5785dc877fe4e8d716ad6b48ad3c3fb6935e204b664c956df03e2"
+      },
+      "campaign_runner": {
+        "path": "ako_runs/controlled_followup/tilelang_abstraction_v4/campaign_runner.py",
+        "sha256": "e7a85134385386da7b65452a1dbb5fe6c4d360f218fb24042306ba9315fc7523"
+      },
+      "fused_abstraction": {
+        "path": "ako_runs/phase2_fused_sdpa/variants2/fused_tilelang_abstraction.py",
+        "sha256": "ac0cbbbba5046d2ffcfd4b21b4d9aadcdaad5728d3a742dee1f77696178a724f"
+      },
+      "phase2_common": {
+        "path": "ako_runs/phase2_fused_sdpa/common2.py",
+        "sha256": "0293cb15fc3285df199daa58281a1a35147a78b9cbccda8b8f88418eecb39c64"
+      },
+      "phase2_ncu": {
+        "path": "ako_runs/phase2_fused_sdpa/ncu_collect2.py",
+        "sha256": "a3f4c091f44ba0377d81ce26d8e4df350f9677137d84d7bc2b8a795dba824f4b"
+      },
+      "phase2_runner": {
+        "path": "ako_runs/phase2_fused_sdpa/runner2.py",
+        "sha256": "d1ade4461bff35058a3c6e967532960f5cc509f5d6a46c69bded78fbd0aac31e"
+      },
+      "phase2_variants": {
+        "path": "ako_runs/phase2_fused_sdpa/variants2/__init__.py",
+        "sha256": "2afc778f25db9abe2d05299bbd47fa2ad43b7912eee8633936095e6b92662045"
+      },
+      "protocol": {
+        "path": "ako_runs/controlled_followup/tilelang_abstraction_v4/protocol.py",
+        "sha256": "251982a4919aa3b715ae180280fb680a6a407a2346e7aa0b56e3266580bd94aa"
+      }
+    },
+    "package_modules": {
+      "tilelang": {
+        "path": "/home/lxt230026/miniconda3/lib/python3.13/site-packages/tilelang/__init__.py",
+        "sha256": "216c868c8010f149974a8ac04ddfeb107b6edf82f9f6cf710ffd144b122ebd8b"
+      },
+      "torch": {
+        "path": "/home/lxt230026/miniconda3/lib/python3.13/site-packages/torch/__init__.py",
+        "sha256": "d6388b1e3b16c1f9a22a87898e5f205fa13a97bd65c163f4829a157e0d9d602f"
+      },
+      "triton": {
+        "path": "/home/lxt230026/miniconda3/lib/python3.13/site-packages/triton/__init__.py",
+        "sha256": "96e68192cab5dd11fa30d5dc95d56c29ceecda53477fc3af8f37bee026b7a021"
+      }
+    },
+    "python_executable": "/home/lxt230026/miniconda3/bin/python3.13",
+    "python_executable_sha256": "73bb21a7bd68a5ad09bef6fa8587bd7df33734784cc5248d112926536117e115",
+    "python_implementation": "CPython",
+    "python_version": "3.13.5",
+    "tilelang_version": "0.1.11",
+    "torch_cuda_version": "12.8",
+    "torch_version": "2.10.0+cu128",
+    "triton_version": "3.6.0"
+  }
+}
