@@ -1,0 +1,29 @@
+{
+  "campaign_id": "native-trajectory-replication-ada-v2",
+  "contract_sha256": "1003f9e75b2727397cd8dfc6fec7a4e7ff38e68608dfc014f48e1771e3743c3d",
+  "expected_raw_records": 420,
+  "instrument_evidence_index_sha256": "3340a86f4f64404a96461fa5bb5262ff3e1cebacd645d4bd63aaa1bedda212c5",
+  "instrument_launch_lock_sha256": "206b75387acf4d60b688a8e19b3aff094a8ef69d5a0a1b72269d8b24f48be1b6",
+  "instrument_source_bundle_sha256": "abe6873e89686ca94a2dc096b633feff615c7dbfd8fb4e91546850ed26cae20b",
+  "lock_sha256": "e07a614d25301182c254557cdf7de09f6a71904cbfc8ec05a2f4cac5e312b319",
+  "manifest_sha256": "f04f7a532dc5aab80c10c6ff3a76ddcea0e9c4a7e8b9983baab87c7f00d4ce48",
+  "materials_sha256": "c103a5c0f75167e0dfc9d7404474a5aba21fb608a4cf659114ed3328e76269c1",
+  "predecessor_incident_sha256": "fa23bbcfc7063c145c911585d809e82f51d14afe0b0a987608c1fe75a77a68b7",
+  "predecessor_result_closure_sha256": "2ca8e199e2f8784255785774545d164b0c52f084abddf4ea256b0ff47d0ff920",
+  "record_type": "native_trajectory_replication_ada_v2_material_lock",
+  "schema_version": 1,
+  "source_bundle_sha256": "53ded82c46f794b1fe01b03af64d1b75cfcfa58c5e6586588c5287f12519dc8c",
+  "source_sha256": {
+    "ako_runs/controlled_followup/native_trajectory_replication_ada_v2/.gitignore": "cda2ad7fe06e2ba3ed6310ff1213b7153194131509e08928982940b2123e6e2e",
+    "ako_runs/controlled_followup/native_trajectory_replication_ada_v2/README.md": "aaebcc64e89c2ab86f54c981be694f2ae25226a118c1971d33946deef92013d4",
+    "ako_runs/controlled_followup/native_trajectory_replication_ada_v2/__init__.py": "b6e37705647d6a8f698c6421648fa279602fdcfec2e2657a545937d40f7e47f6",
+    "ako_runs/controlled_followup/native_trajectory_replication_ada_v2/analyze.py": "fda82e7ed35d8dc847c73c955f8d07ea27d9ce34a1fd29454f8c06738344b4ad",
+    "ako_runs/controlled_followup/native_trajectory_replication_ada_v2/artifacts.py": "8b40e8fb923cd25e2599d6d2060a9d419243f407a2d0cc5ec92da065547284d0",
+    "ako_runs/controlled_followup/native_trajectory_replication_ada_v2/contract.json": "1003f9e75b2727397cd8dfc6fec7a4e7ff38e68608dfc014f48e1771e3743c3d",
+    "ako_runs/controlled_followup/native_trajectory_replication_ada_v2/manifest.json": "f04f7a532dc5aab80c10c6ff3a76ddcea0e9c4a7e8b9983baab87c7f00d4ce48",
+    "ako_runs/controlled_followup/native_trajectory_replication_ada_v2/protocol.py": "1f6d2fd675c9059086aea639f5a905a68274ef4766e2f18d9656fa2f92c28203",
+    "ako_runs/controlled_followup/native_trajectory_replication_ada_v2/runner.py": "d127bd135c50d749d27c9aec8cf99152535163f4b368f3be7eed1445f6905531",
+    "ako_runs/controlled_followup/native_trajectory_replication_ada_v2/test_protocol.py": "9ebae381428ac520d128f22f4177ba29b398ccff3601b80590d2b765265af960"
+  },
+  "stage": "material"
+}
