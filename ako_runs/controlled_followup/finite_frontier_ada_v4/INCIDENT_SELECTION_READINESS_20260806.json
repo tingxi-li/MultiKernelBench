@@ -1,0 +1,60 @@
+{
+  "artifact_closure": {
+    "algorithm": "sha256(canonical_json(sorted([{path,sha256,size}])))",
+    "excluded_runtime_files": [
+      "active.lock"
+    ],
+    "file_count": 132,
+    "root": "ako_runs/controlled_followup/finite_frontier_ada_v4/results/artifact_admission",
+    "sha256": "595f5c3a7540a2e0b85e13b58aa6aac658a8ad678fba51289f2b87ebf966127f",
+    "total_bytes": 20317036
+  },
+  "campaign_id": "finite-frontier-ada-v4",
+  "classification": "NON_CONTROLLING_SELECTION_READINESS_INCIDENT",
+  "created_utc": "2026-08-06",
+  "failure": {
+    "command": "python ako_runs/controlled_followup/finite_frontier_ada_v4/launch.py ready --stage selection-confirm",
+    "exception": "AttributeError: module 'launch' has no attribute 'validate_gpu_snapshot'",
+    "failed_stage": "selection_readiness",
+    "location": "artifacts.py:_validate_provenance",
+    "mechanism": "Running launch.py as a script loaded artifacts.py as a top-level module. After launch.py prepended the phase directories to sys.path, artifacts.py's later fallback import resolved the bare name launch to a foreign phase launcher instead of this campaign's launcher.",
+    "root_cause": "The frozen source relied on ambiguous bare-module identity during deferred provenance validation; the admitted artifacts themselves did not fail validation.",
+    "scientific_effect": "The complete artifact-admission result is permanently non-controlling. Selection and terminal timing did not start, and no v4 artifact or result may be reused by a corrective successor."
+  },
+  "parent_bindings": {
+    "artifact_admission_commit": "2f08332651437f80f67e77daed1b5dcc2ffa7cc7",
+    "artifact_admission_launch_commit": "232d9ce5cd0843c437bc005821561efe11f9c56a",
+    "artifact_admission_launch_receipt_sha256": "8d349863faeaafe8b9be15334f6defc28353b9341a5df96dcea80b0e3a0205a9",
+    "artifact_admission_manifest_sha256": "7cc179bf7ea0de487b3a7c37dd2fbe85f7f22efd4ef44d218d44758a8b688243",
+    "artifact_admission_run_status_sha256": "496177dd8862b42e40c564ea65b86a34c96b812f06b3f9f343792ecd4336e8cb",
+    "contract_sha256": "d04368b1055598bc252a3adc1ef4e3ebfd99fb3c8528cb6f5331ef88f6399bec",
+    "execution_lock_sha256": "e4fbd68da88626604733898b56a0abe2c6c63facb4aa14e7b832a7ea7c60c7b7",
+    "imported_frontier_sha256": "60df9f70fe3ddddb89b9da1f517d4556fdabbe270468f509fe28c198d6d566a7"
+  },
+  "policy": {
+    "continuation_authorized": false,
+    "performance_timing_authorized": false,
+    "post_hoc_overlay_authorized": false,
+    "reuse_authorized": false,
+    "successor_requires_exact_package_safe_local_launcher": true,
+    "successor_requires_new_artifact_admission": true,
+    "successor_requires_new_lock": true
+  },
+  "record_type": "finite_frontier_ada_v4_selection_readiness_incident",
+  "result_state": "artifact_admission_complete_selection_readiness_failed_noncontrolling",
+  "schema_version": 1,
+  "sealed_census": {
+    "artifact_admission_complete": true,
+    "expected_artifact_admission_entries": 7,
+    "expected_selection_timing_records": 240,
+    "expected_terminal_timing_records": 120,
+    "observed_artifact_admission_entries": 7,
+    "observed_selection_timing_records": 0,
+    "observed_terminal_timing_records": 0,
+    "selection_lock_written": false
+  },
+  "successor": {
+    "corrective_campaign_id": "finite-frontier-ada-v5",
+    "requirement": "Bind this incident and its complete v4 artifact-admission closure, resolve only the exact local launcher in script and package modes, freeze a new source bundle and lock, and rerun artifact admission and both timing stages without reusing v4 outputs."
+  }
+}
