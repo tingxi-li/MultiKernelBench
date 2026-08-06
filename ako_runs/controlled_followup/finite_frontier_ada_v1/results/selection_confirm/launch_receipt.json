@@ -1,0 +1,2457 @@
+{
+  "contract": {
+    "campaign_id": "finite-frontier-ada-v1",
+    "execution_lock_sha256": "c39e46fd48fb65745f453c75b5fcec8b98fe06fd6f38160f2327d442ea90b7df",
+    "git_commit": "75e3beb4c64430cd70abea2e16f184de812fff19",
+    "gpu": {
+      "clocks.mem": "405",
+      "clocks.sm": "210",
+      "compute_cap": "8.9",
+      "driver_version": "610.43.02",
+      "index": "0",
+      "memory.total": "49140",
+      "memory.used": "2",
+      "name": "NVIDIA RTX 6000 Ada Generation",
+      "power.limit": "300.00",
+      "pstate": "P8",
+      "temperature.gpu": "47",
+      "utilization.gpu": "0",
+      "uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae"
+    },
+    "gpu_lock_id": "multikernelbench-GPU-45af34ad-0c74-74d0-ef3a-652090d837ae-timing",
+    "input_artifact_path": "ako_runs/controlled_followup/finite_frontier_ada_v1/results/imported_frontier.json",
+    "input_artifact_sha256": "b785e0fb9ecfe73f40cb6ef619a31883a53a96a6038fa3f455bb72bfc65d734d",
+    "plan": [
+      {
+        "block": 0,
+        "block_position": 0,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "withheld_signed",
+        "label": "sham_a",
+        "position": 0,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 0,
+        "block_position": 1,
+        "cell_id": "register_common_postprocess.triton.g05",
+        "distribution": "withheld_signed",
+        "label": "register_common_postprocess.triton.g05",
+        "position": 1,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 0,
+        "block_position": 2,
+        "cell_id": "register_fused.triton.g09",
+        "distribution": "positive",
+        "label": "register_fused.triton.g09",
+        "position": 2,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 0,
+        "block_position": 3,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "withheld_signed",
+        "label": "sham_b",
+        "position": 3,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 0,
+        "block_position": 4,
+        "cell_id": "register_common_postprocess.triton.g05",
+        "distribution": "positive",
+        "label": "register_common_postprocess.triton.g05",
+        "position": 4,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 0,
+        "block_position": 5,
+        "cell_id": "register_fused.triton.g05",
+        "distribution": "withheld_signed",
+        "label": "register_fused.triton.g05",
+        "position": 5,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 0,
+        "block_position": 6,
+        "cell_id": "register_fused.tilelang.g09",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g09",
+        "position": 6,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 0,
+        "block_position": 7,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "positive",
+        "label": "sham_a",
+        "position": 7,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 0,
+        "block_position": 8,
+        "cell_id": "register_fused.tilelang.g09",
+        "distribution": "withheld_signed",
+        "label": "register_fused.tilelang.g09",
+        "position": 8,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 0,
+        "block_position": 9,
+        "cell_id": "register_fused.triton.g09",
+        "distribution": "withheld_signed",
+        "label": "register_fused.triton.g09",
+        "position": 9,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 0,
+        "block_position": 10,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "positive",
+        "label": "sham_b",
+        "position": 10,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 0,
+        "block_position": 11,
+        "cell_id": "register_fused.tilelang.g05",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g05",
+        "position": 11,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 0,
+        "block_position": 12,
+        "cell_id": "global_intermediate.tilelang.g12",
+        "distribution": "withheld_signed",
+        "label": "global_intermediate.tilelang.g12",
+        "position": 12,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 0,
+        "block_position": 13,
+        "cell_id": "global_intermediate.tilelang.g12",
+        "distribution": "positive",
+        "label": "global_intermediate.tilelang.g12",
+        "position": 13,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 0,
+        "block_position": 14,
+        "cell_id": "register_fused.triton.g05",
+        "distribution": "positive",
+        "label": "register_fused.triton.g05",
+        "position": 14,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 0,
+        "block_position": 15,
+        "cell_id": "register_fused.tilelang.g05",
+        "distribution": "withheld_signed",
+        "label": "register_fused.tilelang.g05",
+        "position": 15,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 1,
+        "block_position": 0,
+        "cell_id": "global_intermediate.tilelang.g12",
+        "distribution": "positive",
+        "label": "global_intermediate.tilelang.g12",
+        "position": 16,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 1,
+        "block_position": 1,
+        "cell_id": "register_common_postprocess.triton.g05",
+        "distribution": "withheld_signed",
+        "label": "register_common_postprocess.triton.g05",
+        "position": 17,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 1,
+        "block_position": 2,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "withheld_signed",
+        "label": "sham_b",
+        "position": 18,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 1,
+        "block_position": 3,
+        "cell_id": "global_intermediate.tilelang.g12",
+        "distribution": "withheld_signed",
+        "label": "global_intermediate.tilelang.g12",
+        "position": 19,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 1,
+        "block_position": 4,
+        "cell_id": "register_fused.tilelang.g05",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g05",
+        "position": 20,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 1,
+        "block_position": 5,
+        "cell_id": "register_fused.triton.g05",
+        "distribution": "withheld_signed",
+        "label": "register_fused.triton.g05",
+        "position": 21,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 1,
+        "block_position": 6,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "positive",
+        "label": "sham_a",
+        "position": 22,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 1,
+        "block_position": 7,
+        "cell_id": "register_fused.tilelang.g09",
+        "distribution": "withheld_signed",
+        "label": "register_fused.tilelang.g09",
+        "position": 23,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 1,
+        "block_position": 8,
+        "cell_id": "register_fused.triton.g09",
+        "distribution": "withheld_signed",
+        "label": "register_fused.triton.g09",
+        "position": 24,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 1,
+        "block_position": 9,
+        "cell_id": "register_fused.triton.g05",
+        "distribution": "positive",
+        "label": "register_fused.triton.g05",
+        "position": 25,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 1,
+        "block_position": 10,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "withheld_signed",
+        "label": "sham_a",
+        "position": 26,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 1,
+        "block_position": 11,
+        "cell_id": "register_fused.tilelang.g09",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g09",
+        "position": 27,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 1,
+        "block_position": 12,
+        "cell_id": "register_common_postprocess.triton.g05",
+        "distribution": "positive",
+        "label": "register_common_postprocess.triton.g05",
+        "position": 28,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 1,
+        "block_position": 13,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "positive",
+        "label": "sham_b",
+        "position": 29,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 1,
+        "block_position": 14,
+        "cell_id": "register_fused.tilelang.g05",
+        "distribution": "withheld_signed",
+        "label": "register_fused.tilelang.g05",
+        "position": 30,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 1,
+        "block_position": 15,
+        "cell_id": "register_fused.triton.g09",
+        "distribution": "positive",
+        "label": "register_fused.triton.g09",
+        "position": 31,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 2,
+        "block_position": 0,
+        "cell_id": "register_fused.triton.g09",
+        "distribution": "withheld_signed",
+        "label": "register_fused.triton.g09",
+        "position": 32,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 2,
+        "block_position": 1,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "withheld_signed",
+        "label": "sham_b",
+        "position": 33,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 2,
+        "block_position": 2,
+        "cell_id": "register_fused.triton.g05",
+        "distribution": "withheld_signed",
+        "label": "register_fused.triton.g05",
+        "position": 34,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 2,
+        "block_position": 3,
+        "cell_id": "global_intermediate.tilelang.g12",
+        "distribution": "positive",
+        "label": "global_intermediate.tilelang.g12",
+        "position": 35,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 2,
+        "block_position": 4,
+        "cell_id": "register_fused.tilelang.g05",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g05",
+        "position": 36,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 2,
+        "block_position": 5,
+        "cell_id": "global_intermediate.tilelang.g12",
+        "distribution": "withheld_signed",
+        "label": "global_intermediate.tilelang.g12",
+        "position": 37,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 2,
+        "block_position": 6,
+        "cell_id": "register_common_postprocess.triton.g05",
+        "distribution": "withheld_signed",
+        "label": "register_common_postprocess.triton.g05",
+        "position": 38,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 2,
+        "block_position": 7,
+        "cell_id": "register_fused.tilelang.g05",
+        "distribution": "withheld_signed",
+        "label": "register_fused.tilelang.g05",
+        "position": 39,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 2,
+        "block_position": 8,
+        "cell_id": "register_fused.tilelang.g09",
+        "distribution": "withheld_signed",
+        "label": "register_fused.tilelang.g09",
+        "position": 40,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 2,
+        "block_position": 9,
+        "cell_id": "register_fused.triton.g09",
+        "distribution": "positive",
+        "label": "register_fused.triton.g09",
+        "position": 41,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 2,
+        "block_position": 10,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "positive",
+        "label": "sham_b",
+        "position": 42,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 2,
+        "block_position": 11,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "withheld_signed",
+        "label": "sham_a",
+        "position": 43,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 2,
+        "block_position": 12,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "positive",
+        "label": "sham_a",
+        "position": 44,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 2,
+        "block_position": 13,
+        "cell_id": "register_fused.triton.g05",
+        "distribution": "positive",
+        "label": "register_fused.triton.g05",
+        "position": 45,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 2,
+        "block_position": 14,
+        "cell_id": "register_fused.tilelang.g09",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g09",
+        "position": 46,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 2,
+        "block_position": 15,
+        "cell_id": "register_common_postprocess.triton.g05",
+        "distribution": "positive",
+        "label": "register_common_postprocess.triton.g05",
+        "position": 47,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 3,
+        "block_position": 0,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "positive",
+        "label": "sham_a",
+        "position": 48,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 3,
+        "block_position": 1,
+        "cell_id": "register_fused.tilelang.g05",
+        "distribution": "withheld_signed",
+        "label": "register_fused.tilelang.g05",
+        "position": 49,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 3,
+        "block_position": 2,
+        "cell_id": "register_common_postprocess.triton.g05",
+        "distribution": "positive",
+        "label": "register_common_postprocess.triton.g05",
+        "position": 50,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 3,
+        "block_position": 3,
+        "cell_id": "global_intermediate.tilelang.g12",
+        "distribution": "withheld_signed",
+        "label": "global_intermediate.tilelang.g12",
+        "position": 51,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 3,
+        "block_position": 4,
+        "cell_id": "register_fused.tilelang.g09",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g09",
+        "position": 52,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 3,
+        "block_position": 5,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "withheld_signed",
+        "label": "sham_a",
+        "position": 53,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 3,
+        "block_position": 6,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "positive",
+        "label": "sham_b",
+        "position": 54,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 3,
+        "block_position": 7,
+        "cell_id": "register_fused.triton.g05",
+        "distribution": "positive",
+        "label": "register_fused.triton.g05",
+        "position": 55,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 3,
+        "block_position": 8,
+        "cell_id": "register_fused.tilelang.g09",
+        "distribution": "withheld_signed",
+        "label": "register_fused.tilelang.g09",
+        "position": 56,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 3,
+        "block_position": 9,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "withheld_signed",
+        "label": "sham_b",
+        "position": 57,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 3,
+        "block_position": 10,
+        "cell_id": "global_intermediate.tilelang.g12",
+        "distribution": "positive",
+        "label": "global_intermediate.tilelang.g12",
+        "position": 58,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 3,
+        "block_position": 11,
+        "cell_id": "register_fused.triton.g09",
+        "distribution": "positive",
+        "label": "register_fused.triton.g09",
+        "position": 59,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 3,
+        "block_position": 12,
+        "cell_id": "register_fused.triton.g05",
+        "distribution": "withheld_signed",
+        "label": "register_fused.triton.g05",
+        "position": 60,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 3,
+        "block_position": 13,
+        "cell_id": "register_fused.triton.g09",
+        "distribution": "withheld_signed",
+        "label": "register_fused.triton.g09",
+        "position": 61,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 3,
+        "block_position": 14,
+        "cell_id": "register_fused.tilelang.g05",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g05",
+        "position": 62,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 3,
+        "block_position": 15,
+        "cell_id": "register_common_postprocess.triton.g05",
+        "distribution": "withheld_signed",
+        "label": "register_common_postprocess.triton.g05",
+        "position": 63,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 4,
+        "block_position": 0,
+        "cell_id": "global_intermediate.tilelang.g12",
+        "distribution": "positive",
+        "label": "global_intermediate.tilelang.g12",
+        "position": 64,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 4,
+        "block_position": 1,
+        "cell_id": "register_fused.triton.g05",
+        "distribution": "positive",
+        "label": "register_fused.triton.g05",
+        "position": 65,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 4,
+        "block_position": 2,
+        "cell_id": "register_fused.tilelang.g09",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g09",
+        "position": 66,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 4,
+        "block_position": 3,
+        "cell_id": "register_fused.tilelang.g05",
+        "distribution": "withheld_signed",
+        "label": "register_fused.tilelang.g05",
+        "position": 67,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 4,
+        "block_position": 4,
+        "cell_id": "register_common_postprocess.triton.g05",
+        "distribution": "withheld_signed",
+        "label": "register_common_postprocess.triton.g05",
+        "position": 68,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 4,
+        "block_position": 5,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "withheld_signed",
+        "label": "sham_b",
+        "position": 69,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 4,
+        "block_position": 6,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "positive",
+        "label": "sham_a",
+        "position": 70,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 4,
+        "block_position": 7,
+        "cell_id": "register_fused.triton.g09",
+        "distribution": "positive",
+        "label": "register_fused.triton.g09",
+        "position": 71,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 4,
+        "block_position": 8,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "withheld_signed",
+        "label": "sham_a",
+        "position": 72,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 4,
+        "block_position": 9,
+        "cell_id": "register_fused.tilelang.g09",
+        "distribution": "withheld_signed",
+        "label": "register_fused.tilelang.g09",
+        "position": 73,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 4,
+        "block_position": 10,
+        "cell_id": "register_fused.tilelang.g05",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g05",
+        "position": 74,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 4,
+        "block_position": 11,
+        "cell_id": "register_fused.triton.g05",
+        "distribution": "withheld_signed",
+        "label": "register_fused.triton.g05",
+        "position": 75,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 4,
+        "block_position": 12,
+        "cell_id": "register_common_postprocess.triton.g05",
+        "distribution": "positive",
+        "label": "register_common_postprocess.triton.g05",
+        "position": 76,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 4,
+        "block_position": 13,
+        "cell_id": "global_intermediate.tilelang.g12",
+        "distribution": "withheld_signed",
+        "label": "global_intermediate.tilelang.g12",
+        "position": 77,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 4,
+        "block_position": 14,
+        "cell_id": "register_fused.triton.g09",
+        "distribution": "withheld_signed",
+        "label": "register_fused.triton.g09",
+        "position": 78,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 4,
+        "block_position": 15,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "positive",
+        "label": "sham_b",
+        "position": 79,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 5,
+        "block_position": 0,
+        "cell_id": "register_fused.tilelang.g09",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g09",
+        "position": 80,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 5,
+        "block_position": 1,
+        "cell_id": "register_fused.triton.g05",
+        "distribution": "positive",
+        "label": "register_fused.triton.g05",
+        "position": 81,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 5,
+        "block_position": 2,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "positive",
+        "label": "sham_b",
+        "position": 82,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 5,
+        "block_position": 3,
+        "cell_id": "register_common_postprocess.triton.g05",
+        "distribution": "positive",
+        "label": "register_common_postprocess.triton.g05",
+        "position": 83,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 5,
+        "block_position": 4,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "withheld_signed",
+        "label": "sham_b",
+        "position": 84,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 5,
+        "block_position": 5,
+        "cell_id": "global_intermediate.tilelang.g12",
+        "distribution": "positive",
+        "label": "global_intermediate.tilelang.g12",
+        "position": 85,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 5,
+        "block_position": 6,
+        "cell_id": "register_common_postprocess.triton.g05",
+        "distribution": "withheld_signed",
+        "label": "register_common_postprocess.triton.g05",
+        "position": 86,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 5,
+        "block_position": 7,
+        "cell_id": "register_fused.tilelang.g05",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g05",
+        "position": 87,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 5,
+        "block_position": 8,
+        "cell_id": "register_fused.tilelang.g05",
+        "distribution": "withheld_signed",
+        "label": "register_fused.tilelang.g05",
+        "position": 88,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 5,
+        "block_position": 9,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "withheld_signed",
+        "label": "sham_a",
+        "position": 89,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 5,
+        "block_position": 10,
+        "cell_id": "global_intermediate.tilelang.g12",
+        "distribution": "withheld_signed",
+        "label": "global_intermediate.tilelang.g12",
+        "position": 90,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 5,
+        "block_position": 11,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "positive",
+        "label": "sham_a",
+        "position": 91,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 5,
+        "block_position": 12,
+        "cell_id": "register_fused.triton.g09",
+        "distribution": "withheld_signed",
+        "label": "register_fused.triton.g09",
+        "position": 92,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 5,
+        "block_position": 13,
+        "cell_id": "register_fused.triton.g09",
+        "distribution": "positive",
+        "label": "register_fused.triton.g09",
+        "position": 93,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 5,
+        "block_position": 14,
+        "cell_id": "register_fused.triton.g05",
+        "distribution": "withheld_signed",
+        "label": "register_fused.triton.g05",
+        "position": 94,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 5,
+        "block_position": 15,
+        "cell_id": "register_fused.tilelang.g09",
+        "distribution": "withheld_signed",
+        "label": "register_fused.tilelang.g09",
+        "position": 95,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 6,
+        "block_position": 0,
+        "cell_id": "register_common_postprocess.triton.g05",
+        "distribution": "positive",
+        "label": "register_common_postprocess.triton.g05",
+        "position": 96,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 6,
+        "block_position": 1,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "withheld_signed",
+        "label": "sham_a",
+        "position": 97,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 6,
+        "block_position": 2,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "positive",
+        "label": "sham_b",
+        "position": 98,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 6,
+        "block_position": 3,
+        "cell_id": "register_fused.tilelang.g05",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g05",
+        "position": 99,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 6,
+        "block_position": 4,
+        "cell_id": "register_fused.tilelang.g09",
+        "distribution": "withheld_signed",
+        "label": "register_fused.tilelang.g09",
+        "position": 100,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 6,
+        "block_position": 5,
+        "cell_id": "register_fused.triton.g05",
+        "distribution": "positive",
+        "label": "register_fused.triton.g05",
+        "position": 101,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 6,
+        "block_position": 6,
+        "cell_id": "register_fused.tilelang.g05",
+        "distribution": "withheld_signed",
+        "label": "register_fused.tilelang.g05",
+        "position": 102,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 6,
+        "block_position": 7,
+        "cell_id": "register_fused.tilelang.g09",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g09",
+        "position": 103,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 6,
+        "block_position": 8,
+        "cell_id": "register_fused.triton.g05",
+        "distribution": "withheld_signed",
+        "label": "register_fused.triton.g05",
+        "position": 104,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 6,
+        "block_position": 9,
+        "cell_id": "register_fused.triton.g09",
+        "distribution": "withheld_signed",
+        "label": "register_fused.triton.g09",
+        "position": 105,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 6,
+        "block_position": 10,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "positive",
+        "label": "sham_a",
+        "position": 106,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 6,
+        "block_position": 11,
+        "cell_id": "register_fused.triton.g09",
+        "distribution": "positive",
+        "label": "register_fused.triton.g09",
+        "position": 107,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 6,
+        "block_position": 12,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "withheld_signed",
+        "label": "sham_b",
+        "position": 108,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 6,
+        "block_position": 13,
+        "cell_id": "global_intermediate.tilelang.g12",
+        "distribution": "withheld_signed",
+        "label": "global_intermediate.tilelang.g12",
+        "position": 109,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 6,
+        "block_position": 14,
+        "cell_id": "global_intermediate.tilelang.g12",
+        "distribution": "positive",
+        "label": "global_intermediate.tilelang.g12",
+        "position": 110,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 6,
+        "block_position": 15,
+        "cell_id": "register_common_postprocess.triton.g05",
+        "distribution": "withheld_signed",
+        "label": "register_common_postprocess.triton.g05",
+        "position": 111,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 7,
+        "block_position": 0,
+        "cell_id": "register_fused.tilelang.g09",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g09",
+        "position": 112,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 7,
+        "block_position": 1,
+        "cell_id": "register_common_postprocess.triton.g05",
+        "distribution": "withheld_signed",
+        "label": "register_common_postprocess.triton.g05",
+        "position": 113,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 7,
+        "block_position": 2,
+        "cell_id": "register_fused.triton.g05",
+        "distribution": "withheld_signed",
+        "label": "register_fused.triton.g05",
+        "position": 114,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 7,
+        "block_position": 3,
+        "cell_id": "global_intermediate.tilelang.g12",
+        "distribution": "positive",
+        "label": "global_intermediate.tilelang.g12",
+        "position": 115,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 7,
+        "block_position": 4,
+        "cell_id": "register_fused.triton.g09",
+        "distribution": "positive",
+        "label": "register_fused.triton.g09",
+        "position": 116,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 7,
+        "block_position": 5,
+        "cell_id": "register_fused.triton.g05",
+        "distribution": "positive",
+        "label": "register_fused.triton.g05",
+        "position": 117,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 7,
+        "block_position": 6,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "positive",
+        "label": "sham_a",
+        "position": 118,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 7,
+        "block_position": 7,
+        "cell_id": "register_common_postprocess.triton.g05",
+        "distribution": "positive",
+        "label": "register_common_postprocess.triton.g05",
+        "position": 119,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 7,
+        "block_position": 8,
+        "cell_id": "register_fused.tilelang.g09",
+        "distribution": "withheld_signed",
+        "label": "register_fused.tilelang.g09",
+        "position": 120,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 7,
+        "block_position": 9,
+        "cell_id": "register_fused.tilelang.g05",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g05",
+        "position": 121,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 7,
+        "block_position": 10,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "positive",
+        "label": "sham_b",
+        "position": 122,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 7,
+        "block_position": 11,
+        "cell_id": "register_fused.triton.g09",
+        "distribution": "withheld_signed",
+        "label": "register_fused.triton.g09",
+        "position": 123,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 7,
+        "block_position": 12,
+        "cell_id": "register_fused.tilelang.g05",
+        "distribution": "withheld_signed",
+        "label": "register_fused.tilelang.g05",
+        "position": 124,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 7,
+        "block_position": 13,
+        "cell_id": "global_intermediate.tilelang.g12",
+        "distribution": "withheld_signed",
+        "label": "global_intermediate.tilelang.g12",
+        "position": 125,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 7,
+        "block_position": 14,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "withheld_signed",
+        "label": "sham_b",
+        "position": 126,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 7,
+        "block_position": 15,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "withheld_signed",
+        "label": "sham_a",
+        "position": 127,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 8,
+        "block_position": 0,
+        "cell_id": "register_fused.triton.g09",
+        "distribution": "withheld_signed",
+        "label": "register_fused.triton.g09",
+        "position": 128,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 8,
+        "block_position": 1,
+        "cell_id": "register_fused.tilelang.g05",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g05",
+        "position": 129,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 8,
+        "block_position": 2,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "withheld_signed",
+        "label": "sham_b",
+        "position": 130,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 8,
+        "block_position": 3,
+        "cell_id": "register_common_postprocess.triton.g05",
+        "distribution": "withheld_signed",
+        "label": "register_common_postprocess.triton.g05",
+        "position": 131,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 8,
+        "block_position": 4,
+        "cell_id": "register_fused.tilelang.g09",
+        "distribution": "withheld_signed",
+        "label": "register_fused.tilelang.g09",
+        "position": 132,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 8,
+        "block_position": 5,
+        "cell_id": "global_intermediate.tilelang.g12",
+        "distribution": "withheld_signed",
+        "label": "global_intermediate.tilelang.g12",
+        "position": 133,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 8,
+        "block_position": 6,
+        "cell_id": "register_fused.tilelang.g09",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g09",
+        "position": 134,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 8,
+        "block_position": 7,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "withheld_signed",
+        "label": "sham_a",
+        "position": 135,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 8,
+        "block_position": 8,
+        "cell_id": "global_intermediate.tilelang.g12",
+        "distribution": "positive",
+        "label": "global_intermediate.tilelang.g12",
+        "position": 136,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 8,
+        "block_position": 9,
+        "cell_id": "register_fused.triton.g05",
+        "distribution": "positive",
+        "label": "register_fused.triton.g05",
+        "position": 137,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 8,
+        "block_position": 10,
+        "cell_id": "register_fused.triton.g09",
+        "distribution": "positive",
+        "label": "register_fused.triton.g09",
+        "position": 138,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 8,
+        "block_position": 11,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "positive",
+        "label": "sham_b",
+        "position": 139,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 8,
+        "block_position": 12,
+        "cell_id": "register_common_postprocess.triton.g05",
+        "distribution": "positive",
+        "label": "register_common_postprocess.triton.g05",
+        "position": 140,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 8,
+        "block_position": 13,
+        "cell_id": "register_fused.tilelang.g05",
+        "distribution": "withheld_signed",
+        "label": "register_fused.tilelang.g05",
+        "position": 141,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 8,
+        "block_position": 14,
+        "cell_id": "register_fused.triton.g05",
+        "distribution": "withheld_signed",
+        "label": "register_fused.triton.g05",
+        "position": 142,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 8,
+        "block_position": 15,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "positive",
+        "label": "sham_a",
+        "position": 143,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 9,
+        "block_position": 0,
+        "cell_id": "global_intermediate.tilelang.g12",
+        "distribution": "positive",
+        "label": "global_intermediate.tilelang.g12",
+        "position": 144,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 9,
+        "block_position": 1,
+        "cell_id": "register_fused.tilelang.g05",
+        "distribution": "withheld_signed",
+        "label": "register_fused.tilelang.g05",
+        "position": 145,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 9,
+        "block_position": 2,
+        "cell_id": "register_fused.tilelang.g09",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g09",
+        "position": 146,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 9,
+        "block_position": 3,
+        "cell_id": "register_common_postprocess.triton.g05",
+        "distribution": "withheld_signed",
+        "label": "register_common_postprocess.triton.g05",
+        "position": 147,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 9,
+        "block_position": 4,
+        "cell_id": "global_intermediate.tilelang.g12",
+        "distribution": "withheld_signed",
+        "label": "global_intermediate.tilelang.g12",
+        "position": 148,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 9,
+        "block_position": 5,
+        "cell_id": "register_fused.triton.g09",
+        "distribution": "positive",
+        "label": "register_fused.triton.g09",
+        "position": 149,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 9,
+        "block_position": 6,
+        "cell_id": "register_common_postprocess.triton.g05",
+        "distribution": "positive",
+        "label": "register_common_postprocess.triton.g05",
+        "position": 150,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 9,
+        "block_position": 7,
+        "cell_id": "register_fused.triton.g05",
+        "distribution": "withheld_signed",
+        "label": "register_fused.triton.g05",
+        "position": 151,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 9,
+        "block_position": 8,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "withheld_signed",
+        "label": "sham_b",
+        "position": 152,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 9,
+        "block_position": 9,
+        "cell_id": "register_fused.triton.g09",
+        "distribution": "withheld_signed",
+        "label": "register_fused.triton.g09",
+        "position": 153,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 9,
+        "block_position": 10,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "withheld_signed",
+        "label": "sham_a",
+        "position": 154,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 9,
+        "block_position": 11,
+        "cell_id": "register_fused.triton.g05",
+        "distribution": "positive",
+        "label": "register_fused.triton.g05",
+        "position": 155,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 9,
+        "block_position": 12,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "positive",
+        "label": "sham_b",
+        "position": 156,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 9,
+        "block_position": 13,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "positive",
+        "label": "sham_a",
+        "position": 157,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 9,
+        "block_position": 14,
+        "cell_id": "register_fused.tilelang.g05",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g05",
+        "position": 158,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 9,
+        "block_position": 15,
+        "cell_id": "register_fused.tilelang.g09",
+        "distribution": "withheld_signed",
+        "label": "register_fused.tilelang.g09",
+        "position": 159,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 10,
+        "block_position": 0,
+        "cell_id": "register_fused.triton.g05",
+        "distribution": "positive",
+        "label": "register_fused.triton.g05",
+        "position": 160,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 10,
+        "block_position": 1,
+        "cell_id": "global_intermediate.tilelang.g12",
+        "distribution": "positive",
+        "label": "global_intermediate.tilelang.g12",
+        "position": 161,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 10,
+        "block_position": 2,
+        "cell_id": "register_common_postprocess.triton.g05",
+        "distribution": "withheld_signed",
+        "label": "register_common_postprocess.triton.g05",
+        "position": 162,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 10,
+        "block_position": 3,
+        "cell_id": "register_fused.tilelang.g09",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g09",
+        "position": 163,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 10,
+        "block_position": 4,
+        "cell_id": "register_fused.tilelang.g05",
+        "distribution": "withheld_signed",
+        "label": "register_fused.tilelang.g05",
+        "position": 164,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 10,
+        "block_position": 5,
+        "cell_id": "register_fused.tilelang.g09",
+        "distribution": "withheld_signed",
+        "label": "register_fused.tilelang.g09",
+        "position": 165,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 10,
+        "block_position": 6,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "withheld_signed",
+        "label": "sham_a",
+        "position": 166,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 10,
+        "block_position": 7,
+        "cell_id": "register_fused.triton.g09",
+        "distribution": "withheld_signed",
+        "label": "register_fused.triton.g09",
+        "position": 167,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 10,
+        "block_position": 8,
+        "cell_id": "register_fused.triton.g05",
+        "distribution": "withheld_signed",
+        "label": "register_fused.triton.g05",
+        "position": 168,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 10,
+        "block_position": 9,
+        "cell_id": "register_common_postprocess.triton.g05",
+        "distribution": "positive",
+        "label": "register_common_postprocess.triton.g05",
+        "position": 169,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 10,
+        "block_position": 10,
+        "cell_id": "register_fused.tilelang.g05",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g05",
+        "position": 170,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 10,
+        "block_position": 11,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "positive",
+        "label": "sham_b",
+        "position": 171,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 10,
+        "block_position": 12,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "withheld_signed",
+        "label": "sham_b",
+        "position": 172,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 10,
+        "block_position": 13,
+        "cell_id": "register_fused.triton.g09",
+        "distribution": "positive",
+        "label": "register_fused.triton.g09",
+        "position": 173,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 10,
+        "block_position": 14,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "positive",
+        "label": "sham_a",
+        "position": 174,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 10,
+        "block_position": 15,
+        "cell_id": "global_intermediate.tilelang.g12",
+        "distribution": "withheld_signed",
+        "label": "global_intermediate.tilelang.g12",
+        "position": 175,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 11,
+        "block_position": 0,
+        "cell_id": "register_fused.triton.g05",
+        "distribution": "positive",
+        "label": "register_fused.triton.g05",
+        "position": 176,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 11,
+        "block_position": 1,
+        "cell_id": "register_common_postprocess.triton.g05",
+        "distribution": "withheld_signed",
+        "label": "register_common_postprocess.triton.g05",
+        "position": 177,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 11,
+        "block_position": 2,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "withheld_signed",
+        "label": "sham_a",
+        "position": 178,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 11,
+        "block_position": 3,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "withheld_signed",
+        "label": "sham_b",
+        "position": 179,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 11,
+        "block_position": 4,
+        "cell_id": "register_fused.tilelang.g05",
+        "distribution": "withheld_signed",
+        "label": "register_fused.tilelang.g05",
+        "position": 180,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 11,
+        "block_position": 5,
+        "cell_id": "register_fused.triton.g09",
+        "distribution": "withheld_signed",
+        "label": "register_fused.triton.g09",
+        "position": 181,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 11,
+        "block_position": 6,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "positive",
+        "label": "sham_b",
+        "position": 182,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 11,
+        "block_position": 7,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "positive",
+        "label": "sham_a",
+        "position": 183,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 11,
+        "block_position": 8,
+        "cell_id": "register_fused.triton.g09",
+        "distribution": "positive",
+        "label": "register_fused.triton.g09",
+        "position": 184,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 11,
+        "block_position": 9,
+        "cell_id": "global_intermediate.tilelang.g12",
+        "distribution": "positive",
+        "label": "global_intermediate.tilelang.g12",
+        "position": 185,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 11,
+        "block_position": 10,
+        "cell_id": "register_fused.tilelang.g09",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g09",
+        "position": 186,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 11,
+        "block_position": 11,
+        "cell_id": "register_fused.triton.g05",
+        "distribution": "withheld_signed",
+        "label": "register_fused.triton.g05",
+        "position": 187,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 11,
+        "block_position": 12,
+        "cell_id": "register_common_postprocess.triton.g05",
+        "distribution": "positive",
+        "label": "register_common_postprocess.triton.g05",
+        "position": 188,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 11,
+        "block_position": 13,
+        "cell_id": "global_intermediate.tilelang.g12",
+        "distribution": "withheld_signed",
+        "label": "global_intermediate.tilelang.g12",
+        "position": 189,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 11,
+        "block_position": 14,
+        "cell_id": "register_fused.tilelang.g09",
+        "distribution": "withheld_signed",
+        "label": "register_fused.tilelang.g09",
+        "position": 190,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 11,
+        "block_position": 15,
+        "cell_id": "register_fused.tilelang.g05",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g05",
+        "position": 191,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 12,
+        "block_position": 0,
+        "cell_id": "register_fused.tilelang.g05",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g05",
+        "position": 192,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 12,
+        "block_position": 1,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "withheld_signed",
+        "label": "sham_a",
+        "position": 193,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 12,
+        "block_position": 2,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "positive",
+        "label": "sham_a",
+        "position": 194,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 12,
+        "block_position": 3,
+        "cell_id": "register_fused.tilelang.g09",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g09",
+        "position": 195,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 12,
+        "block_position": 4,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "positive",
+        "label": "sham_b",
+        "position": 196,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 12,
+        "block_position": 5,
+        "cell_id": "register_fused.triton.g05",
+        "distribution": "withheld_signed",
+        "label": "register_fused.triton.g05",
+        "position": 197,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 12,
+        "block_position": 6,
+        "cell_id": "register_fused.tilelang.g09",
+        "distribution": "withheld_signed",
+        "label": "register_fused.tilelang.g09",
+        "position": 198,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 12,
+        "block_position": 7,
+        "cell_id": "global_intermediate.tilelang.g12",
+        "distribution": "withheld_signed",
+        "label": "global_intermediate.tilelang.g12",
+        "position": 199,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 12,
+        "block_position": 8,
+        "cell_id": "register_fused.tilelang.g05",
+        "distribution": "withheld_signed",
+        "label": "register_fused.tilelang.g05",
+        "position": 200,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 12,
+        "block_position": 9,
+        "cell_id": "register_fused.triton.g09",
+        "distribution": "positive",
+        "label": "register_fused.triton.g09",
+        "position": 201,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 12,
+        "block_position": 10,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "withheld_signed",
+        "label": "sham_b",
+        "position": 202,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 12,
+        "block_position": 11,
+        "cell_id": "global_intermediate.tilelang.g12",
+        "distribution": "positive",
+        "label": "global_intermediate.tilelang.g12",
+        "position": 203,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 12,
+        "block_position": 12,
+        "cell_id": "register_common_postprocess.triton.g05",
+        "distribution": "withheld_signed",
+        "label": "register_common_postprocess.triton.g05",
+        "position": 204,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 12,
+        "block_position": 13,
+        "cell_id": "register_fused.triton.g05",
+        "distribution": "positive",
+        "label": "register_fused.triton.g05",
+        "position": 205,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 12,
+        "block_position": 14,
+        "cell_id": "register_fused.triton.g09",
+        "distribution": "withheld_signed",
+        "label": "register_fused.triton.g09",
+        "position": 206,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 12,
+        "block_position": 15,
+        "cell_id": "register_common_postprocess.triton.g05",
+        "distribution": "positive",
+        "label": "register_common_postprocess.triton.g05",
+        "position": 207,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 13,
+        "block_position": 0,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "positive",
+        "label": "sham_b",
+        "position": 208,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 13,
+        "block_position": 1,
+        "cell_id": "register_common_postprocess.triton.g05",
+        "distribution": "positive",
+        "label": "register_common_postprocess.triton.g05",
+        "position": 209,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 13,
+        "block_position": 2,
+        "cell_id": "global_intermediate.tilelang.g12",
+        "distribution": "withheld_signed",
+        "label": "global_intermediate.tilelang.g12",
+        "position": 210,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 13,
+        "block_position": 3,
+        "cell_id": "register_common_postprocess.triton.g05",
+        "distribution": "withheld_signed",
+        "label": "register_common_postprocess.triton.g05",
+        "position": 211,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 13,
+        "block_position": 4,
+        "cell_id": "global_intermediate.tilelang.g12",
+        "distribution": "positive",
+        "label": "global_intermediate.tilelang.g12",
+        "position": 212,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 13,
+        "block_position": 5,
+        "cell_id": "register_fused.triton.g05",
+        "distribution": "withheld_signed",
+        "label": "register_fused.triton.g05",
+        "position": 213,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 13,
+        "block_position": 6,
+        "cell_id": "register_fused.triton.g09",
+        "distribution": "withheld_signed",
+        "label": "register_fused.triton.g09",
+        "position": 214,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 13,
+        "block_position": 7,
+        "cell_id": "register_fused.tilelang.g09",
+        "distribution": "withheld_signed",
+        "label": "register_fused.tilelang.g09",
+        "position": 215,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 13,
+        "block_position": 8,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "withheld_signed",
+        "label": "sham_a",
+        "position": 216,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 13,
+        "block_position": 9,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "withheld_signed",
+        "label": "sham_b",
+        "position": 217,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 13,
+        "block_position": 10,
+        "cell_id": "register_fused.triton.g09",
+        "distribution": "positive",
+        "label": "register_fused.triton.g09",
+        "position": 218,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 13,
+        "block_position": 11,
+        "cell_id": "register_fused.tilelang.g05",
+        "distribution": "withheld_signed",
+        "label": "register_fused.tilelang.g05",
+        "position": 219,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 13,
+        "block_position": 12,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "positive",
+        "label": "sham_a",
+        "position": 220,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 13,
+        "block_position": 13,
+        "cell_id": "register_fused.tilelang.g05",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g05",
+        "position": 221,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 13,
+        "block_position": 14,
+        "cell_id": "register_fused.triton.g05",
+        "distribution": "positive",
+        "label": "register_fused.triton.g05",
+        "position": 222,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 13,
+        "block_position": 15,
+        "cell_id": "register_fused.tilelang.g09",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g09",
+        "position": 223,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 14,
+        "block_position": 0,
+        "cell_id": "register_fused.triton.g05",
+        "distribution": "withheld_signed",
+        "label": "register_fused.triton.g05",
+        "position": 224,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 14,
+        "block_position": 1,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "positive",
+        "label": "sham_b",
+        "position": 225,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 14,
+        "block_position": 2,
+        "cell_id": "global_intermediate.tilelang.g12",
+        "distribution": "positive",
+        "label": "global_intermediate.tilelang.g12",
+        "position": 226,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 14,
+        "block_position": 3,
+        "cell_id": "register_common_postprocess.triton.g05",
+        "distribution": "withheld_signed",
+        "label": "register_common_postprocess.triton.g05",
+        "position": 227,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 14,
+        "block_position": 4,
+        "cell_id": "register_fused.tilelang.g09",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g09",
+        "position": 228,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 14,
+        "block_position": 5,
+        "cell_id": "register_fused.tilelang.g05",
+        "distribution": "positive",
+        "label": "register_fused.tilelang.g05",
+        "position": 229,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 14,
+        "block_position": 6,
+        "cell_id": "register_fused.triton.g09",
+        "distribution": "withheld_signed",
+        "label": "register_fused.triton.g09",
+        "position": 230,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 14,
+        "block_position": 7,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "withheld_signed",
+        "label": "sham_b",
+        "position": 231,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 14,
+        "block_position": 8,
+        "cell_id": "register_common_postprocess.triton.g05",
+        "distribution": "positive",
+        "label": "register_common_postprocess.triton.g05",
+        "position": 232,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 14,
+        "block_position": 9,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "withheld_signed",
+        "label": "sham_a",
+        "position": 233,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 14,
+        "block_position": 10,
+        "cell_id": "register_fused.triton.g09",
+        "distribution": "positive",
+        "label": "register_fused.triton.g09",
+        "position": 234,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 14,
+        "block_position": 11,
+        "cell_id": "register_fused.tilelang.g09",
+        "distribution": "withheld_signed",
+        "label": "register_fused.tilelang.g09",
+        "position": 235,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 14,
+        "block_position": 12,
+        "cell_id": "global_intermediate.tilelang.g12",
+        "distribution": "withheld_signed",
+        "label": "global_intermediate.tilelang.g12",
+        "position": 236,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 14,
+        "block_position": 13,
+        "cell_id": "register_fused.triton.g05",
+        "distribution": "positive",
+        "label": "register_fused.triton.g05",
+        "position": 237,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 14,
+        "block_position": 14,
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "distribution": "positive",
+        "label": "sham_a",
+        "position": 238,
+        "record_kind": "sham",
+        "stage": "selection_confirm"
+      },
+      {
+        "block": 14,
+        "block_position": 15,
+        "cell_id": "register_fused.tilelang.g05",
+        "distribution": "withheld_signed",
+        "label": "register_fused.tilelang.g05",
+        "position": 239,
+        "record_kind": "candidate",
+        "stage": "selection_confirm"
+      }
+    ],
+    "plan_sha256": "fd62c52d40b9da4f46ff5133135a2b44605d2cebe2fff233de5a59e6ba5cf697",
+    "stage": "selection_confirm",
+    "timing": {
+      "flush_l2": true,
+      "fresh_process_per_record": true,
+      "trials": 100,
+      "warmup_s": 2.0
+    },
+    "toolchain": {
+      "nvcc_release": "V13.1.115",
+      "python": "3.13.5",
+      "tilelang": "0.1.11",
+      "torch": "2.10.0+cu128",
+      "triton": "3.6.0"
+    },
+    "upstream_ref": "refs/heads/cross-dsl-6op-ncu-redo",
+    "upstream_remote": "origin"
+  },
+  "created_at_utc": "2026-08-06T04:17:12.553644+00:00",
+  "gpu_idle_preflight": {
+    "checked_at_unix": 1785989819.93961,
+    "compute_processes": [],
+    "foreign_compute_processes": [],
+    "idle_except_self": true,
+    "phase": "stage_pre",
+    "returncode": 0,
+    "self_pid": 880287,
+    "stderr": ""
+  },
+  "record_type": "finite_frontier_ada_launch_receipt",
+  "schema_version": 1
+}

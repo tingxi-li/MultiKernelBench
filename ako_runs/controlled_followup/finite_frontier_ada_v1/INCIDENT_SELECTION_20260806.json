@@ -1,0 +1,160 @@
+{
+  "artifact_closure": {
+    "algorithm": "sha256(canonical_json(sorted([{path,sha256,size}])))",
+    "excluded_runtime_files": [
+      "active.lock"
+    ],
+    "file_count": 242,
+    "root": "ako_runs/controlled_followup/finite_frontier_ada_v1/results/selection_confirm",
+    "sha256": "41e0cac8210caa990a7c887eb3a6c7456425c4a913a46534b0c638d39c9f5ad0",
+    "total_bytes": 3631000
+  },
+  "campaign_id": "finite-frontier-ada-v1",
+  "created_utc": "2026-08-06T05:46:44Z",
+  "diagnosis": {
+    "analyzer_command": "python ako_runs/controlled_followup/finite_frontier_ada_v1/analyze.py select",
+    "analyzer_exit_code": 1,
+    "exception": "protocol.ProtocolError: one timing label resolved to multiple implementations",
+    "location": "analyze.py:_sham_floor",
+    "mechanism": "Three TileLang timing labels resolved to two or three distinct implementation fingerprints because fresh builds emitted distinct CUDA sources. The only observed generated-source difference was the presence or placement of one __syncthreads() around the initial A/B cp_async loops.",
+    "proven_limit": "The retained records directly prove CUDA-source drift. PTX and SASS were not captured by this campaign, so lower-level assembly drift is not claimed.",
+    "scientific_effect": "The completed selection-confirm stage is permanently non-controlling. No winner may be selected, terminal confirmation may not launch, and no relabeling, deletion, pooling, overlay, or in-place rerun may promote these records.",
+    "volatile_metadata_excluded": "The implementation fingerprint hashes only the cell, config, and recursively collected source digests; build time, PID-derived artifact root, and timing values are excluded."
+  },
+  "failed_stage": "selection_confirm",
+  "implementation_census": {
+    "stable_labels": {
+      "register_common_postprocess.triton.g05": {
+        "implementation_sha256": "32b2866226e7ad5dd4aaeed1210dd159e9811f0b8b1cf7aa48f6305b5b5e150b",
+        "records": 30
+      },
+      "register_fused.triton.g05": {
+        "implementation_sha256": "ac16c513290199b5e6bbd969c8012b558c639222b2893da80d71f5c2f236027c",
+        "records": 30
+      },
+      "register_fused.triton.g09": {
+        "implementation_sha256": "63cd2bf3c2f080bf28ce7c3cbcd3fe19487880bf56d2c1e2cb53937227fb8188",
+        "records": 30
+      },
+      "sham_a": {
+        "implementation_sha256": "fdc96ede2b4be3cf308b47427eb543627c454d5517035a728b26c3ee6032bc76",
+        "records": 30
+      },
+      "sham_b": {
+        "implementation_sha256": "fdc96ede2b4be3cf308b47427eb543627c454d5517035a728b26c3ee6032bc76",
+        "records": 30
+      }
+    },
+    "unstable_tilelang_labels": {
+      "global_intermediate.tilelang.g12": [
+        {
+          "cuda_source_sha256": "5b65065038a18a8040bacb7fc00d7ec41342a8c1abc650a55907bc4c3625736a",
+          "distribution_counts": {
+            "positive": 13,
+            "withheld_signed": 15
+          },
+          "implementation_sha256": "94cfcd54254bba19608372acb7dc93ca2085c16a9d28d63a3e26ef43f4c66215",
+          "records": 28,
+          "sync_form": "between_A_and_B_cp_async_loops"
+        },
+        {
+          "cuda_source_sha256": "6a3512d2c63a647c0ca260d2b070d0bd31e06292c2e5649867c24584538a29a1",
+          "distribution_counts": {
+            "positive": 1,
+            "withheld_signed": 0
+          },
+          "implementation_sha256": "72a56b7d516851810b59a4273e2daab47169df7dd08ec7093f07eccd51cab2da",
+          "records": 1,
+          "sync_form": "before_A_cp_async_loop"
+        },
+        {
+          "cuda_source_sha256": "a9c7c30f343693412f85bfe33d159a74af345e80b5d3d5071aa91910246c1b5f",
+          "distribution_counts": {
+            "positive": 1,
+            "withheld_signed": 0
+          },
+          "implementation_sha256": "81be609f392b0931d769b46f381691953b61ad3bbb8b052a53b44cff5cc12a21",
+          "records": 1,
+          "sync_form": "absent_before_initial_cp_async_loops"
+        }
+      ],
+      "register_fused.tilelang.g05": [
+        {
+          "cuda_source_sha256": "2b7e146dcf65a708cb63f60269daaa17d9e6597307e809cda73d5881d69f73b4",
+          "distribution_counts": {
+            "positive": 1,
+            "withheld_signed": 7
+          },
+          "implementation_sha256": "8c328ceb42df591bf80223bf9d6d06e7164ea3e14716669638d03d61a5e5bebf",
+          "records": 8,
+          "sync_form": "between_A_and_B_cp_async_loops"
+        },
+        {
+          "cuda_source_sha256": "3dfa787a37c369b52841ff087ea5c3f69b15bb74b1854c7afa87777969bd3117",
+          "distribution_counts": {
+            "positive": 3,
+            "withheld_signed": 5
+          },
+          "implementation_sha256": "3d35ab04a167dd8cfbf014912d777e0e64c92be1c7ca68152aab97c7a4ef120b",
+          "records": 8,
+          "sync_form": "before_A_cp_async_loop"
+        },
+        {
+          "cuda_source_sha256": "f8fe2b271fb4cb8fc91648c5020c220d61dccb17b4e2dd7a4ee5392ff269bc71",
+          "distribution_counts": {
+            "positive": 11,
+            "withheld_signed": 3
+          },
+          "implementation_sha256": "3e066190a33ab9c865f84c62d0828a3a0f2b7cdfaa7663ddf78d8a501a156e73",
+          "records": 14,
+          "sync_form": "absent_before_initial_cp_async_loops"
+        }
+      ],
+      "register_fused.tilelang.g09": [
+        {
+          "cuda_source_sha256": "24e99ee8656050206c3c1b9190aeb85611ecd0b3a865ffa375fd97c529f7e539",
+          "distribution_counts": {
+            "positive": 9,
+            "withheld_signed": 10
+          },
+          "implementation_sha256": "98bc09172e0b23b87f41d7a347eb7768cd5184131a62971d69c71d815ffe9b4a",
+          "records": 19,
+          "sync_form": "between_A_and_B_cp_async_loops"
+        },
+        {
+          "cuda_source_sha256": "dc5f76b9de47499ef0d5a5ebe01108c133e96cf8df29142a0cf92521e5e2f8c0",
+          "distribution_counts": {
+            "positive": 6,
+            "withheld_signed": 5
+          },
+          "implementation_sha256": "36f757743bb79b2ebe2f17963e6fa7a330a874716eb080583f573c1d460d01e7",
+          "records": 11,
+          "sync_form": "absent_before_initial_cp_async_loops"
+        }
+      ]
+    }
+  },
+  "parent_bindings": {
+    "contract_sha256": "34886d547c5480227bfd68839b3db03580f26c578907a22ea869c02c29e9267e",
+    "execution_lock_sha256": "c39e46fd48fb65745f453c75b5fcec8b98fe06fd6f38160f2327d442ea90b7df",
+    "git_commit": "75e3beb4c64430cd70abea2e16f184de812fff19",
+    "launch_receipt_sha256": "bf200fc9fbe9df9ee29675d23af0a04a35b0d2513caca79264218ba23349b86a",
+    "run_status_sha256": "033daded112a039bdfe6c0e1e39328f801a496223963198a6b00e70d8ad5b2af"
+  },
+  "record_type": "finite_frontier_ada_selection_analysis_incident_receipt",
+  "result_state": "complete_raw_noncontrolling",
+  "schema_version": 1,
+  "sealed_census": {
+    "expected_timing_records": 240,
+    "observed_timing_records": 240,
+    "selection_lock_written": false,
+    "stable_labels": 5,
+    "terminal_timing_records": 0,
+    "timing_labels": 8,
+    "unstable_labels": 3
+  },
+  "successor_policy": {
+    "corrective_result_tag": "finite_frontier_ada_v2",
+    "requirement": "Any corrective experiment must use a new frozen source bundle and lock, establish one generated implementation per label before timing, and rerun the full selection stage without reusing v1 timing records."
+  }
+}
