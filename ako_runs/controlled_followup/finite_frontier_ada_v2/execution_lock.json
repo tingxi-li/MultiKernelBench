@@ -1,0 +1,29 @@
+{
+  "artifact_admission_expected_entries": 7,
+  "artifact_admission_plan_sha256": "3675836570785762640a53127f7ad9fcad49d4570f75d014f8231a1f68cd6edd",
+  "authorization_basis": "User request 2026-08-05: implement and run controlled experiments for the four GPU DSL research questions on the currently available GPUs",
+  "authorized_at_utc": "2026-08-06T07:17:21.340752+00:00",
+  "campaign_id": "finite-frontier-ada-v2",
+  "contract_sha256": "0188c174bf79c7175b8026baa706449f3ce469cee3809731fba234c2fe6a5943",
+  "imported_frontier_sha256": "79e15454921caf84a29d241f529be1127bf448d112ee5a0bbeb9ffc9b139e103",
+  "local_source_bundle_sha256": "a7232e7cb3f5086a8ff06bf4a52083a2448cc3f30a2c57b65ce24c0480f25b94",
+  "local_source_sha256": {
+    "ako_runs/controlled_followup/finite_frontier_ada_v2/.gitignore": "09f3f89aebb33282dd801ffdbe794f92360df1d365f99bd7c98a902121783ccc",
+    "ako_runs/controlled_followup/finite_frontier_ada_v2/README.md": "0a555eeb52f6d6806e96eb207e69bfb89998b9a7b96ec65a0745f35fe7d38661",
+    "ako_runs/controlled_followup/finite_frontier_ada_v2/__init__.py": "828afbcefdf2a620c1af6b41ba0f90c703f612a8ca849563b3e7ff2c2a65670c",
+    "ako_runs/controlled_followup/finite_frontier_ada_v2/admit.py": "cd70b0dbb221e889b73d3f87c94c799caa10ae16e3289b213389f2983b365e5f",
+    "ako_runs/controlled_followup/finite_frontier_ada_v2/analyze.py": "0e977e8b0bb6e6109dc19068967da9f25d8edfaad72d756ed126db1666e4c45b",
+    "ako_runs/controlled_followup/finite_frontier_ada_v2/artifacts.py": "3a2f404b0f39b8852d1ff06205718336b0e87daa7f39fc232c098d2033612942",
+    "ako_runs/controlled_followup/finite_frontier_ada_v2/contract.json": "0188c174bf79c7175b8026baa706449f3ce469cee3809731fba234c2fe6a5943",
+    "ako_runs/controlled_followup/finite_frontier_ada_v2/launch.py": "b6faa0929b694cf06c532f384fdba2db164a782bd52f8658b6e8ab4687b2dfef",
+    "ako_runs/controlled_followup/finite_frontier_ada_v2/protocol.py": "62ce4a27a21efc30fafef413bdbac1279a5da614bdee9fbc7f2fcaf68bf674a7",
+    "ako_runs/controlled_followup/finite_frontier_ada_v2/test_protocol.py": "993459695fd8fd2c31b27a72a46406a92eda26dc3b98130b951ba21816ac2a20"
+  },
+  "material_registry_sha256": "3885a74a41b7d0f076fd1519e8812b12f95dccdf9aeb07b32468360db754211e",
+  "physical_gpu": 0,
+  "record_type": "finite_frontier_ada_execution_lock",
+  "schema_version": 1,
+  "selection_expected_records": 240,
+  "selection_plan_sha256": "fd62c52d40b9da4f46ff5133135a2b44605d2cebe2fff233de5a59e6ba5cf697",
+  "terminal_expected_records": 120
+}
