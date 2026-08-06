@@ -1,0 +1,335 @@
+{
+  "admitted_artifact_sha256": "38810d15dc48e226bf9ed19ebf1e6bf945712f289067fef38eba478ed98783db",
+  "admitted_entry_path": "ako_runs/controlled_followup/finite_frontier_ada_v5/results/artifact_admission/artifacts/register_common_postprocess__triton__g05/entry.json",
+  "admitted_entry_sha256": "56f323e4bb0da50e4f9b3ef562a08bd66ca2e0f47faa7d0ed40298efaaf5c828",
+  "artifact_admission_manifest_path": "ako_runs/controlled_followup/finite_frontier_ada_v5/results/artifact_admission/manifest.json",
+  "artifact_admission_manifest_sha256": "8957dcca34486bcb6c5baf2c5bb7466a8624df5cd92a6bf30b86ca950cd7bfc4",
+  "artifact_cache_files_sha256_after": "bad731d9568ce25a378c1bc7f373880232ff1c0a5017f864a18ccc4104f3842a",
+  "artifact_load": {
+    "mode": "load_only",
+    "postprocess_loads": [
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/fused_crossed_v2_pp_c03d2e32b61d.so",
+        "sha256": "5751fd800455d2288da28a91962f17b922fe4fbfb1fddc1e5299657206cf3a8c",
+        "size": 1351176
+      }
+    ],
+    "tilelang_cache_hits": [],
+    "triton_cache_hits": [
+      [
+        {
+          "path": "triton/4YGTDWKCXGCYEIUTEIP2VQS6OJDM5ULNX6HYGY3535RCQ7E54FVQ/_fused_gemm_kernel.source",
+          "sha256": "6dc0cb34384625488c153d58909569f131ff5d86434a502d18223f3f9559f58f",
+          "size": 29012
+        },
+        {
+          "path": "triton/4YGTDWKCXGCYEIUTEIP2VQS6OJDM5ULNX6HYGY3535RCQ7E54FVQ/_fused_gemm_kernel.ttir",
+          "sha256": "408a7e011c7e3dcee914d0941ab0691f0f92dd7f62cd83ce1153ca55719c8f94",
+          "size": 13708
+        },
+        {
+          "path": "triton/4YGTDWKCXGCYEIUTEIP2VQS6OJDM5ULNX6HYGY3535RCQ7E54FVQ/_fused_gemm_kernel.ttgir",
+          "sha256": "300f2f39856a7fa87a4c0e4c9e30a6b94ecbd14b2e2b956f9903e32e2c2ece0a",
+          "size": 21883
+        },
+        {
+          "path": "triton/4YGTDWKCXGCYEIUTEIP2VQS6OJDM5ULNX6HYGY3535RCQ7E54FVQ/_fused_gemm_kernel.llir",
+          "sha256": "141bee0b153658d86d29219627c82ff24791665bbabcd297629f99aa25b3cf83",
+          "size": 891422
+        },
+        {
+          "path": "triton/4YGTDWKCXGCYEIUTEIP2VQS6OJDM5ULNX6HYGY3535RCQ7E54FVQ/_fused_gemm_kernel.ptx",
+          "sha256": "0439ff56ba3289fcb96430ca5cff235f088913d9a4ab1df560bc441db277882c",
+          "size": 295578
+        },
+        {
+          "path": "triton/4YGTDWKCXGCYEIUTEIP2VQS6OJDM5ULNX6HYGY3535RCQ7E54FVQ/_fused_gemm_kernel.cubin",
+          "sha256": "b8134b3537deb61dfc60e6bb06898aa95c5e7d2322564b571bd1cb5b82ad9894",
+          "size": 386096
+        },
+        {
+          "path": "triton/4YGTDWKCXGCYEIUTEIP2VQS6OJDM5ULNX6HYGY3535RCQ7E54FVQ/_fused_gemm_kernel.json",
+          "sha256": "7c09e5de9887ccad5adc293b458e92d8edf2aa43bff424268cb0962ff86470f4",
+          "size": 1110
+        }
+      ]
+    ],
+    "triton_kernel_loads": [
+      [
+        {
+          "path": "triton/4YGTDWKCXGCYEIUTEIP2VQS6OJDM5ULNX6HYGY3535RCQ7E54FVQ/_fused_gemm_kernel.cubin",
+          "sha256": "b8134b3537deb61dfc60e6bb06898aa95c5e7d2322564b571bd1cb5b82ad9894",
+          "size": 386096
+        }
+      ]
+    ]
+  },
+  "build_metadata": {
+    "artifacts": {
+      "lane_gbg": {
+        "b_global_dtype": "float16",
+        "backend_detail": "tl.dot on fp16 operands -> mma.sync.m16n8k16.f32.f16.f16.f32; KC=2048; num_stages=2 num_warps=8; epilogue bias=True gelu=True (tl.math.erf, exact form); NO autotune",
+        "block": [
+          256,
+          1,
+          1
+        ],
+        "dynamic_smem_bytes": null,
+        "epilogue_tile_bytes": 0,
+        "grid": [
+          32,
+          8,
+          1
+        ],
+        "n_kernels": 1,
+        "num_stages": 2,
+        "num_warps": 8,
+        "operand_smem_bytes": null,
+        "shared_bytes": null,
+        "total_dynamic_shared_bytes": null,
+        "total_dynamic_smem_bytes": null,
+        "transpose_b": false,
+        "triton_version": "3.6.0",
+        "wcache": "cached"
+      },
+      "postprocess": {
+        "backend_detail": "common CUDA compile-time bias/GELU plus row-softmax",
+        "block": [
+          256,
+          1,
+          1
+        ],
+        "cuda_source_sha256": "c03d2e32b61d48d4da5df401aaf5767b9b99762e1a275e96e2d3f5266d1279bb",
+        "epilogue_tile_bytes": 0,
+        "grid": [
+          1024,
+          1,
+          1
+        ],
+        "has_bias": false,
+        "has_gelu": false,
+        "n_kernels": 1,
+        "operand_smem_bytes": 0,
+        "shared_bytes": 0,
+        "softmax_source_sha256": "758a6ad3dc8f4635cd1146dd9c6fd102b590410ce4f710c10c72f470d2bbf96f",
+        "total_dynamic_shared_bytes": 0
+      },
+      "strategy": "register_common_postprocess"
+    },
+    "build_wall_s": 0.4528807200003939,
+    "builder": "crossed-v2:triton:GBG-regs+common-softmax",
+    "common_softmax_source_sha256": "758a6ad3dc8f4635cd1146dd9c6fd102b590410ce4f710c10c72f470d2bbf96f",
+    "epilogue_request": "regs",
+    "implementation_sha256": "32b2866226e7ad5dd4aaeed1210dd159e9811f0b8b1cf7aa48f6305b5b5e150b",
+    "isolated_artifact_root": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/finite_frontier_ada_v5/results/artifact_admission/artifacts/register_common_postprocess__triton__g05/runtime_tmp/fused_epilogue_crossed_v2/pid131915/register_common_postprocess.triton.g05",
+    "n_kernels": 2,
+    "notes": "lane-native register bias+exact-GELU followed by byte-identical common softmax"
+  },
+  "campaign_id": "finite-frontier-ada-v5",
+  "cell_id": "register_common_postprocess.triton.g05",
+  "compile_s": 0.4494302080001944,
+  "contract_sha256": "298b00db97368c41b92ce118de65440030868412892484c35671b2c5f33e166a",
+  "distribution": "positive",
+  "execution_lock_sha256": "7c39921bf281b2258b0442bbbd83c0101d8c247d50c9ec2a9b3de120b780ddb3",
+  "first_decile_median_ms": 1.467903971672058,
+  "first_to_last_decile_ratio": 0.9211174717921243,
+  "full_median_ms": 1.3567999601364136,
+  "gpu_idle_postflight": {
+    "checked_at_unix": 1786053900.1116083,
+    "compute_processes": [
+      {
+        "pid": 131915,
+        "used_memory_mib": "1166"
+      }
+    ],
+    "foreign_compute_processes": [],
+    "idle_except_self": true,
+    "phase": "record_post",
+    "returncode": 0,
+    "self_pid": 131915,
+    "stderr": ""
+  },
+  "gpu_idle_preflight": {
+    "checked_at_unix": 1786053897.0275114,
+    "compute_processes": [],
+    "foreign_compute_processes": [],
+    "idle_except_self": true,
+    "phase": "record_pre",
+    "returncode": 0,
+    "self_pid": 131915,
+    "stderr": ""
+  },
+  "gpu_preflight": {
+    "clocks.mem": "405",
+    "clocks.sm": "210",
+    "compute_cap": "8.9",
+    "driver_version": "610.43.02",
+    "index": "0",
+    "memory.total": "49140",
+    "memory.used": "4",
+    "name": "NVIDIA RTX 6000 Ada Generation",
+    "power.limit": "300.00",
+    "pstate": "P8",
+    "temperature.gpu": "59",
+    "utilization.gpu": "0",
+    "uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae"
+  },
+  "implementation_sha256": "32b2866226e7ad5dd4aaeed1210dd159e9811f0b8b1cf7aa48f6305b5b5e150b",
+  "input_artifact_path": "ako_runs/controlled_followup/finite_frontier_ada_v5/results/imported_frontier.json",
+  "input_artifact_sha256": "81e5fdef9c9ffb5a199f0174a078b04a1c4389a70924d37cda773e85a0c92d72",
+  "label": "register_common_postprocess.triton.g05",
+  "last_decile_median_ms": 1.3521119952201843,
+  "launch_created_at_utc": "2026-08-06T21:15:16.266003+00:00",
+  "launch_receipt_path": "ako_runs/controlled_followup/finite_frontier_ada_v5/results/selection_confirm/launch_receipt.json",
+  "launch_receipt_sha256": "959d542b7aa31f69041bf5f06cb9184d11b5583dfe2df9441f1d601ea54c0536",
+  "launch_stage_preflight_unix": 1786050899.6133926,
+  "legacy_error": {
+    "budget_mean": 0.00010001220703127959,
+    "err_q100": 1.525913830846548e-07,
+    "err_q50": 3.179593477398157e-09,
+    "err_q90": 1.1918018572032452e-08,
+    "err_q99": 2.713932190090418e-08,
+    "err_q999": 4.5649358071386814e-08,
+    "gate_pass": true,
+    "max_abs_err": 1.525913830846548e-07,
+    "mean_abs_err": 5.038478793906176e-09,
+    "pct_elems_failing_gate": 0.0,
+    "ref_abs_mean": 0.00012207031279582326,
+    "signed_mean_err": -1.3165336876230782e-13
+  },
+  "ok": true,
+  "parent_pid": 81810,
+  "physical_gpu": 0,
+  "plan_position": 169,
+  "primary_tail_median_ms": 1.3537280559539795,
+  "process_pid": 131915,
+  "record_kind": "candidate",
+  "record_type": "finite_frontier_ada_timing_record",
+  "row": {
+    "block": 10,
+    "block_position": 9,
+    "cell_id": "register_common_postprocess.triton.g05",
+    "distribution": "positive",
+    "label": "register_common_postprocess.triton.g05",
+    "position": 169,
+    "record_kind": "candidate",
+    "stage": "selection_confirm"
+  },
+  "row_sha256": "fdaeb4c676394a40d46037402a3ebe2d36b993c9552ac702c2c023150a73a8ea",
+  "schema_version": 1,
+  "stage": "selection_confirm",
+  "t_end": 1786053900.1117043,
+  "t_start": 1786053897.02776,
+  "times_ms": [
+    1.4878720045089722,
+    1.46943998336792,
+    1.4661439657211304,
+    1.4673919677734375,
+    1.4684159755706787,
+    1.4686720371246338,
+    1.465343952178955,
+    1.4714879989624023,
+    1.3731839656829834,
+    1.354848027229309,
+    1.3537280559539795,
+    1.3537280559539795,
+    1.3506560325622559,
+    1.3486080169677734,
+    1.346560001373291,
+    1.3506560325622559,
+    1.358847975730896,
+    1.3496320247650146,
+    1.3455359935760498,
+    1.3504960536956787,
+    1.3547519445419312,
+    1.3567999601364136,
+    1.3598719835281372,
+    1.3652160167694092,
+    1.365280032157898,
+    1.358847975730896,
+    1.3608959913253784,
+    1.358847975730896,
+    1.3629440069198608,
+    1.3629440069198608,
+    1.3629440069198608,
+    1.3608959913253784,
+    1.3598719835281372,
+    1.3578239679336548,
+    1.3598719835281372,
+    1.3496320247650146,
+    1.351680040359497,
+    1.3557759523391724,
+    1.3496960401535034,
+    1.3486080169677734,
+    1.351680040359497,
+    1.351680040359497,
+    1.3527040481567383,
+    1.3578239679336548,
+    1.3485759496688843,
+    1.3547519445419312,
+    1.3549439907073975,
+    1.3496320247650146,
+    1.3489279747009277,
+    1.3619199991226196,
+    1.3570239543914795,
+    1.3606079816818237,
+    1.3608959913253784,
+    1.3598719835281372,
+    1.3567999601364136,
+    1.3598719835281372,
+    1.363968014717102,
+    1.3598719835281372,
+    1.3660160303115845,
+    1.3578239679336548,
+    1.3629440069198608,
+    1.358847975730896,
+    1.3527040481567383,
+    1.3517119884490967,
+    1.3578239679336548,
+    1.3578239679336548,
+    1.3496320247650146,
+    1.3537280559539795,
+    1.3527040481567383,
+    1.3507200479507446,
+    1.3496320247650146,
+    1.3507519960403442,
+    1.3496320247650146,
+    1.3486080169677734,
+    1.3547519445419312,
+    1.3527040481567383,
+    1.358847975730896,
+    1.358847975730896,
+    1.3619199991226196,
+    1.363968014717102,
+    1.3598719835281372,
+    1.3598079681396484,
+    1.3557759523391724,
+    1.3648320436477661,
+    1.3547519445419312,
+    1.363968014717102,
+    1.3608319759368896,
+    1.3608959913253784,
+    1.3608959913253784,
+    1.3506560325622559,
+    1.3537280559539795,
+    1.3547519445419312,
+    1.3525439500808716,
+    1.351647973060608,
+    1.351680040359497,
+    1.3537280559539795,
+    1.3527040481567383,
+    1.3515199422836304,
+    1.3496320247650146,
+    1.351680040359497
+  ],
+  "toolchain": {
+    "nvcc_release": "V13.1.115",
+    "python": "3.13.5",
+    "tilelang": "0.1.11",
+    "torch": "2.10.0+cu128",
+    "triton": "3.6.0"
+  },
+  "trials": 100,
+  "warmup_iterations_actual": 1492,
+  "warmup_s": 2.0
+}

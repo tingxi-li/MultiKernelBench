@@ -1,0 +1,347 @@
+{
+  "admitted_artifact_sha256": "fb0ec4409f0b487d3d72903cda79db628f7ac1d527ae053c5f61e0149c4faf28",
+  "admitted_entry_path": "ako_runs/controlled_followup/finite_frontier_ada_v5/results/artifact_admission/artifacts/register_fused__triton__g09/entry.json",
+  "admitted_entry_sha256": "e7c1d180dde237dd3737baa46c1bfcf113862d49ff43abe7724a2cf4c3c982ec",
+  "artifact_admission_manifest_path": "ako_runs/controlled_followup/finite_frontier_ada_v5/results/artifact_admission/manifest.json",
+  "artifact_admission_manifest_sha256": "8957dcca34486bcb6c5baf2c5bb7466a8624df5cd92a6bf30b86ca950cd7bfc4",
+  "artifact_cache_files_sha256_after": "54cec03d69b0dcd484b355a0bd6ea83e1f28cbe05d95a6e9d3d56863393e8f69",
+  "artifact_load": {
+    "mode": "load_only",
+    "postprocess_loads": [],
+    "tilelang_cache_hits": [],
+    "triton_cache_hits": [
+      [
+        {
+          "path": "triton/HLFIHKBQ5IJP6L6XSCXOP544UFGGQX2L4DHAOXOQ724A4T26JW6A/_fused_gemm_kernel.source",
+          "sha256": "daebc7eaefb321f497f1857b33c01d4c3879287aa78d01eb6c1e10380021625e",
+          "size": 29012
+        },
+        {
+          "path": "triton/HLFIHKBQ5IJP6L6XSCXOP544UFGGQX2L4DHAOXOQ724A4T26JW6A/_fused_gemm_kernel.ttir",
+          "sha256": "87492a272e542be53aab9415e932e3a6bc99eb38f63c3488400184efe6941cdb",
+          "size": 13708
+        },
+        {
+          "path": "triton/HLFIHKBQ5IJP6L6XSCXOP544UFGGQX2L4DHAOXOQ724A4T26JW6A/_fused_gemm_kernel.ttgir",
+          "sha256": "8585adb54bab0ca48901a96bd9e33cf1610f5d0fbe89ca5fe044c4f02f456a28",
+          "size": 21828
+        },
+        {
+          "path": "triton/HLFIHKBQ5IJP6L6XSCXOP544UFGGQX2L4DHAOXOQ724A4T26JW6A/_fused_gemm_kernel.llir",
+          "sha256": "f52e25b4260b99280d4a24ade936569eb04fcbac6bf5bf1c49b95daadf28e508",
+          "size": 893512
+        },
+        {
+          "path": "triton/HLFIHKBQ5IJP6L6XSCXOP544UFGGQX2L4DHAOXOQ724A4T26JW6A/_fused_gemm_kernel.ptx",
+          "sha256": "5871c758e2e0ec7f05a0ec3ebb502f87a3e56c26364a16207c0533b1b67a3b4b",
+          "size": 296600
+        },
+        {
+          "path": "triton/HLFIHKBQ5IJP6L6XSCXOP544UFGGQX2L4DHAOXOQ724A4T26JW6A/_fused_gemm_kernel.cubin",
+          "sha256": "7be9d4e2c25d98a49299c3423dd6ec994b72636f29d98ea5a1130c9a1c106462",
+          "size": 389040
+        },
+        {
+          "path": "triton/HLFIHKBQ5IJP6L6XSCXOP544UFGGQX2L4DHAOXOQ724A4T26JW6A/_fused_gemm_kernel.json",
+          "sha256": "d1075162ce80aba2c7bad86c8454ce7803d532bd45b6e09c303f2d8743c22787",
+          "size": 1110
+        }
+      ],
+      [
+        {
+          "path": "triton/AWV65CFK4VSINHFP5TBTHUU6AFF32WKZOM65KNT4W3JCSCYCOBSQ/_softmax_kernel.source",
+          "sha256": "672f252fde9fbc42041ac9b9cbd541723ff674a7bc7662bbb8f595cca71d4f01",
+          "size": 8997
+        },
+        {
+          "path": "triton/AWV65CFK4VSINHFP5TBTHUU6AFF32WKZOM65KNT4W3JCSCYCOBSQ/_softmax_kernel.ttir",
+          "sha256": "7347f181a9057b2ea711e813b2c9d05a7466ee52d55bc16b6b7418c0e54f2256",
+          "size": 4861
+        },
+        {
+          "path": "triton/AWV65CFK4VSINHFP5TBTHUU6AFF32WKZOM65KNT4W3JCSCYCOBSQ/_softmax_kernel.ttgir",
+          "sha256": "f3a9f48905fc27396a9e6aec9affec76046155860cefd5c5597e7fb4e9862045",
+          "size": 5247
+        },
+        {
+          "path": "triton/AWV65CFK4VSINHFP5TBTHUU6AFF32WKZOM65KNT4W3JCSCYCOBSQ/_softmax_kernel.llir",
+          "sha256": "52b2ef7c201e0e612f50b6121ae8f00b978f0a7bc5049a2df9b8553bfbbff5ff",
+          "size": 31641
+        },
+        {
+          "path": "triton/AWV65CFK4VSINHFP5TBTHUU6AFF32WKZOM65KNT4W3JCSCYCOBSQ/_softmax_kernel.ptx",
+          "sha256": "3f6dacc616135fff2c4355772d511c565f3822920a472ffa5f97ced81ddc27d4",
+          "size": 26639
+        },
+        {
+          "path": "triton/AWV65CFK4VSINHFP5TBTHUU6AFF32WKZOM65KNT4W3JCSCYCOBSQ/_softmax_kernel.cubin",
+          "sha256": "779d5f5f7f1c6231db31e41765d17c42e3b946d39359d61e31affb2ddf15680a",
+          "size": 25696
+        },
+        {
+          "path": "triton/AWV65CFK4VSINHFP5TBTHUU6AFF32WKZOM65KNT4W3JCSCYCOBSQ/_softmax_kernel.json",
+          "sha256": "75d489a669ca5f824bf75f986e9df67732147c092b1ed23d9371bec3918d8b46",
+          "size": 1104
+        }
+      ]
+    ],
+    "triton_kernel_loads": [
+      [
+        {
+          "path": "triton/HLFIHKBQ5IJP6L6XSCXOP544UFGGQX2L4DHAOXOQ724A4T26JW6A/_fused_gemm_kernel.cubin",
+          "sha256": "7be9d4e2c25d98a49299c3423dd6ec994b72636f29d98ea5a1130c9a1c106462",
+          "size": 389040
+        }
+      ],
+      [
+        {
+          "path": "triton/AWV65CFK4VSINHFP5TBTHUU6AFF32WKZOM65KNT4W3JCSCYCOBSQ/_softmax_kernel.cubin",
+          "sha256": "779d5f5f7f1c6231db31e41765d17c42e3b946d39359d61e31affb2ddf15680a",
+          "size": 25696
+        }
+      ]
+    ]
+  },
+  "build_metadata": {
+    "artifacts": {
+      "b_global_dtype": "float16",
+      "backend_detail": "tl.dot on fp16 operands -> mma.sync.m16n8k16.f32.f16.f16.f32; KC=2048; num_stages=2 num_warps=8; epilogue bias=True gelu=True (tl.math.erf, exact form); NO autotune; + row-softmax kernel, one row per program, BN=N so exp is computed once in registers",
+      "block": [
+        256,
+        1,
+        1
+      ],
+      "dynamic_smem_bytes": null,
+      "epilogue_tile_bytes": 0,
+      "grid": [
+        64,
+        4,
+        1
+      ],
+      "n_kernels": 2,
+      "num_stages": 2,
+      "num_warps": 8,
+      "operand_smem_bytes": null,
+      "shared_bytes": null,
+      "total_dynamic_shared_bytes": null,
+      "total_dynamic_smem_bytes": null,
+      "transpose_b": false,
+      "triton_version": "3.6.0",
+      "wcache": "cached"
+    },
+    "build_wall_s": 0.44881695399999444,
+    "builder": "crossed-v2:triton:GBGS:regs",
+    "epilogue_request": "regs",
+    "implementation_sha256": "63cd2bf3c2f080bf28ce7c3cbcd3fe19487880bf56d2c1e2cb53937227fb8188",
+    "isolated_artifact_root": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/finite_frontier_ada_v5/results/artifact_admission/artifacts/register_fused__triton__g09/runtime_tmp/fused_epilogue_crossed_v2/pid115956/register_fused.triton.g09",
+    "n_kernels": 2,
+    "notes": "triton 3.6.0 fused arm GBGS (+ softmax (full op)) wcache=cached: 256x128x32 kc=2048 stages=2 warps=8"
+  },
+  "campaign_id": "finite-frontier-ada-v5",
+  "cell_id": "register_fused.triton.g09",
+  "compile_s": 0.447935864000101,
+  "contract_sha256": "298b00db97368c41b92ce118de65440030868412892484c35671b2c5f33e166a",
+  "distribution": "positive",
+  "execution_lock_sha256": "7c39921bf281b2258b0442bbbd83c0101d8c247d50c9ec2a9b3de120b780ddb3",
+  "first_decile_median_ms": 1.3649920225143433,
+  "first_to_last_decile_ratio": 0.9486121119267364,
+  "full_median_ms": 1.2963839769363403,
+  "gpu_idle_postflight": {
+    "checked_at_unix": 1786052815.839016,
+    "compute_processes": [
+      {
+        "pid": 115956,
+        "used_memory_mib": "1166"
+      }
+    ],
+    "foreign_compute_processes": [],
+    "idle_except_self": true,
+    "phase": "record_post",
+    "returncode": 0,
+    "self_pid": 115956,
+    "stderr": ""
+  },
+  "gpu_idle_preflight": {
+    "checked_at_unix": 1786052812.7720044,
+    "compute_processes": [],
+    "foreign_compute_processes": [],
+    "idle_except_self": true,
+    "phase": "record_pre",
+    "returncode": 0,
+    "self_pid": 115956,
+    "stderr": ""
+  },
+  "gpu_preflight": {
+    "clocks.mem": "405",
+    "clocks.sm": "210",
+    "compute_cap": "8.9",
+    "driver_version": "610.43.02",
+    "index": "0",
+    "memory.total": "49140",
+    "memory.used": "4",
+    "name": "NVIDIA RTX 6000 Ada Generation",
+    "power.limit": "300.00",
+    "pstate": "P8",
+    "temperature.gpu": "59",
+    "utilization.gpu": "0",
+    "uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae"
+  },
+  "implementation_sha256": "63cd2bf3c2f080bf28ce7c3cbcd3fe19487880bf56d2c1e2cb53937227fb8188",
+  "input_artifact_path": "ako_runs/controlled_followup/finite_frontier_ada_v5/results/imported_frontier.json",
+  "input_artifact_sha256": "81e5fdef9c9ffb5a199f0174a078b04a1c4389a70924d37cda773e85a0c92d72",
+  "label": "register_fused.triton.g09",
+  "last_decile_median_ms": 1.2948479652404785,
+  "launch_created_at_utc": "2026-08-06T21:15:16.266003+00:00",
+  "launch_receipt_path": "ako_runs/controlled_followup/finite_frontier_ada_v5/results/selection_confirm/launch_receipt.json",
+  "launch_receipt_sha256": "959d542b7aa31f69041bf5f06cb9184d11b5583dfe2df9441f1d601ea54c0536",
+  "launch_stage_preflight_unix": 1786050899.6133926,
+  "legacy_error": {
+    "budget_mean": 0.00010001220703127959,
+    "err_q100": 1.5253317542374134e-07,
+    "err_q50": 3.179593477398157e-09,
+    "err_q90": 1.1918018572032452e-08,
+    "err_q99": 2.713932190090418e-08,
+    "err_q999": 4.5649358071386814e-08,
+    "gate_pass": true,
+    "max_abs_err": 1.5253317542374134e-07,
+    "mean_abs_err": 5.038480035968185e-09,
+    "pct_elems_failing_gate": 0.0,
+    "ref_abs_mean": 0.00012207031279582326,
+    "signed_mean_err": -8.141230745106753e-14
+  },
+  "ok": true,
+  "parent_pid": 81810,
+  "physical_gpu": 0,
+  "plan_position": 107,
+  "primary_tail_median_ms": 1.2907520532608032,
+  "process_pid": 115956,
+  "record_kind": "candidate",
+  "record_type": "finite_frontier_ada_timing_record",
+  "row": {
+    "block": 6,
+    "block_position": 11,
+    "cell_id": "register_fused.triton.g09",
+    "distribution": "positive",
+    "label": "register_fused.triton.g09",
+    "position": 107,
+    "record_kind": "candidate",
+    "stage": "selection_confirm"
+  },
+  "row_sha256": "bd20b089c31d4206eb75369d18a86466a8a91530b7863a4196a05a0f780a5ab8",
+  "schema_version": 1,
+  "stage": "selection_confirm",
+  "t_end": 1786052815.8391106,
+  "t_start": 1786052812.7722626,
+  "times_ms": [
+    1.3649920225143433,
+    1.3649920225143433,
+    1.3752319812774658,
+    1.3701119422912598,
+    1.3783040046691895,
+    1.358847975730896,
+    1.3629440069198608,
+    1.3619199991226196,
+    1.3629440069198608,
+    1.368064045906067,
+    1.3731839656829834,
+    1.3454079627990723,
+    1.346560001373291,
+    1.3445119857788086,
+    1.346560001373291,
+    1.3434879779815674,
+    1.3363200426101685,
+    1.341439962387085,
+    1.3363200426101685,
+    1.3424639701843262,
+    1.3455359935760498,
+    1.3383680582046509,
+    1.334272027015686,
+    1.341439962387085,
+    1.307647943496704,
+    1.314784049987793,
+    1.2984319925308228,
+    1.3066240549087524,
+    1.3004800081253052,
+    1.2984319925308228,
+    1.3035520315170288,
+    1.3004800081253052,
+    1.2987200021743774,
+    1.299456000328064,
+    1.3004800081253052,
+    1.3025280237197876,
+    1.3015040159225464,
+    1.299456000328064,
+    1.2963839769363403,
+    1.2881920337677002,
+    1.292191982269287,
+    1.294335961341858,
+    1.2963839769363403,
+    1.2861440181732178,
+    1.2892160415649414,
+    1.2902400493621826,
+    1.287168025970459,
+    1.2922879457473755,
+    1.2912640571594238,
+    1.2922879457473755,
+    1.2881920337677002,
+    1.2912640571594238,
+    1.2881920337677002,
+    1.294335961341858,
+    1.299456000328064,
+    1.287168025970459,
+    1.2963839769363403,
+    1.2902400493621826,
+    1.2922879457473755,
+    1.2880640029907227,
+    1.2861440181732178,
+    1.2840960025787354,
+    1.2902400493621826,
+    1.288159966468811,
+    1.287168025970459,
+    1.2912640571594238,
+    1.2902400493621826,
+    1.2902400493621826,
+    1.3015040159225464,
+    1.294335961341858,
+    1.3015040159225464,
+    1.2892160415649414,
+    1.287168025970459,
+    1.2892160415649414,
+    1.2953599691390991,
+    1.287168025970459,
+    1.294335961341858,
+    1.2953599691390991,
+    1.2953599691390991,
+    1.2902400493621826,
+    1.2985600233078003,
+    1.2902400493621826,
+    1.2902400493621826,
+    1.2952320575714111,
+    1.287168025970459,
+    1.2881920337677002,
+    1.2912640571594238,
+    1.294335961341858,
+    1.2963839769363403,
+    1.287168025970459,
+    1.3015040159225464,
+    1.299456000328064,
+    1.287168025970459,
+    1.2963839769363403,
+    1.2933119535446167,
+    1.299456000328064,
+    1.2861440181732178,
+    1.2912640571594238,
+    1.2892160415649414,
+    1.300544023513794
+  ],
+  "toolchain": {
+    "nvcc_release": "V13.1.115",
+    "python": "3.13.5",
+    "tilelang": "0.1.11",
+    "torch": "2.10.0+cu128",
+    "triton": "3.6.0"
+  },
+  "trials": 100,
+  "warmup_iterations_actual": 1560,
+  "warmup_s": 2.0
+}
