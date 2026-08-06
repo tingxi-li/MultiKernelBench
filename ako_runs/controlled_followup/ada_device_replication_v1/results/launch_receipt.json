@@ -1,0 +1,189 @@
+{
+  "contract": {
+    "authorization_basis": "User instruction 2026-08-05: stick with the current GPUs; scope limited to Ada-only noncontrolling no-timing feasibility replication",
+    "authorized": true,
+    "authorized_at_utc": "2026-08-06T00:02:57.110360+00:00",
+    "campaign_id": "ada_device_replication_v1",
+    "contract_path": "ako_runs/controlled_followup/ada_device_replication_v1/contract.json",
+    "contract_sha256": "6fa5fae75c4e4609eedd4bf8e9b9ff5961528225a2d864b1f04ed8e1f31f42a8",
+    "execution_lock_sha256": "42e581c1d8d6c9feefeb51bd912741320dc20b5bcfb9ce29335f382fec75b3fd",
+    "git_commit": "259ce8aa5055211cca4d5de9175f02a212cf0dd8",
+    "gpu_inventory": [
+      {
+        "compute_capability": "8.9",
+        "index": 0,
+        "name": "NVIDIA RTX 6000 Ada Generation",
+        "uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae"
+      },
+      {
+        "compute_capability": "8.9",
+        "index": 1,
+        "name": "NVIDIA RTX 6000 Ada Generation",
+        "uuid": "GPU-91b61ae6-d21e-485e-43b3-7505d62149b1"
+      },
+      {
+        "compute_capability": "8.9",
+        "index": 2,
+        "name": "NVIDIA RTX 6000 Ada Generation",
+        "uuid": "GPU-3ed448f2-f23a-09fc-e18b-f580523c4a3f"
+      },
+      {
+        "compute_capability": "8.9",
+        "index": 3,
+        "name": "NVIDIA RTX 6000 Ada Generation",
+        "uuid": "GPU-eafdd6ce-8857-40fd-f494-47a7240bf6b5"
+      }
+    ],
+    "instrument_analyzer_sha256": "ac5cd372f7622f94847d098f82844b99b06eccf6493c52138ea9ef4090379f96",
+    "instrument_campaign_id": "fused-epilogue-crossed-v2",
+    "instrument_launch_lock_sha256": "206b75387acf4d60b688a8e19b3aff094a8ef69d5a0a1b72269d8b24f48be1b6",
+    "instrument_runner_sha256": "d72331ebcc2e275a471f9da0a2c8f0c9aff8e70dc8d1be23104cf4a21df40783",
+    "instrument_source_bundle_sha256": "abe6873e89686ca94a2dc096b633feff615c7dbfd8fb4e91546850ed26cae20b",
+    "manifest_path": "ako_runs/controlled_followup/ada_device_replication_v1/manifest.json",
+    "manifest_sha256": "93ea3c44a6790d2d044558c3b597ed69e58d776aba9f0208cdfee95a672acacc",
+    "outer_analyzer_sha256": "dd89479f1a2c710b9e798f303ba624db0ff0c03c390bdb9f1bb313dcc81a6a4d",
+    "outer_launcher_sha256": "cf0f4622c9b71ad5aa061a44ab9da1ec5c8421fdcff889175bc2ebd3e2a5fd35",
+    "protocol_sha256": "4f56476f642d4f88d54a81169a019d292e3fb6f9b10a8884760819130e759df7",
+    "record_type": "ada_device_replication_v1_execution_lock",
+    "reference_result_tag": "crossed_v2r3",
+    "requested_records": 1216,
+    "schedule": [
+      {
+        "campaign_tag": "ada_device_replication_v1_gpu0",
+        "device_uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae",
+        "physical_gpu": 0,
+        "shard_count": 4,
+        "shard_index": 0,
+        "wave": 0
+      },
+      {
+        "campaign_tag": "ada_device_replication_v1_gpu1",
+        "device_uuid": "GPU-91b61ae6-d21e-485e-43b3-7505d62149b1",
+        "physical_gpu": 1,
+        "shard_count": 4,
+        "shard_index": 1,
+        "wave": 0
+      },
+      {
+        "campaign_tag": "ada_device_replication_v1_gpu2",
+        "device_uuid": "GPU-3ed448f2-f23a-09fc-e18b-f580523c4a3f",
+        "physical_gpu": 2,
+        "shard_count": 4,
+        "shard_index": 2,
+        "wave": 0
+      },
+      {
+        "campaign_tag": "ada_device_replication_v1_gpu3",
+        "device_uuid": "GPU-eafdd6ce-8857-40fd-f494-47a7240bf6b5",
+        "physical_gpu": 3,
+        "shard_count": 4,
+        "shard_index": 3,
+        "wave": 0
+      },
+      {
+        "campaign_tag": "ada_device_replication_v1_gpu0",
+        "device_uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae",
+        "physical_gpu": 0,
+        "shard_count": 4,
+        "shard_index": 1,
+        "wave": 1
+      },
+      {
+        "campaign_tag": "ada_device_replication_v1_gpu1",
+        "device_uuid": "GPU-91b61ae6-d21e-485e-43b3-7505d62149b1",
+        "physical_gpu": 1,
+        "shard_count": 4,
+        "shard_index": 2,
+        "wave": 1
+      },
+      {
+        "campaign_tag": "ada_device_replication_v1_gpu2",
+        "device_uuid": "GPU-3ed448f2-f23a-09fc-e18b-f580523c4a3f",
+        "physical_gpu": 2,
+        "shard_count": 4,
+        "shard_index": 3,
+        "wave": 1
+      },
+      {
+        "campaign_tag": "ada_device_replication_v1_gpu3",
+        "device_uuid": "GPU-eafdd6ce-8857-40fd-f494-47a7240bf6b5",
+        "physical_gpu": 3,
+        "shard_count": 4,
+        "shard_index": 0,
+        "wave": 1
+      },
+      {
+        "campaign_tag": "ada_device_replication_v1_gpu0",
+        "device_uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae",
+        "physical_gpu": 0,
+        "shard_count": 4,
+        "shard_index": 2,
+        "wave": 2
+      },
+      {
+        "campaign_tag": "ada_device_replication_v1_gpu1",
+        "device_uuid": "GPU-91b61ae6-d21e-485e-43b3-7505d62149b1",
+        "physical_gpu": 1,
+        "shard_count": 4,
+        "shard_index": 3,
+        "wave": 2
+      },
+      {
+        "campaign_tag": "ada_device_replication_v1_gpu2",
+        "device_uuid": "GPU-3ed448f2-f23a-09fc-e18b-f580523c4a3f",
+        "physical_gpu": 2,
+        "shard_count": 4,
+        "shard_index": 0,
+        "wave": 2
+      },
+      {
+        "campaign_tag": "ada_device_replication_v1_gpu3",
+        "device_uuid": "GPU-eafdd6ce-8857-40fd-f494-47a7240bf6b5",
+        "physical_gpu": 3,
+        "shard_count": 4,
+        "shard_index": 1,
+        "wave": 2
+      },
+      {
+        "campaign_tag": "ada_device_replication_v1_gpu0",
+        "device_uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae",
+        "physical_gpu": 0,
+        "shard_count": 4,
+        "shard_index": 3,
+        "wave": 3
+      },
+      {
+        "campaign_tag": "ada_device_replication_v1_gpu1",
+        "device_uuid": "GPU-91b61ae6-d21e-485e-43b3-7505d62149b1",
+        "physical_gpu": 1,
+        "shard_count": 4,
+        "shard_index": 0,
+        "wave": 3
+      },
+      {
+        "campaign_tag": "ada_device_replication_v1_gpu2",
+        "device_uuid": "GPU-3ed448f2-f23a-09fc-e18b-f580523c4a3f",
+        "physical_gpu": 2,
+        "shard_count": 4,
+        "shard_index": 1,
+        "wave": 3
+      },
+      {
+        "campaign_tag": "ada_device_replication_v1_gpu3",
+        "device_uuid": "GPU-eafdd6ce-8857-40fd-f494-47a7240bf6b5",
+        "physical_gpu": 3,
+        "shard_count": 4,
+        "shard_index": 2,
+        "wave": 3
+      }
+    ],
+    "schedule_sha256": "f5a81e4e49dfdf19e0dc7b27a6d1674fc67d3a49e9d44631278afda8ead4b474",
+    "schema_version": 1,
+    "timing_allowed": false,
+    "upstream_ref": "refs/heads/cross-dsl-6op-ncu-redo",
+    "upstream_remote": "origin"
+  },
+  "created_at_utc": "2026-08-06T00:08:13.719087+00:00",
+  "record_type": "ada_device_replication_v1_launch_receipt",
+  "schema_version": 1
+}
