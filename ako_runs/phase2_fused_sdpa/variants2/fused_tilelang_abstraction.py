@@ -242,18 +242,17 @@ def build(cfg) -> common2.Built2:
                       cfg.stages, cfg.kc, bias=True, gelu=True,
                       b_dtype=wspec["b_dtype"], transpose_b=wspec["transpose_b"])
     ks = _BUILDERS[arm](M, N, th)
-    wf = common2.weight_fn(wmode)
-
     # Timing the whole op cannot resolve this study's question. The softmax is
     # ~0.07 ms of a ~1.5 ms op, so a 3% difference between reduction styles is
     # 0.002 ms -- below the noise floor. `soft_only` times ONLY the softmax
     # kernel, on the real post-GELU scratch (so the value distribution the
     # reduction sees is the real one, not a synthetic tensor).
     #
-    # The scratch is built on the first call and cached. That first call is the
-    # runner's correctness check, which is outside the timed region; every timed
-    # call afterwards launches the softmax kernel and nothing else. Correctness
-    # is still checked against the full GBGS reference, which is exactly right:
+    # The scratch is built on the first call for an input triple and cached.
+    # That first call is the runner's correctness check, which is outside the
+    # timed region; every timed call afterwards launches only the softmax.
+    # Correctness is still checked against the full GBGS reference, which is
+    # exactly right:
     # scratch is the GEMM+bias+GELU output, so softmax(scratch) IS the full op.
     soft_only = str(cfg.extra.get("soft_only", "")).lower() in ("1", "true", "yes")
 
@@ -261,11 +260,20 @@ def build(cfg) -> common2.Built2:
         box = {}
 
         def run(x, W, b):
-            if box.get("src") != x.data_ptr():
-                box["src"] = x.data_ptr()
-                box["scratch"] = kg(x, wf(W), b)
+            inputs = (x, W, b)
+            versions = tuple(t._version for t in inputs)
+            previous = box.get("inputs")
+            if (previous is None
+                    or any(old is not new for old, new in zip(previous, inputs))
+                    or box["versions"] != versions):
+                # Retaining the tensors prevents allocator pointer reuse from
+                # making a different gate input look like the cached one.
+                scratch = kg(x, common2.weight_fn(wmode)(W), b)
+                box.update(inputs=inputs, versions=versions, scratch=scratch)
             return ks(box["scratch"])
     else:
+        wf = common2.weight_fn(wmode)
+
         def run(x, W, b):
             return ks(kg(x, wf(W), b))
 

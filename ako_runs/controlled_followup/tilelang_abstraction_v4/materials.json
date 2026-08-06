@@ -1,0 +1,166 @@
+{
+  "campaign_id": "tilelang-abstraction-v4-ada",
+  "schema_version": 1,
+  "entries": {
+    "fused_adapter": {
+      "path": "ako_runs/controlled_followup/fused_grid/robust_adapter.py",
+      "role": "current fused-v2 execution adapter",
+      "sha256": "688d9b29673d9314f50a3e8f6a8fc217b8497b27fb3eac13a5234cd9b7a29502"
+    },
+    "fused_adapter_manifest": {
+      "path": "ako_runs/controlled_followup/fused_grid/robust_adapter_manifest.json",
+      "role": "frozen fused adapter dependency closure",
+      "sha256": "81e3478b61800e09147a6cb213ba1786b200c137a728a5a9c258241c0a6004ba"
+    },
+    "fused_gate_summary": {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/audit.py",
+      "role": "fixed-threshold fused gate summary",
+      "sha256": "5b7edc232e51ef5601c02be004a101903a49c61289df1705e30daa9da74641ba"
+    },
+    "fused_v2_gate": {
+      "path": "ako_runs/controlled_followup/robust_gate/calibration/gate_spec_fused_v2.json",
+      "role": "current fused correctness gate",
+      "sha256": "b6c3afaadf61f5d380a97c6c541828a1ecacd1a89a00b73b66207fe22d765e2e"
+    },
+    "fused_v2_manifest": {
+      "path": "ako_runs/controlled_followup/robust_gate/manifest.json",
+      "role": "manifest bound by current fused gate",
+      "sha256": "28d51cd4f1730bd190e63c7cad60670c37b67784393270e63e859a1685fc8a62"
+    },
+    "median_interval": {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/core.py",
+      "role": "exact distribution-free median interval implementation",
+      "sha256": "538feecd1e88f90f711ee2a112a4fc28d027684169b7f64b596d96e74899dbcf"
+    },
+    "phase2_common": {
+      "path": "ako_runs/phase2_fused_sdpa/common2.py",
+      "role": "fused and SDPA input/configuration contract",
+      "sha256": "0293cb15fc3285df199daa58281a1a35147a78b9cbccda8b8f88418eecb39c64"
+    },
+    "phase2_ncu": {
+      "path": "ako_runs/phase2_fused_sdpa/ncu_collect2.py",
+      "role": "fused and SDPA dynamic-work and resource profiler",
+      "sha256": "a3f4c091f44ba0377d81ce26d8e4df350f9677137d84d7bc2b8a795dba824f4b"
+    },
+    "phase2_profile_target": {
+      "path": "ako_runs/phase2_fused_sdpa/profile_target2.py",
+      "role": "fresh-process fused and SDPA profiler target",
+      "sha256": "64fe3a29c03dedbe71dd94171e395bd38b345f4916d8f6e241713bb6f0c1106f"
+    },
+    "phase2_runner": {
+      "path": "ako_runs/phase2_fused_sdpa/runner2.py",
+      "role": "fresh-process fused and SDPA timing worker",
+      "sha256": "d1ade4461bff35058a3c6e967532960f5cc509f5d6a46c69bded78fbd0aac31e"
+    },
+    "phase2_variant_registry": {
+      "path": "ako_runs/phase2_fused_sdpa/variants2/__init__.py",
+      "role": "fused and SDPA implementation registry",
+      "sha256": "2afc778f25db9abe2d05299bbd47fa2ad43b7912eee8633936095e6b92662045"
+    },
+    "robust_distributions": {
+      "path": "ako_runs/controlled_followup/robust_gate/distributions.py",
+      "role": "current gate input distributions",
+      "sha256": "6280fa580a8ff2e648b937435137930a37143d8225bf9afb348b4c4921ccdd77"
+    },
+    "robust_metrics": {
+      "path": "ako_runs/controlled_followup/robust_gate/metrics.py",
+      "role": "current robust metrics",
+      "sha256": "419b48d8410dfeb42ff06e8ce23be15d176443872ad576779ee071a00045a9fe"
+    },
+    "robust_oracles": {
+      "path": "ako_runs/controlled_followup/robust_gate/oracles.py",
+      "role": "current robust references",
+      "sha256": "5083b72e14285cfc5582effe4cf4d75f6bac8f548cd1183e2d5256c022d5cace"
+    },
+    "robust_schema": {
+      "path": "ako_runs/controlled_followup/robust_gate/schema.py",
+      "role": "current robust artifact schema",
+      "sha256": "5ddccc0f4eecda92d97de0676eb9c5f16f0ea3bd426a344aa6acb57169e306ec"
+    },
+    "robust_seeds": {
+      "path": "ako_runs/controlled_followup/robust_gate/seeds.py",
+      "role": "current locked seed derivation",
+      "sha256": "39663de46fdc31f34ec12975d34c43565f16f19a23be0c1e53bf4f1cfe57fdcc"
+    },
+    "robust_validator": {
+      "path": "ako_runs/controlled_followup/robust_gate/validate.py",
+      "role": "current threshold validator",
+      "sha256": "b9436c9b4a0d81228a373c1f6e7e79a7cd68cf78e11ef8afdb06c27b2f5b22ec"
+    },
+    "tilelang_abstraction_v2": {
+      "path": "ako_runs/controlled_followup/tilelang_abstraction_v2/protocol.py",
+      "role": "unchanged interval-classification semantics",
+      "sha256": "b31a44a03ab883f5582238223e5d0a9a091add0fef70740c0323d06491d060ec"
+    },
+    "tilelang_fused": {
+      "path": "ako_runs/phase2_fused_sdpa/variants2/fused_tilelang.py",
+      "role": "held-fixed fused GEMM dependency",
+      "sha256": "c2a0704d81bdb4b2f78377870a1bc45c6945db77bccc8e89b2a0fd4b46511684"
+    },
+    "tilelang_fused_abstraction": {
+      "path": "ako_runs/phase2_fused_sdpa/variants2/fused_tilelang_abstraction.py",
+      "role": "corrected fused softmax H/M implementations plus opt-in code capture",
+      "sha256": "ac0cbbbba5046d2ffcfd4b21b4d9aadcdaad5728d3a742dee1f77696178a724f"
+    },
+    "tilelang_fused_cache_regression": {
+      "path": "ako_runs/phase2_fused_sdpa/test_fused_tilelang_abstraction_cache.py",
+      "role": "CPU regression for tensor-identity-bound soft-only scratch caching",
+      "sha256": "1d3fd2b632ca70f8402273ff4d7b1bb0d7853bbd368d8660029a0590b2b745b8"
+    },
+    "v3_campaign_lock": {
+      "path": "ako_runs/controlled_followup/tilelang_abstraction_v3/campaign_lock.json",
+      "role": "noncontrolling predecessor campaign lock",
+      "sha256": "4514c83bc9e61efa09bf2f6964b9bb2888d821e61843028cc4f2387d5b03e16e"
+    },
+    "v3_campaign_source": {
+      "path": "ako_runs/controlled_followup/tilelang_abstraction_v3/campaign.json",
+      "role": "predecessor design used to prove the F1/F4c pair is unchanged",
+      "sha256": "527f49e72b5a8f870532445ae2e76c2713e82f7ba2c3b08f8b6a18155b578ca9"
+    },
+    "v3_admission_run_status": {
+      "path": "ako_runs/controlled_followup/tilelang_abstraction_v3/results/ada_v3r1/admission/run_status.json",
+      "role": "content-addressed predecessor admission evidence census",
+      "sha256": "479ae7476b38368034d2b87d179e424ac36c9d477acdfd5c22703b25e95b5e54"
+    },
+    "v3_admission_summary": {
+      "path": "ako_runs/controlled_followup/tilelang_abstraction_v3/results/ada_v3r1/admission/summary.json",
+      "role": "noncontrolling predecessor admission summary",
+      "sha256": "a4c7162b105583bd58da913eb5e4f58fe19f185b18ebefdf28b92a0eff14c7a8"
+    },
+    "v3_result_memo": {
+      "path": "ako_runs/controlled_followup/tilelang_abstraction_v3/RESULT_ADA_V3R1_20260806.md",
+      "role": "noncontrolling predecessor interpretation memo",
+      "sha256": "5fb8886a24d9b6a76c9cea4d000906acb6ce51e7d53a9379b570845d94abb8a5"
+    }
+  },
+  "family_bindings": {
+    "fused_softmax": [
+      "phase2_common",
+      "phase2_runner",
+      "phase2_profile_target",
+      "phase2_ncu",
+      "phase2_variant_registry",
+      "tilelang_fused",
+      "tilelang_fused_abstraction",
+      "fused_adapter",
+      "fused_adapter_manifest",
+      "fused_gate_summary",
+      "fused_v2_manifest",
+      "fused_v2_gate",
+      "robust_distributions",
+      "robust_metrics",
+      "robust_oracles",
+      "robust_schema",
+      "robust_seeds",
+      "robust_validator",
+      "tilelang_abstraction_v2",
+      "median_interval",
+      "tilelang_fused_cache_regression",
+      "v3_campaign_lock",
+      "v3_campaign_source",
+      "v3_admission_run_status",
+      "v3_admission_summary",
+      "v3_result_memo"
+    ]
+  }
+}
