@@ -1,0 +1,9 @@
+{
+  "build_attempted": false,
+  "campaign_id": "tilelang-abstraction-v3-ada",
+  "campaign_lock_sha256": "4514c83bc9e61efa09bf2f6964b9bb2888d821e61843028cc4f2387d5b03e16e",
+  "pair_id": "sdpa_d128_s3h_s3m",
+  "reason": "no accepted current SDPA robust gate",
+  "terminal_outcome": "CURRENT_GATE_UNAVAILABLE",
+  "timing_authorized": false
+}

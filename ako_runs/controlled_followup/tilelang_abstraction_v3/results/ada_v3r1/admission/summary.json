@@ -1,0 +1,88 @@
+{
+  "campaign_id": "tilelang-abstraction-v3-ada",
+  "campaign_lock_sha256": "4514c83bc9e61efa09bf2f6964b9bb2888d821e61843028cc4f2387d5b03e16e",
+  "census": {
+    "current_gate_unavailable": 1,
+    "excluded": 3,
+    "requested_pairs": 3,
+    "timing_eligible": 0
+  },
+  "claim_scope": "local_pair_only",
+  "complete": true,
+  "dependency_bundle_sha256": "0c94429dd6afcbfe5acaae61c17b96268a2e8ad3f0476c8886af7d84a49647cf",
+  "evidence_bundle_sha256": "2b9782fb3a114bc78431e6e051d2436d050e0326fded7427c320ad2b54c16ec3",
+  "evidence_sha256": {
+    "ako_runs/controlled_followup/tilelang_abstraction_v3/results/ada_v3r1/admission/fused_softmax_f1_f4c__high.gate.jsonl": "f80b51186c6590fff654b0f7d2c69ab709d7ed4a2e1deefbc970a4cc50311424",
+    "ako_runs/controlled_followup/tilelang_abstraction_v3/results/ada_v3r1/admission/fused_softmax_f1_f4c__high.json": "e394c65e832072e6491d756e5cfe55c5d738fa2c1e2c216a82ec562da594a8df",
+    "ako_runs/controlled_followup/tilelang_abstraction_v3/results/ada_v3r1/admission/fused_softmax_f1_f4c__high_generated/tilelang_abs.F1.128x128x32.kc2048.s3.fp16.precast.soft_only1.wcachecached.cu": "456d6b96858e26ec77b1d00e1cb452b3ab60a4e56ccea97d4335e29fa7785968",
+    "ako_runs/controlled_followup/tilelang_abstraction_v3/results/ada_v3r1/admission/fused_softmax_f1_f4c__high_generated/tilelang_abs.F1.128x128x32.kc2048.s3.fp16.precast.soft_only1.wcachecached.ptx": "bc29ed68f85cf59864aa34509475b707eb0ccc2c8f23efe585131a1ce6f21dac",
+    "ako_runs/controlled_followup/tilelang_abstraction_v3/results/ada_v3r1/admission/fused_softmax_f1_f4c__high_generated/tilelang_abs.F1.128x128x32.kc2048.s3.fp16.precast.soft_only1.wcachecached.sass": "36853d9bd67b3c2a0f9ba2806deda58d72941128e7114ec87888d8e54a459ed8",
+    "ako_runs/controlled_followup/tilelang_abstraction_v3/results/ada_v3r1/admission/fused_softmax_f1_f4c__low.gate.jsonl": "e75666e07f185331f962442df18fd417a9f8672802b65ef06b8ce0683e3d5334",
+    "ako_runs/controlled_followup/tilelang_abstraction_v3/results/ada_v3r1/admission/fused_softmax_f1_f4c__low.json": "eb69c66c765ec9b1ddf7270c7a598f138505d8ab49ff435af1825034fd1742b4",
+    "ako_runs/controlled_followup/tilelang_abstraction_v3/results/ada_v3r1/admission/fused_softmax_f1_f4c__low_generated/tilelang_abs.F4c.128x128x32.kc2048.s3.fp16.precast.soft_only1.wcachecached.cu": "f3491f74f3e740ac4c4aed364a000570768ca50c5572a9ababc9579957ff6302",
+    "ako_runs/controlled_followup/tilelang_abstraction_v3/results/ada_v3r1/admission/fused_softmax_f1_f4c__low_generated/tilelang_abs.F4c.128x128x32.kc2048.s3.fp16.precast.soft_only1.wcachecached.ptx": "913e1e7ee19e08b4e21d65e2851dce2ad5e2662c13bc88151021a608269446e3",
+    "ako_runs/controlled_followup/tilelang_abstraction_v3/results/ada_v3r1/admission/fused_softmax_f1_f4c__low_generated/tilelang_abs.F4c.128x128x32.kc2048.s3.fp16.precast.soft_only1.wcachecached.sass": "d8c0b60875b4f114c6d2c662dfe493c7e13c4e85da76f361c33b2366d2b691e7",
+    "ako_runs/controlled_followup/tilelang_abstraction_v3/results/ada_v3r1/admission/launch_receipt.json": "8f7a9ed3c5ac5896893f016238bbb27f47319205913dd1f58109f9c15d203ef9",
+    "ako_runs/controlled_followup/tilelang_abstraction_v3/results/ada_v3r1/admission/matmul_primary_h1d2_m2__high.gate.jsonl": "63cc1a62410cd7d2206f5d7d20f28304a84fc5b0dd7399e38043b46daac1d111",
+    "ako_runs/controlled_followup/tilelang_abstraction_v3/results/ada_v3r1/admission/matmul_primary_h1d2_m2__high.json": "ee6404dcfb663404b73d9e02cfdccf89122fb32d115539b92d3ed2659812081e",
+    "ako_runs/controlled_followup/tilelang_abstraction_v3/results/ada_v3r1/admission/matmul_primary_h1d2_m2__high_generated/tilelang_abs.H1.128x128x32.kc2048.s2.fp16.precast.depth_control1.cu": "a87d71b636443c18c83ce0d56e8ff8ba90af6296937e24115d4874b90e125742",
+    "ako_runs/controlled_followup/tilelang_abstraction_v3/results/ada_v3r1/admission/matmul_primary_h1d2_m2__high_generated/tilelang_abs.H1.128x128x32.kc2048.s2.fp16.precast.depth_control1.ptx": "3be2280b3439eba63007e8ce97131fd9aa3de590176e2bce2d95d72d0491e530",
+    "ako_runs/controlled_followup/tilelang_abstraction_v3/results/ada_v3r1/admission/matmul_primary_h1d2_m2__high_generated/tilelang_abs.H1.128x128x32.kc2048.s2.fp16.precast.depth_control1.sass": "a32d6900a541abcb5d4a1f86bad684f10af259ea3297d3a58e75503235f461f6",
+    "ako_runs/controlled_followup/tilelang_abstraction_v3/results/ada_v3r1/admission/matmul_primary_h1d2_m2__low.gate.jsonl": "642ca93cc2e0f39ab24e5bc21e706c1404a98fb37c189b9de96bac3696c99abd",
+    "ako_runs/controlled_followup/tilelang_abstraction_v3/results/ada_v3r1/admission/matmul_primary_h1d2_m2__low.json": "9270e5a547051aed0332f4826ac13e43ee00a64946922c07757cdd5fe982b33b",
+    "ako_runs/controlled_followup/tilelang_abstraction_v3/results/ada_v3r1/admission/matmul_primary_h1d2_m2__low_generated/tilelang_abs.M2.128x128x32.kc2048.s2.fp16.precast.cu": "7f55c2180bf06c79cd7714a465e456be82dad8536e0fa12eb98bfc9e1da8e8dd",
+    "ako_runs/controlled_followup/tilelang_abstraction_v3/results/ada_v3r1/admission/matmul_primary_h1d2_m2__low_generated/tilelang_abs.M2.128x128x32.kc2048.s2.fp16.precast.ptx": "f4caa69e80cc09322802b67592799d3effdfe8d5c2546349a1c4b474e1974410",
+    "ako_runs/controlled_followup/tilelang_abstraction_v3/results/ada_v3r1/admission/matmul_primary_h1d2_m2__low_generated/tilelang_abs.M2.128x128x32.kc2048.s2.fp16.precast.sass": "9fb30ac4e99e6138075f238af1225ec8ce02b1bb12b1d0557243e18a5467c5d6",
+    "ako_runs/controlled_followup/tilelang_abstraction_v3/results/ada_v3r1/admission/run_status.json": "479ae7476b38368034d2b87d179e424ac36c9d477acdfd5c22703b25e95b5e54",
+    "ako_runs/controlled_followup/tilelang_abstraction_v3/results/ada_v3r1/admission/sdpa_d128_s3h_s3m__unavailable.json": "2a1b8e62e09cea3e86d80db3e35f069855f34e531d5b3deb0fb095133a763c64"
+  },
+  "generalization_design_ready": false,
+  "launch_receipt_path": "ako_runs/controlled_followup/tilelang_abstraction_v3/results/ada_v3r1/admission/launch_receipt.json",
+  "launch_receipt_sha256": "8f7a9ed3c5ac5896893f016238bbb27f47319205913dd1f58109f9c15d203ef9",
+  "material_receipts_verified": true,
+  "pairs": [
+    {
+      "arm_receipts": {},
+      "artifact_identity_sha256": {},
+      "classification": "excluded_fail_closed",
+      "family": "matmul",
+      "gate_available": true,
+      "measured_match_audit": null,
+      "pair_id": "matmul_primary_h1d2_m2",
+      "reasons": [
+        "high: gate outcome was not independently re-derived",
+        "low: gate outcome was not independently re-derived"
+      ],
+      "timing_eligible": false
+    },
+    {
+      "arm_receipts": {},
+      "artifact_identity_sha256": {},
+      "classification": "excluded_fail_closed",
+      "family": "fused_softmax",
+      "gate_available": true,
+      "measured_match_audit": null,
+      "pair_id": "fused_softmax_f1_f4c",
+      "reasons": [
+        "high: gate outcome was not independently re-derived",
+        "low: gate outcome was not independently re-derived"
+      ],
+      "timing_eligible": false
+    },
+    {
+      "classification": "blocked_no_current_gate",
+      "family": "sdpa",
+      "gate_available": false,
+      "pair_id": "sdpa_d128_s3h_s3m",
+      "reasons": [
+        "no accepted current SDPA robust gate"
+      ],
+      "timing_eligible": false
+    }
+  ],
+  "record_type": "tilelang_abstraction_v3_admission_summary",
+  "run_status_path": "ako_runs/controlled_followup/tilelang_abstraction_v3/results/ada_v3r1/admission/run_status.json",
+  "run_status_sha256": "479ae7476b38368034d2b87d179e424ac36c9d477acdfd5c22703b25e95b5e54",
+  "schema_version": 1,
+  "timing_eligible_pair_ids": []
+}

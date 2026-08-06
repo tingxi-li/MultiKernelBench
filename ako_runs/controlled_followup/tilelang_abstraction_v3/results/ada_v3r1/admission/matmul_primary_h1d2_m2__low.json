@@ -1,0 +1,242 @@
+{
+  "campaign_id": "tilelang-abstraction-v3-ada",
+  "campaign_lock_sha256": "4514c83bc9e61efa09bf2f6964b9bb2888d821e61843028cc4f2387d5b03e16e",
+  "created_utc": "2026-08-06T06:22:55.014419+00:00",
+  "dependency_bundle_sha256": "0c94429dd6afcbfe5acaae61c17b96268a2e8ad3f0476c8886af7d84a49647cf",
+  "family": "matmul",
+  "gate_manifest_sha256": "0b4bff1b17ee8c1e30e7e1ece5515ce6cfee74bd1d386f8162588fd91e5accb4",
+  "gate_path": "ako_runs/controlled_followup/tilelang_abstraction_v3/results/ada_v3r1/admission/matmul_primary_h1d2_m2__low.gate.jsonl",
+  "gate_sha256": "642ca93cc2e0f39ab24e5bc21e706c1404a98fb37c189b9de96bac3696c99abd",
+  "gate_spec_sha256": "70bb3bc8f217c40ba5fcab90dc84ef798d06e22b5d1f0e4d27a2031069a295fb",
+  "gate_summary": {
+    "complete": true,
+    "expected_records": 6144,
+    "failed_records": 2048,
+    "full_gate_pass": false,
+    "maxima": {
+      "conformance_mixed/abs_signed_bias": 0.04565151721180882,
+      "conformance_mixed/componentwise_backward_error": 2.4104689687081966e-05,
+      "conformance_mixed/max_abs_err": 0.051513671875,
+      "conformance_mixed/mean_abs_err": 0.04565151721180882,
+      "conformance_mixed/nonfinite_count": 0.0,
+      "conformance_mixed/nrmse": 2.228452831089172e-05,
+      "conformance_mixed/reference_abs_max": 2181.585693359375,
+      "conformance_mixed/reference_abs_mean": 2049.1183369643695,
+      "conformance_mixed/scaled_rmse": 2.2284528446410578e-05,
+      "semantic_mixed/abs_signed_bias": 0.045985759194382456,
+      "semantic_mixed/componentwise_backward_error": 5.6553460179053804e-05,
+      "semantic_mixed/max_abs_err": 0.1315850483374561,
+      "semantic_mixed/mean_abs_err": 0.045985759194382456,
+      "semantic_mixed/nonfinite_count": 0.0,
+      "semantic_mixed/nrmse": 0.0006990583973061521,
+      "semantic_mixed/reference_abs_max": 2181.5989538089884,
+      "semantic_mixed/reference_abs_mean": 2049.1186157740262,
+      "semantic_mixed/scaled_rmse": 2.2769280874739413e-05
+    },
+    "observed_records": 6144
+  },
+  "generated": {
+    "bundle_sha256": "21e6ce8c3827158fc1be8490be142c9c69c13980b52be1a380d72e8a23a85ca7",
+    "complete": true,
+    "files": {
+      "cuda": {
+        "bytes": 9480,
+        "path": "ako_runs/controlled_followup/tilelang_abstraction_v3/results/ada_v3r1/admission/matmul_primary_h1d2_m2__low_generated/tilelang_abs.M2.128x128x32.kc2048.s2.fp16.precast.cu",
+        "sha256": "7f55c2180bf06c79cd7714a465e456be82dad8536e0fa12eb98bfc9e1da8e8dd"
+      },
+      "ptx": {
+        "bytes": 45851,
+        "path": "ako_runs/controlled_followup/tilelang_abstraction_v3/results/ada_v3r1/admission/matmul_primary_h1d2_m2__low_generated/tilelang_abs.M2.128x128x32.kc2048.s2.fp16.precast.ptx",
+        "sha256": "f4caa69e80cc09322802b67592799d3effdfe8d5c2546349a1c4b474e1974410"
+      },
+      "sass": {
+        "bytes": 293201,
+        "path": "ako_runs/controlled_followup/tilelang_abstraction_v3/results/ada_v3r1/admission/matmul_primary_h1d2_m2__low_generated/tilelang_abs.M2.128x128x32.kc2048.s2.fp16.precast.sass",
+        "sha256": "9fb30ac4e99e6138075f238af1225ec8ce02b1bb12b1d0557243e18a5467c5d6"
+      }
+    },
+    "identity_sha256": "ce0038cb4d1655b66f3e29388cea97232bce629555f4a7731ec3162602b09952"
+  },
+  "gpu": {
+    "compute_capability": "8.9",
+    "driver_version": "610.43.02",
+    "ncu_sha256": "99b61b4937aa4d473ccb4ef2395d69d5f3de64908a7d65d96bc8f9b73f72476a",
+    "nvcc_sha256": "d51da6fa301a0c63b030c6a9e45b942c5fe2228e63c0ec276a445943cf0bc6f6",
+    "physical_index": 0,
+    "product_name": "NVIDIA RTX 6000 Ada Generation",
+    "uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae"
+  },
+  "gpu_idle_postflight": {
+    "checked_at_unix": 1785998993.7848885,
+    "compute_processes": [
+      {
+        "pid": 1271764,
+        "used_memory_mib": "1982"
+      }
+    ],
+    "phase": "admission_child_post",
+    "self_pid": 1271764,
+    "stderr": ""
+  },
+  "gpu_idle_preflight": {
+    "checked_at_unix": 1785997373.9379556,
+    "compute_processes": [],
+    "phase": "admission_child_pre",
+    "self_pid": 1271764,
+    "stderr": ""
+  },
+  "implementation_sha256": "ce0038cb4d1655b66f3e29388cea97232bce629555f4a7731ec3162602b09952",
+  "implementation_source_sha256": "fbf90194965661258e0d48da2a83008003fd48f1feca7f1d0983652a11aad82e",
+  "metadata": {
+    "compile_s": 4.189789208001457,
+    "config": {
+      "BK": 32,
+      "BM": 128,
+      "BN": 128,
+      "K": 8192,
+      "M": 2048,
+      "N": 4096,
+      "arith": "fp16",
+      "cast": "precast",
+      "dsl": "tilelang_abs",
+      "extra": {},
+      "input_dtype": "torch.float16",
+      "kc": 2048,
+      "stages": 2,
+      "threads": 256,
+      "variant": "M2"
+    },
+    "notes": "tilelang 0.1.11 abstraction variant M2 (TL-M: explicit double-buffered shared storage + sync around T.gemm): 128x128x32/256thr kc=2048 stages=2 arith=fp16 cast=precast; disk cache OFF (compile_s is a cold compile)",
+    "reported_artifacts": {
+      "backend_detail": "TL-M: hand-written double buffer. TWO shared stages per operand (As0/Bs0, As1/Bs1); K loop unrolled by 2 so parity is static. Per half-iteration: T.ptx_wait_group(0) + T.sync_threads() to consume the tile that landed, then T.async_copy(tile g+1)->other stage + T.ptx_commit_group() to ISSUE the next load, then T.gemm on the current stage while that cp.async is in flight. 1 barrier and 1 cp.async group per K tile. T.Pipelined does not appear; the prologue issues tile 0 and the tail prefetch is clamped to the last tile. Chunk flush Cchunk->Cacc every kc=2048.",
+      "block": [
+        256,
+        1,
+        1
+      ],
+      "grid": [
+        32,
+        16,
+        1
+      ],
+      "shared_bytes": 32768
+    }
+  },
+  "pair_id": "matmul_primary_h1d2_m2",
+  "parent_pid": 1017800,
+  "physical_gpu": 0,
+  "process_pid": 1271764,
+  "remote_authorization": {
+    "head_commit": "114205ed159d9e81b6a120c09a0793252e81fc7c",
+    "head_equals_configured_upstream": true,
+    "live_upstream_commit": "114205ed159d9e81b6a120c09a0793252e81fc7c",
+    "lock_git_blob": "d8c79ebe793538bcae1a5c397973679b775a9b3d",
+    "lock_path": "ako_runs/controlled_followup/tilelang_abstraction_v3/campaign_lock.json",
+    "lock_sha256": "4514c83bc9e61efa09bf2f6964b9bb2888d821e61843028cc4f2387d5b03e16e",
+    "upstream_commit": "114205ed159d9e81b6a120c09a0793252e81fc7c",
+    "upstream_ref": "refs/heads/cross-dsl-6op-ncu-redo",
+    "upstream_remote": "origin"
+  },
+  "schema_version": 1,
+  "set": "",
+  "side": "low",
+  "t_end": 1785998993.7848947,
+  "t_start": 1785997375.0144749,
+  "terminal_outcome": "GATE_FAILED",
+  "toolchain": {
+    "cuda_tools": {
+      "ncu": {
+        "binary_sha256": "18d8a8aa13c156cd43ebdf24ac950b5386cb229f2a4c931db47ef91cfe785920",
+        "path": "/usr/local/cuda-13.1/bin/ncu",
+        "version_sha256": "99b61b4937aa4d473ccb4ef2395d69d5f3de64908a7d65d96bc8f9b73f72476a"
+      },
+      "nvcc": {
+        "binary_sha256": "6ce80365abc2f14ff5f9e069fe687a93d4eaacc555dbf1d1696ee899d39df52a",
+        "path": "/usr/local/cuda-13.1/bin/nvcc",
+        "version_sha256": "d51da6fa301a0c63b030c6a9e45b942c5fe2228e63c0ec276a445943cf0bc6f6"
+      }
+    },
+    "local_modules": {
+      "analyze": {
+        "path": "ako_runs/controlled_followup/tilelang_abstraction_v3/analyze.py",
+        "sha256": "91bc090d738080e9b5b5e5ba011daa22cf583274dd11b378070ee8084f314300"
+      },
+      "campaign_runner": {
+        "path": "ako_runs/controlled_followup/tilelang_abstraction_v3/campaign_runner.py",
+        "sha256": "fbd68e7a75d02c496a8f0c5636cbc20c18acbe362fd04093256b55919f8fc7a6"
+      },
+      "fused_abstraction": {
+        "path": "ako_runs/phase2_fused_sdpa/variants2/fused_tilelang_abstraction.py",
+        "sha256": "51b3a7de18001ee734dd6293b6b9b839b44cb7aee468357f947d1512f1c932d9"
+      },
+      "matmul_abstraction": {
+        "path": "ako_runs/phase1_matmul/variants/tilelang_abstraction.py",
+        "sha256": "fbf90194965661258e0d48da2a83008003fd48f1feca7f1d0983652a11aad82e"
+      },
+      "matmul_common": {
+        "path": "ako_runs/phase1_matmul/common.py",
+        "sha256": "7753fcc00891d475db8675423ca7e48fbc0aa0431ac1e1dd4319e6c2900fd0a7"
+      },
+      "matmul_ncu": {
+        "path": "ako_runs/phase1_matmul/ncu_collect.py",
+        "sha256": "8546f63faf1f85f786327a560ab2c30632663db068eec2d799e82f8bfe427ceb"
+      },
+      "matmul_runner": {
+        "path": "ako_runs/phase1_matmul/runner.py",
+        "sha256": "cdb2d562d9cdaec292c0c11d4b3f64cbd8e76b5632cbe7a0f14e9b5176ca1178"
+      },
+      "matmul_variants": {
+        "path": "ako_runs/phase1_matmul/variants/__init__.py",
+        "sha256": "0ac322f46ab46fe0bf6d9eb6241c7eacf6b9844f5f6d927dbccfc81a1005a585"
+      },
+      "phase2_common": {
+        "path": "ako_runs/phase2_fused_sdpa/common2.py",
+        "sha256": "0293cb15fc3285df199daa58281a1a35147a78b9cbccda8b8f88418eecb39c64"
+      },
+      "phase2_ncu": {
+        "path": "ako_runs/phase2_fused_sdpa/ncu_collect2.py",
+        "sha256": "a3f4c091f44ba0377d81ce26d8e4df350f9677137d84d7bc2b8a795dba824f4b"
+      },
+      "phase2_runner": {
+        "path": "ako_runs/phase2_fused_sdpa/runner2.py",
+        "sha256": "d1ade4461bff35058a3c6e967532960f5cc509f5d6a46c69bded78fbd0aac31e"
+      },
+      "phase2_variants": {
+        "path": "ako_runs/phase2_fused_sdpa/variants2/__init__.py",
+        "sha256": "2afc778f25db9abe2d05299bbd47fa2ad43b7912eee8633936095e6b92662045"
+      },
+      "protocol": {
+        "path": "ako_runs/controlled_followup/tilelang_abstraction_v3/protocol.py",
+        "sha256": "8fb4eceee8e4977191619566daca999e8ef02023877f344ee2b611857f2fc079"
+      },
+      "sdpa_abstraction": {
+        "path": "ako_runs/phase2_fused_sdpa/variants2/sdpa_tilelang_abstraction.py",
+        "sha256": "2d65dcc4cb44cf188b0a9ff70236c8d3eb1d80a8031b056f132fd9cb6069c9e1"
+      }
+    },
+    "package_modules": {
+      "tilelang": {
+        "path": "/home/lxt230026/miniconda3/lib/python3.13/site-packages/tilelang/__init__.py",
+        "sha256": "216c868c8010f149974a8ac04ddfeb107b6edf82f9f6cf710ffd144b122ebd8b"
+      },
+      "torch": {
+        "path": "/home/lxt230026/miniconda3/lib/python3.13/site-packages/torch/__init__.py",
+        "sha256": "d6388b1e3b16c1f9a22a87898e5f205fa13a97bd65c163f4829a157e0d9d602f"
+      },
+      "triton": {
+        "path": "/home/lxt230026/miniconda3/lib/python3.13/site-packages/triton/__init__.py",
+        "sha256": "96e68192cab5dd11fa30d5dc95d56c29ceecda53477fc3af8f37bee026b7a021"
+      }
+    },
+    "python_executable": "/home/lxt230026/miniconda3/bin/python3.13",
+    "python_executable_sha256": "73bb21a7bd68a5ad09bef6fa8587bd7df33734784cc5248d112926536117e115",
+    "python_implementation": "CPython",
+    "python_version": "3.13.5",
+    "tilelang_version": "0.1.11",
+    "torch_cuda_version": "12.8",
+    "torch_version": "2.10.0+cu128",
+    "triton_version": "3.6.0"
+  },
+  "variant": "M2",
+  "wall_s": 1618.7704198360443
+}
