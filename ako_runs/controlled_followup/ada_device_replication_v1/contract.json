@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "campaign_id": "ada_device_replication_v1",
+  "instrument_campaign_id": "fused-epilogue-crossed-v2",
+  "reference_result_tag": "crossed_v2r3",
+  "state": "design_only_not_authorized",
+  "claim_scope": "noncontrolling_same_host_same_sku_device_feasibility_reproducibility",
+  "timing_allowed": false,
+  "devices": [
+    {
+      "uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae",
+      "name": "NVIDIA RTX 6000 Ada Generation",
+      "compute_capability": "8.9"
+    },
+    {
+      "uuid": "GPU-91b61ae6-d21e-485e-43b3-7505d62149b1",
+      "name": "NVIDIA RTX 6000 Ada Generation",
+      "compute_capability": "8.9"
+    },
+    {
+      "uuid": "GPU-3ed448f2-f23a-09fc-e18b-f580523c4a3f",
+      "name": "NVIDIA RTX 6000 Ada Generation",
+      "compute_capability": "8.9"
+    },
+    {
+      "uuid": "GPU-eafdd6ce-8857-40fd-f494-47a7240bf6b5",
+      "name": "NVIDIA RTX 6000 Ada Generation",
+      "compute_capability": "8.9"
+    }
+  ],
+  "dependency_roles": {
+    "instrument_launch_lock": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/launch_lock.json",
+    "source_lock": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/evidence/crossed_v2r3_complete_v1.index.json",
+    "gate_lock": "ako_runs/controlled_followup/robust_gate/calibration/gate_spec_fused_v2.json",
+    "analyzer": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/analyze.py",
+    "runner": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/campaign_runner.py"
+  },
+  "dependency_sha256": {
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v2/launch_lock.json": "206b75387acf4d60b688a8e19b3aff094a8ef69d5a0a1b72269d8b24f48be1b6",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v2/evidence/crossed_v2r3_complete_v1.index.json": "3340a86f4f64404a96461fa5bb5262ff3e1cebacd645d4bd63aaa1bedda212c5",
+    "ako_runs/controlled_followup/robust_gate/calibration/gate_spec_fused_v2.json": "b6c3afaadf61f5d380a97c6c541828a1ecacd1a89a00b73b66207fe22d765e2e",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v2/analyze.py": "ac5cd372f7622f94847d098f82844b99b06eccf6493c52138ea9ef4090379f96",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v2/campaign_runner.py": "d72331ebcc2e275a471f9da0a2c8f0c9aff8e70dc8d1be23104cf4a21df40783"
+  }
+}
