@@ -1,0 +1,56 @@
+{
+  "artifact_closure": {
+    "files": {
+      "ako_runs/controlled_followup/native_trajectory_replication_ada_v1/results/launch_receipt.json": {
+        "bytes": 11370,
+        "sha256": "e33dd2caac15dec66c952722089dacbcfcdbf3a057b9061f7df138c5640e38a5"
+      },
+      "ako_runs/controlled_followup/native_trajectory_replication_ada_v1/results/position_receipts/position001.json": {
+        "bytes": 872,
+        "sha256": "7d0e53788d3cea0556af7df6ca812b01c86b2b002b4878361abfc3efe37eeb7c"
+      },
+      "ako_runs/controlled_followup/native_trajectory_replication_ada_v1/results/raw/position001__e1b158476f8661a9.json": {
+        "bytes": 12220,
+        "sha256": "68a632fecdd490f9f893e4a36cc307147dbf0da590acb1007ced256538ae9b78"
+      }
+    },
+    "retained_bytes": 24462,
+    "retained_files": 3
+  },
+  "campaign_id": "native-trajectory-replication-ada-v1",
+  "classification": "NON_CONTROLLING_EXECUTION_INCIDENT",
+  "created_utc": "2026-08-06",
+  "execution_lock_sha256": "6b8adf67b2094f1cbb47d8abe676054d8959f4b4eafbb5d09e2796f848aa8da6",
+  "failure": {
+    "cell_id": "register_fused.cuda_unlimited.g01",
+    "distribution": "positive",
+    "error": "ProtocolError: built implementation differs from admitted two-kernel material",
+    "expected_implementation_sha256": "993ea554e4f3a2578425e40aca3d287b9eddbc2fc1d1289704760b6c03b86641",
+    "global_position": 1,
+    "raw_record_ok": false,
+    "returncode": 1,
+    "row_id": "e1b158476f8661a9a8b687aaef78714edaccf7fa498244154c2b32b7068e80d1"
+  },
+  "gpu": {
+    "compute_capability": "8.9",
+    "driver_version": "610.43.02",
+    "name": "NVIDIA RTX 6000 Ada Generation",
+    "physical_index": 0,
+    "uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae"
+  },
+  "head_commit": "f6ecf917240156ee7ba14f7f3da41aad1c5422fd",
+  "manifest_sha256": "461d201367d0d65ccc423c0e34ca588862892fa04c47a52a0b8151b9635f995e",
+  "observed_position_receipts": 1,
+  "observed_raw_records": 1,
+  "policy": {
+    "analysis_authorized": false,
+    "continuation_authorized": false,
+    "performance_observations": 0,
+    "post_hoc_relabeling_authorized": false,
+    "reuse_authorized": false,
+    "successor_requires_fresh_admission_and_new_lock": true
+  },
+  "record_type": "native_trajectory_replication_ada_v1_execution_incident",
+  "requested_raw_records": 420,
+  "schema_version": 1
+}
