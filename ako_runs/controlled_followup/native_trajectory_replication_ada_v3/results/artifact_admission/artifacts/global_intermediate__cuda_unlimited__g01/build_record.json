@@ -1,0 +1,481 @@
+{
+  "admission_provenance": {
+    "cache_environment": {
+      "NATIVE_TRAJECTORY_ARTIFACT_CELL": "global_intermediate.cuda_unlimited.g01",
+      "NATIVE_TRAJECTORY_ARTIFACT_MODE": "admit",
+      "PHASE1_TL_CACHE": "1",
+      "PHASE2_TL_CACHE": "1",
+      "TEMP": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/global_intermediate__cuda_unlimited__g01/runtime_tmp",
+      "TILELANG_CACHE_DIR": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/global_intermediate__cuda_unlimited__g01/cache/tilelang",
+      "TILELANG_CLEAR_CACHE": "0",
+      "TILELANG_DISABLE_CACHE": "0",
+      "TILELANG_EXECUTION_BACKEND": "tvm_ffi",
+      "TILELANG_TARGET": "cuda",
+      "TILELANG_TMP_DIR": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/global_intermediate__cuda_unlimited__g01/runtime_tmp/tilelang",
+      "TMP": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/global_intermediate__cuda_unlimited__g01/runtime_tmp",
+      "TMPDIR": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/global_intermediate__cuda_unlimited__g01/runtime_tmp",
+      "TORCH_EXTENSIONS_DIR": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/global_intermediate__cuda_unlimited__g01/cache/torch_extensions",
+      "TRITON_ALWAYS_COMPILE": "0",
+      "TRITON_CACHE_DIR": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/global_intermediate__cuda_unlimited__g01/cache/triton",
+      "TRITON_KERNEL_DUMP": "0",
+      "TRITON_KERNEL_OVERRIDE": "0"
+    },
+    "compute_pids_postflight": [
+      161778
+    ],
+    "compute_pids_preflight": [],
+    "execution_lock_sha256": "458f35e312ec3b1c0dc7582dfdded55b466618d16fef8a05c35bb9ba9d1e479a",
+    "gpu_postflight": {
+      "compute_cap": "8.9",
+      "driver_version": "610.43.02",
+      "index": "0",
+      "name": "NVIDIA RTX 6000 Ada Generation",
+      "uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae"
+    },
+    "gpu_preflight": {
+      "compute_cap": "8.9",
+      "driver_version": "610.43.02",
+      "index": "0",
+      "name": "NVIDIA RTX 6000 Ada Generation",
+      "uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae"
+    },
+    "launch_receipt_path": "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/launch_receipt.json",
+    "launch_receipt_sha256": "de15e760b0500ca1c246f2fdf4f9ffff5310119a5ed9a82427cfdec984fbf0e3",
+    "parent_pid": 153915,
+    "process_pid": 161778,
+    "toolchain": {
+      "instrument_dependency_sha256": {
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v1/core.py": "538feecd1e88f90f711ee2a112a4fc28d027684169b7f64b596d96e74899dbcf",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/audit.py": "5b7edc232e51ef5601c02be004a101903a49c61289df1705e30daa9da74641ba",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/final_summary.json": "98552e48aa67411ba738e160d454e5c387e1c33cb1c543aa53a20198e4c0a70d",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/reanalysis_tail_v1.json": "e7296ce10585169e7dcf1f0d66c6bc59bf079d367d30491c46f42a8b3d03d1e5",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v1/tilelang_smem.py": "93c7fe29ecab64a2ad9a1fe1cf28093d8bc4945419741f7da32bc30b048febaf",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/INCIDENT_CROSSED_V2R1_20260801.json": "fbd6998ac02df84633ed5707e13f1ed476ec535a38cfc17a51ab1f76adbf9b04",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/INCIDENT_CROSSED_V2R2_20260801.json": "61b5c53e97b9ee621059df575242a62c705649eb1a6eea79fd561e11fde1b012",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/INCIDENT_CROSSED_V2_20260801.json": "4a385b3b45544069f13a54f78df8fc12b6f74919b76c87e83bd1d91463247eb7",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/audit/receipts/shard00.json": "a5a3dd6ac9e13a7d2e42eca9932ff5e87eaaed0f31f7ae116ab986832bcd1f29",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/audit/receipts/shard01.json": "001716a9841b1a432a7b3616c4fb36852988c486e0b2de59a03b2736c6fb6a90",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/audit/receipts/shard02.json": "1efe91e6f53e5adb81a3471a0cf740ec1665f30e8156532b93f9f44eb92b7f17",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/audit/receipts/shard03.json": "3862f4917e043b7315fb7c28e6b3d44df80401ef778a8fc0186e48b364b36d8f",
+        "ako_runs/controlled_followup/fused_grid/jobs/fused_gbgs_grid.json": "70bfb1219395c4b231dc41d7e6e5661f6a5fd66a5c5cc26cee53283125e006e3",
+        "ako_runs/controlled_followup/fused_grid/manifest.json": "3ca4395603ed60d0f54caf5fc213d245790be84eb29ba36f638c866a48720439",
+        "ako_runs/controlled_followup/fused_grid/robust_adapter.py": "688d9b29673d9314f50a3e8f6a8fc217b8497b27fb3eac13a5234cd9b7a29502",
+        "ako_runs/controlled_followup/fused_grid/robust_adapter_manifest.json": "81e3478b61800e09147a6cb213ba1786b200c137a728a5a9c258241c0a6004ba",
+        "ako_runs/controlled_followup/legacy_cuda_harness_fix/checked_cuda_launch.h": "e6b6712ae55a2673566e02c08aa1d6350e96f885954a1391c61d14d355ee51aa",
+        "ako_runs/controlled_followup/robust_gate/calibration/gate_spec_fused_v2.json": "b6c3afaadf61f5d380a97c6c541828a1ecacd1a89a00b73b66207fe22d765e2e",
+        "ako_runs/controlled_followup/robust_gate/manifest.json": "28d51cd4f1730bd190e63c7cad60670c37b67784393270e63e859a1685fc8a62",
+        "ako_runs/phase1_matmul/common.py": "7753fcc00891d475db8675423ca7e48fbc0aa0431ac1e1dd4319e6c2900fd0a7",
+        "ako_runs/phase1_matmul/variants/__init__.py": "0ac322f46ab46fe0bf6d9eb6241c7eacf6b9844f5f6d927dbccfc81a1005a585",
+        "ako_runs/phase1_matmul/variants/cuda_noptx_gemm.py": "b3935c4e9516304cbbe0b3ab8e32e1fadc1264f48f26ee00fe52aede6e032217",
+        "ako_runs/phase1_matmul/variants/cuda_unlimited_gemm.py": "c9629300ce871476eb95cdecc5337229c43d3206e674c35d86a7f65d20a87ad5",
+        "ako_runs/phase1_matmul/variants/tilelang_gemm.py": "07d40bb5fee951ecec7ad1a7ca1815b5fae6761b3bb42e81f81c15ef806af268",
+        "ako_runs/phase1_matmul/variants/triton_gemm.py": "8c9cc3d60d549eb941dcb68a0ee7b0a6173b849a368eb55c75ec91c68612e108",
+        "ako_runs/phase2_fused_sdpa/common2.py": "0293cb15fc3285df199daa58281a1a35147a78b9cbccda8b8f88418eecb39c64",
+        "ako_runs/phase2_fused_sdpa/runner2.py": "d1ade4461bff35058a3c6e967532960f5cc509f5d6a46c69bded78fbd0aac31e",
+        "ako_runs/phase2_fused_sdpa/variants2/__init__.py": "2afc778f25db9abe2d05299bbd47fa2ad43b7912eee8633936095e6b92662045",
+        "ako_runs/phase2_fused_sdpa/variants2/cuda_fused_common.py": "c047985e84428246a455a20107cd5309d63528a593374ed2a4418e531c915c36",
+        "ako_runs/phase2_fused_sdpa/variants2/fused_cuda_noptx.py": "6abbea8ea28d5d6623da90385e417ec279fd5a022cf2144a56ae8fab684e2058",
+        "ako_runs/phase2_fused_sdpa/variants2/fused_tilelang.py": "c2a0704d81bdb4b2f78377870a1bc45c6945db77bccc8e89b2a0fd4b46511684",
+        "ako_runs/phase2_fused_sdpa/variants2/fused_triton.py": "20c4f27fdc9145beec6b4cdb99ed8e9d57cbdbede87bace51319d782f378272e"
+      },
+      "instrument_source_sha256": {
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/README.md": "37814ad6219ca19c3cb07085f6ba0ba633908048dd01808abed27308b74f6480",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/__init__.py": "fb48d3337adb472cc5daf24558faa62ba949eaa52070b339c3c6a5a3860caf88",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/analyze.py": "ac5cd372f7622f94847d098f82844b99b06eccf6493c52138ea9ef4090379f96",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/campaign.json": "84ec8c1503f120ece3d140e6beee66ed55a7546c6e0cee7f387cca08f6c64b2a",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/campaign_runner.py": "d72331ebcc2e275a471f9da0a2c8f0c9aff8e70dc8d1be23104cf4a21df40783",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/candidates.py": "9e35ed7972b69595ea76fc4f6b43947d40d24a00ca3b50500e742c872fb55f5d",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/capture_evidence.py": "26cd0c2eb5e522abbfed2324dc40a4825da27a90f3869e30ea2b7f111ab8d8ce",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/core.py": "aa4e9825ace458a5b7dc8d0eb988f2e98c9e5a336678774c05ebb475c6b5c3e4",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/cuda_noptx_register.py": "eaaf6ee5828a17a1c93e7ba0b8e577b857ed0930c8591d36ae2b9e6115dc420e",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/cuda_unlimited.py": "6f0cac21f4daaa741d46f0223c31404a2ec718423867bebb988355ddc2f617d7",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/freeze.py": "351b98fb955fc565a5924ec60edda0fe6ae9d90ac7189da3bf305f6e7e820589",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/make_manifest.py": "5d5b703f32d7759036a03cf2a34420df9d011a7c865f73ef1a176a446e93c4bc",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/postprocess.py": "a3b70d7a405df799b188f9db8100d1457ddd8f9b7735c59fed068794179b0ce6",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/resolve_support.py": "2ba7eac3383d7d596ab873a1d5b39bf77f26e87a358b30aa9142107f35c7798a",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/support_probes.py": "6938edb3c17fa33a5969a8ae9f2c37ba3d638e536f3f1c9654c5bc36e51ff8a5",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/support_resolution.json": "db3aa3bfa6610c907c851ced726ffdc1e9906cb9175f10c5d1031db67ed1d020",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/tests/__init__.py": "fc2858863a06f469da41e21372eece8dffaab6ef87d887b9f9730c7ea989110e",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/tests/test_builders.py": "1a6f345f15c353d0d73ec4df26573597a8687263ba85d807dcd9214e30c0c0fa",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/tests/test_protocol.py": "bdb946ed7f1b6fe184331947880fe18321f3947023e503b9a2906218f54b0067",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/triton_smem.py": "eb4a0ef2a93cb85f63acc0896204d999a8d7349ce06ce757b5595a4323847a8f",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/validate.py": "718cb81159811bf06e6187613a8eb65e785881b9049196b38887dee2ff21c4fa"
+      },
+      "module_files": {
+        "common": {
+          "path": "/home/lxt230026/MultiKernelBench/ako_runs/phase1_matmul/common.py",
+          "sha256": "7753fcc00891d475db8675423ca7e48fbc0aa0431ac1e1dd4319e6c2900fd0a7"
+        },
+        "common2": {
+          "path": "/home/lxt230026/MultiKernelBench/ako_runs/phase2_fused_sdpa/common2.py",
+          "sha256": "0293cb15fc3285df199daa58281a1a35147a78b9cbccda8b8f88418eecb39c64"
+        },
+        "crossed_candidates": {
+          "path": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/fused_epilogue_crossed_v2/candidates.py",
+          "sha256": "9e35ed7972b69595ea76fc4f6b43947d40d24a00ca3b50500e742c872fb55f5d"
+        },
+        "crossed_core": {
+          "path": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/fused_epilogue_crossed_v2/core.py",
+          "sha256": "aa4e9825ace458a5b7dc8d0eb988f2e98c9e5a336678774c05ebb475c6b5c3e4"
+        },
+        "runner2": {
+          "path": "/home/lxt230026/MultiKernelBench/ako_runs/phase2_fused_sdpa/runner2.py",
+          "sha256": "d1ade4461bff35058a3c6e967532960f5cc509f5d6a46c69bded78fbd0aac31e"
+        },
+        "tilelang": {
+          "path": "/home/lxt230026/miniconda3/lib/python3.13/site-packages/tilelang/__init__.py",
+          "sha256": "216c868c8010f149974a8ac04ddfeb107b6edf82f9f6cf710ffd144b122ebd8b"
+        },
+        "torch": {
+          "path": "/home/lxt230026/miniconda3/lib/python3.13/site-packages/torch/__init__.py",
+          "sha256": "d6388b1e3b16c1f9a22a87898e5f205fa13a97bd65c163f4829a157e0d9d602f"
+        },
+        "triton": {
+          "path": "/home/lxt230026/miniconda3/lib/python3.13/site-packages/triton/__init__.py",
+          "sha256": "96e68192cab5dd11fa30d5dc95d56c29ceecda53477fc3af8f37bee026b7a021"
+        }
+      },
+      "nvcc": {
+        "path": "/usr/local/cuda-13.1/bin/nvcc",
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2025 NVIDIA Corporation\nBuilt on Tue_Dec_16_07:23:41_PM_PST_2025\nCuda compilation tools, release 13.1, V13.1.115\nBuild cuda_13.1.r13.1/compiler.37061995_0"
+      },
+      "python_executable": "/home/lxt230026/miniconda3/bin/python3.13",
+      "python_executable_sha256": "73bb21a7bd68a5ad09bef6fa8587bd7df33734784cc5248d112926536117e115",
+      "python_implementation": "CPython",
+      "python_version": "3.13.5",
+      "tilelang_version": "0.1.11",
+      "torch_cuda_version": "12.8",
+      "torch_version": "2.10.0+cu128",
+      "triton_version": "3.6.0"
+    }
+  },
+  "admission_row": {
+    "cell_id": "global_intermediate.cuda_unlimited.g01",
+    "entry_id": "global_intermediate.cuda_unlimited.g01",
+    "position": 9,
+    "role": "native_cell"
+  },
+  "admission_row_sha256": "5b20d30d2333872ab55e9d960be3831df3e714058f8d4a32e09a19b2fb9531dd",
+  "artifact_identity_sha256": "d54c72828a248013651b4087989aa2be74ed8f64db76f2c6887cf50548f7cc3a",
+  "atomic_temp_device": {
+    "cache_root": "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/global_intermediate__cuda_unlimited__g01/cache",
+    "cache_st_dev": 64770,
+    "runtime_tmp_root": "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/global_intermediate__cuda_unlimited__g01/runtime_tmp",
+    "runtime_tmp_st_dev": 64770,
+    "same_filesystem": true
+  },
+  "cache": {
+    "cache_root": "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/global_intermediate__cuda_unlimited__g01/cache",
+    "file_count": 16,
+    "files": [
+      {
+        "path": "torch_extensions/cu_unl_mma_128_128_32_256_s3_kcb64_g0_p88/.ninja_deps",
+        "sha256": "715f6e20b0c4e4a7950b0539b23c643bc14a6d74057d12bf1d1be520cecf60ae",
+        "size": 630436
+      },
+      {
+        "path": "torch_extensions/cu_unl_mma_128_128_32_256_s3_kcb64_g0_p88/.ninja_log",
+        "sha256": "7acb6fa1c3a48d271628c2b040dcb595d832c9509b30713df1956f778aa656b6",
+        "size": 217
+      },
+      {
+        "path": "torch_extensions/cu_unl_mma_128_128_32_256_s3_kcb64_g0_p88/build.ninja",
+        "sha256": "f9a720ae569d3f581e0a34732c681a2dd95f1d9da67137c127665676aafd8a36",
+        "size": 2433
+      },
+      {
+        "path": "torch_extensions/cu_unl_mma_128_128_32_256_s3_kcb64_g0_p88/cu_unl_mma_128_128_32_256_s3_kcb64_g0_p88.so",
+        "sha256": "baafaeedbe588ae5477378ee4cc58be951a5f320677b973168d09a4b33147fa4",
+        "size": 1323448
+      },
+      {
+        "path": "torch_extensions/cu_unl_mma_128_128_32_256_s3_kcb64_g0_p88/cuda.cu",
+        "sha256": "8ad9ed945b2464fbe12977554d8a8f993c4299c7da84b1cde2337cf52f78ceed",
+        "size": 12937
+      },
+      {
+        "path": "torch_extensions/cu_unl_mma_128_128_32_256_s3_kcb64_g0_p88/cuda.cuda.o",
+        "sha256": "81e5aa914e6b4882034c372d9fe979ac44f584883255aecae3df50bee7054255",
+        "size": 159336
+      },
+      {
+        "path": "torch_extensions/cu_unl_mma_128_128_32_256_s3_kcb64_g0_p88/main.cpp",
+        "sha256": "b3968fa175c12eb10b2d587a2353deae1a825a4c56dcf58a4415efb8f9dc2362",
+        "size": 185
+      },
+      {
+        "path": "torch_extensions/cu_unl_mma_128_128_32_256_s3_kcb64_g0_p88/main.o",
+        "sha256": "6b7a4fe6a8a777e313d6c427b8f558fc6ce9764afbc27c0d8266fe8c9baaa4db",
+        "size": 2152624
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_788714f21a6c/.ninja_deps",
+        "sha256": "ea636ad3d32022c6086ba57ac55a274f46cb595d82412ec7d89174f4c958f271",
+        "size": 630536
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_788714f21a6c/.ninja_log",
+        "sha256": "5d0638679bfa81ae9dee5b01b9c78ba2eb5893e73db2c03d4dbab3fd973a92e8",
+        "size": 208
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_788714f21a6c/build.ninja",
+        "sha256": "e2280592339866ef90f96a5746c578dd62a457e780fa130d713a02e24672bac3",
+        "size": 2534
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_788714f21a6c/cuda.cu",
+        "sha256": "ad7b36bb242709682f01c98a9300e1e2acb1e0a7089efa206d4a9c7aad19a7db",
+        "size": 3665
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_788714f21a6c/cuda.cuda.o",
+        "sha256": "13510465316a7966853c7c26602852433893b98268b79316b0ec07fa737d6dc8",
+        "size": 231184
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_788714f21a6c/fused_crossed_v2_pp_788714f21a6c.so",
+        "sha256": "b6b254854f657211b0363f553d7ede4e91c5bf9a0d260828450ae17e73948db8",
+        "size": 1363464
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_788714f21a6c/main.cpp",
+        "sha256": "70fda7e9ebc6feb970681bfd6fdd9814aef02d2d31c1659f88bd825bb5c821a1",
+        "size": 277
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_788714f21a6c/main.o",
+        "sha256": "d204a1007974fe9039b825d726c23757803e0425dca205b75fe03e519617684c",
+        "size": 2152608
+      }
+    ],
+    "files_sha256": "5206d72c67f58d9336482831318657abf30d69d65ea4767263a9c43a6d7f9b54",
+    "generated_sources": [
+      {
+        "path": "torch_extensions/cu_unl_mma_128_128_32_256_s3_kcb64_g0_p88/cuda.cu",
+        "sha256": "8ad9ed945b2464fbe12977554d8a8f993c4299c7da84b1cde2337cf52f78ceed",
+        "size": 12937
+      },
+      {
+        "path": "torch_extensions/cu_unl_mma_128_128_32_256_s3_kcb64_g0_p88/main.cpp",
+        "sha256": "b3968fa175c12eb10b2d587a2353deae1a825a4c56dcf58a4415efb8f9dc2362",
+        "size": 185
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_788714f21a6c/cuda.cu",
+        "sha256": "ad7b36bb242709682f01c98a9300e1e2acb1e0a7089efa206d4a9c7aad19a7db",
+        "size": 3665
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_788714f21a6c/main.cpp",
+        "sha256": "70fda7e9ebc6feb970681bfd6fdd9814aef02d2d31c1659f88bd825bb5c821a1",
+        "size": 277
+      }
+    ],
+    "loadable_code_objects": [
+      {
+        "path": "torch_extensions/cu_unl_mma_128_128_32_256_s3_kcb64_g0_p88/cu_unl_mma_128_128_32_256_s3_kcb64_g0_p88.so",
+        "sha256": "baafaeedbe588ae5477378ee4cc58be951a5f320677b973168d09a4b33147fa4",
+        "size": 1323448
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_788714f21a6c/fused_crossed_v2_pp_788714f21a6c.so",
+        "sha256": "b6b254854f657211b0363f553d7ede4e91c5bf9a0d260828450ae17e73948db8",
+        "size": 1363464
+      }
+    ]
+  },
+  "campaign_id": "native-trajectory-replication-ada-v3",
+  "cell_id": "global_intermediate.cuda_unlimited.g01",
+  "config": {
+    "BK": 32,
+    "BM": 128,
+    "BN": 128,
+    "K": 8192,
+    "M": 1024,
+    "N": 8192,
+    "arith": "fp16",
+    "cast": "precast",
+    "dsl": "cuda_unlimited",
+    "extra": {},
+    "input_dtype": "torch.float16",
+    "kc": 2048,
+    "stages": 3,
+    "threads": 256,
+    "variant": "D"
+  },
+  "correctness": {
+    "budget_mean": 0.00010001220703127959,
+    "err_q100": 1.525913830846548e-07,
+    "err_q50": 3.179593477398157e-09,
+    "err_q90": 1.1918018572032452e-08,
+    "err_q99": 2.713932190090418e-08,
+    "err_q999": 4.5649358071386814e-08,
+    "gate_pass": true,
+    "max_abs_err": 1.525913830846548e-07,
+    "mean_abs_err": 5.038479120034189e-09,
+    "pct_elems_failing_gate": 0.0,
+    "ref_abs_mean": 0.00012207031279582326,
+    "signed_mean_err": -1.4300366446562407e-13
+  },
+  "n_kernels": 2,
+  "performance_observations": [],
+  "record_type": "native_trajectory_replication_ada_artifact_build_record",
+  "schema_version": 1,
+  "source_build_metadata": {
+    "artifacts": {
+      "gemm": {
+        "backend_detail": "inline-PTX mma.sync.aligned.m16n8k16.row.col.f32.f16.f16.f32; fragments via ldmatrix.sync.aligned.m8n8.x4[.trans].shared.b16; warp grid 2x4, warp tile 64x32; kc flush every 64 BK-blocks into a 2nd fp32 register array; cp.async.cg.shared.global.L2::128B + commit_group/wait_group ring, depth 3; global operands fp16",
+        "block": [
+          256,
+          1,
+          1
+        ],
+        "build_log_path": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/global_intermediate__cuda_unlimited__g01/runtime_tmp/fused_epilogue_crossed_v2/pid161778/global_intermediate.cuda_unlimited.g01/phase1/cu_unl_mma_128_128_32_256_s3_kcb64_g0_p88.buildlog.txt",
+        "compile_flags": "-O3 -std=c++17 -Xptxas=-v -Xptxas=-O3 -DNDEBUG",
+        "cuda_source": "\n#include <torch/extension.h>\n#include <ATen/cuda/CUDAContext.h>\n#include <cuda_fp16.h>\n#include <cuda_runtime.h>\n#include <cstdint>\n\n#define BM       128\n#define BN       128\n#define BK       32\n#define THREADS  256\n#define STAGES   3\n#define KCB      64          /* cfg.kc / BK ; 0 == no chunk flush        */\n#define F32G     0         /* 1 == cast=on_load: fp32 global pointers  */\n#define APAD     8\n#define BPAD     8\n#define SMEM_BYTES 56832\n\n#define WARPS_N  4\n#define WARPS_M  (THREADS/32/WARPS_N)\n#define WM       (BM/WARPS_M)\n#define WN       (BN/WARPS_N)\n#define MT       (WM/16)            /* m16n8k16 tiles along M per warp */\n#define NT       (WN/8)             /* m16n8k16 tiles along N per warp */\n#define NKS      (BK/16)            /* mma k-steps inside one BK block  */\n#define NACC     (MT*NT*4)\n\n#define ASTRIDE  (BK+APAD)\n#define BSTRIDE  (BN+BPAD)\n#define ASZ      (BM*ASTRIDE)       /* halves */\n#define BSZ      (BK*BSTRIDE)\n#define STAGE_H  (ASZ+BSZ)\n\n#define A_VPR    (BK/8)             /* 8-half vectors per A row */\n#define B_VPR    (BN/8)\n#define A_ITERS  ((BM*BK/8)/THREADS)\n#define B_ITERS  ((BK*BN/8)/THREADS)\n#define UNR      (STAGES-1)\n\n__device__ __forceinline__ unsigned smem_u32(const void* p) {\n    return (unsigned)__cvta_generic_to_shared(p);\n}\n\n/* pack two floats into one .b16x2 register, round-to-nearest-even.\n   cvt.rn.f16x2.f32 d, a, b   ->  d.hi = f16(a), d.lo = f16(b)            */\n__device__ __forceinline__ unsigned pack2(float lo, float hi) {\n    unsigned d;\n    asm(\"cvt.rn.f16x2.f32 %0, %1, %2;\" : \"=r\"(d) : \"f\"(hi), \"f\"(lo));\n    return d;\n}\n\n/* ---- global -> registers (one BKxBM / BKxBN tile, already fp16-packed) --- */\n__device__ __forceinline__ void g2r(const void* __restrict__ Ag,\n                                    const void* __restrict__ Bg,\n                                    unsigned (&ra)[A_ITERS][4],\n                                    unsigned (&rb)[B_ITERS][4],\n                                    int m0, int n0, int k0, int K, int N) {\n    const int tid = threadIdx.x;\n#pragma unroll\n    for (int i = 0; i < A_ITERS; ++i) {\n        int v = tid + i*THREADS;\n        int r = v / A_VPR, c = (v % A_VPR)*8;\n#if F32G\n        const float* s = (const float*)Ag + (long long)(m0+r)*K + k0 + c;\n        float4 x = *(const float4*)(s);\n        float4 y = *(const float4*)(s+4);\n        ra[i][0] = pack2(x.x, x.y); ra[i][1] = pack2(x.z, x.w);\n        ra[i][2] = pack2(y.x, y.y); ra[i][3] = pack2(y.z, y.w);\n#else\n        const half* s = (const half*)Ag + (long long)(m0+r)*K + k0 + c;\n        uint4 u = *(const uint4*)s;\n        ra[i][0]=u.x; ra[i][1]=u.y; ra[i][2]=u.z; ra[i][3]=u.w;\n#endif\n    }\n#pragma unroll\n    for (int i = 0; i < B_ITERS; ++i) {\n        int v = tid + i*THREADS;\n        int r = v / B_VPR, c = (v % B_VPR)*8;\n#if F32G\n        const float* s = (const float*)Bg + (long long)(k0+r)*N + n0 + c;\n        float4 x = *(const float4*)(s);\n        float4 y = *(const float4*)(s+4);\n        rb[i][0] = pack2(x.x, x.y); rb[i][1] = pack2(x.z, x.w);\n        rb[i][2] = pack2(y.x, y.y); rb[i][3] = pack2(y.z, y.w);\n#else\n        const half* s = (const half*)Bg + (long long)(k0+r)*N + n0 + c;\n        uint4 u = *(const uint4*)s;\n        rb[i][0]=u.x; rb[i][1]=u.y; rb[i][2]=u.z; rb[i][3]=u.w;\n#endif\n    }\n}\n\n__device__ __forceinline__ void r2s(unsigned (&ra)[A_ITERS][4],\n                                    unsigned (&rb)[B_ITERS][4],\n                                    half* As, half* Bs) {\n    const int tid = threadIdx.x;\n#pragma unroll\n    for (int i = 0; i < A_ITERS; ++i) {\n        int v = tid + i*THREADS;\n        int r = v / A_VPR, c = (v % A_VPR)*8;\n        *(uint4*)(As + r*ASTRIDE + c) = make_uint4(ra[i][0],ra[i][1],ra[i][2],ra[i][3]);\n    }\n#pragma unroll\n    for (int i = 0; i < B_ITERS; ++i) {\n        int v = tid + i*THREADS;\n        int r = v / B_VPR, c = (v % B_VPR)*8;\n        *(uint4*)(Bs + r*BSTRIDE + c) = make_uint4(rb[i][0],rb[i][1],rb[i][2],rb[i][3]);\n    }\n}\n\n/* ---- synchronous global -> shared (stages == 1) ------------------------- */\n__device__ __forceinline__ void g2s_sync(const void* __restrict__ Ag,\n                                         const void* __restrict__ Bg,\n                                         half* As, half* Bs,\n                                         int m0, int n0, int k0, int K, int N) {\n    unsigned ra[A_ITERS][4], rb[B_ITERS][4];\n    g2r(Ag, Bg, ra, rb, m0, n0, k0, K, N);\n    r2s(ra, rb, As, Bs);\n}\n\n#if !F32G\n/* ---- asynchronous global -> shared (stages > 1, fp16 global) ------------ */\n__device__ __forceinline__ void cp16(unsigned dst, const void* src) {\n    asm volatile(\"cp.async.cg.shared.global.L2::128B [%0], [%1], 16;\\n\"\n                 :: \"r\"(dst), \"l\"(src));\n}\n__device__ __forceinline__ void g2s_async(const void* __restrict__ Ag,\n                                          const void* __restrict__ Bg,\n                                          half* As, half* Bs,\n                                          int m0, int n0, int k0, int K, int N) {\n    const int tid = threadIdx.x;\n#pragma unroll\n    for (int i = 0; i < A_ITERS; ++i) {\n        int v = tid + i*THREADS;\n        int r = v / A_VPR, c = (v % A_VPR)*8;\n        cp16(smem_u32(As + r*ASTRIDE + c),\n             (const half*)Ag + (long long)(m0+r)*K + k0 + c);\n    }\n#pragma unroll\n    for (int i = 0; i < B_ITERS; ++i) {\n        int v = tid + i*THREADS;\n        int r = v / B_VPR, c = (v % B_VPR)*8;\n        cp16(smem_u32(Bs + r*BSTRIDE + c),\n             (const half*)Bg + (long long)(k0+r)*N + n0 + c);\n    }\n}\n#endif\n\n/* ---- one BK block of mma.sync ------------------------------------------ */\n__device__ __forceinline__ void mma_tile(const half* As, const half* Bs,\n                                         float (&acc)[NACC],\n                                         int lane, int wm, int wn) {\n#pragma unroll\n    for (int ks = 0; ks < NKS; ++ks) {\n        unsigned a[MT][4], b[NT][2];\n#pragma unroll\n        for (int i = 0; i < MT; ++i) {\n            /* ldmatrix .x4 : lane l supplies row (l%8) of matrix (l/8);\n               matrices are (m0..7,k0..7) (m8..15,k0..7) (m0..7,k8..15)\n               (m8..15,k8..15) which is exactly the m16n8k16 A fragment.   */\n            const half* p = As + (wm + i*16 + (lane & 15))*ASTRIDE\n                               + ks*16 + ((lane >> 4) << 3);\n            unsigned ad = smem_u32(p);\n            asm volatile(\"ldmatrix.sync.aligned.m8n8.x4.shared.b16 \"\n                         \"{%0,%1,%2,%3}, [%4];\\n\"\n                         : \"=r\"(a[i][0]), \"=r\"(a[i][1]), \"=r\"(a[i][2]), \"=r\"(a[i][3])\n                         : \"r\"(ad));\n        }\n#pragma unroll\n        for (int jj = 0; jj < NT/2; ++jj) {\n            /* .trans turns the k-major smem tile into the column-major B\n               fragment; one .x4 yields two n-tiles of 8.                  */\n            const half* p = Bs + (ks*16 + (lane & 7) + (((lane >> 3) & 1) << 3))*BSTRIDE\n                               + wn + jj*16 + ((lane >> 4) << 3);\n            unsigned ad = smem_u32(p);\n            asm volatile(\"ldmatrix.sync.aligned.m8n8.x4.trans.shared.b16 \"\n                         \"{%0,%1,%2,%3}, [%4];\\n\"\n                         : \"=r\"(b[2*jj][0]), \"=r\"(b[2*jj][1]),\n                           \"=r\"(b[2*jj+1][0]), \"=r\"(b[2*jj+1][1])\n                         : \"r\"(ad));\n        }\n#pragma unroll\n        for (int i = 0; i < MT; ++i) {\n#pragma unroll\n            for (int j = 0; j < NT; ++j) {\n                asm volatile(\n                    \"mma.sync.aligned.m16n8k16.row.col.f32.f16.f16.f32 \"\n                    \"{%0,%1,%2,%3}, {%4,%5,%6,%7}, {%8,%9}, {%0,%1,%2,%3};\\n\"\n                    : \"+f\"(acc[(i*NT+j)*4+0]), \"+f\"(acc[(i*NT+j)*4+1]),\n                      \"+f\"(acc[(i*NT+j)*4+2]), \"+f\"(acc[(i*NT+j)*4+3])\n                    : \"r\"(a[i][0]), \"r\"(a[i][1]), \"r\"(a[i][2]), \"r\"(a[i][3]),\n                      \"r\"(b[j][0]), \"r\"(b[j][1]));\n            }\n        }\n    }\n}\n\n#if KCB > 0\n#define FLUSH(kb)  do { if ((((kb)+1) % KCB) == 0) {                        \\\n        _Pragma(\"unroll\") for (int _i = 0; _i < NACC; ++_i) {               \\\n            sacc[_i] += acc[_i]; acc[_i] = 0.f; } } } while (0)\n#else\n#define FLUSH(kb)  do { } while (0)\n#endif\n\n__global__ void __launch_bounds__(THREADS) mma_gemm(\n        const void* __restrict__ Ag, const void* __restrict__ Bg,\n        float* __restrict__ Cg, int M, int N, int K) {\n    extern __shared__ __align__(16) char sraw[];\n    half* sm = reinterpret_cast<half*>(sraw);\n\n    const int m0 = blockIdx.y * BM;\n    const int n0 = blockIdx.x * BN;\n    const int lane = threadIdx.x & 31;\n    const int wid  = threadIdx.x >> 5;\n    const int wm = (wid / WARPS_N) * WM;\n    const int wn = (wid % WARPS_N) * WN;\n\n    float acc[NACC];\n#pragma unroll\n    for (int i = 0; i < NACC; ++i) acc[i] = 0.f;\n#if KCB > 0\n    float sacc[NACC];\n#pragma unroll\n    for (int i = 0; i < NACC; ++i) sacc[i] = 0.f;\n#endif\n    const int NKB = K / BK;\n\n#if STAGES == 1\n    /* ---------------- pipeline genuinely OFF ---------------------------- */\n    for (int kb = 0; kb < NKB; ++kb) {\n        g2s_sync(Ag, Bg, sm, sm + ASZ, m0, n0, kb*BK, K, N);\n        __syncthreads();\n        mma_tile(sm, sm + ASZ, acc, lane, wm, wn);\n        __syncthreads();\n        FLUSH(kb);\n    }\n#elif !F32G\n    /* ---------------- cp.async ring, depth STAGES ----------------------- */\n#pragma unroll\n    for (int s = 0; s < STAGES-1; ++s) {\n        g2s_async(Ag, Bg, sm + s*STAGE_H, sm + s*STAGE_H + ASZ, m0, n0, s*BK, K, N);\n        asm volatile(\"cp.async.commit_group;\\n\" ::);\n    }\n    for (int kb = 0; kb < NKB; ++kb) {\n        asm volatile(\"cp.async.wait_group %0;\\n\" :: \"n\"(STAGES-2));\n        __syncthreads();\n        {\n            half* st = sm + (kb % STAGES)*STAGE_H;\n            mma_tile(st, st + ASZ, acc, lane, wm, wn);\n        }\n        __syncthreads();\n        int nk = kb + STAGES - 1;\n        if (nk < NKB) {\n            half* st = sm + (nk % STAGES)*STAGE_H;\n            g2s_async(Ag, Bg, st, st + ASZ, m0, n0, nk*BK, K, N);\n        }\n        asm volatile(\"cp.async.commit_group;\\n\" ::);\n        FLUSH(kb);\n    }\n#else\n    /* ---------------- register-staged prefetch ring, depth STAGES -------\n       cp.async cannot convert fp32->fp16, so the on_load pipeline keeps the\n       in-flight tiles in registers (already packed to fp16) while the smem\n       ring stays STAGES deep.  The kb loop is unrolled by UNR=STAGES-1 so the\n       register-ring index is a compile-time constant.                      */\n    unsigned ra[UNR][A_ITERS][4], rb[UNR][B_ITERS][4];\n#pragma unroll\n    for (int s = 0; s < STAGES-1; ++s)\n        g2s_sync(Ag, Bg, sm + s*STAGE_H, sm + s*STAGE_H + ASZ, m0, n0, s*BK, K, N);\n#pragma unroll\n    for (int u = 0; u < UNR; ++u)\n        g2r(Ag, Bg, ra[u], rb[u], m0, n0, (STAGES-1+u)*BK, K, N);\n    __syncthreads();\n\n    for (int kb = 0; kb < NKB; kb += UNR) {\n#pragma unroll\n        for (int u = 0; u < UNR; ++u) {\n            int k = kb + u;\n            {\n                half* st = sm + (k % STAGES)*STAGE_H;\n                mma_tile(st, st + ASZ, acc, lane, wm, wn);\n            }\n            __syncthreads();\n            int sk = k + STAGES - 1;\n            if (sk < NKB) {\n                half* st = sm + (sk % STAGES)*STAGE_H;\n                r2s(ra[u], rb[u], st, st + ASZ);\n            }\n            __syncthreads();\n            int lk = k + UNR + STAGES - 1;\n            if (lk < NKB)\n                g2r(Ag, Bg, ra[u], rb[u], m0, n0, lk*BK, K, N);\n            FLUSH(k);\n        }\n    }\n#endif\n\n    /* ---------------- epilogue ------------------------------------------ */\n#pragma unroll\n    for (int i = 0; i < MT; ++i) {\n#pragma unroll\n        for (int j = 0; j < NT; ++j) {\n            const int x = (i*NT+j)*4;\n#if KCB > 0\n            float v0 = sacc[x+0] + acc[x+0], v1 = sacc[x+1] + acc[x+1];\n            float v2 = sacc[x+2] + acc[x+2], v3 = sacc[x+3] + acc[x+3];\n#else\n            float v0 = acc[x+0], v1 = acc[x+1], v2 = acc[x+2], v3 = acc[x+3];\n#endif\n            int gr = m0 + wm + i*16 + (lane >> 2);\n            int gc = n0 + wn + j*8  + ((lane & 3) << 1);\n            *(float2*)(Cg + (long long)gr*N + gc)       = make_float2(v0, v1);\n            *(float2*)(Cg + (long long)(gr+8)*N + gc)   = make_float2(v2, v3);\n        }\n    }\n}\n\ntorch::Tensor gemm(torch::Tensor A, torch::Tensor B) {\n    const int M = A.size(0), K = A.size(1), N = B.size(1);\n    auto C = torch::empty({M, N},\n                torch::TensorOptions().dtype(torch::kFloat32).device(A.device()));\n    static bool attr_set = false;\n    if (!attr_set) {\n        cudaFuncSetAttribute(mma_gemm,\n            cudaFuncAttributeMaxDynamicSharedMemorySize, SMEM_BYTES);\n        attr_set = true;\n    }\n    dim3 grid(N/BN, M/BM), block(THREADS);\n    mma_gemm<<<grid, block, SMEM_BYTES, at::cuda::getCurrentCUDAStream()>>>(\n        A.data_ptr(), B.data_ptr(), C.data_ptr<float>(), M, N, K);\n    return C;\n}\n",
+        "cuda_source_path": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/global_intermediate__cuda_unlimited__g01/runtime_tmp/fused_epilogue_crossed_v2/pid161778/global_intermediate.cuda_unlimited.g01/phase1/cu_unl_mma_128_128_32_256_s3_kcb64_g0_p88.cu",
+        "dynamic_smem_bytes": 56832,
+        "epilogue_tile_bytes": null,
+        "grid": [
+          64,
+          8
+        ],
+        "n_regs": 168,
+        "n_spill_stores": 0,
+        "n_spills": 0,
+        "operand_smem_bytes": null,
+        "shared_bytes": 56832,
+        "stack_frame_bytes": 0,
+        "total_dynamic_shared_bytes": 56832,
+        "total_dynamic_smem_bytes": 56832
+      },
+      "postprocess": {
+        "backend_detail": "common CUDA compile-time bias/GELU plus row-softmax",
+        "block": [
+          256,
+          1,
+          1
+        ],
+        "cuda_source_sha256": "788714f21a6cbe343a81b997a03928ad7965599c58aa87c1a1129b41333e8368",
+        "epilogue_tile_bytes": 0,
+        "grid": [
+          1024,
+          1,
+          1
+        ],
+        "has_bias": true,
+        "has_gelu": true,
+        "n_kernels": 1,
+        "operand_smem_bytes": 0,
+        "shared_bytes": 0,
+        "softmax_source_sha256": "758a6ad3dc8f4635cd1146dd9c6fd102b590410ce4f710c10c72f470d2bbf96f",
+        "total_dynamic_shared_bytes": 0
+      },
+      "strategy": "global_intermediate"
+    },
+    "builder": "phase1:cuda_unlimited+crossed-v2:common-postprocess",
+    "common_softmax_source_sha256": "758a6ad3dc8f4635cd1146dd9c6fd102b590410ce4f710c10c72f470d2bbf96f",
+    "implementation_sha256": "7b1af7546de387d31576f8670c0bfc940a070b1ffa8f3bc3df8f11211b336da9",
+    "isolated_artifact_root": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/global_intermediate__cuda_unlimited__g01/runtime_tmp/fused_epilogue_crossed_v2/pid161778/global_intermediate.cuda_unlimited.g01",
+    "n_kernels": 2,
+    "notes": "lane-native GEMM plus common bias+exact-GELU+softmax"
+  },
+  "torch_inline_requests": [
+    {
+      "module": {
+        "path": "torch_extensions/cu_unl_mma_128_128_32_256_s3_kcb64_g0_p88/cu_unl_mma_128_128_32_256_s3_kcb64_g0_p88.so",
+        "sha256": "baafaeedbe588ae5477378ee4cc58be951a5f320677b973168d09a4b33147fa4",
+        "size": 1323448
+      },
+      "request": {
+        "compile_options": {
+          "extra_cflags": null,
+          "extra_cuda_cflags": [
+            "-O3",
+            "-std=c++17",
+            "-Xptxas=-v",
+            "-Xptxas=-O3",
+            "-DNDEBUG"
+          ],
+          "extra_include_paths": null,
+          "extra_ldflags": null,
+          "extra_sycl_cflags": null,
+          "is_python_module": true,
+          "keep_intermediates": true,
+          "no_implicit_headers": false,
+          "use_pch": false,
+          "with_cuda": true,
+          "with_pytorch_error_handling": true,
+          "with_sycl": null
+        },
+        "cpp_sources": [
+          {
+            "sha256": "832cc0d49e23ff029e2dc415509d5fa1b4b32ee3b616a9aeaf7ed49e5bbd1d09",
+            "size": 53
+          }
+        ],
+        "cuda_sources": [
+          {
+            "sha256": "c5ecb242edf18d82747642b3851b430a045648128e4ddb1f13f1a03fc657e6ca",
+            "size": 12868
+          }
+        ],
+        "functions": [
+          "gemm"
+        ],
+        "name": "cu_unl_mma_128_128_32_256_s3_kcb64_g0_p88",
+        "sycl_sources": []
+      }
+    },
+    {
+      "module": {
+        "path": "torch_extensions/fused_crossed_v2_pp_788714f21a6c/fused_crossed_v2_pp_788714f21a6c.so",
+        "sha256": "b6b254854f657211b0363f553d7ede4e91c5bf9a0d260828450ae17e73948db8",
+        "size": 1363464
+      },
+      "request": {
+        "compile_options": {
+          "extra_cflags": null,
+          "extra_cuda_cflags": [
+            "-O3",
+            "-std=c++17",
+            "-Xptxas=-v",
+            "-gencode=arch=compute_89,code=sm_89"
+          ],
+          "extra_include_paths": [
+            "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/legacy_cuda_harness_fix"
+          ],
+          "extra_ldflags": null,
+          "extra_sycl_cflags": null,
+          "is_python_module": true,
+          "keep_intermediates": true,
+          "no_implicit_headers": false,
+          "use_pch": false,
+          "with_cuda": true,
+          "with_pytorch_error_handling": true,
+          "with_sycl": null
+        },
+        "cpp_sources": [
+          {
+            "sha256": "4191a213326b6ae0d2a79f3d17e6ba22980bf82f6e0b2fae9bbceeec5939b806",
+            "size": 103
+          }
+        ],
+        "cuda_sources": [
+          {
+            "sha256": "788714f21a6cbe343a81b997a03928ad7965599c58aa87c1a1129b41333e8368",
+            "size": 3596
+          }
+        ],
+        "functions": [
+          "common_postprocess"
+        ],
+        "name": "fused_crossed_v2_pp_788714f21a6c",
+        "sycl_sources": []
+      }
+    }
+  ]
+}

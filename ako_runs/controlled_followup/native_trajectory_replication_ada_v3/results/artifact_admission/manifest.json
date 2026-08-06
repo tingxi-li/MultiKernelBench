@@ -1,0 +1,187 @@
+{
+  "admission_plan": [
+    {
+      "cell_id": "global_intermediate.tilelang.g01",
+      "entry_id": "global_intermediate.tilelang.g01",
+      "position": 0,
+      "role": "native_cell"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g01",
+      "entry_id": "register_common_postprocess.tilelang.g01",
+      "position": 1,
+      "role": "shared_sham_base"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g01",
+      "entry_id": "register_fused.tilelang.g01",
+      "position": 2,
+      "role": "native_cell"
+    },
+    {
+      "cell_id": "global_intermediate.triton.g01",
+      "entry_id": "global_intermediate.triton.g01",
+      "position": 3,
+      "role": "native_cell"
+    },
+    {
+      "cell_id": "register_common_postprocess.triton.g01",
+      "entry_id": "register_common_postprocess.triton.g01",
+      "position": 4,
+      "role": "native_cell"
+    },
+    {
+      "cell_id": "register_fused.triton.g01",
+      "entry_id": "register_fused.triton.g01",
+      "position": 5,
+      "role": "native_cell"
+    },
+    {
+      "cell_id": "global_intermediate.cuda_noptx.g01",
+      "entry_id": "global_intermediate.cuda_noptx.g01",
+      "position": 6,
+      "role": "native_cell"
+    },
+    {
+      "cell_id": "register_common_postprocess.cuda_noptx.g01",
+      "entry_id": "register_common_postprocess.cuda_noptx.g01",
+      "position": 7,
+      "role": "native_cell"
+    },
+    {
+      "cell_id": "register_fused.cuda_noptx.g01",
+      "entry_id": "register_fused.cuda_noptx.g01",
+      "position": 8,
+      "role": "native_cell"
+    },
+    {
+      "cell_id": "global_intermediate.cuda_unlimited.g01",
+      "entry_id": "global_intermediate.cuda_unlimited.g01",
+      "position": 9,
+      "role": "native_cell"
+    },
+    {
+      "cell_id": "register_common_postprocess.cuda_unlimited.g01",
+      "entry_id": "register_common_postprocess.cuda_unlimited.g01",
+      "position": 10,
+      "role": "native_cell"
+    },
+    {
+      "cell_id": "register_fused.cuda_unlimited.g01",
+      "entry_id": "register_fused.cuda_unlimited.g01",
+      "position": 11,
+      "role": "native_cell"
+    }
+  ],
+  "admission_plan_sha256": "5355fec215dba61a1b6d2201e1e63026d653b7060522ec0ac53578785a322b75",
+  "campaign_id": "native-trajectory-replication-ada-v3",
+  "complete": true,
+  "entries": [
+    {
+      "artifact_identity_sha256": "b04b2cd9e1752e63c59a9bef16d98716e4dd03e3f9e4140b70dcf9ab10b2b65d",
+      "artifact_sha256": "ef7a62579e97cdb0dbe55a1dd32286e98ada00cec1144a5cb304e60fa175f0f1",
+      "cell_id": "global_intermediate.tilelang.g01",
+      "entry_path": "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/global_intermediate__tilelang__g01/entry.json",
+      "entry_sha256": "ecb4ac95e79b6ee2d710e049e6bf980882b3de850b49968723f771f9aef733bc",
+      "role": "native_cell"
+    },
+    {
+      "artifact_identity_sha256": "4ae8fe61067e2c627381a0bad8ee0572cca2f4e08d74108d89118e62cce714a8",
+      "artifact_sha256": "150c0dcf8ee499eb11fea736e0346646f6fc3855a11b0b6f2f33a78cdfcd1814",
+      "cell_id": "register_common_postprocess.tilelang.g01",
+      "entry_path": "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/register_common_postprocess__tilelang__g01/entry.json",
+      "entry_sha256": "a8c0284df1663ae57bc7359da086e8bdcbc9bb7f60a4d4424e7f1c37946bf4d9",
+      "role": "shared_sham_base"
+    },
+    {
+      "artifact_identity_sha256": "95647500f0c5cd3cfd4ffe8367191fc2186cf001db88a08228591db9222478af",
+      "artifact_sha256": "6d820fc935ee08130f0825b7ba884b30dfb7f0dfa1c925a16ccf501d23290265",
+      "cell_id": "register_fused.tilelang.g01",
+      "entry_path": "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/register_fused__tilelang__g01/entry.json",
+      "entry_sha256": "9a27ff9de85cdede95552cf3be3421235d010fa53f314253eeca019ec740a281",
+      "role": "native_cell"
+    },
+    {
+      "artifact_identity_sha256": "4fe2f29068ae787bb6cabe567ff6dcaa197683258d9327fb91f03697d69f7b2a",
+      "artifact_sha256": "ae0a317fbff49ae0a53d9b1ba6fcd0abeb658a3fd826aabe962a963fe96947ad",
+      "cell_id": "global_intermediate.triton.g01",
+      "entry_path": "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/global_intermediate__triton__g01/entry.json",
+      "entry_sha256": "ed09b741442555aa73dceb2b45e05fa7b6156fa15bc39a715586485198a8ef5f",
+      "role": "native_cell"
+    },
+    {
+      "artifact_identity_sha256": "2079fdee8ad2c3e6fb48d2613c6bcf230ebe5eea76163d88491f992c8947ac20",
+      "artifact_sha256": "bf8a69f0ad681c25ba55b0bb1f9d37a056c4e0b887fe4ab761af612977b97af6",
+      "cell_id": "register_common_postprocess.triton.g01",
+      "entry_path": "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/register_common_postprocess__triton__g01/entry.json",
+      "entry_sha256": "defa760b96fa43625f93ef32f19c708663000f45b72954c9c22becc118fb6889",
+      "role": "native_cell"
+    },
+    {
+      "artifact_identity_sha256": "1f09a9d1d4fd7c348ae6f8947ab6935c84871e07c6f022fb462408b16b3a7b71",
+      "artifact_sha256": "21ef4b5906cba3a84a15f59cca3c8c0477cd804de8abb7fd598f9097c2718d85",
+      "cell_id": "register_fused.triton.g01",
+      "entry_path": "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/register_fused__triton__g01/entry.json",
+      "entry_sha256": "fe6dc55560934a505d78a46757a06ae002fd787fa87415c78f91c0bdc30e4cfd",
+      "role": "native_cell"
+    },
+    {
+      "artifact_identity_sha256": "50cb72e58783fef65b6bc669a6c367328115e7478edb277291e9957ad68033f0",
+      "artifact_sha256": "f2476e2af1e242d2cb12953463cacffa6367bd0d91d5ee77f07f85c0fe4aebb3",
+      "cell_id": "global_intermediate.cuda_noptx.g01",
+      "entry_path": "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/global_intermediate__cuda_noptx__g01/entry.json",
+      "entry_sha256": "8a1d31e3a59ecc8b81860d8952cb0c9b0cd5517c15696e34a0ace41131b12409",
+      "role": "native_cell"
+    },
+    {
+      "artifact_identity_sha256": "3301ac01dcfaecd36280d3f71378b1708b356c44042df46fba4ccaeb2c04dee6",
+      "artifact_sha256": "f58f4d04bae508842e68d1e74f9cb725082f1a2f971dea7a3a90846393267718",
+      "cell_id": "register_common_postprocess.cuda_noptx.g01",
+      "entry_path": "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/register_common_postprocess__cuda_noptx__g01/entry.json",
+      "entry_sha256": "18eb21d225334da2dde879a334affd7ed116d0ca5130e0529692a01b113bd82e",
+      "role": "native_cell"
+    },
+    {
+      "artifact_identity_sha256": "62f8ba011b912d372269fc02f7cadc2e362e159a2f0805ed6c6bdfccebd52ee1",
+      "artifact_sha256": "a2bd31f897520bf4bdb232a3dde37abd141760de821f0fff5b822726ed765e25",
+      "cell_id": "register_fused.cuda_noptx.g01",
+      "entry_path": "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/register_fused__cuda_noptx__g01/entry.json",
+      "entry_sha256": "11c15fe74014cada88b11c93fb171813ed5ae3894247c18bf62e552ed6c1a3df",
+      "role": "native_cell"
+    },
+    {
+      "artifact_identity_sha256": "d54c72828a248013651b4087989aa2be74ed8f64db76f2c6887cf50548f7cc3a",
+      "artifact_sha256": "c587f2d9212fbb5ee37084057508b460aa4c5e399a24d3c6027946049af35469",
+      "cell_id": "global_intermediate.cuda_unlimited.g01",
+      "entry_path": "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/global_intermediate__cuda_unlimited__g01/entry.json",
+      "entry_sha256": "09bda4cbbc4234eac31e26ec71c727dda78a26a398aab90a73ad917395066810",
+      "role": "native_cell"
+    },
+    {
+      "artifact_identity_sha256": "34db80115c648516ff4cfea593a329997ada11078c5aec5b95546c8a8526f9d3",
+      "artifact_sha256": "55298f33a33cee3bb8cf592de5da9515404074bce6b0bf26fc1b161f6059d737",
+      "cell_id": "register_common_postprocess.cuda_unlimited.g01",
+      "entry_path": "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/register_common_postprocess__cuda_unlimited__g01/entry.json",
+      "entry_sha256": "3faff39c713d36d983aa17f07d61da3b1684771c0cf69244efa30fed58ca713d",
+      "role": "native_cell"
+    },
+    {
+      "artifact_identity_sha256": "5db9c125b15f777d0d9b2731393fe380bdd017348a32a1b7e228faab47186d32",
+      "artifact_sha256": "be023469f8b1ead6153fe629066259dcf078b1a84678c767dda8e52db643560e",
+      "cell_id": "register_fused.cuda_unlimited.g01",
+      "entry_path": "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/register_fused__cuda_unlimited__g01/entry.json",
+      "entry_sha256": "9abded7bca2aa4882362a05ec85aeddfab79b3b949ba16aca44ea5e494be4d41",
+      "role": "native_cell"
+    }
+  ],
+  "entry_count": 12,
+  "execution_lock_sha256": "458f35e312ec3b1c0dc7582dfdded55b466618d16fef8a05c35bb9ba9d1e479a",
+  "launch_receipt_path": "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/launch_receipt.json",
+  "launch_receipt_sha256": "de15e760b0500ca1c246f2fdf4f9ffff5310119a5ed9a82427cfdec984fbf0e3",
+  "performance_blind": true,
+  "predecessor_incident_path": "ako_runs/controlled_followup/native_trajectory_replication_ada_v2/INCIDENT_ADMISSION_20260806.json",
+  "predecessor_incident_sha256": "8c7263921c043940b70fa3a6fe61c241816998c4936dcb565845846c0f2f2e15",
+  "record_type": "native_trajectory_replication_ada_artifact_admission_manifest",
+  "schema_version": 1,
+  "shared_sham_artifact_count": 1
+}

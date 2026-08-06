@@ -1,0 +1,495 @@
+{
+  "admission_provenance": {
+    "cache_environment": {
+      "NATIVE_TRAJECTORY_ARTIFACT_CELL": "global_intermediate.cuda_noptx.g01",
+      "NATIVE_TRAJECTORY_ARTIFACT_MODE": "admit",
+      "PHASE1_TL_CACHE": "1",
+      "PHASE2_TL_CACHE": "1",
+      "TEMP": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/global_intermediate__cuda_noptx__g01/runtime_tmp",
+      "TILELANG_CACHE_DIR": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/global_intermediate__cuda_noptx__g01/cache/tilelang",
+      "TILELANG_CLEAR_CACHE": "0",
+      "TILELANG_DISABLE_CACHE": "0",
+      "TILELANG_EXECUTION_BACKEND": "tvm_ffi",
+      "TILELANG_TARGET": "cuda",
+      "TILELANG_TMP_DIR": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/global_intermediate__cuda_noptx__g01/runtime_tmp/tilelang",
+      "TMP": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/global_intermediate__cuda_noptx__g01/runtime_tmp",
+      "TMPDIR": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/global_intermediate__cuda_noptx__g01/runtime_tmp",
+      "TORCH_EXTENSIONS_DIR": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/global_intermediate__cuda_noptx__g01/cache/torch_extensions",
+      "TRITON_ALWAYS_COMPILE": "0",
+      "TRITON_CACHE_DIR": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/global_intermediate__cuda_noptx__g01/cache/triton",
+      "TRITON_KERNEL_DUMP": "0",
+      "TRITON_KERNEL_OVERRIDE": "0"
+    },
+    "compute_pids_postflight": [
+      158615
+    ],
+    "compute_pids_preflight": [],
+    "execution_lock_sha256": "458f35e312ec3b1c0dc7582dfdded55b466618d16fef8a05c35bb9ba9d1e479a",
+    "gpu_postflight": {
+      "compute_cap": "8.9",
+      "driver_version": "610.43.02",
+      "index": "0",
+      "name": "NVIDIA RTX 6000 Ada Generation",
+      "uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae"
+    },
+    "gpu_preflight": {
+      "compute_cap": "8.9",
+      "driver_version": "610.43.02",
+      "index": "0",
+      "name": "NVIDIA RTX 6000 Ada Generation",
+      "uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae"
+    },
+    "launch_receipt_path": "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/launch_receipt.json",
+    "launch_receipt_sha256": "de15e760b0500ca1c246f2fdf4f9ffff5310119a5ed9a82427cfdec984fbf0e3",
+    "parent_pid": 153915,
+    "process_pid": 158615,
+    "toolchain": {
+      "instrument_dependency_sha256": {
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v1/core.py": "538feecd1e88f90f711ee2a112a4fc28d027684169b7f64b596d96e74899dbcf",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/audit.py": "5b7edc232e51ef5601c02be004a101903a49c61289df1705e30daa9da74641ba",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/final_summary.json": "98552e48aa67411ba738e160d454e5c387e1c33cb1c543aa53a20198e4c0a70d",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/reanalysis_tail_v1.json": "e7296ce10585169e7dcf1f0d66c6bc59bf079d367d30491c46f42a8b3d03d1e5",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v1/tilelang_smem.py": "93c7fe29ecab64a2ad9a1fe1cf28093d8bc4945419741f7da32bc30b048febaf",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/INCIDENT_CROSSED_V2R1_20260801.json": "fbd6998ac02df84633ed5707e13f1ed476ec535a38cfc17a51ab1f76adbf9b04",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/INCIDENT_CROSSED_V2R2_20260801.json": "61b5c53e97b9ee621059df575242a62c705649eb1a6eea79fd561e11fde1b012",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/INCIDENT_CROSSED_V2_20260801.json": "4a385b3b45544069f13a54f78df8fc12b6f74919b76c87e83bd1d91463247eb7",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/audit/receipts/shard00.json": "a5a3dd6ac9e13a7d2e42eca9932ff5e87eaaed0f31f7ae116ab986832bcd1f29",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/audit/receipts/shard01.json": "001716a9841b1a432a7b3616c4fb36852988c486e0b2de59a03b2736c6fb6a90",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/audit/receipts/shard02.json": "1efe91e6f53e5adb81a3471a0cf740ec1665f30e8156532b93f9f44eb92b7f17",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/audit/receipts/shard03.json": "3862f4917e043b7315fb7c28e6b3d44df80401ef778a8fc0186e48b364b36d8f",
+        "ako_runs/controlled_followup/fused_grid/jobs/fused_gbgs_grid.json": "70bfb1219395c4b231dc41d7e6e5661f6a5fd66a5c5cc26cee53283125e006e3",
+        "ako_runs/controlled_followup/fused_grid/manifest.json": "3ca4395603ed60d0f54caf5fc213d245790be84eb29ba36f638c866a48720439",
+        "ako_runs/controlled_followup/fused_grid/robust_adapter.py": "688d9b29673d9314f50a3e8f6a8fc217b8497b27fb3eac13a5234cd9b7a29502",
+        "ako_runs/controlled_followup/fused_grid/robust_adapter_manifest.json": "81e3478b61800e09147a6cb213ba1786b200c137a728a5a9c258241c0a6004ba",
+        "ako_runs/controlled_followup/legacy_cuda_harness_fix/checked_cuda_launch.h": "e6b6712ae55a2673566e02c08aa1d6350e96f885954a1391c61d14d355ee51aa",
+        "ako_runs/controlled_followup/robust_gate/calibration/gate_spec_fused_v2.json": "b6c3afaadf61f5d380a97c6c541828a1ecacd1a89a00b73b66207fe22d765e2e",
+        "ako_runs/controlled_followup/robust_gate/manifest.json": "28d51cd4f1730bd190e63c7cad60670c37b67784393270e63e859a1685fc8a62",
+        "ako_runs/phase1_matmul/common.py": "7753fcc00891d475db8675423ca7e48fbc0aa0431ac1e1dd4319e6c2900fd0a7",
+        "ako_runs/phase1_matmul/variants/__init__.py": "0ac322f46ab46fe0bf6d9eb6241c7eacf6b9844f5f6d927dbccfc81a1005a585",
+        "ako_runs/phase1_matmul/variants/cuda_noptx_gemm.py": "b3935c4e9516304cbbe0b3ab8e32e1fadc1264f48f26ee00fe52aede6e032217",
+        "ako_runs/phase1_matmul/variants/cuda_unlimited_gemm.py": "c9629300ce871476eb95cdecc5337229c43d3206e674c35d86a7f65d20a87ad5",
+        "ako_runs/phase1_matmul/variants/tilelang_gemm.py": "07d40bb5fee951ecec7ad1a7ca1815b5fae6761b3bb42e81f81c15ef806af268",
+        "ako_runs/phase1_matmul/variants/triton_gemm.py": "8c9cc3d60d549eb941dcb68a0ee7b0a6173b849a368eb55c75ec91c68612e108",
+        "ako_runs/phase2_fused_sdpa/common2.py": "0293cb15fc3285df199daa58281a1a35147a78b9cbccda8b8f88418eecb39c64",
+        "ako_runs/phase2_fused_sdpa/runner2.py": "d1ade4461bff35058a3c6e967532960f5cc509f5d6a46c69bded78fbd0aac31e",
+        "ako_runs/phase2_fused_sdpa/variants2/__init__.py": "2afc778f25db9abe2d05299bbd47fa2ad43b7912eee8633936095e6b92662045",
+        "ako_runs/phase2_fused_sdpa/variants2/cuda_fused_common.py": "c047985e84428246a455a20107cd5309d63528a593374ed2a4418e531c915c36",
+        "ako_runs/phase2_fused_sdpa/variants2/fused_cuda_noptx.py": "6abbea8ea28d5d6623da90385e417ec279fd5a022cf2144a56ae8fab684e2058",
+        "ako_runs/phase2_fused_sdpa/variants2/fused_tilelang.py": "c2a0704d81bdb4b2f78377870a1bc45c6945db77bccc8e89b2a0fd4b46511684",
+        "ako_runs/phase2_fused_sdpa/variants2/fused_triton.py": "20c4f27fdc9145beec6b4cdb99ed8e9d57cbdbede87bace51319d782f378272e"
+      },
+      "instrument_source_sha256": {
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/README.md": "37814ad6219ca19c3cb07085f6ba0ba633908048dd01808abed27308b74f6480",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/__init__.py": "fb48d3337adb472cc5daf24558faa62ba949eaa52070b339c3c6a5a3860caf88",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/analyze.py": "ac5cd372f7622f94847d098f82844b99b06eccf6493c52138ea9ef4090379f96",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/campaign.json": "84ec8c1503f120ece3d140e6beee66ed55a7546c6e0cee7f387cca08f6c64b2a",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/campaign_runner.py": "d72331ebcc2e275a471f9da0a2c8f0c9aff8e70dc8d1be23104cf4a21df40783",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/candidates.py": "9e35ed7972b69595ea76fc4f6b43947d40d24a00ca3b50500e742c872fb55f5d",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/capture_evidence.py": "26cd0c2eb5e522abbfed2324dc40a4825da27a90f3869e30ea2b7f111ab8d8ce",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/core.py": "aa4e9825ace458a5b7dc8d0eb988f2e98c9e5a336678774c05ebb475c6b5c3e4",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/cuda_noptx_register.py": "eaaf6ee5828a17a1c93e7ba0b8e577b857ed0930c8591d36ae2b9e6115dc420e",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/cuda_unlimited.py": "6f0cac21f4daaa741d46f0223c31404a2ec718423867bebb988355ddc2f617d7",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/freeze.py": "351b98fb955fc565a5924ec60edda0fe6ae9d90ac7189da3bf305f6e7e820589",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/make_manifest.py": "5d5b703f32d7759036a03cf2a34420df9d011a7c865f73ef1a176a446e93c4bc",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/postprocess.py": "a3b70d7a405df799b188f9db8100d1457ddd8f9b7735c59fed068794179b0ce6",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/resolve_support.py": "2ba7eac3383d7d596ab873a1d5b39bf77f26e87a358b30aa9142107f35c7798a",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/support_probes.py": "6938edb3c17fa33a5969a8ae9f2c37ba3d638e536f3f1c9654c5bc36e51ff8a5",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/support_resolution.json": "db3aa3bfa6610c907c851ced726ffdc1e9906cb9175f10c5d1031db67ed1d020",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/tests/__init__.py": "fc2858863a06f469da41e21372eece8dffaab6ef87d887b9f9730c7ea989110e",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/tests/test_builders.py": "1a6f345f15c353d0d73ec4df26573597a8687263ba85d807dcd9214e30c0c0fa",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/tests/test_protocol.py": "bdb946ed7f1b6fe184331947880fe18321f3947023e503b9a2906218f54b0067",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/triton_smem.py": "eb4a0ef2a93cb85f63acc0896204d999a8d7349ce06ce757b5595a4323847a8f",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/validate.py": "718cb81159811bf06e6187613a8eb65e785881b9049196b38887dee2ff21c4fa"
+      },
+      "module_files": {
+        "common": {
+          "path": "/home/lxt230026/MultiKernelBench/ako_runs/phase1_matmul/common.py",
+          "sha256": "7753fcc00891d475db8675423ca7e48fbc0aa0431ac1e1dd4319e6c2900fd0a7"
+        },
+        "common2": {
+          "path": "/home/lxt230026/MultiKernelBench/ako_runs/phase2_fused_sdpa/common2.py",
+          "sha256": "0293cb15fc3285df199daa58281a1a35147a78b9cbccda8b8f88418eecb39c64"
+        },
+        "crossed_candidates": {
+          "path": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/fused_epilogue_crossed_v2/candidates.py",
+          "sha256": "9e35ed7972b69595ea76fc4f6b43947d40d24a00ca3b50500e742c872fb55f5d"
+        },
+        "crossed_core": {
+          "path": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/fused_epilogue_crossed_v2/core.py",
+          "sha256": "aa4e9825ace458a5b7dc8d0eb988f2e98c9e5a336678774c05ebb475c6b5c3e4"
+        },
+        "runner2": {
+          "path": "/home/lxt230026/MultiKernelBench/ako_runs/phase2_fused_sdpa/runner2.py",
+          "sha256": "d1ade4461bff35058a3c6e967532960f5cc509f5d6a46c69bded78fbd0aac31e"
+        },
+        "tilelang": {
+          "path": "/home/lxt230026/miniconda3/lib/python3.13/site-packages/tilelang/__init__.py",
+          "sha256": "216c868c8010f149974a8ac04ddfeb107b6edf82f9f6cf710ffd144b122ebd8b"
+        },
+        "torch": {
+          "path": "/home/lxt230026/miniconda3/lib/python3.13/site-packages/torch/__init__.py",
+          "sha256": "d6388b1e3b16c1f9a22a87898e5f205fa13a97bd65c163f4829a157e0d9d602f"
+        },
+        "triton": {
+          "path": "/home/lxt230026/miniconda3/lib/python3.13/site-packages/triton/__init__.py",
+          "sha256": "96e68192cab5dd11fa30d5dc95d56c29ceecda53477fc3af8f37bee026b7a021"
+        }
+      },
+      "nvcc": {
+        "path": "/usr/local/cuda-13.1/bin/nvcc",
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2025 NVIDIA Corporation\nBuilt on Tue_Dec_16_07:23:41_PM_PST_2025\nCuda compilation tools, release 13.1, V13.1.115\nBuild cuda_13.1.r13.1/compiler.37061995_0"
+      },
+      "python_executable": "/home/lxt230026/miniconda3/bin/python3.13",
+      "python_executable_sha256": "73bb21a7bd68a5ad09bef6fa8587bd7df33734784cc5248d112926536117e115",
+      "python_implementation": "CPython",
+      "python_version": "3.13.5",
+      "tilelang_version": "0.1.11",
+      "torch_cuda_version": "12.8",
+      "torch_version": "2.10.0+cu128",
+      "triton_version": "3.6.0"
+    }
+  },
+  "admission_row": {
+    "cell_id": "global_intermediate.cuda_noptx.g01",
+    "entry_id": "global_intermediate.cuda_noptx.g01",
+    "position": 6,
+    "role": "native_cell"
+  },
+  "admission_row_sha256": "67d964861410cfa4a06bb12ac634443c70c3f79208e77025cdc211955b37940a",
+  "artifact_identity_sha256": "50cb72e58783fef65b6bc669a6c367328115e7478edb277291e9957ad68033f0",
+  "atomic_temp_device": {
+    "cache_root": "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/global_intermediate__cuda_noptx__g01/cache",
+    "cache_st_dev": 64770,
+    "runtime_tmp_root": "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/global_intermediate__cuda_noptx__g01/runtime_tmp",
+    "runtime_tmp_st_dev": 64770,
+    "same_filesystem": true
+  },
+  "cache": {
+    "cache_root": "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/global_intermediate__cuda_noptx__g01/cache",
+    "file_count": 16,
+    "files": [
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_788714f21a6c/.ninja_deps",
+        "sha256": "51ec5a261b43da3e2b75d971eb5829e20c6abe9c2d46cd73a63f753e5e5b068a",
+        "size": 630528
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_788714f21a6c/.ninja_log",
+        "sha256": "cefa596f6c466173046df1c9ac4a5f0582e1a4484fc989517fa7dae11c2a90a7",
+        "size": 208
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_788714f21a6c/build.ninja",
+        "sha256": "82d599d0a550eb8f7cdfe8f3512e992d27ff4c05ea9f7f2079a78f80f82a785a",
+        "size": 2526
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_788714f21a6c/cuda.cu",
+        "sha256": "ad7b36bb242709682f01c98a9300e1e2acb1e0a7089efa206d4a9c7aad19a7db",
+        "size": 3665
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_788714f21a6c/cuda.cuda.o",
+        "sha256": "48ef538ea1aab95ee4953a2663664590a6bbaca983e4ed28e3ef227eee2a0e0d",
+        "size": 231184
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_788714f21a6c/fused_crossed_v2_pp_788714f21a6c.so",
+        "sha256": "bd2c01f73d87aa2aa046dba6022b08f542773cf22088ccc5766a0d00ea912a8f",
+        "size": 1363464
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_788714f21a6c/main.cpp",
+        "sha256": "70fda7e9ebc6feb970681bfd6fdd9814aef02d2d31c1659f88bd825bb5c821a1",
+        "size": 277
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_788714f21a6c/main.o",
+        "sha256": "d204a1007974fe9039b825d726c23757803e0425dca205b75fe03e519617684c",
+        "size": 2152608
+      },
+      {
+        "path": "torch_extensions/noptx_D_128x128x32_t256_kc2048_s3_fp16_precast/.ninja_deps",
+        "sha256": "de4b1c7bad3e0ff94688d3187e23c9784f4b1bb2abe445ad01d612f16c492f45",
+        "size": 630972
+      },
+      {
+        "path": "torch_extensions/noptx_D_128x128x32_t256_kc2048_s3_fp16_precast/.ninja_log",
+        "sha256": "54a750c63901a58b4f6c226ee7cc7fc136e44b8cb9b3999faa814776ae900b19",
+        "size": 222
+      },
+      {
+        "path": "torch_extensions/noptx_D_128x128x32_t256_kc2048_s3_fp16_precast/build.ninja",
+        "sha256": "9af29ed10b6b1f7df52348a32b5dfc77bc9289bbf0dc6acc0ce7b5255105f58f",
+        "size": 2434
+      },
+      {
+        "path": "torch_extensions/noptx_D_128x128x32_t256_kc2048_s3_fp16_precast/cuda.cu",
+        "sha256": "3a8cff4c912e06c19263582d44822026b0fb1c335c9f78468d1782bed06e985a",
+        "size": 16028
+      },
+      {
+        "path": "torch_extensions/noptx_D_128x128x32_t256_kc2048_s3_fp16_precast/cuda.cuda.o",
+        "sha256": "1b13589c9306a19cb7646f68d93a8c5626b72b6492668cb7e3998e22d49ca50d",
+        "size": 240248
+      },
+      {
+        "path": "torch_extensions/noptx_D_128x128x32_t256_kc2048_s3_fp16_precast/main.cpp",
+        "sha256": "6c62c3aa2d67a20c357e754c8de855848279dedeea7f301f4c1a778d1ee5f72a",
+        "size": 214
+      },
+      {
+        "path": "torch_extensions/noptx_D_128x128x32_t256_kc2048_s3_fp16_precast/main.o",
+        "sha256": "35f83b9cb7ab4cf11d158a2fdf0058159bc0310dc1f2040e6b7bd534394dcd3b",
+        "size": 2152656
+      },
+      {
+        "path": "torch_extensions/noptx_D_128x128x32_t256_kc2048_s3_fp16_precast/noptx_D_128x128x32_t256_kc2048_s3_fp16_precast.so",
+        "sha256": "d8c02f9dd21c05b786cfd1ea85c0fa6a84fa871002ad93bdd6b56991d37926e0",
+        "size": 1368848
+      }
+    ],
+    "files_sha256": "0f7c0f39502db0a85806785705207d25477d6394d6d978857c6b23fd5bbd6e7c",
+    "generated_sources": [
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_788714f21a6c/cuda.cu",
+        "sha256": "ad7b36bb242709682f01c98a9300e1e2acb1e0a7089efa206d4a9c7aad19a7db",
+        "size": 3665
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_788714f21a6c/main.cpp",
+        "sha256": "70fda7e9ebc6feb970681bfd6fdd9814aef02d2d31c1659f88bd825bb5c821a1",
+        "size": 277
+      },
+      {
+        "path": "torch_extensions/noptx_D_128x128x32_t256_kc2048_s3_fp16_precast/cuda.cu",
+        "sha256": "3a8cff4c912e06c19263582d44822026b0fb1c335c9f78468d1782bed06e985a",
+        "size": 16028
+      },
+      {
+        "path": "torch_extensions/noptx_D_128x128x32_t256_kc2048_s3_fp16_precast/main.cpp",
+        "sha256": "6c62c3aa2d67a20c357e754c8de855848279dedeea7f301f4c1a778d1ee5f72a",
+        "size": 214
+      }
+    ],
+    "loadable_code_objects": [
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_788714f21a6c/fused_crossed_v2_pp_788714f21a6c.so",
+        "sha256": "bd2c01f73d87aa2aa046dba6022b08f542773cf22088ccc5766a0d00ea912a8f",
+        "size": 1363464
+      },
+      {
+        "path": "torch_extensions/noptx_D_128x128x32_t256_kc2048_s3_fp16_precast/noptx_D_128x128x32_t256_kc2048_s3_fp16_precast.so",
+        "sha256": "d8c02f9dd21c05b786cfd1ea85c0fa6a84fa871002ad93bdd6b56991d37926e0",
+        "size": 1368848
+      }
+    ]
+  },
+  "campaign_id": "native-trajectory-replication-ada-v3",
+  "cell_id": "global_intermediate.cuda_noptx.g01",
+  "config": {
+    "BK": 32,
+    "BM": 128,
+    "BN": 128,
+    "K": 8192,
+    "M": 1024,
+    "N": 8192,
+    "arith": "fp16",
+    "cast": "precast",
+    "dsl": "cuda_noptx",
+    "extra": {},
+    "input_dtype": "torch.float16",
+    "kc": 2048,
+    "stages": 3,
+    "threads": 256,
+    "variant": "D"
+  },
+  "correctness": {
+    "budget_mean": 0.00010001220703127959,
+    "err_q100": 1.525913830846548e-07,
+    "err_q50": 3.179593477398157e-09,
+    "err_q90": 1.1918018572032452e-08,
+    "err_q99": 2.713932190090418e-08,
+    "err_q999": 4.5649358071386814e-08,
+    "gate_pass": true,
+    "max_abs_err": 1.525913830846548e-07,
+    "mean_abs_err": 5.038479120034189e-09,
+    "pct_elems_failing_gate": 0.0,
+    "ref_abs_mean": 0.00012207031279582326,
+    "signed_mean_err": -1.4300366446562407e-13
+  },
+  "n_kernels": 2,
+  "performance_observations": [],
+  "record_type": "native_trajectory_replication_ada_artifact_build_record",
+  "schema_version": 1,
+  "source_build_metadata": {
+    "artifacts": {
+      "gemm": {
+        "backend_detail": "nvcuda::wmma 16x16x16 half x half -> float accumulator; warp grid 2x4, warp tile 64x32 (4x2 fragments/warp), smem ldm A=40 B=136 halfs; kc flush every 64 BK-tiles into a plain float[4x2][8] register array via fragment.x[] + fill_fragment(0); loads = __pipeline_memcpy_async x 3 buffers | zero inline PTX (asserted at build time)",
+        "block": "(256,1,1)",
+        "cu_path": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/global_intermediate__cuda_noptx__g01/runtime_tmp/fused_epilogue_crossed_v2/pid158615/global_intermediate.cuda_noptx.g01/phase1/cuda_noptx/noptx_D_128x128x32_t256_kc2048_s3_fp16_precast.cu",
+        "cubin_path": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/global_intermediate__cuda_noptx__g01/runtime_tmp/fused_epilogue_crossed_v2/pid158615/global_intermediate.cuda_noptx.g01/phase1/cuda_noptx/noptx_D_128x128x32_t256_kc2048_s3_fp16_precast.cubin",
+        "cuda_source": "#define ARITH_FP32 0\n#define ON_LOAD 0\n#define USE_ASYNC 1\n#define KC_TILES 64\n#define STAGES 3\n#define WARPS_M 2\n#define WARPS_N 4\n#define WMT 64\n#define WNT 32\n#define NMF 4\n#define NNF 2\n#define LDA 40\n#define LDB 136\n#define FRAG_ELEMS 8\n#define M_ 1024\n#define N_ 8192\n#define K_ 8192\n#define BM 128\n#define BN 128\n#define BK 32\n#define THREADS 256\n#define SMEM_BYTES 56832\n#define GTYPE half\n#define TORCH_GTYPE torch::kHalf\n\n#include <cuda_fp16.h>\n#include <mma.h>\n#include <cuda_pipeline.h>\n\n#if ARITH_FP32\n/* =======================================================================\n   Variant A -- scalar register-tiled SGEMM on the CUDA cores.\n   No <mma.h> type is instantiated anywhere on this path: the multiply is a\n   plain `acc += a*b` on floats, so ptxas emits FFMA and the SASS contains\n   zero HMMA.\n   ===================================================================== */\n\n__device__ __forceinline__ void loadA_f32(const float* __restrict__ Ag,\n                                          float* __restrict__ As,\n                                          int bm, int k0, int tid) {\n    constexpr int VPR = BK / 4;          /* float4 per A-tile row */\n    constexpr int NV  = BM * BK / 4;\n    for (int g = tid; g < NV; g += THREADS) {\n        const int r = g / VPR, c = g % VPR;\n        const float4 v = *reinterpret_cast<const float4*>(&Ag[(bm + r) * K_ + k0 + c * 4]);\n        /* transposed into As[k][m] so the inner loop reads m contiguously */\n        As[(c * 4 + 0) * BM + r] = v.x;\n        As[(c * 4 + 1) * BM + r] = v.y;\n        As[(c * 4 + 2) * BM + r] = v.z;\n        As[(c * 4 + 3) * BM + r] = v.w;\n    }\n}\n\n__device__ __forceinline__ void loadB_f32(const float* __restrict__ Bg,\n                                          float* __restrict__ Bs,\n                                          int bn, int k0, int tid) {\n    constexpr int VPR = BN / 4;\n    constexpr int NV  = BK * BN / 4;\n    for (int g = tid; g < NV; g += THREADS) {\n        const int r = g / VPR, c = g % VPR;\n        const float4 v = *reinterpret_cast<const float4*>(&Bg[(k0 + r) * N_ + bn + c * 4]);\n        *reinterpret_cast<float4*>(&Bs[r * BN + c * 4]) = v;\n    }\n}\n\n__device__ __forceinline__ void compute_f32(const float* __restrict__ As,\n                                            const float* __restrict__ Bs,\n                                            float (&acc)[TM][TN],\n                                            int trow, int tcol) {\n#pragma unroll\n    for (int k = 0; k < BK; ++k) {\n        float ra[TM], rb[TN];\n#pragma unroll\n        for (int i = 0; i < TM; ++i) ra[i] = As[k * BM + trow * TM + i];\n#pragma unroll\n        for (int j = 0; j < TN; ++j) rb[j] = Bs[k * BN + tcol * TN + j];\n#pragma unroll\n        for (int i = 0; i < TM; ++i) {\n#pragma unroll\n            for (int j = 0; j < TN; ++j) acc[i][j] += ra[i] * rb[j];   /* FFMA */\n        }\n    }\n}\n\n__global__ __launch_bounds__(THREADS)\nvoid gemm_kernel(const float* __restrict__ Ag,\n                 const float* __restrict__ Bg,\n                 float* __restrict__ Cg) {\n    extern __shared__ __align__(16) char smem_raw[];\n    float* As = reinterpret_cast<float*>(smem_raw);\n    float* Bs = As + STAGES * BK * BM;\n\n    const int tid  = threadIdx.x;\n    const int trow = tid / TNT;\n    const int tcol = tid % TNT;\n    const int bm = blockIdx.y * BM;\n    const int bn = blockIdx.x * BN;\n\n    float acc[TM][TN];\n#pragma unroll\n    for (int i = 0; i < TM; ++i) {\n#pragma unroll\n        for (int j = 0; j < TN; ++j) acc[i][j] = 0.0f;\n    }\n\n    constexpr int NK = K_ / BK;\n\n#if STAGES == 1\n    /* pipeline OFF: single buffer, __syncthreads()-separated */\n    for (int i = 0; i < NK; ++i) {\n        __syncthreads();\n        loadA_f32(Ag, As, bm, i * BK, tid);\n        loadB_f32(Bg, Bs, bn, i * BK, tid);\n        __syncthreads();\n        compute_f32(As, Bs, acc, trow, tcol);\n    }\n#else\n#pragma unroll\n    for (int j = 0; j < STAGES - 1; ++j) {\n        loadA_f32(Ag, As + j * BK * BM, bm, j * BK, tid);\n        loadB_f32(Bg, Bs + j * BK * BN, bn, j * BK, tid);\n    }\n    __syncthreads();\n    for (int i = 0; i < NK; ++i) {\n        compute_f32(As + (i % STAGES) * BK * BM, Bs + (i % STAGES) * BK * BN,\n                    acc, trow, tcol);\n        const int nxt = i + STAGES - 1;\n        if (nxt < NK) {\n            const int b = nxt % STAGES;\n            loadA_f32(Ag, As + b * BK * BM, bm, nxt * BK, tid);\n            loadB_f32(Bg, Bs + b * BK * BN, bn, nxt * BK, tid);\n        }\n        __syncthreads();\n    }\n#endif\n\n#pragma unroll\n    for (int i = 0; i < TM; ++i) {\n        const int r = bm + trow * TM + i;\n#pragma unroll\n        for (int j = 0; j < TN; j += 4) {\n            float4 v;\n            v.x = acc[i][j + 0]; v.y = acc[i][j + 1];\n            v.z = acc[i][j + 2]; v.w = acc[i][j + 3];\n            *reinterpret_cast<float4*>(&Cg[r * N_ + bn + tcol * TN + j]) = v;\n        }\n    }\n}\n\n#else  /* ---------------------------------------------------------------- */\n/* =======================================================================\n   Variants B / C / D -- nvcuda::wmma 16x16x16, half operands, float\n   accumulator.  No inline PTX: mma.sync is emitted by the <mma.h> intrinsics,\n   cp.async by __pipeline_memcpy_async.\n   ===================================================================== */\nusing namespace nvcuda;\n\ntypedef wmma::fragment<wmma::matrix_a, 16, 16, 16, half, wmma::row_major> FragA;\ntypedef wmma::fragment<wmma::matrix_b, 16, 16, 16, half, wmma::row_major> FragB;\ntypedef wmma::fragment<wmma::accumulator, 16, 16, 16, float>              FragC;\n\n#if ON_LOAD\n/* fp32 global -> fp16 shared, converted on the way in (cast=on_load) */\n__device__ __forceinline__ void loadA_h(const float* __restrict__ Ag,\n                                        half* __restrict__ As,\n                                        int bm, int k0, int tid) {\n    constexpr int VPR = BK / 4;\n    constexpr int NV  = BM * BK / 4;\n    for (int g = tid; g < NV; g += THREADS) {\n        const int r = g / VPR, c = g % VPR;\n        const float4 v = *reinterpret_cast<const float4*>(&Ag[(bm + r) * K_ + k0 + c * 4]);\n        half* d = As + r * LDA + c * 4;\n        *reinterpret_cast<__half2*>(d + 0) = __floats2half2_rn(v.x, v.y);\n        *reinterpret_cast<__half2*>(d + 2) = __floats2half2_rn(v.z, v.w);\n    }\n}\n__device__ __forceinline__ void loadB_h(const float* __restrict__ Bg,\n                                        half* __restrict__ Bs,\n                                        int bn, int k0, int tid) {\n    constexpr int VPR = BN / 4;\n    constexpr int NV  = BK * BN / 4;\n    for (int g = tid; g < NV; g += THREADS) {\n        const int r = g / VPR, c = g % VPR;\n        const float4 v = *reinterpret_cast<const float4*>(&Bg[(k0 + r) * N_ + bn + c * 4]);\n        half* d = Bs + r * LDB + c * 4;\n        *reinterpret_cast<__half2*>(d + 0) = __floats2half2_rn(v.x, v.y);\n        *reinterpret_cast<__half2*>(d + 2) = __floats2half2_rn(v.z, v.w);\n    }\n}\n#else\n/* fp16 global -> fp16 shared, 16-byte granules */\n__device__ __forceinline__ void loadA_h(const half* __restrict__ Ag,\n                                        half* __restrict__ As,\n                                        int bm, int k0, int tid) {\n    constexpr int VPR = BK / 8;\n    constexpr int NV  = BM * BK / 8;\n    for (int g = tid; g < NV; g += THREADS) {\n        const int r = g / VPR, c = g % VPR;\n        *reinterpret_cast<uint4*>(As + r * LDA + c * 8) =\n            *reinterpret_cast<const uint4*>(&Ag[(bm + r) * K_ + k0 + c * 8]);\n    }\n}\n__device__ __forceinline__ void loadB_h(const half* __restrict__ Bg,\n                                        half* __restrict__ Bs,\n                                        int bn, int k0, int tid) {\n    constexpr int VPR = BN / 8;\n    constexpr int NV  = BK * BN / 8;\n    for (int g = tid; g < NV; g += THREADS) {\n        const int r = g / VPR, c = g % VPR;\n        *reinterpret_cast<uint4*>(Bs + r * LDB + c * 8) =\n            *reinterpret_cast<const uint4*>(&Bg[(k0 + r) * N_ + bn + c * 8]);\n    }\n}\n#if USE_ASYNC\n__device__ __forceinline__ void loadA_async(const half* __restrict__ Ag,\n                                            half* __restrict__ As,\n                                            int bm, int k0, int tid) {\n    constexpr int VPR = BK / 8;\n    constexpr int NV  = BM * BK / 8;\n    for (int g = tid; g < NV; g += THREADS) {\n        const int r = g / VPR, c = g % VPR;\n        __pipeline_memcpy_async(As + r * LDA + c * 8,\n                                &Ag[(bm + r) * K_ + k0 + c * 8], 16);\n    }\n}\n__device__ __forceinline__ void loadB_async(const half* __restrict__ Bg,\n                                            half* __restrict__ Bs,\n                                            int bn, int k0, int tid) {\n    constexpr int VPR = BN / 8;\n    constexpr int NV  = BK * BN / 8;\n    for (int g = tid; g < NV; g += THREADS) {\n        const int r = g / VPR, c = g % VPR;\n        __pipeline_memcpy_async(Bs + r * LDB + c * 8,\n                                &Bg[(k0 + r) * N_ + bn + c * 8], 16);\n    }\n}\n#endif\n#endif\n\n__device__ __forceinline__ void compute_h(const half* __restrict__ As,\n                                          const half* __restrict__ Bs,\n                                          FragC (&acc)[NMF][NNF],\n                                          int wm, int wn) {\n#pragma unroll\n    for (int kk = 0; kk < BK / 16; ++kk) {\n        FragA af[NMF];\n        FragB bf[NNF];\n#pragma unroll\n        for (int i = 0; i < NMF; ++i)\n            wmma::load_matrix_sync(af[i], As + (wm * WMT + i * 16) * LDA + kk * 16, LDA);\n#pragma unroll\n        for (int j = 0; j < NNF; ++j)\n            wmma::load_matrix_sync(bf[j], Bs + (kk * 16) * LDB + wn * WNT + j * 16, LDB);\n#pragma unroll\n        for (int i = 0; i < NMF; ++i) {\n#pragma unroll\n            for (int j = 0; j < NNF; ++j)\n                wmma::mma_sync(acc[i][j], af[i], bf[j], acc[i][j]);\n        }\n    }\n}\n\n#if KC_TILES > 0\n/* the chunk flush: drain the tensor-core accumulator fragment into a plain\n   fp32 register array and zero the fragment.  fragment::x[] is public API. */\n__device__ __forceinline__ void flush_acc(FragC (&acc)[NMF][NNF],\n                                          float (&c2)[NMF][NNF][FRAG_ELEMS]) {\n#pragma unroll\n    for (int i = 0; i < NMF; ++i) {\n#pragma unroll\n        for (int j = 0; j < NNF; ++j) {\n#pragma unroll\n            for (int e = 0; e < FRAG_ELEMS; ++e) c2[i][j][e] += acc[i][j].x[e];\n            wmma::fill_fragment(acc[i][j], 0.0f);\n        }\n    }\n}\n#endif\n\n__global__ __launch_bounds__(THREADS)\nvoid gemm_kernel(const GTYPE* __restrict__ Ag,\n                 const GTYPE* __restrict__ Bg,\n                 float* __restrict__ Cg) {\n    extern __shared__ __align__(16) char smem_raw[];\n    half* As = reinterpret_cast<half*>(smem_raw);\n    half* Bs = As + STAGES * BM * LDA;\n\n    const int tid  = threadIdx.x;\n    const int warp = tid >> 5;\n    const int wm = warp / WARPS_N;\n    const int wn = warp % WARPS_N;\n    const int bm = blockIdx.y * BM;\n    const int bn = blockIdx.x * BN;\n\n    FragC acc[NMF][NNF];\n#pragma unroll\n    for (int i = 0; i < NMF; ++i) {\n#pragma unroll\n        for (int j = 0; j < NNF; ++j) wmma::fill_fragment(acc[i][j], 0.0f);\n    }\n#if KC_TILES > 0\n    float c2[NMF][NNF][FRAG_ELEMS];\n#pragma unroll\n    for (int i = 0; i < NMF; ++i) {\n#pragma unroll\n        for (int j = 0; j < NNF; ++j) {\n#pragma unroll\n            for (int e = 0; e < FRAG_ELEMS; ++e) c2[i][j][e] = 0.0f;\n        }\n    }\n#endif\n\n    constexpr int NK = K_ / BK;\n\n#if STAGES == 1\n    /* pipeline OFF: one shared buffer, synchronous __syncthreads()-separated */\n    for (int i = 0; i < NK; ++i) {\n        __syncthreads();\n        loadA_h(Ag, As, bm, i * BK, tid);\n        loadB_h(Bg, Bs, bn, i * BK, tid);\n        __syncthreads();\n        compute_h(As, Bs, acc, wm, wn);\n#if KC_TILES > 0\n        if (((i + 1) % KC_TILES) == 0) flush_acc(acc, c2);\n#endif\n    }\n#elif USE_ASYNC\n    /* STAGES-deep software pipeline built from __pipeline_memcpy_async\n       (a CUDA intrinsic; no inline PTX).  STAGES-1 tiles are in flight. */\n#pragma unroll\n    for (int j = 0; j < STAGES - 1; ++j) {\n        loadA_async(Ag, As + j * BM * LDA, bm, j * BK, tid);\n        loadB_async(Bg, Bs + j * BK * LDB, bn, j * BK, tid);\n        __pipeline_commit();\n    }\n    for (int i = 0; i < NK; ++i) {\n        __pipeline_wait_prior(STAGES - 2);\n        __syncthreads();\n        compute_h(As + (i % STAGES) * BM * LDA,\n                  Bs + (i % STAGES) * BK * LDB, acc, wm, wn);\n        __syncthreads();\n        const int nxt = i + STAGES - 1;\n        if (nxt < NK) {\n            const int b = nxt % STAGES;\n            loadA_async(Ag, As + b * BM * LDA, bm, nxt * BK, tid);\n            loadB_async(Bg, Bs + b * BK * LDB, bn, nxt * BK, tid);\n        }\n        __pipeline_commit();\n#if KC_TILES > 0\n        if (((i + 1) % KC_TILES) == 0) flush_acc(acc, c2);\n#endif\n    }\n#else\n    /* on_load + stages>1: cp.async cannot convert fp32->fp16 in flight, so the\n       pipeline is STAGES shared buffers with the tile-(i+STAGES-1) global load\n       issued at iteration i (the converting store lands in a buffer nobody is\n       reading).  Same depth, register-staged by the scheduler instead of DMA. */\n#pragma unroll\n    for (int j = 0; j < STAGES - 1; ++j) {\n        loadA_h(Ag, As + j * BM * LDA, bm, j * BK, tid);\n        loadB_h(Bg, Bs + j * BK * LDB, bn, j * BK, tid);\n    }\n    __syncthreads();\n    for (int i = 0; i < NK; ++i) {\n        compute_h(As + (i % STAGES) * BM * LDA,\n                  Bs + (i % STAGES) * BK * LDB, acc, wm, wn);\n        const int nxt = i + STAGES - 1;\n        if (nxt < NK) {\n            const int b = nxt % STAGES;\n            loadA_h(Ag, As + b * BM * LDA, bm, nxt * BK, tid);\n            loadB_h(Bg, Bs + b * BK * LDB, bn, nxt * BK, tid);\n        }\n        __syncthreads();\n#if KC_TILES > 0\n        if (((i + 1) % KC_TILES) == 0) flush_acc(acc, c2);\n#endif\n    }\n#endif\n\n#if KC_TILES > 0\n    if ((NK % KC_TILES) != 0) flush_acc(acc, c2);\n#pragma unroll\n    for (int i = 0; i < NMF; ++i) {\n#pragma unroll\n        for (int j = 0; j < NNF; ++j) {\n#pragma unroll\n            for (int e = 0; e < FRAG_ELEMS; ++e) acc[i][j].x[e] = c2[i][j][e];\n        }\n    }\n#endif\n\n#pragma unroll\n    for (int i = 0; i < NMF; ++i) {\n#pragma unroll\n        for (int j = 0; j < NNF; ++j) {\n            wmma::store_matrix_sync(\n                &Cg[(bm + wm * WMT + i * 16) * N_ + bn + wn * WNT + j * 16],\n                acc[i][j], N_, wmma::mem_row_major);\n        }\n    }\n}\n#endif\n\n#include <torch/extension.h>\n#include <ATen/cuda/CUDAContext.h>\n#include <c10/cuda/CUDAException.h>\n\ntorch::Tensor gemm(torch::Tensor A, torch::Tensor B) {\n    TORCH_CHECK(A.is_cuda() && B.is_cuda(), \"operands must be CUDA tensors\");\n    TORCH_CHECK(A.is_contiguous() && B.is_contiguous(), \"operands must be contiguous\");\n    TORCH_CHECK(A.scalar_type() == TORCH_GTYPE && B.scalar_type() == TORCH_GTYPE,\n                \"operand dtype mismatch for this variant\");\n    TORCH_CHECK(A.size(0) == M_ && A.size(1) == K_, \"A shape\");\n    TORCH_CHECK(B.size(0) == K_ && B.size(1) == N_, \"B shape\");\n\n    auto C = torch::empty({M_, N_},\n        torch::TensorOptions().dtype(torch::kFloat32).device(A.device()));\n\n    static bool attr_done = false;\n    if (!attr_done) {\n        cudaError_t e = cudaFuncSetAttribute(\n            (const void*)gemm_kernel,\n            cudaFuncAttributeMaxDynamicSharedMemorySize, SMEM_BYTES);\n        TORCH_CHECK(e == cudaSuccess,\n                    \"cudaFuncSetAttribute(\", SMEM_BYTES, \" bytes smem) failed: \",\n                    cudaGetErrorString(e));\n        attr_done = true;\n    }\n\n    dim3 grid(N_ / BN, M_ / BM);          /* plain 2-D grid, no swizzle */\n    dim3 block(THREADS);\n    gemm_kernel<<<grid, block, SMEM_BYTES, at::cuda::getCurrentCUDAStream()>>>(\n        reinterpret_cast<const GTYPE*>(A.data_ptr()),\n        reinterpret_cast<const GTYPE*>(B.data_ptr()),\n        C.data_ptr<float>());\n    C10_CUDA_KERNEL_LAUNCH_CHECK();\n    return C;\n}\n",
+        "dynamic_smem_bytes": 56832,
+        "epilogue_tile_bytes": null,
+        "ext_name": "noptx_D_128x128x32_t256_kc2048_s3_fp16_precast",
+        "geom_info": {
+          "BK": 32,
+          "BM": 128,
+          "BN": 128,
+          "block": "(256,1,1)",
+          "frags": "4x2",
+          "grid": "(64,8)",
+          "kc_tiles": 64,
+          "pad_halfs": 8,
+          "smem_bytes": 56832,
+          "stages_smem": 3,
+          "threads": 256,
+          "use_async": true,
+          "warp_grid": "2x4",
+          "warp_tile": "64x32"
+        },
+        "grid": "(64,8)",
+        "kernel_source": "#define ARITH_FP32 0\n#define ON_LOAD 0\n#define USE_ASYNC 1\n#define KC_TILES 64\n#define STAGES 3\n#define WARPS_M 2\n#define WARPS_N 4\n#define WMT 64\n#define WNT 32\n#define NMF 4\n#define NNF 2\n#define LDA 40\n#define LDB 136\n#define FRAG_ELEMS 8\n#define M_ 1024\n#define N_ 8192\n#define K_ 8192\n#define BM 128\n#define BN 128\n#define BK 32\n#define THREADS 256\n#define SMEM_BYTES 56832\n#define GTYPE half\n#define TORCH_GTYPE torch::kHalf\n\n#include <cuda_fp16.h>\n#include <mma.h>\n#include <cuda_pipeline.h>\n\n#if ARITH_FP32\n/* =======================================================================\n   Variant A -- scalar register-tiled SGEMM on the CUDA cores.\n   No <mma.h> type is instantiated anywhere on this path: the multiply is a\n   plain `acc += a*b` on floats, so ptxas emits FFMA and the SASS contains\n   zero HMMA.\n   ===================================================================== */\n\n__device__ __forceinline__ void loadA_f32(const float* __restrict__ Ag,\n                                          float* __restrict__ As,\n                                          int bm, int k0, int tid) {\n    constexpr int VPR = BK / 4;          /* float4 per A-tile row */\n    constexpr int NV  = BM * BK / 4;\n    for (int g = tid; g < NV; g += THREADS) {\n        const int r = g / VPR, c = g % VPR;\n        const float4 v = *reinterpret_cast<const float4*>(&Ag[(bm + r) * K_ + k0 + c * 4]);\n        /* transposed into As[k][m] so the inner loop reads m contiguously */\n        As[(c * 4 + 0) * BM + r] = v.x;\n        As[(c * 4 + 1) * BM + r] = v.y;\n        As[(c * 4 + 2) * BM + r] = v.z;\n        As[(c * 4 + 3) * BM + r] = v.w;\n    }\n}\n\n__device__ __forceinline__ void loadB_f32(const float* __restrict__ Bg,\n                                          float* __restrict__ Bs,\n                                          int bn, int k0, int tid) {\n    constexpr int VPR = BN / 4;\n    constexpr int NV  = BK * BN / 4;\n    for (int g = tid; g < NV; g += THREADS) {\n        const int r = g / VPR, c = g % VPR;\n        const float4 v = *reinterpret_cast<const float4*>(&Bg[(k0 + r) * N_ + bn + c * 4]);\n        *reinterpret_cast<float4*>(&Bs[r * BN + c * 4]) = v;\n    }\n}\n\n__device__ __forceinline__ void compute_f32(const float* __restrict__ As,\n                                            const float* __restrict__ Bs,\n                                            float (&acc)[TM][TN],\n                                            int trow, int tcol) {\n#pragma unroll\n    for (int k = 0; k < BK; ++k) {\n        float ra[TM], rb[TN];\n#pragma unroll\n        for (int i = 0; i < TM; ++i) ra[i] = As[k * BM + trow * TM + i];\n#pragma unroll\n        for (int j = 0; j < TN; ++j) rb[j] = Bs[k * BN + tcol * TN + j];\n#pragma unroll\n        for (int i = 0; i < TM; ++i) {\n#pragma unroll\n            for (int j = 0; j < TN; ++j) acc[i][j] += ra[i] * rb[j];   /* FFMA */\n        }\n    }\n}\n\n__global__ __launch_bounds__(THREADS)\nvoid gemm_kernel(const float* __restrict__ Ag,\n                 const float* __restrict__ Bg,\n                 float* __restrict__ Cg) {\n    extern __shared__ __align__(16) char smem_raw[];\n    float* As = reinterpret_cast<float*>(smem_raw);\n    float* Bs = As + STAGES * BK * BM;\n\n    const int tid  = threadIdx.x;\n    const int trow = tid / TNT;\n    const int tcol = tid % TNT;\n    const int bm = blockIdx.y * BM;\n    const int bn = blockIdx.x * BN;\n\n    float acc[TM][TN];\n#pragma unroll\n    for (int i = 0; i < TM; ++i) {\n#pragma unroll\n        for (int j = 0; j < TN; ++j) acc[i][j] = 0.0f;\n    }\n\n    constexpr int NK = K_ / BK;\n\n#if STAGES == 1\n    /* pipeline OFF: single buffer, __syncthreads()-separated */\n    for (int i = 0; i < NK; ++i) {\n        __syncthreads();\n        loadA_f32(Ag, As, bm, i * BK, tid);\n        loadB_f32(Bg, Bs, bn, i * BK, tid);\n        __syncthreads();\n        compute_f32(As, Bs, acc, trow, tcol);\n    }\n#else\n#pragma unroll\n    for (int j = 0; j < STAGES - 1; ++j) {\n        loadA_f32(Ag, As + j * BK * BM, bm, j * BK, tid);\n        loadB_f32(Bg, Bs + j * BK * BN, bn, j * BK, tid);\n    }\n    __syncthreads();\n    for (int i = 0; i < NK; ++i) {\n        compute_f32(As + (i % STAGES) * BK * BM, Bs + (i % STAGES) * BK * BN,\n                    acc, trow, tcol);\n        const int nxt = i + STAGES - 1;\n        if (nxt < NK) {\n            const int b = nxt % STAGES;\n            loadA_f32(Ag, As + b * BK * BM, bm, nxt * BK, tid);\n            loadB_f32(Bg, Bs + b * BK * BN, bn, nxt * BK, tid);\n        }\n        __syncthreads();\n    }\n#endif\n\n#pragma unroll\n    for (int i = 0; i < TM; ++i) {\n        const int r = bm + trow * TM + i;\n#pragma unroll\n        for (int j = 0; j < TN; j += 4) {\n            float4 v;\n            v.x = acc[i][j + 0]; v.y = acc[i][j + 1];\n            v.z = acc[i][j + 2]; v.w = acc[i][j + 3];\n            *reinterpret_cast<float4*>(&Cg[r * N_ + bn + tcol * TN + j]) = v;\n        }\n    }\n}\n\n#else  /* ---------------------------------------------------------------- */\n/* =======================================================================\n   Variants B / C / D -- nvcuda::wmma 16x16x16, half operands, float\n   accumulator.  No inline PTX: mma.sync is emitted by the <mma.h> intrinsics,\n   cp.async by __pipeline_memcpy_async.\n   ===================================================================== */\nusing namespace nvcuda;\n\ntypedef wmma::fragment<wmma::matrix_a, 16, 16, 16, half, wmma::row_major> FragA;\ntypedef wmma::fragment<wmma::matrix_b, 16, 16, 16, half, wmma::row_major> FragB;\ntypedef wmma::fragment<wmma::accumulator, 16, 16, 16, float>              FragC;\n\n#if ON_LOAD\n/* fp32 global -> fp16 shared, converted on the way in (cast=on_load) */\n__device__ __forceinline__ void loadA_h(const float* __restrict__ Ag,\n                                        half* __restrict__ As,\n                                        int bm, int k0, int tid) {\n    constexpr int VPR = BK / 4;\n    constexpr int NV  = BM * BK / 4;\n    for (int g = tid; g < NV; g += THREADS) {\n        const int r = g / VPR, c = g % VPR;\n        const float4 v = *reinterpret_cast<const float4*>(&Ag[(bm + r) * K_ + k0 + c * 4]);\n        half* d = As + r * LDA + c * 4;\n        *reinterpret_cast<__half2*>(d + 0) = __floats2half2_rn(v.x, v.y);\n        *reinterpret_cast<__half2*>(d + 2) = __floats2half2_rn(v.z, v.w);\n    }\n}\n__device__ __forceinline__ void loadB_h(const float* __restrict__ Bg,\n                                        half* __restrict__ Bs,\n                                        int bn, int k0, int tid) {\n    constexpr int VPR = BN / 4;\n    constexpr int NV  = BK * BN / 4;\n    for (int g = tid; g < NV; g += THREADS) {\n        const int r = g / VPR, c = g % VPR;\n        const float4 v = *reinterpret_cast<const float4*>(&Bg[(k0 + r) * N_ + bn + c * 4]);\n        half* d = Bs + r * LDB + c * 4;\n        *reinterpret_cast<__half2*>(d + 0) = __floats2half2_rn(v.x, v.y);\n        *reinterpret_cast<__half2*>(d + 2) = __floats2half2_rn(v.z, v.w);\n    }\n}\n#else\n/* fp16 global -> fp16 shared, 16-byte granules */\n__device__ __forceinline__ void loadA_h(const half* __restrict__ Ag,\n                                        half* __restrict__ As,\n                                        int bm, int k0, int tid) {\n    constexpr int VPR = BK / 8;\n    constexpr int NV  = BM * BK / 8;\n    for (int g = tid; g < NV; g += THREADS) {\n        const int r = g / VPR, c = g % VPR;\n        *reinterpret_cast<uint4*>(As + r * LDA + c * 8) =\n            *reinterpret_cast<const uint4*>(&Ag[(bm + r) * K_ + k0 + c * 8]);\n    }\n}\n__device__ __forceinline__ void loadB_h(const half* __restrict__ Bg,\n                                        half* __restrict__ Bs,\n                                        int bn, int k0, int tid) {\n    constexpr int VPR = BN / 8;\n    constexpr int NV  = BK * BN / 8;\n    for (int g = tid; g < NV; g += THREADS) {\n        const int r = g / VPR, c = g % VPR;\n        *reinterpret_cast<uint4*>(Bs + r * LDB + c * 8) =\n            *reinterpret_cast<const uint4*>(&Bg[(k0 + r) * N_ + bn + c * 8]);\n    }\n}\n#if USE_ASYNC\n__device__ __forceinline__ void loadA_async(const half* __restrict__ Ag,\n                                            half* __restrict__ As,\n                                            int bm, int k0, int tid) {\n    constexpr int VPR = BK / 8;\n    constexpr int NV  = BM * BK / 8;\n    for (int g = tid; g < NV; g += THREADS) {\n        const int r = g / VPR, c = g % VPR;\n        __pipeline_memcpy_async(As + r * LDA + c * 8,\n                                &Ag[(bm + r) * K_ + k0 + c * 8], 16);\n    }\n}\n__device__ __forceinline__ void loadB_async(const half* __restrict__ Bg,\n                                            half* __restrict__ Bs,\n                                            int bn, int k0, int tid) {\n    constexpr int VPR = BN / 8;\n    constexpr int NV  = BK * BN / 8;\n    for (int g = tid; g < NV; g += THREADS) {\n        const int r = g / VPR, c = g % VPR;\n        __pipeline_memcpy_async(Bs + r * LDB + c * 8,\n                                &Bg[(k0 + r) * N_ + bn + c * 8], 16);\n    }\n}\n#endif\n#endif\n\n__device__ __forceinline__ void compute_h(const half* __restrict__ As,\n                                          const half* __restrict__ Bs,\n                                          FragC (&acc)[NMF][NNF],\n                                          int wm, int wn) {\n#pragma unroll\n    for (int kk = 0; kk < BK / 16; ++kk) {\n        FragA af[NMF];\n        FragB bf[NNF];\n#pragma unroll\n        for (int i = 0; i < NMF; ++i)\n            wmma::load_matrix_sync(af[i], As + (wm * WMT + i * 16) * LDA + kk * 16, LDA);\n#pragma unroll\n        for (int j = 0; j < NNF; ++j)\n            wmma::load_matrix_sync(bf[j], Bs + (kk * 16) * LDB + wn * WNT + j * 16, LDB);\n#pragma unroll\n        for (int i = 0; i < NMF; ++i) {\n#pragma unroll\n            for (int j = 0; j < NNF; ++j)\n                wmma::mma_sync(acc[i][j], af[i], bf[j], acc[i][j]);\n        }\n    }\n}\n\n#if KC_TILES > 0\n/* the chunk flush: drain the tensor-core accumulator fragment into a plain\n   fp32 register array and zero the fragment.  fragment::x[] is public API. */\n__device__ __forceinline__ void flush_acc(FragC (&acc)[NMF][NNF],\n                                          float (&c2)[NMF][NNF][FRAG_ELEMS]) {\n#pragma unroll\n    for (int i = 0; i < NMF; ++i) {\n#pragma unroll\n        for (int j = 0; j < NNF; ++j) {\n#pragma unroll\n            for (int e = 0; e < FRAG_ELEMS; ++e) c2[i][j][e] += acc[i][j].x[e];\n            wmma::fill_fragment(acc[i][j], 0.0f);\n        }\n    }\n}\n#endif\n\n__global__ __launch_bounds__(THREADS)\nvoid gemm_kernel(const GTYPE* __restrict__ Ag,\n                 const GTYPE* __restrict__ Bg,\n                 float* __restrict__ Cg) {\n    extern __shared__ __align__(16) char smem_raw[];\n    half* As = reinterpret_cast<half*>(smem_raw);\n    half* Bs = As + STAGES * BM * LDA;\n\n    const int tid  = threadIdx.x;\n    const int warp = tid >> 5;\n    const int wm = warp / WARPS_N;\n    const int wn = warp % WARPS_N;\n    const int bm = blockIdx.y * BM;\n    const int bn = blockIdx.x * BN;\n\n    FragC acc[NMF][NNF];\n#pragma unroll\n    for (int i = 0; i < NMF; ++i) {\n#pragma unroll\n        for (int j = 0; j < NNF; ++j) wmma::fill_fragment(acc[i][j], 0.0f);\n    }\n#if KC_TILES > 0\n    float c2[NMF][NNF][FRAG_ELEMS];\n#pragma unroll\n    for (int i = 0; i < NMF; ++i) {\n#pragma unroll\n        for (int j = 0; j < NNF; ++j) {\n#pragma unroll\n            for (int e = 0; e < FRAG_ELEMS; ++e) c2[i][j][e] = 0.0f;\n        }\n    }\n#endif\n\n    constexpr int NK = K_ / BK;\n\n#if STAGES == 1\n    /* pipeline OFF: one shared buffer, synchronous __syncthreads()-separated */\n    for (int i = 0; i < NK; ++i) {\n        __syncthreads();\n        loadA_h(Ag, As, bm, i * BK, tid);\n        loadB_h(Bg, Bs, bn, i * BK, tid);\n        __syncthreads();\n        compute_h(As, Bs, acc, wm, wn);\n#if KC_TILES > 0\n        if (((i + 1) % KC_TILES) == 0) flush_acc(acc, c2);\n#endif\n    }\n#elif USE_ASYNC\n    /* STAGES-deep software pipeline built from __pipeline_memcpy_async\n       (a CUDA intrinsic; no inline PTX).  STAGES-1 tiles are in flight. */\n#pragma unroll\n    for (int j = 0; j < STAGES - 1; ++j) {\n        loadA_async(Ag, As + j * BM * LDA, bm, j * BK, tid);\n        loadB_async(Bg, Bs + j * BK * LDB, bn, j * BK, tid);\n        __pipeline_commit();\n    }\n    for (int i = 0; i < NK; ++i) {\n        __pipeline_wait_prior(STAGES - 2);\n        __syncthreads();\n        compute_h(As + (i % STAGES) * BM * LDA,\n                  Bs + (i % STAGES) * BK * LDB, acc, wm, wn);\n        __syncthreads();\n        const int nxt = i + STAGES - 1;\n        if (nxt < NK) {\n            const int b = nxt % STAGES;\n            loadA_async(Ag, As + b * BM * LDA, bm, nxt * BK, tid);\n            loadB_async(Bg, Bs + b * BK * LDB, bn, nxt * BK, tid);\n        }\n        __pipeline_commit();\n#if KC_TILES > 0\n        if (((i + 1) % KC_TILES) == 0) flush_acc(acc, c2);\n#endif\n    }\n#else\n    /* on_load + stages>1: cp.async cannot convert fp32->fp16 in flight, so the\n       pipeline is STAGES shared buffers with the tile-(i+STAGES-1) global load\n       issued at iteration i (the converting store lands in a buffer nobody is\n       reading).  Same depth, register-staged by the scheduler instead of DMA. */\n#pragma unroll\n    for (int j = 0; j < STAGES - 1; ++j) {\n        loadA_h(Ag, As + j * BM * LDA, bm, j * BK, tid);\n        loadB_h(Bg, Bs + j * BK * LDB, bn, j * BK, tid);\n    }\n    __syncthreads();\n    for (int i = 0; i < NK; ++i) {\n        compute_h(As + (i % STAGES) * BM * LDA,\n                  Bs + (i % STAGES) * BK * LDB, acc, wm, wn);\n        const int nxt = i + STAGES - 1;\n        if (nxt < NK) {\n            const int b = nxt % STAGES;\n            loadA_h(Ag, As + b * BM * LDA, bm, nxt * BK, tid);\n            loadB_h(Bg, Bs + b * BK * LDB, bn, nxt * BK, tid);\n        }\n        __syncthreads();\n#if KC_TILES > 0\n        if (((i + 1) % KC_TILES) == 0) flush_acc(acc, c2);\n#endif\n    }\n#endif\n\n#if KC_TILES > 0\n    if ((NK % KC_TILES) != 0) flush_acc(acc, c2);\n#pragma unroll\n    for (int i = 0; i < NMF; ++i) {\n#pragma unroll\n        for (int j = 0; j < NNF; ++j) {\n#pragma unroll\n            for (int e = 0; e < FRAG_ELEMS; ++e) acc[i][j].x[e] = c2[i][j][e];\n        }\n    }\n#endif\n\n#pragma unroll\n    for (int i = 0; i < NMF; ++i) {\n#pragma unroll\n        for (int j = 0; j < NNF; ++j) {\n            wmma::store_matrix_sync(\n                &Cg[(bm + wm * WMT + i * 16) * N_ + bn + wn * WNT + j * 16],\n                acc[i][j], N_, wmma::mem_row_major);\n        }\n    }\n}\n#endif\n",
+        "n_regs": 166,
+        "n_spills": 0,
+        "operand_smem_bytes": 56832,
+        "ptxas_log": "ptxas info    : 0 bytes gmem\nptxas info    : Compiling entry function '_Z11gemm_kernelPK6__halfS1_Pf' for 'sm_89'\nptxas info    : Function properties for _Z11gemm_kernelPK6__halfS1_Pf\n    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads\nptxas info    : Used 166 registers, used 1 barriers, 376 bytes cmem[0]\nptxas info    : Compile time = 36.307 ms",
+        "sass_ffma_count": 0,
+        "sass_hmma_count": 32,
+        "sass_imma_count": 0,
+        "sass_ldgsts_count": 42,
+        "sass_path": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/global_intermediate__cuda_noptx__g01/runtime_tmp/fused_epilogue_crossed_v2/pid158615/global_intermediate.cuda_noptx.g01/phase1/cuda_noptx/noptx_D_128x128x32_t256_kc2048_s3_fp16_precast.sass",
+        "shared_bytes": 56832,
+        "stack_frame_bytes": 0,
+        "total_dynamic_shared_bytes": 56832,
+        "total_dynamic_smem_bytes": 56832
+      },
+      "postprocess": {
+        "backend_detail": "common CUDA compile-time bias/GELU plus row-softmax",
+        "block": [
+          256,
+          1,
+          1
+        ],
+        "cuda_source_sha256": "788714f21a6cbe343a81b997a03928ad7965599c58aa87c1a1129b41333e8368",
+        "epilogue_tile_bytes": 0,
+        "grid": [
+          1024,
+          1,
+          1
+        ],
+        "has_bias": true,
+        "has_gelu": true,
+        "n_kernels": 1,
+        "operand_smem_bytes": 0,
+        "shared_bytes": 0,
+        "softmax_source_sha256": "758a6ad3dc8f4635cd1146dd9c6fd102b590410ce4f710c10c72f470d2bbf96f",
+        "total_dynamic_shared_bytes": 0
+      },
+      "strategy": "global_intermediate"
+    },
+    "builder": "phase1:cuda_noptx+crossed-v2:common-postprocess",
+    "common_softmax_source_sha256": "758a6ad3dc8f4635cd1146dd9c6fd102b590410ce4f710c10c72f470d2bbf96f",
+    "implementation_sha256": "5861e0a75526b07cf528f9a815ea7f116586e665cf9b1c5f2744b91212b65437",
+    "isolated_artifact_root": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/global_intermediate__cuda_noptx__g01/runtime_tmp/fused_epilogue_crossed_v2/pid158615/global_intermediate.cuda_noptx.g01",
+    "n_kernels": 2,
+    "notes": "lane-native GEMM plus common bias+exact-GELU+softmax"
+  },
+  "torch_inline_requests": [
+    {
+      "module": {
+        "path": "torch_extensions/noptx_D_128x128x32_t256_kc2048_s3_fp16_precast/noptx_D_128x128x32_t256_kc2048_s3_fp16_precast.so",
+        "sha256": "d8c02f9dd21c05b786cfd1ea85c0fa6a84fa871002ad93bdd6b56991d37926e0",
+        "size": 1368848
+      },
+      "request": {
+        "compile_options": {
+          "extra_cflags": null,
+          "extra_cuda_cflags": [
+            "-O3",
+            "-std=c++17",
+            "-Xptxas=-v",
+            "-gencode=arch=compute_89,code=sm_89"
+          ],
+          "extra_include_paths": null,
+          "extra_ldflags": null,
+          "extra_sycl_cflags": null,
+          "is_python_module": true,
+          "keep_intermediates": true,
+          "no_implicit_headers": false,
+          "use_pch": false,
+          "with_cuda": null,
+          "with_pytorch_error_handling": true,
+          "with_sycl": null
+        },
+        "cpp_sources": [
+          {
+            "sha256": "d100ffe51617f26a7ad419cf96a442da89621268e1ae26c86683e08b4b889896",
+            "size": 82
+          }
+        ],
+        "cuda_sources": [
+          {
+            "sha256": "9da6fb9d0c049858746db26f9f0b37266429db692e8278ee30da05afee91aff1",
+            "size": 15959
+          }
+        ],
+        "functions": [
+          "gemm"
+        ],
+        "name": "noptx_D_128x128x32_t256_kc2048_s3_fp16_precast",
+        "sycl_sources": []
+      }
+    },
+    {
+      "module": {
+        "path": "torch_extensions/fused_crossed_v2_pp_788714f21a6c/fused_crossed_v2_pp_788714f21a6c.so",
+        "sha256": "bd2c01f73d87aa2aa046dba6022b08f542773cf22088ccc5766a0d00ea912a8f",
+        "size": 1363464
+      },
+      "request": {
+        "compile_options": {
+          "extra_cflags": null,
+          "extra_cuda_cflags": [
+            "-O3",
+            "-std=c++17",
+            "-Xptxas=-v",
+            "-gencode=arch=compute_89,code=sm_89"
+          ],
+          "extra_include_paths": [
+            "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/legacy_cuda_harness_fix"
+          ],
+          "extra_ldflags": null,
+          "extra_sycl_cflags": null,
+          "is_python_module": true,
+          "keep_intermediates": true,
+          "no_implicit_headers": false,
+          "use_pch": false,
+          "with_cuda": true,
+          "with_pytorch_error_handling": true,
+          "with_sycl": null
+        },
+        "cpp_sources": [
+          {
+            "sha256": "4191a213326b6ae0d2a79f3d17e6ba22980bf82f6e0b2fae9bbceeec5939b806",
+            "size": 103
+          }
+        ],
+        "cuda_sources": [
+          {
+            "sha256": "788714f21a6cbe343a81b997a03928ad7965599c58aa87c1a1129b41333e8368",
+            "size": 3596
+          }
+        ],
+        "functions": [
+          "common_postprocess"
+        ],
+        "name": "fused_crossed_v2_pp_788714f21a6c",
+        "sycl_sources": []
+      }
+    }
+  ]
+}

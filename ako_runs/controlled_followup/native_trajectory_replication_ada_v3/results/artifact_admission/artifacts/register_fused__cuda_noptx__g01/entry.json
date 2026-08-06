@@ -1,0 +1,101 @@
+{
+  "admission_row_sha256": "ef4e2d5f3f81ce933311d170f9980bd9aec3b8d6917bde39d0254d2e4cf66f64",
+  "artifact_identity_sha256": "62f8ba011b912d372269fc02f7cadc2e362e159a2f0805ed6c6bdfccebd52ee1",
+  "artifact_sha256": "a2bd31f897520bf4bdb232a3dde37abd141760de821f0fff5b822726ed765e25",
+  "build_record_path": "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/register_fused__cuda_noptx__g01/build_record.json",
+  "build_record_sha256": "bd15716002afdcf794e0bc29f76034deed7d5d88f3abac466237057e40021ddc",
+  "cache": {
+    "cache_root": "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/register_fused__cuda_noptx__g01/cache",
+    "file_count": 8,
+    "files": [
+      {
+        "path": "torch_extensions/crossed_v2_noptx_regs_GBGS_128x128x32_t256_kc2048_s3_82fc0833/.ninja_deps",
+        "sha256": "4c0eda93a1e342cd17ed5ec3b91053e1b487a518e791dcc24efa2a9a6a03d604",
+        "size": 631112
+      },
+      {
+        "path": "torch_extensions/crossed_v2_noptx_regs_GBGS_128x128x32_t256_kc2048_s3_82fc0833/.ninja_log",
+        "sha256": "58a4ddf8f43cdf01c6d60d8a6164959555999954a50af96dae4a6cffcfde939b",
+        "size": 237
+      },
+      {
+        "path": "torch_extensions/crossed_v2_noptx_regs_GBGS_128x128x32_t256_kc2048_s3_82fc0833/build.ninja",
+        "sha256": "8403880fb2db75e69367cc47301dd20ace715b64f992f0c66b15cb18c0c0c63a",
+        "size": 2690
+      },
+      {
+        "path": "torch_extensions/crossed_v2_noptx_regs_GBGS_128x128x32_t256_kc2048_s3_82fc0833/crossed_v2_noptx_regs_GBGS_128x128x32_t256_kc2048_s3_82fc0833.so",
+        "sha256": "522d66bb42041a137779d47ca1f89d81cf65a7aee977a9d1b669e769e24a0070",
+        "size": 1437264
+      },
+      {
+        "path": "torch_extensions/crossed_v2_noptx_regs_GBGS_128x128x32_t256_kc2048_s3_82fc0833/cuda.cu",
+        "sha256": "3f9e6494ae4b6d56db4e192d658f0d3851effb65fd0e96a35dc24da44088a411",
+        "size": 22938
+      },
+      {
+        "path": "torch_extensions/crossed_v2_noptx_regs_GBGS_128x128x32_t256_kc2048_s3_82fc0833/cuda.cuda.o",
+        "sha256": "ce9500d3a5935e84093f34ceacc59d07cddd7f0033abf96e19a7a742bb18dd39",
+        "size": 306448
+      },
+      {
+        "path": "torch_extensions/crossed_v2_noptx_regs_GBGS_128x128x32_t256_kc2048_s3_82fc0833/main.cpp",
+        "sha256": "538ebda47f38b8529bb4e4689b1e25d34f22c70939c3e27693a043f435d0db70",
+        "size": 238
+      },
+      {
+        "path": "torch_extensions/crossed_v2_noptx_regs_GBGS_128x128x32_t256_kc2048_s3_82fc0833/main.o",
+        "sha256": "9b64553768439be56952eb1c26dadddd25ee089a722034cbef824045cfed6040",
+        "size": 2159496
+      }
+    ],
+    "files_sha256": "0beccc62fde25ebc768126c7dea90bb99184b7a05331c60527dcca35c6b1090e",
+    "generated_sources": [
+      {
+        "path": "torch_extensions/crossed_v2_noptx_regs_GBGS_128x128x32_t256_kc2048_s3_82fc0833/cuda.cu",
+        "sha256": "3f9e6494ae4b6d56db4e192d658f0d3851effb65fd0e96a35dc24da44088a411",
+        "size": 22938
+      },
+      {
+        "path": "torch_extensions/crossed_v2_noptx_regs_GBGS_128x128x32_t256_kc2048_s3_82fc0833/main.cpp",
+        "sha256": "538ebda47f38b8529bb4e4689b1e25d34f22c70939c3e27693a043f435d0db70",
+        "size": 238
+      }
+    ],
+    "loadable_code_objects": [
+      {
+        "path": "torch_extensions/crossed_v2_noptx_regs_GBGS_128x128x32_t256_kc2048_s3_82fc0833/crossed_v2_noptx_regs_GBGS_128x128x32_t256_kc2048_s3_82fc0833.so",
+        "sha256": "522d66bb42041a137779d47ca1f89d81cf65a7aee977a9d1b669e769e24a0070",
+        "size": 1437264
+      }
+    ]
+  },
+  "campaign_id": "native-trajectory-replication-ada-v3",
+  "cell_id": "register_fused.cuda_noptx.g01",
+  "config": {
+    "BK": 32,
+    "BM": 128,
+    "BN": 128,
+    "K": 8192,
+    "M": 1024,
+    "N": 8192,
+    "arith": "fp16",
+    "cast": "precast",
+    "dsl": "cuda_noptx",
+    "extra": {
+      "epilogue": "regs",
+      "wcache": "cached"
+    },
+    "input_dtype": "torch.float16",
+    "kc": 2048,
+    "stages": 3,
+    "threads": 256,
+    "variant": "GBGS"
+  },
+  "performance_observations": [],
+  "record_type": "native_trajectory_replication_ada_admitted_artifact",
+  "role": "native_cell",
+  "schema_version": 1,
+  "verify_record_path": "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/register_fused__cuda_noptx__g01/verify_record.json",
+  "verify_record_sha256": "75b68ea442de6eab3abec3c89ea232cb152918510f0c6247f9300d3f4a360b36"
+}

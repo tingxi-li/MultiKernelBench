@@ -1,0 +1,156 @@
+{
+  "admission_row_sha256": "3d2e64a14b38b9e11f2ca0daec970e2b31d53a7ee4309fb78c0698c196519cad",
+  "artifact_identity_sha256": "34db80115c648516ff4cfea593a329997ada11078c5aec5b95546c8a8526f9d3",
+  "artifact_sha256": "55298f33a33cee3bb8cf592de5da9515404074bce6b0bf26fc1b161f6059d737",
+  "build_record_path": "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/register_common_postprocess__cuda_unlimited__g01/build_record.json",
+  "build_record_sha256": "db88f557e91f4d4069c27174bb43c18a9433731118899e8e90fc7e489058bf79",
+  "cache": {
+    "cache_root": "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/register_common_postprocess__cuda_unlimited__g01/cache",
+    "file_count": 16,
+    "files": [
+      {
+        "path": "torch_extensions/crossed_v2_unl_GBG_128x128x32_t256_kc2048_s3_regs_7178eb2e/.ninja_deps",
+        "sha256": "269b2c9ebbbcf727518eb569ca3740ad50de79df0dad72c02c3eb7682aae725a",
+        "size": 630604
+      },
+      {
+        "path": "torch_extensions/crossed_v2_unl_GBG_128x128x32_t256_kc2048_s3_regs_7178eb2e/.ninja_log",
+        "sha256": "4956971cd10f9acd225b1b225524d6c4af12176a15f4d420988f0a04a220017e",
+        "size": 234
+      },
+      {
+        "path": "torch_extensions/crossed_v2_unl_GBG_128x128x32_t256_kc2048_s3_regs_7178eb2e/build.ninja",
+        "sha256": "e3b66a0f2c4cb2c639796bd7be6be74752e9d80a36800034e3be2b0dd9790206",
+        "size": 2706
+      },
+      {
+        "path": "torch_extensions/crossed_v2_unl_GBG_128x128x32_t256_kc2048_s3_regs_7178eb2e/crossed_v2_unl_GBG_128x128x32_t256_kc2048_s3_regs_7178eb2e.so",
+        "sha256": "f2a442861e7f879e6b21cdd4280c47ff8553ac269149dd852c302356c6dd86c0",
+        "size": 1395096
+      },
+      {
+        "path": "torch_extensions/crossed_v2_unl_GBG_128x128x32_t256_kc2048_s3_regs_7178eb2e/cuda.cu",
+        "sha256": "4f4012ab7a0572b4b7ad7c16e831223ab313a71bdaa9cfa846adb9a7a7fcdd5b",
+        "size": 14895
+      },
+      {
+        "path": "torch_extensions/crossed_v2_unl_GBG_128x128x32_t256_kc2048_s3_regs_7178eb2e/cuda.cuda.o",
+        "sha256": "1b6d330622f3d170a4180fecdd30a6a3649c88fd3ab918c515341fa0222a16df",
+        "size": 260616
+      },
+      {
+        "path": "torch_extensions/crossed_v2_unl_GBG_128x128x32_t256_kc2048_s3_regs_7178eb2e/main.cpp",
+        "sha256": "538ebda47f38b8529bb4e4689b1e25d34f22c70939c3e27693a043f435d0db70",
+        "size": 238
+      },
+      {
+        "path": "torch_extensions/crossed_v2_unl_GBG_128x128x32_t256_kc2048_s3_regs_7178eb2e/main.o",
+        "sha256": "a0fec6640ad0bb2fd219213d5191e6759b2ccae9cc2c65159bbbba17438e9f7f",
+        "size": 2159480
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/.ninja_deps",
+        "sha256": "661ee53a0c1424faa59eb07e9d9ad7c08ea4abffb7715a6736ac4217eec12bbb",
+        "size": 630552
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/.ninja_log",
+        "sha256": "55e287ee31dff8648b1fc177a4f5e9916e9932c12c5b4c27b563fdfddadc1b18",
+        "size": 208
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/build.ninja",
+        "sha256": "a392e7b72120799332fba7340169773ec8e470c3b40703322b42a784b80c015b",
+        "size": 2550
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/cuda.cu",
+        "sha256": "4c33965e833e1bb724a1e0a031ebacc23c5e1601ad440c7f38f5f11f454847d0",
+        "size": 3665
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/cuda.cuda.o",
+        "sha256": "b761d433623f74bb10540cb65f01928c1f657b291c862c8af7c609d520c4df69",
+        "size": 216976
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/fused_crossed_v2_pp_c03d2e32b61d.so",
+        "sha256": "1e54f19474ff7a16e23a5a57e0d882f6a80fb437cec74777b81ff305438e85b6",
+        "size": 1351176
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/main.cpp",
+        "sha256": "70fda7e9ebc6feb970681bfd6fdd9814aef02d2d31c1659f88bd825bb5c821a1",
+        "size": 277
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/main.o",
+        "sha256": "5f72645122f1144e1984e77bb9f8534af5e541a51e270cc84ab2e073b04b8e21",
+        "size": 2152608
+      }
+    ],
+    "files_sha256": "f33cefe8ea5523cc29eb4faa5547fe0cada5b2582b82d8d0aed3bd04ce8653d2",
+    "generated_sources": [
+      {
+        "path": "torch_extensions/crossed_v2_unl_GBG_128x128x32_t256_kc2048_s3_regs_7178eb2e/cuda.cu",
+        "sha256": "4f4012ab7a0572b4b7ad7c16e831223ab313a71bdaa9cfa846adb9a7a7fcdd5b",
+        "size": 14895
+      },
+      {
+        "path": "torch_extensions/crossed_v2_unl_GBG_128x128x32_t256_kc2048_s3_regs_7178eb2e/main.cpp",
+        "sha256": "538ebda47f38b8529bb4e4689b1e25d34f22c70939c3e27693a043f435d0db70",
+        "size": 238
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/cuda.cu",
+        "sha256": "4c33965e833e1bb724a1e0a031ebacc23c5e1601ad440c7f38f5f11f454847d0",
+        "size": 3665
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/main.cpp",
+        "sha256": "70fda7e9ebc6feb970681bfd6fdd9814aef02d2d31c1659f88bd825bb5c821a1",
+        "size": 277
+      }
+    ],
+    "loadable_code_objects": [
+      {
+        "path": "torch_extensions/crossed_v2_unl_GBG_128x128x32_t256_kc2048_s3_regs_7178eb2e/crossed_v2_unl_GBG_128x128x32_t256_kc2048_s3_regs_7178eb2e.so",
+        "sha256": "f2a442861e7f879e6b21cdd4280c47ff8553ac269149dd852c302356c6dd86c0",
+        "size": 1395096
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/fused_crossed_v2_pp_c03d2e32b61d.so",
+        "sha256": "1e54f19474ff7a16e23a5a57e0d882f6a80fb437cec74777b81ff305438e85b6",
+        "size": 1351176
+      }
+    ]
+  },
+  "campaign_id": "native-trajectory-replication-ada-v3",
+  "cell_id": "register_common_postprocess.cuda_unlimited.g01",
+  "config": {
+    "BK": 32,
+    "BM": 128,
+    "BN": 128,
+    "K": 8192,
+    "M": 1024,
+    "N": 8192,
+    "arith": "fp16",
+    "cast": "precast",
+    "dsl": "cuda_unlimited",
+    "extra": {
+      "epilogue": "regs",
+      "wcache": "cached"
+    },
+    "input_dtype": "torch.float16",
+    "kc": 2048,
+    "stages": 3,
+    "threads": 256,
+    "variant": "GBG"
+  },
+  "performance_observations": [],
+  "record_type": "native_trajectory_replication_ada_admitted_artifact",
+  "role": "native_cell",
+  "schema_version": 1,
+  "verify_record_path": "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/register_common_postprocess__cuda_unlimited__g01/verify_record.json",
+  "verify_record_sha256": "96ea41db48d7e9f95ac8c5fe522777d9156568d07060ad1a7c713d1ec1f1d95c"
+}

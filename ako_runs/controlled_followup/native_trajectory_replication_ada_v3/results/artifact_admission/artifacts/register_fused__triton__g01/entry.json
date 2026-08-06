@@ -1,0 +1,216 @@
+{
+  "admission_row_sha256": "3c62aff64e1b597c4cea8fa5f2fe6799e89be9767cfb462cd9d8f06d58d1f691",
+  "artifact_identity_sha256": "1f09a9d1d4fd7c348ae6f8947ab6935c84871e07c6f022fb462408b16b3a7b71",
+  "artifact_sha256": "21ef4b5906cba3a84a15f59cca3c8c0477cd804de8abb7fd598f9097c2718d85",
+  "build_record_path": "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/register_fused__triton__g01/build_record.json",
+  "build_record_sha256": "f2d19d96ab7521e14733cca001c52b1231068a4ed1bdd012d765bd2f144a4ee3",
+  "cache": {
+    "cache_root": "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/register_fused__triton__g01/cache",
+    "file_count": 19,
+    "files": [
+      {
+        "path": "triton/AE2VY3L7DPT44BXSE6QQZ7H5TCPFZ62WY33GMPHIV3QHCZYAUDZA/__grp___fused_gemm_kernel.json",
+        "sha256": "7906164e10df80baea166abdb88e6b1e3a43296a2fd5cce870bc6f7d953f9920",
+        "size": 2011
+      },
+      {
+        "path": "triton/AE2VY3L7DPT44BXSE6QQZ7H5TCPFZ62WY33GMPHIV3QHCZYAUDZA/_fused_gemm_kernel.cubin",
+        "sha256": "41146b2140c667f114e56a72bdb94d804a2afce336c1fd9e8e87890112bbea97",
+        "size": 195504
+      },
+      {
+        "path": "triton/AE2VY3L7DPT44BXSE6QQZ7H5TCPFZ62WY33GMPHIV3QHCZYAUDZA/_fused_gemm_kernel.json",
+        "sha256": "0fe8928ff53ea0a7b69edb99c6b6951ab2f5eb2156b8d0f35d9d56faecdd6bda",
+        "size": 1110
+      },
+      {
+        "path": "triton/AE2VY3L7DPT44BXSE6QQZ7H5TCPFZ62WY33GMPHIV3QHCZYAUDZA/_fused_gemm_kernel.llir",
+        "sha256": "cab7e295b2992cd05d5b526116052a5874b5828222d9a0dbb4972e8f05c6c2ce",
+        "size": 465737
+      },
+      {
+        "path": "triton/AE2VY3L7DPT44BXSE6QQZ7H5TCPFZ62WY33GMPHIV3QHCZYAUDZA/_fused_gemm_kernel.ptx",
+        "sha256": "2376e99b709b300f773bb29bf41519d306159d49ca6d548cea3138f64b9f5269",
+        "size": 159993
+      },
+      {
+        "path": "triton/AE2VY3L7DPT44BXSE6QQZ7H5TCPFZ62WY33GMPHIV3QHCZYAUDZA/_fused_gemm_kernel.source",
+        "sha256": "3bb1ce44f3bf5387cb7acb2afff10080885dc6b105cb676c622e37bd39c9200b",
+        "size": 29012
+      },
+      {
+        "path": "triton/AE2VY3L7DPT44BXSE6QQZ7H5TCPFZ62WY33GMPHIV3QHCZYAUDZA/_fused_gemm_kernel.ttgir",
+        "sha256": "921b7916ae0159e2dda68e5cbdad2ef162a78be1517926f73494c09b32acd2f3",
+        "size": 24432
+      },
+      {
+        "path": "triton/AE2VY3L7DPT44BXSE6QQZ7H5TCPFZ62WY33GMPHIV3QHCZYAUDZA/_fused_gemm_kernel.ttir",
+        "sha256": "01209e4b21b71d686e6fdf279a279c81fe58309c28379f8bd330fa9f1c15d502",
+        "size": 13418
+      },
+      {
+        "path": "triton/AWV65CFK4VSINHFP5TBTHUU6AFF32WKZOM65KNT4W3JCSCYCOBSQ/__grp___softmax_kernel.json",
+        "sha256": "66070443c0975538a45f5de8bcfd9fb911325b715e9fe1f74a79790aca1590b6",
+        "size": 1969
+      },
+      {
+        "path": "triton/AWV65CFK4VSINHFP5TBTHUU6AFF32WKZOM65KNT4W3JCSCYCOBSQ/_softmax_kernel.cubin",
+        "sha256": "779d5f5f7f1c6231db31e41765d17c42e3b946d39359d61e31affb2ddf15680a",
+        "size": 25696
+      },
+      {
+        "path": "triton/AWV65CFK4VSINHFP5TBTHUU6AFF32WKZOM65KNT4W3JCSCYCOBSQ/_softmax_kernel.json",
+        "sha256": "75d489a669ca5f824bf75f986e9df67732147c092b1ed23d9371bec3918d8b46",
+        "size": 1104
+      },
+      {
+        "path": "triton/AWV65CFK4VSINHFP5TBTHUU6AFF32WKZOM65KNT4W3JCSCYCOBSQ/_softmax_kernel.llir",
+        "sha256": "52b2ef7c201e0e612f50b6121ae8f00b978f0a7bc5049a2df9b8553bfbbff5ff",
+        "size": 31641
+      },
+      {
+        "path": "triton/AWV65CFK4VSINHFP5TBTHUU6AFF32WKZOM65KNT4W3JCSCYCOBSQ/_softmax_kernel.ptx",
+        "sha256": "3f6dacc616135fff2c4355772d511c565f3822920a472ffa5f97ced81ddc27d4",
+        "size": 26639
+      },
+      {
+        "path": "triton/AWV65CFK4VSINHFP5TBTHUU6AFF32WKZOM65KNT4W3JCSCYCOBSQ/_softmax_kernel.source",
+        "sha256": "672f252fde9fbc42041ac9b9cbd541723ff674a7bc7662bbb8f595cca71d4f01",
+        "size": 8997
+      },
+      {
+        "path": "triton/AWV65CFK4VSINHFP5TBTHUU6AFF32WKZOM65KNT4W3JCSCYCOBSQ/_softmax_kernel.ttgir",
+        "sha256": "f3a9f48905fc27396a9e6aec9affec76046155860cefd5c5597e7fb4e9862045",
+        "size": 5247
+      },
+      {
+        "path": "triton/AWV65CFK4VSINHFP5TBTHUU6AFF32WKZOM65KNT4W3JCSCYCOBSQ/_softmax_kernel.ttir",
+        "sha256": "7347f181a9057b2ea711e813b2c9d05a7466ee52d55bc16b6b7418c0e54f2256",
+        "size": 4861
+      },
+      {
+        "path": "triton/E4CATZJ5VO3IA6KHZOGHQWCP42VADBXUTDTYOGC42T6HVULCY3CQ/__triton_launcher.cpython-313-x86_64-linux-gnu.so",
+        "sha256": "173593b91a4d30476b6373904d3321f7dd05ec2a6cc612deea85ec790d1b4f13",
+        "size": 22448
+      },
+      {
+        "path": "triton/FTDKWADHZDQUQRLZQDNS2SXYVGVOQXATG2IDNWCFIIMNUSATLKCQ/__triton_launcher.cpython-313-x86_64-linux-gnu.so",
+        "sha256": "7db28977e36e7ff08b0049a0cbbd964881dc404cd1b25bf8978eb37057df36dd",
+        "size": 22448
+      },
+      {
+        "path": "triton/XU5DT2AO5BD5AEHEYGLPP5LRDFHHCUEJT4LGDVLB4STXUGVGHFPA/cuda_utils.cpython-313-x86_64-linux-gnu.so",
+        "sha256": "c029ad34a63fc341171d13ff6459597e43077de394cd15533dca5232650cb7eb",
+        "size": 28600
+      }
+    ],
+    "files_sha256": "240d83d0f7a730f9e427afce260967945103059d0ced603ad14112c700a6f708",
+    "generated_sources": [
+      {
+        "path": "triton/AE2VY3L7DPT44BXSE6QQZ7H5TCPFZ62WY33GMPHIV3QHCZYAUDZA/_fused_gemm_kernel.llir",
+        "sha256": "cab7e295b2992cd05d5b526116052a5874b5828222d9a0dbb4972e8f05c6c2ce",
+        "size": 465737
+      },
+      {
+        "path": "triton/AE2VY3L7DPT44BXSE6QQZ7H5TCPFZ62WY33GMPHIV3QHCZYAUDZA/_fused_gemm_kernel.ptx",
+        "sha256": "2376e99b709b300f773bb29bf41519d306159d49ca6d548cea3138f64b9f5269",
+        "size": 159993
+      },
+      {
+        "path": "triton/AE2VY3L7DPT44BXSE6QQZ7H5TCPFZ62WY33GMPHIV3QHCZYAUDZA/_fused_gemm_kernel.source",
+        "sha256": "3bb1ce44f3bf5387cb7acb2afff10080885dc6b105cb676c622e37bd39c9200b",
+        "size": 29012
+      },
+      {
+        "path": "triton/AE2VY3L7DPT44BXSE6QQZ7H5TCPFZ62WY33GMPHIV3QHCZYAUDZA/_fused_gemm_kernel.ttgir",
+        "sha256": "921b7916ae0159e2dda68e5cbdad2ef162a78be1517926f73494c09b32acd2f3",
+        "size": 24432
+      },
+      {
+        "path": "triton/AE2VY3L7DPT44BXSE6QQZ7H5TCPFZ62WY33GMPHIV3QHCZYAUDZA/_fused_gemm_kernel.ttir",
+        "sha256": "01209e4b21b71d686e6fdf279a279c81fe58309c28379f8bd330fa9f1c15d502",
+        "size": 13418
+      },
+      {
+        "path": "triton/AWV65CFK4VSINHFP5TBTHUU6AFF32WKZOM65KNT4W3JCSCYCOBSQ/_softmax_kernel.llir",
+        "sha256": "52b2ef7c201e0e612f50b6121ae8f00b978f0a7bc5049a2df9b8553bfbbff5ff",
+        "size": 31641
+      },
+      {
+        "path": "triton/AWV65CFK4VSINHFP5TBTHUU6AFF32WKZOM65KNT4W3JCSCYCOBSQ/_softmax_kernel.ptx",
+        "sha256": "3f6dacc616135fff2c4355772d511c565f3822920a472ffa5f97ced81ddc27d4",
+        "size": 26639
+      },
+      {
+        "path": "triton/AWV65CFK4VSINHFP5TBTHUU6AFF32WKZOM65KNT4W3JCSCYCOBSQ/_softmax_kernel.source",
+        "sha256": "672f252fde9fbc42041ac9b9cbd541723ff674a7bc7662bbb8f595cca71d4f01",
+        "size": 8997
+      },
+      {
+        "path": "triton/AWV65CFK4VSINHFP5TBTHUU6AFF32WKZOM65KNT4W3JCSCYCOBSQ/_softmax_kernel.ttgir",
+        "sha256": "f3a9f48905fc27396a9e6aec9affec76046155860cefd5c5597e7fb4e9862045",
+        "size": 5247
+      },
+      {
+        "path": "triton/AWV65CFK4VSINHFP5TBTHUU6AFF32WKZOM65KNT4W3JCSCYCOBSQ/_softmax_kernel.ttir",
+        "sha256": "7347f181a9057b2ea711e813b2c9d05a7466ee52d55bc16b6b7418c0e54f2256",
+        "size": 4861
+      }
+    ],
+    "loadable_code_objects": [
+      {
+        "path": "triton/AE2VY3L7DPT44BXSE6QQZ7H5TCPFZ62WY33GMPHIV3QHCZYAUDZA/_fused_gemm_kernel.cubin",
+        "sha256": "41146b2140c667f114e56a72bdb94d804a2afce336c1fd9e8e87890112bbea97",
+        "size": 195504
+      },
+      {
+        "path": "triton/AWV65CFK4VSINHFP5TBTHUU6AFF32WKZOM65KNT4W3JCSCYCOBSQ/_softmax_kernel.cubin",
+        "sha256": "779d5f5f7f1c6231db31e41765d17c42e3b946d39359d61e31affb2ddf15680a",
+        "size": 25696
+      },
+      {
+        "path": "triton/E4CATZJ5VO3IA6KHZOGHQWCP42VADBXUTDTYOGC42T6HVULCY3CQ/__triton_launcher.cpython-313-x86_64-linux-gnu.so",
+        "sha256": "173593b91a4d30476b6373904d3321f7dd05ec2a6cc612deea85ec790d1b4f13",
+        "size": 22448
+      },
+      {
+        "path": "triton/FTDKWADHZDQUQRLZQDNS2SXYVGVOQXATG2IDNWCFIIMNUSATLKCQ/__triton_launcher.cpython-313-x86_64-linux-gnu.so",
+        "sha256": "7db28977e36e7ff08b0049a0cbbd964881dc404cd1b25bf8978eb37057df36dd",
+        "size": 22448
+      },
+      {
+        "path": "triton/XU5DT2AO5BD5AEHEYGLPP5LRDFHHCUEJT4LGDVLB4STXUGVGHFPA/cuda_utils.cpython-313-x86_64-linux-gnu.so",
+        "sha256": "c029ad34a63fc341171d13ff6459597e43077de394cd15533dca5232650cb7eb",
+        "size": 28600
+      }
+    ]
+  },
+  "campaign_id": "native-trajectory-replication-ada-v3",
+  "cell_id": "register_fused.triton.g01",
+  "config": {
+    "BK": 32,
+    "BM": 128,
+    "BN": 128,
+    "K": 8192,
+    "M": 1024,
+    "N": 8192,
+    "arith": "fp16",
+    "cast": "precast",
+    "dsl": "triton",
+    "extra": {
+      "epilogue": "regs",
+      "wcache": "cached"
+    },
+    "input_dtype": "torch.float16",
+    "kc": 2048,
+    "stages": 3,
+    "threads": 256,
+    "variant": "GBGS"
+  },
+  "performance_observations": [],
+  "record_type": "native_trajectory_replication_ada_admitted_artifact",
+  "role": "native_cell",
+  "schema_version": 1,
+  "verify_record_path": "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/register_fused__triton__g01/verify_record.json",
+  "verify_record_sha256": "8213f34f1c9ac4d83a156f87afffa0e8d47e20f2f365414042024184569a4da9"
+}

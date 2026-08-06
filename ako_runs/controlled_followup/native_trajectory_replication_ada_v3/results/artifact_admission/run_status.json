@@ -1,0 +1,9 @@
+{
+  "campaign_id": "native-trajectory-replication-ada-v3",
+  "complete": true,
+  "expected_records": 12,
+  "launch_receipt_sha256": "de15e760b0500ca1c246f2fdf4f9ffff5310119a5ed9a82427cfdec984fbf0e3",
+  "observed_records": 12,
+  "record_type": "native_trajectory_replication_ada_artifact_admission_status",
+  "schema_version": 1
+}

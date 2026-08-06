@@ -1,0 +1,471 @@
+{
+  "admission_provenance": {
+    "cache_environment": {
+      "NATIVE_TRAJECTORY_ARTIFACT_CELL": "global_intermediate.triton.g01",
+      "NATIVE_TRAJECTORY_ARTIFACT_MODE": "admit",
+      "PHASE1_TL_CACHE": "1",
+      "PHASE2_TL_CACHE": "1",
+      "TEMP": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/global_intermediate__triton__g01/runtime_tmp",
+      "TILELANG_CACHE_DIR": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/global_intermediate__triton__g01/cache/tilelang",
+      "TILELANG_CLEAR_CACHE": "0",
+      "TILELANG_DISABLE_CACHE": "0",
+      "TILELANG_EXECUTION_BACKEND": "tvm_ffi",
+      "TILELANG_TARGET": "cuda",
+      "TILELANG_TMP_DIR": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/global_intermediate__triton__g01/runtime_tmp/tilelang",
+      "TMP": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/global_intermediate__triton__g01/runtime_tmp",
+      "TMPDIR": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/global_intermediate__triton__g01/runtime_tmp",
+      "TORCH_EXTENSIONS_DIR": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/global_intermediate__triton__g01/cache/torch_extensions",
+      "TRITON_ALWAYS_COMPILE": "0",
+      "TRITON_CACHE_DIR": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/global_intermediate__triton__g01/cache/triton",
+      "TRITON_KERNEL_DUMP": "0",
+      "TRITON_KERNEL_OVERRIDE": "0"
+    },
+    "compute_pids_postflight": [
+      156527
+    ],
+    "compute_pids_preflight": [],
+    "execution_lock_sha256": "458f35e312ec3b1c0dc7582dfdded55b466618d16fef8a05c35bb9ba9d1e479a",
+    "gpu_postflight": {
+      "compute_cap": "8.9",
+      "driver_version": "610.43.02",
+      "index": "0",
+      "name": "NVIDIA RTX 6000 Ada Generation",
+      "uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae"
+    },
+    "gpu_preflight": {
+      "compute_cap": "8.9",
+      "driver_version": "610.43.02",
+      "index": "0",
+      "name": "NVIDIA RTX 6000 Ada Generation",
+      "uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae"
+    },
+    "launch_receipt_path": "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/launch_receipt.json",
+    "launch_receipt_sha256": "de15e760b0500ca1c246f2fdf4f9ffff5310119a5ed9a82427cfdec984fbf0e3",
+    "parent_pid": 153915,
+    "process_pid": 156527,
+    "toolchain": {
+      "instrument_dependency_sha256": {
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v1/core.py": "538feecd1e88f90f711ee2a112a4fc28d027684169b7f64b596d96e74899dbcf",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/audit.py": "5b7edc232e51ef5601c02be004a101903a49c61289df1705e30daa9da74641ba",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/final_summary.json": "98552e48aa67411ba738e160d454e5c387e1c33cb1c543aa53a20198e4c0a70d",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/reanalysis_tail_v1.json": "e7296ce10585169e7dcf1f0d66c6bc59bf079d367d30491c46f42a8b3d03d1e5",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v1/tilelang_smem.py": "93c7fe29ecab64a2ad9a1fe1cf28093d8bc4945419741f7da32bc30b048febaf",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/INCIDENT_CROSSED_V2R1_20260801.json": "fbd6998ac02df84633ed5707e13f1ed476ec535a38cfc17a51ab1f76adbf9b04",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/INCIDENT_CROSSED_V2R2_20260801.json": "61b5c53e97b9ee621059df575242a62c705649eb1a6eea79fd561e11fde1b012",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/INCIDENT_CROSSED_V2_20260801.json": "4a385b3b45544069f13a54f78df8fc12b6f74919b76c87e83bd1d91463247eb7",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/audit/receipts/shard00.json": "a5a3dd6ac9e13a7d2e42eca9932ff5e87eaaed0f31f7ae116ab986832bcd1f29",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/audit/receipts/shard01.json": "001716a9841b1a432a7b3616c4fb36852988c486e0b2de59a03b2736c6fb6a90",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/audit/receipts/shard02.json": "1efe91e6f53e5adb81a3471a0cf740ec1665f30e8156532b93f9f44eb92b7f17",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/audit/receipts/shard03.json": "3862f4917e043b7315fb7c28e6b3d44df80401ef778a8fc0186e48b364b36d8f",
+        "ako_runs/controlled_followup/fused_grid/jobs/fused_gbgs_grid.json": "70bfb1219395c4b231dc41d7e6e5661f6a5fd66a5c5cc26cee53283125e006e3",
+        "ako_runs/controlled_followup/fused_grid/manifest.json": "3ca4395603ed60d0f54caf5fc213d245790be84eb29ba36f638c866a48720439",
+        "ako_runs/controlled_followup/fused_grid/robust_adapter.py": "688d9b29673d9314f50a3e8f6a8fc217b8497b27fb3eac13a5234cd9b7a29502",
+        "ako_runs/controlled_followup/fused_grid/robust_adapter_manifest.json": "81e3478b61800e09147a6cb213ba1786b200c137a728a5a9c258241c0a6004ba",
+        "ako_runs/controlled_followup/legacy_cuda_harness_fix/checked_cuda_launch.h": "e6b6712ae55a2673566e02c08aa1d6350e96f885954a1391c61d14d355ee51aa",
+        "ako_runs/controlled_followup/robust_gate/calibration/gate_spec_fused_v2.json": "b6c3afaadf61f5d380a97c6c541828a1ecacd1a89a00b73b66207fe22d765e2e",
+        "ako_runs/controlled_followup/robust_gate/manifest.json": "28d51cd4f1730bd190e63c7cad60670c37b67784393270e63e859a1685fc8a62",
+        "ako_runs/phase1_matmul/common.py": "7753fcc00891d475db8675423ca7e48fbc0aa0431ac1e1dd4319e6c2900fd0a7",
+        "ako_runs/phase1_matmul/variants/__init__.py": "0ac322f46ab46fe0bf6d9eb6241c7eacf6b9844f5f6d927dbccfc81a1005a585",
+        "ako_runs/phase1_matmul/variants/cuda_noptx_gemm.py": "b3935c4e9516304cbbe0b3ab8e32e1fadc1264f48f26ee00fe52aede6e032217",
+        "ako_runs/phase1_matmul/variants/cuda_unlimited_gemm.py": "c9629300ce871476eb95cdecc5337229c43d3206e674c35d86a7f65d20a87ad5",
+        "ako_runs/phase1_matmul/variants/tilelang_gemm.py": "07d40bb5fee951ecec7ad1a7ca1815b5fae6761b3bb42e81f81c15ef806af268",
+        "ako_runs/phase1_matmul/variants/triton_gemm.py": "8c9cc3d60d549eb941dcb68a0ee7b0a6173b849a368eb55c75ec91c68612e108",
+        "ako_runs/phase2_fused_sdpa/common2.py": "0293cb15fc3285df199daa58281a1a35147a78b9cbccda8b8f88418eecb39c64",
+        "ako_runs/phase2_fused_sdpa/runner2.py": "d1ade4461bff35058a3c6e967532960f5cc509f5d6a46c69bded78fbd0aac31e",
+        "ako_runs/phase2_fused_sdpa/variants2/__init__.py": "2afc778f25db9abe2d05299bbd47fa2ad43b7912eee8633936095e6b92662045",
+        "ako_runs/phase2_fused_sdpa/variants2/cuda_fused_common.py": "c047985e84428246a455a20107cd5309d63528a593374ed2a4418e531c915c36",
+        "ako_runs/phase2_fused_sdpa/variants2/fused_cuda_noptx.py": "6abbea8ea28d5d6623da90385e417ec279fd5a022cf2144a56ae8fab684e2058",
+        "ako_runs/phase2_fused_sdpa/variants2/fused_tilelang.py": "c2a0704d81bdb4b2f78377870a1bc45c6945db77bccc8e89b2a0fd4b46511684",
+        "ako_runs/phase2_fused_sdpa/variants2/fused_triton.py": "20c4f27fdc9145beec6b4cdb99ed8e9d57cbdbede87bace51319d782f378272e"
+      },
+      "instrument_source_sha256": {
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/README.md": "37814ad6219ca19c3cb07085f6ba0ba633908048dd01808abed27308b74f6480",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/__init__.py": "fb48d3337adb472cc5daf24558faa62ba949eaa52070b339c3c6a5a3860caf88",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/analyze.py": "ac5cd372f7622f94847d098f82844b99b06eccf6493c52138ea9ef4090379f96",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/campaign.json": "84ec8c1503f120ece3d140e6beee66ed55a7546c6e0cee7f387cca08f6c64b2a",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/campaign_runner.py": "d72331ebcc2e275a471f9da0a2c8f0c9aff8e70dc8d1be23104cf4a21df40783",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/candidates.py": "9e35ed7972b69595ea76fc4f6b43947d40d24a00ca3b50500e742c872fb55f5d",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/capture_evidence.py": "26cd0c2eb5e522abbfed2324dc40a4825da27a90f3869e30ea2b7f111ab8d8ce",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/core.py": "aa4e9825ace458a5b7dc8d0eb988f2e98c9e5a336678774c05ebb475c6b5c3e4",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/cuda_noptx_register.py": "eaaf6ee5828a17a1c93e7ba0b8e577b857ed0930c8591d36ae2b9e6115dc420e",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/cuda_unlimited.py": "6f0cac21f4daaa741d46f0223c31404a2ec718423867bebb988355ddc2f617d7",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/freeze.py": "351b98fb955fc565a5924ec60edda0fe6ae9d90ac7189da3bf305f6e7e820589",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/make_manifest.py": "5d5b703f32d7759036a03cf2a34420df9d011a7c865f73ef1a176a446e93c4bc",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/postprocess.py": "a3b70d7a405df799b188f9db8100d1457ddd8f9b7735c59fed068794179b0ce6",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/resolve_support.py": "2ba7eac3383d7d596ab873a1d5b39bf77f26e87a358b30aa9142107f35c7798a",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/support_probes.py": "6938edb3c17fa33a5969a8ae9f2c37ba3d638e536f3f1c9654c5bc36e51ff8a5",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/support_resolution.json": "db3aa3bfa6610c907c851ced726ffdc1e9906cb9175f10c5d1031db67ed1d020",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/tests/__init__.py": "fc2858863a06f469da41e21372eece8dffaab6ef87d887b9f9730c7ea989110e",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/tests/test_builders.py": "1a6f345f15c353d0d73ec4df26573597a8687263ba85d807dcd9214e30c0c0fa",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/tests/test_protocol.py": "bdb946ed7f1b6fe184331947880fe18321f3947023e503b9a2906218f54b0067",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/triton_smem.py": "eb4a0ef2a93cb85f63acc0896204d999a8d7349ce06ce757b5595a4323847a8f",
+        "ako_runs/controlled_followup/fused_epilogue_crossed_v2/validate.py": "718cb81159811bf06e6187613a8eb65e785881b9049196b38887dee2ff21c4fa"
+      },
+      "module_files": {
+        "common": {
+          "path": "/home/lxt230026/MultiKernelBench/ako_runs/phase1_matmul/common.py",
+          "sha256": "7753fcc00891d475db8675423ca7e48fbc0aa0431ac1e1dd4319e6c2900fd0a7"
+        },
+        "common2": {
+          "path": "/home/lxt230026/MultiKernelBench/ako_runs/phase2_fused_sdpa/common2.py",
+          "sha256": "0293cb15fc3285df199daa58281a1a35147a78b9cbccda8b8f88418eecb39c64"
+        },
+        "crossed_candidates": {
+          "path": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/fused_epilogue_crossed_v2/candidates.py",
+          "sha256": "9e35ed7972b69595ea76fc4f6b43947d40d24a00ca3b50500e742c872fb55f5d"
+        },
+        "crossed_core": {
+          "path": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/fused_epilogue_crossed_v2/core.py",
+          "sha256": "aa4e9825ace458a5b7dc8d0eb988f2e98c9e5a336678774c05ebb475c6b5c3e4"
+        },
+        "runner2": {
+          "path": "/home/lxt230026/MultiKernelBench/ako_runs/phase2_fused_sdpa/runner2.py",
+          "sha256": "d1ade4461bff35058a3c6e967532960f5cc509f5d6a46c69bded78fbd0aac31e"
+        },
+        "tilelang": {
+          "path": "/home/lxt230026/miniconda3/lib/python3.13/site-packages/tilelang/__init__.py",
+          "sha256": "216c868c8010f149974a8ac04ddfeb107b6edf82f9f6cf710ffd144b122ebd8b"
+        },
+        "torch": {
+          "path": "/home/lxt230026/miniconda3/lib/python3.13/site-packages/torch/__init__.py",
+          "sha256": "d6388b1e3b16c1f9a22a87898e5f205fa13a97bd65c163f4829a157e0d9d602f"
+        },
+        "triton": {
+          "path": "/home/lxt230026/miniconda3/lib/python3.13/site-packages/triton/__init__.py",
+          "sha256": "96e68192cab5dd11fa30d5dc95d56c29ceecda53477fc3af8f37bee026b7a021"
+        }
+      },
+      "nvcc": {
+        "path": "/usr/local/cuda-13.1/bin/nvcc",
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2025 NVIDIA Corporation\nBuilt on Tue_Dec_16_07:23:41_PM_PST_2025\nCuda compilation tools, release 13.1, V13.1.115\nBuild cuda_13.1.r13.1/compiler.37061995_0"
+      },
+      "python_executable": "/home/lxt230026/miniconda3/bin/python3.13",
+      "python_executable_sha256": "73bb21a7bd68a5ad09bef6fa8587bd7df33734784cc5248d112926536117e115",
+      "python_implementation": "CPython",
+      "python_version": "3.13.5",
+      "tilelang_version": "0.1.11",
+      "torch_cuda_version": "12.8",
+      "torch_version": "2.10.0+cu128",
+      "triton_version": "3.6.0"
+    }
+  },
+  "admission_row": {
+    "cell_id": "global_intermediate.triton.g01",
+    "entry_id": "global_intermediate.triton.g01",
+    "position": 3,
+    "role": "native_cell"
+  },
+  "admission_row_sha256": "8d8e416d504258f08fda93d6fe7373e3b53cafbd02da3e91445f246ba35fef09",
+  "artifact_identity_sha256": "4fe2f29068ae787bb6cabe567ff6dcaa197683258d9327fb91f03697d69f7b2a",
+  "atomic_temp_device": {
+    "cache_root": "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/global_intermediate__triton__g01/cache",
+    "cache_st_dev": 64770,
+    "runtime_tmp_root": "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/global_intermediate__triton__g01/runtime_tmp",
+    "runtime_tmp_st_dev": 64770,
+    "same_filesystem": true
+  },
+  "cache": {
+    "cache_root": "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/global_intermediate__triton__g01/cache",
+    "file_count": 18,
+    "files": [
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_788714f21a6c/.ninja_deps",
+        "sha256": "bae3d68bda0f60961cf1ffc08941d1605f9df04595fe3e21138cd2cfbd4541c8",
+        "size": 630520
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_788714f21a6c/.ninja_log",
+        "sha256": "ed6ec0764bb01209c2b9dea6c4bcb0ba62230c5eb16af9698db4eaf8eb2f1ae2",
+        "size": 208
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_788714f21a6c/build.ninja",
+        "sha256": "5e2ef8bafe756c829522833516e483e39bdb5c69cc70647d08a776e287d5fc40",
+        "size": 2518
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_788714f21a6c/cuda.cu",
+        "sha256": "ad7b36bb242709682f01c98a9300e1e2acb1e0a7089efa206d4a9c7aad19a7db",
+        "size": 3665
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_788714f21a6c/cuda.cuda.o",
+        "sha256": "d3b6c54f38bbdb2e8467dacaa45edff7b7b64434dd2d1b43bf929daf35500fc6",
+        "size": 231184
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_788714f21a6c/fused_crossed_v2_pp_788714f21a6c.so",
+        "sha256": "887de4b5d368dd0fbf8db59856a037f345190f51132f9222028452ee094debdc",
+        "size": 1363464
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_788714f21a6c/main.cpp",
+        "sha256": "70fda7e9ebc6feb970681bfd6fdd9814aef02d2d31c1659f88bd825bb5c821a1",
+        "size": 277
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_788714f21a6c/main.o",
+        "sha256": "d204a1007974fe9039b825d726c23757803e0425dca205b75fe03e519617684c",
+        "size": 2152608
+      },
+      {
+        "path": "triton/CXAJ3YUOOFWRY3BBUVFGNYEU6I2VH3CTQHWZKL25X6MG2G5G7ZMA/__grp___gemm_kernel.json",
+        "sha256": "21174f5f65e36ac5da00a9144ab7bb24a610ee9915edb8442cced6c7be134310",
+        "size": 1962
+      },
+      {
+        "path": "triton/CXAJ3YUOOFWRY3BBUVFGNYEU6I2VH3CTQHWZKL25X6MG2G5G7ZMA/_gemm_kernel.cubin",
+        "sha256": "bd297ed2db0c8177b0f9bf578de4b7b3e78d7d33f6b0d65ee879bf5975dc6c95",
+        "size": 52960
+      },
+      {
+        "path": "triton/CXAJ3YUOOFWRY3BBUVFGNYEU6I2VH3CTQHWZKL25X6MG2G5G7ZMA/_gemm_kernel.json",
+        "sha256": "263a40912db4a7cfbb64dc867f35e6271cc1da16ad49398fcfe585afeff2e13c",
+        "size": 1104
+      },
+      {
+        "path": "triton/CXAJ3YUOOFWRY3BBUVFGNYEU6I2VH3CTQHWZKL25X6MG2G5G7ZMA/_gemm_kernel.llir",
+        "sha256": "561ebb54892e6b6b331e3dc4ee57e3a2cb120a858782243b6e7cfbdad024e5de",
+        "size": 90248
+      },
+      {
+        "path": "triton/CXAJ3YUOOFWRY3BBUVFGNYEU6I2VH3CTQHWZKL25X6MG2G5G7ZMA/_gemm_kernel.ptx",
+        "sha256": "9665966428f39c91ea2726720c9c7df4ce3d5975b2dde3f3f9213fb552a0e0ec",
+        "size": 43963
+      },
+      {
+        "path": "triton/CXAJ3YUOOFWRY3BBUVFGNYEU6I2VH3CTQHWZKL25X6MG2G5G7ZMA/_gemm_kernel.source",
+        "sha256": "c6ae42bdca93430c31c853aa64425494ee85719c9f072673c56dbc880f7f018e",
+        "size": 25806
+      },
+      {
+        "path": "triton/CXAJ3YUOOFWRY3BBUVFGNYEU6I2VH3CTQHWZKL25X6MG2G5G7ZMA/_gemm_kernel.ttgir",
+        "sha256": "ba1c90c72c2f9b37051dd4465d61d414054fcf9dfd249eda72bb9feb72e2c9d2",
+        "size": 21102
+      },
+      {
+        "path": "triton/CXAJ3YUOOFWRY3BBUVFGNYEU6I2VH3CTQHWZKL25X6MG2G5G7ZMA/_gemm_kernel.ttir",
+        "sha256": "766a40a5c0a40679fd225de553ef7bf9903fb900fe5c68463d2fd91ad57f30bd",
+        "size": 10737
+      },
+      {
+        "path": "triton/X6HR7PCV3R42WO2AXAXTUP23TEJ4BAR2UKD4JZ7PX5MMY2NONXZA/__triton_launcher.cpython-313-x86_64-linux-gnu.so",
+        "sha256": "85a01015c0a4d4ba198d2c68a47ee23d638ff64b2a65891316ce19d85cbff70d",
+        "size": 22448
+      },
+      {
+        "path": "triton/XU5DT2AO5BD5AEHEYGLPP5LRDFHHCUEJT4LGDVLB4STXUGVGHFPA/cuda_utils.cpython-313-x86_64-linux-gnu.so",
+        "sha256": "2a790db1dfd4e2320c461776b449e05651af419e510733b80bbd2d84f7b473be",
+        "size": 28600
+      }
+    ],
+    "files_sha256": "f72d3b5716773b4e13d84cfdbbb4764e20064a65c46d65c3aa1abf70cea349bb",
+    "generated_sources": [
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_788714f21a6c/cuda.cu",
+        "sha256": "ad7b36bb242709682f01c98a9300e1e2acb1e0a7089efa206d4a9c7aad19a7db",
+        "size": 3665
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_788714f21a6c/main.cpp",
+        "sha256": "70fda7e9ebc6feb970681bfd6fdd9814aef02d2d31c1659f88bd825bb5c821a1",
+        "size": 277
+      },
+      {
+        "path": "triton/CXAJ3YUOOFWRY3BBUVFGNYEU6I2VH3CTQHWZKL25X6MG2G5G7ZMA/_gemm_kernel.llir",
+        "sha256": "561ebb54892e6b6b331e3dc4ee57e3a2cb120a858782243b6e7cfbdad024e5de",
+        "size": 90248
+      },
+      {
+        "path": "triton/CXAJ3YUOOFWRY3BBUVFGNYEU6I2VH3CTQHWZKL25X6MG2G5G7ZMA/_gemm_kernel.ptx",
+        "sha256": "9665966428f39c91ea2726720c9c7df4ce3d5975b2dde3f3f9213fb552a0e0ec",
+        "size": 43963
+      },
+      {
+        "path": "triton/CXAJ3YUOOFWRY3BBUVFGNYEU6I2VH3CTQHWZKL25X6MG2G5G7ZMA/_gemm_kernel.source",
+        "sha256": "c6ae42bdca93430c31c853aa64425494ee85719c9f072673c56dbc880f7f018e",
+        "size": 25806
+      },
+      {
+        "path": "triton/CXAJ3YUOOFWRY3BBUVFGNYEU6I2VH3CTQHWZKL25X6MG2G5G7ZMA/_gemm_kernel.ttgir",
+        "sha256": "ba1c90c72c2f9b37051dd4465d61d414054fcf9dfd249eda72bb9feb72e2c9d2",
+        "size": 21102
+      },
+      {
+        "path": "triton/CXAJ3YUOOFWRY3BBUVFGNYEU6I2VH3CTQHWZKL25X6MG2G5G7ZMA/_gemm_kernel.ttir",
+        "sha256": "766a40a5c0a40679fd225de553ef7bf9903fb900fe5c68463d2fd91ad57f30bd",
+        "size": 10737
+      }
+    ],
+    "loadable_code_objects": [
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_788714f21a6c/fused_crossed_v2_pp_788714f21a6c.so",
+        "sha256": "887de4b5d368dd0fbf8db59856a037f345190f51132f9222028452ee094debdc",
+        "size": 1363464
+      },
+      {
+        "path": "triton/CXAJ3YUOOFWRY3BBUVFGNYEU6I2VH3CTQHWZKL25X6MG2G5G7ZMA/_gemm_kernel.cubin",
+        "sha256": "bd297ed2db0c8177b0f9bf578de4b7b3e78d7d33f6b0d65ee879bf5975dc6c95",
+        "size": 52960
+      },
+      {
+        "path": "triton/X6HR7PCV3R42WO2AXAXTUP23TEJ4BAR2UKD4JZ7PX5MMY2NONXZA/__triton_launcher.cpython-313-x86_64-linux-gnu.so",
+        "sha256": "85a01015c0a4d4ba198d2c68a47ee23d638ff64b2a65891316ce19d85cbff70d",
+        "size": 22448
+      },
+      {
+        "path": "triton/XU5DT2AO5BD5AEHEYGLPP5LRDFHHCUEJT4LGDVLB4STXUGVGHFPA/cuda_utils.cpython-313-x86_64-linux-gnu.so",
+        "sha256": "2a790db1dfd4e2320c461776b449e05651af419e510733b80bbd2d84f7b473be",
+        "size": 28600
+      }
+    ]
+  },
+  "campaign_id": "native-trajectory-replication-ada-v3",
+  "cell_id": "global_intermediate.triton.g01",
+  "config": {
+    "BK": 32,
+    "BM": 128,
+    "BN": 128,
+    "K": 8192,
+    "M": 1024,
+    "N": 8192,
+    "arith": "fp16",
+    "cast": "precast",
+    "dsl": "triton",
+    "extra": {},
+    "input_dtype": "torch.float16",
+    "kc": 2048,
+    "stages": 3,
+    "threads": 256,
+    "variant": "D"
+  },
+  "correctness": {
+    "budget_mean": 0.00010001220703127959,
+    "err_q100": 1.525913830846548e-07,
+    "err_q50": 3.179593477398157e-09,
+    "err_q90": 1.1918018572032452e-08,
+    "err_q99": 2.713932190090418e-08,
+    "err_q999": 4.5649358071386814e-08,
+    "gate_pass": true,
+    "max_abs_err": 1.525913830846548e-07,
+    "mean_abs_err": 5.038479120034189e-09,
+    "pct_elems_failing_gate": 0.0,
+    "ref_abs_mean": 0.00012207031279582326,
+    "signed_mean_err": -1.4300366446562407e-13
+  },
+  "n_kernels": 2,
+  "performance_observations": [],
+  "record_type": "native_trajectory_replication_ada_artifact_build_record",
+  "schema_version": 1,
+  "source_build_metadata": {
+    "artifacts": {
+      "gemm": {
+        "backend_detail": "triton 3.6.0; tl.dot on fp16 operands -> mma.sync.m16n8k16.f32.f16.f16.f32; KC=2048 (chunk accumulator flushed into acc every 2048 of K); num_stages=3 (software pipeline ON), ptx cp.async=20, ptx mma.sync=32; cast=precast; grid=(64, 8) (plain 2-D, no swizzle); num_warps=8; no autotune, no split-K, no atomics",
+        "block": [
+          256,
+          1,
+          1
+        ],
+        "cubin_path": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/global_intermediate__triton__g01/runtime_tmp/fused_epilogue_crossed_v2/pid156527/global_intermediate.triton.g01/phase1/triton/triton.D.128x128x32.kc2048.s3.fp16.precast.cubin",
+        "dynamic_smem_bytes": 65536,
+        "epilogue_tile_bytes": null,
+        "grid": [
+          64,
+          8
+        ],
+        "n_regs": 254,
+        "n_spills": 0,
+        "num_stages": 3,
+        "num_warps": 8,
+        "operand_smem_bytes": null,
+        "ptx": "//\n// Generated by LLVM NVPTX Back-End\n//\n\n.version 8.7\n.target sm_89\n.address_size 64\n\n\t// .globl\t_gemm_kernel            // -- Begin function _gemm_kernel\n.extern .shared .align 16 .b8 global_smem[];\n                                        // @_gemm_kernel\n.visible .entry _gemm_kernel(\n\t.param .u64 .ptr .global .align 1 _gemm_kernel_param_0,\n\t.param .u64 .ptr .global .align 1 _gemm_kernel_param_1,\n\t.param .u64 .ptr .global .align 1 _gemm_kernel_param_2,\n\t.param .u32 _gemm_kernel_param_3,\n\t.param .u32 _gemm_kernel_param_4,\n\t.param .u32 _gemm_kernel_param_5,\n\t.param .u32 _gemm_kernel_param_6,\n\t.param .u32 _gemm_kernel_param_7,\n\t.param .u32 _gemm_kernel_param_8,\n\t.param .u64 .ptr .global .align 1 _gemm_kernel_param_9,\n\t.param .u64 .ptr .global .align 1 _gemm_kernel_param_10\n)\n.reqntid 256\n{\n\t.reg .pred \t%p<10>;\n\t.reg .b32 \t%r<470>;\n\t.reg .b64 \t%rd<68>;\n\t.loc\t1 39 0                          // triton_gemm.py:39:0\n$L__func_begin0:\n\t.loc\t1 39 0                          // triton_gemm.py:39:0\n\n// %bb.0:\n\tld.param.b32 \t%r25, [_gemm_kernel_param_8];\n\tld.param.b64 \t%rd4, [_gemm_kernel_param_2];\n$L__tmp0:\n\t.loc\t1 51 26                         // triton_gemm.py:51:26\n\tmov.u32 \t%r26, %ctaid.x;\n\t.loc\t1 52 26                         // triton_gemm.py:52:26\n\tmov.u32 \t%r27, %ctaid.y;\n\t.loc\t1 54 21                         // triton_gemm.py:54:21\n\tshl.b32 \t%r28, %r27, 7;\n\t.loc\t1 54 39                         // triton_gemm.py:54:39\n\tmov.u32 \t%r1, %tid.x;\n\tshr.u32 \t%r29, %r1, 5;\n\tld.param.b32 \t%r30, [_gemm_kernel_param_5];\n\tbfe.u32 \t%r31, %r1, 5, 3;\n\tand.b32 \t%r2, %r1, 31;\n\t.loc\t1 54 26                         // triton_gemm.py:54:26\n\tor.b32 \t%r3, %r31, %r28;\n\t.loc\t1 54 39                         // triton_gemm.py:54:39\n\tor.b32 \t%r32, %r28, %r29;\n\t.loc\t1 54 26                         // triton_gemm.py:54:26\n\tor.b32 \t%r4, %r32, 24;\n\tor.b32 \t%r5, %r32, 56;\n\tor.b32 \t%r6, %r32, 88;\n\tor.b32 \t%r8, %r32, 120;\n\t.loc\t1 55 21                         // triton_gemm.py:55:21\n\tshl.b32 \t%r9, %r26, 7;\n\t.loc\t1 59 25                         // triton_gemm.py:59:25\n\tand.b32 \t%r10, %r1, 128;\n\t.loc\t1 76 26                         // triton_gemm.py:76:26\n\tsetp.gt.s32 \t%p1, %r30, 2047;\n\tmov.b32 \t%r331, global_smem;\n\t@%p1 bra \t$L__BB0_2;\n\tbra.uni \t$L__BB0_1;\n$L__BB0_2:                              // %.lr.ph\n\t.loc\t1 0 26                          // triton_gemm.py:0:26\n\tld.param.b32 \t%r24, [_gemm_kernel_param_7];\n\tld.param.b32 \t%r23, [_gemm_kernel_param_6];\n\tld.param.b64 \t%rd3, [_gemm_kernel_param_1];\n\tld.param.b64 \t%rd2, [_gemm_kernel_param_0];\n\tor.b32 \t%r7, %r3, 112;\n\tshr.s32 \t%r33, %r30, 31;\n\tshr.u32 \t%r34, %r33, 21;\n\tadd.s32 \t%r35, %r30, %r34;\n\tshr.s32 \t%r11, %r35, 11;\n\tshl.b32 \t%r12, %r24, 5;\n\t.loc\t1 59 25                         // triton_gemm.py:59:25\n\tshr.u32 \t%r39, %r10, 7;\n\tor.b32 \t%r40, %r39, 30;\n\t.loc\t1 59 36                         // triton_gemm.py:59:36\n\tmul.lo.s32 \t%r41, %r24, %r40;\n\t.loc\t1 54 39                         // triton_gemm.py:54:39\n\tand.b32 \t%r42, %r1, 127;\n\t.loc\t1 55 26                         // triton_gemm.py:55:26\n\tor.b32 \t%r43, %r9, %r42;\n\t.loc\t1 59 48                         // triton_gemm.py:59:48\n\tadd.s32 \t%r44, %r41, %r43;\n\t.loc\t1 59 18                         // triton_gemm.py:59:18\n\tmad.wide.s32 \t%rd32, %r44, 2, %rd3;\n\t.loc\t1 59 36                         // triton_gemm.py:59:36\n\tshl.b32 \t%r45, %r24, 1;\n\tsub.s32 \t%r46, %r41, %r45;\n\t.loc\t1 59 48                         // triton_gemm.py:59:48\n\tadd.s32 \t%r47, %r46, %r43;\n\t.loc\t1 59 18                         // triton_gemm.py:59:18\n\tmad.wide.s32 \t%rd33, %r47, 2, %rd3;\n\t.loc\t1 59 36                         // triton_gemm.py:59:36\n\tsub.s32 \t%r48, %r46, %r45;\n\t.loc\t1 59 48                         // triton_gemm.py:59:48\n\tadd.s32 \t%r49, %r48, %r43;\n\t.loc\t1 59 18                         // triton_gemm.py:59:18\n\tmad.wide.s32 \t%rd34, %r49, 2, %rd3;\n\t.loc\t1 59 36                         // triton_gemm.py:59:36\n\tsub.s32 \t%r50, %r48, %r45;\n\t.loc\t1 59 48                         // triton_gemm.py:59:48\n\tadd.s32 \t%r51, %r50, %r43;\n\t.loc\t1 59 18                         // triton_gemm.py:59:18\n\tmad.wide.s32 \t%rd35, %r51, 2, %rd3;\n\t.loc\t1 59 36                         // triton_gemm.py:59:36\n\tsub.s32 \t%r52, %r50, %r45;\n\t.loc\t1 59 48                         // triton_gemm.py:59:48\n\tadd.s32 \t%r53, %r52, %r43;\n\t.loc\t1 59 18                         // triton_gemm.py:59:18\n\tmad.wide.s32 \t%rd36, %r53, 2, %rd3;\n\t.loc\t1 59 36                         // triton_gemm.py:59:36\n\tsub.s32 \t%r54, %r52, %r45;\n\t.loc\t1 59 48                         // triton_gemm.py:59:48\n\tadd.s32 \t%r55, %r54, %r43;\n\t.loc\t1 59 18                         // triton_gemm.py:59:18\n\tmad.wide.s32 \t%rd37, %r55, 2, %rd3;\n\t.loc\t1 59 36                         // triton_gemm.py:59:36\n\tsub.s32 \t%r56, %r54, %r45;\n\t.loc\t1 59 48                         // triton_gemm.py:59:48\n\tadd.s32 \t%r57, %r56, %r43;\n\t.loc\t1 59 18                         // triton_gemm.py:59:18\n\tmad.wide.s32 \t%rd38, %r57, 2, %rd3;\n\t.loc\t1 59 36                         // triton_gemm.py:59:36\n\tsub.s32 \t%r58, %r56, %r45;\n\t.loc\t1 59 48                         // triton_gemm.py:59:48\n\tadd.s32 \t%r59, %r58, %r43;\n\t.loc\t1 59 18                         // triton_gemm.py:59:18\n\tmad.wide.s32 \t%rd39, %r59, 2, %rd3;\n\t.loc\t1 59 36                         // triton_gemm.py:59:36\n\tsub.s32 \t%r60, %r58, %r45;\n\t.loc\t1 59 48                         // triton_gemm.py:59:48\n\tadd.s32 \t%r61, %r60, %r43;\n\t.loc\t1 59 18                         // triton_gemm.py:59:18\n\tmad.wide.s32 \t%rd40, %r61, 2, %rd3;\n\t.loc\t1 59 36                         // triton_gemm.py:59:36\n\tsub.s32 \t%r62, %r60, %r45;\n\t.loc\t1 59 48                         // triton_gemm.py:59:48\n\tadd.s32 \t%r63, %r62, %r43;\n\t.loc\t1 59 18                         // triton_gemm.py:59:18\n\tmad.wide.s32 \t%rd41, %r63, 2, %rd3;\n\t.loc\t1 59 36                         // triton_gemm.py:59:36\n\tsub.s32 \t%r64, %r62, %r45;\n\t.loc\t1 59 48                         // triton_gemm.py:59:48\n\tadd.s32 \t%r65, %r64, %r43;\n\t.loc\t1 59 18                         // triton_gemm.py:59:18\n\tmad.wide.s32 \t%rd42, %r65, 2, %rd3;\n\t.loc\t1 59 36                         // triton_gemm.py:59:36\n\tsub.s32 \t%r66, %r64, %r45;\n\t.loc\t1 59 48                         // triton_gemm.py:59:48\n\tadd.s32 \t%r67, %r66, %r43;\n\t.loc\t1 59 18                         // triton_gemm.py:59:18\n\tmad.wide.s32 \t%rd43, %r67, 2, %rd3;\n\t.loc\t1 59 36                         // triton_gemm.py:59:36\n\tsub.s32 \t%r68, %r66, %r45;\n\t.loc\t1 59 48                         // triton_gemm.py:59:48\n\tadd.s32 \t%r69, %r68, %r43;\n\t.loc\t1 59 18                         // triton_gemm.py:59:18\n\tmad.wide.s32 \t%rd44, %r69, 2, %rd3;\n\t.loc\t1 59 36                         // triton_gemm.py:59:36\n\tsub.s32 \t%r70, %r68, %r45;\n\t.loc\t1 59 48                         // triton_gemm.py:59:48\n\tadd.s32 \t%r71, %r70, %r43;\n\t.loc\t1 59 18                         // triton_gemm.py:59:18\n\tmad.wide.s32 \t%rd45, %r71, 2, %rd3;\n\t.loc\t1 59 36                         // triton_gemm.py:59:36\n\tsub.s32 \t%r72, %r70, %r45;\n\t.loc\t1 59 48                         // triton_gemm.py:59:48\n\tadd.s32 \t%r73, %r72, %r43;\n\t.loc\t1 59 18                         // triton_gemm.py:59:18\n\tmad.wide.s32 \t%rd46, %r73, 2, %rd3;\n\t.loc\t1 59 48                         // triton_gemm.py:59:48\n\tmad.lo.s32 \t%r74, %r24, %r39, %r43;\n\t.loc\t1 59 18                         // triton_gemm.py:59:18\n\tmad.wide.s32 \t%rd47, %r74, 2, %rd3;\n\t.loc\t1 58 48                         // triton_gemm.py:58:48\n\tmad.lo.s32 \t%r75, %r23, %r8, %r2;\n\t.loc\t1 58 18                         // triton_gemm.py:58:18\n\tmad.wide.s32 \t%rd48, %r75, 2, %rd2;\n\t.loc\t1 58 36                         // triton_gemm.py:58:36\n\tmul.lo.s32 \t%r76, %r23, %r7;\n\t.loc\t1 58 48                         // triton_gemm.py:58:48\n\tadd.s32 \t%r77, %r76, %r2;\n\t.loc\t1 58 18                         // triton_gemm.py:58:18\n\tmad.wide.s32 \t%rd49, %r77, 2, %rd2;\n\t.loc\t1 58 36                         // triton_gemm.py:58:36\n\tshl.b32 \t%r78, %r23, 3;\n\tsub.s32 \t%r79, %r76, %r78;\n\t.loc\t1 58 48                         // triton_gemm.py:58:48\n\tadd.s32 \t%r80, %r79, %r2;\n\t.loc\t1 58 18                         // triton_gemm.py:58:18\n\tmad.wide.s32 \t%rd50, %r80, 2, %rd2;\n\t.loc\t1 58 36                         // triton_gemm.py:58:36\n\tsub.s32 \t%r81, %r79, %r78;\n\t.loc\t1 58 48                         // triton_gemm.py:58:48\n\tadd.s32 \t%r82, %r81, %r2;\n\t.loc\t1 58 18                         // triton_gemm.py:58:18\n\tmad.wide.s32 \t%rd51, %r82, 2, %rd2;\n\t.loc\t1 58 48                         // triton_gemm.py:58:48\n\tmad.lo.s32 \t%r83, %r23, %r6, %r2;\n\t.loc\t1 58 18                         // triton_gemm.py:58:18\n\tmad.wide.s32 \t%rd52, %r83, 2, %rd2;\n\t.loc\t1 58 36                         // triton_gemm.py:58:36\n\tshl.b32 \t%r84, %r23, 4;\n\tsub.s32 \t%r85, %r81, %r84;\n\t.loc\t1 58 48                         // triton_gemm.py:58:48\n\tadd.s32 \t%r86, %r85, %r2;\n\t.loc\t1 58 18                         // triton_gemm.py:58:18\n\tmad.wide.s32 \t%rd53, %r86, 2, %rd2;\n\t.loc\t1 58 36                         // triton_gemm.py:58:36\n\tsub.s32 \t%r87, %r85, %r78;\n\t.loc\t1 58 48                         // triton_gemm.py:58:48\n\tadd.s32 \t%r88, %r87, %r2;\n\t.loc\t1 58 18                         // triton_gemm.py:58:18\n\tmad.wide.s32 \t%rd54, %r88, 2, %rd2;\n\t.loc\t1 58 36                         // triton_gemm.py:58:36\n\tsub.s32 \t%r89, %r87, %r78;\n\t.loc\t1 58 48                         // triton_gemm.py:58:48\n\tadd.s32 \t%r90, %r89, %r2;\n\t.loc\t1 58 18                         // triton_gemm.py:58:18\n\tmad.wide.s32 \t%rd55, %r90, 2, %rd2;\n\t.loc\t1 58 48                         // triton_gemm.py:58:48\n\tmad.lo.s32 \t%r91, %r23, %r5, %r2;\n\t.loc\t1 58 18                         // triton_gemm.py:58:18\n\tmad.wide.s32 \t%rd56, %r91, 2, %rd2;\n\t.loc\t1 58 36                         // triton_gemm.py:58:36\n\tsub.s32 \t%r92, %r89, %r84;\n\t.loc\t1 58 48                         // triton_gemm.py:58:48\n\tadd.s32 \t%r93, %r92, %r2;\n\t.loc\t1 58 18                         // triton_gemm.py:58:18\n\tmad.wide.s32 \t%rd57, %r93, 2, %rd2;\n\t.loc\t1 58 36                         // triton_gemm.py:58:36\n\tsub.s32 \t%r94, %r92, %r78;\n\t.loc\t1 58 48                         // triton_gemm.py:58:48\n\tadd.s32 \t%r95, %r94, %r2;\n\t.loc\t1 58 18                         // triton_gemm.py:58:18\n\tmad.wide.s32 \t%rd58, %r95, 2, %rd2;\n\t.loc\t1 58 36                         // triton_gemm.py:58:36\n\tsub.s32 \t%r96, %r94, %r78;\n\t.loc\t1 58 48                         // triton_gemm.py:58:48\n\tadd.s32 \t%r97, %r96, %r2;\n\t.loc\t1 58 18                         // triton_gemm.py:58:18\n\tmad.wide.s32 \t%rd59, %r97, 2, %rd2;\n\t.loc\t1 58 48                         // triton_gemm.py:58:48\n\tmad.lo.s32 \t%r98, %r23, %r4, %r2;\n\t.loc\t1 58 18                         // triton_gemm.py:58:18\n\tmad.wide.s32 \t%rd60, %r98, 2, %rd2;\n\t.loc\t1 58 36                         // triton_gemm.py:58:36\n\tsub.s32 \t%r99, %r96, %r84;\n\t.loc\t1 58 48                         // triton_gemm.py:58:48\n\tadd.s32 \t%r100, %r99, %r2;\n\t.loc\t1 58 18                         // triton_gemm.py:58:18\n\tmad.wide.s32 \t%rd61, %r100, 2, %rd2;\n\t.loc\t1 58 36                         // triton_gemm.py:58:36\n\tsub.s32 \t%r101, %r99, %r78;\n\t.loc\t1 58 48                         // triton_gemm.py:58:48\n\tadd.s32 \t%r102, %r101, %r2;\n\t.loc\t1 58 18                         // triton_gemm.py:58:18\n\tmad.wide.s32 \t%rd62, %r102, 2, %rd2;\n\t.loc\t1 58 48                         // triton_gemm.py:58:48\n\tmad.lo.s32 \t%r103, %r23, %r3, %r2;\n\t.loc\t1 58 18                         // triton_gemm.py:58:18\n\tmad.wide.s32 \t%rd63, %r103, 2, %rd2;\n\tshl.b32 \t%r104, %r1, 12;\n\tand.b32 \t%r105, %r104, 24576;\n\tand.b32 \t%r106, %r1, 7;\n\tshl.b32 \t%r107, %r106, 4;\n\tand.b32 \t%r405, %r1, 24;\n\tshl.b32 \t%r108, %r405, 2;\n\tshl.b32 \t%r109, %r1, 1;\n\tand.b32 \t%r401, %r109, 384;\n\tand.b32 \t%r400, %r1, 32;\n\tbfe.s32 \t%r110, %r1, 5, 1;\n\tand.b32 \t%r111, %r110, 4112;\n\tor.b32 \t%r112, %r111, %r108;\n\tor.b32 \t%r113, %r112, %r401;\n\txor.b32 \t%r114, %r113, %r107;\n\tadd.s32 \t%r115, %r331, %r105;\n\tadd.s32 \t%r13, %r115, %r114;\n\tshl.b32 \t%r116, %r1, 5;\n\tand.b32 \t%r117, %r116, 96;\n\tshl.b32 \t%r402, %r1, 4;\n\tand.b32 \t%r118, %r402, 3968;\n\tand.b32 \t%r403, %r1, 4;\n\tbfe.s32 \t%r119, %r1, 2, 1;\n\tand.b32 \t%r120, %r119, 4112;\n\tadd.s32 \t%r121, %r331, %r117;\n\tadd.s32 \t%r122, %r121, %r118;\n\tadd.s32 \t%r14, %r122, %r120;\n\tand.b32 \t%r123, %r402, 4080;\n\tshl.b32 \t%r124, %r405, 1;\n\txor.b32 \t%r15, %r123, %r124;\n\tadd.s32 \t%r125, %r331, %r15;\n\tadd.s32 \t%r149, %r125, 32768;\n\tadd.s32 \t%r151, %r125, 36864;\n\tshl.b32 \t%r126, %r106, 12;\n\tand.b32 \t%r127, %r109, 112;\n\tand.b32 \t%r128, %r116, 2048;\n\txor.b32 \t%r129, %r107, %r127;\n\tadd.s32 \t%r130, %r331, %r126;\n\tadd.s32 \t%r131, %r130, %r128;\n\tadd.s32 \t%r132, %r131, %r129;\n\tadd.s32 \t%r16, %r132, %r10;\n\tshl.b32 \t%r404, %r1, 3;\n\tand.b32 \t%r133, %r404, 1920;\n\tshl.b32 \t%r134, %r1, 8;\n\tand.b32 \t%r135, %r134, 2048;\n\tadd.s32 \t%r136, %r331, %r135;\n\tadd.s32 \t%r137, %r136, %r133;\n\tadd.s32 \t%r17, %r137, %r107;\n\tand.b32 \t%r138, %r1, 112;\n\txor.b32 \t%r18, %r123, %r138;\n\tadd.s32 \t%r139, %r331, %r18;\n\tadd.s32 \t%r152, %r139, 49152;\n\tadd.s32 \t%r153, %r139, 53248;\n\tcvt.s64.s32 \t%rd1, %r12;\n\tadd.s32 \t%r154, %r125, 40960;\n\tadd.s32 \t%r155, %r125, 45056;\n\tadd.s32 \t%r156, %r139, 57344;\n\tadd.s32 \t%r157, %r139, 61440;\n\tshl.b32 \t%r140, %r1, 6;\n\tand.b32 \t%r141, %r140, 960;\n\tand.b32 \t%r142, %r404, 1072;\n\tand.b32 \t%r143, %r1, 16;\n\tor.b32 \t%r144, %r141, %r142;\n\txor.b32 \t%r19, %r144, %r143;\n\txor.b32 \t%r20, %r19, 32;\n\tshl.b32 \t%r145, %r2, 8;\n\tshr.u32 \t%r146, %r1, 1;\n\tand.b32 \t%r147, %r146, 48;\n\txor.b32 \t%r148, %r107, %r147;\n\tor.b32 \t%r21, %r148, %r145;\n\txor.b32 \t%r22, %r21, 64;\n\tmov.b32 \t%r38, 0f00000000;\n\tmov.b32 \t%r37, 0;\n\tmov.b32 \t%r332, %r37;\n\tmov.b32 \t%r406, %r38;\n\tmov.b32 \t%r407, %r38;\n\tmov.b32 \t%r408, %r38;\n\tmov.b32 \t%r409, %r38;\n\tmov.b32 \t%r410, %r38;\n\tmov.b32 \t%r411, %r38;\n\tmov.b32 \t%r412, %r38;\n\tmov.b32 \t%r413, %r38;\n\tmov.b32 \t%r414, %r38;\n\tmov.b32 \t%r415, %r38;\n\tmov.b32 \t%r416, %r38;\n\tmov.b32 \t%r417, %r38;\n\tmov.b32 \t%r418, %r38;\n\tmov.b32 \t%r419, %r38;\n\tmov.b32 \t%r420, %r38;\n\tmov.b32 \t%r421, %r38;\n\tmov.b32 \t%r422, %r38;\n\tmov.b32 \t%r423, %r38;\n\tmov.b32 \t%r424, %r38;\n\tmov.b32 \t%r425, %r38;\n\tmov.b32 \t%r426, %r38;\n\tmov.b32 \t%r427, %r38;\n\tmov.b32 \t%r428, %r38;\n\tmov.b32 \t%r429, %r38;\n\tmov.b32 \t%r430, %r38;\n\tmov.b32 \t%r431, %r38;\n\tmov.b32 \t%r432, %r38;\n\tmov.b32 \t%r433, %r38;\n\tmov.b32 \t%r434, %r38;\n\tmov.b32 \t%r435, %r38;\n\tmov.b32 \t%r436, %r38;\n\tmov.b32 \t%r437, %r38;\n\tmov.b32 \t%r438, %r38;\n\tmov.b32 \t%r439, %r38;\n\tmov.b32 \t%r440, %r38;\n\tmov.b32 \t%r441, %r38;\n\tmov.b32 \t%r442, %r38;\n\tmov.b32 \t%r443, %r38;\n\tmov.b32 \t%r444, %r38;\n\tmov.b32 \t%r445, %r38;\n\tmov.b32 \t%r446, %r38;\n\tmov.b32 \t%r447, %r38;\n\tmov.b32 \t%r448, %r38;\n\tmov.b32 \t%r449, %r38;\n\tmov.b32 \t%r450, %r38;\n\tmov.b32 \t%r451, %r38;\n\tmov.b32 \t%r452, %r38;\n\tmov.b32 \t%r453, %r38;\n\tmov.b32 \t%r454, %r38;\n\tmov.b32 \t%r455, %r38;\n\tmov.b32 \t%r456, %r38;\n\tmov.b32 \t%r457, %r38;\n\tmov.b32 \t%r458, %r38;\n\tmov.b32 \t%r459, %r38;\n\tmov.b32 \t%r460, %r38;\n\tmov.b32 \t%r461, %r38;\n\tmov.b32 \t%r462, %r38;\n\tmov.b32 \t%r463, %r38;\n\tmov.b32 \t%r464, %r38;\n\tmov.b32 \t%r465, %r38;\n\tmov.b32 \t%r466, %r38;\n\tmov.b32 \t%r467, %r38;\n\tmov.b32 \t%r468, %r38;\n\tmov.b32 \t%r469, %r38;\n$L__BB0_3:                              // =>This Loop Header: Depth=1\n                                        //     Child Loop BB0_4 Depth 2\n\t.loc\t1 79 28                         // triton_gemm.py:79:28\n\tst.shared.v2.b64 \t[%r13], {%rd63, %rd55};\n\tst.shared.v2.b64 \t[%r13+512], {%rd62, %rd54};\n\tst.shared.v2.b64 \t[%r13+1024], {%rd61, %rd53};\n\tst.shared.v2.b64 \t[%r13+1536], {%rd60, %rd52};\n\tst.shared.v2.b64 \t[%r13+2048], {%rd59, %rd51};\n\tst.shared.v2.b64 \t[%r13+2560], {%rd58, %rd50};\n\tst.shared.v2.b64 \t[%r13+3072], {%rd57, %rd49};\n\tst.shared.v2.b64 \t[%r13+3584], {%rd56, %rd48};\n\tbar.sync \t0;\n\tld.shared.v2.b64 \t{%rd5, %rd6}, [%r14];\n\tmov.b32 \t%r150, 16;\n\t// begin inline asm\n\tcp.async.cg.shared.global [ %r149 + 0 ], [ %rd5 + 0 ], 0x10, %r150;\n\t// end inline asm\n\t// begin inline asm\n\tcp.async.cg.shared.global [ %r151 + 0 ], [ %rd6 + 0 ], 0x10, %r150;\n\t// end inline asm\n\tcp.async.commit_group;\n\t.loc\t1 80 28                         // triton_gemm.py:80:28\n\tbar.sync \t0;\n\tst.shared.v2.b64 \t[%r16], {%rd47, %rd39};\n\tst.shared.v2.b64 \t[%r16+256], {%rd46, %rd38};\n\tst.shared.v2.b64 \t[%r16+512], {%rd45, %rd37};\n\tst.shared.v2.b64 \t[%r16+768], {%rd44, %rd36};\n\tst.shared.v2.b64 \t[%r16+1024], {%rd43, %rd35};\n\tst.shared.v2.b64 \t[%r16+1280], {%rd42, %rd34};\n\tst.shared.v2.b64 \t[%r16+1536], {%rd41, %rd33};\n\tst.shared.v2.b64 \t[%r16+1792], {%rd40, %rd32};\n\tbar.sync \t0;\n\tld.shared.v2.b64 \t{%rd7, %rd8}, [%r17];\n\t// begin inline asm\n\tcp.async.cg.shared.global [ %r152 + 0 ], [ %rd7 + 0 ], 0x10, %r150;\n\t// end inline asm\n\t// begin inline asm\n\tcp.async.cg.shared.global [ %r153 + 0 ], [ %rd8 + 0 ], 0x10, %r150;\n\t// end inline asm\n\tcp.async.commit_group;\n\t.loc\t1 85 26                         // triton_gemm.py:85:26\n\tadd.s64 \t%rd67, %rd5, 64;\n\tadd.s64 \t%rd66, %rd6, 64;\n\tadd.s64 \t%rd63, %rd63, 64;\n\tadd.s64 \t%rd62, %rd62, 64;\n\tadd.s64 \t%rd61, %rd61, 64;\n\tadd.s64 \t%rd60, %rd60, 64;\n\tadd.s64 \t%rd59, %rd59, 64;\n\tadd.s64 \t%rd58, %rd58, 64;\n\tadd.s64 \t%rd57, %rd57, 64;\n\tadd.s64 \t%rd56, %rd56, 64;\n\tadd.s64 \t%rd55, %rd55, 64;\n\tadd.s64 \t%rd54, %rd54, 64;\n\tadd.s64 \t%rd53, %rd53, 64;\n\tadd.s64 \t%rd52, %rd52, 64;\n\tadd.s64 \t%rd51, %rd51, 64;\n\tadd.s64 \t%rd50, %rd50, 64;\n\tadd.s64 \t%rd49, %rd49, 64;\n\tadd.s64 \t%rd48, %rd48, 64;\n\t.loc\t1 86 26                         // triton_gemm.py:86:26\n\tshl.b64 \t%rd9, %rd1, 1;\n\tadd.s64 \t%rd65, %rd7, %rd9;\n\tadd.s64 \t%rd64, %rd8, %rd9;\n\tadd.s64 \t%rd47, %rd47, %rd9;\n\tadd.s64 \t%rd46, %rd46, %rd9;\n\tadd.s64 \t%rd45, %rd45, %rd9;\n\tadd.s64 \t%rd44, %rd44, %rd9;\n\tadd.s64 \t%rd43, %rd43, %rd9;\n\tadd.s64 \t%rd42, %rd42, %rd9;\n\tadd.s64 \t%rd41, %rd41, %rd9;\n\tadd.s64 \t%rd40, %rd40, %rd9;\n\tadd.s64 \t%rd39, %rd39, %rd9;\n\tadd.s64 \t%rd38, %rd38, %rd9;\n\tadd.s64 \t%rd37, %rd37, %rd9;\n\tadd.s64 \t%rd36, %rd36, %rd9;\n\tadd.s64 \t%rd35, %rd35, %rd9;\n\tadd.s64 \t%rd34, %rd34, %rd9;\n\tadd.s64 \t%rd33, %rd33, %rd9;\n\tadd.s64 \t%rd32, %rd32, %rd9;\n\t.loc\t1 79 28                         // triton_gemm.py:79:28\n\t// begin inline asm\n\tcp.async.cg.shared.global [ %r154 + 0 ], [ %rd67 + 0 ], 0x10, %r150;\n\t// end inline asm\n\t// begin inline asm\n\tcp.async.cg.shared.global [ %r155 + 0 ], [ %rd66 + 0 ], 0x10, %r150;\n\t// end inline asm\n\tcp.async.commit_group;\n\t.loc\t1 80 28                         // triton_gemm.py:80:28\n\tbar.sync \t0;\n\t// begin inline asm\n\tcp.async.cg.shared.global [ %r156 + 0 ], [ %rd65 + 0 ], 0x10, %r150;\n\t// end inline asm\n\t// begin inline asm\n\tcp.async.cg.shared.global [ %r157 + 0 ], [ %rd64 + 0 ], 0x10, %r150;\n\t// end inline asm\n\tcp.async.commit_group;\n\tmov.b32 \t%r334, 1;\n\tmov.b32 \t%r333, -1;\n\tmov.b32 \t%r335, %r38;\n\tmov.b32 \t%r336, %r38;\n\tmov.b32 \t%r337, %r38;\n\tmov.b32 \t%r338, %r38;\n\tmov.b32 \t%r339, %r38;\n\tmov.b32 \t%r340, %r38;\n\tmov.b32 \t%r341, %r38;\n\tmov.b32 \t%r342, %r38;\n\tmov.b32 \t%r343, %r38;\n\tmov.b32 \t%r344, %r38;\n\tmov.b32 \t%r345, %r38;\n\tmov.b32 \t%r346, %r38;\n\tmov.b32 \t%r347, %r38;\n\tmov.b32 \t%r348, %r38;\n\tmov.b32 \t%r349, %r38;\n\tmov.b32 \t%r350, %r38;\n\tmov.b32 \t%r351, %r38;\n\tmov.b32 \t%r352, %r38;\n\tmov.b32 \t%r353, %r38;\n\tmov.b32 \t%r354, %r38;\n\tmov.b32 \t%r355, %r38;\n\tmov.b32 \t%r356, %r38;\n\tmov.b32 \t%r357, %r38;\n\tmov.b32 \t%r358, %r38;\n\tmov.b32 \t%r359, %r38;\n\tmov.b32 \t%r360, %r38;\n\tmov.b32 \t%r361, %r38;\n\tmov.b32 \t%r362, %r38;\n\tmov.b32 \t%r363, %r38;\n\tmov.b32 \t%r364, %r38;\n\tmov.b32 \t%r365, %r38;\n\tmov.b32 \t%r366, %r38;\n\tmov.b32 \t%r367, %r38;\n\tmov.b32 \t%r368, %r38;\n\tmov.b32 \t%r369, %r38;\n\tmov.b32 \t%r370, %r38;\n\tmov.b32 \t%r371, %r38;\n\tmov.b32 \t%r372, %r38;\n\tmov.b32 \t%r373, %r38;\n\tmov.b32 \t%r374, %r38;\n\tmov.b32 \t%r375, %r38;\n\tmov.b32 \t%r376, %r38;\n\tmov.b32 \t%r377, %r38;\n\tmov.b32 \t%r378, %r38;\n\tmov.b32 \t%r379, %r38;\n\tmov.b32 \t%r380, %r38;\n\tmov.b32 \t%r381, %r38;\n\tmov.b32 \t%r382, %r38;\n\tmov.b32 \t%r383, %r38;\n\tmov.b32 \t%r384, %r38;\n\tmov.b32 \t%r385, %r38;\n\tmov.b32 \t%r386, %r38;\n\tmov.b32 \t%r387, %r38;\n\tmov.b32 \t%r388, %r38;\n\tmov.b32 \t%r389, %r38;\n\tmov.b32 \t%r390, %r38;\n\tmov.b32 \t%r391, %r38;\n\tmov.b32 \t%r392, %r38;\n\tmov.b32 \t%r393, %r38;\n\tmov.b32 \t%r394, %r38;\n\tmov.b32 \t%r395, %r38;\n\tmov.b32 \t%r396, %r38;\n\tmov.b32 \t%r397, %r38;\n\tmov.b32 \t%r398, %r38;\n\tmov.b32 \t%r399, %r37;\n$L__BB0_4:                              //   Parent Loop BB0_3 Depth=1\n                                        // =>  This Inner Loop Header: Depth=2\n\t.loc\t1 78 30                         // triton_gemm.py:78:30\n\tsetp.lt.u32 \t%p2, %r399, 62;\n\tsetp.eq.b32 \t%p3, %r399, 63;\n\tadd.s32 \t%r211, %r333, 1;\n\tsetp.gt.s32 \t%p4, %r211, 1;\n\tselp.b32 \t%r333, 0, %r211, %p4;\n\t.loc\t1 79 28                         // triton_gemm.py:79:28\n\tcp.async.wait_group \t2;\n\tbar.sync \t0;\n\tshl.b32 \t%r212, %r333, 13;\n\tadd.s32 \t%r213, %r331, %r212;\n\tadd.s32 \t%r214, %r213, %r19;\n\tldmatrix.sync.aligned.m8n8.x4.shared.b16 {%r158, %r159, %r160, %r161}, [%r214+32768];\n\tldmatrix.sync.aligned.m8n8.x4.shared.b16 {%r170, %r171, %r172, %r173}, [%r214+34816];\n\tldmatrix.sync.aligned.m8n8.x4.shared.b16 {%r174, %r175, %r176, %r177}, [%r214+36864];\n\tldmatrix.sync.aligned.m8n8.x4.shared.b16 {%r178, %r179, %r180, %r181}, [%r214+38912];\n\tadd.s32 \t%r215, %r213, %r20;\n\tldmatrix.sync.aligned.m8n8.x4.shared.b16 {%r182, %r183, %r184, %r185}, [%r215+32768];\n\tldmatrix.sync.aligned.m8n8.x4.shared.b16 {%r194, %r195, %r196, %r197}, [%r215+34816];\n\tldmatrix.sync.aligned.m8n8.x4.shared.b16 {%r198, %r199, %r200, %r201}, [%r215+36864];\n\tldmatrix.sync.aligned.m8n8.x4.shared.b16 {%r202, %r203, %r204, %r205}, [%r215+38912];\n\t.loc\t1 80 28                         // triton_gemm.py:80:28\n\tadd.s32 \t%r216, %r213, %r21;\n\tldmatrix.sync.aligned.m8n8.x4.trans.shared.b16 {%r162, %r163, %r186, %r187}, [%r216+49152];\n\tldmatrix.sync.aligned.m8n8.x4.trans.shared.b16 {%r166, %r167, %r190, %r191}, [%r216+49280];\n\tadd.s32 \t%r217, %r213, %r22;\n\tldmatrix.sync.aligned.m8n8.x4.trans.shared.b16 {%r164, %r165, %r188, %r189}, [%r217+49152];\n\tldmatrix.sync.aligned.m8n8.x4.trans.shared.b16 {%r168, %r169, %r192, %r193}, [%r217+49280];\n\t.loc\t1 84 37                         // triton_gemm.py:84:37\n\t// begin inline asm\n\tmma.sync.aligned.m16n8k16.row.col.f32.f16.f16.f32 { %r335, %r336, %r337, %r338 }, { %r158, %r159, %r160, %r161 }, { %r162, %r163 }, { %r335, %r336, %r337, %r338 };\n\t// end inline asm\n\t// begin inline asm\n\tmma.sync.aligned.m16n8k16.row.col.f32.f16.f16.f32 { %r339, %r340, %r341, %r342 }, { %r158, %r159, %r160, %r161 }, { %r164, %r165 }, { %r339, %r340, %r341, %r342 };\n\t// end inline asm\n\t// begin inline asm\n\tmma.sync.aligned.m16n8k16.row.col.f32.f16.f16.f32 { %r343, %r344, %r345, %r346 }, { %r158, %r159, %r160, %r161 }, { %r166, %r167 }, { %r343, %r344, %r345, %r346 };\n\t// end inline asm\n\t// begin inline asm\n\tmma.sync.aligned.m16n8k16.row.col.f32.f16.f16.f32 { %r347, %r348, %r349, %r350 }, { %r158, %r159, %r160, %r161 }, { %r168, %r169 }, { %r347, %r348, %r349, %r350 };\n\t// end inline asm\n\t// begin inline asm\n\tmma.sync.aligned.m16n8k16.row.col.f32.f16.f16.f32 { %r351, %r352, %r353, %r354 }, { %r170, %r171, %r172, %r173 }, { %r162, %r163 }, { %r351, %r352, %r353, %r354 };\n\t// end inline asm\n\t// begin inline asm\n\tmma.sync.aligned.m16n8k16.row.col.f32.f16.f16.f32 { %r355, %r356, %r357, %r358 }, { %r170, %r171, %r172, %r173 }, { %r164, %r165 }, { %r355, %r356, %r357, %r358 };\n\t// end inline asm\n\t// begin inline asm\n\tmma.sync.aligned.m16n8k16.row.col.f32.f16.f16.f32 { %r359, %r360, %r361, %r362 }, { %r170, %r171, %r172, %r173 }, { %r166, %r167 }, { %r359, %r360, %r361, %r362 };\n\t// end inline asm\n\t// begin inline asm\n\tmma.sync.aligned.m16n8k16.row.col.f32.f16.f16.f32 { %r363, %r364, %r365, %r366 }, { %r170, %r171, %r172, %r173 }, { %r168, %r169 }, { %r363, %r364, %r365, %r366 };\n\t// end inline asm\n\t// begin inline asm\n\tmma.sync.aligned.m16n8k16.row.col.f32.f16.f16.f32 { %r367, %r368, %r369, %r370 }, { %r174, %r175, %r176, %r177 }, { %r162, %r163 }, { %r367, %r368, %r369, %r370 };\n\t// end inline asm\n\t// begin inline asm\n\tmma.sync.aligned.m16n8k16.row.col.f32.f16.f16.f32 { %r371, %r372, %r373, %r374 }, { %r174, %r175, %r176, %r177 }, { %r164, %r165 }, { %r371, %r372, %r373, %r374 };\n\t// end inline asm\n\t// begin inline asm\n\tmma.sync.aligned.m16n8k16.row.col.f32.f16.f16.f32 { %r375, %r376, %r377, %r378 }, { %r174, %r175, %r176, %r177 }, { %r166, %r167 }, { %r375, %r376, %r377, %r378 };\n\t// end inline asm\n\t// begin inline asm\n\tmma.sync.aligned.m16n8k16.row.col.f32.f16.f16.f32 { %r379, %r380, %r381, %r382 }, { %r174, %r175, %r176, %r177 }, { %r168, %r169 }, { %r379, %r380, %r381, %r382 };\n\t// end inline asm\n\t// begin inline asm\n\tmma.sync.aligned.m16n8k16.row.col.f32.f16.f16.f32 { %r383, %r384, %r385, %r386 }, { %r178, %r179, %r180, %r181 }, { %r162, %r163 }, { %r383, %r384, %r385, %r386 };\n\t// end inline asm\n\t// begin inline asm\n\tmma.sync.aligned.m16n8k16.row.col.f32.f16.f16.f32 { %r387, %r388, %r389, %r390 }, { %r178, %r179, %r180, %r181 }, { %r164, %r165 }, { %r387, %r388, %r389, %r390 };\n\t// end inline asm\n\t// begin inline asm\n\tmma.sync.aligned.m16n8k16.row.col.f32.f16.f16.f32 { %r391, %r392, %r393, %r394 }, { %r178, %r179, %r180, %r181 }, { %r166, %r167 }, { %r391, %r392, %r393, %r394 };\n\t// end inline asm\n\t// begin inline asm\n\tmma.sync.aligned.m16n8k16.row.col.f32.f16.f16.f32 { %r395, %r396, %r397, %r398 }, { %r178, %r179, %r180, %r181 }, { %r168, %r169 }, { %r395, %r396, %r397, %r398 };\n\t// end inline asm\n\t// begin inline asm\n\tmma.sync.aligned.m16n8k16.row.col.f32.f16.f16.f32 { %r335, %r336, %r337, %r338 }, { %r182, %r183, %r184, %r185 }, { %r186, %r187 }, { %r335, %r336, %r337, %r338 };\n\t// end inline asm\n\t// begin inline asm\n\tmma.sync.aligned.m16n8k16.row.col.f32.f16.f16.f32 { %r339, %r340, %r341, %r342 }, { %r182, %r183, %r184, %r185 }, { %r188, %r189 }, { %r339, %r340, %r341, %r342 };\n\t// end inline asm\n\t// begin inline asm\n\tmma.sync.aligned.m16n8k16.row.col.f32.f16.f16.f32 { %r343, %r344, %r345, %r346 }, { %r182, %r183, %r184, %r185 }, { %r190, %r191 }, { %r343, %r344, %r345, %r346 };\n\t// end inline asm\n\t// begin inline asm\n\tmma.sync.aligned.m16n8k16.row.col.f32.f16.f16.f32 { %r347, %r348, %r349, %r350 }, { %r182, %r183, %r184, %r185 }, { %r192, %r193 }, { %r347, %r348, %r349, %r350 };\n\t// end inline asm\n\t// begin inline asm\n\tmma.sync.aligned.m16n8k16.row.col.f32.f16.f16.f32 { %r351, %r352, %r353, %r354 }, { %r194, %r195, %r196, %r197 }, { %r186, %r187 }, { %r351, %r352, %r353, %r354 };\n\t// end inline asm\n\t// begin inline asm\n\tmma.sync.aligned.m16n8k16.row.col.f32.f16.f16.f32 { %r355, %r356, %r357, %r358 }, { %r194, %r195, %r196, %r197 }, { %r188, %r189 }, { %r355, %r356, %r357, %r358 };\n\t// end inline asm\n\t// begin inline asm\n\tmma.sync.aligned.m16n8k16.row.col.f32.f16.f16.f32 { %r359, %r360, %r361, %r362 }, { %r194, %r195, %r196, %r197 }, { %r190, %r191 }, { %r359, %r360, %r361, %r362 };\n\t// end inline asm\n\t// begin inline asm\n\tmma.sync.aligned.m16n8k16.row.col.f32.f16.f16.f32 { %r363, %r364, %r365, %r366 }, { %r194, %r195, %r196, %r197 }, { %r192, %r193 }, { %r363, %r364, %r365, %r366 };\n\t// end inline asm\n\t// begin inline asm\n\tmma.sync.aligned.m16n8k16.row.col.f32.f16.f16.f32 { %r367, %r368, %r369, %r370 }, { %r198, %r199, %r200, %r201 }, { %r186, %r187 }, { %r367, %r368, %r369, %r370 };\n\t// end inline asm\n\t// begin inline asm\n\tmma.sync.aligned.m16n8k16.row.col.f32.f16.f16.f32 { %r371, %r372, %r373, %r374 }, { %r198, %r199, %r200, %r201 }, { %r188, %r189 }, { %r371, %r372, %r373, %r374 };\n\t// end inline asm\n\t// begin inline asm\n\tmma.sync.aligned.m16n8k16.row.col.f32.f16.f16.f32 { %r375, %r376, %r377, %r378 }, { %r198, %r199, %r200, %r201 }, { %r190, %r191 }, { %r375, %r376, %r377, %r378 };\n\t// end inline asm\n\t// begin inline asm\n\tmma.sync.aligned.m16n8k16.row.col.f32.f16.f16.f32 { %r379, %r380, %r381, %r382 }, { %r198, %r199, %r200, %r201 }, { %r192, %r193 }, { %r379, %r380, %r381, %r382 };\n\t// end inline asm\n\t// begin inline asm\n\tmma.sync.aligned.m16n8k16.row.col.f32.f16.f16.f32 { %r383, %r384, %r385, %r386 }, { %r202, %r203, %r204, %r205 }, { %r186, %r187 }, { %r383, %r384, %r385, %r386 };\n\t// end inline asm\n\t// begin inline asm\n\tmma.sync.aligned.m16n8k16.row.col.f32.f16.f16.f32 { %r387, %r388, %r389, %r390 }, { %r202, %r203, %r204, %r205 }, { %r188, %r189 }, { %r387, %r388, %r389, %r390 };\n\t// end inline asm\n\t// begin inline asm\n\tmma.sync.aligned.m16n8k16.row.col.f32.f16.f16.f32 { %r391, %r392, %r393, %r394 }, { %r202, %r203, %r204, %r205 }, { %r190, %r191 }, { %r391, %r392, %r393, %r394 };\n\t// end inline asm\n\t// begin inline asm\n\tmma.sync.aligned.m16n8k16.row.col.f32.f16.f16.f32 { %r395, %r396, %r397, %r398 }, { %r202, %r203, %r204, %r205 }, { %r192, %r193 }, { %r395, %r396, %r397, %r398 };\n\t// end inline asm\n\t.loc\t1 85 26                         // triton_gemm.py:85:26\n\tadd.s64 \t%rd10, %rd67, 64;\n\tadd.s64 \t%rd11, %rd66, 64;\n\t.loc\t1 86 26                         // triton_gemm.py:86:26\n\tadd.s64 \t%rd12, %rd65, %rd9;\n\tadd.s64 \t%rd13, %rd64, %rd9;\n\t.loc\t1 78 30                         // triton_gemm.py:78:30\n\tadd.s32 \t%r218, %r334, 1;\n\tsetp.gt.s32 \t%p5, %r218, 1;\n\tselp.b32 \t%r334, 0, %r218, %p5;\n\t.loc\t1 79 28                         // triton_gemm.py:79:28\n\tshl.b32 \t%r219, %r334, 13;\n\tadd.s32 \t%r220, %r331, %r219;\n\tbar.sync \t0;\n\tadd.s32 \t%r221, %r220, %r15;\n\tadd.s32 \t%r206, %r221, 32768;\n\tselp.b32 \t%r207, 16, 0, %p2;\n\t// begin inline asm\n\tcp.async.cg.shared.global [ %r206 + 0 ], [ %rd10 + 0 ], 0x10, %r207;\n\t// end inline asm\n\tadd.s32 \t%r208, %r221, 36864;\n\t// begin inline asm\n\tcp.async.cg.shared.global [ %r208 + 0 ], [ %rd11 + 0 ], 0x10, %r207;\n\t// end inline asm\n\tcp.async.commit_group;\n\t.loc\t1 80 28                         // triton_gemm.py:80:28\n\tadd.s32 \t%r222, %r220, %r18;\n\tadd.s32 \t%r209, %r222, 49152;\n\t// begin inline asm\n\tcp.async.cg.shared.global [ %r209 + 0 ], [ %rd12 + 0 ], 0x10, %r207;\n\t// end inline asm\n\tadd.s32 \t%r210, %r222, 53248;\n\t// begin inline asm\n\tcp.async.cg.shared.global [ %r210 + 0 ], [ %rd13 + 0 ], 0x10, %r207;\n\t// end inline asm\n\tcp.async.commit_group;\n\t.loc\t1 78 30                         // triton_gemm.py:78:30\n\tselp.b64 \t%rd67, %rd67, %rd10, %p3;\n\tselp.b64 \t%rd66, %rd66, %rd11, %p3;\n\tselp.b64 \t%rd14, 0, 64, %p3;\n\tadd.s64 \t%rd63, %rd63, %rd14;\n\tadd.s64 \t%rd62, %rd62, %rd14;\n\tadd.s64 \t%rd61, %rd61, %rd14;\n\tadd.s64 \t%rd60, %rd60, %rd14;\n\tadd.s64 \t%rd59, %rd59, %rd14;\n\tadd.s64 \t%rd58, %rd58, %rd14;\n\tadd.s64 \t%rd57, %rd57, %rd14;\n\tadd.s64 \t%rd56, %rd56, %rd14;\n\tadd.s64 \t%rd55, %rd55, %rd14;\n\tadd.s64 \t%rd54, %rd54, %rd14;\n\tadd.s64 \t%rd53, %rd53, %rd14;\n\tadd.s64 \t%rd52, %rd52, %rd14;\n\tadd.s64 \t%rd51, %rd51, %rd14;\n\tadd.s64 \t%rd50, %rd50, %rd14;\n\tadd.s64 \t%rd49, %rd49, %rd14;\n\tadd.s64 \t%rd48, %rd48, %rd14;\n\tselp.b64 \t%rd65, %rd65, %rd12, %p3;\n\tselp.b64 \t%rd64, %rd64, %rd13, %p3;\n\tselp.b32 \t%r223, 0, %r12, %p3;\n\tmul.wide.s32 \t%rd15, %r223, 2;\n\tadd.s64 \t%rd47, %rd47, %rd15;\n\tadd.s64 \t%rd46, %rd46, %rd15;\n\tadd.s64 \t%rd45, %rd45, %rd15;\n\tadd.s64 \t%rd44, %rd44, %rd15;\n\tadd.s64 \t%rd43, %rd43, %rd15;\n\tadd.s64 \t%rd42, %rd42, %rd15;\n\tadd.s64 \t%rd41, %rd41, %rd15;\n\tadd.s64 \t%rd40, %rd40, %rd15;\n\tadd.s64 \t%rd39, %rd39, %rd15;\n\tadd.s64 \t%rd38, %rd38, %rd15;\n\tadd.s64 \t%rd37, %rd37, %rd15;\n\tadd.s64 \t%rd36, %rd36, %rd15;\n\tadd.s64 \t%rd35, %rd35, %rd15;\n\tadd.s64 \t%rd34, %rd34, %rd15;\n\tadd.s64 \t%rd33, %rd33, %rd15;\n\tadd.s64 \t%rd32, %rd32, %rd15;\n\tadd.s32 \t%r399, %r399, 1;\n\tsetp.ne.b32 \t%p6, %r399, 64;\n\t@%p6 bra \t$L__BB0_4;\n// %bb.5:                               //   in Loop: Header=BB0_3 Depth=1\n\tcp.async.wait_group \t0;\n\tbar.sync \t0;\n\t.loc\t1 87 19                         // triton_gemm.py:87:19\n\tadd.f32 \t%r406, %r406, %r335;\n\tadd.f32 \t%r407, %r407, %r336;\n\tadd.f32 \t%r408, %r408, %r337;\n\tadd.f32 \t%r409, %r409, %r338;\n\tadd.f32 \t%r410, %r410, %r339;\n\tadd.f32 \t%r411, %r411, %r340;\n\tadd.f32 \t%r412, %r412, %r341;\n\tadd.f32 \t%r413, %r413, %r342;\n\tadd.f32 \t%r414, %r414, %r343;\n\tadd.f32 \t%r415, %r415, %r344;\n\tadd.f32 \t%r416, %r416, %r345;\n\tadd.f32 \t%r417, %r417, %r346;\n\tadd.f32 \t%r418, %r418, %r347;\n\tadd.f32 \t%r419, %r419, %r348;\n\tadd.f32 \t%r420, %r420, %r349;\n\tadd.f32 \t%r421, %r421, %r350;\n\tadd.f32 \t%r422, %r422, %r351;\n\tadd.f32 \t%r423, %r423, %r352;\n\tadd.f32 \t%r424, %r424, %r353;\n\tadd.f32 \t%r425, %r425, %r354;\n\tadd.f32 \t%r426, %r426, %r355;\n\tadd.f32 \t%r427, %r427, %r356;\n\tadd.f32 \t%r428, %r428, %r357;\n\tadd.f32 \t%r429, %r429, %r358;\n\tadd.f32 \t%r430, %r430, %r359;\n\tadd.f32 \t%r431, %r431, %r360;\n\tadd.f32 \t%r432, %r432, %r361;\n\tadd.f32 \t%r433, %r433, %r362;\n\tadd.f32 \t%r434, %r434, %r363;\n\tadd.f32 \t%r435, %r435, %r364;\n\tadd.f32 \t%r436, %r436, %r365;\n\tadd.f32 \t%r437, %r437, %r366;\n\tadd.f32 \t%r438, %r438, %r367;\n\tadd.f32 \t%r439, %r439, %r368;\n\tadd.f32 \t%r440, %r440, %r369;\n\tadd.f32 \t%r441, %r441, %r370;\n\tadd.f32 \t%r442, %r442, %r371;\n\tadd.f32 \t%r443, %r443, %r372;\n\tadd.f32 \t%r444, %r444, %r373;\n\tadd.f32 \t%r445, %r445, %r374;\n\tadd.f32 \t%r446, %r446, %r375;\n\tadd.f32 \t%r447, %r447, %r376;\n\tadd.f32 \t%r448, %r448, %r377;\n\tadd.f32 \t%r449, %r449, %r378;\n\tadd.f32 \t%r450, %r450, %r379;\n\tadd.f32 \t%r451, %r451, %r380;\n\tadd.f32 \t%r452, %r452, %r381;\n\tadd.f32 \t%r453, %r453, %r382;\n\tadd.f32 \t%r454, %r454, %r383;\n\tadd.f32 \t%r455, %r455, %r384;\n\tadd.f32 \t%r456, %r456, %r385;\n\tadd.f32 \t%r457, %r457, %r386;\n\tadd.f32 \t%r458, %r458, %r387;\n\tadd.f32 \t%r459, %r459, %r388;\n\tadd.f32 \t%r460, %r460, %r389;\n\tadd.f32 \t%r461, %r461, %r390;\n\tadd.f32 \t%r462, %r462, %r391;\n\tadd.f32 \t%r463, %r463, %r392;\n\tadd.f32 \t%r464, %r464, %r393;\n\tadd.f32 \t%r465, %r465, %r394;\n\tadd.f32 \t%r466, %r466, %r395;\n\tadd.f32 \t%r467, %r467, %r396;\n\tadd.f32 \t%r468, %r468, %r397;\n\tadd.f32 \t%r469, %r469, %r398;\n\t.loc\t1 76 26                         // triton_gemm.py:76:26\n\tadd.s32 \t%r332, %r332, 1;\n\tsetp.ne.b32 \t%p7, %r332, %r11;\n\t@%p7 bra \t$L__BB0_3;\n\tbra.uni \t$L__BB0_6;\n$L__BB0_1:                              // %.._crit_edge_crit_edge\n\t.loc\t1 90 21                         // triton_gemm.py:90:21\n\tand.b32 \t%r405, %r1, 24;\n\tshl.b32 \t%r404, %r1, 3;\n\tand.b32 \t%r403, %r1, 4;\n\tshl.b32 \t%r402, %r1, 4;\n\tshl.b32 \t%r36, %r1, 1;\n\tand.b32 \t%r401, %r36, 384;\n\tand.b32 \t%r400, %r1, 32;\n\tmov.b32 \t%r406, 0f00000000;\n\tmov.b32 \t%r407, %r406;\n\tmov.b32 \t%r408, %r406;\n\tmov.b32 \t%r409, %r406;\n\tmov.b32 \t%r410, %r406;\n\tmov.b32 \t%r411, %r406;\n\tmov.b32 \t%r412, %r406;\n\tmov.b32 \t%r413, %r406;\n\tmov.b32 \t%r414, %r406;\n\tmov.b32 \t%r415, %r406;\n\tmov.b32 \t%r416, %r406;\n\tmov.b32 \t%r417, %r406;\n\tmov.b32 \t%r418, %r406;\n\tmov.b32 \t%r419, %r406;\n\tmov.b32 \t%r420, %r406;\n\tmov.b32 \t%r421, %r406;\n\tmov.b32 \t%r422, %r406;\n\tmov.b32 \t%r423, %r406;\n\tmov.b32 \t%r424, %r406;\n\tmov.b32 \t%r425, %r406;\n\tmov.b32 \t%r426, %r406;\n\tmov.b32 \t%r427, %r406;\n\tmov.b32 \t%r428, %r406;\n\tmov.b32 \t%r429, %r406;\n\tmov.b32 \t%r430, %r406;\n\tmov.b32 \t%r431, %r406;\n\tmov.b32 \t%r432, %r406;\n\tmov.b32 \t%r433, %r406;\n\tmov.b32 \t%r434, %r406;\n\tmov.b32 \t%r435, %r406;\n\tmov.b32 \t%r436, %r406;\n\tmov.b32 \t%r437, %r406;\n\tmov.b32 \t%r438, %r406;\n\tmov.b32 \t%r439, %r406;\n\tmov.b32 \t%r440, %r406;\n\tmov.b32 \t%r441, %r406;\n\tmov.b32 \t%r442, %r406;\n\tmov.b32 \t%r443, %r406;\n\tmov.b32 \t%r444, %r406;\n\tmov.b32 \t%r445, %r406;\n\tmov.b32 \t%r446, %r406;\n\tmov.b32 \t%r447, %r406;\n\tmov.b32 \t%r448, %r406;\n\tmov.b32 \t%r449, %r406;\n\tmov.b32 \t%r450, %r406;\n\tmov.b32 \t%r451, %r406;\n\tmov.b32 \t%r452, %r406;\n\tmov.b32 \t%r453, %r406;\n\tmov.b32 \t%r454, %r406;\n\tmov.b32 \t%r455, %r406;\n\tmov.b32 \t%r456, %r406;\n\tmov.b32 \t%r457, %r406;\n\tmov.b32 \t%r458, %r406;\n\tmov.b32 \t%r459, %r406;\n\tmov.b32 \t%r460, %r406;\n\tmov.b32 \t%r461, %r406;\n\tmov.b32 \t%r462, %r406;\n\tmov.b32 \t%r463, %r406;\n\tmov.b32 \t%r464, %r406;\n\tmov.b32 \t%r465, %r406;\n\tmov.b32 \t%r466, %r406;\n\tmov.b32 \t%r467, %r406;\n\tmov.b32 \t%r468, %r406;\n\tmov.b32 \t%r469, %r406;\n$L__BB0_6:                              // %._crit_edge\n\t.loc\t1 54 39                         // triton_gemm.py:54:39\n\tshl.b32 \t%r288, %r2, 2;\n\t.loc\t1 55 26                         // triton_gemm.py:55:26\n\tor.b32 \t%r289, %r288, %r9;\n\t.loc\t1 89 36                         // triton_gemm.py:89:36\n\tshl.b32 \t%r290, %r25, 3;\n\tshl.b32 \t%r291, %r25, 4;\n\t.loc\t1 89 48                         // triton_gemm.py:89:48\n\tmad.lo.s32 \t%r292, %r25, %r3, %r289;\n\tadd.s32 \t%r293, %r292, %r290;\n\tadd.s32 \t%r294, %r293, %r290;\n\tmad.lo.s32 \t%r295, %r25, %r4, %r289;\n\tadd.s32 \t%r296, %r294, %r291;\n\tadd.s32 \t%r297, %r296, %r290;\n\tadd.s32 \t%r298, %r297, %r290;\n\tmad.lo.s32 \t%r299, %r25, %r5, %r289;\n\tadd.s32 \t%r300, %r298, %r291;\n\tadd.s32 \t%r301, %r300, %r290;\n\tadd.s32 \t%r302, %r301, %r290;\n\tmad.lo.s32 \t%r303, %r25, %r6, %r289;\n\tadd.s32 \t%r304, %r302, %r291;\n\tadd.s32 \t%r305, %r304, %r290;\n\tadd.s32 \t%r306, %r305, %r290;\n\tmad.lo.s32 \t%r307, %r25, %r8, %r289;\n\t.loc\t1 89 18                         // triton_gemm.py:89:18\n\tmad.wide.s32 \t%rd16, %r292, 4, %rd4;\n\tmad.wide.s32 \t%rd17, %r293, 4, %rd4;\n\tmad.wide.s32 \t%rd18, %r294, 4, %rd4;\n\tmad.wide.s32 \t%rd19, %r295, 4, %rd4;\n\tmad.wide.s32 \t%rd20, %r296, 4, %rd4;\n\tmad.wide.s32 \t%rd21, %r297, 4, %rd4;\n\tmad.wide.s32 \t%rd22, %r298, 4, %rd4;\n\tmad.wide.s32 \t%rd23, %r299, 4, %rd4;\n\tmad.wide.s32 \t%rd24, %r300, 4, %rd4;\n\tmad.wide.s32 \t%rd25, %r301, 4, %rd4;\n\tmad.wide.s32 \t%rd26, %r302, 4, %rd4;\n\tmad.wide.s32 \t%rd27, %r303, 4, %rd4;\n\tmad.wide.s32 \t%rd28, %r304, 4, %rd4;\n\tmad.wide.s32 \t%rd29, %r305, 4, %rd4;\n\tmad.wide.s32 \t%rd30, %r306, 4, %rd4;\n\tmad.wide.s32 \t%rd31, %r307, 4, %rd4;\n\t.loc\t1 90 21                         // triton_gemm.py:90:21\n\tshl.b32 \t%r308, %r405, 4;\n\tand.b32 \t%r309, %r1, 96;\n\tand.b32 \t%r310, %r1, 1;\n\tneg.s32 \t%r311, %r310;\n\tand.b32 \t%r312, %r311, 8256;\n\tand.b32 \t%r313, %r404, 16;\n\tsetp.eq.b32 \t%p8, %r403, 0;\n\tselp.b32 \t%r314, 0, 4128, %p8;\n\tshl.b32 \t%r315, %r10, 2;\n\tor.b32 \t%r316, %r308, %r309;\n\tor.b32 \t%r317, %r312, %r314;\n\txor.b32 \t%r318, %r317, %r316;\n\tadd.s32 \t%r319, %r331, %r313;\n\tadd.s32 \t%r320, %r319, %r315;\n\tadd.s32 \t%r321, %r320, %r318;\n\tst.shared.v4.b32 \t[%r321], {%r406, %r407, %r408, %r409};\n\tst.shared.v4.b32 \t[%r321+1024], {%r410, %r411, %r412, %r413};\n\tst.shared.v4.b32 \t[%r321+2048], {%r414, %r415, %r416, %r417};\n\tst.shared.v4.b32 \t[%r321+3072], {%r418, %r419, %r420, %r421};\n\tbar.sync \t0;\n\tshl.b32 \t%r322, %r405, 7;\n\tand.b32 \t%r323, %r402, 112;\n\tsetp.eq.b32 \t%p9, %r400, 0;\n\tselp.b32 \t%r324, 0, 4128, %p9;\n\tor.b32 \t%r325, %r322, %r323;\n\tor.b32 \t%r326, %r324, %r401;\n\txor.b32 \t%r327, %r326, %r325;\n\tadd.s32 \t%r328, %r331, %r327;\n\tld.shared.v4.b32 \t{%r224, %r225, %r228, %r229}, [%r328];\n\tld.shared.v4.b32 \t{%r232, %r233, %r236, %r237}, [%r328+512];\n\txor.b32 \t%r329, %r327, 64;\n\tadd.s32 \t%r330, %r331, %r329;\n\tld.shared.v4.b32 \t{%r226, %r227, %r230, %r231}, [%r330+8192];\n\tld.shared.v4.b32 \t{%r234, %r235, %r238, %r239}, [%r330+8704];\n\tbar.sync \t0;\n\tst.shared.v4.b32 \t[%r321], {%r422, %r423, %r424, %r425};\n\tst.shared.v4.b32 \t[%r321+1024], {%r426, %r427, %r428, %r429};\n\tst.shared.v4.b32 \t[%r321+2048], {%r430, %r431, %r432, %r433};\n\tst.shared.v4.b32 \t[%r321+3072], {%r434, %r435, %r436, %r437};\n\tbar.sync \t0;\n\tld.shared.v4.b32 \t{%r240, %r241, %r244, %r245}, [%r328];\n\tld.shared.v4.b32 \t{%r248, %r249, %r252, %r253}, [%r328+512];\n\tld.shared.v4.b32 \t{%r242, %r243, %r246, %r247}, [%r330+8192];\n\tld.shared.v4.b32 \t{%r250, %r251, %r254, %r255}, [%r330+8704];\n\tbar.sync \t0;\n\tst.shared.v4.b32 \t[%r321], {%r438, %r439, %r440, %r441};\n\tst.shared.v4.b32 \t[%r321+1024], {%r442, %r443, %r444, %r445};\n\tst.shared.v4.b32 \t[%r321+2048], {%r446, %r447, %r448, %r449};\n\tst.shared.v4.b32 \t[%r321+3072], {%r450, %r451, %r452, %r453};\n\tbar.sync \t0;\n\tld.shared.v4.b32 \t{%r256, %r257, %r260, %r261}, [%r328];\n\tld.shared.v4.b32 \t{%r264, %r265, %r268, %r269}, [%r328+512];\n\tld.shared.v4.b32 \t{%r258, %r259, %r262, %r263}, [%r330+8192];\n\tld.shared.v4.b32 \t{%r266, %r267, %r270, %r271}, [%r330+8704];\n\tbar.sync \t0;\n\tst.shared.v4.b32 \t[%r321], {%r454, %r455, %r456, %r457};\n\tst.shared.v4.b32 \t[%r321+1024], {%r458, %r459, %r460, %r461};\n\tst.shared.v4.b32 \t[%r321+2048], {%r462, %r463, %r464, %r465};\n\tst.shared.v4.b32 \t[%r321+3072], {%r466, %r467, %r468, %r469};\n\tbar.sync \t0;\n\tld.shared.v4.b32 \t{%r272, %r273, %r276, %r277}, [%r328];\n\tld.shared.v4.b32 \t{%r280, %r281, %r284, %r285}, [%r328+512];\n\tld.shared.v4.b32 \t{%r274, %r275, %r278, %r279}, [%r330+8192];\n\tld.shared.v4.b32 \t{%r282, %r283, %r286, %r287}, [%r330+8704];\n\t// begin inline asm\n\tst.global.v4.b32 [ %rd16 + 0 ], { %r224, %r225, %r226, %r227 };\n\t// end inline asm\n\t// begin inline asm\n\tst.global.v4.b32 [ %rd17 + 0 ], { %r228, %r229, %r230, %r231 };\n\t// end inline asm\n\t// begin inline asm\n\tst.global.v4.b32 [ %rd18 + 0 ], { %r232, %r233, %r234, %r235 };\n\t// end inline asm\n\t// begin inline asm\n\tst.global.v4.b32 [ %rd19 + 0 ], { %r236, %r237, %r238, %r239 };\n\t// end inline asm\n\t// begin inline asm\n\tst.global.v4.b32 [ %rd20 + 0 ], { %r240, %r241, %r242, %r243 };\n\t// end inline asm\n\t// begin inline asm\n\tst.global.v4.b32 [ %rd21 + 0 ], { %r244, %r245, %r246, %r247 };\n\t// end inline asm\n\t// begin inline asm\n\tst.global.v4.b32 [ %rd22 + 0 ], { %r248, %r249, %r250, %r251 };\n\t// end inline asm\n\t// begin inline asm\n\tst.global.v4.b32 [ %rd23 + 0 ], { %r252, %r253, %r254, %r255 };\n\t// end inline asm\n\t// begin inline asm\n\tst.global.v4.b32 [ %rd24 + 0 ], { %r256, %r257, %r258, %r259 };\n\t// end inline asm\n\t// begin inline asm\n\tst.global.v4.b32 [ %rd25 + 0 ], { %r260, %r261, %r262, %r263 };\n\t// end inline asm\n\t// begin inline asm\n\tst.global.v4.b32 [ %rd26 + 0 ], { %r264, %r265, %r266, %r267 };\n\t// end inline asm\n\t// begin inline asm\n\tst.global.v4.b32 [ %rd27 + 0 ], { %r268, %r269, %r270, %r271 };\n\t// end inline asm\n\t// begin inline asm\n\tst.global.v4.b32 [ %rd28 + 0 ], { %r272, %r273, %r274, %r275 };\n\t// end inline asm\n\t// begin inline asm\n\tst.global.v4.b32 [ %rd29 + 0 ], { %r276, %r277, %r278, %r279 };\n\t// end inline asm\n\t// begin inline asm\n\tst.global.v4.b32 [ %rd30 + 0 ], { %r280, %r281, %r282, %r283 };\n\t// end inline asm\n\t// begin inline asm\n\tst.global.v4.b32 [ %rd31 + 0 ], { %r284, %r285, %r286, %r287 };\n\t// end inline asm\n\t.loc\t1 90 4                          // triton_gemm.py:90:4\n\tret;\n$L__tmp1:\n$L__func_end0:\n                                        // -- End function\n}\n\t.file\t1 \"/home/lxt230026/MultiKernelBench/ako_runs/phase1_matmul/variants/triton_gemm.py\"\n\t.section\t.debug_abbrev\n\t{\n.b8 1                                   // Abbreviation Code\n.b8 17                                  // DW_TAG_compile_unit\n.b8 0                                   // DW_CHILDREN_no\n.b8 37                                  // DW_AT_producer\n.b8 8                                   // DW_FORM_string\n.b8 19                                  // DW_AT_language\n.b8 5                                   // DW_FORM_data2\n.b8 3                                   // DW_AT_name\n.b8 8                                   // DW_FORM_string\n.b8 16                                  // DW_AT_stmt_list\n.b8 6                                   // DW_FORM_data4\n.b8 27                                  // DW_AT_comp_dir\n.b8 8                                   // DW_FORM_string\n.b8 0                                   // EOM(1)\n.b8 0                                   // EOM(2)\n.b8 0                                   // EOM(3)\n\t}\n\t.section\t.debug_info\n\t{\n.b32 101                                // Length of Unit\n.b8 2                                   // DWARF version number\n.b8 0\n.b32 .debug_abbrev                      // Offset Into Abbrev. Section\n.b8 8                                   // Address Size (in bytes)\n.b8 1                                   // Abbrev [1] 0xb:0x5e DW_TAG_compile_unit\n.b8 116                                 // DW_AT_producer\n.b8 114\n.b8 105\n.b8 116\n.b8 111\n.b8 110\n.b8 0\n.b8 2                                   // DW_AT_language\n.b8 0\n.b8 116                                 // DW_AT_name\n.b8 114\n.b8 105\n.b8 116\n.b8 111\n.b8 110\n.b8 95\n.b8 103\n.b8 101\n.b8 109\n.b8 109\n.b8 46\n.b8 112\n.b8 121\n.b8 0\n.b32 .debug_line                        // DW_AT_stmt_list\n.b8 47                                  // DW_AT_comp_dir\n.b8 104\n.b8 111\n.b8 109\n.b8 101\n.b8 47\n.b8 108\n.b8 120\n.b8 116\n.b8 50\n.b8 51\n.b8 48\n.b8 48\n.b8 50\n.b8 54\n.b8 47\n.b8 77\n.b8 117\n.b8 108\n.b8 116\n.b8 105\n.b8 75\n.b8 101\n.b8 114\n.b8 110\n.b8 101\n.b8 108\n.b8 66\n.b8 101\n.b8 110\n.b8 99\n.b8 104\n.b8 47\n.b8 97\n.b8 107\n.b8 111\n.b8 95\n.b8 114\n.b8 117\n.b8 110\n.b8 115\n.b8 47\n.b8 112\n.b8 104\n.b8 97\n.b8 115\n.b8 101\n.b8 49\n.b8 95\n.b8 109\n.b8 97\n.b8 116\n.b8 109\n.b8 117\n.b8 108\n.b8 47\n.b8 118\n.b8 97\n.b8 114\n.b8 105\n.b8 97\n.b8 110\n.b8 116\n.b8 115\n.b8 0\n\t}\n\t.section\t.debug_macinfo\t{\t}\n",
+        "ptx_cp_async_count": 20,
+        "ptx_mma_sync_count": 32,
+        "ptx_path": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/global_intermediate__triton__g01/runtime_tmp/fused_epilogue_crossed_v2/pid156527/global_intermediate.triton.g01/phase1/triton/triton.D.128x128x32.kc2048.s3.fp16.precast.ptx",
+        "shared_bytes": 65536,
+        "total_dynamic_shared_bytes": 65536,
+        "total_dynamic_smem_bytes": 65536
+      },
+      "postprocess": {
+        "backend_detail": "common CUDA compile-time bias/GELU plus row-softmax",
+        "block": [
+          256,
+          1,
+          1
+        ],
+        "cuda_source_sha256": "788714f21a6cbe343a81b997a03928ad7965599c58aa87c1a1129b41333e8368",
+        "epilogue_tile_bytes": 0,
+        "grid": [
+          1024,
+          1,
+          1
+        ],
+        "has_bias": true,
+        "has_gelu": true,
+        "n_kernels": 1,
+        "operand_smem_bytes": 0,
+        "shared_bytes": 0,
+        "softmax_source_sha256": "758a6ad3dc8f4635cd1146dd9c6fd102b590410ce4f710c10c72f470d2bbf96f",
+        "total_dynamic_shared_bytes": 0
+      },
+      "strategy": "global_intermediate"
+    },
+    "builder": "phase1:triton+crossed-v2:common-postprocess",
+    "common_softmax_source_sha256": "758a6ad3dc8f4635cd1146dd9c6fd102b590410ce4f710c10c72f470d2bbf96f",
+    "implementation_sha256": "609635f3894cdcbe514c0f4f28be58dcc3c919ecae01b2ced207fe0c03f2bcb7",
+    "isolated_artifact_root": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/global_intermediate__triton__g01/runtime_tmp/fused_epilogue_crossed_v2/pid156527/global_intermediate.triton.g01",
+    "n_kernels": 2,
+    "notes": "lane-native GEMM plus common bias+exact-GELU+softmax"
+  },
+  "torch_inline_requests": [
+    {
+      "module": {
+        "path": "torch_extensions/fused_crossed_v2_pp_788714f21a6c/fused_crossed_v2_pp_788714f21a6c.so",
+        "sha256": "887de4b5d368dd0fbf8db59856a037f345190f51132f9222028452ee094debdc",
+        "size": 1363464
+      },
+      "request": {
+        "compile_options": {
+          "extra_cflags": null,
+          "extra_cuda_cflags": [
+            "-O3",
+            "-std=c++17",
+            "-Xptxas=-v",
+            "-gencode=arch=compute_89,code=sm_89"
+          ],
+          "extra_include_paths": [
+            "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/legacy_cuda_harness_fix"
+          ],
+          "extra_ldflags": null,
+          "extra_sycl_cflags": null,
+          "is_python_module": true,
+          "keep_intermediates": true,
+          "no_implicit_headers": false,
+          "use_pch": false,
+          "with_cuda": true,
+          "with_pytorch_error_handling": true,
+          "with_sycl": null
+        },
+        "cpp_sources": [
+          {
+            "sha256": "4191a213326b6ae0d2a79f3d17e6ba22980bf82f6e0b2fae9bbceeec5939b806",
+            "size": 103
+          }
+        ],
+        "cuda_sources": [
+          {
+            "sha256": "788714f21a6cbe343a81b997a03928ad7965599c58aa87c1a1129b41333e8368",
+            "size": 3596
+          }
+        ],
+        "functions": [
+          "common_postprocess"
+        ],
+        "name": "fused_crossed_v2_pp_788714f21a6c",
+        "sycl_sources": []
+      }
+    }
+  ]
+}

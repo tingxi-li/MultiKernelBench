@@ -1,0 +1,136 @@
+{
+  "admission_row_sha256": "3ac05540f829bb887b65128bece99c4e7de717b5a320231d41bbb98bef4e9746",
+  "artifact_identity_sha256": "95647500f0c5cd3cfd4ffe8367191fc2186cf001db88a08228591db9222478af",
+  "artifact_sha256": "6d820fc935ee08130f0825b7ba884b30dfb7f0dfa1c925a16ccf501d23290265",
+  "build_record_path": "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/register_fused__tilelang__g01/build_record.json",
+  "build_record_sha256": "2302ba30cfbe85f1e2454c289892e58e8d96829bbc06d09efbf07a5bcc130955",
+  "cache": {
+    "cache_root": "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/register_fused__tilelang__g01/cache",
+    "file_count": 12,
+    "files": [
+      {
+        "path": "tilelang/0.1.11-x86_64/frontend/b99b4b29b6aac24d9a91bfb41567cad2e43e368d3164e753aa5a54ceb327b6a7.json",
+        "sha256": "25f54a097e68645fe4200f6ff02f4314aceb37a4b8bb1dec143f64239354669a",
+        "size": 82
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/frontend/efe8876b4a66a383ffcb348b23ed5f1f749053f1a21bee0de9fa6dfedef3d500.json",
+        "sha256": "caaf53cbfb26353167deaa3adf6de8421860174180f71301a920bc22c41bc24f",
+        "size": 82
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/6c3b9bdb2bee0cc1a12e6df7924ff747b6a090a77fa234e985e4db229ef64cec/device_kernel.cu",
+        "sha256": "d878e39240f492abc8cb99ac5cee2b2e9ca715e4e34764a87d40b8939982753c",
+        "size": 3278
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/6c3b9bdb2bee0cc1a12e6df7924ff747b6a090a77fa234e985e4db229ef64cec/executable.so",
+        "sha256": "9ba80771f21649523b28f1e3079512287d796bdce56337d18fc382b012dc6b10",
+        "size": 65864
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/6c3b9bdb2bee0cc1a12e6df7924ff747b6a090a77fa234e985e4db229ef64cec/host_kernel.cu",
+        "sha256": "b99a138ba355de2c8a84e31367c6fc6f64f0fc35f0264b75a8e5456c52526c7e",
+        "size": 13959
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/6c3b9bdb2bee0cc1a12e6df7924ff747b6a090a77fa234e985e4db229ef64cec/params.pkl",
+        "sha256": "2d3f7b607199ad2d30072dad5ccce15dbe7ead8ceb4f7d509268dbe1be2dfb5b",
+        "size": 297
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/6c3b9bdb2bee0cc1a12e6df7924ff747b6a090a77fa234e985e4db229ef64cec/prim_func.pkl",
+        "sha256": "6ea06cf517ba15631beb204fd1664c133ae06f6511b3ffa74ed27f1779479b51",
+        "size": 34394
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/device_kernel.cu",
+        "sha256": "20ab268ebd77d380afcbde457e4d6cb040f9bd376fc1644955fb8fcdc1d3b45f",
+        "size": 11625
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/executable.so",
+        "sha256": "a570f4240ec8c61c828ed875b4bc33cad1dcd7b452f306f73cb67b23db8dc98e",
+        "size": 307528
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/host_kernel.cu",
+        "sha256": "f593a773c5c2df30198579f0e340fd8768c123a2577bfb255d1e28da4023c494",
+        "size": 23732
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/params.pkl",
+        "sha256": "d381d8ac3f09dce4567aaa0d48e640df5ead50bef1da2b08e504694eddea17c5",
+        "size": 421
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/prim_func.pkl",
+        "sha256": "52f1c37fb143ac3542aad6cea01120984c783c4bb82dda27a26ac9d37b64208f",
+        "size": 28506
+      }
+    ],
+    "files_sha256": "88860bf034ae3ed885e713d770c99f6bfe6af0ee7c26b44243580eca280c6f8b",
+    "generated_sources": [
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/6c3b9bdb2bee0cc1a12e6df7924ff747b6a090a77fa234e985e4db229ef64cec/device_kernel.cu",
+        "sha256": "d878e39240f492abc8cb99ac5cee2b2e9ca715e4e34764a87d40b8939982753c",
+        "size": 3278
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/6c3b9bdb2bee0cc1a12e6df7924ff747b6a090a77fa234e985e4db229ef64cec/host_kernel.cu",
+        "sha256": "b99a138ba355de2c8a84e31367c6fc6f64f0fc35f0264b75a8e5456c52526c7e",
+        "size": 13959
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/device_kernel.cu",
+        "sha256": "20ab268ebd77d380afcbde457e4d6cb040f9bd376fc1644955fb8fcdc1d3b45f",
+        "size": 11625
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/host_kernel.cu",
+        "sha256": "f593a773c5c2df30198579f0e340fd8768c123a2577bfb255d1e28da4023c494",
+        "size": 23732
+      }
+    ],
+    "loadable_code_objects": [
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/6c3b9bdb2bee0cc1a12e6df7924ff747b6a090a77fa234e985e4db229ef64cec/executable.so",
+        "sha256": "9ba80771f21649523b28f1e3079512287d796bdce56337d18fc382b012dc6b10",
+        "size": 65864
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/executable.so",
+        "sha256": "a570f4240ec8c61c828ed875b4bc33cad1dcd7b452f306f73cb67b23db8dc98e",
+        "size": 307528
+      }
+    ]
+  },
+  "campaign_id": "native-trajectory-replication-ada-v3",
+  "cell_id": "register_fused.tilelang.g01",
+  "config": {
+    "BK": 32,
+    "BM": 128,
+    "BN": 128,
+    "K": 8192,
+    "M": 1024,
+    "N": 8192,
+    "arith": "fp16",
+    "cast": "precast",
+    "dsl": "tilelang",
+    "extra": {
+      "epilogue": "regs",
+      "wcache": "cached"
+    },
+    "input_dtype": "torch.float16",
+    "kc": 2048,
+    "stages": 3,
+    "threads": 256,
+    "variant": "GBGS"
+  },
+  "performance_observations": [],
+  "record_type": "native_trajectory_replication_ada_admitted_artifact",
+  "role": "native_cell",
+  "schema_version": 1,
+  "verify_record_path": "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/register_fused__tilelang__g01/verify_record.json",
+  "verify_record_sha256": "e9017957bdd249da710c7f9b33dcf5048d6be6320b0aafeff16af3405bb88942"
+}

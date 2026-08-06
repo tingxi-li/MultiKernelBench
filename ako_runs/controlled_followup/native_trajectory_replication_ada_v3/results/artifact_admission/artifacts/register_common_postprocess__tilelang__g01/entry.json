@@ -1,0 +1,146 @@
+{
+  "admission_row_sha256": "ebacb29bec4b3f8a63f18d82310b1763d82773e01157816182f08e4b481d1734",
+  "artifact_identity_sha256": "4ae8fe61067e2c627381a0bad8ee0572cca2f4e08d74108d89118e62cce714a8",
+  "artifact_sha256": "150c0dcf8ee499eb11fea736e0346646f6fc3855a11b0b6f2f33a78cdfcd1814",
+  "build_record_path": "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/register_common_postprocess__tilelang__g01/build_record.json",
+  "build_record_sha256": "1f28926d46d7667c81e1138b8074b74befc9b48b1eb3a9814f86e00eaf6cbffd",
+  "cache": {
+    "cache_root": "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/register_common_postprocess__tilelang__g01/cache",
+    "file_count": 14,
+    "files": [
+      {
+        "path": "tilelang/0.1.11-x86_64/frontend/b99b4b29b6aac24d9a91bfb41567cad2e43e368d3164e753aa5a54ceb327b6a7.json",
+        "sha256": "25f54a097e68645fe4200f6ff02f4314aceb37a4b8bb1dec143f64239354669a",
+        "size": 82
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/device_kernel.cu",
+        "sha256": "20ab268ebd77d380afcbde457e4d6cb040f9bd376fc1644955fb8fcdc1d3b45f",
+        "size": 11625
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/executable.so",
+        "sha256": "df60327dc4ac043b2098b230fc0ede737daca7fb8de3f9786cf6c670d711f2e7",
+        "size": 307528
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/host_kernel.cu",
+        "sha256": "f593a773c5c2df30198579f0e340fd8768c123a2577bfb255d1e28da4023c494",
+        "size": 23732
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/params.pkl",
+        "sha256": "d381d8ac3f09dce4567aaa0d48e640df5ead50bef1da2b08e504694eddea17c5",
+        "size": 421
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/prim_func.pkl",
+        "sha256": "52f1c37fb143ac3542aad6cea01120984c783c4bb82dda27a26ac9d37b64208f",
+        "size": 28506
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/.ninja_deps",
+        "sha256": "9089607698e9f2572dc326c2aba67683bfb7b36407e73e839cbf32cc72688d7f",
+        "size": 630540
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/.ninja_log",
+        "sha256": "75478457b32f7c7d720f927dec6ccc3cf29e3b3179d1f6f5a04ceae690ffe9d1",
+        "size": 208
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/build.ninja",
+        "sha256": "4cd274b99ddb41e247d0a1ef31f079cac59bc6262b5c8ab3919b2b07804d94ea",
+        "size": 2538
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/cuda.cu",
+        "sha256": "4c33965e833e1bb724a1e0a031ebacc23c5e1601ad440c7f38f5f11f454847d0",
+        "size": 3665
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/cuda.cuda.o",
+        "sha256": "27b2c9d4a5e3d4dcc5db5960f94aba76f9308a7663821b112a58dc6a8a9a8a53",
+        "size": 216976
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/fused_crossed_v2_pp_c03d2e32b61d.so",
+        "sha256": "48a714b1f11700d028b179517d44dcbf1b0524659eaa70a2deac75d042a6322a",
+        "size": 1351176
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/main.cpp",
+        "sha256": "70fda7e9ebc6feb970681bfd6fdd9814aef02d2d31c1659f88bd825bb5c821a1",
+        "size": 277
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/main.o",
+        "sha256": "5f72645122f1144e1984e77bb9f8534af5e541a51e270cc84ab2e073b04b8e21",
+        "size": 2152608
+      }
+    ],
+    "files_sha256": "b0f69ad3cce470c24d39677b65449cd5d9023ec65c8661c0aa358d34926d5b57",
+    "generated_sources": [
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/device_kernel.cu",
+        "sha256": "20ab268ebd77d380afcbde457e4d6cb040f9bd376fc1644955fb8fcdc1d3b45f",
+        "size": 11625
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/host_kernel.cu",
+        "sha256": "f593a773c5c2df30198579f0e340fd8768c123a2577bfb255d1e28da4023c494",
+        "size": 23732
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/cuda.cu",
+        "sha256": "4c33965e833e1bb724a1e0a031ebacc23c5e1601ad440c7f38f5f11f454847d0",
+        "size": 3665
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/main.cpp",
+        "sha256": "70fda7e9ebc6feb970681bfd6fdd9814aef02d2d31c1659f88bd825bb5c821a1",
+        "size": 277
+      }
+    ],
+    "loadable_code_objects": [
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/executable.so",
+        "sha256": "df60327dc4ac043b2098b230fc0ede737daca7fb8de3f9786cf6c670d711f2e7",
+        "size": 307528
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/fused_crossed_v2_pp_c03d2e32b61d.so",
+        "sha256": "48a714b1f11700d028b179517d44dcbf1b0524659eaa70a2deac75d042a6322a",
+        "size": 1351176
+      }
+    ]
+  },
+  "campaign_id": "native-trajectory-replication-ada-v3",
+  "cell_id": "register_common_postprocess.tilelang.g01",
+  "config": {
+    "BK": 32,
+    "BM": 128,
+    "BN": 128,
+    "K": 8192,
+    "M": 1024,
+    "N": 8192,
+    "arith": "fp16",
+    "cast": "precast",
+    "dsl": "tilelang",
+    "extra": {
+      "epilogue": "regs",
+      "wcache": "cached"
+    },
+    "input_dtype": "torch.float16",
+    "kc": 2048,
+    "stages": 3,
+    "threads": 256,
+    "variant": "GBG"
+  },
+  "performance_observations": [],
+  "record_type": "native_trajectory_replication_ada_admitted_artifact",
+  "role": "shared_sham_base",
+  "schema_version": 1,
+  "verify_record_path": "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/register_common_postprocess__tilelang__g01/verify_record.json",
+  "verify_record_sha256": "69fe8fd46a19c480c3d497a36b4eb7b04ffa045f4c5972f9349cb7e82d3fb45b"
+}

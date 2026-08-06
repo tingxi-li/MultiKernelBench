@@ -1,0 +1,191 @@
+{
+  "admission_row_sha256": "a0566f61f8a009a470d6f0a20a6aa0b35e3c63b03062cb0a8768ad7dbf1e679b",
+  "artifact_identity_sha256": "2079fdee8ad2c3e6fb48d2613c6bcf230ebe5eea76163d88491f992c8947ac20",
+  "artifact_sha256": "bf8a69f0ad681c25ba55b0bb1f9d37a056c4e0b887fe4ab761af612977b97af6",
+  "build_record_path": "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/register_common_postprocess__triton__g01/build_record.json",
+  "build_record_sha256": "f23ff977b0801fbf198a7f3e53d2ea1d1554848a4745d0829de3aa5bc2aa0e70",
+  "cache": {
+    "cache_root": "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/register_common_postprocess__triton__g01/cache",
+    "file_count": 18,
+    "files": [
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/.ninja_deps",
+        "sha256": "301956039cea355acebeda60ff837ba1cfdb34540525b049175236b6556befe7",
+        "size": 630536
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/.ninja_log",
+        "sha256": "af4f4da737b9a93bd1add61feb0af9d04bfd194cdf3591b06e5b7eed64af1e48",
+        "size": 207
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/build.ninja",
+        "sha256": "5a8c74eb7a8d67d006b28a3be39a24433a17e13852b817b78b2b9f8e5c8231de",
+        "size": 2534
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/cuda.cu",
+        "sha256": "4c33965e833e1bb724a1e0a031ebacc23c5e1601ad440c7f38f5f11f454847d0",
+        "size": 3665
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/cuda.cuda.o",
+        "sha256": "67d87488a82095088e8e31f351f72e8a37adae6b8c09cf4e9b21b34dd334a5d0",
+        "size": 216976
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/fused_crossed_v2_pp_c03d2e32b61d.so",
+        "sha256": "3a0c8804afc7e5e4fff63d2d32b9a20e850704da31baf16b49161cbef1ec8be2",
+        "size": 1351176
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/main.cpp",
+        "sha256": "70fda7e9ebc6feb970681bfd6fdd9814aef02d2d31c1659f88bd825bb5c821a1",
+        "size": 277
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/main.o",
+        "sha256": "5f72645122f1144e1984e77bb9f8534af5e541a51e270cc84ab2e073b04b8e21",
+        "size": 2152608
+      },
+      {
+        "path": "triton/AE2VY3L7DPT44BXSE6QQZ7H5TCPFZ62WY33GMPHIV3QHCZYAUDZA/__grp___fused_gemm_kernel.json",
+        "sha256": "ffc5f3fe09a382640ac65cd3e74d489f5a58661fbcc5cf3a9d0a259a0e823639",
+        "size": 2102
+      },
+      {
+        "path": "triton/AE2VY3L7DPT44BXSE6QQZ7H5TCPFZ62WY33GMPHIV3QHCZYAUDZA/_fused_gemm_kernel.cubin",
+        "sha256": "41146b2140c667f114e56a72bdb94d804a2afce336c1fd9e8e87890112bbea97",
+        "size": 195504
+      },
+      {
+        "path": "triton/AE2VY3L7DPT44BXSE6QQZ7H5TCPFZ62WY33GMPHIV3QHCZYAUDZA/_fused_gemm_kernel.json",
+        "sha256": "0fe8928ff53ea0a7b69edb99c6b6951ab2f5eb2156b8d0f35d9d56faecdd6bda",
+        "size": 1110
+      },
+      {
+        "path": "triton/AE2VY3L7DPT44BXSE6QQZ7H5TCPFZ62WY33GMPHIV3QHCZYAUDZA/_fused_gemm_kernel.llir",
+        "sha256": "cab7e295b2992cd05d5b526116052a5874b5828222d9a0dbb4972e8f05c6c2ce",
+        "size": 465737
+      },
+      {
+        "path": "triton/AE2VY3L7DPT44BXSE6QQZ7H5TCPFZ62WY33GMPHIV3QHCZYAUDZA/_fused_gemm_kernel.ptx",
+        "sha256": "2376e99b709b300f773bb29bf41519d306159d49ca6d548cea3138f64b9f5269",
+        "size": 159993
+      },
+      {
+        "path": "triton/AE2VY3L7DPT44BXSE6QQZ7H5TCPFZ62WY33GMPHIV3QHCZYAUDZA/_fused_gemm_kernel.source",
+        "sha256": "3bb1ce44f3bf5387cb7acb2afff10080885dc6b105cb676c622e37bd39c9200b",
+        "size": 29012
+      },
+      {
+        "path": "triton/AE2VY3L7DPT44BXSE6QQZ7H5TCPFZ62WY33GMPHIV3QHCZYAUDZA/_fused_gemm_kernel.ttgir",
+        "sha256": "921b7916ae0159e2dda68e5cbdad2ef162a78be1517926f73494c09b32acd2f3",
+        "size": 24432
+      },
+      {
+        "path": "triton/AE2VY3L7DPT44BXSE6QQZ7H5TCPFZ62WY33GMPHIV3QHCZYAUDZA/_fused_gemm_kernel.ttir",
+        "sha256": "01209e4b21b71d686e6fdf279a279c81fe58309c28379f8bd330fa9f1c15d502",
+        "size": 13418
+      },
+      {
+        "path": "triton/FTDKWADHZDQUQRLZQDNS2SXYVGVOQXATG2IDNWCFIIMNUSATLKCQ/__triton_launcher.cpython-313-x86_64-linux-gnu.so",
+        "sha256": "7db28977e36e7ff08b0049a0cbbd964881dc404cd1b25bf8978eb37057df36dd",
+        "size": 22448
+      },
+      {
+        "path": "triton/XU5DT2AO5BD5AEHEYGLPP5LRDFHHCUEJT4LGDVLB4STXUGVGHFPA/cuda_utils.cpython-313-x86_64-linux-gnu.so",
+        "sha256": "6db63f12184e2106dc92b87ecbce9c11c17998b837b6d4b4b6189bac5744c6f4",
+        "size": 28600
+      }
+    ],
+    "files_sha256": "21897357c3b3f537b4285c4f3fa6ba13008a94a288a2bfe914f58ddc6ca21976",
+    "generated_sources": [
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/cuda.cu",
+        "sha256": "4c33965e833e1bb724a1e0a031ebacc23c5e1601ad440c7f38f5f11f454847d0",
+        "size": 3665
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/main.cpp",
+        "sha256": "70fda7e9ebc6feb970681bfd6fdd9814aef02d2d31c1659f88bd825bb5c821a1",
+        "size": 277
+      },
+      {
+        "path": "triton/AE2VY3L7DPT44BXSE6QQZ7H5TCPFZ62WY33GMPHIV3QHCZYAUDZA/_fused_gemm_kernel.llir",
+        "sha256": "cab7e295b2992cd05d5b526116052a5874b5828222d9a0dbb4972e8f05c6c2ce",
+        "size": 465737
+      },
+      {
+        "path": "triton/AE2VY3L7DPT44BXSE6QQZ7H5TCPFZ62WY33GMPHIV3QHCZYAUDZA/_fused_gemm_kernel.ptx",
+        "sha256": "2376e99b709b300f773bb29bf41519d306159d49ca6d548cea3138f64b9f5269",
+        "size": 159993
+      },
+      {
+        "path": "triton/AE2VY3L7DPT44BXSE6QQZ7H5TCPFZ62WY33GMPHIV3QHCZYAUDZA/_fused_gemm_kernel.source",
+        "sha256": "3bb1ce44f3bf5387cb7acb2afff10080885dc6b105cb676c622e37bd39c9200b",
+        "size": 29012
+      },
+      {
+        "path": "triton/AE2VY3L7DPT44BXSE6QQZ7H5TCPFZ62WY33GMPHIV3QHCZYAUDZA/_fused_gemm_kernel.ttgir",
+        "sha256": "921b7916ae0159e2dda68e5cbdad2ef162a78be1517926f73494c09b32acd2f3",
+        "size": 24432
+      },
+      {
+        "path": "triton/AE2VY3L7DPT44BXSE6QQZ7H5TCPFZ62WY33GMPHIV3QHCZYAUDZA/_fused_gemm_kernel.ttir",
+        "sha256": "01209e4b21b71d686e6fdf279a279c81fe58309c28379f8bd330fa9f1c15d502",
+        "size": 13418
+      }
+    ],
+    "loadable_code_objects": [
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/fused_crossed_v2_pp_c03d2e32b61d.so",
+        "sha256": "3a0c8804afc7e5e4fff63d2d32b9a20e850704da31baf16b49161cbef1ec8be2",
+        "size": 1351176
+      },
+      {
+        "path": "triton/AE2VY3L7DPT44BXSE6QQZ7H5TCPFZ62WY33GMPHIV3QHCZYAUDZA/_fused_gemm_kernel.cubin",
+        "sha256": "41146b2140c667f114e56a72bdb94d804a2afce336c1fd9e8e87890112bbea97",
+        "size": 195504
+      },
+      {
+        "path": "triton/FTDKWADHZDQUQRLZQDNS2SXYVGVOQXATG2IDNWCFIIMNUSATLKCQ/__triton_launcher.cpython-313-x86_64-linux-gnu.so",
+        "sha256": "7db28977e36e7ff08b0049a0cbbd964881dc404cd1b25bf8978eb37057df36dd",
+        "size": 22448
+      },
+      {
+        "path": "triton/XU5DT2AO5BD5AEHEYGLPP5LRDFHHCUEJT4LGDVLB4STXUGVGHFPA/cuda_utils.cpython-313-x86_64-linux-gnu.so",
+        "sha256": "6db63f12184e2106dc92b87ecbce9c11c17998b837b6d4b4b6189bac5744c6f4",
+        "size": 28600
+      }
+    ]
+  },
+  "campaign_id": "native-trajectory-replication-ada-v3",
+  "cell_id": "register_common_postprocess.triton.g01",
+  "config": {
+    "BK": 32,
+    "BM": 128,
+    "BN": 128,
+    "K": 8192,
+    "M": 1024,
+    "N": 8192,
+    "arith": "fp16",
+    "cast": "precast",
+    "dsl": "triton",
+    "extra": {
+      "epilogue": "regs",
+      "wcache": "cached"
+    },
+    "input_dtype": "torch.float16",
+    "kc": 2048,
+    "stages": 3,
+    "threads": 256,
+    "variant": "GBG"
+  },
+  "performance_observations": [],
+  "record_type": "native_trajectory_replication_ada_admitted_artifact",
+  "role": "native_cell",
+  "schema_version": 1,
+  "verify_record_path": "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/register_common_postprocess__triton__g01/verify_record.json",
+  "verify_record_sha256": "721866be5bc5ff6f36fe01659c2754ff8bdafb5000a24a198eb35a0c67561955"
+}

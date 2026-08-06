@@ -1,0 +1,101 @@
+{
+  "admission_row_sha256": "2042b038453e1c240eac1f9aa69cf3a162f257ded24816f7a7142681359af5f9",
+  "artifact_identity_sha256": "5db9c125b15f777d0d9b2731393fe380bdd017348a32a1b7e228faab47186d32",
+  "artifact_sha256": "be023469f8b1ead6153fe629066259dcf078b1a84678c767dda8e52db643560e",
+  "build_record_path": "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/register_fused__cuda_unlimited__g01/build_record.json",
+  "build_record_sha256": "b5d5cf21e638283fd202231fe5286f30bfde67d2863a5f0f49e52f2ba9f3a108",
+  "cache": {
+    "cache_root": "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/register_fused__cuda_unlimited__g01/cache",
+    "file_count": 8,
+    "files": [
+      {
+        "path": "torch_extensions/crossed_v2_unl_GBGS_128x128x32_t256_kc2048_s3_regs_6e8b43c6/.ninja_deps",
+        "sha256": "81b29c7f7191b32f15ce1c4095be1f1c5196a21f776fac9197c2b45dd1340b2d",
+        "size": 630580
+      },
+      {
+        "path": "torch_extensions/crossed_v2_unl_GBGS_128x128x32_t256_kc2048_s3_regs_6e8b43c6/.ninja_log",
+        "sha256": "d56c1cbd0457fdbe6eff370504a83e99471a418e2c245178198d438aef03ae9e",
+        "size": 235
+      },
+      {
+        "path": "torch_extensions/crossed_v2_unl_GBGS_128x128x32_t256_kc2048_s3_regs_6e8b43c6/build.ninja",
+        "sha256": "755abfc0050531b304f0235ae11a8a4abde44b6bec67449c32a7152d8785a15e",
+        "size": 2686
+      },
+      {
+        "path": "torch_extensions/crossed_v2_unl_GBGS_128x128x32_t256_kc2048_s3_regs_6e8b43c6/crossed_v2_unl_GBGS_128x128x32_t256_kc2048_s3_regs_6e8b43c6.so",
+        "sha256": "de9dd5f0d2f2f953f4bb4af290374d9b3680ade1c19ec06c8d0186aa1878932c",
+        "size": 1403840
+      },
+      {
+        "path": "torch_extensions/crossed_v2_unl_GBGS_128x128x32_t256_kc2048_s3_regs_6e8b43c6/cuda.cu",
+        "sha256": "4b1effcd67f06a82e8bf16cf3833d39a69fbb6ccbe8af48657719915a645d8ad",
+        "size": 16755
+      },
+      {
+        "path": "torch_extensions/crossed_v2_unl_GBGS_128x128x32_t256_kc2048_s3_regs_6e8b43c6/cuda.cuda.o",
+        "sha256": "36fd0eb936f59a7b4d0273c78458986874af793ac77a427d6dff264890b3689c",
+        "size": 273528
+      },
+      {
+        "path": "torch_extensions/crossed_v2_unl_GBGS_128x128x32_t256_kc2048_s3_regs_6e8b43c6/main.cpp",
+        "sha256": "538ebda47f38b8529bb4e4689b1e25d34f22c70939c3e27693a043f435d0db70",
+        "size": 238
+      },
+      {
+        "path": "torch_extensions/crossed_v2_unl_GBGS_128x128x32_t256_kc2048_s3_regs_6e8b43c6/main.o",
+        "sha256": "c5b42542f50fedfa12e227350974a9f21f51373494bfc31e2189f8d3f7d5869d",
+        "size": 2159480
+      }
+    ],
+    "files_sha256": "6a2952323f5ab5db3d9d0a32b59f8ffde73afe75b7fb1d96c6c7e356a89510f0",
+    "generated_sources": [
+      {
+        "path": "torch_extensions/crossed_v2_unl_GBGS_128x128x32_t256_kc2048_s3_regs_6e8b43c6/cuda.cu",
+        "sha256": "4b1effcd67f06a82e8bf16cf3833d39a69fbb6ccbe8af48657719915a645d8ad",
+        "size": 16755
+      },
+      {
+        "path": "torch_extensions/crossed_v2_unl_GBGS_128x128x32_t256_kc2048_s3_regs_6e8b43c6/main.cpp",
+        "sha256": "538ebda47f38b8529bb4e4689b1e25d34f22c70939c3e27693a043f435d0db70",
+        "size": 238
+      }
+    ],
+    "loadable_code_objects": [
+      {
+        "path": "torch_extensions/crossed_v2_unl_GBGS_128x128x32_t256_kc2048_s3_regs_6e8b43c6/crossed_v2_unl_GBGS_128x128x32_t256_kc2048_s3_regs_6e8b43c6.so",
+        "sha256": "de9dd5f0d2f2f953f4bb4af290374d9b3680ade1c19ec06c8d0186aa1878932c",
+        "size": 1403840
+      }
+    ]
+  },
+  "campaign_id": "native-trajectory-replication-ada-v3",
+  "cell_id": "register_fused.cuda_unlimited.g01",
+  "config": {
+    "BK": 32,
+    "BM": 128,
+    "BN": 128,
+    "K": 8192,
+    "M": 1024,
+    "N": 8192,
+    "arith": "fp16",
+    "cast": "precast",
+    "dsl": "cuda_unlimited",
+    "extra": {
+      "epilogue": "regs",
+      "wcache": "cached"
+    },
+    "input_dtype": "torch.float16",
+    "kc": 2048,
+    "stages": 3,
+    "threads": 256,
+    "variant": "GBGS"
+  },
+  "performance_observations": [],
+  "record_type": "native_trajectory_replication_ada_admitted_artifact",
+  "role": "native_cell",
+  "schema_version": 1,
+  "verify_record_path": "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/register_fused__cuda_unlimited__g01/verify_record.json",
+  "verify_record_sha256": "96f9fd617c0341515743c5e4a1166c9400c777b50a595be6f0d8ab7545b1aaa7"
+}
