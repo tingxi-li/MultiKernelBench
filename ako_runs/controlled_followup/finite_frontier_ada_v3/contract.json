@@ -1,0 +1,215 @@
+{
+  "broader_f1_outside_scope": [
+    "additional_operator_families",
+    "additional_shapes",
+    "additional_input_domains",
+    "additional_gpu_architectures",
+    "operator_family_clustered_inference",
+    "theoretical_or_open_ended_language_ceiling"
+  ],
+  "campaign_id": "finite-frontier-ada-v3",
+  "claim_scope": "one frozen GEMM+bias+exact-GELU+row-softmax shape on physical RTX 6000 Ada GPU 0; Triton and TileLang only; two-stage procedure-selected candidates drawn from the finite registered space",
+  "estimand": "paired log latency ratio of the independently terminal-confirmed, procedure-selected TileLang and Triton candidates, TileLang over Triton; withheld-signed timing tests generalization of the positive-selected pair",
+  "manifest": {
+    "artifact_admission": {
+      "candidate_artifacts": 6,
+      "cache_loader_sha256": {
+        "tilelang/cache/__init__.py": "3367bedef9b5d82cd4bd88e3778eaf6971bbce18c119ad309d0a3541d6687106",
+        "tilelang/cache/kernel_cache.py": "59401813dd298951fc00299e9df35f9b6c2c5104ae136227b15fa39f2d503b2a",
+        "tilelang/env.py": "2716e59caa95d41ced58bf97d6b8f5d52c08723e3b7069e69499c2fc240bb154",
+        "tilelang/jit/__init__.py": "ad513576ffb0773128e3804145e15767cf1acab26ee48f66173b03f5bf5c5638",
+        "tilelang/jit/adapter/base.py": "6b13b93733a2ad829aafdf56dc2c373785c64fed85327839a2b2e42ec49f16cc",
+        "tilelang/jit/adapter/kernel_cache.py": "d0ab535744e0ece870135818abaf05b6b43e2bf725243c9641ba21294a664fe9",
+        "tilelang/jit/adapter/tvm_ffi.py": "86865f254ac6a7291a363d73c545599281d4a3659eeaab29a5e2dcb9e4a3454c",
+        "tilelang/jit/execution_backend.py": "876c0a9473df57ab74dc7e4bd8511c673df805ddb8a3fd91afe177505f0b751b",
+        "tilelang/jit/kernel.py": "534a621bbd99bdda414ea4ad93e7af324b2b974d35c55362285e12b3f6dc7f0f",
+        "triton/compiler/compiler.py": "2a063bb7909777d3659945244277e900d9f7cfc35de9a758578469ee4b90fce9",
+        "triton/knobs.py": "d84bda664f733f0547f9f4397c2dab11da1f9c58f974a840a3f1c61ea48c76fa",
+        "triton/runtime/build.py": "26c6ddd4dba3534ce54790f12d2b75729f51e467c48b2f740dd62b7c75a85b39",
+        "triton/runtime/cache.py": "0355c3e3452fa4500122244b8fff8864f22bc05c417a3d6f5dada9f2e92f8040"
+      },
+      "entry_count": 7,
+      "fresh_cache_hit_verification_process": true,
+      "generated_source_content_addressed": true,
+      "loadable_code_objects_content_addressed": true,
+      "performance_blind": true,
+      "shared_sham_artifacts": 1,
+      "timing_children_load_only": true
+    },
+    "audit": {
+      "candidate_ids_sha256": "d4e53c5db738102b288b028db9d52dd1be670d8b8c6e62d03038e07bc0a3a879",
+      "expected_outcomes": {
+        "BUILD_FAILED": 20,
+        "GATE_FAILED": 0,
+        "GATE_PASSED": 113,
+        "LAUNCH_FAILED": 0,
+        "UNSUPPORTED": 19
+      },
+      "imported": true,
+      "requested_cells": 152
+    },
+    "factors": {
+      "dsls": [
+        "tilelang",
+        "triton"
+      ],
+      "grid_ids": [
+        "g00",
+        "g01",
+        "g02",
+        "g03",
+        "g04",
+        "g05",
+        "g06",
+        "g07",
+        "g08",
+        "g09",
+        "g10",
+        "g11",
+        "g12",
+        "g13",
+        "g14",
+        "g15",
+        "g16",
+        "g17",
+        "g18"
+      ],
+      "strategies": [
+        "register_fused",
+        "smem_staged",
+        "global_intermediate",
+        "register_common_postprocess"
+      ]
+    },
+    "hardware": {
+      "compute_capability": "8.9",
+      "driver_version": "610.43.02",
+      "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+      "gpu_uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae",
+      "physical_gpu": 0
+    },
+    "inference": {
+      "claim_rule": "one procedure-selected candidate has lower local latency only if its terminal paired-ratio interval clears the sham floor in the same direction on the selection distribution and its withheld-signed generalization test",
+      "max_selection_sham_floor_log_ratio": 0.048790164169432,
+      "primary_trials": [
+        60,
+        100
+      ],
+      "selection_metric": "median of 15 positive-distribution process primary-tail medians",
+      "winner_count_per_dsl": 1,
+      "withheld_signed_role": "generalization test for the positive-selected pair, not a signed-distribution frontier"
+    },
+    "screen": {
+      "expected_records": 226,
+      "gate_legal_cells": 113,
+      "gate_legal_ids_sha256": "ff8a5f93e236861c228bceaac3ed2dc6ef20ffc5ef3b3d3c54aeddd629829353",
+      "imported": true,
+      "plan_sha256": "c61eff049273ab46d8383399acbd7724b3927f0d683de7cbf2359e72f186318a",
+      "processes_per_cell": 2,
+      "records_sha256": "4c21dbc524c9ba4ca28d7c9cc3062651a173a9ebc0956a59b73861899f0d06ed"
+    },
+    "selection_confirm": {
+      "blocks": 15,
+      "candidate_ids": {
+        "tilelang": [
+          "register_fused.tilelang.g09",
+          "register_fused.tilelang.g05",
+          "global_intermediate.tilelang.g12"
+        ],
+        "triton": [
+          "register_fused.triton.g09",
+          "register_fused.triton.g05",
+          "register_common_postprocess.triton.g05"
+        ]
+      },
+      "candidate_ids_sha256": "c4119ca0ca58a1746b45402632d992060b309ea7a1d1a6a0642d1e7697a69130",
+      "distributions": [
+        "positive",
+        "withheld_signed"
+      ],
+      "expected_records": 240,
+      "order_seed": 2026080601,
+      "sham_base_cell": "register_common_postprocess.tilelang.g01",
+      "sham_labels": [
+        "sham_a",
+        "sham_b"
+      ]
+    },
+    "terminal_confirm": {
+      "blocks": 15,
+      "distributions": [
+        "positive",
+        "withheld_signed"
+      ],
+      "expected_records": 120,
+      "order_seed": 2026080602,
+      "winner_count": 2
+    },
+    "toolchain": {
+      "nvcc_release": "V13.1.115",
+      "python": "3.13.5",
+      "tilelang": "0.1.11",
+      "torch": "2.10.0+cu128",
+      "triton": "3.6.0"
+    },
+    "timing": {
+      "flush_l2": true,
+      "fresh_process_per_record": true,
+      "trials": 100,
+      "warmup_s": 2.0
+    },
+    "workload": {
+      "activation_input": "fp16_precast",
+      "arithmetic": "fp16_operands_fp32_accumulator",
+      "bias_dtype": "fp32",
+      "gelu": "exact_erf",
+      "operation": "GEMM+bias+GELU+row-softmax",
+      "shape": {
+        "K": 8192,
+        "M": 1024,
+        "N": 8192
+      }
+    }
+  },
+  "material_registry": {
+    "roles": {
+      "gate_spec": "ako_runs/controlled_followup/robust_gate/calibration/gate_spec_fused_v2.json",
+      "imported_audit_summary": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit_summary.json",
+      "imported_screen_selection": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/confirmation_selection.json",
+      "instrument_analyzer": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/analyze.py",
+      "instrument_campaign": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/campaign.json",
+      "instrument_candidates": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/candidates.py",
+      "instrument_core": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/core.py",
+      "instrument_launch_lock": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/launch_lock.json",
+      "instrument_validator": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/validate.py",
+      "predecessor_admission_incident": "ako_runs/controlled_followup/finite_frontier_ada_v2/INCIDENT_ADMISSION_20260806.json",
+      "predecessor_selection_incident": "ako_runs/controlled_followup/finite_frontier_ada_v1/INCIDENT_SELECTION_20260806.json",
+      "runtime_common": "ako_runs/phase1_matmul/common.py",
+      "runtime_inputs": "ako_runs/phase2_fused_sdpa/common2.py",
+      "runtime_timer": "ako_runs/phase2_fused_sdpa/runner2.py",
+      "source_evidence_index": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/evidence/crossed_v2r3_complete_v1.index.json"
+    },
+    "sha256": {
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v2/analyze.py": "ac5cd372f7622f94847d098f82844b99b06eccf6493c52138ea9ef4090379f96",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v2/campaign.json": "84ec8c1503f120ece3d140e6beee66ed55a7546c6e0cee7f387cca08f6c64b2a",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v2/candidates.py": "9e35ed7972b69595ea76fc4f6b43947d40d24a00ca3b50500e742c872fb55f5d",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v2/core.py": "aa4e9825ace458a5b7dc8d0eb988f2e98c9e5a336678774c05ebb475c6b5c3e4",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v2/evidence/crossed_v2r3_complete_v1.index.json": "3340a86f4f64404a96461fa5bb5262ff3e1cebacd645d4bd63aaa1bedda212c5",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v2/launch_lock.json": "206b75387acf4d60b688a8e19b3aff094a8ef69d5a0a1b72269d8b24f48be1b6",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit_summary.json": "096a9833d47f858752fd4a31bbee3db7df525d7d36e91593bd6a011b05ff86aa",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/confirmation_selection.json": "a008ba2a5e6a81432eee7e94e7ebb34eeb90e3b88031f901cf10129a4be432ca",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v2/validate.py": "718cb81159811bf06e6187613a8eb65e785881b9049196b38887dee2ff21c4fa",
+      "ako_runs/controlled_followup/finite_frontier_ada_v2/INCIDENT_ADMISSION_20260806.json": "89571304d78dcb6fa0e09e997218c66c6d6564af074af50d00e578571c1d4a6e",
+      "ako_runs/controlled_followup/finite_frontier_ada_v1/INCIDENT_SELECTION_20260806.json": "bef0a1e0eba76849420c918734d7837050e8b5a99a51d70b3307836cd081d9d2",
+      "ako_runs/controlled_followup/robust_gate/calibration/gate_spec_fused_v2.json": "b6c3afaadf61f5d380a97c6c541828a1ecacd1a89a00b73b66207fe22d765e2e",
+      "ako_runs/phase1_matmul/common.py": "7753fcc00891d475db8675423ca7e48fbc0aa0431ac1e1dd4319e6c2900fd0a7",
+      "ako_runs/phase2_fused_sdpa/common2.py": "0293cb15fc3285df199daa58281a1a35147a78b9cbccda8b8f88418eecb39c64",
+      "ako_runs/phase2_fused_sdpa/runner2.py": "d1ade4461bff35058a3c6e967532960f5cc509f5d6a46c69bded78fbd0aac31e"
+    },
+    "source_campaign_id": "fused-epilogue-crossed-v2",
+    "source_result_tag": "crossed_v2r3"
+  },
+  "question": "Under the frozen two-stage screen/positive-selection procedure, does the selected TileLang or Triton candidate have lower independently confirmed latency?",
+  "schema_version": 1,
+  "state": "prepared_requires_execution_lock_and_remote_commit"
+}
