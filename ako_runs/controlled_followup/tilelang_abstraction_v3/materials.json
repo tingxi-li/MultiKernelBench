@@ -1,0 +1,215 @@
+{
+  "campaign_id": "tilelang-abstraction-v3-ada",
+  "schema_version": 1,
+  "entries": {
+    "fused_adapter": {
+      "path": "ako_runs/controlled_followup/fused_grid/robust_adapter.py",
+      "role": "current fused-v2 execution adapter",
+      "sha256": "688d9b29673d9314f50a3e8f6a8fc217b8497b27fb3eac13a5234cd9b7a29502"
+    },
+    "fused_adapter_manifest": {
+      "path": "ako_runs/controlled_followup/fused_grid/robust_adapter_manifest.json",
+      "role": "frozen fused adapter dependency closure",
+      "sha256": "81e3478b61800e09147a6cb213ba1786b200c137a728a5a9c258241c0a6004ba"
+    },
+    "fused_gate_summary": {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/audit.py",
+      "role": "fixed-threshold fused gate summary",
+      "sha256": "5b7edc232e51ef5601c02be004a101903a49c61289df1705e30daa9da74641ba"
+    },
+    "fused_v2_gate": {
+      "path": "ako_runs/controlled_followup/robust_gate/calibration/gate_spec_fused_v2.json",
+      "role": "current fused correctness gate",
+      "sha256": "b6c3afaadf61f5d380a97c6c541828a1ecacd1a89a00b73b66207fe22d765e2e"
+    },
+    "fused_v2_manifest": {
+      "path": "ako_runs/controlled_followup/robust_gate/manifest.json",
+      "role": "manifest bound by current fused gate",
+      "sha256": "28d51cd4f1730bd190e63c7cad60670c37b67784393270e63e859a1685fc8a62"
+    },
+    "median_interval": {
+      "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/core.py",
+      "role": "exact distribution-free median interval implementation",
+      "sha256": "538feecd1e88f90f711ee2a112a4fc28d027684169b7f64b596d96e74899dbcf"
+    },
+    "matmul_common": {
+      "path": "ako_runs/phase1_matmul/common.py",
+      "role": "matmul configuration and timing contract",
+      "sha256": "7753fcc00891d475db8675423ca7e48fbc0aa0431ac1e1dd4319e6c2900fd0a7"
+    },
+    "matmul_ncu": {
+      "path": "ako_runs/phase1_matmul/ncu_collect.py",
+      "role": "matmul dynamic-work and resource profiler",
+      "sha256": "8546f63faf1f85f786327a560ab2c30632663db068eec2d799e82f8bfe427ceb"
+    },
+    "matmul_profile_target": {
+      "path": "ako_runs/phase1_matmul/profile_target.py",
+      "role": "fresh-process matmul profiler target",
+      "sha256": "0b623d24f61cf8a67e36f98b2edbb01f9320b44e438b5e7528c428148b554936"
+    },
+    "matmul_runner": {
+      "path": "ako_runs/phase1_matmul/runner.py",
+      "role": "fresh-process matmul timing worker",
+      "sha256": "cdb2d562d9cdaec292c0c11d4b3f64cbd8e76b5632cbe7a0f14e9b5176ca1178"
+    },
+    "matmul_v4_gate": {
+      "path": "ako_runs/controlled_followup/robust_gate/calibration/gate_spec_matmul_v4.json",
+      "role": "current matmul correctness gate",
+      "sha256": "70bb3bc8f217c40ba5fcab90dc84ef798d06e22b5d1f0e4d27a2031069a295fb"
+    },
+    "matmul_v4_manifest": {
+      "path": "ako_runs/controlled_followup/robust_gate/manifest_matmul_v4.json",
+      "role": "manifest bound by current matmul gate",
+      "sha256": "0b4bff1b17ee8c1e30e7e1ece5515ce6cfee74bd1d386f8162588fd91e5accb4"
+    },
+    "matmul_v4_metrics": {
+      "path": "ako_runs/controlled_followup/robust_gate/audits/matmul_v4_instrument_v1/runner.py",
+      "role": "current fixed-threshold matmul metric implementation",
+      "sha256": "d61a4a644e779a4588acedb7e2a1c07a2550ed96fcb0afd4fb4d262c00c618a9"
+    },
+    "phase1_variant_registry": {
+      "path": "ako_runs/phase1_matmul/variants/__init__.py",
+      "role": "matmul implementation registry",
+      "sha256": "0ac322f46ab46fe0bf6d9eb6241c7eacf6b9844f5f6d927dbccfc81a1005a585"
+    },
+    "phase2_common": {
+      "path": "ako_runs/phase2_fused_sdpa/common2.py",
+      "role": "fused and SDPA input/configuration contract",
+      "sha256": "0293cb15fc3285df199daa58281a1a35147a78b9cbccda8b8f88418eecb39c64"
+    },
+    "phase2_ncu": {
+      "path": "ako_runs/phase2_fused_sdpa/ncu_collect2.py",
+      "role": "fused and SDPA dynamic-work and resource profiler",
+      "sha256": "a3f4c091f44ba0377d81ce26d8e4df350f9677137d84d7bc2b8a795dba824f4b"
+    },
+    "phase2_profile_target": {
+      "path": "ako_runs/phase2_fused_sdpa/profile_target2.py",
+      "role": "fresh-process fused and SDPA profiler target",
+      "sha256": "64fe3a29c03dedbe71dd94171e395bd38b345f4916d8f6e241713bb6f0c1106f"
+    },
+    "phase2_runner": {
+      "path": "ako_runs/phase2_fused_sdpa/runner2.py",
+      "role": "fresh-process fused and SDPA timing worker",
+      "sha256": "d1ade4461bff35058a3c6e967532960f5cc509f5d6a46c69bded78fbd0aac31e"
+    },
+    "phase2_variant_registry": {
+      "path": "ako_runs/phase2_fused_sdpa/variants2/__init__.py",
+      "role": "fused and SDPA implementation registry",
+      "sha256": "2afc778f25db9abe2d05299bbd47fa2ad43b7912eee8633936095e6b92662045"
+    },
+    "robust_distributions": {
+      "path": "ako_runs/controlled_followup/robust_gate/distributions.py",
+      "role": "current gate input distributions",
+      "sha256": "6280fa580a8ff2e648b937435137930a37143d8225bf9afb348b4c4921ccdd77"
+    },
+    "robust_metrics": {
+      "path": "ako_runs/controlled_followup/robust_gate/metrics.py",
+      "role": "current robust metrics",
+      "sha256": "419b48d8410dfeb42ff06e8ce23be15d176443872ad576779ee071a00045a9fe"
+    },
+    "robust_oracles": {
+      "path": "ako_runs/controlled_followup/robust_gate/oracles.py",
+      "role": "current robust references",
+      "sha256": "5083b72e14285cfc5582effe4cf4d75f6bac8f548cd1183e2d5256c022d5cace"
+    },
+    "robust_schema": {
+      "path": "ako_runs/controlled_followup/robust_gate/schema.py",
+      "role": "current robust artifact schema",
+      "sha256": "5ddccc0f4eecda92d97de0676eb9c5f16f0ea3bd426a344aa6acb57169e306ec"
+    },
+    "robust_seeds": {
+      "path": "ako_runs/controlled_followup/robust_gate/seeds.py",
+      "role": "current locked seed derivation",
+      "sha256": "39663de46fdc31f34ec12975d34c43565f16f19a23be0c1e53bf4f1cfe57fdcc"
+    },
+    "robust_validator": {
+      "path": "ako_runs/controlled_followup/robust_gate/validate.py",
+      "role": "current threshold validator",
+      "sha256": "b9436c9b4a0d81228a373c1f6e7e79a7cd68cf78e11ef8afdb06c27b2f5b22ec"
+    },
+    "sdpa_tilelang": {
+      "path": "ako_runs/phase2_fused_sdpa/variants2/sdpa_tilelang.py",
+      "role": "delegated SDPA implementation dependency",
+      "sha256": "0469abd24a40a68e42d5f5d3b90037c05310183f940a373402c8fd6129168fca"
+    },
+    "sdpa_tilelang_abstraction": {
+      "path": "ako_runs/phase2_fused_sdpa/variants2/sdpa_tilelang_abstraction.py",
+      "role": "SDPA H/M implementations plus opt-in code capture",
+      "sha256": "2d65dcc4cb44cf188b0a9ff70236c8d3eb1d80a8031b056f132fd9cb6069c9e1"
+    },
+    "tilelang_abstraction_v2": {
+      "path": "ako_runs/controlled_followup/tilelang_abstraction_v2/protocol.py",
+      "role": "unchanged interval-classification semantics",
+      "sha256": "b31a44a03ab883f5582238223e5d0a9a091add0fef70740c0323d06491d060ec"
+    },
+    "tilelang_fused": {
+      "path": "ako_runs/phase2_fused_sdpa/variants2/fused_tilelang.py",
+      "role": "held-fixed fused GEMM dependency",
+      "sha256": "c2a0704d81bdb4b2f78377870a1bc45c6945db77bccc8e89b2a0fd4b46511684"
+    },
+    "tilelang_fused_abstraction": {
+      "path": "ako_runs/phase2_fused_sdpa/variants2/fused_tilelang_abstraction.py",
+      "role": "fused softmax H/M implementations plus opt-in code capture",
+      "sha256": "51b3a7de18001ee734dd6293b6b9b839b44cb7aee468357f947d1512f1c932d9"
+    },
+    "tilelang_matmul_abstraction": {
+      "path": "ako_runs/phase1_matmul/variants/tilelang_abstraction.py",
+      "role": "matmul H/M implementations plus opt-in code capture",
+      "sha256": "fbf90194965661258e0d48da2a83008003fd48f1feca7f1d0983652a11aad82e"
+    }
+  },
+  "family_bindings": {
+    "fused_softmax": [
+      "phase2_common",
+      "phase2_runner",
+      "phase2_profile_target",
+      "phase2_ncu",
+      "phase2_variant_registry",
+      "tilelang_fused",
+      "tilelang_fused_abstraction",
+      "fused_adapter",
+      "fused_adapter_manifest",
+      "fused_gate_summary",
+      "fused_v2_manifest",
+      "fused_v2_gate",
+      "robust_distributions",
+      "robust_metrics",
+      "robust_oracles",
+      "robust_schema",
+      "robust_seeds",
+      "robust_validator",
+      "tilelang_abstraction_v2",
+      "median_interval"
+    ],
+    "matmul": [
+      "matmul_common",
+      "matmul_runner",
+      "matmul_profile_target",
+      "matmul_ncu",
+      "phase1_variant_registry",
+      "tilelang_matmul_abstraction",
+      "matmul_v4_manifest",
+      "matmul_v4_gate",
+      "matmul_v4_metrics",
+      "robust_distributions",
+      "robust_metrics",
+      "robust_oracles",
+      "robust_schema",
+      "robust_seeds",
+      "robust_validator",
+      "tilelang_abstraction_v2",
+      "median_interval"
+    ],
+    "sdpa": [
+      "phase2_common",
+      "phase2_runner",
+      "phase2_profile_target",
+      "phase2_ncu",
+      "phase2_variant_registry",
+      "sdpa_tilelang",
+      "sdpa_tilelang_abstraction",
+      "tilelang_abstraction_v2",
+      "median_interval"
+    ]
+  }
+}

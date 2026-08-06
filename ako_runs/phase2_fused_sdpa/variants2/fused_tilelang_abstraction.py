@@ -295,6 +295,20 @@ def build(cfg) -> common2.Built2:
         artifacts["cuda_source"] = ks.get_kernel_source()
     except Exception as e:  # noqa: BLE001
         artifacts["cuda_source_error"] = repr(e)
+    capture_dir = os.environ.get("TILELANG_ABSTRACTION_CAPTURE_DIR", "")
+    if capture_dir:
+        os.makedirs(capture_dir, exist_ok=True)
+        base = os.path.join(capture_dir, cfg.key().replace("/", "_"))
+        for extension, exporter in (("ptx", ks.export_ptx), ("sass", ks.export_sass)):
+            path = base + "." + extension
+            try:
+                exporter(path)
+                artifacts[extension + "_path"] = path
+            except Exception as e:  # noqa: BLE001 - retained as admission evidence
+                artifacts[extension + "_error"] = repr(e)
+        with open(base + ".cu", "w", encoding="utf-8") as handle:
+            handle.write(artifacts.get("cuda_source", ""))
+        artifacts["cuda_source_path"] = base + ".cu"
 
     return common2.Built2(
         run=run, compile_s=compile_s, artifacts=artifacts,

@@ -1,0 +1,26 @@
+{
+  "campaign_id": "native-trajectory-replication-ada-v1",
+  "contract_sha256": "10f3e8d3fd432ee5b8f6ab97478da74317f4cf7c9102249f285fade70a757bd9",
+  "expected_raw_records": 420,
+  "instrument_evidence_index_sha256": "3340a86f4f64404a96461fa5bb5262ff3e1cebacd645d4bd63aaa1bedda212c5",
+  "instrument_launch_lock_sha256": "206b75387acf4d60b688a8e19b3aff094a8ef69d5a0a1b72269d8b24f48be1b6",
+  "instrument_source_bundle_sha256": "abe6873e89686ca94a2dc096b633feff615c7dbfd8fb4e91546850ed26cae20b",
+  "lock_sha256": "1e5b656f9f84f0a98daaead2b3e92ae09c4af118acb2957421e7100c4adc83c0",
+  "manifest_sha256": "461d201367d0d65ccc423c0e34ca588862892fa04c47a52a0b8151b9635f995e",
+  "materials_sha256": "2ca8620e174a4639cf8c3bf62dfd4a0a0c58f48bfe07a83139263804e48d5b1a",
+  "record_type": "native_trajectory_replication_ada_v1_material_lock",
+  "schema_version": 1,
+  "source_bundle_sha256": "43b98ae4ea26b6272bada3a9315c39034423e2b2804564c4b961c9a3e902f4d3",
+  "source_sha256": {
+    "ako_runs/controlled_followup/native_trajectory_replication_ada_v1/.gitignore": "6d2a3925927e6d89d1cc41c68a3b5ca5c07ebac71643beb260330bcdf3f94cee",
+    "ako_runs/controlled_followup/native_trajectory_replication_ada_v1/README.md": "eda330f5835a380e74b06b7760b303d6fe17cb11d69aa2cf0f30c3d980eb16bd",
+    "ako_runs/controlled_followup/native_trajectory_replication_ada_v1/__init__.py": "b6e37705647d6a8f698c6421648fa279602fdcfec2e2657a545937d40f7e47f6",
+    "ako_runs/controlled_followup/native_trajectory_replication_ada_v1/analyze.py": "d529d63b070284d7e688973ef7d48af7aa94a4119964a0a7744be6ea3147aed4",
+    "ako_runs/controlled_followup/native_trajectory_replication_ada_v1/contract.json": "10f3e8d3fd432ee5b8f6ab97478da74317f4cf7c9102249f285fade70a757bd9",
+    "ako_runs/controlled_followup/native_trajectory_replication_ada_v1/manifest.json": "461d201367d0d65ccc423c0e34ca588862892fa04c47a52a0b8151b9635f995e",
+    "ako_runs/controlled_followup/native_trajectory_replication_ada_v1/protocol.py": "fd5d8a2fc0ae9b5fbf31944bbfe5415f645bb74059ee08c1b6d2ac8448567aac",
+    "ako_runs/controlled_followup/native_trajectory_replication_ada_v1/runner.py": "05db0d1e5a772ffdf04ae18cd723d5c58e169178b789c7d40252ec091f2d727c",
+    "ako_runs/controlled_followup/native_trajectory_replication_ada_v1/test_protocol.py": "da316cc9a804fd89809df099efa78df9070ea234b620a8c47783b55af629b87f"
+  },
+  "stage": "material"
+}

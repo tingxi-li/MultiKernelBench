@@ -1,0 +1,2265 @@
+{
+  "audit_outcome_counts": {
+    "BUILD_FAILED": 20,
+    "GATE_FAILED": 0,
+    "GATE_PASSED": 113,
+    "LAUNCH_FAILED": 0,
+    "UNSUPPORTED": 19
+  },
+  "audit_records": [
+    {
+      "cell_id": "global_intermediate.tilelang.g00",
+      "sha256": "ee72606630f58951124effdbb3c991dcccf947dd5ba21449c984b24ae2f3dd24",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g01",
+      "sha256": "6a1580f99879c7d0cced851f93536f1235517bd048aa19b4a203640df83fec22",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g02",
+      "sha256": "2d20c8671f5bc76ac20c43246a519045c847ab53cff8006c75ecb25e2536c9cd",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g03",
+      "sha256": "55944860cad59d5f1c1664948001cb370603f1c8e527804c858f369aa1f6601b",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g04",
+      "sha256": "9f0aa9d09bc60de03d93cdc8573a0bf4ab105024a6963383c0d7aa84c5c5b448",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g05",
+      "sha256": "a9bf2ed28b31207e151a81465be55f7fa94dfd708589e75ea590b37224a17d40",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g06",
+      "sha256": "573e8021e69d7e0661774aae3903025b1a2b81ebca278779fcce1f9ec0b1dce3",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g07",
+      "sha256": "7c2dba2b9264b84f1f4f2c0e17bf8e64c9cf6aac6005b105138a4af423979cbb",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g08",
+      "sha256": "9b97e5e62bf621b951147317b01cb73edc2e9e7808e6c1c456c83f91b29d14f0",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g09",
+      "sha256": "5529bf27520fd394a7c6458c31f1251af3a9b6a5b62d97dbe9c8d958ae05b221",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g10",
+      "sha256": "e89faadaddefd3244f9984bf29c3ec60a93e5ca815a27eb118c04927c7b3cb0d",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g11",
+      "sha256": "bf10ff73df605c243e5da03ff27e86f5e7c57bf2511b129a8de414b6ba1434e4",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g12",
+      "sha256": "203cebc4f0784d0523cc818be48744268f4b67643f568bf299df4c813fecd569",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g13",
+      "sha256": "fa9bd25a8a0bdbc23cc05fb3ac6b83d6ba3ae9966bf48cc03b9c0e2c1ee53931",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g14",
+      "sha256": "2f3e0a772f982318a0ce87bc414c888f9b4307d3a495fd6f457977bbd66319a7",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g15",
+      "sha256": "dc0bb613194360f984867f3b8718a0b739ccf2be562a87c08658df39a920606f",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g16",
+      "sha256": "653f8a08eea6e7409513f4c738ef30cc2aa6129f6792873bbd30efcfb4b19a85",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g17",
+      "sha256": "3c88872bec9555a9e4217413b05aebed5b602ce67e153d0d6343a378d87da1d4",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g18",
+      "sha256": "4b2ba02ee6862f5cc7c8a467bdd8421efa3fdba9b0ac7064c0745176795e03d6",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "global_intermediate.triton.g00",
+      "sha256": "c9264e795e44ec6a346447c110ad93b0d5cb892c2a4fc085dbb99a66149723a0",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "global_intermediate.triton.g01",
+      "sha256": "62a40211a535aa4f4f9ba40c8179284af523c98204f115d6d927a8529546a2cf",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "global_intermediate.triton.g02",
+      "sha256": "041c369dc14311f54a014b0890a5a058f56d25019907d361c7e462ef7edb58f2",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "global_intermediate.triton.g03",
+      "sha256": "a5da103ea389fa0db163149369a9a358bc8f9c8db834c79067e43190c3ab66c5",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "global_intermediate.triton.g04",
+      "sha256": "2a387e601a07df2841324e29ed9ae5f6bc3b1bf14ced8633ce18c97973efd61e",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "global_intermediate.triton.g05",
+      "sha256": "fb2f41bd4721d4c3e911dd982b277ffc115b4e8f513a6a485370cea9c6d6ab92",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "global_intermediate.triton.g06",
+      "sha256": "723ba3edee8010a2715191970154e06edf551017aa378bd5a31777ff0bd356e9",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "global_intermediate.triton.g07",
+      "sha256": "5eb0c561a30ebabca8e2cff0806492ee0bc303b75fc4077d6872a5364ef11db2",
+      "terminal_outcome": "BUILD_FAILED"
+    },
+    {
+      "cell_id": "global_intermediate.triton.g08",
+      "sha256": "7aa07a02b66bfd90ca4631264c8de81a7f7e31055eea520cd4a3192254b53cf4",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "global_intermediate.triton.g09",
+      "sha256": "1b5bd5499aafcefb7d059459d7cdd9a15fa03a86d57841af840f869d088a136b",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "global_intermediate.triton.g10",
+      "sha256": "f6336a06ceeea74f9859d6ef4226662588b40ab66b1d637b7407d6dc8299554f",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "global_intermediate.triton.g11",
+      "sha256": "8ae16f0c84d4fcaa48ba7594d17896887c59034a9a70017240b23360656e0aeb",
+      "terminal_outcome": "BUILD_FAILED"
+    },
+    {
+      "cell_id": "global_intermediate.triton.g12",
+      "sha256": "cce9af5766ced26f7926bcdfbcd2d29f160c317b8566ede04d341f13483e2731",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "global_intermediate.triton.g13",
+      "sha256": "926e6488f18d3229bf9ef90ed0704e15ebe5f8ec92222ce93c367ffb1812db5c",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "global_intermediate.triton.g14",
+      "sha256": "3f3c47c89e1f5f4befc874d22e8621c39e87633ddcd040b9d5aacd50cf3d3441",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "global_intermediate.triton.g15",
+      "sha256": "e6539fb23ba1bb3802588f8eb1870983ad128d83963850eb4f7a0b3e6e6db11e",
+      "terminal_outcome": "BUILD_FAILED"
+    },
+    {
+      "cell_id": "global_intermediate.triton.g16",
+      "sha256": "beea1c3c1b482047f98024ed3ce20ffc3dd0cca1aa8a4afa5146537331bc80c2",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "global_intermediate.triton.g17",
+      "sha256": "170f42838ca7b85556e5a7277becb409d7d7fe0007c4fac202be4ed48d6910f1",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "global_intermediate.triton.g18",
+      "sha256": "6197b4c57f4092c1dcea28e81c031b70a350769a26a60f308887f5ef41218b28",
+      "terminal_outcome": "BUILD_FAILED"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g00",
+      "sha256": "0ab071779d6bbeae72ef703f849a4020c2de0ecfe44fe8de32f45f9c21ea9ab6",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g01",
+      "sha256": "4813257f513f03798d73144c85f97428c0cb569b9e55354fdc9a38b65997013a",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g02",
+      "sha256": "dea868df762388ac502d305717792509fd8f591c4b42446eec450ccd21867488",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g03",
+      "sha256": "ebc834cbd6c1fd97a51c5f005c80533da0bf6da065ae6bef9d1b6d1a5def7a9f",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g04",
+      "sha256": "eff2d7d69c85929e36a0f5c32b758660a4f3fa8303b12489d12471447a51af37",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g05",
+      "sha256": "e66cf67fe9e429e74f44977e1767cb05cffc1f3c06115e6702f60927630d8901",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g06",
+      "sha256": "30503cedc1a1eb8a4648903b959e79dbf18238960902234f34b3ddfd7177c86f",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g07",
+      "sha256": "822fc767c117bd1070bb2de9c857d14b501a6adf6376bbdeb5b44e07a4e5eaee",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g08",
+      "sha256": "b012a163abee98075beedb5b30b89d6ee0f4c6c283a80a27872569a39c277070",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g09",
+      "sha256": "869a53368ab0ca5062e550e2cb7a9ff1497b9f06d51f287bf69ad215cd5a52a6",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g10",
+      "sha256": "1d013c4c914e82e0eddfcac7d4843e6a19f6e5025d03acfe30dd0fb407c75ad6",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g11",
+      "sha256": "08797cd648051ab04f23e656de78fbbe9cbad6cfabe2db5ba533e807da284fc2",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g12",
+      "sha256": "34858ce71a13347651f6e5e62886dea3d045c7affc596e7d92ebc1cdf1a93d51",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g13",
+      "sha256": "e9e9f51a78fc34f054a4c25d5de5c053ac3e988fe3dcff8b8fd7a147c6286eaf",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g14",
+      "sha256": "1cca9c0fb9c5bfbfd45df6bcce01cc82c0dd9884ef165b6c6476ed14b06e871f",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g15",
+      "sha256": "1241bd09fc4991797d1a76bd70acc7b0306b4b401aab11146d5b3c202ce18949",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g16",
+      "sha256": "52adbd3584366f0ecc1465632ca7b5f3ebd3a9a75425d232dbc4fc156978b0a1",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g17",
+      "sha256": "5ef973a82c0fcc22166c32a4847f6ecb2a85db81821cb12221ea758a04867e85",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g18",
+      "sha256": "1d6b6a63f67879a2e61034143ac6dcfcb6fce92ea1df598502af04c68dc2ccd9",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_common_postprocess.triton.g00",
+      "sha256": "8d09463c311f6cdc138aad0a5c436625e8f47383f27eedc1fa0b0702ba6f8253",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_common_postprocess.triton.g01",
+      "sha256": "797838ecc8aa42d983c23efb9d40b8f460779167deb41dae615245b97323cf0f",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_common_postprocess.triton.g02",
+      "sha256": "ebec1ac9b1e7ffb6ac4f58f3b135c52966656fe8e58145d5df7c5494955f2731",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_common_postprocess.triton.g03",
+      "sha256": "204c80bd6d7da404785d5ebd0ae7c112997de6ae217b7121af63ac488abbb16b",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_common_postprocess.triton.g04",
+      "sha256": "5ada2008351725e503c2b7b86cb86b01ef31205bac7d4e53f2adc78c348b3249",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_common_postprocess.triton.g05",
+      "sha256": "30c6b4b4b7fe30487523c1d4f252d1e15b3c6e8207e8faa4542d8e7583bcadea",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_common_postprocess.triton.g06",
+      "sha256": "1b66a86900fccc18958f21d55b4cc80ec83b28705a9dcef345e65c38449a4f77",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_common_postprocess.triton.g07",
+      "sha256": "38d1140d859049e6cd23155d8bf9998860b8661792ba869fcb154d8c87001e69",
+      "terminal_outcome": "BUILD_FAILED"
+    },
+    {
+      "cell_id": "register_common_postprocess.triton.g08",
+      "sha256": "32835439003c23d1d2cf9a074b49d002ff43305dd07fe76722337758ac9e4229",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_common_postprocess.triton.g09",
+      "sha256": "30c804faba1fa2ba3fede3927ca9a95164ab2d7fc46c40d3864c52c3997335b6",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_common_postprocess.triton.g10",
+      "sha256": "48207bdaaae8e85e004aa7fb86623b1176ad5f559a5ed76ca7a76af4f83bd78d",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_common_postprocess.triton.g11",
+      "sha256": "3efc1f39cbefde106948792f63ebe6e7a9cf7a2b3281407452e9ad47ca29d0c3",
+      "terminal_outcome": "BUILD_FAILED"
+    },
+    {
+      "cell_id": "register_common_postprocess.triton.g12",
+      "sha256": "61e3be40bbf629a1437ea1e4c80cfdeef03b1e805f59a61c8e7f089e9723086f",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_common_postprocess.triton.g13",
+      "sha256": "57cb38240cd439cd5d8c48ee0ed4031425e2283b7734cd73b90e30ab0c12e69f",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_common_postprocess.triton.g14",
+      "sha256": "214ba3905128beaaef6a1ffb6743d1f401d6b27f388468e087d0fdeaa215fece",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_common_postprocess.triton.g15",
+      "sha256": "58d1a2499e59798ebf23133a14bfc0427dc35e78101f5d720f2e9fd66a1e9d47",
+      "terminal_outcome": "BUILD_FAILED"
+    },
+    {
+      "cell_id": "register_common_postprocess.triton.g16",
+      "sha256": "46047e91e76c6319fcb31550d05aac899bc5403cb4cf7fcecdc6edaeba7c66a2",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_common_postprocess.triton.g17",
+      "sha256": "986d92b9207d5d3b880254d8a52f4ea709476ad69062ce2e1e7991b1d2a84335",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_common_postprocess.triton.g18",
+      "sha256": "fcf201f3cbfce35188182a71ad83c6757eef20f930c2ab94a6c6fb8339eecd02",
+      "terminal_outcome": "BUILD_FAILED"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g00",
+      "sha256": "47c578f4dc9c5609768c1af347156a37b8b1364978a3cecdde0121934c93f56c",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g01",
+      "sha256": "20f782eee609fc09e52c7a467c2faa082fd545dc3d2a0d93226ea6c325bc564d",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g02",
+      "sha256": "87993e9d67e06839f658dec42b3c46c7e52705cb8ddb95d31bfe7bcf404967b8",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g03",
+      "sha256": "e15064fc7932814a6284ded9dd8c2641019ac20c22b89a9e8afb531b9937c58e",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g04",
+      "sha256": "2f6ba870dacce4f7d975d76bd86a1d59e1784524770448313153d78d465873c5",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g05",
+      "sha256": "f501aef40983da561388b16c9f6ccdfb41b4274966c3844ed5ebc99b661b5299",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g06",
+      "sha256": "8a9581f00305459a6707c4448db0c664c5f91716b4e9fedbb0c686c68c9c25e9",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g07",
+      "sha256": "331841068e8d0a5872ba69d61559ef02df85bae946b99c4f90e45f840e3af405",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g08",
+      "sha256": "d3af7093843cd03511e78befadc28390372eb183b5cfab10cea87d6708cf3c36",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g09",
+      "sha256": "31f8de70cf1b68d559b59c7cdced20aacc22299be5d60d79ed32188b3f1724fa",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g10",
+      "sha256": "2160b62fb0b27a4d5841062c8e51f82c88bd99b0f5d7e2795be3bc399ff76393",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g11",
+      "sha256": "c8fc5154e92a6257a8e706edcbb8a519c48a4ffd2a1b30401ade7750504ffd02",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g12",
+      "sha256": "3894d24be0f9bd028229423a34360d63e8fce6c515400621b15da895e4b8c4a8",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g13",
+      "sha256": "7d4981194623ba72165979ca3fc888d989d5776cdb7d007f5cbf4932324b8dba",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g14",
+      "sha256": "f77496fbf10c843ddc391d5f4ad27196649298bdc47dabf2ffe0714afdd11ec5",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g15",
+      "sha256": "8301cfa2bdc1ae86eea9a17b06f96bffa15dc4c57901fa6800cfe1fd7fef3127",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g16",
+      "sha256": "70b0e8e5b6246a14a55ac764dd7a047621074f7334649f41b0eea7404db9fa6b",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g17",
+      "sha256": "c86f5f1102bc2dbd474fc6f78d2cf0d9ec53ce99d7b6cd7c772d177479053cc7",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g18",
+      "sha256": "a17e9b432a1c84b67802de7c8c67f9b16cff671601a4f1bdf5188d07935426f8",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_fused.triton.g00",
+      "sha256": "1a4aa9913e5ca4578c61c559a0bbc273bf7ef317cf14583e6c993bf6c96eda00",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_fused.triton.g01",
+      "sha256": "fa55708fd1b6eb2a248c6036a11069c0afade75844219880b0c2b505ac95b785",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_fused.triton.g02",
+      "sha256": "466ba8005eace9f2464c63c96881611ad47f223fc875e3b38fbc3fa1d28c8e70",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_fused.triton.g03",
+      "sha256": "23656f32ef043a9170d66af09c491084c3a0133b37b86682b679b94905b5c781",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_fused.triton.g04",
+      "sha256": "d99a3123f3b8bcf53f7e1ac5d601f2c0a2d2ac4d5529ec4f3fdeff31f706c4ff",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_fused.triton.g05",
+      "sha256": "85d28fb07f484e686563424294d4dd5f6f3e4f66ea02a841f193d448e6ce0c5a",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_fused.triton.g06",
+      "sha256": "1a8afeb594f657b8282880739978010990f86af4a6fce974f1d1790838e34a6f",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_fused.triton.g07",
+      "sha256": "fdeb4c48c0f606d59932fec58d354f65151225db585f446212b766346056b038",
+      "terminal_outcome": "BUILD_FAILED"
+    },
+    {
+      "cell_id": "register_fused.triton.g08",
+      "sha256": "a22bdb9816febf7181e7e324432cd209999fd5815aaaa2f174e2f1328eee6b44",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_fused.triton.g09",
+      "sha256": "0a91fff9a344a4550070334e39121ece170f159c01101d0cdb758d56538d8b83",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_fused.triton.g10",
+      "sha256": "d27d299f9dddc548118e0cf46e9ea89c3e0a789f0ca8f3bd974f0cbd393f96a7",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_fused.triton.g11",
+      "sha256": "c34d3581a95baf6f99d7b09b685a33d8e6da4a99f795086ee3428767d89d9a28",
+      "terminal_outcome": "BUILD_FAILED"
+    },
+    {
+      "cell_id": "register_fused.triton.g12",
+      "sha256": "a63faf288864b86e95e0ea36a03c312b891e89a9835f567c2e5d295a3d8a3d77",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_fused.triton.g13",
+      "sha256": "5834f4eb28d84c7b2b89516ad12051dd7daa4e42c67206907048e21e50d99937",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_fused.triton.g14",
+      "sha256": "4ed1b12955838fad4af29b73d3ec676463332056bf1c8e5f4527666aba546e64",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_fused.triton.g15",
+      "sha256": "6b2e57c0ba30e03e99210c215a8e710d6d59b8b006d2d0ee130fc141a6a85a1c",
+      "terminal_outcome": "BUILD_FAILED"
+    },
+    {
+      "cell_id": "register_fused.triton.g16",
+      "sha256": "e9ba5c13c0501f351448c49d6a4744ef8877152d2de1abf350abcd5143a23189",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_fused.triton.g17",
+      "sha256": "36cb6948beae14f0e0a0575ab439d86623a3ee9c5539f900c54ce94f04b0b8aa",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "register_fused.triton.g18",
+      "sha256": "9ca186a25061734a8c3b3a8747f26944b641f38b16b3dc4e6b3c7510be3ba639",
+      "terminal_outcome": "BUILD_FAILED"
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g00",
+      "sha256": "459f9744f633b13025d6c7c2c509d0da39b211a7f3d7801eec5b39df72a52d53",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g01",
+      "sha256": "49f95bf2c8d218a4bade4dd922305b3605203177f4e989e036ab89ae50bac16e",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g02",
+      "sha256": "f1a1e265a69ba72d524b0da92a9990ac7998e737e305c3f963ef1bf361535a75",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g03",
+      "sha256": "f41347b0a521aa9bf138340dd348877f121c71f2153bfc14cff066e61035674a",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g04",
+      "sha256": "09d550c430932a0efc72fe37ac28ca0a4372fc9560802873d9f735001949d701",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g05",
+      "sha256": "78e3fbabd27c70d5223c2d5fb973567e96e26685aa7203d43906f88636986946",
+      "terminal_outcome": "BUILD_FAILED"
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g06",
+      "sha256": "ce096dea5a64a5abf48ea13d223bc82922527e8f2c13366abfcf2728559e528f",
+      "terminal_outcome": "BUILD_FAILED"
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g07",
+      "sha256": "8c12fea4d5e43cc5ec34d3e9396b4a7e4bf015a8820b6e94243b3316e988b237",
+      "terminal_outcome": "BUILD_FAILED"
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g08",
+      "sha256": "ef36ec80c727948136aeb92d8cc724248e90113cf746d8cec0b65b863b185958",
+      "terminal_outcome": "BUILD_FAILED"
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g09",
+      "sha256": "b4b47851d57608c4577d8584947d4a62c88f4a7f861fdfc37add02b9d88d94e7",
+      "terminal_outcome": "BUILD_FAILED"
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g10",
+      "sha256": "8ae766e008bf4995bf73d652682e4b2c3d5ef474f2275f2fc28205266fd75044",
+      "terminal_outcome": "BUILD_FAILED"
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g11",
+      "sha256": "65a059a499ea46f8372399e4be0deaa8181fbf0eb2cc033a51d7754512ffabef",
+      "terminal_outcome": "BUILD_FAILED"
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g12",
+      "sha256": "879d522902a31d4613b407716e13b64eabbc7a18ac07471e161f6d17ff840100",
+      "terminal_outcome": "BUILD_FAILED"
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g13",
+      "sha256": "e2d40fe586b6dfa349a86b67a158f369fdf7b59a4177634542b5f27f45e7562b",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g14",
+      "sha256": "bd83952e3b4b1e3389d56e6909257b27504b40f66aa558294fb16c72632623e0",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g15",
+      "sha256": "1df095713b76ea145196c17c0721319cfe5708a7872d9f91d5431c4add298e42",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g16",
+      "sha256": "8c0baae0972daa8e9c482a5f5afb94b1ffeab5af91bd6ebf449e587b65bc6b8d",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g17",
+      "sha256": "8827a545a4779866a5b868d7f288b7b7c4cbf249f64a4e32953556286256c9b5",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g18",
+      "sha256": "ce075f6efeab05f216e801609114eb18a6738a44607ddc67723530578fc46e58",
+      "terminal_outcome": "GATE_PASSED"
+    },
+    {
+      "cell_id": "smem_staged.triton.g00",
+      "sha256": "f17c9cc759e30de75ee68de5931fabb5c399c149ae185ded072db74377ff3f2e",
+      "terminal_outcome": "UNSUPPORTED"
+    },
+    {
+      "cell_id": "smem_staged.triton.g01",
+      "sha256": "4fa087160a6a30a7bc2e026cdfacd35f6a9c87cc5608281aae95ad5d88e97da5",
+      "terminal_outcome": "UNSUPPORTED"
+    },
+    {
+      "cell_id": "smem_staged.triton.g02",
+      "sha256": "6d2de9cab011efd5076658a9e012413723d28bc14eef0b1b09ee33d79fe0222c",
+      "terminal_outcome": "UNSUPPORTED"
+    },
+    {
+      "cell_id": "smem_staged.triton.g03",
+      "sha256": "4cdc112f21b05477f4379848c99284bf112c4590dcbf1a4c7217625a2d943f43",
+      "terminal_outcome": "UNSUPPORTED"
+    },
+    {
+      "cell_id": "smem_staged.triton.g04",
+      "sha256": "7dfaf644163712073e15240ebbfab8f2141b4da2285ce195fea102fa86f51515",
+      "terminal_outcome": "UNSUPPORTED"
+    },
+    {
+      "cell_id": "smem_staged.triton.g05",
+      "sha256": "61db18995b02a1c831538caa321cd576f3135f14cb96fb7aa97d6cbb5e1d6197",
+      "terminal_outcome": "UNSUPPORTED"
+    },
+    {
+      "cell_id": "smem_staged.triton.g06",
+      "sha256": "226cab8476e25190f99268d97423dfa6a858f1938f947050c5484767741137cb",
+      "terminal_outcome": "UNSUPPORTED"
+    },
+    {
+      "cell_id": "smem_staged.triton.g07",
+      "sha256": "5027588a602ea3425934b5cc1f1d0d2060363005bdf7f095cb2cfdcf5df0637f",
+      "terminal_outcome": "UNSUPPORTED"
+    },
+    {
+      "cell_id": "smem_staged.triton.g08",
+      "sha256": "ebc4696284c1355d560887a0ebd1ec8cae6eec69a0607f78749ad12cde1a09e2",
+      "terminal_outcome": "UNSUPPORTED"
+    },
+    {
+      "cell_id": "smem_staged.triton.g09",
+      "sha256": "7b6e09594a6d4806344fa579fb18359783495c10a7d464f9f2f073ed3457a9c5",
+      "terminal_outcome": "UNSUPPORTED"
+    },
+    {
+      "cell_id": "smem_staged.triton.g10",
+      "sha256": "deb0967d383d9b375fb575a97c7b1f75dbcfb63f4739c535f93e8a1e0ddc7436",
+      "terminal_outcome": "UNSUPPORTED"
+    },
+    {
+      "cell_id": "smem_staged.triton.g11",
+      "sha256": "0e71aa4fde8407911b3777dc26c308544b4ca0be3be9c37e8408f36d73c68813",
+      "terminal_outcome": "UNSUPPORTED"
+    },
+    {
+      "cell_id": "smem_staged.triton.g12",
+      "sha256": "bbec1a52a89eb7d1f4fe63e3b498d3aa307d41255f953343cd401f11aa2c9c3a",
+      "terminal_outcome": "UNSUPPORTED"
+    },
+    {
+      "cell_id": "smem_staged.triton.g13",
+      "sha256": "dafaccf6fa218bba256c4e81e50df62ae243bf462db729f93f3c26127ee2704f",
+      "terminal_outcome": "UNSUPPORTED"
+    },
+    {
+      "cell_id": "smem_staged.triton.g14",
+      "sha256": "be57b137103b074f2bdb53d0e7051f8e7e0868c7bb95b9ed04c5d0d60adff6dc",
+      "terminal_outcome": "UNSUPPORTED"
+    },
+    {
+      "cell_id": "smem_staged.triton.g15",
+      "sha256": "7673b2d442061e48c6e9be5f2d2008375883c15904e2dde2ce705d15b133e3fc",
+      "terminal_outcome": "UNSUPPORTED"
+    },
+    {
+      "cell_id": "smem_staged.triton.g16",
+      "sha256": "0e9f58c2a89f657af1fb04ee01eab36e0b5f25f3f149dd36cb7a4d61e2a69996",
+      "terminal_outcome": "UNSUPPORTED"
+    },
+    {
+      "cell_id": "smem_staged.triton.g17",
+      "sha256": "1b3c8998096daadb1d9fbb54e10cc19ef11fec8da6722e074d4bad731904550b",
+      "terminal_outcome": "UNSUPPORTED"
+    },
+    {
+      "cell_id": "smem_staged.triton.g18",
+      "sha256": "eb2ffe658221288beda08fa929623718b96ec3d8cefa6d7d982054c832169598",
+      "terminal_outcome": "UNSUPPORTED"
+    }
+  ],
+  "campaign_id": "finite-frontier-ada-v1",
+  "complete": true,
+  "contract_sha256": "34886d547c5480227bfd68839b3db03580f26c578907a22ea869c02c29e9267e",
+  "gate_legal_cell_ids": [
+    "global_intermediate.tilelang.g00",
+    "global_intermediate.tilelang.g01",
+    "global_intermediate.tilelang.g02",
+    "global_intermediate.tilelang.g03",
+    "global_intermediate.tilelang.g04",
+    "global_intermediate.tilelang.g05",
+    "global_intermediate.tilelang.g06",
+    "global_intermediate.tilelang.g07",
+    "global_intermediate.tilelang.g08",
+    "global_intermediate.tilelang.g09",
+    "global_intermediate.tilelang.g10",
+    "global_intermediate.tilelang.g11",
+    "global_intermediate.tilelang.g12",
+    "global_intermediate.tilelang.g13",
+    "global_intermediate.tilelang.g14",
+    "global_intermediate.tilelang.g15",
+    "global_intermediate.tilelang.g16",
+    "global_intermediate.tilelang.g17",
+    "global_intermediate.tilelang.g18",
+    "global_intermediate.triton.g00",
+    "global_intermediate.triton.g01",
+    "global_intermediate.triton.g02",
+    "global_intermediate.triton.g03",
+    "global_intermediate.triton.g04",
+    "global_intermediate.triton.g05",
+    "global_intermediate.triton.g06",
+    "global_intermediate.triton.g08",
+    "global_intermediate.triton.g09",
+    "global_intermediate.triton.g10",
+    "global_intermediate.triton.g12",
+    "global_intermediate.triton.g13",
+    "global_intermediate.triton.g14",
+    "global_intermediate.triton.g16",
+    "global_intermediate.triton.g17",
+    "register_common_postprocess.tilelang.g00",
+    "register_common_postprocess.tilelang.g01",
+    "register_common_postprocess.tilelang.g02",
+    "register_common_postprocess.tilelang.g03",
+    "register_common_postprocess.tilelang.g04",
+    "register_common_postprocess.tilelang.g05",
+    "register_common_postprocess.tilelang.g06",
+    "register_common_postprocess.tilelang.g07",
+    "register_common_postprocess.tilelang.g08",
+    "register_common_postprocess.tilelang.g09",
+    "register_common_postprocess.tilelang.g10",
+    "register_common_postprocess.tilelang.g11",
+    "register_common_postprocess.tilelang.g12",
+    "register_common_postprocess.tilelang.g13",
+    "register_common_postprocess.tilelang.g14",
+    "register_common_postprocess.tilelang.g15",
+    "register_common_postprocess.tilelang.g16",
+    "register_common_postprocess.tilelang.g17",
+    "register_common_postprocess.tilelang.g18",
+    "register_common_postprocess.triton.g00",
+    "register_common_postprocess.triton.g01",
+    "register_common_postprocess.triton.g02",
+    "register_common_postprocess.triton.g03",
+    "register_common_postprocess.triton.g04",
+    "register_common_postprocess.triton.g05",
+    "register_common_postprocess.triton.g06",
+    "register_common_postprocess.triton.g08",
+    "register_common_postprocess.triton.g09",
+    "register_common_postprocess.triton.g10",
+    "register_common_postprocess.triton.g12",
+    "register_common_postprocess.triton.g13",
+    "register_common_postprocess.triton.g14",
+    "register_common_postprocess.triton.g16",
+    "register_common_postprocess.triton.g17",
+    "register_fused.tilelang.g00",
+    "register_fused.tilelang.g01",
+    "register_fused.tilelang.g02",
+    "register_fused.tilelang.g03",
+    "register_fused.tilelang.g04",
+    "register_fused.tilelang.g05",
+    "register_fused.tilelang.g06",
+    "register_fused.tilelang.g07",
+    "register_fused.tilelang.g08",
+    "register_fused.tilelang.g09",
+    "register_fused.tilelang.g10",
+    "register_fused.tilelang.g11",
+    "register_fused.tilelang.g12",
+    "register_fused.tilelang.g13",
+    "register_fused.tilelang.g14",
+    "register_fused.tilelang.g15",
+    "register_fused.tilelang.g16",
+    "register_fused.tilelang.g17",
+    "register_fused.tilelang.g18",
+    "register_fused.triton.g00",
+    "register_fused.triton.g01",
+    "register_fused.triton.g02",
+    "register_fused.triton.g03",
+    "register_fused.triton.g04",
+    "register_fused.triton.g05",
+    "register_fused.triton.g06",
+    "register_fused.triton.g08",
+    "register_fused.triton.g09",
+    "register_fused.triton.g10",
+    "register_fused.triton.g12",
+    "register_fused.triton.g13",
+    "register_fused.triton.g14",
+    "register_fused.triton.g16",
+    "register_fused.triton.g17",
+    "smem_staged.tilelang.g00",
+    "smem_staged.tilelang.g01",
+    "smem_staged.tilelang.g02",
+    "smem_staged.tilelang.g03",
+    "smem_staged.tilelang.g04",
+    "smem_staged.tilelang.g13",
+    "smem_staged.tilelang.g14",
+    "smem_staged.tilelang.g15",
+    "smem_staged.tilelang.g16",
+    "smem_staged.tilelang.g17",
+    "smem_staged.tilelang.g18"
+  ],
+  "record_type": "finite_frontier_ada_imported_frontier",
+  "schema_version": 1,
+  "screen_records": [
+    {
+      "cell_id": "register_common_postprocess.triton.g03",
+      "primary_tail_median_ms": 1.5472639799118042,
+      "rep": 0,
+      "sha256": "b219ee97b7af5721edb6f73b09d641ba98f532d152cdd7fb6ac6e227c2be9889"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g09",
+      "primary_tail_median_ms": 1.3434879779815674,
+      "rep": 0,
+      "sha256": "9c83f9539a320457471b27d7da0886f9fdcf40c8baa80c56f96736842783ba1f"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g10",
+      "primary_tail_median_ms": 1.33787202835083,
+      "rep": 0,
+      "sha256": "66ebae0ac8bb59ac8e95bbd82e31018b074d8a002b303e649deb93db1a7e8fe9"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g07",
+      "primary_tail_median_ms": 1.316864013671875,
+      "rep": 0,
+      "sha256": "c577ee20216e8743098dc564b1ff3b7ed3a89da2d18797b2452b8b90fd784e6a"
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g01",
+      "primary_tail_median_ms": 1.5011839866638184,
+      "rep": 0,
+      "sha256": "12050ea578b6640c50c82d779b4a82cc80438c9ddf813871e1ad65f5c6ddc8b1"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g14",
+      "primary_tail_median_ms": 1.9271680116653442,
+      "rep": 0,
+      "sha256": "f0f27e0e06ee1bea83e71756778ca10d2964f5646929960fcb36378f441805a0"
+    },
+    {
+      "cell_id": "register_common_postprocess.triton.g04",
+      "primary_tail_median_ms": 1.77510404586792,
+      "rep": 0,
+      "sha256": "a3dd6aecd925f59989d5aff2b89c26b661ed88ef1defcaa5196da6439da896e0"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g05",
+      "primary_tail_median_ms": 1.3137919902801514,
+      "rep": 0,
+      "sha256": "ca03794b5e640f61ba91775387b0a8796e1afaa364b67827ac3dfb156489d322"
+    },
+    {
+      "cell_id": "register_fused.triton.g14",
+      "primary_tail_median_ms": 1.7556480169296265,
+      "rep": 0,
+      "sha256": "38c0edff4576a9cdc332cc26220ba444c5dc7792bf2afef212cc93cbf93d9af4"
+    },
+    {
+      "cell_id": "global_intermediate.triton.g09",
+      "primary_tail_median_ms": 1.4289920330047607,
+      "rep": 0,
+      "sha256": "1fe99ebb4f0600aeefb55a50468acca2bdd6ec9c57f3a97ea3533272a6f0340b"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g01",
+      "primary_tail_median_ms": 1.5769599676132202,
+      "rep": 0,
+      "sha256": "a3b69d5495b6ae17829f2d4170f6802172dec79026c8e8f260213b654d9fcf21"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g08",
+      "primary_tail_median_ms": 1.299456000328064,
+      "rep": 0,
+      "sha256": "27c99426793f2eef4f7e3f7fe792f2c34fedb761a56d87b92116cebe31d13a4a"
+    },
+    {
+      "cell_id": "register_fused.triton.g12",
+      "primary_tail_median_ms": 1.4709759950637817,
+      "rep": 0,
+      "sha256": "b12bb3e94b4e1fa38e236066c3250031dd88359b6872d5745df100dba60bced9"
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g15",
+      "primary_tail_median_ms": 1.9046399593353271,
+      "rep": 0,
+      "sha256": "a07af8a635daacae15da0cde4153bac8605d65bedd3bb9e16b28c3692a5eadf8"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g18",
+      "primary_tail_median_ms": 1.975808024406433,
+      "rep": 0,
+      "sha256": "3fc29c2794047de3fffd2efaeb92860f920fd580e5b7426813c8c0012ee9d32c"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g09",
+      "primary_tail_median_ms": 1.1130880117416382,
+      "rep": 0,
+      "sha256": "fc10938a47fd07f4d1367dde5c5c5e29843dfdfa3d2066259368433dfa3b05b6"
+    },
+    {
+      "cell_id": "register_fused.triton.g01",
+      "primary_tail_median_ms": 1.6957440376281738,
+      "rep": 0,
+      "sha256": "9baf7bb14b3e2195544960ddc18c2d34ec23f125dcb97a7675ee89f3e4d6f0bf"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g17",
+      "primary_tail_median_ms": 1.9486720561981201,
+      "rep": 0,
+      "sha256": "6fd164f9478830d840289d4b803e9bf1c78aeb6922eadf8d908c5bf765566262"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g04",
+      "primary_tail_median_ms": 1.4776320457458496,
+      "rep": 0,
+      "sha256": "37ea77d94628d0754c6a70f9c2e6a6da23a452364174689454896dfa183a5138"
+    },
+    {
+      "cell_id": "global_intermediate.triton.g02",
+      "primary_tail_median_ms": 1.6901119947433472,
+      "rep": 0,
+      "sha256": "c92566ecfb885a64122506a7d3af8372a8a857e997cf2444d81848c9f165d13a"
+    },
+    {
+      "cell_id": "register_fused.triton.g03",
+      "primary_tail_median_ms": 1.4951520562171936,
+      "rep": 0,
+      "sha256": "a6a31bb7227d30705f5ba4584b38fb624779f63ca8d9e5ead3b1f200dfd1010a"
+    },
+    {
+      "cell_id": "register_common_postprocess.triton.g09",
+      "primary_tail_median_ms": 1.3900799751281738,
+      "rep": 0,
+      "sha256": "af7ed9bc083e9417846d59032cc9ff40a234ed16e8f2ad7c08a37a6cd117fdff"
+    },
+    {
+      "cell_id": "global_intermediate.triton.g13",
+      "primary_tail_median_ms": 1.765887975692749,
+      "rep": 0,
+      "sha256": "e5950c550299b257dce55c98c159fb80dc7fb700c3a108e292d48409362234a0"
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g17",
+      "primary_tail_median_ms": 1.9302400350570679,
+      "rep": 0,
+      "sha256": "5eb4acb7f0b317584cab6f16d0ee4d9769d8b2288b3897723d0cf9f2c5bc8f41"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g11",
+      "primary_tail_median_ms": 1.393664002418518,
+      "rep": 0,
+      "sha256": "388457fd5825de00b2b358c4e06fec4c4f0d3f673f26d315556777a2a0a4cdb6"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g02",
+      "primary_tail_median_ms": 1.5104000568389893,
+      "rep": 0,
+      "sha256": "c027a8df430d171b8f4d273088b0409485951ad550922d7f2dd72c4a898e3348"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g06",
+      "primary_tail_median_ms": 1.3721599578857422,
+      "rep": 0,
+      "sha256": "90fb15ef6573270a1e8c440759edb8bdac43e43f4a9e3907188cf171d4a9f67f"
+    },
+    {
+      "cell_id": "register_fused.triton.g09",
+      "primary_tail_median_ms": 1.3250559568405151,
+      "rep": 0,
+      "sha256": "4430da1faaeb5e051df1ab499acd62ff2011002bbad95bd6fdf50908b9729c5f"
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g16",
+      "primary_tail_median_ms": 1.9327999949455261,
+      "rep": 0,
+      "sha256": "97575ad740094b0d3399072d748b81805931e6aae65b861ea458fa57abc8f450"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g14",
+      "primary_tail_median_ms": 1.8995200395584106,
+      "rep": 0,
+      "sha256": "4b3b9a61b32e857ac7ce6965259e7ab4d15756fd58aec6ccd4b252201555bf7f"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g10",
+      "primary_tail_median_ms": 1.3445119857788086,
+      "rep": 0,
+      "sha256": "96eff6420940d9ab2b1b0e15982c13fb4f0c19f1de7120dcf6b9c48ede27204b"
+    },
+    {
+      "cell_id": "register_fused.triton.g08",
+      "primary_tail_median_ms": 1.427456021308899,
+      "rep": 0,
+      "sha256": "95559a4a35724f3ea1fbd9ed0531b4401c47d4e7616b7a36782cfe76fe11faf1"
+    },
+    {
+      "cell_id": "register_common_postprocess.triton.g06",
+      "primary_tail_median_ms": 25.879039764404297,
+      "rep": 0,
+      "sha256": "0f075342373f20760e5f9218c30a246d2831196d41de5ed817f0ab538b9030b8"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g12",
+      "primary_tail_median_ms": 1.235040009021759,
+      "rep": 0,
+      "sha256": "5941d6dc04224852dfeef6102ce4e129241d35f9e4b8878e8e857a86b29d324f"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g07",
+      "primary_tail_median_ms": 1.3445119857788086,
+      "rep": 0,
+      "sha256": "7331e4db56ce4c7b4952a483c618c9b8687f9c6c924b0f093947d578a73000d8"
+    },
+    {
+      "cell_id": "register_common_postprocess.triton.g08",
+      "primary_tail_median_ms": 1.4059360027313232,
+      "rep": 0,
+      "sha256": "e686be720986e00f76d17442fb2914ae0d9da840a36669ebd569e49ed9749ae8"
+    },
+    {
+      "cell_id": "register_common_postprocess.triton.g05",
+      "primary_tail_median_ms": 1.369088053703308,
+      "rep": 0,
+      "sha256": "d60202286bf283b8cb8ce41229c16575f577739e1d051068cd0307e3b89d9bbe"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g14",
+      "primary_tail_median_ms": 1.872383952140808,
+      "rep": 0,
+      "sha256": "f32c832427a0442156b68746af5de8b429d59d5f392714c527151db98225a93f"
+    },
+    {
+      "cell_id": "register_fused.triton.g17",
+      "primary_tail_median_ms": 1.9112959504127502,
+      "rep": 0,
+      "sha256": "5284976101baf55e4dcfed326ffa1c7bd1df53fb05238fef422bde25c58953ea"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g03",
+      "primary_tail_median_ms": 1.5063040256500244,
+      "rep": 0,
+      "sha256": "cc454731b42a4ec359e09fe9f75e816282ae028046aa96319eedb239406341e8"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g08",
+      "primary_tail_median_ms": 1.3250559568405151,
+      "rep": 0,
+      "sha256": "0d30b735a8b6d9416131d1d3f8526c8d7697873b8196ff211b994acdd56dc88d"
+    },
+    {
+      "cell_id": "global_intermediate.triton.g08",
+      "primary_tail_median_ms": 1.5308159589767456,
+      "rep": 0,
+      "sha256": "d7390a7096c9061a91607339c97844011313873c2b81b9e5f3072a6e1e9d7b46"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g01",
+      "primary_tail_median_ms": 1.5308799743652344,
+      "rep": 0,
+      "sha256": "4a92622af7723d695882a437f47e84a003833c562b76be25a3c8b6e6c9d30f7b"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g13",
+      "primary_tail_median_ms": 1.8882559537887573,
+      "rep": 0,
+      "sha256": "55807411faeed12d0ed48c50b507fce05cc3e42cfdc01fa6da487e630262f8f0"
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g14",
+      "primary_tail_median_ms": 1.8872319459915161,
+      "rep": 0,
+      "sha256": "c5ddbd9bf985f344ede88557cbc21d1d58b69e851f04aab3a3a996ae91de7804"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g05",
+      "primary_tail_median_ms": 1.3136799931526184,
+      "rep": 0,
+      "sha256": "ada454f73645fcab619503ac21aed545c00af4a4b519a7a2392d01bd4e2a42a4"
+    },
+    {
+      "cell_id": "global_intermediate.triton.g17",
+      "primary_tail_median_ms": 1.8396160006523132,
+      "rep": 0,
+      "sha256": "af3d4e19f4d552f6ebac5929b79da87b4fd5855599a92739130538f38c7149e3"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g09",
+      "primary_tail_median_ms": 1.2769279479980469,
+      "rep": 0,
+      "sha256": "df138485d7584248361a7ef83befd652b895b2a281075278e375c4d5bc1d58c3"
+    },
+    {
+      "cell_id": "register_common_postprocess.triton.g13",
+      "primary_tail_median_ms": 1.901568055152893,
+      "rep": 0,
+      "sha256": "f44e80c526a107baccfdcd50e7abb4d42ab47bad6144df5193297035d113b7ed"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g04",
+      "primary_tail_median_ms": 1.5416319966316223,
+      "rep": 0,
+      "sha256": "027b1979f45c03f127e82b69527d5c7a813fb0aa169e2bd94feb9eb99d2e5bbb"
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g04",
+      "primary_tail_median_ms": 1.5278079509735107,
+      "rep": 0,
+      "sha256": "ba4242fcc5dbb1a3513da37b171f38bf66baabe3dc0c43638d55788a8e1218ed"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g06",
+      "primary_tail_median_ms": 1.309183955192566,
+      "rep": 0,
+      "sha256": "7de8e9c1ba2c38fcd241bd546861c8ad24f0a01d1004f2bdf4a13fe834d4eb76"
+    },
+    {
+      "cell_id": "global_intermediate.triton.g06",
+      "primary_tail_median_ms": 2.102784037590027,
+      "rep": 0,
+      "sha256": "cf6c2754516cdf3d3e58f434fc1d1f2d8787b8f2000fbd6a4f8c9bbdc6b384f5"
+    },
+    {
+      "cell_id": "register_common_postprocess.triton.g16",
+      "primary_tail_median_ms": 1.8109439611434937,
+      "rep": 0,
+      "sha256": "dc182218fb46850ac90c7cf9f21a1b23f20f0ab01229c7dcfd06ee25bc2904f2"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g13",
+      "primary_tail_median_ms": 1.5697920322418213,
+      "rep": 0,
+      "sha256": "640f4067124d5effd90a7c5fba1c35dd7d0f5a31d4870e39d27a8c8478da901d"
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g13",
+      "primary_tail_median_ms": 1.572864055633545,
+      "rep": 0,
+      "sha256": "4766920b013b5a155b4873ad7e36a7d990923190fb8739bd84787530107bf3fe"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g03",
+      "primary_tail_median_ms": 1.504256010055542,
+      "rep": 0,
+      "sha256": "d2709e7fa690aeb1d8703e2ca054bcfa36b32cdd1871fed1cf4702a7b68b4c87"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g15",
+      "primary_tail_median_ms": 1.908735990524292,
+      "rep": 0,
+      "sha256": "35a5eacdee6edfec774cd4907f3a0e1986ffea638645915fecb8d785666f39e5"
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g02",
+      "primary_tail_median_ms": 1.5441919565200806,
+      "rep": 0,
+      "sha256": "965603190344ef252aff46f956d2f2d7510641a8b1046cb694203748c7f84e47"
+    },
+    {
+      "cell_id": "global_intermediate.triton.g00",
+      "primary_tail_median_ms": 1.4357119798660278,
+      "rep": 0,
+      "sha256": "b9cb4d8f446e6f4149eb1206fb53410dc1b66b743fc765cd3d5c7f38504161f2"
+    },
+    {
+      "cell_id": "global_intermediate.triton.g01",
+      "primary_tail_median_ms": 1.692031979560852,
+      "rep": 0,
+      "sha256": "a5ee79ea5bf90b4559459cb7ccac5578260ebfda147655cf36f5c46489173e48"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g17",
+      "primary_tail_median_ms": 1.974784016609192,
+      "rep": 0,
+      "sha256": "d75b45369fc40b02e05ed4f09213c19eaf59892e5c4eb3a6c9d0d49f1337b0d4"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g06",
+      "primary_tail_median_ms": 1.381376028060913,
+      "rep": 0,
+      "sha256": "20c6c42253e14a8d2a666a27f6ec6b62d14b2e3373608075e9815a4f138fdbaa"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g16",
+      "primary_tail_median_ms": 1.5943679809570312,
+      "rep": 0,
+      "sha256": "7329a4d8eae45ffc50e5aa32c66c1109c75189389c9151e3a90cdb992178b784"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g00",
+      "primary_tail_median_ms": 1.5001599788665771,
+      "rep": 0,
+      "sha256": "95ee322a028bb8b8916eafef0a634a9f49b4c139f613f08c4d1ea62fc39e07b2"
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g00",
+      "primary_tail_median_ms": 1.4177279472351074,
+      "rep": 0,
+      "sha256": "79a4e7fde4f84fe1afa5393f06c7a7902c76cdb3840cc0e37573b1093ce0b30b"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g11",
+      "primary_tail_median_ms": 1.3521920442581177,
+      "rep": 0,
+      "sha256": "5526fbbe432dd8e2caa2c35cc765b8a967a7a98e194c92bcdbc8c252c7f7861d"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g01",
+      "primary_tail_median_ms": 1.551360011100769,
+      "rep": 0,
+      "sha256": "f992437fd23fdd658bb55099da874f7551df5cfcf70e9a47cb5adcce358ce31d"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g00",
+      "primary_tail_median_ms": 1.5385600328445435,
+      "rep": 0,
+      "sha256": "167783fb7df523ae3590a2e97ba99dfbdf4fa7e00f803384c6ea85b92c7f02f6"
+    },
+    {
+      "cell_id": "register_fused.triton.g00",
+      "primary_tail_median_ms": 1.4433280229568481,
+      "rep": 0,
+      "sha256": "17fc055d7007f603ee62052b341e98924a3226ae22fae1ee6737f972b3137e38"
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g18",
+      "primary_tail_median_ms": 1.923583984375,
+      "rep": 0,
+      "sha256": "cbccf0c006d4594742e0dc93b6fef7453b9066a7e7d2068b90ba402b650fb6e3"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g16",
+      "primary_tail_median_ms": 1.896448016166687,
+      "rep": 0,
+      "sha256": "86dd7f6b974e571032c9be3012b574a4d05c6a0b443bdab09ae730997612ec8a"
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g03",
+      "primary_tail_median_ms": 1.4730240106582642,
+      "rep": 0,
+      "sha256": "4b60794fc83b9120b54fbad85983b616cf90fc539277da507bf19398108ed40d"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g13",
+      "primary_tail_median_ms": 1.6076800227165222,
+      "rep": 0,
+      "sha256": "6de87aa17820d39b4edb774d005f82fa21b1c2ce435cd5556c92c837ef5b3ee5"
+    },
+    {
+      "cell_id": "register_common_postprocess.triton.g01",
+      "primary_tail_median_ms": 1.6814080476760864,
+      "rep": 0,
+      "sha256": "89505f24fe0de25cc8d5f6ef3beb59f0ce3bee11387d81131219c019aaa6db11"
+    },
+    {
+      "cell_id": "register_common_postprocess.triton.g12",
+      "primary_tail_median_ms": 1.519648015499115,
+      "rep": 0,
+      "sha256": "8538b33c5b7b9c2853c6fc15b884e3134f352b63d71fabdc0024caf2927fe0ef"
+    },
+    {
+      "cell_id": "global_intermediate.triton.g16",
+      "primary_tail_median_ms": 1.9763200283050537,
+      "rep": 0,
+      "sha256": "988a5266b95b495e4996dcf754ed17ab3434b3ca87f2f99d6051e28b0e79e8a1"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g03",
+      "primary_tail_median_ms": 1.504256010055542,
+      "rep": 0,
+      "sha256": "86fc39a46b9609efec6e9a263613e4669dce190afea8e1d248add7548c670269"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g00",
+      "primary_tail_median_ms": 1.5718400478363037,
+      "rep": 0,
+      "sha256": "404712456351e2c988da5f3d871b1446a0ca716e68021186737e866c3413596f"
+    },
+    {
+      "cell_id": "global_intermediate.triton.g05",
+      "primary_tail_median_ms": 1.3905919790267944,
+      "rep": 0,
+      "sha256": "db70060f44c7ccf9e71af382e9a4ba3aa791b578bfeb8a75a6a4bbfa3df75e1c"
+    },
+    {
+      "cell_id": "register_common_postprocess.triton.g17",
+      "primary_tail_median_ms": 1.9650559425354004,
+      "rep": 0,
+      "sha256": "cb8d5294b591e63de420a831fbbc156b028043ff7feb50e136f56856045709e8"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g11",
+      "primary_tail_median_ms": 1.3470720052719116,
+      "rep": 0,
+      "sha256": "efca6de4507ad07f7b1bfd9585bce9184309fe6e558ed48f0694a33728fa6f11"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g10",
+      "primary_tail_median_ms": 1.3870079517364502,
+      "rep": 0,
+      "sha256": "9242b1189e2adc7b04e2fe5e8484d5d1870e32498ad2a6a8c720d265db811ed1"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g15",
+      "primary_tail_median_ms": 1.9143680334091187,
+      "rep": 0,
+      "sha256": "9a3e83b81e1839934be86afa8e7546dfe828c2b0162afd3fb944039fe6b25cae"
+    },
+    {
+      "cell_id": "register_fused.triton.g04",
+      "primary_tail_median_ms": 1.7515519857406616,
+      "rep": 0,
+      "sha256": "d7d558e1c9af95c66b133b86c2ea9ab8ec70664eafcba6be4f0841b162d5a6a0"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g05",
+      "primary_tail_median_ms": 1.3532160520553589,
+      "rep": 0,
+      "sha256": "5c201703d1a34b97f1a0cc9cdab7f92f4d3891792c607a58aeba81fe8230ac71"
+    },
+    {
+      "cell_id": "register_common_postprocess.triton.g00",
+      "primary_tail_median_ms": 1.5426559448242188,
+      "rep": 0,
+      "sha256": "3040868597e71d6214201277f8c2637eddf0f360c4ebe6a812b66efb7176a7ce"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g04",
+      "primary_tail_median_ms": 1.5011839866638184,
+      "rep": 0,
+      "sha256": "2c62fbd2adfe652c32522f7f0e1e8f28f1e894d9140dea31b735e579629f7edd"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g12",
+      "primary_tail_median_ms": 1.2999680042266846,
+      "rep": 0,
+      "sha256": "88c141b1daa09ee9ccb486a1250b39f809bef8eb64fd9929a4617ca291b8f8b1"
+    },
+    {
+      "cell_id": "register_fused.triton.g16",
+      "primary_tail_median_ms": 1.938431978225708,
+      "rep": 0,
+      "sha256": "9e18f5a773f16ac43d706c0bf9af5b26701dd2f7ad3503da78ca6d30a6c05064"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g16",
+      "primary_tail_median_ms": 1.7699840068817139,
+      "rep": 0,
+      "sha256": "7a8087ba079a806a3f7921c76b889cff1cf7b08d209d1e13840110ba0383c3bd"
+    },
+    {
+      "cell_id": "register_fused.triton.g05",
+      "primary_tail_median_ms": 1.274880051612854,
+      "rep": 0,
+      "sha256": "ca2492b8a7034a1ff5852c3fce11baa000f5298de93db984548e51a7f73122b9"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g15",
+      "primary_tail_median_ms": 1.7817599773406982,
+      "rep": 0,
+      "sha256": "3dfc3ef872a96f13542688f95403b11c5b5be2c5820586e81a6af1a95ab6ed35"
+    },
+    {
+      "cell_id": "register_common_postprocess.triton.g02",
+      "primary_tail_median_ms": 1.7233920097351074,
+      "rep": 0,
+      "sha256": "ef3a248a799984f94b4c69d2694082c64ee79ff46f4de792c85a25a8a229d2db"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g18",
+      "primary_tail_median_ms": 1.9445760250091553,
+      "rep": 0,
+      "sha256": "00d6e2201dd71dcb9ad80ae9b8210c81b966da5accc4958bd7fb0c7145ffd65f"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g02",
+      "primary_tail_median_ms": 1.5534080266952515,
+      "rep": 0,
+      "sha256": "b2c70587374f2cf932e9ed4581f60acd3ea86f2c67289a1d58b12d4cad537fe7"
+    },
+    {
+      "cell_id": "global_intermediate.triton.g10",
+      "primary_tail_median_ms": 2.255519986152649,
+      "rep": 0,
+      "sha256": "bea17ee972a7999461e81fecc83826309905782899f8b17b1f3973e9cf869203"
+    },
+    {
+      "cell_id": "register_fused.triton.g06",
+      "primary_tail_median_ms": 26.31987190246582,
+      "rep": 0,
+      "sha256": "527c43e45aab66344157033e232314afa377e45419eb1823b33bb9c4b4bb90eb"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g12",
+      "primary_tail_median_ms": 1.2938239574432373,
+      "rep": 0,
+      "sha256": "fe5b9c5aec168a5345721e62cf0e2f47fa3e45da6977e1d433afc5fc33fc701e"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g17",
+      "primary_tail_median_ms": 1.9445760250091553,
+      "rep": 0,
+      "sha256": "e7424157f84f300c7632c1d7daeb3babff72aa572b655939f0cdfbfb69c584f3"
+    },
+    {
+      "cell_id": "global_intermediate.triton.g03",
+      "primary_tail_median_ms": 1.599456012248993,
+      "rep": 0,
+      "sha256": "8e13f3c08c77bf830d7eec8e22963a7282ce4e3de42756d3b71cbfcce5ef8410"
+    },
+    {
+      "cell_id": "register_common_postprocess.triton.g10",
+      "primary_tail_median_ms": 2.2865920066833496,
+      "rep": 0,
+      "sha256": "8833e0f2b0e1668de3b4487fb8f156b64d94f5613f5d34b6827917bac730c366"
+    },
+    {
+      "cell_id": "register_common_postprocess.triton.g14",
+      "primary_tail_median_ms": 2.0167680978775024,
+      "rep": 0,
+      "sha256": "0fab750deec81f2681d5314052810021a49af06a8402679647e6e60913d32f38"
+    },
+    {
+      "cell_id": "register_fused.triton.g02",
+      "primary_tail_median_ms": 1.717248022556305,
+      "rep": 0,
+      "sha256": "8c513a676759fe8c68505999cbe4f6dd761e48a3bdd5abf4e1572290d8cc56c7"
+    },
+    {
+      "cell_id": "global_intermediate.triton.g04",
+      "primary_tail_median_ms": 1.7213119864463806,
+      "rep": 0,
+      "sha256": "f17ed0a8d2a29ffecabca50c1d7e862860ca55de339209796d1dea4426a7c106"
+    },
+    {
+      "cell_id": "global_intermediate.triton.g12",
+      "primary_tail_median_ms": 1.580128014087677,
+      "rep": 0,
+      "sha256": "a4b3bf83243429e82b62e1a0a4da4472640b10ca0fe90c9912ce12cdba1ba84d"
+    },
+    {
+      "cell_id": "register_fused.triton.g10",
+      "primary_tail_median_ms": 2.227712035179138,
+      "rep": 0,
+      "sha256": "475ae97537e44f86053783b033bde97e692fcbfe8e7bd16d14530bc55602c9be"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g07",
+      "primary_tail_median_ms": 1.3230079412460327,
+      "rep": 0,
+      "sha256": "96eb37998909bbf1891d394e3892172472a765d21f08829db4ac3d7476180416"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g18",
+      "primary_tail_median_ms": 1.9701759815216064,
+      "rep": 0,
+      "sha256": "a8bcb347b82e3c81fb9e55c017660998aabf9e8b99e18681f4cdcda8c007830c"
+    },
+    {
+      "cell_id": "global_intermediate.triton.g14",
+      "primary_tail_median_ms": 1.9107840061187744,
+      "rep": 0,
+      "sha256": "6af7b2dc79719b1754cb2d59f58d7a6a8a7f7a65e57061b67de38360e35af719"
+    },
+    {
+      "cell_id": "register_fused.triton.g13",
+      "primary_tail_median_ms": 1.8524160385131836,
+      "rep": 0,
+      "sha256": "064bd24a87481211f0ea3e7f3343d189f2fbc451dbc6a78c5940b6598d00bf54"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g08",
+      "primary_tail_median_ms": 1.2933119535446167,
+      "rep": 0,
+      "sha256": "bbd1b13be74cab6823f96a9cdf7417e6f1a50729341fb215ee076780c0e973a6"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g02",
+      "primary_tail_median_ms": 1.5820800065994263,
+      "rep": 0,
+      "sha256": "ac7abb3d2c9b64d8442b32e44aa4cdb0aaf42468f6406ae545b735d881fb3d8f"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g11",
+      "primary_tail_median_ms": 1.368064045906067,
+      "rep": 1,
+      "sha256": "9c6ecd4b5f5f95fd190c6a5c5160b6c6939fb78318b7318d75b42818e539bd4d"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g02",
+      "primary_tail_median_ms": 1.5201280117034912,
+      "rep": 1,
+      "sha256": "ccb3694af960fe49ef176ae4fd9c08d520ff04b6cc2029d2ff9fe29c9a62cdac"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g08",
+      "primary_tail_median_ms": 1.3025280237197876,
+      "rep": 1,
+      "sha256": "dfa7edefc1cae7071175f0523887afbe293fa2eaf0f3fc4ba955f64881ec1f60"
+    },
+    {
+      "cell_id": "global_intermediate.triton.g05",
+      "primary_tail_median_ms": 1.4039039611816406,
+      "rep": 1,
+      "sha256": "471a03acd36ec90d5e8aab14df348f99a0feb02099c1560fd5f457a4dcf40204"
+    },
+    {
+      "cell_id": "register_fused.triton.g03",
+      "primary_tail_median_ms": 1.4961919784545898,
+      "rep": 1,
+      "sha256": "d83d92c60d353a8af9eb3b136e407729c21d552a362a23e4418503bd179a1a44"
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g03",
+      "primary_tail_median_ms": 1.491968035697937,
+      "rep": 1,
+      "sha256": "2a1fae290a1d961503af292e4d0a088c5a1d6097941e372b220dc5fe7ba063eb"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g05",
+      "primary_tail_median_ms": 1.2170239686965942,
+      "rep": 1,
+      "sha256": "bc7f86ea849d42c076e89e5ea9b4a74edf2af3499ef6ec303f5e1d7bbb678941"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g10",
+      "primary_tail_median_ms": 1.309615969657898,
+      "rep": 1,
+      "sha256": "9d81cd36adbb8838fa9248f3c411a91aee84ffe447c5a54056da4b8e2708d0b3"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g16",
+      "primary_tail_median_ms": 1.9215359687805176,
+      "rep": 1,
+      "sha256": "aa27ab32333d0c7979f9b847fdfaac9a034994673f9876c7e9a6527e4cec4037"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g13",
+      "primary_tail_median_ms": 1.866752028465271,
+      "rep": 1,
+      "sha256": "7856a95432863fe39f4ae69818de9c2d1d4faa8ac9b12f0819f6ac8a273e85ea"
+    },
+    {
+      "cell_id": "register_fused.triton.g02",
+      "primary_tail_median_ms": 1.627135992050171,
+      "rep": 1,
+      "sha256": "6d8843728dc9c753d67f7b05acdfb9663cc000de0d8e31b253ade3293300af5a"
+    },
+    {
+      "cell_id": "register_fused.triton.g00",
+      "primary_tail_median_ms": 1.4540799856185913,
+      "rep": 1,
+      "sha256": "4cae936583c75e98cfbd9ff036056b9e8ad685fb2713cb063f508fda286fa01e"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g01",
+      "primary_tail_median_ms": 1.5104000568389893,
+      "rep": 1,
+      "sha256": "659892bea0fc9bd3fa9a027b6c13dca303550b6f5fd8c7e54369ef495f414529"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g04",
+      "primary_tail_median_ms": 1.5580160021781921,
+      "rep": 1,
+      "sha256": "91d41a6781e157bbc75539e62ca2da7637ac12838c31b5ec4f9d2bc43eaea082"
+    },
+    {
+      "cell_id": "register_fused.triton.g10",
+      "primary_tail_median_ms": 2.2236160039901733,
+      "rep": 1,
+      "sha256": "a1b90d78b9fb069eb4ba63a6c3eb93839a88485f696f225669a4d45b33d84af4"
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g15",
+      "primary_tail_median_ms": 1.7556480169296265,
+      "rep": 1,
+      "sha256": "cab0d6a218541073c9b43f5b6c1fb423c0243e323c2e887d119ae98a12947ff7"
+    },
+    {
+      "cell_id": "global_intermediate.triton.g16",
+      "primary_tail_median_ms": 2.0085760354995728,
+      "rep": 1,
+      "sha256": "63866328622bf08ad161c068b81e8cb067f0646b38f0a023d3a222d9047c325a"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g05",
+      "primary_tail_median_ms": 1.343999981880188,
+      "rep": 1,
+      "sha256": "eecfa078f7318a3caf6d78952f16292254ab659d5f039665de27acd07e832223"
+    },
+    {
+      "cell_id": "register_common_postprocess.triton.g17",
+      "primary_tail_median_ms": 1.968127965927124,
+      "rep": 1,
+      "sha256": "67f48d64e273f942b100368b8dc4229834cb85e36733bd43bb6486791b19ab6c"
+    },
+    {
+      "cell_id": "global_intermediate.triton.g06",
+      "primary_tail_median_ms": 2.2353121042251587,
+      "rep": 1,
+      "sha256": "52016ea08aafa084fab57ac9ca54ea1fb24ddc07f32a0b045f0b2522154e4d0e"
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g02",
+      "primary_tail_median_ms": 1.5498239994049072,
+      "rep": 1,
+      "sha256": "6c323c9ab57af0897e7da4f9d3a6a43cd88696b4154c9065c710f5d31ebdca04"
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g01",
+      "primary_tail_median_ms": 1.5232000350952148,
+      "rep": 1,
+      "sha256": "6d58a623b709512c7dd28be0f05b97d5fea45d4e9509268a8f2a32d2815ac377"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g18",
+      "primary_tail_median_ms": 1.9415040016174316,
+      "rep": 1,
+      "sha256": "ebc12291c934b629d749241603af555c5cfaa1059d0b2f5617015584ec020bb4"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g07",
+      "primary_tail_median_ms": 1.381376028060913,
+      "rep": 1,
+      "sha256": "7a8c33cef64323890de7d798274fe2326837a1b4ae57f0011e46afd7a19b9c89"
+    },
+    {
+      "cell_id": "global_intermediate.triton.g03",
+      "primary_tail_median_ms": 1.6216639876365662,
+      "rep": 1,
+      "sha256": "bbfa7bc31aa34c8ac330134a7399dcd1683bb5de64ad1088b989d6e501c08187"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g17",
+      "primary_tail_median_ms": 1.9537919759750366,
+      "rep": 1,
+      "sha256": "0b35c49625f681920cb96e6b4e21e127f1fbe4f6eff1445fe451a1dd2691ea1b"
+    },
+    {
+      "cell_id": "global_intermediate.triton.g01",
+      "primary_tail_median_ms": 1.6936960220336914,
+      "rep": 1,
+      "sha256": "b8c383f8df75a91aed462517ae83fa60581878d3364b7c6aa23f10438b0254a9"
+    },
+    {
+      "cell_id": "register_common_postprocess.triton.g04",
+      "primary_tail_median_ms": 1.7551360130310059,
+      "rep": 1,
+      "sha256": "112abf1e7b64b66bbe453f05130694ccb605ea52da9873f185a68be93cd3c44a"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g03",
+      "primary_tail_median_ms": 1.5052800178527832,
+      "rep": 1,
+      "sha256": "a8828566c91776bf452e8a814192da7859055b631137e0fb576d27b0cb30360d"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g14",
+      "primary_tail_median_ms": 1.9066879749298096,
+      "rep": 1,
+      "sha256": "21fa4a4f3d575e78cc0d2e5df96d13624420fb004c262c5c700ea4a7eef0d93f"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g07",
+      "primary_tail_median_ms": 1.336239993572235,
+      "rep": 1,
+      "sha256": "4c47800dcff9e855859ead10732146a9285a4669b6a8fe584354dad5fca4f8e1"
+    },
+    {
+      "cell_id": "register_common_postprocess.triton.g16",
+      "primary_tail_median_ms": 1.9957760572433472,
+      "rep": 1,
+      "sha256": "90c20dea236fa5e1cfa6e7296d33f0626f40f3276b33b5a1993b4a3b985a934d"
+    },
+    {
+      "cell_id": "global_intermediate.triton.g04",
+      "primary_tail_median_ms": 1.696768045425415,
+      "rep": 1,
+      "sha256": "0dedf2467540960d3fad4266492d3e41ae4e3cfa41733639d546c9c64dd834df"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g15",
+      "primary_tail_median_ms": 1.891327977180481,
+      "rep": 1,
+      "sha256": "5b2948214d5c697a3cb76b83c1323294856d1ff2eab3ea958b82becb0f624d2e"
+    },
+    {
+      "cell_id": "register_fused.triton.g05",
+      "primary_tail_median_ms": 1.2733440399169922,
+      "rep": 1,
+      "sha256": "29104cebcd9860737a962e1fefe6f32ace7dc66760a7bb73a5a057ac4bfcabec"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g00",
+      "primary_tail_median_ms": 1.546239972114563,
+      "rep": 1,
+      "sha256": "1e3486a880b4bd550c15b110054eab3ee07834c5d25ca92c4f25c13f15b75e00"
+    },
+    {
+      "cell_id": "global_intermediate.triton.g14",
+      "primary_tail_median_ms": 2.043392062187195,
+      "rep": 1,
+      "sha256": "53bd1025b1c92da4f86860d998adb303a6f8f267a3e9ad2bbf3585309bbf33d0"
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g00",
+      "primary_tail_median_ms": 1.5344640016555786,
+      "rep": 1,
+      "sha256": "5531b53b9b32ab375e5bda563d52464a5686a49ddd6078723035b5530db26a46"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g15",
+      "primary_tail_median_ms": 1.9148800373077393,
+      "rep": 1,
+      "sha256": "b9401667ca5d0de049a3ba4cbbeb67269394fc3cf572255a422362736cdd3f68"
+    },
+    {
+      "cell_id": "register_fused.triton.g04",
+      "primary_tail_median_ms": 1.7280000448226929,
+      "rep": 1,
+      "sha256": "7840f8ecb32f57d3014134e5eac747bd14443fd8b64d67385fef396149d075e5"
+    },
+    {
+      "cell_id": "register_fused.triton.g17",
+      "primary_tail_median_ms": 1.789952039718628,
+      "rep": 1,
+      "sha256": "fa50215d380e634e98b580f5ad454aa76f6e953345a57d90c534d173edbe67ed"
+    },
+    {
+      "cell_id": "global_intermediate.triton.g02",
+      "primary_tail_median_ms": 1.7274880409240723,
+      "rep": 1,
+      "sha256": "b1373855574deaedb7763b85d8dfd0e297a143d290a545a604e7643df4263fe3"
+    },
+    {
+      "cell_id": "register_fused.triton.g14",
+      "primary_tail_median_ms": 1.9814399480819702,
+      "rep": 1,
+      "sha256": "d203f8bb06034b7137a1dc49ad2443dac9a85b3bdc1e0f338b3341c520213297"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g13",
+      "primary_tail_median_ms": 1.7597440481185913,
+      "rep": 1,
+      "sha256": "6049e8853455ed465d52f575044f3d6b5ce4afa97d57878e39c39f7c1c2f491c"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g04",
+      "primary_tail_median_ms": 1.4986239671707153,
+      "rep": 1,
+      "sha256": "ea1f96f0d33dfe43aa7b3154862fb54c4d3439b05f477fce66d9fbc9702ab7cc"
+    },
+    {
+      "cell_id": "register_fused.triton.g12",
+      "primary_tail_median_ms": 1.44486403465271,
+      "rep": 1,
+      "sha256": "3282f09f6aa1885a799eec000538fbfc132f1187f99f52263822b6875f90c719"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g04",
+      "primary_tail_median_ms": 1.5201280117034912,
+      "rep": 1,
+      "sha256": "1d387695b727cb5d6e61d26ffa488d55ed5c5d16adae8325882481f2a8a4a137"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g12",
+      "primary_tail_median_ms": 1.296895980834961,
+      "rep": 1,
+      "sha256": "6fa1a5c04c810549389434be172293e8a41fc0d7a250a7e462ec4a91bf8ce882"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g15",
+      "primary_tail_median_ms": 1.7546240091323853,
+      "rep": 1,
+      "sha256": "d38941673a07eba8b9703167c1bb3b8a984dba988c8152c62cd26430a3ea44ed"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g17",
+      "primary_tail_median_ms": 1.921023964881897,
+      "rep": 1,
+      "sha256": "2f8ac00b32190f839a5b86549714a158c8a84d1018a1dd2b81e25bf3691984cc"
+    },
+    {
+      "cell_id": "global_intermediate.triton.g10",
+      "primary_tail_median_ms": 2.290176033973694,
+      "rep": 1,
+      "sha256": "1d459ec4cb794f78f5e580696653c10a938b53c1d78bacca035a328c5b017ab1"
+    },
+    {
+      "cell_id": "global_intermediate.triton.g17",
+      "primary_tail_median_ms": 1.931264042854309,
+      "rep": 1,
+      "sha256": "018fd3557e89b9428724939d14f9ef18ec04b513a587cb0d8e3c09142e924f58"
+    },
+    {
+      "cell_id": "register_fused.triton.g01",
+      "primary_tail_median_ms": 1.6957440376281738,
+      "rep": 1,
+      "sha256": "18d9315daac0a0917004b8806ef9aa3aedd4a67ed35bc27da6b9aac692c4face"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g06",
+      "primary_tail_median_ms": 1.3521920442581177,
+      "rep": 1,
+      "sha256": "0ecab4bf3baefa24a67a7fd8d15c7b43f2e69c0a36d4cd45ec32c0158857807b"
+    },
+    {
+      "cell_id": "register_fused.triton.g06",
+      "primary_tail_median_ms": 25.673216819763184,
+      "rep": 1,
+      "sha256": "ac4a771544e8e3cedbb8a58ab716fcd3c0c1c08c544981a8c1dbd982ae55f198"
+    },
+    {
+      "cell_id": "register_common_postprocess.triton.g12",
+      "primary_tail_median_ms": 1.5482879877090454,
+      "rep": 1,
+      "sha256": "cd12c24bb208bf7480ee675aa3257b59c1ee0b6d0eb566000f8cb5d8e9594ca9"
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g16",
+      "primary_tail_median_ms": 1.926144003868103,
+      "rep": 1,
+      "sha256": "1cc1754e8e3f6df817ba5c35bfa48b1bf2f99d411f6ae569844a1103178de929"
+    },
+    {
+      "cell_id": "register_common_postprocess.triton.g13",
+      "primary_tail_median_ms": 1.916927993297577,
+      "rep": 1,
+      "sha256": "72f218b3bfa3c7fb56ccac00ba34b131c042296f5fae6dc2698f28e511e97c4d"
+    },
+    {
+      "cell_id": "register_fused.triton.g09",
+      "primary_tail_median_ms": 1.2139519453048706,
+      "rep": 1,
+      "sha256": "22bbadd56e15d523ea0e4d007942cd292fc624422811c13361a1c516cdb1b38f"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g10",
+      "primary_tail_median_ms": 1.3567999601364136,
+      "rep": 1,
+      "sha256": "9b25106f0d5db8415695fbeeecb1ff22a1b91a385519772a24bc5461eee6e71c"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g13",
+      "primary_tail_median_ms": 1.8959360122680664,
+      "rep": 1,
+      "sha256": "70af7729ec58781504be2f871dcee475a8b13d22a4be868f28dc4a3d3444eb19"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g16",
+      "primary_tail_median_ms": 1.9240959882736206,
+      "rep": 1,
+      "sha256": "27f7e7c929a4864ac682949d0bbcdf5cf4496fd887fc134c358c26b207bdfa9c"
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g13",
+      "primary_tail_median_ms": 1.8810880184173584,
+      "rep": 1,
+      "sha256": "a81787a010b943f2a1fa9f347f4b92af8dd16bb47562e613b540703915d2ca1f"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g02",
+      "primary_tail_median_ms": 1.533951997756958,
+      "rep": 1,
+      "sha256": "c624aa6d37ad8d2fcfad2e7928eaa6822c1be6c309909d259b62ee49c9f635c1"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g01",
+      "primary_tail_median_ms": 1.511423945426941,
+      "rep": 1,
+      "sha256": "33663a5868039520530242f26912d3afde7ec451938f9a19212df985adf6998a"
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g04",
+      "primary_tail_median_ms": 1.4090240001678467,
+      "rep": 1,
+      "sha256": "db7adb51223f8e7aa33e081ebde9ab812bf6fae623deaab9e9af15b13f9820b0"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g12",
+      "primary_tail_median_ms": 1.3086719512939453,
+      "rep": 1,
+      "sha256": "1f33d1bcaa46db882cb998f882e2ac9efa37b2218cca2078fdfda1bd96feb759"
+    },
+    {
+      "cell_id": "global_intermediate.triton.g13",
+      "primary_tail_median_ms": 1.9348479509353638,
+      "rep": 1,
+      "sha256": "409887f05d4f6ae55169db32f7a887d31838ba356404f110232d8bd053b043a8"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g11",
+      "primary_tail_median_ms": 1.3424639701843262,
+      "rep": 1,
+      "sha256": "660edb948fe939788539b936f98228fe985bd97abd4838455ddf5ffd45b367b3"
+    },
+    {
+      "cell_id": "register_common_postprocess.triton.g06",
+      "primary_tail_median_ms": 26.42678451538086,
+      "rep": 1,
+      "sha256": "548315d56e38df93b532696d4bf8cf5031fad9776f0282f21333234975879ee4"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g16",
+      "primary_tail_median_ms": 1.926144003868103,
+      "rep": 1,
+      "sha256": "f2ea8d84447b283ab2f1e62762386a171a0a03ae0f97f00582787e8ec68c7c12"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g09",
+      "primary_tail_median_ms": 1.3281279802322388,
+      "rep": 1,
+      "sha256": "bdf5a3a2d4db5ec8ede282515aa939c50e45012c4ff48a9d0aa8a464f2420d58"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g00",
+      "primary_tail_median_ms": 1.5656960010528564,
+      "rep": 1,
+      "sha256": "4fd8855aa09d858541dc5479e00a1d7843d5d327b690ae499695ac1089432daa"
+    },
+    {
+      "cell_id": "register_common_postprocess.triton.g10",
+      "primary_tail_median_ms": 2.3207679986953735,
+      "rep": 1,
+      "sha256": "7ded31f3671590b3278dd10d018810cf1f5612eb9f90f35756c70ca516cbb39f"
+    },
+    {
+      "cell_id": "register_common_postprocess.triton.g01",
+      "primary_tail_median_ms": 1.72953599691391,
+      "rep": 1,
+      "sha256": "dc7927257b9de89c7dc6e5d0a27b20c49a581c884c3aa06a42cedcfa1ceb06a8"
+    },
+    {
+      "cell_id": "register_common_postprocess.triton.g02",
+      "primary_tail_median_ms": 1.7254400253295898,
+      "rep": 1,
+      "sha256": "7e97f81184d0790e43e70d637ef2f915f4296a2f1beb5395c2a09b669294e9dc"
+    },
+    {
+      "cell_id": "global_intermediate.triton.g08",
+      "primary_tail_median_ms": 1.5375360250473022,
+      "rep": 1,
+      "sha256": "f941f58f73b01820e8dcb4b0789681d28d8fd0f5eddeca873fbace66419baba8"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g18",
+      "primary_tail_median_ms": 2.000383973121643,
+      "rep": 1,
+      "sha256": "397f4459d7e37ba08cc53554c6bfc8cdcf45b62deaf21b1f8dd394d7dfcc639d"
+    },
+    {
+      "cell_id": "register_common_postprocess.triton.g09",
+      "primary_tail_median_ms": 1.2860320210456848,
+      "rep": 1,
+      "sha256": "44923fa6cfd16241e466e874b7b09daae3b6173327a929c2cfd67bd50e943a1b"
+    },
+    {
+      "cell_id": "register_fused.triton.g08",
+      "primary_tail_median_ms": 1.4295040369033813,
+      "rep": 1,
+      "sha256": "6957b5eb56e82ddad2a5a40c996484126fd048f7ada9ce1ad3cdc5b05be1fb27"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g03",
+      "primary_tail_median_ms": 1.5267839431762695,
+      "rep": 1,
+      "sha256": "64e3d7c7d37c2e3d502d1ded38ad25d1c8e84db4b889269b7e9cbb5b1da3e6ca"
+    },
+    {
+      "cell_id": "register_common_postprocess.triton.g14",
+      "primary_tail_median_ms": 2.007040023803711,
+      "rep": 1,
+      "sha256": "96e7a63af8f10bdcc8a9209529c79140db9883c294989c61778ad1ae52965984"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g01",
+      "primary_tail_median_ms": 1.5964159965515137,
+      "rep": 1,
+      "sha256": "acb6ef3dcabe03535c9e9e2b1ed6baaadcb0e6b78aeb919f365530b0004f2c33"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g09",
+      "primary_tail_median_ms": 1.3583359718322754,
+      "rep": 1,
+      "sha256": "c59e67b0ed50e3e8a560a900fc07ca26b6cec8d8682dc1cf1c63ee5be58b15ee"
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g14",
+      "primary_tail_median_ms": 1.9051519632339478,
+      "rep": 1,
+      "sha256": "7e08ea2716f1d643a23847a0f95e878d89aa0ae3ad3029010c5f9082d4f69cca"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g07",
+      "primary_tail_median_ms": 1.3296639919281006,
+      "rep": 1,
+      "sha256": "cb412c7d552b85759358fc4f32cedf0bbeb681ecb0889664c3f69d64e0dc7426"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g17",
+      "primary_tail_median_ms": 1.9251199960708618,
+      "rep": 1,
+      "sha256": "1130c1503151378022f566d859cd32eea934db3288e7a8b0887b65c02f810d64"
+    },
+    {
+      "cell_id": "register_common_postprocess.triton.g03",
+      "primary_tail_median_ms": 1.5800319910049438,
+      "rep": 1,
+      "sha256": "ff3478c9399b6f5f273777664501c91fc7938e53bd1cb45054b112feda1d531f"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g08",
+      "primary_tail_median_ms": 1.3004800081253052,
+      "rep": 1,
+      "sha256": "6c53f68ead5302e8aba587baec11388785fb47bf7e33feeb4662d746124c55d7"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g08",
+      "primary_tail_median_ms": 1.2830719947814941,
+      "rep": 1,
+      "sha256": "6adb16b7e089dbf4637342965d9559d0c5c315736b078a9388c29043327ce056"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g00",
+      "primary_tail_median_ms": 1.5441919565200806,
+      "rep": 1,
+      "sha256": "79f4c3d8e892c326f7eec584de662ad11ecd3b430d1c87d5df4f0d2c6814e30a"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g02",
+      "primary_tail_median_ms": 1.5554560422897339,
+      "rep": 1,
+      "sha256": "205d2795940ed309d3fdd7d8b4a88548403abda1acdbd93707d845c44f481ede"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g06",
+      "primary_tail_median_ms": 1.3393919467926025,
+      "rep": 1,
+      "sha256": "c6e820648b704fe6ac6dcefcdea85ef3943ebd3f90234e1c20163870944cdb96"
+    },
+    {
+      "cell_id": "register_fused.triton.g13",
+      "primary_tail_median_ms": 1.7362080216407776,
+      "rep": 1,
+      "sha256": "90ee356656c8c0aafcf50408df4bcbb2666efadca70ecde58f7ac5a9b186c270"
+    },
+    {
+      "cell_id": "global_intermediate.triton.g00",
+      "primary_tail_median_ms": 1.558463990688324,
+      "rep": 1,
+      "sha256": "4ee2747e1ee9ba94bcada1351f69f86c4063911599edec8c7e59408783ed02f5"
+    },
+    {
+      "cell_id": "register_common_postprocess.triton.g08",
+      "primary_tail_median_ms": 1.5359359979629517,
+      "rep": 1,
+      "sha256": "d5112dcbd2fe7edc34deb01399be503afac5de3a6eac933767ceae58e32bd201"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g11",
+      "primary_tail_median_ms": 1.3567999601364136,
+      "rep": 1,
+      "sha256": "54adfadc4e2d9a5651740effcf94816b34ab0db36c5d9c64091bdff9e436b7a9"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g18",
+      "primary_tail_median_ms": 1.943552017211914,
+      "rep": 1,
+      "sha256": "282e8e014678cbbd7a8c11503e9e64320f27b50cb695e1946ebe6beb3a660fd0"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g10",
+      "primary_tail_median_ms": 1.3423359990119934,
+      "rep": 1,
+      "sha256": "abe0f812333fdc959077d89320c1d3d3dad290c0d2467ca09ec11d43e155f6be"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g14",
+      "primary_tail_median_ms": 1.9071999788284302,
+      "rep": 1,
+      "sha256": "8c00bfbafd10be3a0687680ce6a681b6afaa21a80ef66532d768ae8515d4d5f2"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g03",
+      "primary_tail_median_ms": 1.5006719827651978,
+      "rep": 1,
+      "sha256": "78d6ae831b3ad8624b5239e9e19bb729a7bcece1034e8bf659043a508890fafe"
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g17",
+      "primary_tail_median_ms": 1.9041279554367065,
+      "rep": 1,
+      "sha256": "6b8ef890ce150546fead3497754512ca5216db5a44723d95900aba62e0866f4e"
+    },
+    {
+      "cell_id": "register_common_postprocess.triton.g00",
+      "primary_tail_median_ms": 1.5324159860610962,
+      "rep": 1,
+      "sha256": "5da579f2a6d896928756c07baa01ac0cc9c6358cf46b8ee027cbb5c1f37c796b"
+    },
+    {
+      "cell_id": "global_intermediate.triton.g09",
+      "primary_tail_median_ms": 1.3271039724349976,
+      "rep": 1,
+      "sha256": "eba435cf06edcb445a4332f94b4b4a63890d4144d7e77190db3776cade1c0428"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g12",
+      "primary_tail_median_ms": 1.307647943496704,
+      "rep": 1,
+      "sha256": "999b835df076197751465fd3195506895991811d22d5e67c5abb3c665e76fd29"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g05",
+      "primary_tail_median_ms": 1.3178880214691162,
+      "rep": 1,
+      "sha256": "181402dc5f211a7b3029be1b58bea67d38f50947b883293ba1c1d89d5fcef6a6"
+    },
+    {
+      "cell_id": "smem_staged.tilelang.g18",
+      "primary_tail_median_ms": 1.906175971031189,
+      "rep": 1,
+      "sha256": "daeee9bf838727f9b51d6e18eb98b3e853dac285f09b49c7b47e3682293c2819"
+    },
+    {
+      "cell_id": "register_common_postprocess.tilelang.g14",
+      "primary_tail_median_ms": 1.8954240083694458,
+      "rep": 1,
+      "sha256": "33be9b51a112b619b0f48b9944958b3c0dfbddf048830c2b832fce741ac6ce80"
+    },
+    {
+      "cell_id": "register_fused.tilelang.g09",
+      "primary_tail_median_ms": 1.3547519445419312,
+      "rep": 1,
+      "sha256": "c68df315ca5f03a0f527342c49e488f0552cc2bc54780821e4a98313893fc562"
+    },
+    {
+      "cell_id": "register_fused.triton.g16",
+      "primary_tail_median_ms": 1.922111988067627,
+      "rep": 1,
+      "sha256": "c29d12fdb92101f56e75646b321ca12b35a7325b023f694372244e3871f05bde"
+    },
+    {
+      "cell_id": "global_intermediate.triton.g12",
+      "primary_tail_median_ms": 1.5482879877090454,
+      "rep": 1,
+      "sha256": "6d4b97c75434ef13a4b24561305cec434da790ff93a0e8b5b9d890cb2a1258f9"
+    },
+    {
+      "cell_id": "register_common_postprocess.triton.g05",
+      "primary_tail_median_ms": 1.2683200240135193,
+      "rep": 1,
+      "sha256": "4e4abb87f625782eb6dde6ae0ff19b4b6fa54c97d41c5fea21fd98b1cfc149a1"
+    },
+    {
+      "cell_id": "global_intermediate.tilelang.g06",
+      "primary_tail_median_ms": 1.361407995223999,
+      "rep": 1,
+      "sha256": "0d0a38823714472e8067da62b349d5946186fed5b8a769394a00092a5832377c"
+    }
+  ],
+  "selection_confirm_candidate_ids": {
+    "tilelang": [
+      "register_fused.tilelang.g09",
+      "register_fused.tilelang.g05",
+      "global_intermediate.tilelang.g12"
+    ],
+    "triton": [
+      "register_fused.triton.g09",
+      "register_fused.triton.g05",
+      "register_common_postprocess.triton.g05"
+    ]
+  },
+  "source_audit_summary_sha256": "096a9833d47f858752fd4a31bbee3db7df525d7d36e91593bd6a011b05ff86aa",
+  "source_campaign_id": "fused-epilogue-crossed-v2",
+  "source_result_tag": "crossed_v2r3",
+  "source_screen_selection_sha256": "a008ba2a5e6a81432eee7e94e7ebb34eeb90e3b88031f901cf10129a4be432ca"
+}

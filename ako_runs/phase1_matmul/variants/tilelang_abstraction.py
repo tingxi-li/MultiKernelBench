@@ -73,6 +73,7 @@ if not _CACHE_ENABLED:
 
 # Dump PTX/SASS next to the study's artifacts (slow: invokes cuobjdump).
 _DUMP_ASM = os.environ.get("PHASE1_TL_ASM", "0") == "1"
+_CAPTURE_DIR = os.environ.get("TILELANG_ABSTRACTION_CAPTURE_DIR", "")
 
 
 # --------------------------------------------------------------- TL-H (H1/H2) ---
@@ -443,7 +444,7 @@ def build(cfg: common.Config) -> common.Built:
             artifacts[attr] = val
 
     if _DUMP_ASM:
-        d = os.path.join(common.ARTIFACTS_DIR, "tilelang_abs")
+        d = _CAPTURE_DIR or os.path.join(common.ARTIFACTS_DIR, "tilelang_abs")
         os.makedirs(d, exist_ok=True)
         base = os.path.join(d, cfg.key().replace("/", "_"))
         try:

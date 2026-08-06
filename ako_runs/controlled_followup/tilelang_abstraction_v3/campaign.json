@@ -1,0 +1,198 @@
+{
+  "campaign_id": "tilelang-abstraction-v3-ada",
+  "schema_version": 1,
+  "state": "draft_not_frozen",
+  "hardware": {
+    "compute_capability": "8.9",
+    "product_name": "NVIDIA RTX 6000 Ada Generation",
+    "timing_gpu": 0
+  },
+  "inference": {
+    "confirmation_blocks": 15,
+    "delta_hw_log_ratio": 0.03,
+    "distributions": [
+      "positive",
+      "withheld_signed"
+    ],
+    "equivalence_log_ratio": 0.05,
+    "primary_trial_start": 60,
+    "primary_trial_stop": 100,
+    "randomization_seed": 2026080503,
+    "trials": 100,
+    "warmup_seconds": 2.0
+  },
+  "pairs": [
+    {
+      "family": "matmul",
+      "gate": {
+        "available": true,
+        "gate_ids": [
+          "conformance_mixed",
+          "semantic_mixed"
+        ],
+        "manifest_material_id": "matmul_v4_manifest",
+        "spec_material_id": "matmul_v4_gate"
+      },
+      "high": {
+        "level": "TL-H",
+        "set": "stages=2,x_depth_control=1",
+        "variant": "H1"
+      },
+      "input_contract": {
+        "a_dtype": "fp16",
+        "b_dtype": "fp16",
+        "output_dtype": "fp32"
+      },
+      "match": {
+        "algorithm": "blocked_matmul_fp32_chunk_accumulation",
+        "dtype": "fp16_tensor_core_fp32_output",
+        "instruction_family": "HMMA",
+        "logical_work": {
+          "flops": 137438953472,
+          "output_elements": 8388608
+        },
+        "pipeline_depth": 2,
+        "profile_equal_fields": [
+          "hmma_inst",
+          "grid",
+          "block"
+        ],
+        "threads": 256,
+        "tile": [
+          128,
+          128,
+          32
+        ]
+      },
+      "pair_id": "matmul_primary_h1d2_m2",
+      "shape": {
+        "K": 8192,
+        "M": 2048,
+        "N": 4096
+      },
+      "low": {
+        "level": "TL-M",
+        "set": "",
+        "variant": "M2"
+      }
+    },
+    {
+      "family": "fused_softmax",
+      "gate": {
+        "available": true,
+        "gate_ids": [
+          "conformance_mixed",
+          "semantic_mixed"
+        ],
+        "manifest_material_id": "fused_v2_manifest",
+        "spec_material_id": "fused_v2_gate"
+      },
+      "high": {
+        "level": "TL-H",
+        "set": "x_soft_only=1,x_wcache=cached",
+        "variant": "F1"
+      },
+      "input_contract": {
+        "gelu": "exact_erf",
+        "operand_dtype": "fp16",
+        "output_dtype": "fp32",
+        "probability_dtype": "fp32"
+      },
+      "match": {
+        "algorithm": "row_softmax_single_exp_per_element",
+        "dtype": "fp32_softmax",
+        "instruction_family": "FP32_SFU",
+        "logical_work": {
+          "exp_evaluations": 8388608,
+          "output_elements": 8388608,
+          "row_max_elements": 8388608,
+          "row_sum_elements": 8388608
+        },
+        "pipeline_depth": 1,
+        "profile_equal_fields": [
+          "n_algo_kernels",
+          "grid",
+          "block"
+        ],
+        "threads": 256,
+        "tile": [
+          1,
+          8192
+        ]
+      },
+      "pair_id": "fused_softmax_f1_f4c",
+      "shape": {
+        "K": 8192,
+        "M": 1024,
+        "N": 8192
+      },
+      "low": {
+        "level": "TL-M",
+        "set": "x_soft_only=1,x_wcache=cached",
+        "variant": "F4c"
+      }
+    },
+    {
+      "family": "sdpa",
+      "gate": {
+        "available": false,
+        "reason": "no accepted current SDPA robust gate",
+        "gate_ids": [],
+        "manifest_material_id": null,
+        "spec_material_id": null
+      },
+      "high": {
+        "level": "TL-H",
+        "set": "x_d=128,x_pdtype=fp16,x_sdtype=fp32",
+        "variant": "S3-H"
+      },
+      "input_contract": {
+        "input_dtype": "fp32",
+        "output_dtype": "fp32",
+        "probability_dtype": "fp16",
+        "score_dtype": "fp32"
+      },
+      "match": {
+        "algorithm": "single_kernel_online_softmax",
+        "dtype": "fp32_input_fp16_probability_fp32_output",
+        "instruction_family": "HMMA_SFU",
+        "logical_work": {
+          "head_dim": 128,
+          "kv_passes": 1,
+          "output_elements": 67108864
+        },
+        "pipeline_depth": 2,
+        "profile_equal_fields": [
+          "n_algo_kernels",
+          "hmma_inst",
+          "grid",
+          "block"
+        ],
+        "threads": 256,
+        "tile": [
+          64,
+          64,
+          128
+        ]
+      },
+      "pair_id": "sdpa_d128_s3h_s3m",
+      "shape": {
+        "B": 32,
+        "D": 128,
+        "H": 32,
+        "S": 512
+      },
+      "low": {
+        "level": "TL-M",
+        "set": "x_d=128,x_pdtype=fp16,x_sdtype=fp32",
+        "variant": "S3-M"
+      }
+    }
+  ],
+  "scope_policy": {
+    "cross_family_claim_requires_families": 3,
+    "cross_family_claim_requires_shapes_per_family": 3,
+    "current_claim_scope": "local_pair_only",
+    "legacy_results_controlling": false
+  }
+}

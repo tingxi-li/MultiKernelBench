@@ -589,6 +589,25 @@ def build(cfg) -> common2.Built2:
                  "tile": tile_str}
     if smem is not None:
         artifacts["shared_bytes"] = smem
+    capture_dir = os.environ.get("TILELANG_ABSTRACTION_CAPTURE_DIR", "")
+    if arm not in ("S1", "S2"):
+        try:
+            artifacts["cuda_source"] = k3.get_kernel_source()
+        except Exception as e:  # noqa: BLE001 - retained as admission evidence
+            artifacts["cuda_source_error"] = repr(e)
+        if capture_dir:
+            os.makedirs(capture_dir, exist_ok=True)
+            base = os.path.join(capture_dir, cfg.key().replace("/", "_"))
+            for extension, exporter in (("ptx", k3.export_ptx), ("sass", k3.export_sass)):
+                path = base + "." + extension
+                try:
+                    exporter(path)
+                    artifacts[extension + "_path"] = path
+                except Exception as e:  # noqa: BLE001 - retained as admission evidence
+                    artifacts[extension + "_error"] = repr(e)
+            with open(base + ".cu", "w", encoding="utf-8") as handle:
+                handle.write(artifacts.get("cuda_source", ""))
+            artifacts["cuda_source_path"] = base + ".cu"
 
     return common2.Built2(
         run=run, compile_s=compile_s, n_kernels=nk,

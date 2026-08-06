@@ -1,0 +1,25 @@
+{
+  "authorization_basis": "User request 2026-08-05: implement and run controlled experiments for the four GPU DSL research questions on the currently available GPUs",
+  "authorized_at_utc": "2026-08-06T03:16:49.009659+00:00",
+  "campaign_id": "finite-frontier-ada-v1",
+  "contract_sha256": "34886d547c5480227bfd68839b3db03580f26c578907a22ea869c02c29e9267e",
+  "imported_frontier_sha256": "8d6d9167e0b5af4551789b330f1f27404da716833f98c77e5aeeb90ecdffcca5",
+  "local_source_bundle_sha256": "f345ca5e6c41c03c60d40c567713d8bf170dca10afaab87db7b638cc0ca22983",
+  "local_source_sha256": {
+    "ako_runs/controlled_followup/finite_frontier_ada_v1/.gitignore": "09f3f89aebb33282dd801ffdbe794f92360df1d365f99bd7c98a902121783ccc",
+    "ako_runs/controlled_followup/finite_frontier_ada_v1/README.md": "980669344e9a91e3fae143185b9b8a80a4647384727f50e4995da0e584d7f92c",
+    "ako_runs/controlled_followup/finite_frontier_ada_v1/__init__.py": "828afbcefdf2a620c1af6b41ba0f90c703f612a8ca849563b3e7ff2c2a65670c",
+    "ako_runs/controlled_followup/finite_frontier_ada_v1/analyze.py": "b88fa1dd007a90efddef33e2f90fd91e659fcac9feca8adc71a00cf0e4569c51",
+    "ako_runs/controlled_followup/finite_frontier_ada_v1/contract.json": "34886d547c5480227bfd68839b3db03580f26c578907a22ea869c02c29e9267e",
+    "ako_runs/controlled_followup/finite_frontier_ada_v1/launch.py": "8b290069d19a528265e8ceda93c96ec30ac13a4df0287c8f187e535f9970828c",
+    "ako_runs/controlled_followup/finite_frontier_ada_v1/protocol.py": "f2f1173e3c52d84bfe5575b41d6567bd622befe92af7ba1d2fb69584ed18fd74",
+    "ako_runs/controlled_followup/finite_frontier_ada_v1/test_protocol.py": "addbc955a99309bccfb8974cf5676df857904c4a57ce4539f591fee9986f9ecf"
+  },
+  "material_registry_sha256": "ba8b29d7f7ff2a3d3be02aa3a91df0f2b709aba19ae57ab92447b849907638f2",
+  "physical_gpu": 0,
+  "record_type": "finite_frontier_ada_execution_lock",
+  "schema_version": 1,
+  "selection_expected_records": 240,
+  "selection_plan_sha256": "fd62c52d40b9da4f46ff5133135a2b44605d2cebe2fff233de5a59e6ba5cf697",
+  "terminal_expected_records": 120
+}
