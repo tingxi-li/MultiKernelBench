@@ -1,0 +1,67 @@
+{
+  "artifact_closure": {
+    "algorithm": "sha256(canonical_json(sorted([{path,sha256,size}])))",
+    "excluded_runtime_files": [
+      "active.lock"
+    ],
+    "file_count": 17,
+    "root": "ako_runs/controlled_followup/native_trajectory_replication_ada_v2/results/artifact_admission",
+    "sha256": "13cfea4a3f81077bb7b87f08006b2971cc697e3cb8cc4766761cae440abc75b8",
+    "total_bytes": 4684908
+  },
+  "campaign_id": "native-trajectory-replication-ada-v2",
+  "classification": "NON_CONTROLLING_ARTIFACT_ADMISSION_INCIDENT",
+  "created_utc": "2026-08-06",
+  "failure": {
+    "cell_id": "global_intermediate.tilelang.g01",
+    "exception": "AttributeError: module 'runner' has no attribute 'validate_gpu_snapshot'",
+    "failed_phase": "admit_build_record_validation",
+    "location": "artifacts.py:_validate_provenance",
+    "mechanism": "Running runner.py as a script loaded artifacts.py as a top-level module. The crossed candidate loader then prepended phase directories to sys.path, so artifacts.py's deferred bare import resolved runner to a foreign benchmark module instead of this campaign's runner.",
+    "root_cause": "The frozen source relied on an ambiguous bare-module identity during deferred provenance validation; the built artifact and correctness gate did not fail.",
+    "scientific_effect": "The partial artifact-admission result is permanently non-controlling. Artifact verification and all 420 timing records did not start, and no v2 artifact byte may be reused by the corrective successor."
+  },
+  "gpu": {
+    "compute_capability": "8.9",
+    "driver_version": "610.43.02",
+    "name": "NVIDIA RTX 6000 Ada Generation",
+    "physical_index": 0,
+    "uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae"
+  },
+  "parent_bindings": {
+    "artifact_admission_launch_commit": "9012453c7bbe295043c604b9d046465e9643c2a9",
+    "artifact_admission_launch_receipt_sha256": "01c3686a6660c083d8968700901822dc1f4afeb3a8b8f772f31ac9de97b0a160",
+    "contract_sha256": "1003f9e75b2727397cd8dfc6fec7a4e7ff38e68608dfc014f48e1771e3743c3d",
+    "execution_lock_sha256": "1bc638d4db9b9732cd42bb0736fefb84761b5ac370457ae1c527ef4d78fe131c",
+    "manifest_sha256": "f04f7a532dc5aab80c10c6ff3a76ddcea0e9c4a7e8b9983baab87c7f00d4ce48",
+    "material_lock_sha256": "81623ad11688b65fae34fbb1c1f9b7dc5f0b529e12fcbc5854346552e1cace8f",
+    "prelaunch_provenance_sha256": "ebc88e9f7bbd2de3b7cf412fb585ea1164f1a0c53d0d1735c2ec0b14370ca46f"
+  },
+  "policy": {
+    "analysis_authorized": false,
+    "continuation_authorized": false,
+    "performance_timing_authorized": false,
+    "post_hoc_overlay_authorized": false,
+    "reuse_authorized": false,
+    "successor_requires_exact_package_safe_local_runner": true,
+    "successor_requires_fresh_artifact_admission": true,
+    "successor_requires_new_lock": true
+  },
+  "record_type": "native_trajectory_replication_ada_v2_artifact_admission_incident",
+  "result_state": "partial_artifact_admission_validation_failed_noncontrolling",
+  "schema_version": 1,
+  "sealed_census": {
+    "build_correctness_gate_passed": true,
+    "expected_artifact_admission_entries": 12,
+    "expected_timing_records": 420,
+    "observed_artifact_build_records": 1,
+    "observed_artifact_entries": 0,
+    "observed_artifact_verify_records": 0,
+    "observed_performance_observations": 0,
+    "observed_timing_records": 0
+  },
+  "successor": {
+    "corrective_campaign_id": "native-trajectory-replication-ada-v3",
+    "requirement": "Bind this incident and its complete v2 admission closure, resolve only the exact local runner in script and package modes, freeze a new source bundle and locks, and rerun all 12 artifact admissions plus all 420 timing records without reusing v2 outputs."
+  }
+}

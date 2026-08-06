@@ -1,0 +1,9 @@
+{
+  "campaign_id": "native-trajectory-replication-ada-v2",
+  "cell_id": "global_intermediate.tilelang.g01",
+  "error": "AttributeError: module 'runner' has no attribute 'validate_gpu_snapshot'",
+  "phase": "admit",
+  "record_type": "native_trajectory_replication_ada_artifact_admission_failure",
+  "schema_version": 1,
+  "traceback": "Traceback (most recent call last):\n  File \"/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/native_trajectory_replication_ada_v2/runner.py\", line 824, in artifact_one\n    artifacts.validate_build_record(protocol.read_json(output), row)\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/native_trajectory_replication_ada_v2/artifacts.py\", line 462, in validate_build_record\n    _validate_provenance(value[\"admission_provenance\"], row[\"cell_id\"], \"admit\")\n    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/native_trajectory_replication_ada_v2/artifacts.py\", line 968, in _validate_provenance\n    runner.validate_gpu_snapshot(value[\"gpu_preflight\"], contract)\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAttributeError: module 'runner' has no attribute 'validate_gpu_snapshot'\n"
+}
