@@ -1,0 +1,56 @@
+{
+  "artifact_closure": {
+    "algorithm": "sha256(canonical_json(sorted([{path,sha256,size}])))",
+    "excluded_runtime_files": [
+      "active.lock"
+    ],
+    "file_count": 15,
+    "root": "ako_runs/controlled_followup/finite_frontier_ada_v3/results/artifact_admission",
+    "sha256": "3d2a46cb5fff2bb962af80638fd6cc02aca1be2e1112d0b3a932a7665a1ee4cd",
+    "total_bytes": 542068
+  },
+  "campaign_id": "finite-frontier-ada-v3",
+  "classification": "NON_CONTROLLING_ARTIFACT_VERIFICATION_INCIDENT",
+  "created_utc": "2026-08-06",
+  "execution_lock_sha256": "105dde2f7bb2d20b8b3b223743e50215af4a37669ab77185a0bbecefe22c23fc",
+  "failure": {
+    "cell_id": "register_fused.tilelang.g09",
+    "phase": "verify",
+    "record_error": "ProtocolError: TileLang admitted frontend-cache miss",
+    "stage_position": 0
+  },
+  "gpu": {
+    "compute_capability": "8.9",
+    "driver_version": "610.43.02",
+    "name": "NVIDIA RTX 6000 Ada Generation",
+    "physical_index": 0,
+    "uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae"
+  },
+  "head_commit": "592e78207a487d02e2151e884f4f078ceb1a93d0",
+  "observations": {
+    "build_correctness_gate_passed": true,
+    "build_frontend_key": "b99b4b29b6aac24d9a91bfb41567cad2e43e368d3164e753aa5a54ceb327b6a7",
+    "build_retained_loadable_code_objects": 2,
+    "build_retained_source_files": 4,
+    "build_same_filesystem_cache_and_tmp": true,
+    "fresh_process_lookup_frontend_key": "a6f0f57bf274133949683745b437f47c362be477b774f7a4a7b1c4e6b8a81f2f",
+    "normalized_output_index": [
+      3
+    ],
+    "requested_output_index": [
+      -1
+    ]
+  },
+  "policy": {
+    "continuation_authorized": false,
+    "performance_timing_authorized": false,
+    "post_hoc_overlay_authorized": false,
+    "reuse_authorized": false,
+    "successor_requires_content_bound_frontend_key_normalization": true,
+    "successor_requires_new_lock": true
+  },
+  "record_type": "finite_frontier_ada_v3_artifact_verification_incident",
+  "requested_admission_entries": 7,
+  "root_cause": "TileLang 0.1.11 looked up the lazy frontend cache with out_idx=[-1], then compilation normalized the same output index to [3] before storing the frontend entry. A fresh process therefore requested a6f0... while the exact admitted kernel was indexed by b99b....",
+  "schema_version": 1
+}
