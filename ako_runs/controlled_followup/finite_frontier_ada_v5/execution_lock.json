@@ -1,0 +1,29 @@
+{
+  "artifact_admission_expected_entries": 7,
+  "artifact_admission_plan_sha256": "3675836570785762640a53127f7ad9fcad49d4570f75d014f8231a1f68cd6edd",
+  "authorization_basis": "User approved the four-question execution plan and directed the main agent to distribute, manage, and run it on the current GPU on 2026-08-06; v5 is the corrective Q1 successor.",
+  "authorized_at_utc": "2026-08-06T21:03:26.811582+00:00",
+  "campaign_id": "finite-frontier-ada-v5",
+  "contract_sha256": "298b00db97368c41b92ce118de65440030868412892484c35671b2c5f33e166a",
+  "imported_frontier_sha256": "adda8b2509d45c3c201560cbe22fa58f55731f1da499a2864b7b961fb07e4088",
+  "local_source_bundle_sha256": "6c51e8de63249c749c7c101e4db246849d558ca1a15abd5f79916e2c3c775657",
+  "local_source_sha256": {
+    "ako_runs/controlled_followup/finite_frontier_ada_v5/.gitignore": "09f3f89aebb33282dd801ffdbe794f92360df1d365f99bd7c98a902121783ccc",
+    "ako_runs/controlled_followup/finite_frontier_ada_v5/README.md": "28dd21cbb9b65b12bc6a8dc6747f5465d950b2cac7c6adc9ba774f576780b72c",
+    "ako_runs/controlled_followup/finite_frontier_ada_v5/__init__.py": "828afbcefdf2a620c1af6b41ba0f90c703f612a8ca849563b3e7ff2c2a65670c",
+    "ako_runs/controlled_followup/finite_frontier_ada_v5/admit.py": "a489406a78b86e8fdf80a65e7d63e658a720dfdfe02960da710d8d82fe11f43e",
+    "ako_runs/controlled_followup/finite_frontier_ada_v5/analyze.py": "0e977e8b0bb6e6109dc19068967da9f25d8edfaad72d756ed126db1666e4c45b",
+    "ako_runs/controlled_followup/finite_frontier_ada_v5/artifacts.py": "64cdcaac31a9570931d82a9bbe474afa4b1ade1f938087e6e7b3a47c40546ce5",
+    "ako_runs/controlled_followup/finite_frontier_ada_v5/contract.json": "298b00db97368c41b92ce118de65440030868412892484c35671b2c5f33e166a",
+    "ako_runs/controlled_followup/finite_frontier_ada_v5/launch.py": "5e12e7df5f4e206a2987e96b63f9df3d47ca84421a5259288a1be90a15dd4315",
+    "ako_runs/controlled_followup/finite_frontier_ada_v5/protocol.py": "5ebbc8b19108feafd6a5d07a665ffb2173ec8df069ba8e393f5debe21fbed6fc",
+    "ako_runs/controlled_followup/finite_frontier_ada_v5/test_protocol.py": "ebec8cb388cbfde1082790c87571e8e6fd6ceaf71989513d7e3fbef1d5ad7497"
+  },
+  "material_registry_sha256": "dbdfe9e418db406c8672ac1e77f596deab058fbdef3c42638fab7cc90d0fb014",
+  "physical_gpu": 0,
+  "record_type": "finite_frontier_ada_execution_lock",
+  "schema_version": 1,
+  "selection_expected_records": 240,
+  "selection_plan_sha256": "fd62c52d40b9da4f46ff5133135a2b44605d2cebe2fff233de5a59e6ba5cf697",
+  "terminal_expected_records": 120
+}
