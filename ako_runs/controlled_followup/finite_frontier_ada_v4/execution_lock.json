@@ -1,0 +1,29 @@
+{
+  "artifact_admission_expected_entries": 7,
+  "artifact_admission_plan_sha256": "3675836570785762640a53127f7ad9fcad49d4570f75d014f8231a1f68cd6edd",
+  "authorization_basis": "User approved the four-question execution plan and directed the main agent to distribute, manage, and run it on the current GPU on 2026-08-06.",
+  "authorized_at_utc": "2026-08-06T20:44:13.996277+00:00",
+  "campaign_id": "finite-frontier-ada-v4",
+  "contract_sha256": "d04368b1055598bc252a3adc1ef4e3ebfd99fb3c8528cb6f5331ef88f6399bec",
+  "imported_frontier_sha256": "cecdc0eec131efa3190518e3fe798eef164b4ff82a6225a26b3c5cb9feced4e9",
+  "local_source_bundle_sha256": "d369fb879da8ce2cdcf2a1169dd2756d229514de2470291090d761b110f46443",
+  "local_source_sha256": {
+    "ako_runs/controlled_followup/finite_frontier_ada_v4/.gitignore": "09f3f89aebb33282dd801ffdbe794f92360df1d365f99bd7c98a902121783ccc",
+    "ako_runs/controlled_followup/finite_frontier_ada_v4/README.md": "f73ffb93c8ec6daa44b622884accc439eb4e0ea1e3ac8b9fbc6a69f04d569087",
+    "ako_runs/controlled_followup/finite_frontier_ada_v4/__init__.py": "828afbcefdf2a620c1af6b41ba0f90c703f612a8ca849563b3e7ff2c2a65670c",
+    "ako_runs/controlled_followup/finite_frontier_ada_v4/admit.py": "a489406a78b86e8fdf80a65e7d63e658a720dfdfe02960da710d8d82fe11f43e",
+    "ako_runs/controlled_followup/finite_frontier_ada_v4/analyze.py": "0e977e8b0bb6e6109dc19068967da9f25d8edfaad72d756ed126db1666e4c45b",
+    "ako_runs/controlled_followup/finite_frontier_ada_v4/artifacts.py": "742e1413a52acae4058afa1b9502d4ab0d6ce9dea59b70d7626e75292aa90395",
+    "ako_runs/controlled_followup/finite_frontier_ada_v4/contract.json": "d04368b1055598bc252a3adc1ef4e3ebfd99fb3c8528cb6f5331ef88f6399bec",
+    "ako_runs/controlled_followup/finite_frontier_ada_v4/launch.py": "d9f692ee00022dacf6266ff85860d99e190925d63231c0f493404964a4a1ce02",
+    "ako_runs/controlled_followup/finite_frontier_ada_v4/protocol.py": "3eb6bbe44cc97a3dbf4658f61b4429657e7cbfa429946a82f6d95dcc23449d73",
+    "ako_runs/controlled_followup/finite_frontier_ada_v4/test_protocol.py": "3ffa560c4c7cbb77f1cd52a335d4ac1c12fea465ca040e8fa4f2cf4c2effda47"
+  },
+  "material_registry_sha256": "63edad67e4a1678f3f407ad07d6627992165ac6f3bf9b6ed8ee5b460035d157d",
+  "physical_gpu": 0,
+  "record_type": "finite_frontier_ada_execution_lock",
+  "schema_version": 1,
+  "selection_expected_records": 240,
+  "selection_plan_sha256": "fd62c52d40b9da4f46ff5133135a2b44605d2cebe2fff233de5a59e6ba5cf697",
+  "terminal_expected_records": 120
+}
