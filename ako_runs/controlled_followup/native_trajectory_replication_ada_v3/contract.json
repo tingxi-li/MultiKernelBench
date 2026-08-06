@@ -1,0 +1,381 @@
+{
+  "artifact_admission": {
+    "cache_loader_sha256": {
+      "tilelang/cache/__init__.py": "3367bedef9b5d82cd4bd88e3778eaf6971bbce18c119ad309d0a3541d6687106",
+      "tilelang/cache/kernel_cache.py": "59401813dd298951fc00299e9df35f9b6c2c5104ae136227b15fa39f2d503b2a",
+      "tilelang/env.py": "2716e59caa95d41ced58bf97d6b8f5d52c08723e3b7069e69499c2fc240bb154",
+      "tilelang/jit/__init__.py": "ad513576ffb0773128e3804145e15767cf1acab26ee48f66173b03f5bf5c5638",
+      "tilelang/jit/adapter/base.py": "6b13b93733a2ad829aafdf56dc2c373785c64fed85327839a2b2e42ec49f16cc",
+      "tilelang/jit/adapter/kernel_cache.py": "d0ab535744e0ece870135818abaf05b6b43e2bf725243c9641ba21294a664fe9",
+      "tilelang/jit/adapter/tvm_ffi.py": "86865f254ac6a7291a363d73c545599281d4a3659eeaab29a5e2dcb9e4a3454c",
+      "tilelang/jit/execution_backend.py": "876c0a9473df57ab74dc7e4bd8511c673df805ddb8a3fd91afe177505f0b751b",
+      "tilelang/jit/kernel.py": "534a621bbd99bdda414ea4ad93e7af324b2b974d35c55362285e12b3f6dc7f0f",
+      "torch/utils/cpp_extension.py": "8c8c3c90aada79b4ee8aa77d01be1be4f94d172a8adb333dccad43d6b6aab661",
+      "triton/compiler/compiler.py": "2a063bb7909777d3659945244277e900d9f7cfc35de9a758578469ee4b90fce9",
+      "triton/knobs.py": "d84bda664f733f0547f9f4397c2dab11da1f9c58f974a840a3f1c61ea48c76fa",
+      "triton/runtime/build.py": "26c6ddd4dba3534ce54790f12d2b75729f51e467c48b2f740dd62b7c75a85b39",
+      "triton/runtime/cache.py": "0355c3e3452fa4500122244b8fff8864f22bc05c417a3d6f5dada9f2e92f8040"
+    },
+    "entry_count": 12,
+    "fresh_build_and_load_verification_processes": true,
+    "identity_scope": "generated_source_and_loadable_code_object_bytes_only",
+    "performance_blind": true,
+    "same_filesystem_entry_local_atomic_temp": true,
+    "shared_sham_cell_artifact": "register_common_postprocess.tilelang.g01",
+    "timing_load_only": true
+  },
+  "blocks": 15,
+  "campaign_id": "native-trajectory-replication-ada-v3",
+  "claim_scope": "same_campaign_cross_lane_recurrence_of_native_strategy_contrasts_at_fused_g01_on_ada",
+  "claims_excluded": [
+    "causal isolation of accumulator fusion from builder and schedule differences",
+    "independent replication of a previously estimated TileLang effect",
+    "literal source translation",
+    "multiplicity-adjusted global all-destination conclusion",
+    "optimization-order portability",
+    "translator independence",
+    "general trajectory transfer"
+  ],
+  "controlling": true,
+  "distributions": [
+    "positive",
+    "withheld_signed"
+  ],
+  "grid_id": "g01",
+  "hardware": {
+    "compute_capability": "8.9",
+    "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+    "gpu_uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae",
+    "physical_gpu": 0
+  },
+  "lanes": [
+    "tilelang",
+    "triton",
+    "cuda_noptx",
+    "cuda_unlimited"
+  ],
+  "materials": {
+    "campaign_id": "native-trajectory-replication-ada-v3",
+    "dependency_sha256": {
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v2/campaign_runner.py": "d72331ebcc2e275a471f9da0a2c8f0c9aff8e70dc8d1be23104cf4a21df40783",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v2/candidates.py": "9e35ed7972b69595ea76fc4f6b43947d40d24a00ca3b50500e742c872fb55f5d",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v2/core.py": "aa4e9825ace458a5b7dc8d0eb988f2e98c9e5a336678774c05ebb475c6b5c3e4",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v2/evidence/crossed_v2r3_complete_v1.index.json": "3340a86f4f64404a96461fa5bb5262ff3e1cebacd645d4bd63aaa1bedda212c5",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v2/launch_lock.json": "206b75387acf4d60b688a8e19b3aff094a8ef69d5a0a1b72269d8b24f48be1b6",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit_summary.json": "096a9833d47f858752fd4a31bbee3db7df525d7d36e91593bd6a011b05ff86aa",
+      "ako_runs/controlled_followup/fused_grid/jobs/fused_gbgs_grid.json": "70bfb1219395c4b231dc41d7e6e5661f6a5fd66a5c5cc26cee53283125e006e3",
+      "ako_runs/controlled_followup/robust_gate/calibration/gate_spec_fused_v2.json": "b6c3afaadf61f5d380a97c6c541828a1ecacd1a89a00b73b66207fe22d765e2e"
+    },
+    "instrument_campaign_id": "fused-epilogue-crossed-v2",
+    "instrument_evidence_index_sha256": "3340a86f4f64404a96461fa5bb5262ff3e1cebacd645d4bd63aaa1bedda212c5",
+    "instrument_launch_lock_sha256": "206b75387acf4d60b688a8e19b3aff094a8ef69d5a0a1b72269d8b24f48be1b6",
+    "instrument_source_bundle_sha256": "abe6873e89686ca94a2dc096b633feff615c7dbfd8fb4e91546850ed26cae20b",
+    "record_type": "native_trajectory_replication_ada_v3_material_index",
+    "schema_version": 1,
+    "selected_prefixes": [
+      {
+        "cell_id": "global_intermediate.tilelang.g01",
+        "cell_sha256": "494b0c3c5177760051dd7e23f890ea026cad923ea41641f3e72d1aab3b31ea4b",
+        "gate_evidence": {
+          "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/gate/global_intermediate__tilelang__g01.jsonl",
+          "sha256": "79ce42ab7188a038b165f22ed0cc09629a002ad7e8de3010b246efe2ab3ec5e4",
+          "size": 2756340
+        },
+        "grid_id": "g01",
+        "implementation_sha256": "a27f3b6d79100c2c1c59682b10164a86c513eeeeaa554bbb775b758f401e2ba2",
+        "lane": "tilelang",
+        "record_evidence": {
+          "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/records/global_intermediate__tilelang__g01.json",
+          "sha256": "6a1580f99879c7d0cced851f93536f1235517bd048aa19b4a203640df83fec22",
+          "size": 5121
+        },
+        "strategy": "global_intermediate",
+        "terminal_outcome": "GATE_PASSED"
+      },
+      {
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "cell_sha256": "57c09353264668f78ecb187fdac2ce802f3a6e4d3f8aaefa06f879ca09edb3d4",
+        "gate_evidence": {
+          "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/gate/register_common_postprocess__tilelang__g01.jsonl",
+          "sha256": "6f09b7e5ef9880afb347119b5806c3788fa2e78746f5d90d0933324153952ed7",
+          "size": 2785096
+        },
+        "grid_id": "g01",
+        "implementation_sha256": "fdc96ede2b4be3cf308b47427eb543627c454d5517035a728b26c3ee6032bc76",
+        "lane": "tilelang",
+        "record_evidence": {
+          "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/records/register_common_postprocess__tilelang__g01.json",
+          "sha256": "4813257f513f03798d73144c85f97428c0cb569b9e55354fdc9a38b65997013a",
+          "size": 5152
+        },
+        "strategy": "register_common_postprocess",
+        "terminal_outcome": "GATE_PASSED"
+      },
+      {
+        "cell_id": "register_fused.tilelang.g01",
+        "cell_sha256": "34496524099f9b7fbf79965ecc6b438b494e3767d636dd1b5e9d7a2d8239889f",
+        "gate_evidence": {
+          "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/gate/register_fused__tilelang__g01.jsonl",
+          "sha256": "17356e688967aa98a3700ad5b0e8f77e3bc3d741cbe124aec4a3f98ab0f06f31",
+          "size": 4199269
+        },
+        "grid_id": "g01",
+        "implementation_sha256": "35e2a60d8b05a202346adcb4812fb794d52ff72c99993dd663592c3bcf0e990c",
+        "lane": "tilelang",
+        "record_evidence": {
+          "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/records/register_fused__tilelang__g01.json",
+          "sha256": "20f782eee609fc09e52c7a467c2faa082fd545dc3d2a0d93226ea6c325bc564d",
+          "size": 7668
+        },
+        "strategy": "register_fused",
+        "terminal_outcome": "GATE_PASSED"
+      },
+      {
+        "cell_id": "global_intermediate.triton.g01",
+        "cell_sha256": "a1bc0f1ca3eca8e0a6575a659381b8936d5ce4b608ff67d1e47764bbe8e02b2f",
+        "gate_evidence": {
+          "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/gate/global_intermediate__triton__g01.jsonl",
+          "sha256": "83251833bb7e145f1a55e0a95d677977186412108e44df78eac5a1f8a094e1f2",
+          "size": 2953510
+        },
+        "grid_id": "g01",
+        "implementation_sha256": "609635f3894cdcbe514c0f4f28be58dcc3c919ecae01b2ced207fe0c03f2bcb7",
+        "lane": "triton",
+        "record_evidence": {
+          "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/records/global_intermediate__triton__g01.json",
+          "sha256": "62a40211a535aa4f4f9ba40c8179284af523c98204f115d6d927a8529546a2cf",
+          "size": 5535
+        },
+        "strategy": "global_intermediate",
+        "terminal_outcome": "GATE_PASSED"
+      },
+      {
+        "cell_id": "register_common_postprocess.triton.g01",
+        "cell_sha256": "72da26f540da2a4694e10fdd8c2eb380ea4178d21f4fe374f5f253c215747c6a",
+        "gate_evidence": {
+          "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/gate/register_common_postprocess__triton__g01.jsonl",
+          "sha256": "2fb7b13abefdd43d0f44ee54af014c93498cfac97ff284ca0c13e12ec262c6ff",
+          "size": 2746197
+        },
+        "grid_id": "g01",
+        "implementation_sha256": "73548ebd4f60a3962225bb67a79d6fd809bd5e8d526492787ac9b31451ce4dd4",
+        "lane": "triton",
+        "record_evidence": {
+          "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/records/register_common_postprocess__triton__g01.json",
+          "sha256": "797838ecc8aa42d983c23efb9d40b8f460779167deb41dae615245b97323cf0f",
+          "size": 5054
+        },
+        "strategy": "register_common_postprocess",
+        "terminal_outcome": "GATE_PASSED"
+      },
+      {
+        "cell_id": "register_fused.triton.g01",
+        "cell_sha256": "40af58232001ce63a105786baee65134970b9cfda17775e6d9a0e7a0c57adb3b",
+        "gate_evidence": {
+          "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/gate/register_fused__triton__g01.jsonl",
+          "sha256": "5d868403199b901d67c9c48d5f5bbacc07b58117ba220e2b154a39ee0314a0ae",
+          "size": 2436887
+        },
+        "grid_id": "g01",
+        "implementation_sha256": "99451b9fed6ff4054dfa20075de3dc8609827f921870fe4683feee8b331d79bd",
+        "lane": "triton",
+        "record_evidence": {
+          "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/records/register_fused__triton__g01.json",
+          "sha256": "fa55708fd1b6eb2a248c6036a11069c0afade75844219880b0c2b505ac95b785",
+          "size": 4196
+        },
+        "strategy": "register_fused",
+        "terminal_outcome": "GATE_PASSED"
+      },
+      {
+        "cell_id": "global_intermediate.cuda_noptx.g01",
+        "cell_sha256": "6402dccd4914ad1c6a314e979991202e69881589177901e2a9d4ad6e44060b79",
+        "gate_evidence": {
+          "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/gate/global_intermediate__cuda_noptx__g01.jsonl",
+          "sha256": "c456c76bdec6cf73c7972657fa0c96b978058fec943529ed06e4ffc255ae8398",
+          "size": 3518808
+        },
+        "grid_id": "g01",
+        "implementation_sha256": "5861e0a75526b07cf528f9a815ea7f116586e665cf9b1c5f2744b91212b65437",
+        "lane": "cuda_noptx",
+        "record_evidence": {
+          "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/records/global_intermediate__cuda_noptx__g01.json",
+          "sha256": "b61230fa98a9e648dc5c27c02a50a0d1472b59db7d63b449d31b41a8b3abbe70",
+          "size": 6789
+        },
+        "strategy": "global_intermediate",
+        "terminal_outcome": "GATE_PASSED"
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_noptx.g01",
+        "cell_sha256": "a9d0f377e51b8d5952f45111889dbeedcbf27b06cfba46c5406f343dc39724b5",
+        "gate_evidence": {
+          "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/gate/register_common_postprocess__cuda_noptx__g01.jsonl",
+          "sha256": "e716af2647488b0f34d0ac74a51512f973d74ae1e60a497981f1b5270bd5cb16",
+          "size": 3839803
+        },
+        "grid_id": "g01",
+        "implementation_sha256": "bdaa966de74454c74b9ac93491c06526a86b41d749f6948bb4186de72cc97dcd",
+        "lane": "cuda_noptx",
+        "record_evidence": {
+          "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/records/register_common_postprocess__cuda_noptx__g01.json",
+          "sha256": "9796ed461c5fdde03b483751dc62b4d69899e6b5735c6ba9ddb36787235dd8b5",
+          "size": 7492
+        },
+        "strategy": "register_common_postprocess",
+        "terminal_outcome": "GATE_PASSED"
+      },
+      {
+        "cell_id": "register_fused.cuda_noptx.g01",
+        "cell_sha256": "8b93216ea11cb77e80165b19c7f4f1f0a700ec70feadfcabd6f44b73e02d17b2",
+        "gate_evidence": {
+          "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/gate/register_fused__cuda_noptx__g01.jsonl",
+          "sha256": "75e172363f35ceb81d76530c488797a89a2bfb096a005807c3ebb52917cad68d",
+          "size": 3657480
+        },
+        "grid_id": "g01",
+        "implementation_sha256": "099d163f5d717cdab3977f2757c076b50477e8b33c445c2f828a5f31ce19e669",
+        "lane": "cuda_noptx",
+        "record_evidence": {
+          "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/records/register_fused__cuda_noptx__g01.json",
+          "sha256": "11aee742ea18b64612133afb393ff839b87f9071a398a858411963a135760931",
+          "size": 6824
+        },
+        "strategy": "register_fused",
+        "terminal_outcome": "GATE_PASSED"
+      },
+      {
+        "cell_id": "global_intermediate.cuda_unlimited.g01",
+        "cell_sha256": "03a34a7824698f925164a8ee7241457cfdc817126a63dd5b62d7efaf747aa99a",
+        "gate_evidence": {
+          "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/gate/global_intermediate__cuda_unlimited__g01.jsonl",
+          "sha256": "80775bb4cc6c35ba86f341ee1e8055ae52441ee12be613ff24ee23ad13de01b1",
+          "size": 2989407
+        },
+        "grid_id": "g01",
+        "implementation_sha256": "57890e8091fed23795893990a934682cc69c609fae3e29abd13afbeac15b387a",
+        "lane": "cuda_unlimited",
+        "record_evidence": {
+          "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/records/global_intermediate__cuda_unlimited__g01.json",
+          "sha256": "12d99ce023799d56cedc95cb5fe417367736856c0e214fca9be6c16b3fd82273",
+          "size": 5557
+        },
+        "strategy": "global_intermediate",
+        "terminal_outcome": "GATE_PASSED"
+      },
+      {
+        "cell_id": "register_common_postprocess.cuda_unlimited.g01",
+        "cell_sha256": "45096fef979c32b7ed73328b7cb2414ae8fcc37714ae2017a82e6b405d118e54",
+        "gate_evidence": {
+          "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/gate/register_common_postprocess__cuda_unlimited__g01.jsonl",
+          "sha256": "982aa555a296e65eb9f82f0ba6b7e367cfab81e460fc3237600ca64ee0d915bc",
+          "size": 3089153
+        },
+        "grid_id": "g01",
+        "implementation_sha256": "95cf44515c56a462a2094f642793406e67357cd4565686028bc8db8414bd62ac",
+        "lane": "cuda_unlimited",
+        "record_evidence": {
+          "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/records/register_common_postprocess__cuda_unlimited__g01.json",
+          "sha256": "9df69dfaba7da82a5e4c0228edb0ef3d7e2e1a47e43562ef397eca48917ce058",
+          "size": 5781
+        },
+        "strategy": "register_common_postprocess",
+        "terminal_outcome": "GATE_PASSED"
+      },
+      {
+        "cell_id": "register_fused.cuda_unlimited.g01",
+        "cell_sha256": "988b5ee327aeb3aa0a5bec351dcabd75d371535eec5765faa6e9c879072c399c",
+        "gate_evidence": {
+          "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/gate/register_fused__cuda_unlimited__g01.jsonl",
+          "sha256": "cd605f8b96b94c317315a5a8cee5602cd35806bc19c57129b964677b3b896c30",
+          "size": 2708272
+        },
+        "grid_id": "g01",
+        "implementation_sha256": "993ea554e4f3a2578425e40aca3d287b9eddbc2fc1d1289704760b6c03b86641",
+        "lane": "cuda_unlimited",
+        "record_evidence": {
+          "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/records/register_fused__cuda_unlimited__g01.json",
+          "sha256": "00a17d8528fc857ef0c0a5d43e194eafdf10dfca6bc9a73760a342950c47ea54",
+          "size": 4769
+        },
+        "strategy": "register_fused",
+        "terminal_outcome": "GATE_PASSED"
+      }
+    ]
+  },
+  "materials_sha256": "0c2def69fa594739cba9b1b262b601b6e6f3b6a7ee2cb430bd16b390629ee9b9",
+  "operator": "fused_gemm_bias_exact_gelu_row_softmax",
+  "predecessor_incident": {
+    "path": "ako_runs/controlled_followup/native_trajectory_replication_ada_v2/INCIDENT_ADMISSION_20260806.json",
+    "result_role": "noncontrolling",
+    "sha256": "8c7263921c043940b70fa3a6fe61c241816998c4936dcb565845846c0f2f2e15"
+  },
+  "prefixes": [
+    {
+      "associated_mechanism": null,
+      "prefix_index": 0,
+      "strategy": "global_intermediate"
+    },
+    {
+      "associated_mechanism": "accumulator_bias_exact_gelu_fusion",
+      "prefix_index": 1,
+      "strategy": "register_common_postprocess"
+    },
+    {
+      "associated_mechanism": "lane_native_softmax",
+      "prefix_index": 2,
+      "strategy": "register_fused"
+    }
+  ],
+  "raw_record_census": {
+    "cell_records": 360,
+    "records_per_block": 28,
+    "sham_records": 60,
+    "total": 420
+  },
+  "record_type": "native_trajectory_replication_ada_v3_contract",
+  "reference_lane": {
+    "lane": "tilelang",
+    "performance_estimate_bound_before_campaign": false,
+    "role_fixed_before_timing": true
+  },
+  "schema_version": 1,
+  "sham": {
+    "base_cell_id": "register_common_postprocess.tilelang.g01",
+    "identity_scope": "same_frozen_cell_config_and_admitted_artifact_identity",
+    "labels": [
+      "same_config_sham_a",
+      "same_config_sham_b"
+    ],
+    "source_byte_identity_claimed": true
+  },
+  "steps": [
+    {
+      "associated_mechanism": "accumulator_bias_exact_gelu_fusion",
+      "causal_mechanism_isolation_claimed": false,
+      "from_strategy": "global_intermediate",
+      "name": "global_to_register_common_native_strategy_contrast",
+      "to_strategy": "register_common_postprocess"
+    },
+    {
+      "associated_mechanism": "lane_native_softmax",
+      "causal_mechanism_isolation_claimed": false,
+      "from_strategy": "register_common_postprocess",
+      "name": "register_common_to_register_fused_native_strategy_contrast",
+      "to_strategy": "register_fused"
+    }
+  ],
+  "timing": {
+    "cuda_home": "/usr/local/cuda-13.1",
+    "flush_l2": true,
+    "fresh_process_per_record": true,
+    "primary_trials": {
+      "start_inclusive": 60,
+      "stop_exclusive": 100
+    },
+    "randomization": "sha256_ranked_complete_blocks",
+    "randomization_seed": 2026080502,
+    "trials": 100,
+    "warmup_s": 2.0
+  }
+}

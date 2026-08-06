@@ -1,0 +1,31 @@
+{
+  "campaign_id": "native-trajectory-replication-ada-v3",
+  "contract_sha256": "0ea41bac2021310038bea1247cf08f2517067132d777d6def5dfd1542f177b01",
+  "expected_raw_records": 420,
+  "instrument_evidence_index_sha256": "3340a86f4f64404a96461fa5bb5262ff3e1cebacd645d4bd63aaa1bedda212c5",
+  "instrument_launch_lock_sha256": "206b75387acf4d60b688a8e19b3aff094a8ef69d5a0a1b72269d8b24f48be1b6",
+  "instrument_source_bundle_sha256": "abe6873e89686ca94a2dc096b633feff615c7dbfd8fb4e91546850ed26cae20b",
+  "lock_sha256": "86450a838b840cb398fde0456da58e94f4bc9c906518a968fbf098c5083782e2",
+  "manifest_sha256": "62cc5081086e77a7e880e866ba47ceef2566e52bbcabe02021e71d3a36f523b2",
+  "materials_sha256": "0c2def69fa594739cba9b1b262b601b6e6f3b6a7ee2cb430bd16b390629ee9b9",
+  "predecessor_incident_sha256": "8c7263921c043940b70fa3a6fe61c241816998c4936dcb565845846c0f2f2e15",
+  "predecessor_result_closure_file_count": 17,
+  "predecessor_result_closure_sha256": "13cfea4a3f81077bb7b87f08006b2971cc697e3cb8cc4766761cae440abc75b8",
+  "predecessor_result_closure_total_bytes": 4684908,
+  "record_type": "native_trajectory_replication_ada_v3_material_lock",
+  "schema_version": 1,
+  "source_bundle_sha256": "d48071950f727d7c5e348e0dd47447280e5a5ca3d170112adbf711d021361af5",
+  "source_sha256": {
+    "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/.gitignore": "cda2ad7fe06e2ba3ed6310ff1213b7153194131509e08928982940b2123e6e2e",
+    "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/README.md": "ba43a5a512c11b8bac2cdd184a24f488ef7aaa2beb6d1ee3b640959d6536cf2e",
+    "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/__init__.py": "b6e37705647d6a8f698c6421648fa279602fdcfec2e2657a545937d40f7e47f6",
+    "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/analyze.py": "349c7622da2ad5dab55b22cbf2f3be8695c0a1500d9530a14fe5507bf1754f81",
+    "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/artifacts.py": "da86e3e3d37b21031680292b2d50da98275abacfea0767084f0aa18cf1a41395",
+    "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/contract.json": "0ea41bac2021310038bea1247cf08f2517067132d777d6def5dfd1542f177b01",
+    "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/manifest.json": "62cc5081086e77a7e880e866ba47ceef2566e52bbcabe02021e71d3a36f523b2",
+    "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/protocol.py": "b5a727c9541b62d535b8e10d8f06215eb4cf8293bf32961361b7da1b891b9e80",
+    "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/runner.py": "e2ec32646744739561174af7ec425ab603bbc793c636da77bcf5e874688687e4",
+    "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/test_protocol.py": "4ed02ab9e8cc328a779545be6185d38e2d448be18e33bbf1e0247fdcd2c45fb6"
+  },
+  "stage": "material"
+}
