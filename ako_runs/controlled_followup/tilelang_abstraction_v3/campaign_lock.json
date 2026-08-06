@@ -1,0 +1,169 @@
+{
+  "authorized_stages": [
+    "admission",
+    "timing"
+  ],
+  "campaign_canonical_sha256": "8fa0fc68e72de5005e8697e8254008e5ec5b261840c4d468290d2eda9a06f36b",
+  "campaign_id": "tilelang-abstraction-v3-ada",
+  "campaign_sha256": "527f49e72b5a8f870532445ae2e76c2713e82f7ba2c3b08f8b6a18155b578ca9",
+  "dependency_bundle_sha256": "0c94429dd6afcbfe5acaae61c17b96268a2e8ad3f0476c8886af7d84a49647cf",
+  "dependency_sha256": {
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/core.py": "538feecd1e88f90f711ee2a112a4fc28d027684169b7f64b596d96e74899dbcf",
+    "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/audit.py": "5b7edc232e51ef5601c02be004a101903a49c61289df1705e30daa9da74641ba",
+    "ako_runs/controlled_followup/fused_grid/robust_adapter.py": "688d9b29673d9314f50a3e8f6a8fc217b8497b27fb3eac13a5234cd9b7a29502",
+    "ako_runs/controlled_followup/fused_grid/robust_adapter_manifest.json": "81e3478b61800e09147a6cb213ba1786b200c137a728a5a9c258241c0a6004ba",
+    "ako_runs/controlled_followup/robust_gate/audits/matmul_v4_instrument_v1/runner.py": "d61a4a644e779a4588acedb7e2a1c07a2550ed96fcb0afd4fb4d262c00c618a9",
+    "ako_runs/controlled_followup/robust_gate/calibration/gate_spec_fused_v2.json": "b6c3afaadf61f5d380a97c6c541828a1ecacd1a89a00b73b66207fe22d765e2e",
+    "ako_runs/controlled_followup/robust_gate/calibration/gate_spec_matmul_v4.json": "70bb3bc8f217c40ba5fcab90dc84ef798d06e22b5d1f0e4d27a2031069a295fb",
+    "ako_runs/controlled_followup/robust_gate/distributions.py": "6280fa580a8ff2e648b937435137930a37143d8225bf9afb348b4c4921ccdd77",
+    "ako_runs/controlled_followup/robust_gate/manifest.json": "28d51cd4f1730bd190e63c7cad60670c37b67784393270e63e859a1685fc8a62",
+    "ako_runs/controlled_followup/robust_gate/manifest_matmul_v4.json": "0b4bff1b17ee8c1e30e7e1ece5515ce6cfee74bd1d386f8162588fd91e5accb4",
+    "ako_runs/controlled_followup/robust_gate/metrics.py": "419b48d8410dfeb42ff06e8ce23be15d176443872ad576779ee071a00045a9fe",
+    "ako_runs/controlled_followup/robust_gate/oracles.py": "5083b72e14285cfc5582effe4cf4d75f6bac8f548cd1183e2d5256c022d5cace",
+    "ako_runs/controlled_followup/robust_gate/schema.py": "5ddccc0f4eecda92d97de0676eb9c5f16f0ea3bd426a344aa6acb57169e306ec",
+    "ako_runs/controlled_followup/robust_gate/seeds.py": "39663de46fdc31f34ec12975d34c43565f16f19a23be0c1e53bf4f1cfe57fdcc",
+    "ako_runs/controlled_followup/robust_gate/validate.py": "b9436c9b4a0d81228a373c1f6e7e79a7cd68cf78e11ef8afdb06c27b2f5b22ec",
+    "ako_runs/controlled_followup/tilelang_abstraction_v2/protocol.py": "b31a44a03ab883f5582238223e5d0a9a091add0fef70740c0323d06491d060ec",
+    "ako_runs/phase1_matmul/common.py": "7753fcc00891d475db8675423ca7e48fbc0aa0431ac1e1dd4319e6c2900fd0a7",
+    "ako_runs/phase1_matmul/ncu_collect.py": "8546f63faf1f85f786327a560ab2c30632663db068eec2d799e82f8bfe427ceb",
+    "ako_runs/phase1_matmul/profile_target.py": "0b623d24f61cf8a67e36f98b2edbb01f9320b44e438b5e7528c428148b554936",
+    "ako_runs/phase1_matmul/runner.py": "cdb2d562d9cdaec292c0c11d4b3f64cbd8e76b5632cbe7a0f14e9b5176ca1178",
+    "ako_runs/phase1_matmul/variants/__init__.py": "0ac322f46ab46fe0bf6d9eb6241c7eacf6b9844f5f6d927dbccfc81a1005a585",
+    "ako_runs/phase1_matmul/variants/tilelang_abstraction.py": "fbf90194965661258e0d48da2a83008003fd48f1feca7f1d0983652a11aad82e",
+    "ako_runs/phase2_fused_sdpa/common2.py": "0293cb15fc3285df199daa58281a1a35147a78b9cbccda8b8f88418eecb39c64",
+    "ako_runs/phase2_fused_sdpa/ncu_collect2.py": "a3f4c091f44ba0377d81ce26d8e4df350f9677137d84d7bc2b8a795dba824f4b",
+    "ako_runs/phase2_fused_sdpa/profile_target2.py": "64fe3a29c03dedbe71dd94171e395bd38b345f4916d8f6e241713bb6f0c1106f",
+    "ako_runs/phase2_fused_sdpa/runner2.py": "d1ade4461bff35058a3c6e967532960f5cc509f5d6a46c69bded78fbd0aac31e",
+    "ako_runs/phase2_fused_sdpa/variants2/__init__.py": "2afc778f25db9abe2d05299bbd47fa2ad43b7912eee8633936095e6b92662045",
+    "ako_runs/phase2_fused_sdpa/variants2/fused_tilelang.py": "c2a0704d81bdb4b2f78377870a1bc45c6945db77bccc8e89b2a0fd4b46511684",
+    "ako_runs/phase2_fused_sdpa/variants2/fused_tilelang_abstraction.py": "51b3a7de18001ee734dd6293b6b9b839b44cb7aee468357f947d1512f1c932d9",
+    "ako_runs/phase2_fused_sdpa/variants2/sdpa_tilelang.py": "0469abd24a40a68e42d5f5d3b90037c05310183f940a373402c8fd6129168fca",
+    "ako_runs/phase2_fused_sdpa/variants2/sdpa_tilelang_abstraction.py": "2d65dcc4cb44cf188b0a9ff70236c8d3eb1d80a8031b056f132fd9cb6069c9e1"
+  },
+  "git_commit": "39bd105ab8500038a97af170a2ac52b68b6fe717",
+  "gpu": {
+    "compute_capability": "8.9",
+    "driver_version": "610.43.02",
+    "ncu_sha256": "99b61b4937aa4d473ccb4ef2395d69d5f3de64908a7d65d96bc8f9b73f72476a",
+    "nvcc_sha256": "d51da6fa301a0c63b030c6a9e45b942c5fe2228e63c0ec276a445943cf0bc6f6",
+    "physical_index": 0,
+    "product_name": "NVIDIA RTX 6000 Ada Generation",
+    "uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae"
+  },
+  "materials_canonical_sha256": "0ce692f22f2137bca53f95f481c9f96d7d8205b845e9fba50f08e8e7e4e7048e",
+  "materials_sha256": "58670c678938e541c58bbf156368d7015b460418df1b3ba5c7ef23ef90d67248",
+  "remote_preregistration": {
+    "lock_must_be_committed_and_pushed_before_launch": true,
+    "source_commit": "39bd105ab8500038a97af170a2ac52b68b6fe717",
+    "source_head_equals_configured_upstream_at_freeze": true
+  },
+  "schema_version": 1,
+  "source_bundle_sha256": "526c448ba4daf85c818d338a1dde0ede3345ac352ed202c3546dea5ce1cf4272",
+  "source_sha256": {
+    "ako_runs/controlled_followup/tilelang_abstraction_v3/.gitignore": "7a8c6ebfebd98f2f46f1d937b1f870094491c38bc8eaa7526260c24b231c12b7",
+    "ako_runs/controlled_followup/tilelang_abstraction_v3/README.md": "89e8e2315237859a660128eb13141afc137afb428e4b945e1c4837c083e1bfbe",
+    "ako_runs/controlled_followup/tilelang_abstraction_v3/__init__.py": "08d7ef72cdbb9868c462e28017406c7a942c1937d07fae28af4cfca3d5313edf",
+    "ako_runs/controlled_followup/tilelang_abstraction_v3/analyze.py": "91bc090d738080e9b5b5e5ba011daa22cf583274dd11b378070ee8084f314300",
+    "ako_runs/controlled_followup/tilelang_abstraction_v3/campaign.json": "527f49e72b5a8f870532445ae2e76c2713e82f7ba2c3b08f8b6a18155b578ca9",
+    "ako_runs/controlled_followup/tilelang_abstraction_v3/campaign_runner.py": "fbd68e7a75d02c496a8f0c5636cbc20c18acbe362fd04093256b55919f8fc7a6",
+    "ako_runs/controlled_followup/tilelang_abstraction_v3/materials.json": "58670c678938e541c58bbf156368d7015b460418df1b3ba5c7ef23ef90d67248",
+    "ako_runs/controlled_followup/tilelang_abstraction_v3/protocol.py": "8fb4eceee8e4977191619566daca999e8ef02023877f344ee2b611857f2fc079",
+    "ako_runs/controlled_followup/tilelang_abstraction_v3/test_protocol.py": "1ffa69e086aed6a804ae4c1a6ad31c9edc0ddfdb021e51a379b0cc13bc42c2c1"
+  },
+  "state": "frozen_pending_remote_registration",
+  "toolchain": {
+    "cuda_tools": {
+      "ncu": {
+        "binary_sha256": "18d8a8aa13c156cd43ebdf24ac950b5386cb229f2a4c931db47ef91cfe785920",
+        "path": "/usr/local/cuda-13.1/bin/ncu",
+        "version_sha256": "99b61b4937aa4d473ccb4ef2395d69d5f3de64908a7d65d96bc8f9b73f72476a"
+      },
+      "nvcc": {
+        "binary_sha256": "6ce80365abc2f14ff5f9e069fe687a93d4eaacc555dbf1d1696ee899d39df52a",
+        "path": "/usr/local/cuda-13.1/bin/nvcc",
+        "version_sha256": "d51da6fa301a0c63b030c6a9e45b942c5fe2228e63c0ec276a445943cf0bc6f6"
+      }
+    },
+    "local_modules": {
+      "analyze": {
+        "path": "ako_runs/controlled_followup/tilelang_abstraction_v3/analyze.py",
+        "sha256": "91bc090d738080e9b5b5e5ba011daa22cf583274dd11b378070ee8084f314300"
+      },
+      "campaign_runner": {
+        "path": "ako_runs/controlled_followup/tilelang_abstraction_v3/campaign_runner.py",
+        "sha256": "fbd68e7a75d02c496a8f0c5636cbc20c18acbe362fd04093256b55919f8fc7a6"
+      },
+      "fused_abstraction": {
+        "path": "ako_runs/phase2_fused_sdpa/variants2/fused_tilelang_abstraction.py",
+        "sha256": "51b3a7de18001ee734dd6293b6b9b839b44cb7aee468357f947d1512f1c932d9"
+      },
+      "matmul_abstraction": {
+        "path": "ako_runs/phase1_matmul/variants/tilelang_abstraction.py",
+        "sha256": "fbf90194965661258e0d48da2a83008003fd48f1feca7f1d0983652a11aad82e"
+      },
+      "matmul_common": {
+        "path": "ako_runs/phase1_matmul/common.py",
+        "sha256": "7753fcc00891d475db8675423ca7e48fbc0aa0431ac1e1dd4319e6c2900fd0a7"
+      },
+      "matmul_ncu": {
+        "path": "ako_runs/phase1_matmul/ncu_collect.py",
+        "sha256": "8546f63faf1f85f786327a560ab2c30632663db068eec2d799e82f8bfe427ceb"
+      },
+      "matmul_runner": {
+        "path": "ako_runs/phase1_matmul/runner.py",
+        "sha256": "cdb2d562d9cdaec292c0c11d4b3f64cbd8e76b5632cbe7a0f14e9b5176ca1178"
+      },
+      "matmul_variants": {
+        "path": "ako_runs/phase1_matmul/variants/__init__.py",
+        "sha256": "0ac322f46ab46fe0bf6d9eb6241c7eacf6b9844f5f6d927dbccfc81a1005a585"
+      },
+      "phase2_common": {
+        "path": "ako_runs/phase2_fused_sdpa/common2.py",
+        "sha256": "0293cb15fc3285df199daa58281a1a35147a78b9cbccda8b8f88418eecb39c64"
+      },
+      "phase2_ncu": {
+        "path": "ako_runs/phase2_fused_sdpa/ncu_collect2.py",
+        "sha256": "a3f4c091f44ba0377d81ce26d8e4df350f9677137d84d7bc2b8a795dba824f4b"
+      },
+      "phase2_runner": {
+        "path": "ako_runs/phase2_fused_sdpa/runner2.py",
+        "sha256": "d1ade4461bff35058a3c6e967532960f5cc509f5d6a46c69bded78fbd0aac31e"
+      },
+      "phase2_variants": {
+        "path": "ako_runs/phase2_fused_sdpa/variants2/__init__.py",
+        "sha256": "2afc778f25db9abe2d05299bbd47fa2ad43b7912eee8633936095e6b92662045"
+      },
+      "protocol": {
+        "path": "ako_runs/controlled_followup/tilelang_abstraction_v3/protocol.py",
+        "sha256": "8fb4eceee8e4977191619566daca999e8ef02023877f344ee2b611857f2fc079"
+      },
+      "sdpa_abstraction": {
+        "path": "ako_runs/phase2_fused_sdpa/variants2/sdpa_tilelang_abstraction.py",
+        "sha256": "2d65dcc4cb44cf188b0a9ff70236c8d3eb1d80a8031b056f132fd9cb6069c9e1"
+      }
+    },
+    "package_modules": {
+      "tilelang": {
+        "path": "/home/lxt230026/miniconda3/lib/python3.13/site-packages/tilelang/__init__.py",
+        "sha256": "216c868c8010f149974a8ac04ddfeb107b6edf82f9f6cf710ffd144b122ebd8b"
+      },
+      "torch": {
+        "path": "/home/lxt230026/miniconda3/lib/python3.13/site-packages/torch/__init__.py",
+        "sha256": "d6388b1e3b16c1f9a22a87898e5f205fa13a97bd65c163f4829a157e0d9d602f"
+      },
+      "triton": {
+        "path": "/home/lxt230026/miniconda3/lib/python3.13/site-packages/triton/__init__.py",
+        "sha256": "96e68192cab5dd11fa30d5dc95d56c29ceecda53477fc3af8f37bee026b7a021"
+      }
+    },
+    "python_executable": "/home/lxt230026/miniconda3/bin/python3.13",
+    "python_executable_sha256": "73bb21a7bd68a5ad09bef6fa8587bd7df33734784cc5248d112926536117e115",
+    "python_implementation": "CPython",
+    "python_version": "3.13.5",
+    "tilelang_version": "0.1.11",
+    "torch_cuda_version": "12.8",
+    "torch_version": "2.10.0+cu128",
+    "triton_version": "3.6.0"
+  },
+  "upstream_commit": "39bd105ab8500038a97af170a2ac52b68b6fe717"
+}
