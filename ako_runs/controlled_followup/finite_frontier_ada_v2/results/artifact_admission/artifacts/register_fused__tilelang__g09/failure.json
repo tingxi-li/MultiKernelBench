@@ -1,0 +1,9 @@
+{
+  "campaign_id": "finite-frontier-ada-v2",
+  "cell_id": "register_fused.tilelang.g09",
+  "error": "ProtocolError: admitted cache contains no files",
+  "phase": "build",
+  "record_type": "finite_frontier_ada_artifact_admission_failure",
+  "schema_version": 1,
+  "traceback": "Traceback (most recent call last):\n  File \"/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/finite_frontier_ada_v2/admit.py\", line 154, in build_one\n    value = artifacts.build_record(\n        row, built, correctness,\n        _provenance(receipt_path, gpu, toolchain, pre, post),\n    )\n  File \"/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/finite_frontier_ada_v2/artifacts.py\", line 206, in build_record\n    snapshot = cache_snapshot(row[\"cell_id\"])\n  File \"/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/finite_frontier_ada_v2/artifacts.py\", line 167, in cache_snapshot\n    raise protocol.ProtocolError(\"admitted cache contains no files\")\nprotocol.ProtocolError: admitted cache contains no files\n"
+}

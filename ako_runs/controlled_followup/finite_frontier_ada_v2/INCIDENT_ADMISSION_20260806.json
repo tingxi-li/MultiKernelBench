@@ -1,0 +1,52 @@
+{
+  "artifact_closure": {
+    "excluded_runtime_files": [
+      "active.lock"
+    ],
+    "files": {
+      "ako_runs/controlled_followup/finite_frontier_ada_v2/results/artifact_admission/artifacts/register_fused__tilelang__g09/failure.json": {
+        "bytes": 1043,
+        "sha256": "ced161b5b40d63a7d8a98722069bf642d4588edc99f85be8b7825755ff18ef97"
+      },
+      "ako_runs/controlled_followup/finite_frontier_ada_v2/results/artifact_admission/launch_receipt.json": {
+        "bytes": 4757,
+        "sha256": "4fdb69a80542d8fcd5e9ab043e28813d20bc068271ed29ee73b305b835bf272d"
+      }
+    },
+    "retained_bytes": 5800,
+    "retained_files": 2
+  },
+  "campaign_id": "finite-frontier-ada-v2",
+  "classification": "NON_CONTROLLING_ARTIFACT_ADMISSION_INCIDENT",
+  "created_utc": "2026-08-06",
+  "execution_lock_sha256": "7ca3299452ee54c495fba81945356ca11762bb8e6d74a6772dca725a7e669038",
+  "failure": {
+    "cell_id": "register_fused.tilelang.g09",
+    "phase": "build",
+    "record_error": "ProtocolError: admitted cache contains no files",
+    "root_cause": "TileLang created an atomic-cache temporary file under /tmp and os.replace attempted to move it into the repository-backed isolated cache on another filesystem",
+    "root_exception": "OSError: [Errno 18] Invalid cross-device link",
+    "stage_position": 0
+  },
+  "gpu": {
+    "compute_capability": "8.9",
+    "driver_version": "610.43.02",
+    "name": "NVIDIA RTX 6000 Ada Generation",
+    "physical_index": 0,
+    "uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae"
+  },
+  "head_commit": "154f532846a2a347c28311db2ba26c4a85cdff15",
+  "observed_admission_failures": 1,
+  "observed_admission_successes": 0,
+  "policy": {
+    "continuation_authorized": false,
+    "performance_timing_authorized": false,
+    "post_hoc_overlay_authorized": false,
+    "reuse_authorized": false,
+    "successor_requires_same_filesystem_cache_temporary_directory": true,
+    "successor_requires_new_lock": true
+  },
+  "record_type": "finite_frontier_ada_v2_artifact_admission_incident",
+  "requested_admission_entries": 7,
+  "schema_version": 1
+}

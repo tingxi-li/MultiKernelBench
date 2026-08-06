@@ -1,0 +1,118 @@
+{
+  "contract": {
+    "artifact_policy": {
+      "cache_loader_sha256": {
+        "tilelang/cache/__init__.py": "3367bedef9b5d82cd4bd88e3778eaf6971bbce18c119ad309d0a3541d6687106",
+        "tilelang/cache/kernel_cache.py": "59401813dd298951fc00299e9df35f9b6c2c5104ae136227b15fa39f2d503b2a",
+        "tilelang/env.py": "2716e59caa95d41ced58bf97d6b8f5d52c08723e3b7069e69499c2fc240bb154",
+        "tilelang/jit/__init__.py": "ad513576ffb0773128e3804145e15767cf1acab26ee48f66173b03f5bf5c5638",
+        "tilelang/jit/adapter/base.py": "6b13b93733a2ad829aafdf56dc2c373785c64fed85327839a2b2e42ec49f16cc",
+        "tilelang/jit/adapter/kernel_cache.py": "d0ab535744e0ece870135818abaf05b6b43e2bf725243c9641ba21294a664fe9",
+        "tilelang/jit/adapter/tvm_ffi.py": "86865f254ac6a7291a363d73c545599281d4a3659eeaab29a5e2dcb9e4a3454c",
+        "tilelang/jit/execution_backend.py": "876c0a9473df57ab74dc7e4bd8511c673df805ddb8a3fd91afe177505f0b751b",
+        "tilelang/jit/kernel.py": "534a621bbd99bdda414ea4ad93e7af324b2b974d35c55362285e12b3f6dc7f0f",
+        "triton/compiler/compiler.py": "2a063bb7909777d3659945244277e900d9f7cfc35de9a758578469ee4b90fce9",
+        "triton/knobs.py": "d84bda664f733f0547f9f4397c2dab11da1f9c58f974a840a3f1c61ea48c76fa",
+        "triton/runtime/build.py": "26c6ddd4dba3534ce54790f12d2b75729f51e467c48b2f740dd62b7c75a85b39",
+        "triton/runtime/cache.py": "0355c3e3452fa4500122244b8fff8864f22bc05c417a3d6f5dada9f2e92f8040"
+      },
+      "candidate_artifacts": 6,
+      "entry_count": 7,
+      "fresh_cache_hit_verification_process": true,
+      "generated_source_content_addressed": true,
+      "loadable_code_objects_content_addressed": true,
+      "performance_blind": true,
+      "shared_sham_artifacts": 1,
+      "timing_children_load_only": true
+    },
+    "campaign_id": "finite-frontier-ada-v2",
+    "execution_lock_sha256": "7ca3299452ee54c495fba81945356ca11762bb8e6d74a6772dca725a7e669038",
+    "git_commit": "154f532846a2a347c28311db2ba26c4a85cdff15",
+    "gpu": {
+      "clocks.mem": "405",
+      "clocks.sm": "210",
+      "compute_cap": "8.9",
+      "driver_version": "610.43.02",
+      "index": "0",
+      "memory.total": "49140",
+      "memory.used": "2",
+      "name": "NVIDIA RTX 6000 Ada Generation",
+      "power.limit": "300.00",
+      "pstate": "P8",
+      "temperature.gpu": "49",
+      "utilization.gpu": "0",
+      "uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae"
+    },
+    "gpu_lock_id": "multikernelbench-GPU-45af34ad-0c74-74d0-ef3a-652090d837ae-timing",
+    "input_artifact_path": "ako_runs/controlled_followup/finite_frontier_ada_v2/results/imported_frontier.json",
+    "input_artifact_sha256": "305d912c9678dc8f39f178a32a6f1c7486f482bd2455260856465d815faad86a",
+    "plan": [
+      {
+        "cell_id": "register_fused.tilelang.g09",
+        "entry_id": "register_fused.tilelang.g09",
+        "position": 0,
+        "role": "candidate"
+      },
+      {
+        "cell_id": "register_fused.tilelang.g05",
+        "entry_id": "register_fused.tilelang.g05",
+        "position": 1,
+        "role": "candidate"
+      },
+      {
+        "cell_id": "global_intermediate.tilelang.g12",
+        "entry_id": "global_intermediate.tilelang.g12",
+        "position": 2,
+        "role": "candidate"
+      },
+      {
+        "cell_id": "register_fused.triton.g09",
+        "entry_id": "register_fused.triton.g09",
+        "position": 3,
+        "role": "candidate"
+      },
+      {
+        "cell_id": "register_fused.triton.g05",
+        "entry_id": "register_fused.triton.g05",
+        "position": 4,
+        "role": "candidate"
+      },
+      {
+        "cell_id": "register_common_postprocess.triton.g05",
+        "entry_id": "register_common_postprocess.triton.g05",
+        "position": 5,
+        "role": "candidate"
+      },
+      {
+        "cell_id": "register_common_postprocess.tilelang.g01",
+        "entry_id": "register_common_postprocess.tilelang.g01",
+        "position": 6,
+        "role": "shared_sham_base"
+      }
+    ],
+    "plan_sha256": "3675836570785762640a53127f7ad9fcad49d4570f75d014f8231a1f68cd6edd",
+    "stage": "artifact_admission",
+    "toolchain": {
+      "nvcc_release": "V13.1.115",
+      "python": "3.13.5",
+      "tilelang": "0.1.11",
+      "torch": "2.10.0+cu128",
+      "triton": "3.6.0"
+    },
+    "upstream_ref": "refs/heads/cross-dsl-6op-ncu-redo",
+    "upstream_remote": "origin"
+  },
+  "created_at_utc": "2026-08-06T07:19:21.330828+00:00",
+  "gpu_idle_preflight": {
+    "checked_at_unix": 1786000761.0522969,
+    "compute_processes": [],
+    "foreign_compute_processes": [],
+    "idle_except_self": true,
+    "phase": "stage_pre",
+    "returncode": 0,
+    "self_pid": 1540337,
+    "stderr": ""
+  },
+  "record_type": "finite_frontier_ada_launch_receipt",
+  "schema_version": 1
+}
