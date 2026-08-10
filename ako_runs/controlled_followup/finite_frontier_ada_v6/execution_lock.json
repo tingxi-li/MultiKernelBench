@@ -1,0 +1,33 @@
+{
+  "artifact_admission_expected_entries": 3,
+  "artifact_admission_plan_sha256": "8fcbd2972d4cdc82be191a2277a0659cda715fae5972ccb1c31f81642b5ae5e1",
+  "authorization_basis": "User authorized the main agent to implement and manage the planned Q1 experiment successor on 2026-08-06; v6 permits only fresh admission and terminal confirmation after commit and upstream readiness.",
+  "authorized_at_utc": "2026-08-06T22:54:21.618040+00:00",
+  "campaign_id": "finite-frontier-ada-v6",
+  "contract_sha256": "990fe6fdb16a5a62be62d1c67d5964af4c68cf8685b0b9bfc3ffead3a08349d2",
+  "local_source_bundle_sha256": "656567591277a89090801267319ae784e2cecda73d6005e408afd86d1894dd40",
+  "local_source_sha256": {
+    "ako_runs/controlled_followup/finite_frontier_ada_v6/.gitignore": "09f3f89aebb33282dd801ffdbe794f92360df1d365f99bd7c98a902121783ccc",
+    "ako_runs/controlled_followup/finite_frontier_ada_v6/README.md": "d376bb390e12017a330efa036dfe81a2da38dd7d6a250a34bf798ed0e79763ad",
+    "ako_runs/controlled_followup/finite_frontier_ada_v6/__init__.py": "6242105559c16526cb43ea848b44fdd31d584139016f881f9a985983f9494eef",
+    "ako_runs/controlled_followup/finite_frontier_ada_v6/admit.py": "f873bc47655ff1b5dc4a23612abebac028b649e3765e64fea790ab1fca50e081",
+    "ako_runs/controlled_followup/finite_frontier_ada_v6/analyze.py": "61dd67b068938af047a83c39cdd84630bbc7767f081459cc9bf044db7fc72fd9",
+    "ako_runs/controlled_followup/finite_frontier_ada_v6/artifacts.py": "ed7298e425c2c7c0ceeb5ceec30462c779309651f5bace72edc8f9fefa35e393",
+    "ako_runs/controlled_followup/finite_frontier_ada_v6/contract.json": "990fe6fdb16a5a62be62d1c67d5964af4c68cf8685b0b9bfc3ffead3a08349d2",
+    "ako_runs/controlled_followup/finite_frontier_ada_v6/launch.py": "72a1b5eca40f37b8c7531b5dc175ef2a71d65996cf8318d4af998b344fe0486f",
+    "ako_runs/controlled_followup/finite_frontier_ada_v6/protocol.py": "8fef5d2a037203efc68204a3ddf1ceeeabb297fc741025847ab11980806598fb",
+    "ako_runs/controlled_followup/finite_frontier_ada_v6/test_protocol.py": "95411168f0f027c70b1f62f050e8061e08f059077e232c15da81b691fbfaf58f"
+  },
+  "material_registry_sha256": "272b295001772dc6a50a803610f2ce04a4e25d236ad19796d460b8001f9ae2e9",
+  "physical_gpu": 0,
+  "predecessor_incident_sha256": "6ff9073116e8992f9da0b1064cfd129c6ecc501bc65c96af068ab02e8a6cc120",
+  "predecessor_result_closure_sha256": "d96b74686beef7c6174e2e6aa7d8a5e534a829095f6f60d457e84ebf4a58254f",
+  "predecessor_result_commit": "d120fa42b9c6ca578f116579736db113a0678be2",
+  "predecessor_source_closure_sha256": "fa3987fd2af077f5f8aa27d2308d1369bc2fb33d93516d7570a6317dc1379c6f",
+  "record_type": "finite_frontier_ada_execution_lock",
+  "schema_version": 1,
+  "selection_binding_canonical_sha256": "eee0903a947d6f82ad494dbb36f27350524b38f88dab1b83283e2f3196ed7061",
+  "selection_binding_sha256": "68be5a946558bf467272bb9c74ae85377e4034e2b648945ac97e8710fdcb6bcd",
+  "terminal_expected_records": 120,
+  "terminal_plan_sha256": "fc98e60943387bc801e2c6e222c020ac53e5541fef4d5a4ca78cd4bbc20a8b23"
+}

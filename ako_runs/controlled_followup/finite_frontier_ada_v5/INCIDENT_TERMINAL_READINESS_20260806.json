@@ -1,0 +1,128 @@
+{
+  "artifact_selection_closure": {
+    "algorithm": "sha256(canonical_json(sorted([{path,sha256,size}])))",
+    "excluded_runtime_files": [
+      "artifact_admission/active.lock",
+      "selection_confirm/active.lock"
+    ],
+    "file_count": 376,
+    "git_tree_oid": "63d8d57df76154f4312e6aca7021caf42d51f7ba",
+    "root": "ako_runs/controlled_followup/finite_frontier_ada_v5/results",
+    "sha256": "d96b74686beef7c6174e2e6aa7d8a5e534a829095f6f60d457e84ebf4a58254f",
+    "total_bytes": 24792370
+  },
+  "campaign_id": "finite-frontier-ada-v5",
+  "classification": "NON_CONTROLLING_TERMINAL_READINESS_INCIDENT",
+  "created_utc": "2026-08-06",
+  "failure": {
+    "exception": "AttributeError: module 'analyze' has no attribute 'selection_summary'",
+    "failed_phase": "terminal_confirm_readiness_before_timing",
+    "location": "launch.py:_stage_plan",
+    "mechanism": "Launcher-script execution deferred a bare analyze import until crossed benchmark paths had been prepended to sys.path, so the import resolved a foreign analyzer rather than this campaign's analyze.py.",
+    "root_cause": "The frozen terminal-readiness path relied on ambiguous bare-module identity after runtime path shadowing.",
+    "scientific_effect": "The completed selection remains admissible only for its preregistered winner-selection role. No terminal record exists, no terminal performance conclusion was attempted, and no v5 executable artifact may be reused by the corrective successor."
+  },
+  "policy": {
+    "continuation_authorized": false,
+    "executable_artifact_reuse_authorized": false,
+    "post_hoc_overlay_authorized": false,
+    "selection_performance_reuse_authorized": false,
+    "selection_winner_role_reuse_authorized": true,
+    "successor_requires_exact_package_safe_modules_and_children": true,
+    "successor_requires_fresh_three_artifact_admission": true,
+    "successor_requires_new_lock": true,
+    "successor_requires_terminal_only_timing": true
+  },
+  "record_type": "finite_frontier_ada_v5_terminal_readiness_incident",
+  "result_commit": "d120fa42b9c6ca578f116579736db113a0678be2",
+  "result_state": "selection_sealed_terminal_readiness_failed_before_timing_noncontrolling",
+  "schema_version": 1,
+  "sealed_census": {
+    "expected_artifact_admission_entries": 7,
+    "expected_selection_timing_records": 240,
+    "expected_terminal_timing_records": 120,
+    "observed_artifact_admission_entries": 7,
+    "observed_selection_timing_records": 240,
+    "observed_terminal_timing_records": 0
+  },
+  "selection": {
+    "result_role": "preregistered_winner_selection_only",
+    "selection_lock_path": "ako_runs/controlled_followup/finite_frontier_ada_v5/results/selection_lock.json",
+    "selection_lock_sha256": "29981c45c2e1542e0d71e3918a5ab9ce8ec6fb7170133ee8ed1607078d652e85",
+    "selection_sham_floor_log_ratio": 0.01686377744677924,
+    "source_terminal_plan_sha256": "fc98e60943387bc801e2c6e222c020ac53e5541fef4d5a4ca78cd4bbc20a8b23",
+    "terminal_authorized": true,
+    "winners": {
+      "tilelang": "register_fused.tilelang.g05",
+      "triton": "register_fused.triton.g05"
+    }
+  },
+  "source_closure": {
+    "algorithm": "sha256(canonical_json(sorted([{path,sha256,size}])))",
+    "file_count": 11,
+    "files": [
+      {
+        "path": "ako_runs/controlled_followup/finite_frontier_ada_v5/.gitignore",
+        "sha256": "09f3f89aebb33282dd801ffdbe794f92360df1d365f99bd7c98a902121783ccc",
+        "size": 50
+      },
+      {
+        "path": "ako_runs/controlled_followup/finite_frontier_ada_v5/README.md",
+        "sha256": "28dd21cbb9b65b12bc6a8dc6747f5465d950b2cac7c6adc9ba774f576780b72c",
+        "size": 7877
+      },
+      {
+        "path": "ako_runs/controlled_followup/finite_frontier_ada_v5/__init__.py",
+        "sha256": "828afbcefdf2a620c1af6b41ba0f90c703f612a8ca849563b3e7ff2c2a65670c",
+        "size": 68
+      },
+      {
+        "path": "ako_runs/controlled_followup/finite_frontier_ada_v5/admit.py",
+        "sha256": "a489406a78b86e8fdf80a65e7d63e658a720dfdfe02960da710d8d82fe11f43e",
+        "size": 14440
+      },
+      {
+        "path": "ako_runs/controlled_followup/finite_frontier_ada_v5/analyze.py",
+        "sha256": "0e977e8b0bb6e6109dc19068967da9f25d8edfaad72d756ed126db1666e4c45b",
+        "size": 12828
+      },
+      {
+        "path": "ako_runs/controlled_followup/finite_frontier_ada_v5/artifacts.py",
+        "sha256": "64cdcaac31a9570931d82a9bbe474afa4b1ade1f938087e6e7b3a47c40546ce5",
+        "size": 37465
+      },
+      {
+        "path": "ako_runs/controlled_followup/finite_frontier_ada_v5/contract.json",
+        "sha256": "298b00db97368c41b92ce118de65440030868412892484c35671b2c5f33e166a",
+        "size": 11166
+      },
+      {
+        "path": "ako_runs/controlled_followup/finite_frontier_ada_v5/execution_lock.json",
+        "sha256": "7c39921bf281b2258b0442bbbd83c0101d8c247d50c9ec2a9b3de120b780ddb3",
+        "size": 2531
+      },
+      {
+        "path": "ako_runs/controlled_followup/finite_frontier_ada_v5/launch.py",
+        "sha256": "5e12e7df5f4e206a2987e96b63f9df3d47ca84421a5259288a1be90a15dd4315",
+        "size": 47685
+      },
+      {
+        "path": "ako_runs/controlled_followup/finite_frontier_ada_v5/protocol.py",
+        "sha256": "5ebbc8b19108feafd6a5d07a665ffb2173ec8df069ba8e393f5debe21fbed6fc",
+        "size": 33522
+      },
+      {
+        "path": "ako_runs/controlled_followup/finite_frontier_ada_v5/test_protocol.py",
+        "sha256": "ebec8cb388cbfde1082790c87571e8e6fd6ceaf71989513d7e3fbef1d5ad7497",
+        "size": 28844
+      }
+    ],
+    "campaign_git_tree_oid": "15449c05571cf39296b7c26a723dc4ce56e78eb4",
+    "sha256": "fa3987fd2af077f5f8aa27d2308d1369bc2fb33d93516d7570a6317dc1379c6f",
+    "total_bytes": 196476
+  },
+  "successor": {
+    "corrective_campaign_id": "finite-frontier-ada-v6",
+    "requirement": "Bind and independently rederive this sealed selection, admit fresh artifacts only for both winners and the shared sham base, and run the unchanged 120-record terminal plan through exact campaign-qualified modules and child commands."
+  }
+}
