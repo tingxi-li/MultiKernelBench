@@ -1,0 +1,23 @@
+{
+  "campaign_id": "tilelang-abstraction-v7-ada",
+  "child_completed_unix_ns": 1786392029048051981,
+  "child_launched_unix_ns": 1786392018674020358,
+  "child_pid": 428699,
+  "global_position": 83,
+  "gpu_idle_after_child": {
+    "checked_at_unix": 1786392029.0633626,
+    "compute_processes": [],
+    "phase": "timing_parent_after_child",
+    "self_pid": 232790,
+    "stderr": ""
+  },
+  "gpu_postflight_error": null,
+  "manifest_sha256": "9024ac1b4237869b7ccd32b03696f2494c9bb85a8dc29520d651d3334b7a74e9",
+  "predecessor_position_receipt_sha256": "7e3b84dc53200b1e9e0f8e185d68d03af37dda4ffb48409cb85684d314c2dd86",
+  "raw_path": "ako_runs/controlled_followup/tilelang_abstraction_v7/results/ada_v7r1/timing/raw/0083__f85026926f7609ea4c08e763463dd208beebfe6ab9654a3cec9e4ebb8279d0dd.json",
+  "raw_sha256": "c54308bb264d470a8d4f1bfd8f94da378dd0cf705c71f3393d1163dbab473dab",
+  "record_type": "tilelang_abstraction_v7_position_receipt",
+  "returncode": 0,
+  "row_id": "f85026926f7609ea4c08e763463dd208beebfe6ab9654a3cec9e4ebb8279d0dd",
+  "schema_version": 1
+}
