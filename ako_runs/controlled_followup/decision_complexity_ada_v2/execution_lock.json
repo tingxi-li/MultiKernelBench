@@ -1,0 +1,107 @@
+{
+  "campaign_id": "decision-complexity-ada-v2-pilot",
+  "contract_sha256": "02d40ac4d3c9dab5e7ba3ae577e881b470e35c422211140fd8fa6349651fde37",
+  "execution_control": {
+    "authorization": "one_use_parent_pipe_serial_v1",
+    "gpu_lock_paths": [
+      "/tmp/multikernelbench-GPU-45af34ad-0c74-74d0-ef3a-652090d837ae-timing.lock"
+    ],
+    "parent_receipts": "pid_timestamp_hash_idle_and_previous_completion_v1",
+    "schedule": {
+      "gpu_lock_paths": [
+        "/tmp/multikernelbench-GPU-45af34ad-0c74-74d0-ef3a-652090d837ae-timing.lock"
+      ],
+      "order": "serialized_manifest_order",
+      "overlap_policy": "strict_previous_completion_before_next_launch",
+      "resume_policy": "new_successor_campaign_result_tag_and_root_after_any_result_evidence",
+      "simultaneous_trajectories": 1
+    }
+  },
+  "hardware": {
+    "compute_capability": "8.9",
+    "gpu_uuids": [
+      "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae"
+    ],
+    "name": "NVIDIA RTX 6000 Ada Generation"
+  },
+  "instrument_evidence_index_sha256": "3340a86f4f64404a96461fa5bb5262ff3e1cebacd645d4bd63aaa1bedda212c5",
+  "instrument_launch_lock_sha256": "206b75387acf4d60b688a8e19b3aff094a8ef69d5a0a1b72269d8b24f48be1b6",
+  "lock_sha256": "8bb6a7dc6e6551013f2aed981c569e4800fa84ea2f42218bdf358ba2473974db",
+  "manifest_sha256": "128a83d272b04ffb8e066bf2b57bbe481bb5e7abc695290f537006bf2ab206bc",
+  "materials_sha256": "f0a7c0b6f5bf844a97b39009ec0cb154bb91ea4a3f869ec3fce1deec1de803e2",
+  "predecessor_evidence": {
+    "campaign_id": "decision-complexity-ada-v1-pilot",
+    "execution_lock_sha256": "197da8832daa562148572e01e7dd99ef6feb8e2760389580f4ca7cbea5614cc9",
+    "prelaunch_provenance_path": "ako_runs/controlled_followup/decision_complexity_ada_v1/prelaunch_provenance.json",
+    "prelaunch_provenance_sha256": "872abbd3bbff7f50b888b7678351af9bdfd824e4886593d6979d1d658cbfc150",
+    "result_state": "sealed_prelaunch_only_no_result_evidence",
+    "source_bundle_sha256": "541ddcd280b6c2c2ad6c7be67f1e66c1df0db15a6ba13922767f84d833fd00d7"
+  },
+  "record_type": "decision_complexity_ada_v2_execution_lock",
+  "requested_trajectories": 24,
+  "schema_version": 1,
+  "source_bundle_sha256": "e77929eac640c9dac9d0c0a6a8ae491096e53758dacb015dc3cdb4c17461b9f6",
+  "source_sha256": {
+    "ako_runs/controlled_followup/convergence_v2/analyze.py": "9a07cbec443265bbb3abcf50874b0137704325d0dc73b35374533253f48b697b",
+    "ako_runs/controlled_followup/decision_complexity_ada_v1/contract.json": "e70f393d802fb916eb40e81539f1d4acf90b4c11eb1706b139a7abcb060154d3",
+    "ako_runs/controlled_followup/decision_complexity_ada_v1/execution_lock.json": "197da8832daa562148572e01e7dd99ef6feb8e2760389580f4ca7cbea5614cc9",
+    "ako_runs/controlled_followup/decision_complexity_ada_v1/manifest.json": "ed0f753a1b1add721db6528bbeec95d0833c1fcc914ad740c206acc239a0521a",
+    "ako_runs/controlled_followup/decision_complexity_ada_v1/protocol.py": "550bf5239d9df33fd387b14dcf5ea3d6cb92dd4977310d2f448420ccbb493480",
+    "ako_runs/controlled_followup/decision_complexity_ada_v2/.gitignore": "7900c20871eaeb52d51be55b0af7510d12a6d6ed2a3c554166e8e39e5d73a317",
+    "ako_runs/controlled_followup/decision_complexity_ada_v2/README.md": "3289d720a69d481b377258488d9c53925a05c2938721d9cffe6fac8bcdecacd4",
+    "ako_runs/controlled_followup/decision_complexity_ada_v2/__init__.py": "87f7875f013f65681a146531cbde9921c925de437cc75e645a3cc159fffb7fec",
+    "ako_runs/controlled_followup/decision_complexity_ada_v2/analyze.py": "267f8b01d64b8d8a3abc9a679d3b829578277e6e36208c0bbedd8bc9b6b328a7",
+    "ako_runs/controlled_followup/decision_complexity_ada_v2/contract.json": "02d40ac4d3c9dab5e7ba3ae577e881b470e35c422211140fd8fa6349651fde37",
+    "ako_runs/controlled_followup/decision_complexity_ada_v2/manifest.json": "128a83d272b04ffb8e066bf2b57bbe481bb5e7abc695290f537006bf2ab206bc",
+    "ako_runs/controlled_followup/decision_complexity_ada_v2/protocol.py": "b0c149a7ac18e164e1fea2c75ef54785510ab898c2b0aa7bc8f6a4c3398888b7",
+    "ako_runs/controlled_followup/decision_complexity_ada_v2/runner.py": "7905fe3a2d74ef54f3f7a1a7b0fb2721d49180bbaf820231bc6d60169408892e",
+    "ako_runs/controlled_followup/decision_complexity_ada_v2/test_execution.py": "44426dfe526e71e4d4db408a04a27f4b84a39b8dbe9a3284dff5b52d46d43513",
+    "ako_runs/controlled_followup/decision_complexity_ada_v2/test_protocol.py": "c172c03507862c1dfec6b3f754cb5c1ee0d8c6f2a10123ae817fe2a951f61392"
+  },
+  "timing": {
+    "distribution": "randn",
+    "flush_l2": true,
+    "pair_order": "sha256_execution_contract_attempt",
+    "paired_candidate_target": true,
+    "seed": 2026073101,
+    "trials": 100,
+    "warmup_s": 2.0
+  },
+  "toolchain": {
+    "cuda": {
+      "home": "/usr/local/cuda-13.1",
+      "nvcc": {
+        "path": "/usr/local/cuda-13.1/bin/nvcc",
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2025 NVIDIA Corporation\nBuilt on Tue_Dec_16_07:23:41_PM_PST_2025\nCuda compilation tools, release 13.1, V13.1.115\nBuild cuda_13.1.r13.1/compiler.37061995_0"
+      }
+    },
+    "packages": {
+      "tilelang": {
+        "distribution_version": "0.1.11",
+        "module_path": "/home/lxt230026/miniconda3/lib/python3.13/site-packages/tilelang/__init__.py",
+        "runtime_version": "0.1.11",
+        "runtime_version_source": "installed_distribution_metadata_without_import_to_preserve_cold_cache"
+      },
+      "torch": {
+        "compiled_cuda_version": "12.8",
+        "distribution_version": "2.10.0",
+        "module_path": "/home/lxt230026/miniconda3/lib/python3.13/site-packages/torch/__init__.py",
+        "runtime_version": "2.10.0+cu128"
+      },
+      "triton": {
+        "distribution_version": "3.6.0",
+        "module_path": "/home/lxt230026/miniconda3/lib/python3.13/site-packages/triton/__init__.py",
+        "runtime_version": "3.6.0",
+        "runtime_version_source": "installed_distribution_metadata_without_import_to_preserve_cold_cache"
+      }
+    },
+    "python": {
+      "executable": "/home/lxt230026/miniconda3/bin/python3.13",
+      "implementation": "CPython",
+      "version": "3.13.5"
+    }
+  },
+  "toolchain_sha256": "82defeb42c201eab8d00d9b7260dbd54b8cfc8f6cb2cbaa365212b995ce8285f"
+}

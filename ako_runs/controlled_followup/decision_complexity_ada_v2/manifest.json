@@ -1,0 +1,1120 @@
+{
+  "campaign_id": "decision-complexity-ada-v2-pilot",
+  "contract_sha256": "21a22a2808dea729fa8b93078770e4902a2225d8dece1bc99df03f50321c78f9",
+  "requested_trajectories": 24,
+  "rows": [
+    {
+      "arm": "label_sham_a",
+      "block_position": 0,
+      "campaign_id": "decision-complexity-ada-v2-pilot",
+      "execution_contract": {
+        "candidate_order": [
+          "register_fused.tilelang.g02",
+          "register_fused.tilelang.g11",
+          "register_fused.tilelang.g01",
+          "register_fused.tilelang.g10",
+          "register_fused.tilelang.g00",
+          "register_fused.tilelang.g09"
+        ],
+        "execution_arm": "label_sham",
+        "gpu_slot": 0,
+        "open_axes": [
+          "stages",
+          "BM"
+        ],
+        "open_axis_count": 2,
+        "replicate": 0,
+        "searcher": "uniform_without_replacement_common_random_ranks_v1",
+        "settled_tail": {
+          "start_inclusive": 60,
+          "stop_exclusive": 100
+        },
+        "target_cell_id": "register_fused.tilelang.g09",
+        "terminal_distribution": "withheld_signed",
+        "terminal_ratio": 1.05
+      },
+      "execution_contract_sha256": "6465d82232fe8ca145c4a195a98e385edc3488769d0f97b67c9bf64c19b75730",
+      "failures_charge_attempt": true,
+      "gpu_slot": 0,
+      "gpu_uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae",
+      "hidden_label": "a",
+      "launch_sequence": 1,
+      "materials_sha256": "f0a7c0b6f5bf844a97b39009ec0cb154bb91ea4a3f869ec3fce1deec1de803e2",
+      "pair_order_seed_sha256": "6465d82232fe8ca145c4a195a98e385edc3488769d0f97b67c9bf64c19b75730",
+      "replicate": 0,
+      "schema_version": 1,
+      "trajectory_id": "c3063f6dbf7ee6f2b65de00bced0e237ebf90e3073244694f24d12ecf5bf5ef6"
+    },
+    {
+      "arm": "c2_open_4",
+      "block_position": 1,
+      "campaign_id": "decision-complexity-ada-v2-pilot",
+      "execution_contract": {
+        "candidate_order": [
+          "register_fused.tilelang.g03",
+          "register_fused.tilelang.g14",
+          "register_fused.tilelang.g13",
+          "register_fused.tilelang.g04",
+          "register_fused.tilelang.g18",
+          "register_fused.tilelang.g02",
+          "register_fused.tilelang.g05",
+          "register_fused.tilelang.g11",
+          "register_fused.tilelang.g12",
+          "register_fused.tilelang.g01",
+          "register_fused.tilelang.g15",
+          "register_fused.tilelang.g07",
+          "register_fused.tilelang.g16",
+          "register_fused.tilelang.g10",
+          "register_fused.tilelang.g00",
+          "register_fused.tilelang.g08",
+          "register_fused.tilelang.g17",
+          "register_fused.tilelang.g06",
+          "register_fused.tilelang.g09"
+        ],
+        "execution_arm": "c2_open_4",
+        "gpu_slot": 0,
+        "open_axes": [
+          "stages",
+          "BM",
+          "BK",
+          "BN"
+        ],
+        "open_axis_count": 4,
+        "replicate": 0,
+        "searcher": "uniform_without_replacement_common_random_ranks_v1",
+        "settled_tail": {
+          "start_inclusive": 60,
+          "stop_exclusive": 100
+        },
+        "target_cell_id": "register_fused.tilelang.g09",
+        "terminal_distribution": "withheld_signed",
+        "terminal_ratio": 1.05
+      },
+      "execution_contract_sha256": "63090e1b7f03b1eacfa317f776e0f0d5b5616d219025317d92ee2afad3688a73",
+      "failures_charge_attempt": true,
+      "gpu_slot": 0,
+      "gpu_uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae",
+      "hidden_label": null,
+      "launch_sequence": 2,
+      "materials_sha256": "f0a7c0b6f5bf844a97b39009ec0cb154bb91ea4a3f869ec3fce1deec1de803e2",
+      "pair_order_seed_sha256": "63090e1b7f03b1eacfa317f776e0f0d5b5616d219025317d92ee2afad3688a73",
+      "replicate": 0,
+      "schema_version": 1,
+      "trajectory_id": "1558541e9b848161caf507fd6e1a6b2dbf7247f7f623d7ec05bce04b507bd0fd"
+    },
+    {
+      "arm": "c2_open_1",
+      "block_position": 2,
+      "campaign_id": "decision-complexity-ada-v2-pilot",
+      "execution_contract": {
+        "candidate_order": [
+          "register_fused.tilelang.g11",
+          "register_fused.tilelang.g10",
+          "register_fused.tilelang.g09"
+        ],
+        "execution_arm": "c2_open_1",
+        "gpu_slot": 0,
+        "open_axes": [
+          "stages"
+        ],
+        "open_axis_count": 1,
+        "replicate": 0,
+        "searcher": "uniform_without_replacement_common_random_ranks_v1",
+        "settled_tail": {
+          "start_inclusive": 60,
+          "stop_exclusive": 100
+        },
+        "target_cell_id": "register_fused.tilelang.g09",
+        "terminal_distribution": "withheld_signed",
+        "terminal_ratio": 1.05
+      },
+      "execution_contract_sha256": "5251d3e9d4387c838caa73b4244ebd865c758851687e76887a1f76adf3cca392",
+      "failures_charge_attempt": true,
+      "gpu_slot": 0,
+      "gpu_uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae",
+      "hidden_label": null,
+      "launch_sequence": 3,
+      "materials_sha256": "f0a7c0b6f5bf844a97b39009ec0cb154bb91ea4a3f869ec3fce1deec1de803e2",
+      "pair_order_seed_sha256": "5251d3e9d4387c838caa73b4244ebd865c758851687e76887a1f76adf3cca392",
+      "replicate": 0,
+      "schema_version": 1,
+      "trajectory_id": "1d3027b5fe248e2fca647d35833458cd7edfd13fd06bb23f7202a1227f26b9f7"
+    },
+    {
+      "arm": "sensitivity_target_hint",
+      "block_position": 3,
+      "campaign_id": "decision-complexity-ada-v2-pilot",
+      "execution_contract": {
+        "candidate_order": [
+          "register_fused.tilelang.g09",
+          "register_fused.tilelang.g03",
+          "register_fused.tilelang.g14",
+          "register_fused.tilelang.g13",
+          "register_fused.tilelang.g04",
+          "register_fused.tilelang.g18",
+          "register_fused.tilelang.g02",
+          "register_fused.tilelang.g05",
+          "register_fused.tilelang.g11",
+          "register_fused.tilelang.g12",
+          "register_fused.tilelang.g01",
+          "register_fused.tilelang.g15",
+          "register_fused.tilelang.g07",
+          "register_fused.tilelang.g16",
+          "register_fused.tilelang.g10",
+          "register_fused.tilelang.g00",
+          "register_fused.tilelang.g08",
+          "register_fused.tilelang.g17",
+          "register_fused.tilelang.g06"
+        ],
+        "execution_arm": "sensitivity_target_hint",
+        "gpu_slot": 0,
+        "open_axes": [
+          "stages",
+          "BM",
+          "BK",
+          "BN"
+        ],
+        "open_axis_count": 4,
+        "replicate": 0,
+        "searcher": "uniform_without_replacement_common_random_ranks_v1",
+        "settled_tail": {
+          "start_inclusive": 60,
+          "stop_exclusive": 100
+        },
+        "target_cell_id": "register_fused.tilelang.g09",
+        "terminal_distribution": "withheld_signed",
+        "terminal_ratio": 1.05
+      },
+      "execution_contract_sha256": "228bc9ae7968bbf615478778fdedffd9e151e77540ea5253cac70d88ba7f83ee",
+      "failures_charge_attempt": true,
+      "gpu_slot": 0,
+      "gpu_uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae",
+      "hidden_label": null,
+      "launch_sequence": 4,
+      "materials_sha256": "f0a7c0b6f5bf844a97b39009ec0cb154bb91ea4a3f869ec3fce1deec1de803e2",
+      "pair_order_seed_sha256": "228bc9ae7968bbf615478778fdedffd9e151e77540ea5253cac70d88ba7f83ee",
+      "replicate": 0,
+      "schema_version": 1,
+      "trajectory_id": "c5ba0f96d86f91936b4e491081690db6950c96583f7f88974f78737c6f7bf2aa"
+    },
+    {
+      "arm": "label_sham_b",
+      "block_position": 4,
+      "campaign_id": "decision-complexity-ada-v2-pilot",
+      "execution_contract": {
+        "candidate_order": [
+          "register_fused.tilelang.g02",
+          "register_fused.tilelang.g11",
+          "register_fused.tilelang.g01",
+          "register_fused.tilelang.g10",
+          "register_fused.tilelang.g00",
+          "register_fused.tilelang.g09"
+        ],
+        "execution_arm": "label_sham",
+        "gpu_slot": 0,
+        "open_axes": [
+          "stages",
+          "BM"
+        ],
+        "open_axis_count": 2,
+        "replicate": 0,
+        "searcher": "uniform_without_replacement_common_random_ranks_v1",
+        "settled_tail": {
+          "start_inclusive": 60,
+          "stop_exclusive": 100
+        },
+        "target_cell_id": "register_fused.tilelang.g09",
+        "terminal_distribution": "withheld_signed",
+        "terminal_ratio": 1.05
+      },
+      "execution_contract_sha256": "6465d82232fe8ca145c4a195a98e385edc3488769d0f97b67c9bf64c19b75730",
+      "failures_charge_attempt": true,
+      "gpu_slot": 0,
+      "gpu_uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae",
+      "hidden_label": "b",
+      "launch_sequence": 5,
+      "materials_sha256": "f0a7c0b6f5bf844a97b39009ec0cb154bb91ea4a3f869ec3fce1deec1de803e2",
+      "pair_order_seed_sha256": "6465d82232fe8ca145c4a195a98e385edc3488769d0f97b67c9bf64c19b75730",
+      "replicate": 0,
+      "schema_version": 1,
+      "trajectory_id": "de00bce4afeba34adba6605fe0f361464dc5213f5f7277735db75ed597c5e6ee"
+    },
+    {
+      "arm": "c2_open_2",
+      "block_position": 5,
+      "campaign_id": "decision-complexity-ada-v2-pilot",
+      "execution_contract": {
+        "candidate_order": [
+          "register_fused.tilelang.g02",
+          "register_fused.tilelang.g11",
+          "register_fused.tilelang.g01",
+          "register_fused.tilelang.g10",
+          "register_fused.tilelang.g00",
+          "register_fused.tilelang.g09"
+        ],
+        "execution_arm": "c2_open_2",
+        "gpu_slot": 0,
+        "open_axes": [
+          "stages",
+          "BM"
+        ],
+        "open_axis_count": 2,
+        "replicate": 0,
+        "searcher": "uniform_without_replacement_common_random_ranks_v1",
+        "settled_tail": {
+          "start_inclusive": 60,
+          "stop_exclusive": 100
+        },
+        "target_cell_id": "register_fused.tilelang.g09",
+        "terminal_distribution": "withheld_signed",
+        "terminal_ratio": 1.05
+      },
+      "execution_contract_sha256": "b9f6efd172d7c3909dff2c2577124f5e007f4877552a29bc222fdd4b63dddf4c",
+      "failures_charge_attempt": true,
+      "gpu_slot": 0,
+      "gpu_uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae",
+      "hidden_label": null,
+      "launch_sequence": 6,
+      "materials_sha256": "f0a7c0b6f5bf844a97b39009ec0cb154bb91ea4a3f869ec3fce1deec1de803e2",
+      "pair_order_seed_sha256": "b9f6efd172d7c3909dff2c2577124f5e007f4877552a29bc222fdd4b63dddf4c",
+      "replicate": 0,
+      "schema_version": 1,
+      "trajectory_id": "c116e4e8133e5a928ca065ad73565f9e1149e8430b33622149465618039abf47"
+    },
+    {
+      "arm": "c2_open_4",
+      "block_position": 0,
+      "campaign_id": "decision-complexity-ada-v2-pilot",
+      "execution_contract": {
+        "candidate_order": [
+          "register_fused.tilelang.g02",
+          "register_fused.tilelang.g11",
+          "register_fused.tilelang.g18",
+          "register_fused.tilelang.g15",
+          "register_fused.tilelang.g16",
+          "register_fused.tilelang.g01",
+          "register_fused.tilelang.g07",
+          "register_fused.tilelang.g05",
+          "register_fused.tilelang.g14",
+          "register_fused.tilelang.g13",
+          "register_fused.tilelang.g10",
+          "register_fused.tilelang.g17",
+          "register_fused.tilelang.g08",
+          "register_fused.tilelang.g09",
+          "register_fused.tilelang.g06",
+          "register_fused.tilelang.g00",
+          "register_fused.tilelang.g04",
+          "register_fused.tilelang.g03",
+          "register_fused.tilelang.g12"
+        ],
+        "execution_arm": "c2_open_4",
+        "gpu_slot": 0,
+        "open_axes": [
+          "stages",
+          "BM",
+          "BK",
+          "BN"
+        ],
+        "open_axis_count": 4,
+        "replicate": 1,
+        "searcher": "uniform_without_replacement_common_random_ranks_v1",
+        "settled_tail": {
+          "start_inclusive": 60,
+          "stop_exclusive": 100
+        },
+        "target_cell_id": "register_fused.tilelang.g09",
+        "terminal_distribution": "withheld_signed",
+        "terminal_ratio": 1.05
+      },
+      "execution_contract_sha256": "cceabdad33f4fc46bcf3c0d4071c4640f8ba841899ce7f06a33927cb84436a83",
+      "failures_charge_attempt": true,
+      "gpu_slot": 0,
+      "gpu_uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae",
+      "hidden_label": null,
+      "launch_sequence": 7,
+      "materials_sha256": "f0a7c0b6f5bf844a97b39009ec0cb154bb91ea4a3f869ec3fce1deec1de803e2",
+      "pair_order_seed_sha256": "555ddf5de99470d4226311aeee140568adf67942a36c5ddec44bd5c8409c75a4",
+      "replicate": 1,
+      "schema_version": 1,
+      "trajectory_id": "74c7822f206e0ef21680d4fa896c31223e359dd14487b3b93d182f2a60de1308"
+    },
+    {
+      "arm": "c2_open_2",
+      "block_position": 1,
+      "campaign_id": "decision-complexity-ada-v2-pilot",
+      "execution_contract": {
+        "candidate_order": [
+          "register_fused.tilelang.g02",
+          "register_fused.tilelang.g11",
+          "register_fused.tilelang.g01",
+          "register_fused.tilelang.g10",
+          "register_fused.tilelang.g09",
+          "register_fused.tilelang.g00"
+        ],
+        "execution_arm": "c2_open_2",
+        "gpu_slot": 0,
+        "open_axes": [
+          "stages",
+          "BM"
+        ],
+        "open_axis_count": 2,
+        "replicate": 1,
+        "searcher": "uniform_without_replacement_common_random_ranks_v1",
+        "settled_tail": {
+          "start_inclusive": 60,
+          "stop_exclusive": 100
+        },
+        "target_cell_id": "register_fused.tilelang.g09",
+        "terminal_distribution": "withheld_signed",
+        "terminal_ratio": 1.05
+      },
+      "execution_contract_sha256": "e6172d2875d5600d14bc5ce4c86ac25705f999a0fab966d782042b98a466873b",
+      "failures_charge_attempt": true,
+      "gpu_slot": 0,
+      "gpu_uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae",
+      "hidden_label": null,
+      "launch_sequence": 8,
+      "materials_sha256": "f0a7c0b6f5bf844a97b39009ec0cb154bb91ea4a3f869ec3fce1deec1de803e2",
+      "pair_order_seed_sha256": "d036a0430252954a4f7cc513945f967ff6dad5b6c21f53903efabd1d9511ecce",
+      "replicate": 1,
+      "schema_version": 1,
+      "trajectory_id": "b8462332d8d8333bcf0de808ebf1886585c7df4e123be9a12384a4b2a8b89108"
+    },
+    {
+      "arm": "c2_open_1",
+      "block_position": 2,
+      "campaign_id": "decision-complexity-ada-v2-pilot",
+      "execution_contract": {
+        "candidate_order": [
+          "register_fused.tilelang.g11",
+          "register_fused.tilelang.g10",
+          "register_fused.tilelang.g09"
+        ],
+        "execution_arm": "c2_open_1",
+        "gpu_slot": 0,
+        "open_axes": [
+          "stages"
+        ],
+        "open_axis_count": 1,
+        "replicate": 1,
+        "searcher": "uniform_without_replacement_common_random_ranks_v1",
+        "settled_tail": {
+          "start_inclusive": 60,
+          "stop_exclusive": 100
+        },
+        "target_cell_id": "register_fused.tilelang.g09",
+        "terminal_distribution": "withheld_signed",
+        "terminal_ratio": 1.05
+      },
+      "execution_contract_sha256": "8b7661c7be6a3d55caa0735fee39c0b8f42ba895049b7d9e5bfe7d2d6ebf2d65",
+      "failures_charge_attempt": true,
+      "gpu_slot": 0,
+      "gpu_uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae",
+      "hidden_label": null,
+      "launch_sequence": 9,
+      "materials_sha256": "f0a7c0b6f5bf844a97b39009ec0cb154bb91ea4a3f869ec3fce1deec1de803e2",
+      "pair_order_seed_sha256": "5cc2fbaac1c184129cf533c4a6ad50e206176c8a2af78fcfcd1136ef900e888f",
+      "replicate": 1,
+      "schema_version": 1,
+      "trajectory_id": "f7e0f30e42699b2d30ce3dcbdec50230776917f27f3cf891ef5d8f455c940bff"
+    },
+    {
+      "arm": "label_sham_b",
+      "block_position": 3,
+      "campaign_id": "decision-complexity-ada-v2-pilot",
+      "execution_contract": {
+        "candidate_order": [
+          "register_fused.tilelang.g02",
+          "register_fused.tilelang.g11",
+          "register_fused.tilelang.g01",
+          "register_fused.tilelang.g10",
+          "register_fused.tilelang.g09",
+          "register_fused.tilelang.g00"
+        ],
+        "execution_arm": "label_sham",
+        "gpu_slot": 0,
+        "open_axes": [
+          "stages",
+          "BM"
+        ],
+        "open_axis_count": 2,
+        "replicate": 1,
+        "searcher": "uniform_without_replacement_common_random_ranks_v1",
+        "settled_tail": {
+          "start_inclusive": 60,
+          "stop_exclusive": 100
+        },
+        "target_cell_id": "register_fused.tilelang.g09",
+        "terminal_distribution": "withheld_signed",
+        "terminal_ratio": 1.05
+      },
+      "execution_contract_sha256": "d41e018942643ff740d76f042c76ddcd857116cb3921ab581a369ec1e5779d8e",
+      "failures_charge_attempt": true,
+      "gpu_slot": 0,
+      "gpu_uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae",
+      "hidden_label": "b",
+      "launch_sequence": 10,
+      "materials_sha256": "f0a7c0b6f5bf844a97b39009ec0cb154bb91ea4a3f869ec3fce1deec1de803e2",
+      "pair_order_seed_sha256": "3c9fb03a68ba8cc1f54755e73c1aa168c0f9a219c8b671a9b1608e5a5e86cc25",
+      "replicate": 1,
+      "schema_version": 1,
+      "trajectory_id": "48ddd669479ff5434cd19be85d6e042e8c6c9e429fa0d47d42d5dac5a512d0d3"
+    },
+    {
+      "arm": "label_sham_a",
+      "block_position": 4,
+      "campaign_id": "decision-complexity-ada-v2-pilot",
+      "execution_contract": {
+        "candidate_order": [
+          "register_fused.tilelang.g02",
+          "register_fused.tilelang.g11",
+          "register_fused.tilelang.g01",
+          "register_fused.tilelang.g10",
+          "register_fused.tilelang.g09",
+          "register_fused.tilelang.g00"
+        ],
+        "execution_arm": "label_sham",
+        "gpu_slot": 0,
+        "open_axes": [
+          "stages",
+          "BM"
+        ],
+        "open_axis_count": 2,
+        "replicate": 1,
+        "searcher": "uniform_without_replacement_common_random_ranks_v1",
+        "settled_tail": {
+          "start_inclusive": 60,
+          "stop_exclusive": 100
+        },
+        "target_cell_id": "register_fused.tilelang.g09",
+        "terminal_distribution": "withheld_signed",
+        "terminal_ratio": 1.05
+      },
+      "execution_contract_sha256": "d41e018942643ff740d76f042c76ddcd857116cb3921ab581a369ec1e5779d8e",
+      "failures_charge_attempt": true,
+      "gpu_slot": 0,
+      "gpu_uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae",
+      "hidden_label": "a",
+      "launch_sequence": 11,
+      "materials_sha256": "f0a7c0b6f5bf844a97b39009ec0cb154bb91ea4a3f869ec3fce1deec1de803e2",
+      "pair_order_seed_sha256": "3c9fb03a68ba8cc1f54755e73c1aa168c0f9a219c8b671a9b1608e5a5e86cc25",
+      "replicate": 1,
+      "schema_version": 1,
+      "trajectory_id": "877cf561859d8015f2d8e5cf30c5156c2917d17daf76d726851bca70449d78db"
+    },
+    {
+      "arm": "sensitivity_target_hint",
+      "block_position": 5,
+      "campaign_id": "decision-complexity-ada-v2-pilot",
+      "execution_contract": {
+        "candidate_order": [
+          "register_fused.tilelang.g09",
+          "register_fused.tilelang.g02",
+          "register_fused.tilelang.g11",
+          "register_fused.tilelang.g18",
+          "register_fused.tilelang.g15",
+          "register_fused.tilelang.g16",
+          "register_fused.tilelang.g01",
+          "register_fused.tilelang.g07",
+          "register_fused.tilelang.g05",
+          "register_fused.tilelang.g14",
+          "register_fused.tilelang.g13",
+          "register_fused.tilelang.g10",
+          "register_fused.tilelang.g17",
+          "register_fused.tilelang.g08",
+          "register_fused.tilelang.g06",
+          "register_fused.tilelang.g00",
+          "register_fused.tilelang.g04",
+          "register_fused.tilelang.g03",
+          "register_fused.tilelang.g12"
+        ],
+        "execution_arm": "sensitivity_target_hint",
+        "gpu_slot": 0,
+        "open_axes": [
+          "stages",
+          "BM",
+          "BK",
+          "BN"
+        ],
+        "open_axis_count": 4,
+        "replicate": 1,
+        "searcher": "uniform_without_replacement_common_random_ranks_v1",
+        "settled_tail": {
+          "start_inclusive": 60,
+          "stop_exclusive": 100
+        },
+        "target_cell_id": "register_fused.tilelang.g09",
+        "terminal_distribution": "withheld_signed",
+        "terminal_ratio": 1.05
+      },
+      "execution_contract_sha256": "4193182efc0f7e3158c3c3ff97bcc6a1428a33148258e14e137812606db1648d",
+      "failures_charge_attempt": true,
+      "gpu_slot": 0,
+      "gpu_uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae",
+      "hidden_label": null,
+      "launch_sequence": 12,
+      "materials_sha256": "f0a7c0b6f5bf844a97b39009ec0cb154bb91ea4a3f869ec3fce1deec1de803e2",
+      "pair_order_seed_sha256": "1ac2cc807e7021b534d1d5fdbcd6fc0982da969ece6628879ebdbf4a86a017a8",
+      "replicate": 1,
+      "schema_version": 1,
+      "trajectory_id": "9386751e02a6a3053c3f383a0b9c505d2a3b77c0952aa0f52c61bad9a3e8e47d"
+    },
+    {
+      "arm": "c2_open_1",
+      "block_position": 0,
+      "campaign_id": "decision-complexity-ada-v2-pilot",
+      "execution_contract": {
+        "candidate_order": [
+          "register_fused.tilelang.g09",
+          "register_fused.tilelang.g10",
+          "register_fused.tilelang.g11"
+        ],
+        "execution_arm": "c2_open_1",
+        "gpu_slot": 0,
+        "open_axes": [
+          "stages"
+        ],
+        "open_axis_count": 1,
+        "replicate": 2,
+        "searcher": "uniform_without_replacement_common_random_ranks_v1",
+        "settled_tail": {
+          "start_inclusive": 60,
+          "stop_exclusive": 100
+        },
+        "target_cell_id": "register_fused.tilelang.g09",
+        "terminal_distribution": "withheld_signed",
+        "terminal_ratio": 1.05
+      },
+      "execution_contract_sha256": "bddf84c320986d21be3e26bede617554769f0f353d7efa2d653d852b667d16cb",
+      "failures_charge_attempt": true,
+      "gpu_slot": 0,
+      "gpu_uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae",
+      "hidden_label": null,
+      "launch_sequence": 13,
+      "materials_sha256": "f0a7c0b6f5bf844a97b39009ec0cb154bb91ea4a3f869ec3fce1deec1de803e2",
+      "pair_order_seed_sha256": "0202c41de007b4b206f114ed4b16d2a8a688ba8d0d44cf393b879d40dca3049d",
+      "replicate": 2,
+      "schema_version": 1,
+      "trajectory_id": "c361719c40b507d5e35a356b4ca9d5c44322b0595255095ba833657e8738d725"
+    },
+    {
+      "arm": "c2_open_4",
+      "block_position": 1,
+      "campaign_id": "decision-complexity-ada-v2-pilot",
+      "execution_contract": {
+        "candidate_order": [
+          "register_fused.tilelang.g04",
+          "register_fused.tilelang.g12",
+          "register_fused.tilelang.g00",
+          "register_fused.tilelang.g13",
+          "register_fused.tilelang.g07",
+          "register_fused.tilelang.g09",
+          "register_fused.tilelang.g17",
+          "register_fused.tilelang.g08",
+          "register_fused.tilelang.g10",
+          "register_fused.tilelang.g03",
+          "register_fused.tilelang.g18",
+          "register_fused.tilelang.g01",
+          "register_fused.tilelang.g14",
+          "register_fused.tilelang.g06",
+          "register_fused.tilelang.g02",
+          "register_fused.tilelang.g16",
+          "register_fused.tilelang.g05",
+          "register_fused.tilelang.g15",
+          "register_fused.tilelang.g11"
+        ],
+        "execution_arm": "c2_open_4",
+        "gpu_slot": 0,
+        "open_axes": [
+          "stages",
+          "BM",
+          "BK",
+          "BN"
+        ],
+        "open_axis_count": 4,
+        "replicate": 2,
+        "searcher": "uniform_without_replacement_common_random_ranks_v1",
+        "settled_tail": {
+          "start_inclusive": 60,
+          "stop_exclusive": 100
+        },
+        "target_cell_id": "register_fused.tilelang.g09",
+        "terminal_distribution": "withheld_signed",
+        "terminal_ratio": 1.05
+      },
+      "execution_contract_sha256": "1b9f14b68e92b7a281d0536c7f05214d46a9f64664f80f9245b9920640c49035",
+      "failures_charge_attempt": true,
+      "gpu_slot": 0,
+      "gpu_uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae",
+      "hidden_label": null,
+      "launch_sequence": 14,
+      "materials_sha256": "f0a7c0b6f5bf844a97b39009ec0cb154bb91ea4a3f869ec3fce1deec1de803e2",
+      "pair_order_seed_sha256": "6b8f8f25de64b13c06d06f77a186d4e1dd26ad7fd1e41ef2076b833e29f5bfc6",
+      "replicate": 2,
+      "schema_version": 1,
+      "trajectory_id": "2ede8d09c44b0213340344638b1facd434beb77cd35fbad8bc98308406259896"
+    },
+    {
+      "arm": "sensitivity_target_hint",
+      "block_position": 2,
+      "campaign_id": "decision-complexity-ada-v2-pilot",
+      "execution_contract": {
+        "candidate_order": [
+          "register_fused.tilelang.g09",
+          "register_fused.tilelang.g04",
+          "register_fused.tilelang.g12",
+          "register_fused.tilelang.g00",
+          "register_fused.tilelang.g13",
+          "register_fused.tilelang.g07",
+          "register_fused.tilelang.g17",
+          "register_fused.tilelang.g08",
+          "register_fused.tilelang.g10",
+          "register_fused.tilelang.g03",
+          "register_fused.tilelang.g18",
+          "register_fused.tilelang.g01",
+          "register_fused.tilelang.g14",
+          "register_fused.tilelang.g06",
+          "register_fused.tilelang.g02",
+          "register_fused.tilelang.g16",
+          "register_fused.tilelang.g05",
+          "register_fused.tilelang.g15",
+          "register_fused.tilelang.g11"
+        ],
+        "execution_arm": "sensitivity_target_hint",
+        "gpu_slot": 0,
+        "open_axes": [
+          "stages",
+          "BM",
+          "BK",
+          "BN"
+        ],
+        "open_axis_count": 4,
+        "replicate": 2,
+        "searcher": "uniform_without_replacement_common_random_ranks_v1",
+        "settled_tail": {
+          "start_inclusive": 60,
+          "stop_exclusive": 100
+        },
+        "target_cell_id": "register_fused.tilelang.g09",
+        "terminal_distribution": "withheld_signed",
+        "terminal_ratio": 1.05
+      },
+      "execution_contract_sha256": "d0bcd8eb3df29d50de677d431ee73036b92858b99a8fd30226715bf240b180fb",
+      "failures_charge_attempt": true,
+      "gpu_slot": 0,
+      "gpu_uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae",
+      "hidden_label": null,
+      "launch_sequence": 15,
+      "materials_sha256": "f0a7c0b6f5bf844a97b39009ec0cb154bb91ea4a3f869ec3fce1deec1de803e2",
+      "pair_order_seed_sha256": "8eb7f00ec35540beed593d430b7124f4e2fbcff42f01002c1f60da8efd7b4575",
+      "replicate": 2,
+      "schema_version": 1,
+      "trajectory_id": "0417478f62460595a4d7ee1a86deadb30249338c6fbfeb708feb2b439e4df6ba"
+    },
+    {
+      "arm": "c2_open_2",
+      "block_position": 3,
+      "campaign_id": "decision-complexity-ada-v2-pilot",
+      "execution_contract": {
+        "candidate_order": [
+          "register_fused.tilelang.g00",
+          "register_fused.tilelang.g09",
+          "register_fused.tilelang.g10",
+          "register_fused.tilelang.g01",
+          "register_fused.tilelang.g02",
+          "register_fused.tilelang.g11"
+        ],
+        "execution_arm": "c2_open_2",
+        "gpu_slot": 0,
+        "open_axes": [
+          "stages",
+          "BM"
+        ],
+        "open_axis_count": 2,
+        "replicate": 2,
+        "searcher": "uniform_without_replacement_common_random_ranks_v1",
+        "settled_tail": {
+          "start_inclusive": 60,
+          "stop_exclusive": 100
+        },
+        "target_cell_id": "register_fused.tilelang.g09",
+        "terminal_distribution": "withheld_signed",
+        "terminal_ratio": 1.05
+      },
+      "execution_contract_sha256": "a65998fa879bee6a23a10ca725508f3823b1d2eb9a975f4e794cf9324f44a9f2",
+      "failures_charge_attempt": true,
+      "gpu_slot": 0,
+      "gpu_uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae",
+      "hidden_label": null,
+      "launch_sequence": 16,
+      "materials_sha256": "f0a7c0b6f5bf844a97b39009ec0cb154bb91ea4a3f869ec3fce1deec1de803e2",
+      "pair_order_seed_sha256": "b86139b9bd27b8171ed0f046c40de3c8b6eebb7973c2b1fd0f8e3e1d5c900e32",
+      "replicate": 2,
+      "schema_version": 1,
+      "trajectory_id": "2ed0cf83cdc97330170b6fc2d7e4346659502ce2b11161383df362b41a90ae58"
+    },
+    {
+      "arm": "label_sham_a",
+      "block_position": 4,
+      "campaign_id": "decision-complexity-ada-v2-pilot",
+      "execution_contract": {
+        "candidate_order": [
+          "register_fused.tilelang.g00",
+          "register_fused.tilelang.g09",
+          "register_fused.tilelang.g10",
+          "register_fused.tilelang.g01",
+          "register_fused.tilelang.g02",
+          "register_fused.tilelang.g11"
+        ],
+        "execution_arm": "label_sham",
+        "gpu_slot": 0,
+        "open_axes": [
+          "stages",
+          "BM"
+        ],
+        "open_axis_count": 2,
+        "replicate": 2,
+        "searcher": "uniform_without_replacement_common_random_ranks_v1",
+        "settled_tail": {
+          "start_inclusive": 60,
+          "stop_exclusive": 100
+        },
+        "target_cell_id": "register_fused.tilelang.g09",
+        "terminal_distribution": "withheld_signed",
+        "terminal_ratio": 1.05
+      },
+      "execution_contract_sha256": "9b9691c7fb6e3094aa440f65d017fe709c9c74051c8b9b77c8614165a663366a",
+      "failures_charge_attempt": true,
+      "gpu_slot": 0,
+      "gpu_uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae",
+      "hidden_label": "a",
+      "launch_sequence": 17,
+      "materials_sha256": "f0a7c0b6f5bf844a97b39009ec0cb154bb91ea4a3f869ec3fce1deec1de803e2",
+      "pair_order_seed_sha256": "b801a149559aa884050f49b4839a813b36104d667f7833f1e35a477ddbb44961",
+      "replicate": 2,
+      "schema_version": 1,
+      "trajectory_id": "c1bc563ec327187abbad16a17b0b164efedde7e810a1cb359d290e644887e68e"
+    },
+    {
+      "arm": "label_sham_b",
+      "block_position": 5,
+      "campaign_id": "decision-complexity-ada-v2-pilot",
+      "execution_contract": {
+        "candidate_order": [
+          "register_fused.tilelang.g00",
+          "register_fused.tilelang.g09",
+          "register_fused.tilelang.g10",
+          "register_fused.tilelang.g01",
+          "register_fused.tilelang.g02",
+          "register_fused.tilelang.g11"
+        ],
+        "execution_arm": "label_sham",
+        "gpu_slot": 0,
+        "open_axes": [
+          "stages",
+          "BM"
+        ],
+        "open_axis_count": 2,
+        "replicate": 2,
+        "searcher": "uniform_without_replacement_common_random_ranks_v1",
+        "settled_tail": {
+          "start_inclusive": 60,
+          "stop_exclusive": 100
+        },
+        "target_cell_id": "register_fused.tilelang.g09",
+        "terminal_distribution": "withheld_signed",
+        "terminal_ratio": 1.05
+      },
+      "execution_contract_sha256": "9b9691c7fb6e3094aa440f65d017fe709c9c74051c8b9b77c8614165a663366a",
+      "failures_charge_attempt": true,
+      "gpu_slot": 0,
+      "gpu_uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae",
+      "hidden_label": "b",
+      "launch_sequence": 18,
+      "materials_sha256": "f0a7c0b6f5bf844a97b39009ec0cb154bb91ea4a3f869ec3fce1deec1de803e2",
+      "pair_order_seed_sha256": "b801a149559aa884050f49b4839a813b36104d667f7833f1e35a477ddbb44961",
+      "replicate": 2,
+      "schema_version": 1,
+      "trajectory_id": "e7dfbb4de12d0edaa688b9ac7a0220d72d82a180bc36ecd32519c9257b0dff8f"
+    },
+    {
+      "arm": "c2_open_1",
+      "block_position": 0,
+      "campaign_id": "decision-complexity-ada-v2-pilot",
+      "execution_contract": {
+        "candidate_order": [
+          "register_fused.tilelang.g09",
+          "register_fused.tilelang.g11",
+          "register_fused.tilelang.g10"
+        ],
+        "execution_arm": "c2_open_1",
+        "gpu_slot": 0,
+        "open_axes": [
+          "stages"
+        ],
+        "open_axis_count": 1,
+        "replicate": 3,
+        "searcher": "uniform_without_replacement_common_random_ranks_v1",
+        "settled_tail": {
+          "start_inclusive": 60,
+          "stop_exclusive": 100
+        },
+        "target_cell_id": "register_fused.tilelang.g09",
+        "terminal_distribution": "withheld_signed",
+        "terminal_ratio": 1.05
+      },
+      "execution_contract_sha256": "dc727b0e927a4f1ad55aeced00a35a93cb5703cdc63f574ff5095cbafe13ec8d",
+      "failures_charge_attempt": true,
+      "gpu_slot": 0,
+      "gpu_uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae",
+      "hidden_label": null,
+      "launch_sequence": 19,
+      "materials_sha256": "f0a7c0b6f5bf844a97b39009ec0cb154bb91ea4a3f869ec3fce1deec1de803e2",
+      "pair_order_seed_sha256": "3424c79bf69f8d212aeb4bbf62e14dce5a60f074ffd39c947f7e1310e30a8b6c",
+      "replicate": 3,
+      "schema_version": 1,
+      "trajectory_id": "5c1f3a234064e99c2628dc1ad3e0c85b58aba8b88e5d07bf5c0254023f09a50e"
+    },
+    {
+      "arm": "label_sham_a",
+      "block_position": 1,
+      "campaign_id": "decision-complexity-ada-v2-pilot",
+      "execution_contract": {
+        "candidate_order": [
+          "register_fused.tilelang.g09",
+          "register_fused.tilelang.g00",
+          "register_fused.tilelang.g01",
+          "register_fused.tilelang.g11",
+          "register_fused.tilelang.g10",
+          "register_fused.tilelang.g02"
+        ],
+        "execution_arm": "label_sham",
+        "gpu_slot": 0,
+        "open_axes": [
+          "stages",
+          "BM"
+        ],
+        "open_axis_count": 2,
+        "replicate": 3,
+        "searcher": "uniform_without_replacement_common_random_ranks_v1",
+        "settled_tail": {
+          "start_inclusive": 60,
+          "stop_exclusive": 100
+        },
+        "target_cell_id": "register_fused.tilelang.g09",
+        "terminal_distribution": "withheld_signed",
+        "terminal_ratio": 1.05
+      },
+      "execution_contract_sha256": "fb387b75db7766631ceb6cc0b8cb3b6fd18e8475bffb685a7d410f5913c50453",
+      "failures_charge_attempt": true,
+      "gpu_slot": 0,
+      "gpu_uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae",
+      "hidden_label": "a",
+      "launch_sequence": 20,
+      "materials_sha256": "f0a7c0b6f5bf844a97b39009ec0cb154bb91ea4a3f869ec3fce1deec1de803e2",
+      "pair_order_seed_sha256": "3dd8a501b4c7d31f7860d02080d76a8262a0e4d3034685c1d098a448e8d770af",
+      "replicate": 3,
+      "schema_version": 1,
+      "trajectory_id": "e54c0deacf819681008ab2ff37301f26b751a833a0f8c7e37343a719e13bf32a"
+    },
+    {
+      "arm": "sensitivity_target_hint",
+      "block_position": 2,
+      "campaign_id": "decision-complexity-ada-v2-pilot",
+      "execution_contract": {
+        "candidate_order": [
+          "register_fused.tilelang.g09",
+          "register_fused.tilelang.g15",
+          "register_fused.tilelang.g18",
+          "register_fused.tilelang.g00",
+          "register_fused.tilelang.g05",
+          "register_fused.tilelang.g17",
+          "register_fused.tilelang.g01",
+          "register_fused.tilelang.g12",
+          "register_fused.tilelang.g11",
+          "register_fused.tilelang.g07",
+          "register_fused.tilelang.g06",
+          "register_fused.tilelang.g13",
+          "register_fused.tilelang.g08",
+          "register_fused.tilelang.g10",
+          "register_fused.tilelang.g04",
+          "register_fused.tilelang.g14",
+          "register_fused.tilelang.g03",
+          "register_fused.tilelang.g02",
+          "register_fused.tilelang.g16"
+        ],
+        "execution_arm": "sensitivity_target_hint",
+        "gpu_slot": 0,
+        "open_axes": [
+          "stages",
+          "BM",
+          "BK",
+          "BN"
+        ],
+        "open_axis_count": 4,
+        "replicate": 3,
+        "searcher": "uniform_without_replacement_common_random_ranks_v1",
+        "settled_tail": {
+          "start_inclusive": 60,
+          "stop_exclusive": 100
+        },
+        "target_cell_id": "register_fused.tilelang.g09",
+        "terminal_distribution": "withheld_signed",
+        "terminal_ratio": 1.05
+      },
+      "execution_contract_sha256": "75b92a1d5fc70f779b61a1fa6833dea7d2d83e719bb39bd210d1aeb5d8f1cb00",
+      "failures_charge_attempt": true,
+      "gpu_slot": 0,
+      "gpu_uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae",
+      "hidden_label": null,
+      "launch_sequence": 21,
+      "materials_sha256": "f0a7c0b6f5bf844a97b39009ec0cb154bb91ea4a3f869ec3fce1deec1de803e2",
+      "pair_order_seed_sha256": "bc0431bf3b5c4a81249e627a2f000d9b503e0bbbb687a03c452c03aa870328d6",
+      "replicate": 3,
+      "schema_version": 1,
+      "trajectory_id": "4caa33da9222c3bbbc301b539c95a92201d620097415b665cc3015eda55ceb3d"
+    },
+    {
+      "arm": "c2_open_4",
+      "block_position": 3,
+      "campaign_id": "decision-complexity-ada-v2-pilot",
+      "execution_contract": {
+        "candidate_order": [
+          "register_fused.tilelang.g15",
+          "register_fused.tilelang.g18",
+          "register_fused.tilelang.g09",
+          "register_fused.tilelang.g00",
+          "register_fused.tilelang.g05",
+          "register_fused.tilelang.g17",
+          "register_fused.tilelang.g01",
+          "register_fused.tilelang.g12",
+          "register_fused.tilelang.g11",
+          "register_fused.tilelang.g07",
+          "register_fused.tilelang.g06",
+          "register_fused.tilelang.g13",
+          "register_fused.tilelang.g08",
+          "register_fused.tilelang.g10",
+          "register_fused.tilelang.g04",
+          "register_fused.tilelang.g14",
+          "register_fused.tilelang.g03",
+          "register_fused.tilelang.g02",
+          "register_fused.tilelang.g16"
+        ],
+        "execution_arm": "c2_open_4",
+        "gpu_slot": 0,
+        "open_axes": [
+          "stages",
+          "BM",
+          "BK",
+          "BN"
+        ],
+        "open_axis_count": 4,
+        "replicate": 3,
+        "searcher": "uniform_without_replacement_common_random_ranks_v1",
+        "settled_tail": {
+          "start_inclusive": 60,
+          "stop_exclusive": 100
+        },
+        "target_cell_id": "register_fused.tilelang.g09",
+        "terminal_distribution": "withheld_signed",
+        "terminal_ratio": 1.05
+      },
+      "execution_contract_sha256": "bb910dc81ab1ce42d4ef92686bdc29f2422dba8e8d5754b0d26ac7568a4a7ebd",
+      "failures_charge_attempt": true,
+      "gpu_slot": 0,
+      "gpu_uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae",
+      "hidden_label": null,
+      "launch_sequence": 22,
+      "materials_sha256": "f0a7c0b6f5bf844a97b39009ec0cb154bb91ea4a3f869ec3fce1deec1de803e2",
+      "pair_order_seed_sha256": "cba838ff7ca923f868989ee0a02590c59587f0d67770c689c3303541002f1396",
+      "replicate": 3,
+      "schema_version": 1,
+      "trajectory_id": "6f1d49c8b8a281e47dcdf8608b3f8e47923087f1e11e71bbb385a1940831220c"
+    },
+    {
+      "arm": "label_sham_b",
+      "block_position": 4,
+      "campaign_id": "decision-complexity-ada-v2-pilot",
+      "execution_contract": {
+        "candidate_order": [
+          "register_fused.tilelang.g09",
+          "register_fused.tilelang.g00",
+          "register_fused.tilelang.g01",
+          "register_fused.tilelang.g11",
+          "register_fused.tilelang.g10",
+          "register_fused.tilelang.g02"
+        ],
+        "execution_arm": "label_sham",
+        "gpu_slot": 0,
+        "open_axes": [
+          "stages",
+          "BM"
+        ],
+        "open_axis_count": 2,
+        "replicate": 3,
+        "searcher": "uniform_without_replacement_common_random_ranks_v1",
+        "settled_tail": {
+          "start_inclusive": 60,
+          "stop_exclusive": 100
+        },
+        "target_cell_id": "register_fused.tilelang.g09",
+        "terminal_distribution": "withheld_signed",
+        "terminal_ratio": 1.05
+      },
+      "execution_contract_sha256": "fb387b75db7766631ceb6cc0b8cb3b6fd18e8475bffb685a7d410f5913c50453",
+      "failures_charge_attempt": true,
+      "gpu_slot": 0,
+      "gpu_uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae",
+      "hidden_label": "b",
+      "launch_sequence": 23,
+      "materials_sha256": "f0a7c0b6f5bf844a97b39009ec0cb154bb91ea4a3f869ec3fce1deec1de803e2",
+      "pair_order_seed_sha256": "3dd8a501b4c7d31f7860d02080d76a8262a0e4d3034685c1d098a448e8d770af",
+      "replicate": 3,
+      "schema_version": 1,
+      "trajectory_id": "c508cfddac013554fbe57bf76f481a1f6a4385b2e5998e73d4c6929f0f99dd34"
+    },
+    {
+      "arm": "c2_open_2",
+      "block_position": 5,
+      "campaign_id": "decision-complexity-ada-v2-pilot",
+      "execution_contract": {
+        "candidate_order": [
+          "register_fused.tilelang.g09",
+          "register_fused.tilelang.g00",
+          "register_fused.tilelang.g01",
+          "register_fused.tilelang.g11",
+          "register_fused.tilelang.g10",
+          "register_fused.tilelang.g02"
+        ],
+        "execution_arm": "c2_open_2",
+        "gpu_slot": 0,
+        "open_axes": [
+          "stages",
+          "BM"
+        ],
+        "open_axis_count": 2,
+        "replicate": 3,
+        "searcher": "uniform_without_replacement_common_random_ranks_v1",
+        "settled_tail": {
+          "start_inclusive": 60,
+          "stop_exclusive": 100
+        },
+        "target_cell_id": "register_fused.tilelang.g09",
+        "terminal_distribution": "withheld_signed",
+        "terminal_ratio": 1.05
+      },
+      "execution_contract_sha256": "944df6c03dacb3dbc3cb616af76c0a21838470cadb73553c513737bfbe1d4f73",
+      "failures_charge_attempt": true,
+      "gpu_slot": 0,
+      "gpu_uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae",
+      "hidden_label": null,
+      "launch_sequence": 24,
+      "materials_sha256": "f0a7c0b6f5bf844a97b39009ec0cb154bb91ea4a3f869ec3fce1deec1de803e2",
+      "pair_order_seed_sha256": "520076f7e1c07e58b3c8a796e57c75d27a0272122d753e60efe7f78157f57fa7",
+      "replicate": 3,
+      "schema_version": 1,
+      "trajectory_id": "4dc3122e806600f0bdd45df9a3d13efb791b9cfdd45e4c52c2ed62f7b90ecffd"
+    }
+  ],
+  "schema_version": 1
+}

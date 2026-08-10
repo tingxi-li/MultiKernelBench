@@ -1,0 +1,151 @@
+{
+  "campaign_id": "decision-complexity-ada-v1-pilot",
+  "created_utc": "2026-08-06T04:15:51.589018+00:00",
+  "execution_lock_sha256": "197da8832daa562148572e01e7dd99ef6feb8e2760389580f4ca7cbea5614cc9",
+  "git_commit": "75e3beb4c64430cd70abea2e16f184de812fff19",
+  "git_upstream": "origin/cross-dsl-6op-ncu-redo",
+  "git_upstream_commit": "75e3beb4c64430cd70abea2e16f184de812fff19",
+  "gpu_lock_paths": [
+    "/tmp/multikernelbench-GPU-3ed448f2-f23a-09fc-e18b-f580523c4a3f-timing.lock",
+    "/tmp/multikernelbench-GPU-45af34ad-0c74-74d0-ef3a-652090d837ae-timing.lock",
+    "/tmp/multikernelbench-GPU-91b61ae6-d21e-485e-43b3-7505d62149b1-timing.lock",
+    "/tmp/multikernelbench-GPU-eafdd6ce-8857-40fd-f494-47a7240bf6b5-timing.lock"
+  ],
+  "gpu_preflights": [
+    {
+      "gpu": {
+        "compute_cap": "8.9",
+        "driver_version": "610.43.02",
+        "index": "0",
+        "name": "NVIDIA RTX 6000 Ada Generation",
+        "uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae"
+      },
+      "occupancy": {
+        "compute_apps": [],
+        "query_completed_unix_ns": 1785989751486711531,
+        "query_started_unix_ns": 1785989751471297211,
+        "returncode": 0
+      }
+    },
+    {
+      "gpu": {
+        "compute_cap": "8.9",
+        "driver_version": "610.43.02",
+        "index": "1",
+        "name": "NVIDIA RTX 6000 Ada Generation",
+        "uuid": "GPU-91b61ae6-d21e-485e-43b3-7505d62149b1"
+      },
+      "occupancy": {
+        "compute_apps": [],
+        "query_completed_unix_ns": 1785989751520017394,
+        "query_started_unix_ns": 1785989751505282621,
+        "returncode": 0
+      }
+    },
+    {
+      "gpu": {
+        "compute_cap": "8.9",
+        "driver_version": "610.43.02",
+        "index": "2",
+        "name": "NVIDIA RTX 6000 Ada Generation",
+        "uuid": "GPU-3ed448f2-f23a-09fc-e18b-f580523c4a3f"
+      },
+      "occupancy": {
+        "compute_apps": [],
+        "query_completed_unix_ns": 1785989751552588514,
+        "query_started_unix_ns": 1785989751537870252,
+        "returncode": 0
+      }
+    },
+    {
+      "gpu": {
+        "compute_cap": "8.9",
+        "driver_version": "610.43.02",
+        "index": "3",
+        "name": "NVIDIA RTX 6000 Ada Generation",
+        "uuid": "GPU-eafdd6ce-8857-40fd-f494-47a7240bf6b5"
+      },
+      "occupancy": {
+        "compute_apps": [],
+        "query_completed_unix_ns": 1785989751585301219,
+        "query_started_unix_ns": 1785989751570494446,
+        "returncode": 0
+      }
+    }
+  ],
+  "gpus": [
+    {
+      "compute_cap": "8.9",
+      "driver_version": "610.43.02",
+      "index": "0",
+      "name": "NVIDIA RTX 6000 Ada Generation",
+      "uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae"
+    },
+    {
+      "compute_cap": "8.9",
+      "driver_version": "610.43.02",
+      "index": "1",
+      "name": "NVIDIA RTX 6000 Ada Generation",
+      "uuid": "GPU-91b61ae6-d21e-485e-43b3-7505d62149b1"
+    },
+    {
+      "compute_cap": "8.9",
+      "driver_version": "610.43.02",
+      "index": "2",
+      "name": "NVIDIA RTX 6000 Ada Generation",
+      "uuid": "GPU-3ed448f2-f23a-09fc-e18b-f580523c4a3f"
+    },
+    {
+      "compute_cap": "8.9",
+      "driver_version": "610.43.02",
+      "index": "3",
+      "name": "NVIDIA RTX 6000 Ada Generation",
+      "uuid": "GPU-eafdd6ce-8857-40fd-f494-47a7240bf6b5"
+    }
+  ],
+  "host": "cs265655.utdallas.edu",
+  "live_remote_commit": "75e3beb4c64430cd70abea2e16f184de812fff19",
+  "live_remote_name": "origin",
+  "live_remote_ref": "refs/heads/cross-dsl-6op-ncu-redo",
+  "record_type": "decision_complexity_ada_v1_prelaunch_provenance",
+  "remote_push_verified": true,
+  "schema_version": 1,
+  "source_bundle_sha256": "541ddcd280b6c2c2ad6c7be67f1e66c1df0db15a6ba13922767f84d833fd00d7",
+  "toolchain": {
+    "cuda": {
+      "home": "/usr/local/cuda-13.1",
+      "nvcc": {
+        "path": "/usr/local/cuda-13.1/bin/nvcc",
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2025 NVIDIA Corporation\nBuilt on Tue_Dec_16_07:23:41_PM_PST_2025\nCuda compilation tools, release 13.1, V13.1.115\nBuild cuda_13.1.r13.1/compiler.37061995_0"
+      }
+    },
+    "packages": {
+      "tilelang": {
+        "distribution_version": "0.1.11",
+        "module_path": "/home/lxt230026/miniconda3/lib/python3.13/site-packages/tilelang/__init__.py",
+        "runtime_version": "0.1.11",
+        "runtime_version_source": "installed_distribution_metadata_without_import_to_preserve_cold_cache"
+      },
+      "torch": {
+        "compiled_cuda_version": "12.8",
+        "distribution_version": "2.10.0",
+        "module_path": "/home/lxt230026/miniconda3/lib/python3.13/site-packages/torch/__init__.py",
+        "runtime_version": "2.10.0+cu128"
+      },
+      "triton": {
+        "distribution_version": "3.6.0",
+        "module_path": "/home/lxt230026/miniconda3/lib/python3.13/site-packages/triton/__init__.py",
+        "runtime_version": "3.6.0",
+        "runtime_version_source": "installed_distribution_metadata_without_import_to_preserve_cold_cache"
+      }
+    },
+    "python": {
+      "executable": "/home/lxt230026/miniconda3/bin/python3.13",
+      "implementation": "CPython",
+      "version": "3.13.5"
+    }
+  },
+  "toolchain_sha256": "82defeb42c201eab8d00d9b7260dbd54b8cfc8f6cb2cbaa365212b995ce8285f"
+}

@@ -1,0 +1,444 @@
+{
+  "arms": [
+    "c2_open_1",
+    "c2_open_2",
+    "c2_open_4",
+    "label_sham_a",
+    "label_sham_b",
+    "sensitivity_target_hint"
+  ],
+  "attempt_statuses": [
+    "AUDIT_FAILED",
+    "BUILD_FAILED",
+    "LAUNCH_FAILED",
+    "GATE_FAILED",
+    "GATE_PASSED",
+    "TIMEOUT"
+  ],
+  "attempt_timeout_s": 900,
+  "axis_order": [
+    "stages",
+    "BM",
+    "BK",
+    "BN"
+  ],
+  "campaign_id": "decision-complexity-ada-v2-pilot",
+  "claim_scope": "local_tilelang_register_fused_uniform_search_decision_space_burden",
+  "controlling": false,
+  "execution_schedule": {
+    "gpu_lock_paths": [
+      "/tmp/multikernelbench-GPU-45af34ad-0c74-74d0-ef3a-652090d837ae-timing.lock"
+    ],
+    "order": "serialized_manifest_order",
+    "overlap_policy": "strict_previous_completion_before_next_launch",
+    "resume_policy": "new_successor_campaign_result_tag_and_root_after_any_result_evidence",
+    "simultaneous_trajectories": 1
+  },
+  "hardware": {
+    "compute_capability": "8.9",
+    "gpu_uuids": [
+      "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae"
+    ],
+    "name": "NVIDIA RTX 6000 Ada Generation"
+  },
+  "materials": {
+    "campaign_id": "decision-complexity-ada-v2-pilot",
+    "candidates": [
+      {
+        "artifacts_sha256": "cf37bd107f6ab866559de4774a6b9ec69699ab6dc0e8eb7dbabdfd9849980e1b",
+        "cell_id": "register_fused.tilelang.g00",
+        "cell_sha256": "76e684b31c6913e8a803d19f8d46567773e18c0888cc9601c2dd2544392f6744",
+        "config": {
+          "BK": 32,
+          "BM": 128,
+          "BN": 128,
+          "stages": 2
+        },
+        "gate_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/gate/register_fused__tilelang__g00.jsonl",
+        "gate_sha256": "83b5226231a8d0699bca687ae11d6b3643fad1da8ccad2165fb3c35b23c38a76",
+        "implementation_sha256": "032b49a8eabe963a405f96f3179cc30c353982c1b4b2a0a583043bdb6d28baf9",
+        "record_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/records/register_fused__tilelang__g00.json",
+        "record_sha256": "47c578f4dc9c5609768c1af347156a37b8b1364978a3cecdde0121934c93f56c"
+      },
+      {
+        "artifacts_sha256": "505ed3ca7800b1099e0ab727324a34a5a0d286d632aadccb8c68123de19de80e",
+        "cell_id": "register_fused.tilelang.g01",
+        "cell_sha256": "34496524099f9b7fbf79965ecc6b438b494e3767d636dd1b5e9d7a2d8239889f",
+        "config": {
+          "BK": 32,
+          "BM": 128,
+          "BN": 128,
+          "stages": 3
+        },
+        "gate_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/gate/register_fused__tilelang__g01.jsonl",
+        "gate_sha256": "17356e688967aa98a3700ad5b0e8f77e3bc3d741cbe124aec4a3f98ab0f06f31",
+        "implementation_sha256": "35e2a60d8b05a202346adcb4812fb794d52ff72c99993dd663592c3bcf0e990c",
+        "record_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/records/register_fused__tilelang__g01.json",
+        "record_sha256": "20f782eee609fc09e52c7a467c2faa082fd545dc3d2a0d93226ea6c325bc564d"
+      },
+      {
+        "artifacts_sha256": "52ec0ccd97e57ca248715127d36bef0d8969f974d4592c253918b60d7f02ad27",
+        "cell_id": "register_fused.tilelang.g02",
+        "cell_sha256": "449c6c94119477e5336487fd447c48b4c2d492562f3ab567f7768a05df45ff94",
+        "config": {
+          "BK": 32,
+          "BM": 128,
+          "BN": 128,
+          "stages": 4
+        },
+        "gate_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/gate/register_fused__tilelang__g02.jsonl",
+        "gate_sha256": "41dff26ecc8682e4d8e2c067b744922a0043ca5f4a259af2fbb8e4e21a1876c9",
+        "implementation_sha256": "d25083ad2390e55705d290cdceaaf273f02a157144402e0139f54d347e2e503a",
+        "record_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/records/register_fused__tilelang__g02.json",
+        "record_sha256": "87993e9d67e06839f658dec42b3c46c7e52705cb8ddb95d31bfe7bcf404967b8"
+      },
+      {
+        "artifacts_sha256": "c14edc9d04aec82decdf6bb4d8aa84fa49f1544ccc9856fc5c876e387e753014",
+        "cell_id": "register_fused.tilelang.g03",
+        "cell_sha256": "b9cbda4e5a3ce2c1366d58877c32b26cc9c1554dc05d793523462e691467e53a",
+        "config": {
+          "BK": 64,
+          "BM": 128,
+          "BN": 128,
+          "stages": 2
+        },
+        "gate_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/gate/register_fused__tilelang__g03.jsonl",
+        "gate_sha256": "1fe9519564e3a9d1e6d17d695c43d425b6a602ca262964611faf25218d2ee50e",
+        "implementation_sha256": "fa1fc42ec8e8db859971ac8de407a87b211c2c0274ff6a29a000b46e39eef9d9",
+        "record_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/records/register_fused__tilelang__g03.json",
+        "record_sha256": "e15064fc7932814a6284ded9dd8c2641019ac20c22b89a9e8afb531b9937c58e"
+      },
+      {
+        "artifacts_sha256": "dcad3c722db1140467cb6d382e3261d6d23e362ebf89d9e1073e7e66c436d63f",
+        "cell_id": "register_fused.tilelang.g04",
+        "cell_sha256": "b54d8f6d9a21be783089fc8eeb16dc3d3871bc68639e49cd38b79c8078588346",
+        "config": {
+          "BK": 64,
+          "BM": 128,
+          "BN": 128,
+          "stages": 3
+        },
+        "gate_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/gate/register_fused__tilelang__g04.jsonl",
+        "gate_sha256": "244c24d883eec4d07ea1ed35a2568b309758270a557920e81e7e3c70188bc654",
+        "implementation_sha256": "42588d0def5f075f4c507a35d89e82edb2c2b247c58dd049ea5b87c7d456165f",
+        "record_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/records/register_fused__tilelang__g04.json",
+        "record_sha256": "2f6ba870dacce4f7d975d76bd86a1d59e1784524770448313153d78d465873c5"
+      },
+      {
+        "artifacts_sha256": "f611200fececa2c8d311c4f079f3179a9be10d945916380c0dcd58babf5f5c9c",
+        "cell_id": "register_fused.tilelang.g05",
+        "cell_sha256": "807dafe85ae072df98a246bf151648385e15c4933fce4b7dcd8604f167c46134",
+        "config": {
+          "BK": 32,
+          "BM": 128,
+          "BN": 256,
+          "stages": 2
+        },
+        "gate_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/gate/register_fused__tilelang__g05.jsonl",
+        "gate_sha256": "ed260516e7d7214e4e32d6d947a2e2a81d4eeebdbe22314cf16f1f3914db074d",
+        "implementation_sha256": "8c328ceb42df591bf80223bf9d6d06e7164ea3e14716669638d03d61a5e5bebf",
+        "record_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/records/register_fused__tilelang__g05.json",
+        "record_sha256": "f501aef40983da561388b16c9f6ccdfb41b4274966c3844ed5ebc99b661b5299"
+      },
+      {
+        "artifacts_sha256": "788c412c0e26c206f65d111e97b73c655287bad213f8125e9085c96bf6151479",
+        "cell_id": "register_fused.tilelang.g06",
+        "cell_sha256": "f9e2abb7e52228c92e4c15ab5e2712b5a770d27b49574fcacaaf1fc7db9def27",
+        "config": {
+          "BK": 32,
+          "BM": 128,
+          "BN": 256,
+          "stages": 3
+        },
+        "gate_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/gate/register_fused__tilelang__g06.jsonl",
+        "gate_sha256": "b9efd5300b0a4467da178a823d31bf502e256a70fc36906f913e020880bd64d3",
+        "implementation_sha256": "0ba8d2759446d57d215dfdbd29c74a5d1f2db76268efa6c9a5f9caeb109041de",
+        "record_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/records/register_fused__tilelang__g06.json",
+        "record_sha256": "8a9581f00305459a6707c4448db0c664c5f91716b4e9fedbb0c686c68c9c25e9"
+      },
+      {
+        "artifacts_sha256": "2a1150cd805768184ceef72cf0eda44fe2e31ed243eaf12e80169bf80876bc99",
+        "cell_id": "register_fused.tilelang.g07",
+        "cell_sha256": "249bc79080bdfad31d76bb38dad5538d71e76b6f13a9ed7738a0fdf9b3f3e85d",
+        "config": {
+          "BK": 32,
+          "BM": 128,
+          "BN": 256,
+          "stages": 4
+        },
+        "gate_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/gate/register_fused__tilelang__g07.jsonl",
+        "gate_sha256": "e10955e812da7ab56efd95161eb2b8586939f8787fc30252b8286acda431ab41",
+        "implementation_sha256": "4c9c5245e4d2870cba945e4995a9dadfc10d0ca4ae35e7ae9a2c13a718b3e757",
+        "record_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/records/register_fused__tilelang__g07.json",
+        "record_sha256": "331841068e8d0a5872ba69d61559ef02df85bae946b99c4f90e45f840e3af405"
+      },
+      {
+        "artifacts_sha256": "1cc8a851d37dad86a77ce5b32afe6f906acafeac5763d51b82abcd9795340c62",
+        "cell_id": "register_fused.tilelang.g08",
+        "cell_sha256": "4ec62907d04b96b52f9a2432ab3f6ad99391b90bc395874760cff35d4a65fe77",
+        "config": {
+          "BK": 64,
+          "BM": 128,
+          "BN": 256,
+          "stages": 2
+        },
+        "gate_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/gate/register_fused__tilelang__g08.jsonl",
+        "gate_sha256": "cb6d0c4189b2c878153923698a968b97473bc7aa964f6073ed59dd108ecdbc58",
+        "implementation_sha256": "ff79fffb4983f3dbcd212e650ac825615113aba9b8201df3952274cb9f7d5b62",
+        "record_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/records/register_fused__tilelang__g08.json",
+        "record_sha256": "d3af7093843cd03511e78befadc28390372eb183b5cfab10cea87d6708cf3c36"
+      },
+      {
+        "artifacts_sha256": "75874c72d725b73808ed3a8fddb8e333de0d79ad6791696ca4e676d2282de282",
+        "cell_id": "register_fused.tilelang.g09",
+        "cell_sha256": "c20b63ddb5e00291c06343da7960809378c34bd1a7966ad6acd82c619f82a415",
+        "config": {
+          "BK": 32,
+          "BM": 256,
+          "BN": 128,
+          "stages": 2
+        },
+        "gate_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/gate/register_fused__tilelang__g09.jsonl",
+        "gate_sha256": "9aaa4c8fe78441345b23fada6a67fcd5b4185f830176edd66af7df7fa032fb46",
+        "implementation_sha256": "98bc09172e0b23b87f41d7a347eb7768cd5184131a62971d69c71d815ffe9b4a",
+        "record_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/records/register_fused__tilelang__g09.json",
+        "record_sha256": "31f8de70cf1b68d559b59c7cdced20aacc22299be5d60d79ed32188b3f1724fa"
+      },
+      {
+        "artifacts_sha256": "f567119580f7271c09a6b0802c232cd10524bd7c701f222b6005114b9a26777a",
+        "cell_id": "register_fused.tilelang.g10",
+        "cell_sha256": "0f2a3cbccbd3ef37bf72a5e31694a4f07686646487e50338acab47531c5c5f74",
+        "config": {
+          "BK": 32,
+          "BM": 256,
+          "BN": 128,
+          "stages": 3
+        },
+        "gate_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/gate/register_fused__tilelang__g10.jsonl",
+        "gate_sha256": "735715d0248887c61f302dee0db43a4f973e40b6e1680712c48d7cf312584f02",
+        "implementation_sha256": "6c19ebc0199d8280379760059a6e53607ddd7a899b4f8da96634c0607d64f66a",
+        "record_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/records/register_fused__tilelang__g10.json",
+        "record_sha256": "2160b62fb0b27a4d5841062c8e51f82c88bd99b0f5d7e2795be3bc399ff76393"
+      },
+      {
+        "artifacts_sha256": "677cf38710f3c5039632285913ffa8b099acdf48f59ed0df28119a4b29f57728",
+        "cell_id": "register_fused.tilelang.g11",
+        "cell_sha256": "cb867028e7fc443d755838f35b5750e1132bb8a7a0a8b629691ae02d49d922ae",
+        "config": {
+          "BK": 32,
+          "BM": 256,
+          "BN": 128,
+          "stages": 4
+        },
+        "gate_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/gate/register_fused__tilelang__g11.jsonl",
+        "gate_sha256": "8e3e0e7e79056ae77b3b1cddb464a382f45e324930c0f40613877eccb05cd8a9",
+        "implementation_sha256": "16cb467da0928c431776941afc850ef1ef8da7e9b9fca20fc818925cdd4461c1",
+        "record_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/records/register_fused__tilelang__g11.json",
+        "record_sha256": "c8fc5154e92a6257a8e706edcbb8a519c48a4ffd2a1b30401ade7750504ffd02"
+      },
+      {
+        "artifacts_sha256": "009263327296a333f158fb67c24c081a4f9d47e2a32061c9ed7542d703449808",
+        "cell_id": "register_fused.tilelang.g12",
+        "cell_sha256": "79176c307e84c25b6a7c2e61e9bc383c127a405b9a1e9e370421990c5f8f013e",
+        "config": {
+          "BK": 64,
+          "BM": 256,
+          "BN": 128,
+          "stages": 2
+        },
+        "gate_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/gate/register_fused__tilelang__g12.jsonl",
+        "gate_sha256": "5827ed7df5a75703fc03572f443cedff24d7badd7b815b858b14f92ab5f0ed7a",
+        "implementation_sha256": "c5757c055bd8e65249d09e263f4e91f046fc6967dfccf583004c8a9e16f62c16",
+        "record_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/records/register_fused__tilelang__g12.json",
+        "record_sha256": "3894d24be0f9bd028229423a34360d63e8fce6c515400621b15da895e4b8c4a8"
+      },
+      {
+        "artifacts_sha256": "858ca9d259453824122cd9d884d2ab287191f952c797827beef90582ff16d84c",
+        "cell_id": "register_fused.tilelang.g13",
+        "cell_sha256": "58c9fadff418cd6e80d747ed20fcb7f3491d65a1ee3f884b1e5b18aa8a2bd6a7",
+        "config": {
+          "BK": 64,
+          "BM": 64,
+          "BN": 128,
+          "stages": 2
+        },
+        "gate_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/gate/register_fused__tilelang__g13.jsonl",
+        "gate_sha256": "19f0e137da0ddacef2d105c66811acf013a81aa0365002c83f153016fbf6a081",
+        "implementation_sha256": "25466b30869d3f9842c51bfe0b84ccf0192ff84d773fb10607a06d5d2eaa84f2",
+        "record_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/records/register_fused__tilelang__g13.json",
+        "record_sha256": "7d4981194623ba72165979ca3fc888d989d5776cdb7d007f5cbf4932324b8dba"
+      },
+      {
+        "artifacts_sha256": "501947f2eb7b7c2e8dca0707afcfb2cd9fc524077f06713f131b14fd5656578d",
+        "cell_id": "register_fused.tilelang.g14",
+        "cell_sha256": "e00933b0ac24c484440265bb82de927053bb36755c2915e870ddc169676fdc92",
+        "config": {
+          "BK": 64,
+          "BM": 64,
+          "BN": 128,
+          "stages": 3
+        },
+        "gate_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/gate/register_fused__tilelang__g14.jsonl",
+        "gate_sha256": "e90dac4faf6f6d6b2573e95c93c9f7a1d6c3f835ddca66b0a1aee26bd9f16a0f",
+        "implementation_sha256": "d008a4feb341b930bc6f49b7ed9263d360fb13a9841473a463ef0876ef71edf7",
+        "record_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/records/register_fused__tilelang__g14.json",
+        "record_sha256": "f77496fbf10c843ddc391d5f4ad27196649298bdc47dabf2ffe0714afdd11ec5"
+      },
+      {
+        "artifacts_sha256": "3ced441dc9e6d1de3b290cc8e11e440d52b0af0f892b9d1cab5d932a5f5bd211",
+        "cell_id": "register_fused.tilelang.g15",
+        "cell_sha256": "e016a5ef17fab78fef63756fe0d2dc9509ea518d8294ef533b3fef734403f22f",
+        "config": {
+          "BK": 64,
+          "BM": 64,
+          "BN": 128,
+          "stages": 4
+        },
+        "gate_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/gate/register_fused__tilelang__g15.jsonl",
+        "gate_sha256": "5ed00377d2137bcd5f6251e4926fb4e7b91c6dfe0f51004a151ff30c85e44378",
+        "implementation_sha256": "f9eecd684fc183ac841bf4f3d3e3b0e032bd850f953f9df407106120b9888033",
+        "record_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/records/register_fused__tilelang__g15.json",
+        "record_sha256": "8301cfa2bdc1ae86eea9a17b06f96bffa15dc4c57901fa6800cfe1fd7fef3127"
+      },
+      {
+        "artifacts_sha256": "bf07818ce63b7d5e4cb13b58812841d1783b74c7540031e934c6d122e34771a1",
+        "cell_id": "register_fused.tilelang.g16",
+        "cell_sha256": "b49789cd928c0a0033d1cd35c3faee49e17a3c19664c0935c783d71cba155160",
+        "config": {
+          "BK": 64,
+          "BM": 128,
+          "BN": 64,
+          "stages": 2
+        },
+        "gate_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/gate/register_fused__tilelang__g16.jsonl",
+        "gate_sha256": "74e7aa18e8ef3c995469858d5ef7f3223ec2389b244b6fcd258a69009430f87f",
+        "implementation_sha256": "64e8b84876ff46f1b3793e585a8e6670d20fd6d74176adc4004fd7b12301719f",
+        "record_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/records/register_fused__tilelang__g16.json",
+        "record_sha256": "70b0e8e5b6246a14a55ac764dd7a047621074f7334649f41b0eea7404db9fa6b"
+      },
+      {
+        "artifacts_sha256": "ca08497a034db14baa70d9c14fd9ef640d4ce064048d1bc56345c636604b216d",
+        "cell_id": "register_fused.tilelang.g17",
+        "cell_sha256": "9744ae34751cf1a90843d16252327c598e209ae74d54482ef95a4f8a8a62edc0",
+        "config": {
+          "BK": 64,
+          "BM": 128,
+          "BN": 64,
+          "stages": 3
+        },
+        "gate_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/gate/register_fused__tilelang__g17.jsonl",
+        "gate_sha256": "338e7c8533ff5b3d5a518903280affd7b48ce4aca57e1aac98c61c0abeb9f768",
+        "implementation_sha256": "67cf10c5f008ed8a01ac1287ded9e6e787800f5781b05bce4e8c13662d2a37a1",
+        "record_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/records/register_fused__tilelang__g17.json",
+        "record_sha256": "c86f5f1102bc2dbd474fc6f78d2cf0d9ec53ce99d7b6cd7c772d177479053cc7"
+      },
+      {
+        "artifacts_sha256": "e061c91060cefac893339a0de163b7e98fb51b9da4235d73d19598c7213d83bf",
+        "cell_id": "register_fused.tilelang.g18",
+        "cell_sha256": "cbb29af87d2b2ff3a751935756a969f25342e437a6b764676f1403e2bfe87b74",
+        "config": {
+          "BK": 64,
+          "BM": 128,
+          "BN": 64,
+          "stages": 4
+        },
+        "gate_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/gate/register_fused__tilelang__g18.jsonl",
+        "gate_sha256": "eb2f70b02dbdc3c4b8bed9a6798803d2a54b885cd43977a618c1d7322813bc3c",
+        "implementation_sha256": "8706c2690930d189a401d7c04f50f7c0a7248083398e88cd9e218d206dee7d99",
+        "record_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/records/register_fused__tilelang__g18.json",
+        "record_sha256": "a17e9b432a1c84b67802de7c8c67f9b16cff671601a4f1bdf5188d07935426f8"
+      }
+    ],
+    "dependency_sha256": {
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v2/campaign_runner.py": "d72331ebcc2e275a471f9da0a2c8f0c9aff8e70dc8d1be23104cf4a21df40783",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v2/candidates.py": "9e35ed7972b69595ea76fc4f6b43947d40d24a00ca3b50500e742c872fb55f5d",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v2/core.py": "aa4e9825ace458a5b7dc8d0eb988f2e98c9e5a336678774c05ebb475c6b5c3e4",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v2/evidence/crossed_v2r3_complete_v1.index.json": "3340a86f4f64404a96461fa5bb5262ff3e1cebacd645d4bd63aaa1bedda212c5",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v2/launch_lock.json": "206b75387acf4d60b688a8e19b3aff094a8ef69d5a0a1b72269d8b24f48be1b6",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit_summary.json": "096a9833d47f858752fd4a31bbee3db7df525d7d36e91593bd6a011b05ff86aa",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/confirmation_selection.json": "a008ba2a5e6a81432eee7e94e7ebb34eeb90e3b88031f901cf10129a4be432ca",
+      "ako_runs/controlled_followup/fused_grid/jobs/fused_gbgs_grid.json": "70bfb1219395c4b231dc41d7e6e5661f6a5fd66a5c5cc26cee53283125e006e3",
+      "ako_runs/controlled_followup/robust_gate/calibration/gate_spec_fused_v2.json": "b6c3afaadf61f5d380a97c6c541828a1ecacd1a89a00b73b66207fe22d765e2e"
+    },
+    "instrument_campaign_id": "fused-epilogue-crossed-v2",
+    "instrument_evidence_index_sha256": "3340a86f4f64404a96461fa5bb5262ff3e1cebacd645d4bd63aaa1bedda212c5",
+    "instrument_launch_lock_sha256": "206b75387acf4d60b688a8e19b3aff094a8ef69d5a0a1b72269d8b24f48be1b6",
+    "instrument_source_bundle_sha256": "abe6873e89686ca94a2dc096b633feff615c7dbfd8fb4e91546850ed26cae20b",
+    "record_type": "decision_complexity_ada_v2_material_index",
+    "schema_version": 1,
+    "target_cell_id": "register_fused.tilelang.g09"
+  },
+  "materials_sha256": "f0a7c0b6f5bf844a97b39009ec0cb154bb91ea4a3f869ec3fce1deec1de803e2",
+  "pilot_analysis": {
+    "control_checks": {
+      "label_sham": {
+        "exact_match_fields_within_replicate": [
+          "attempts_consumed",
+          "event_observed",
+          "first_event_attempt"
+        ]
+      },
+      "target_hint": {
+        "event_at_first_attempt_required_replicates": 4
+      }
+    },
+    "multiplicity": "holm_across_all_four_planned_paired_tests",
+    "paired_contrasts": [
+      [
+        "c2_open_1",
+        "c2_open_2"
+      ],
+      [
+        "c2_open_2",
+        "c2_open_4"
+      ]
+    ],
+    "paired_outcomes": [
+      "attempts_consumed",
+      "active_s"
+    ],
+    "paired_test": "exact_two_sided_sign_flip_of_mean_difference",
+    "rmst_support_policy": "min_preregistered_tau_and_common_observed_support",
+    "survival_tau": {
+      "active_s": 2700,
+      "attempts": 3
+    }
+  },
+  "randomization_seed": "33c603ba76f105a59dc4fed88cccb3eecd1297493bd13c587f283855c23edb6e",
+  "replicates": 4,
+  "schema_version": 1,
+  "search_time_cache_policy": {
+    "directory_environment": {
+      "CUDA_CACHE_PATH": "cuda",
+      "NUMBA_CACHE_DIR": "numba",
+      "TILELANG_CACHE_DIR": "tilelang",
+      "TORCHINDUCTOR_CACHE_DIR": "torchinductor",
+      "TORCH_EXTENSIONS_DIR": "torch_extensions",
+      "TRITON_CACHE_DIR": "triton",
+      "TVM_CACHE_DIR": "tvm",
+      "XDG_CACHE_HOME": "xdg"
+    },
+    "mode": "fresh_empty_root_per_trajectory_attempt",
+    "phase2_tl_cache": "0",
+    "temporary_directory_environment": {
+      "TMPDIR": "attempt_root"
+    }
+  },
+  "settled_tail": {
+    "start_inclusive": 60,
+    "stop_exclusive": 100
+  },
+  "state": "pilot_prelaunch_not_authorized",
+  "target_cell_id": "register_fused.tilelang.g09",
+  "terminal_distribution": "withheld_signed",
+  "terminal_ratio": 1.05,
+  "timing": {
+    "distribution": "randn",
+    "flush_l2": true,
+    "pair_order": "sha256_execution_contract_attempt",
+    "paired_candidate_target": true,
+    "seed": 2026073101,
+    "trials": 100,
+    "warmup_s": 2.0
+  }
+}
