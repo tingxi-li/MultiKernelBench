@@ -1,0 +1,90 @@
+{
+  "artifact_closure": {
+    "algorithm": "sha256(canonical_json(sorted([{path,sha256,size}])))",
+    "excluded_runtime_files": [],
+    "file_count": 39,
+    "root": "ako_runs/controlled_followup/tilelang_abstraction_v6/results/ada_v6r1",
+    "sha256": "efcb11bb11018efc9b72b1b3b8a5e970c880e4d31b48cfdd63eaf381ce61787a",
+    "total_bytes": 8200322
+  },
+  "campaign_id": "tilelang-abstraction-v6-ada",
+  "classification": "NON_CONTROLLING_NCU_TARGET_TMP_CENSUS_INCIDENT",
+  "created_utc": "2026-08-10",
+  "failure": {
+    "failed_stage": "admission_final_census",
+    "mechanism": "The parent live-toolchain check and pinned NCU process used a dedicated external temporary directory, and both exact-executable profiles succeeded. Inside each profiled target, however, prepare_environment(load_only) reset TMPDIR, TMP, and TEMP to the admitted artifact runtime_tmp. NCU's injected target runtime then wrote two lock files per arm into that root, so the unchanged final exact census rejected the attempt.",
+    "root_cause": "The load-only artifact environment mixed TileLang cache/temp bindings with generic process scratch. Generic profiler-runtime scratch must remain inherited from the parent while TILELANG_CACHE_DIR and TILELANG_TMP_DIR remain artifact-bound.",
+    "scientific_effect": "Both arms completed all frozen correctness gates and exact admitted-executable profiles, but admission did not complete. No timing was authorized, no F1/F4c efficiency conclusion is controlling, and no v6 artifact or result may be reused by a successor."
+  },
+  "parent_bindings": {
+    "campaign_lock_sha256": "719eb2fcaa0aef84cd3480b00b3dfa8964e22b7573d48230c0235fec1360269a",
+    "campaign_sha256": "1845e20f6ba977e1cec808f6bca8c9242dc3b667025396134c68147ea3ee5ded",
+    "dependency_bundle_sha256": "6d21368de93e22b894b48b4e36b0691f4d781de28f21e947cc02bbadfab37994",
+    "high_admission_sha256": "b6b983ae31958bceb886fe7cad9778913bf7ee7e534e86938fa7e4f2e7a5505b",
+    "high_gate_sha256": "db8f4e7b4231e6ef9e5cc2e9d2e0ef69c4c62d3695bf2b38203e38b118409423",
+    "high_load_sha256": "1ccff12359b06eaecdde8ece9da31c253c94cd31cb41c7450b0fba460d4e11a4",
+    "high_profile_sha256": "912084c94595689ac149dab6eb8489097c2f532036b668c3ec5799a98d220f9a",
+    "high_raw_profile_sha256": "7bad78208f51c3b8581b0292ae25710364421932b58faa31c0150c68e76df0b5",
+    "launch_receipt_sha256": "ab144f6a9bcf46f1a796d4710648cdda7aa14a9ffcfb24ae1f119c9dbfb751c8",
+    "lock_commit": "f6287a2994e8defda79cd748c214f4f820854be3",
+    "low_admission_sha256": "a7dc448e6f6a69eafdce2bf56c2a3415c601e5d0e1b213e65d91320fe5d0d6c7",
+    "low_gate_sha256": "b292b8a627ac0daeae8690eb257f2cd321751d7600b04986f3a72c0cdc51ab7c",
+    "low_load_sha256": "4e4cb574d9b60b227117ab0f98b79872d620cc3819dc37692c0346fbe86e86bf",
+    "low_profile_sha256": "92bd1ea0daca309b7054dd5c1f88de05f2f39d740711d3700280f0bedc9b3707",
+    "low_raw_profile_sha256": "206cc4357385cef3cbfb227ec394cd6daa338e7a37a56fce8130c457d2f73802",
+    "materials_sha256": "2409dab7d9f690c512df5754fde3c6e3ecba7b0e42682ec5299cabd0cdc9503d",
+    "result_commit": "bc465e59df108bfa899cfe80640e18bbc2aed41f",
+    "source_bundle_sha256": "44a696d6498ae6e8b3bc7d2b3da711dc847bf6450d0ab98b0cc4b2a3c3b8d382",
+    "source_commit": "a93e1e1fa49138d6bc778f6a223b7cffa8c334df"
+  },
+  "policy": {
+    "continuation_authorized": false,
+    "performance_timing_authorized": false,
+    "post_hoc_overlay_authorized": false,
+    "reuse_authorized": false,
+    "successor_requires_fresh_artifacts": true,
+    "successor_requires_load_only_generic_tmp_inheritance": true,
+    "successor_requires_new_lock": true
+  },
+  "profile_census": {
+    "high": {
+      "artifact_identity_match": true,
+      "implementation_sha256": "62e30be7c4f662f78423faf147cfe016cb0a58774a5d454cbd4dd4065c36a8c8",
+      "ncu_returncode": 0,
+      "profile_ok": true,
+      "unexpected_artifact_files": [
+        "runtime_tmp/nvidia/nsight_compute/lock",
+        "runtime_tmp/nvidia/nsight_compute/lock.45af34ad-0c74-74d0-ef3a-652090d837ae"
+      ]
+    },
+    "low": {
+      "artifact_identity_match": true,
+      "implementation_sha256": "4f41a369f577e0b9c671ff0932cd00a8de85138a133ed145ada45784b5c19b0e",
+      "ncu_returncode": 0,
+      "profile_ok": true,
+      "unexpected_artifact_files": [
+        "runtime_tmp/nvidia/nsight_compute/lock",
+        "runtime_tmp/nvidia/nsight_compute/lock.45af34ad-0c74-74d0-ef3a-652090d837ae"
+      ]
+    }
+  },
+  "record_type": "tilelang_abstraction_v6_target_tmp_census_incident",
+  "result_state": "correctness_and_profiles_complete_temp_census_failed_noncontrolling",
+  "schema_version": 1,
+  "sealed_census": {
+    "admission_run_status_retained": false,
+    "admission_summary_retained": false,
+    "correctness_gate_expected_records": 1024,
+    "correctness_gate_failed_records": 0,
+    "correctness_gate_observed_records": 1024,
+    "expected_timing_records_if_admitted": 120,
+    "profile_attempted_records": 2,
+    "profile_successful_records": 2,
+    "retained_timing_records": 0,
+    "unexpected_zero_byte_runtime_files": 4
+  },
+  "successor": {
+    "corrective_campaign_id": "tilelang-abstraction-v7-ada",
+    "requirement": "Bind this incident and its complete v6 closure, keep generic TMPDIR/TMP/TEMP inherited in load-only processes while retaining artifact-bound TileLang cache/temp variables, freshly admit both arms, and preserve all exact-executable and fail-closed checks."
+  }
+}
