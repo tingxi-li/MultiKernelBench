@@ -19,11 +19,25 @@ Its corrective 304-cell successor is also complete: controlling tag
 audit cells, followed by 498 screen and 1,380 confirmation records. Its
 non-frozen interpretation and evidence bindings are in the
 [`crossed_v2r3` result memo](fused_epilogue_crossed_v2/RESULT_CROSSED_V2R3_20260802.md).
-Reciprocal transfer now has a one-honest-
-translator 24-cell corrective design and fail-closed runner admission; the
-effort frontier has a non-controlling cuBLASLt/Triton pilot protocol; and
-`convergence_v2` is retired unlaunched. Those three programs contribute no
-result.
+
+Four narrower, question-focused Ada successors are now landed:
+
+| Question | Current bounded answer |
+|---|---|
+| DSL performance ceiling | The procedure-selected Triton `g05` is faster than TileLang `g05` for one frozen workload and finite search; this is not a general DSL ceiling. |
+| Optimization-trajectory transfer | No destination satisfies the preregistered same-campaign gain-recurrence rule; no transfer claim follows. |
+| TileLang abstraction efficiency | The fixed F4c/F1 comparison has no reportable lower-level latency direction under the directional, equivalence, and sham rules. |
+| Simple-versus-complex convergence | Unanswered: the complete Q4 ledger is invalid/non-controlling because its positive control fails; post-run source diagnosis finds an artifact-hash-domain bug. Even a valid scope is one TileLang family and fixed searcher. |
+
+Exact evidence, commits, and interpretation limits are in the
+[`Q1--Q4 completion memo`](decision_complexity_ada_v2/RESULT_MEMO_20260810.md)
+and the updated [`run ledger`](RUN_20260731.md).
+
+The legacy reciprocal-transfer program still has a one-honest-translator
+24-cell corrective design and fail-closed runner admission; the legacy effort
+frontier has a non-controlling cuBLASLt/Triton pilot protocol; and
+`convergence_v2` remains retired unlaunched. Those three programs contribute no
+result; the narrower successors above do not retroactively complete them.
 
 Design critique and the prioritized plan for what remains — including
 `RUN`/`REDESIGN`/`KILL` verdicts on those three programs — are in
