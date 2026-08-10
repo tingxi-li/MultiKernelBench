@@ -1,0 +1,346 @@
+{
+  "admitted_cache": {
+    "file_count": 12,
+    "files": [
+      {
+        "bytes": 82,
+        "path": "tilelang/0.1.11-x86_64/frontend/13925dd0e1eb166ed38a7b26cabd8ff3fe026f25543dc9438a8f8f12d1395f0c.json",
+        "sha256": "8546c9b56d6b020053e74f271af7fba9bb51b05bb9491663fcd7d8db53477fd2"
+      },
+      {
+        "bytes": 82,
+        "path": "tilelang/0.1.11-x86_64/frontend/b99b4b29b6aac24d9a91bfb41567cad2e43e368d3164e753aa5a54ceb327b6a7.json",
+        "sha256": "25f54a097e68645fe4200f6ff02f4314aceb37a4b8bb1dec143f64239354669a"
+      },
+      {
+        "bytes": 11625,
+        "path": "tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/device_kernel.cu",
+        "sha256": "20ab268ebd77d380afcbde457e4d6cb040f9bd376fc1644955fb8fcdc1d3b45f"
+      },
+      {
+        "bytes": 307528,
+        "path": "tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/executable.so",
+        "sha256": "32c123c3d789e9edbe653eceb06406c9e669d964dbf14cb71815cbd918e51691"
+      },
+      {
+        "bytes": 23732,
+        "path": "tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/host_kernel.cu",
+        "sha256": "f593a773c5c2df30198579f0e340fd8768c123a2577bfb255d1e28da4023c494"
+      },
+      {
+        "bytes": 421,
+        "path": "tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/params.pkl",
+        "sha256": "d381d8ac3f09dce4567aaa0d48e640df5ead50bef1da2b08e504694eddea17c5"
+      },
+      {
+        "bytes": 28506,
+        "path": "tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/prim_func.pkl",
+        "sha256": "52f1c37fb143ac3542aad6cea01120984c783c4bb82dda27a26ac9d37b64208f"
+      },
+      {
+        "bytes": 2211,
+        "path": "tilelang/0.1.11-x86_64/kernels/ed0ec284b216695ffb0bd372fa302b832c7c02145017b42a469547e6ce79f5ed/device_kernel.cu",
+        "sha256": "456d6b96858e26ec77b1d00e1cb452b3ab60a4e56ccea97d4335e29fa7785968"
+      },
+      {
+        "bytes": 74056,
+        "path": "tilelang/0.1.11-x86_64/kernels/ed0ec284b216695ffb0bd372fa302b832c7c02145017b42a469547e6ce79f5ed/executable.so",
+        "sha256": "cace0b103c52a2e4b4cdad3773fef2868cb32249db45af9d248862edd306082d"
+      },
+      {
+        "bytes": 13961,
+        "path": "tilelang/0.1.11-x86_64/kernels/ed0ec284b216695ffb0bd372fa302b832c7c02145017b42a469547e6ce79f5ed/host_kernel.cu",
+        "sha256": "162771de599cb2a8edf8751e3d34439b8113603b740b304d95859460383b6b0c"
+      },
+      {
+        "bytes": 297,
+        "path": "tilelang/0.1.11-x86_64/kernels/ed0ec284b216695ffb0bd372fa302b832c7c02145017b42a469547e6ce79f5ed/params.pkl",
+        "sha256": "2d3f7b607199ad2d30072dad5ccce15dbe7ead8ceb4f7d509268dbe1be2dfb5b"
+      },
+      {
+        "bytes": 17400,
+        "path": "tilelang/0.1.11-x86_64/kernels/ed0ec284b216695ffb0bd372fa302b832c7c02145017b42a469547e6ce79f5ed/prim_func.pkl",
+        "sha256": "edf62b84956143106588dc8948cb3d4517a3d392f7454667fc10f6f087ea4893"
+      }
+    ],
+    "files_sha256": "efd43bcf98a1ef325b69256cc59032a7a563202ef183734d51d6b8d62bf6018e",
+    "generated_sources": [
+      {
+        "bytes": 11625,
+        "path": "tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/device_kernel.cu",
+        "sha256": "20ab268ebd77d380afcbde457e4d6cb040f9bd376fc1644955fb8fcdc1d3b45f"
+      },
+      {
+        "bytes": 23732,
+        "path": "tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/host_kernel.cu",
+        "sha256": "f593a773c5c2df30198579f0e340fd8768c123a2577bfb255d1e28da4023c494"
+      },
+      {
+        "bytes": 2211,
+        "path": "tilelang/0.1.11-x86_64/kernels/ed0ec284b216695ffb0bd372fa302b832c7c02145017b42a469547e6ce79f5ed/device_kernel.cu",
+        "sha256": "456d6b96858e26ec77b1d00e1cb452b3ab60a4e56ccea97d4335e29fa7785968"
+      },
+      {
+        "bytes": 13961,
+        "path": "tilelang/0.1.11-x86_64/kernels/ed0ec284b216695ffb0bd372fa302b832c7c02145017b42a469547e6ce79f5ed/host_kernel.cu",
+        "sha256": "162771de599cb2a8edf8751e3d34439b8113603b740b304d95859460383b6b0c"
+      }
+    ],
+    "loadable_code_objects": [
+      {
+        "bytes": 307528,
+        "path": "tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/executable.so",
+        "sha256": "32c123c3d789e9edbe653eceb06406c9e669d964dbf14cb71815cbd918e51691"
+      },
+      {
+        "bytes": 74056,
+        "path": "tilelang/0.1.11-x86_64/kernels/ed0ec284b216695ffb0bd372fa302b832c7c02145017b42a469547e6ce79f5ed/executable.so",
+        "sha256": "cace0b103c52a2e4b4cdad3773fef2868cb32249db45af9d248862edd306082d"
+      }
+    ],
+    "root": "ako_runs/controlled_followup/tilelang_abstraction_v5/results/ada_v5r1/admission/fused_softmax_f1_f4c__high_artifact/cache"
+  },
+  "artifact_error": null,
+  "artifact_identity_match": true,
+  "artifact_load_path": "ako_runs/controlled_followup/tilelang_abstraction_v5/results/ada_v5r1/admission/fused_softmax_f1_f4c__high.profile.load.json",
+  "artifact_load_sha256": "ad556d4b1d16fd9f4f155076fdbcd0360fec87234e8a91871ed712d6d34a7faf",
+  "campaign_id": "tilelang-abstraction-v5-ada",
+  "campaign_lock_sha256": "6a03600469d7d9b0ffe5ada927bf4a46ad479ad900b0dbd5f53d3ece1bb71fae",
+  "command": [
+    "/opt/nvidia/nsight-compute/2026.2.1/target/linux-desktop-glibc_2_11_3-x64/ncu",
+    "--csv",
+    "--page",
+    "raw",
+    "--target-processes",
+    "all",
+    "--launch-count",
+    "400",
+    "--metrics",
+    "gpu__time_duration.sum,sm__inst_executed_pipe_tensor_op_hmma_v2.sum,sm__pipe_tensor_op_hmma_cycles_active_v2.avg.pct_of_peak_sustained_active,sm__sass_thread_inst_executed_op_ffma_pred_on.sum,sm__warps_active.avg.pct_of_peak_sustained_active,sm__throughput.avg.pct_of_peak_sustained_elapsed,dram__throughput.avg.pct_of_peak_sustained_elapsed,dram__bytes_read.sum,dram__bytes_write.sum,lts__t_sector_hit_rate.pct,smsp__average_warps_issue_stalled_long_scoreboard_per_issue_active.ratio,smsp__average_warps_issue_stalled_barrier_per_issue_active.ratio,smsp__average_warps_issue_stalled_mio_throttle_per_issue_active.ratio,launch__registers_per_thread,launch__shared_mem_per_block_static,launch__shared_mem_per_block_dynamic,launch__grid_size,launch__block_size,launch__occupancy_limit_registers,launch__occupancy_limit_shared_mem",
+    "/home/lxt230026/miniconda3/bin/python",
+    "-m",
+    "ako_runs.controlled_followup.tilelang_abstraction_v5.campaign_runner",
+    "profile-target",
+    "--pair-id",
+    "fused_softmax_f1_f4c",
+    "--side",
+    "high",
+    "--gpu",
+    "0",
+    "--lock",
+    "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/tilelang_abstraction_v5/campaign_lock.json",
+    "--admission-receipt",
+    "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/tilelang_abstraction_v5/results/ada_v5r1/admission/fused_softmax_f1_f4c__high.json",
+    "--output",
+    "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/tilelang_abstraction_v5/results/ada_v5r1/admission/fused_softmax_f1_f4c__high.profile.load.json"
+  ],
+  "dependency_bundle_sha256": "b31f027ca0dde1f86e7b11fb4437d215d80187207e7b7b47c0e314e2e5c4d3e1",
+  "expected_artifact_identity_sha256": "efd43bcf98a1ef325b69256cc59032a7a563202ef183734d51d6b8d62bf6018e",
+  "family": "fused_softmax",
+  "gpu": {
+    "compute_capability": "8.9",
+    "driver_version": "610.43.02",
+    "ncu_sha256": "99b61b4937aa4d473ccb4ef2395d69d5f3de64908a7d65d96bc8f9b73f72476a",
+    "nvcc_sha256": "d51da6fa301a0c63b030c6a9e45b942c5fe2228e63c0ec276a445943cf0bc6f6",
+    "physical_index": 0,
+    "product_name": "NVIDIA RTX 6000 Ada Generation",
+    "uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae"
+  },
+  "gpu_idle_postflight": {
+    "checked_at_unix": 1786384526.9683466,
+    "compute_processes": [],
+    "phase": "profile_child_post",
+    "self_pid": 69816,
+    "stderr": ""
+  },
+  "gpu_idle_postflight_error": null,
+  "gpu_idle_preflight": {
+    "checked_at_unix": 1786384216.725335,
+    "compute_processes": [],
+    "phase": "profile_child_pre",
+    "self_pid": 69816,
+    "stderr": ""
+  },
+  "implementation_sha256": "efd43bcf98a1ef325b69256cc59032a7a563202ef183734d51d6b8d62bf6018e",
+  "ok": true,
+  "pair_id": "fused_softmax_f1_f4c",
+  "parent_pid": 68018,
+  "physical_gpu": 0,
+  "process_pid": 69816,
+  "raw_path": "ako_runs/controlled_followup/tilelang_abstraction_v5/results/ada_v5r1/admission/fused_softmax_f1_f4c__high.profile.raw.json",
+  "raw_sha256": "8016cdf6d8d711c69a1005b594f39af90033e65b0226679822f1edd3a80c7f1b",
+  "remote_authorization": {
+    "head_commit": "c1fb44d6c02986f9a7855fdd7bad8c70fc3abda4",
+    "head_equals_configured_upstream": true,
+    "live_upstream_commit": "c1fb44d6c02986f9a7855fdd7bad8c70fc3abda4",
+    "lock_git_blob": "256f116a517992dc481a14cc007cb7929c70d611",
+    "lock_path": "ako_runs/controlled_followup/tilelang_abstraction_v5/campaign_lock.json",
+    "lock_sha256": "6a03600469d7d9b0ffe5ada927bf4a46ad479ad900b0dbd5f53d3ece1bb71fae",
+    "upstream_commit": "c1fb44d6c02986f9a7855fdd7bad8c70fc3abda4",
+    "upstream_ref": "refs/heads/cross-dsl-6op-ncu-redo",
+    "upstream_remote": "origin"
+  },
+  "returncode": 0,
+  "schema_version": 1,
+  "set": "x_soft_only=1,x_wcache=cached",
+  "side": "high",
+  "stderr_tail": "",
+  "stdout_tail": "497472\",\"10.74\",\"13.40\",\"10.42\",\"10.74\",\"48.44\",\"50.71\",\"46.34\",\"48.44\",\"7.30\",\"30.07\",\"2.80\",\"6\"\n\"10\",\"70129\",\"python3.13\",\"127.0.0.1\",\"main_kernel\",\"1\",\"7\",\"(256, 1, 1)\",\"(1024, 1, 1)\",\"0\",\"8.9\",\"0\",\"0\",\"400\",\"2\",\"0\",\"1\",\"1\",\"1\",\"0\",\"1\",\"0\",\"1\",\"0\",\"402\",\"2505000\",\"0\",\"8\",\"9\",\"0\",\"1\",\"1\",\"1\",\"No-CC\",\"1\",\"1\",\"1\",\"0\",\"0\",\"NVIDIA RTX 6000 Ada Generation\",\"1\",\"0\",\"0\",\"384\",\"6\",\"1\",\"1\",\"384\",\"1\",\"1\",\"1\",\"0\",\"1\",\"649138398\",\"9905\",\"32000\",\"16\",\"3\",\"3\",\"16000\",\"16\",\"161\",\"379654184\",\"1\",\"1\",\"0\",\"0\",\"0\",\"0\",\"1\",\"402\",\"0\",\"1\",\"0\",\"100663296\",\"48\",\"24\",\"71\",\"1\",\"1\",\"134213632\",\"1024\",\"1024\",\"64\",\"24\",\"2505000\",\"2147483647\",\"65535\",\"65535\",\"4\",\"1\",\"10001000\",\"69206016\",\"2147483647\",\"65536\",\"65536\",\"255\",\"49152\",\"101376\",\"102400\",\"1024\",\"1536\",\"48\",\"12\",\"2048\",\"32768\",\"32768\",\"65536\",\"32768\",\"2048\",\"32768\",\"131072\",\"16384\",\"16384\",\"16384\",\"2046\",\"32768\",\"32768\",\"2048\",\"32768\",\"268435456\",\"32768\",\"131072\",\"32768\",\"32768\",\"65536\",\"32768\",\"2048\",\"32768\",\"65000\",\"2097120\",\"131072\",\"32768\",\"32768\",\"131072\",\"16384\",\"32768\",\"16384\",\"8192\",\"16384\",\"8192\",\"2046\",\"32768\",\"32768\",\"1\",\"10001000\",\"1\",\"9\",\"0\",\"0\",\"0\",\"0\",\"142\",\"8\",\"4\",\"1\",\"0\",\"1\",\"0\",\"22\",\"0\",\"0\",\"1\",\"17\",\"1024\",\"8\",\"64\",\"1\",\"1\",\"512\",\"0\",\"0\",\"512\",\"32\",\"65536\",\"50895519744\",\"1\",\"0\",\"1\",\"32\",\"2797749.33\",\"2798720\",\"2796544\",\"33572992\",\"21.33\",\"128\",\"0\",\"256\",\"85.92\",\"85.95\",\"85.88\",\"85.92\",\"42912\",\"42912\",\"42912\",\"42912\",\"1\",\"256\",\"1\",\"1\",\"256\",\"1\",\"0\",\"SIMT\",\"CachePreferNone\",\"1\",\"1024\",\"1\",\"1\",\"1024\",\"\",\"24\",\"3\",\"8\",\"6\",\"942\",\"4976\",\"1816\",\"18874368\",\"80\",\"80\",\"16384\",\"2048\",\"2048\",\"1024\",\"1024\",\"0\",\"142\",\"1024\",\"7\",\"262144\",\"71\",\"all\",\"1024\",\"1\",\"1\",\"1024\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"2.40\",\"50.27\",\"4\",\"4\",\"4\",\"4\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"1\",\"754348784\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"731907726\",\"731907726\",\"731907726\",\"8050984986\",\"731907726\",\"731907726\",\"731907726\",\"8050984986\",\"11\",\"0\",\"0\",\"0\",\"0\",\"0\",\"24\",\"50\",\"0\",\"0\",\"0\",\"0\",\"531672.34\",\"663552\",\"368640\",\"75497472\",\"10.60\",\"13.23\",\"10.29\",\"10.60\",\"47.47\",\"49.91\",\"45.54\",\"47.47\",\"7.30\",\"29.99\",\"2.88\",\"6\"\n\"11\",\"70129\",\"python3.13\",\"127.0.0.1\",\"main_kernel\",\"1\",\"7\",\"(256, 1, 1)\",\"(1024, 1, 1)\",\"0\",\"8.9\",\"0\",\"0\",\"400\",\"2\",\"0\",\"1\",\"1\",\"1\",\"0\",\"1\",\"0\",\"1\",\"0\",\"402\",\"2505000\",\"0\",\"8\",\"9\",\"0\",\"1\",\"1\",\"1\",\"No-CC\",\"1\",\"1\",\"1\",\"0\",\"0\",\"NVIDIA RTX 6000 Ada Generation\",\"1\",\"0\",\"0\",\"384\",\"6\",\"1\",\"1\",\"384\",\"1\",\"1\",\"1\",\"0\",\"1\",\"649138398\",\"9905\",\"32000\",\"16\",\"3\",\"3\",\"16000\",\"16\",\"161\",\"379654184\",\"1\",\"1\",\"0\",\"0\",\"0\",\"0\",\"1\",\"402\",\"0\",\"1\",\"0\",\"100663296\",\"48\",\"24\",\"71\",\"1\",\"1\",\"134213632\",\"1024\",\"1024\",\"64\",\"24\",\"2505000\",\"2147483647\",\"65535\",\"65535\",\"4\",\"1\",\"10001000\",\"69206016\",\"2147483647\",\"65536\",\"65536\",\"255\",\"49152\",\"101376\",\"102400\",\"1024\",\"1536\",\"48\",\"12\",\"2048\",\"32768\",\"32768\",\"65536\",\"32768\",\"2048\",\"32768\",\"131072\",\"16384\",\"16384\",\"16384\",\"2046\",\"32768\",\"32768\",\"2048\",\"32768\",\"268435456\",\"32768\",\"131072\",\"32768\",\"32768\",\"65536\",\"32768\",\"2048\",\"32768\",\"65000\",\"2097120\",\"131072\",\"32768\",\"32768\",\"131072\",\"16384\",\"32768\",\"16384\",\"8192\",\"16384\",\"8192\",\"2046\",\"32768\",\"32768\",\"1\",\"10001000\",\"1\",\"9\",\"0\",\"0\",\"0\",\"0\",\"142\",\"8\",\"4\",\"1\",\"0\",\"1\",\"0\",\"22\",\"0\",\"0\",\"1\",\"17\",\"1024\",\"8\",\"64\",\"1\",\"1\",\"512\",\"0\",\"0\",\"512\",\"32\",\"65536\",\"50895519744\",\"1\",\"0\",\"1\",\"32\",\"2797749.33\",\"2798592\",\"2796544\",\"33572992\",\"10.67\",\"128\",\"0\",\"128\",\"85.81\",\"85.84\",\"85.77\",\"85.81\",\"42976\",\"42976\",\"42976\",\"42976\",\"1\",\"256\",\"1\",\"1\",\"256\",\"1\",\"0\",\"SIMT\",\"CachePreferNone\",\"1\",\"1024\",\"1\",\"1\",\"1024\",\"\",\"24\",\"3\",\"8\",\"6\",\"942\",\"4976\",\"1816\",\"18874368\",\"80\",\"80\",\"16384\",\"2048\",\"2048\",\"1024\",\"1024\",\"0\",\"142\",\"1024\",\"7\",\"262144\",\"71\",\"all\",\"1024\",\"1\",\"1\",\"1024\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"2.40\",\"50.28\",\"4\",\"4\",\"4\",\"4\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"1\",\"754348784\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"731907726\",\"731907726\",\"731907726\",\"8050984986\",\"731907726\",\"731907726\",\"731907726\",\"8050984986\",\"11\",\"0\",\"0\",\"0\",\"0\",\"0\",\"24\",\"50\",\"0\",\"0\",\"0\",\"0\",\"531672.34\",\"663552\",\"368640\",\"75497472\",\"10.61\",\"13.24\",\"10.30\",\"10.61\",\"47.46\",\"49.74\",\"45.68\",\"47.46\",\"7.25\",\"29.93\",\"2.76\",\"6\"\n",
+  "t_end": 1786384527.8632429,
+  "t_start": 1786384216.7282894,
+  "toolchain": {
+    "cuda_tools": {
+      "ncu": {
+        "binary_sha256": "18d8a8aa13c156cd43ebdf24ac950b5386cb229f2a4c931db47ef91cfe785920",
+        "executable_chain": [
+          {
+            "bytes": 2699,
+            "format": "posix_shell",
+            "path": "/usr/local/cuda-13.1/bin/ncu",
+            "role": "cuda_dispatcher",
+            "sha256": "18d8a8aa13c156cd43ebdf24ac950b5386cb229f2a4c931db47ef91cfe785920"
+          },
+          {
+            "bytes": 310,
+            "format": "posix_shell",
+            "path": "/opt/nvidia/nsight-compute/2026.2.1/ncu",
+            "role": "version_wrapper",
+            "sha256": "a44ff2c735c4dcf66c78f3f430155805d6a0b1f74f26331f98ecec03bfbf3f1a"
+          },
+          {
+            "bytes": 39122384,
+            "format": "elf",
+            "path": "/opt/nvidia/nsight-compute/2026.2.1/target/linux-desktop-glibc_2_11_3-x64/ncu",
+            "role": "final_elf",
+            "sha256": "23acb47dac7a6dc1545f0804e793e246d8811c44a55484518390b85c1eebf34f"
+          }
+        ],
+        "executable_chain_sha256": "2ab2cae580d6b901f871ff75b1df2c79de9c854ac3a71641d32e81991b5d0fd6",
+        "path": "/usr/local/cuda-13.1/bin/ncu",
+        "version_sha256": "99b61b4937aa4d473ccb4ef2395d69d5f3de64908a7d65d96bc8f9b73f72476a"
+      },
+      "nvcc": {
+        "binary_sha256": "6ce80365abc2f14ff5f9e069fe687a93d4eaacc555dbf1d1696ee899d39df52a",
+        "path": "/usr/local/cuda-13.1/bin/nvcc",
+        "version_sha256": "d51da6fa301a0c63b030c6a9e45b942c5fe2228e63c0ec276a445943cf0bc6f6"
+      }
+    },
+    "local_modules": {
+      "analyze": {
+        "path": "ako_runs/controlled_followup/tilelang_abstraction_v5/analyze.py",
+        "sha256": "104fc1d070c888747f21ad1274bcf7072291257d94c1a7bffd6c0d7fff41a4e0"
+      },
+      "artifacts": {
+        "path": "ako_runs/controlled_followup/tilelang_abstraction_v5/artifacts.py",
+        "sha256": "05e569a254393ae147b85eccf2aa70692235dbcfb5bd1098b5b3a9c931fa9c8f"
+      },
+      "campaign_runner": {
+        "path": "ako_runs/controlled_followup/tilelang_abstraction_v5/campaign_runner.py",
+        "sha256": "854c9a10cac55a179c6d1e97187898b19a0a407077a04727c2c9271922d4de81"
+      },
+      "fused_abstraction": {
+        "path": "ako_runs/phase2_fused_sdpa/variants2/fused_tilelang_abstraction.py",
+        "sha256": "ac0cbbbba5046d2ffcfd4b21b4d9aadcdaad5728d3a742dee1f77696178a724f"
+      },
+      "fused_gate_recovery_audit": {
+        "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/audit.py",
+        "sha256": "5b7edc232e51ef5601c02be004a101903a49c61289df1705e30daa9da74641ba"
+      },
+      "fused_gate_recovery_common": {
+        "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/common.py",
+        "sha256": "9d4271f33fc2b7977435600ad3fb6d80d521b56e7898471716fbe3fbdf437533"
+      },
+      "fused_gate_recovery_init": {
+        "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/__init__.py",
+        "sha256": "ff0798c2305512ec234cd8360115712eaa70ce05a8e865caa058ae7241eae74c"
+      },
+      "fused_gate_recovery_validate": {
+        "path": "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/validate.py",
+        "sha256": "eea0a2e418380e6fd724a3928a661c40bba56b6ff4e0f1b24e14932e5eb92b9d"
+      },
+      "phase1_common": {
+        "path": "ako_runs/phase1_matmul/common.py",
+        "sha256": "7753fcc00891d475db8675423ca7e48fbc0aa0431ac1e1dd4319e6c2900fd0a7"
+      },
+      "phase2_common": {
+        "path": "ako_runs/phase2_fused_sdpa/common2.py",
+        "sha256": "0293cb15fc3285df199daa58281a1a35147a78b9cbccda8b8f88418eecb39c64"
+      },
+      "phase2_ncu": {
+        "path": "ako_runs/phase2_fused_sdpa/ncu_collect2.py",
+        "sha256": "a3f4c091f44ba0377d81ce26d8e4df350f9677137d84d7bc2b8a795dba824f4b"
+      },
+      "phase2_runner": {
+        "path": "ako_runs/phase2_fused_sdpa/runner2.py",
+        "sha256": "d1ade4461bff35058a3c6e967532960f5cc509f5d6a46c69bded78fbd0aac31e"
+      },
+      "phase2_variants": {
+        "path": "ako_runs/phase2_fused_sdpa/variants2/__init__.py",
+        "sha256": "2afc778f25db9abe2d05299bbd47fa2ad43b7912eee8633936095e6b92662045"
+      },
+      "protocol": {
+        "path": "ako_runs/controlled_followup/tilelang_abstraction_v5/protocol.py",
+        "sha256": "b6f96ee55bafe6c57a8104ba4e4c4510c4219dfc2b057c306be77526f493ea72"
+      }
+    },
+    "package_modules": {
+      "tilelang": {
+        "path": "/home/lxt230026/miniconda3/lib/python3.13/site-packages/tilelang/__init__.py",
+        "sha256": "216c868c8010f149974a8ac04ddfeb107b6edf82f9f6cf710ffd144b122ebd8b"
+      },
+      "tilelang_adapter_base": {
+        "path": "/home/lxt230026/miniconda3/lib/python3.13/site-packages/tilelang/jit/adapter/base.py",
+        "sha256": "6b13b93733a2ad829aafdf56dc2c373785c64fed85327839a2b2e42ec49f16cc"
+      },
+      "tilelang_adapter_kernel_cache": {
+        "path": "/home/lxt230026/miniconda3/lib/python3.13/site-packages/tilelang/jit/adapter/kernel_cache.py",
+        "sha256": "d0ab535744e0ece870135818abaf05b6b43e2bf725243c9641ba21294a664fe9"
+      },
+      "tilelang_cache": {
+        "path": "/home/lxt230026/miniconda3/lib/python3.13/site-packages/tilelang/cache/__init__.py",
+        "sha256": "3367bedef9b5d82cd4bd88e3778eaf6971bbce18c119ad309d0a3541d6687106"
+      },
+      "tilelang_env": {
+        "path": "/home/lxt230026/miniconda3/lib/python3.13/site-packages/tilelang/env.py",
+        "sha256": "2716e59caa95d41ced58bf97d6b8f5d52c08723e3b7069e69499c2fc240bb154"
+      },
+      "tilelang_execution_backend": {
+        "path": "/home/lxt230026/miniconda3/lib/python3.13/site-packages/tilelang/jit/execution_backend.py",
+        "sha256": "876c0a9473df57ab74dc7e4bd8511c673df805ddb8a3fd91afe177505f0b751b"
+      },
+      "tilelang_jit": {
+        "path": "/home/lxt230026/miniconda3/lib/python3.13/site-packages/tilelang/jit/__init__.py",
+        "sha256": "ad513576ffb0773128e3804145e15767cf1acab26ee48f66173b03f5bf5c5638"
+      },
+      "tilelang_jit_kernel": {
+        "path": "/home/lxt230026/miniconda3/lib/python3.13/site-packages/tilelang/jit/kernel.py",
+        "sha256": "534a621bbd99bdda414ea4ad93e7af324b2b974d35c55362285e12b3f6dc7f0f"
+      },
+      "tilelang_kernel_cache": {
+        "path": "/home/lxt230026/miniconda3/lib/python3.13/site-packages/tilelang/cache/kernel_cache.py",
+        "sha256": "59401813dd298951fc00299e9df35f9b6c2c5104ae136227b15fa39f2d503b2a"
+      },
+      "tilelang_tvm_ffi_adapter": {
+        "path": "/home/lxt230026/miniconda3/lib/python3.13/site-packages/tilelang/jit/adapter/tvm_ffi.py",
+        "sha256": "86865f254ac6a7291a363d73c545599281d4a3659eeaab29a5e2dcb9e4a3454c"
+      },
+      "torch": {
+        "path": "/home/lxt230026/miniconda3/lib/python3.13/site-packages/torch/__init__.py",
+        "sha256": "d6388b1e3b16c1f9a22a87898e5f205fa13a97bd65c163f4829a157e0d9d602f"
+      },
+      "triton": {
+        "path": "/home/lxt230026/miniconda3/lib/python3.13/site-packages/triton/__init__.py",
+        "sha256": "96e68192cab5dd11fa30d5dc95d56c29ceecda53477fc3af8f37bee026b7a021"
+      }
+    },
+    "python_executable": "/home/lxt230026/miniconda3/bin/python3.13",
+    "python_executable_sha256": "73bb21a7bd68a5ad09bef6fa8587bd7df33734784cc5248d112926536117e115",
+    "python_implementation": "CPython",
+    "python_version": "3.13.5",
+    "tilelang_version": "0.1.11",
+    "torch_cuda_version": "12.8",
+    "torch_version": "2.10.0+cu128",
+    "triton_version": "3.6.0"
+  },
+  "variant": "F1"
+}
