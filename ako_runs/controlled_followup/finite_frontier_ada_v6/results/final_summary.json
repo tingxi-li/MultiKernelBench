@@ -1,0 +1,601 @@
+{
+  "broader_f1_outside_scope": [
+    "additional_operator_families",
+    "additional_shapes",
+    "additional_input_domains",
+    "additional_gpu_architectures",
+    "operator_family_clustered_inference",
+    "theoretical_or_open_ended_language_ceiling"
+  ],
+  "campaign_id": "finite-frontier-ada-v6",
+  "claim_scope": "one frozen GEMM+bias+exact-GELU+row-softmax shape on physical RTX 6000 Ada GPU 0; Triton and TileLang only; two-stage procedure-selected candidates drawn from the finite registered space",
+  "complete": true,
+  "conclusion": "triton_lower_latency_for_procedure_selected_pair",
+  "estimand": "paired log latency ratio of the independently terminal-confirmed, procedure-selected TileLang and Triton candidates, TileLang over Triton; withheld-signed timing tests generalization of the positive-selected pair",
+  "execution_lock_sha256": "28b09ba7902b7e1763712a086377330a03779a46965a1243ea5b4d8b9cbe81ac",
+  "paired_procedure_selected_ratios": {
+    "positive": {
+      "block_ratios_tilelang_over_triton": [
+        1.069230457894441,
+        1.0474373658388518,
+        1.0085923240563595,
+        1.0485829898452845,
+        1.0522087632401385,
+        1.0330545330901855,
+        1.0487025942167099,
+        1.0545919923042522,
+        1.0409967209997417,
+        1.0416755002859404,
+        1.0234872542834998,
+        1.0366826163702965,
+        1.0401605727222174,
+        1.0213269930813802,
+        1.039790924078403
+      ],
+      "direction_beyond_sham_floor": "triton_lower_latency",
+      "interval": {
+        "ci_hi": 1.0487025942167099,
+        "ci_lo": 1.0330545330901855,
+        "coverage": 0.96484375,
+        "median": 1.0409967209997417,
+        "meets_95": true,
+        "n": 15,
+        "order_k": 4
+      },
+      "reportable_above_sham_floor": true
+    },
+    "withheld_signed": {
+      "block_ratios_tilelang_over_triton": [
+        1.0486203024656797,
+        1.0091334326942443,
+        1.0202511741963665,
+        1.0470573178698988,
+        1.012653227240873,
+        1.033734914748923,
+        1.0229158345263105,
+        1.0453821397766123,
+        1.005477350204993,
+        1.0408981885887214,
+        1.037391508407217,
+        1.0538152011100317,
+        1.0270062112422957,
+        1.015810305415834,
+        1.042596405406837
+      ],
+      "direction_beyond_sham_floor": "triton_lower_latency",
+      "interval": {
+        "ci_hi": 1.0453821397766123,
+        "ci_lo": 1.015810305415834,
+        "coverage": 0.96484375,
+        "median": 1.033734914748923,
+        "meets_95": true,
+        "n": 15,
+        "order_k": 4
+      },
+      "reportable_above_sham_floor": true
+    }
+  },
+  "record_hashes": [
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/launch_receipt.json",
+      "sha256": "618d8085cdd9baf066a67062f8133f31b8513262ee8ff036b3d5143c7654cca5"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/run_status.json",
+      "sha256": "7ea47bb82457fe7179458905f0b0d6a2c8a77ef7a060ebee3931bebc3943dbc5"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__triton__g05__positive__block00.json",
+      "sha256": "95f5dd30d7bab0a9c9407d56c24e419a30c581f4208577cc24621f57617af2d9"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__tilelang__g05__withheld_signed__block00.json",
+      "sha256": "9208adff4b25ee5057d3e095b855d641f8686132b246fe5718857f9c1f4ee6fe"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__triton__g05__withheld_signed__block00.json",
+      "sha256": "fa45285fcb7aec288f1d03125e1da2838545372ea4950bb07e16436d9b19892d"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_b__withheld_signed__block00.json",
+      "sha256": "dee3b30ecd0d17d107d443572bd207e5665a5642a395b20022336b80fe702764"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__tilelang__g05__positive__block00.json",
+      "sha256": "faa0c40ebbb9f8e4cf0200917d973615e519f6bb3cc654b453cc5217cf1e71d2"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_b__positive__block00.json",
+      "sha256": "4a60605784a051240418af6658bd0fbcd4264a32fef09175830d50ec03bdfe70"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_a__withheld_signed__block00.json",
+      "sha256": "0a58a91d082b5fbb27241bbfd3a0531da8c94696785fabb0c24a76660e565083"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_a__positive__block00.json",
+      "sha256": "09bfa3e696039b00d599f45c935f59919f61839b890b4061dd4b49855d121b35"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__tilelang__g05__withheld_signed__block01.json",
+      "sha256": "220a9bd9b5b10191f0af91ac2d9c85cdec8c624136e186972f4dcafecd946a46"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_a__withheld_signed__block01.json",
+      "sha256": "00cf4dd5e0ba6f57d955956a5a55e1bfda28a46da5ee27eb37991e08d484d914"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__triton__g05__positive__block01.json",
+      "sha256": "7ce73a7377767e7f5db091be5e702ddcd25f700e37e021846e9608f4e4a59186"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_b__positive__block01.json",
+      "sha256": "78f74f503588a097ac8faf62c73e3b8540826dcf64679e0cc7f4672edd63a02e"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__triton__g05__withheld_signed__block01.json",
+      "sha256": "05da8ce7afdf5bbe11286bf197a504e6b25543b27726d5040243f5078b83be26"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_a__positive__block01.json",
+      "sha256": "8cf49a8d12aa51e41da6260614cc7b85e3d0d70f921259279355f08480c64c1e"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_b__withheld_signed__block01.json",
+      "sha256": "b376cf7ed5caa9f4010f886e61c1ccfab102ec9c0f392504c19a228c284ddd9a"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__tilelang__g05__positive__block01.json",
+      "sha256": "ceafecb05c278d3cc4b3603e78ec5d41790320569ee93754aa6b2e612bb29aa4"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__tilelang__g05__withheld_signed__block02.json",
+      "sha256": "02351ba81460ea8ec4a68ef4179f770bfaed16788d9535accf9a86dae600a405"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_a__positive__block02.json",
+      "sha256": "c02c60a1305ce439d835a23f88734f34bb8456eb928a2c5a445a8e152e2def3f"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__triton__g05__positive__block02.json",
+      "sha256": "502fe16565a444d6f2b72a2de9a5a7f79df4a99675207c4917046297eef6174f"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__tilelang__g05__positive__block02.json",
+      "sha256": "4fbccb5f9da0f075961a0fdcd12324ca1e6c893539a683203d474c3dc78becb6"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_b__withheld_signed__block02.json",
+      "sha256": "3b9b856afe93778728cdcd30fa797bcf6ffec5c0a86f088b016440680509b7cb"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_a__withheld_signed__block02.json",
+      "sha256": "b6af3a058017431b33ac5400ae3783ce5acbfc35b2ce188ce308be7d410f833c"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_b__positive__block02.json",
+      "sha256": "26ff1ad2c4a7bca756a784d825bc22895e887513626dbe13e01415b2339fe6fe"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__triton__g05__withheld_signed__block02.json",
+      "sha256": "77f94235e4f178582f679f8f25821d81d5a0aa4ccfeb876ea30f164db7c96b42"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__triton__g05__withheld_signed__block03.json",
+      "sha256": "3798862921df7d6eed3f9b151483feb38162191df574d3856600fa7c261d0e91"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_a__positive__block03.json",
+      "sha256": "80dbfa4777ed93d51bce1042a8edb81a50342be75940b2a78eddef7df18e4cd8"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__tilelang__g05__withheld_signed__block03.json",
+      "sha256": "e4978c239b63ecacdef1097fd84916db2f6e6667e3c1bae1f28b340903dd9ab9"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__tilelang__g05__positive__block03.json",
+      "sha256": "721b68a8fd12274344d41ac4e5a851725a40e44cf6283138fed95642b4924ecb"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_b__positive__block03.json",
+      "sha256": "d7b1ba3114387801af26f28661a71d7dc6adb40b3484d0c79ca09dcf85647240"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_a__withheld_signed__block03.json",
+      "sha256": "9b199bcd446c27b89ef173c06d94bfe1d70b8b37f3f3e05ea8f203e43a3ce2af"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_b__withheld_signed__block03.json",
+      "sha256": "3beef137147ce0ec06de668be6ead7789f36c99bbd84392f64ee5cc28dc0017c"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__triton__g05__positive__block03.json",
+      "sha256": "aef81c25d9291e1d0d9022b64c86a4fcc74207068477872667b1457f8177e710"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_b__positive__block04.json",
+      "sha256": "3d6a8613cc36d654e48249de54d9a7398c008f9820de547102a5860143b180bb"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__tilelang__g05__withheld_signed__block04.json",
+      "sha256": "67b7c45790392e1aa330b4c062e44ffee0ff9096a79be9d285a12ee681ffc095"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__triton__g05__positive__block04.json",
+      "sha256": "085530a1521642745da424b97a8043ff0558c40a75794a59d7ef8ed18172d96e"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_a__positive__block04.json",
+      "sha256": "2aea85825373d5722a60c44885904bd7d6b6d2f8121d1b1ee766ff4144a9b1bb"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__tilelang__g05__positive__block04.json",
+      "sha256": "482d25fa8e5dd61e98b537e29d270a0f59af515f57a50cf13e14bffb47cb9a14"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_b__withheld_signed__block04.json",
+      "sha256": "3073d0c7c0aadd799f22e83a8f5efde8695615585e60ae32bfefaeee4fa90c49"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__triton__g05__withheld_signed__block04.json",
+      "sha256": "35e43dfb2a831eb3b099d5d9cb90a3068ed15faaadfbdfb33acd8508b88995db"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_a__withheld_signed__block04.json",
+      "sha256": "9944a951e15a092889701aa5191ec39e449698889a8f3aaa89010bf87d8883a8"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__tilelang__g05__withheld_signed__block05.json",
+      "sha256": "2d1448365af9a8ee809a7718a7ebf31da442e2a9b3bfb9aaf837b50c7cc65896"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_a__withheld_signed__block05.json",
+      "sha256": "77883e64d2f8a74e0fa764d28a95a7d920edf4aa32960d41a4b742ca21a16503"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_b__withheld_signed__block05.json",
+      "sha256": "42c672aa95f52342b8454f690004f1471f34d1bd5b118bc4d647e962fd91336c"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_a__positive__block05.json",
+      "sha256": "b2ea2c4eee8f2d299061a490fe64fe231169f894a09fcc71f97aa9cfee959b68"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__triton__g05__positive__block05.json",
+      "sha256": "6efb9500644ee3a83d977fcdfc4c84a9af4141e3d6c831ef276a421bfb4ea14c"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__triton__g05__withheld_signed__block05.json",
+      "sha256": "43f1404bbb08e2aff87056045a7dcae5f5f192e47cb0d85cf38985bd1a3873c5"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_b__positive__block05.json",
+      "sha256": "3611f5d3066383a92467fbf9f3a4446894693946cbbcbec86ff13191cf54f722"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__tilelang__g05__positive__block05.json",
+      "sha256": "70f2fb26b3519c79eca5515509f99e970ce3b1d7d748d7b58763861ae2ec35ca"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__tilelang__g05__withheld_signed__block06.json",
+      "sha256": "31ba672b54df3d587d215cb5781dfccef0c8e1ac1bcba879afcbd266e8f85388"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_b__positive__block06.json",
+      "sha256": "1127b16fca9b174bcb99debd7e9b64a353d3eb608d7820c2ee4de53c92dabc8d"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__tilelang__g05__positive__block06.json",
+      "sha256": "535583ad17607b85bb3a1a9975a03f0693fe4ac3f62cff7b277489df218c20b3"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_a__positive__block06.json",
+      "sha256": "39fef9c60e03ab87200e4f55695a4f3f55117443d726a4d6f1f6c109811fa59d"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__triton__g05__positive__block06.json",
+      "sha256": "603d0dfcc8f624c1b8701d50ad9c0ba7a4018e9d4e1ab305be10dfae75ec1962"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_a__withheld_signed__block06.json",
+      "sha256": "fee91cea8bb821a5f1de875c008ae3fcdfb5f0f514f79503e9e00144d4fe71cd"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_b__withheld_signed__block06.json",
+      "sha256": "1cb5670066994ea847caf06f678cc8b4df6fae6a57915c7fed6d653f9717bb45"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__triton__g05__withheld_signed__block06.json",
+      "sha256": "9d45ba208806452988b98c8e3df5d6dda8f2ce67e113e26ba3900f48e86bae33"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_a__withheld_signed__block07.json",
+      "sha256": "f32f58bb31733bc6b144c985ca8cebb7bcb4ab1594ed7d004076b313ccd914f5"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__triton__g05__withheld_signed__block07.json",
+      "sha256": "b7197199cf1ddbab7227f79594d203e9a7bc27dce63086ace3864e9237da1fa0"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_b__positive__block07.json",
+      "sha256": "2f3ad1f1e05c95621c826b4f79711f751a446d8b8fae9286777b1d4f1c239d98"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_b__withheld_signed__block07.json",
+      "sha256": "da3f63975d6c5d2f940b246725a8f0ab12cb49fe2877a77e4c22e26e9b85b774"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_a__positive__block07.json",
+      "sha256": "0a093938dd4e4e40d7f5ac8e6086ff95ca516de06f18b1944242ffce36763c62"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__triton__g05__positive__block07.json",
+      "sha256": "ebccf13a9c58add0148f1b9d512998db09ff4bd26ab1d0e96bcf01fdf429afb1"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__tilelang__g05__withheld_signed__block07.json",
+      "sha256": "d12d337cb2f77ecf28b2445f864567763ffff5b5308763de8e265ae6ccb2a4b8"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__tilelang__g05__positive__block07.json",
+      "sha256": "c87b73ff8ab5c580ba1d290b2d594a44464e30fc95f2738133212293049d282a"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_a__positive__block08.json",
+      "sha256": "2debd2ae44692076cf9d00f63c6965f92062a3c1c81e506053f4fe4ba786f309"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__triton__g05__withheld_signed__block08.json",
+      "sha256": "24a6708971b4d59397ae22d7a64d7081bc0d659c412dbbae988473f5e629dd3d"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_b__withheld_signed__block08.json",
+      "sha256": "921de33b495af0e58af473be7e5144b8ea8a0187eb4754f0c2004c9c4193efa0"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__tilelang__g05__withheld_signed__block08.json",
+      "sha256": "445adee7e496d51d7bdd8c3f3040ce40c326b5bc2fd377c8316ba90ae8cc9d59"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_a__withheld_signed__block08.json",
+      "sha256": "49c75034cc7f8053864c4b27863f947daed985ac967de3cca3b541a10f208375"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_b__positive__block08.json",
+      "sha256": "2791b48a2d0813daed5b37145978f883a102baef01781287f62e6b7d1dca1744"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__triton__g05__positive__block08.json",
+      "sha256": "9c2331f8c34a080c6ee578de61816aff5e7bdbddb4403793e6904729a225eee0"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__tilelang__g05__positive__block08.json",
+      "sha256": "a91cf81c4d82f1abdaa7eafff7696afa6b789e4d50b4cda4a946b73135405a54"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__tilelang__g05__withheld_signed__block09.json",
+      "sha256": "3b022320fb73b82f7237d3ea9ceba22dce07153aae48f8f9bbac22f436c8f907"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_b__withheld_signed__block09.json",
+      "sha256": "f507b0221a7a7bb21ea645a5e6f364896600914b48d16cffa942681afb27b09a"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__triton__g05__positive__block09.json",
+      "sha256": "51681dff3df2c28fcc3ff84ef1b4c7707f39f6a1da12f6f1fe720a7a6abcdc1a"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__tilelang__g05__positive__block09.json",
+      "sha256": "29461ecf0faaa820ac3b8d70f75931416dc7fcab89fbe9c31c4f944b28d8a597"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_b__positive__block09.json",
+      "sha256": "923ff03520bddfcd52bac295772144afd0cafcd8656f7c10d5d5adc1ddc2cfa3"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__triton__g05__withheld_signed__block09.json",
+      "sha256": "591f6985f8018cfd72677b8b0def6845e5ed64e47896fba8cde74d4c7a8e92d7"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_a__withheld_signed__block09.json",
+      "sha256": "174c52eaf1ccb939da63512d7e882a17e80144b8d00f451616abde223544439e"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_a__positive__block09.json",
+      "sha256": "e666dc91474efa00f0c61ad2c69732ee2976a1df6efe70d0d7d75bd6cf1f57cd"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__triton__g05__withheld_signed__block10.json",
+      "sha256": "70770e3b7d28fbee1820f5d4c87fcadd353aa257106298fc206325d4ca6ab843"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__tilelang__g05__positive__block10.json",
+      "sha256": "449cb810a584c6d55b25467d46381b1287fa28b6c3c2169226dc60997ca5e1f6"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_a__positive__block10.json",
+      "sha256": "c18acfc307d1afb2f58e718a6d09802a5229d07584ef820eddd21b9b7d79a83b"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__tilelang__g05__withheld_signed__block10.json",
+      "sha256": "899c0dad0d21e0fcbcb8cd50289d6ca41dfa67a50bb2c164ab20c95eae0b48d7"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_a__withheld_signed__block10.json",
+      "sha256": "83433a92d0845f5eae78db5ae5b5dde65a7f3794415a63f72cf6176977d3d56d"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_b__positive__block10.json",
+      "sha256": "375271a6d9a7e5a71d73dc5d91bf1a70479621c5327cf4845c085230c3a12635"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_b__withheld_signed__block10.json",
+      "sha256": "01c788653f79c30e5aa07de7163df0181472c141bc19c34234daa97a6ab5c853"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__triton__g05__positive__block10.json",
+      "sha256": "c165d2e584473330908ab2a97019d0794350c8c1b10eb46ca754f35323ed7f80"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_b__withheld_signed__block11.json",
+      "sha256": "343d574556b0eac03891c39fa1a9f4ac55425f38b252b533cb31ef5abc5c3ce7"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_b__positive__block11.json",
+      "sha256": "ef088e10b19048285620745fff588c76c83ea593394bcc21bcafa5199eef0228"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_a__positive__block11.json",
+      "sha256": "ee0193fd55078d59fab5f91a3edca0157008040fbd05589871c35ba900a98bbb"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__triton__g05__withheld_signed__block11.json",
+      "sha256": "cfb6e8fe67ea986aa2e165511147b89072b1e3a37a4d6e411d680f21a4689745"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__tilelang__g05__positive__block11.json",
+      "sha256": "7a91a5f7c0e48e988a9e2012f42c88ac9ddca44df6173abd24975a42b0236d3f"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__tilelang__g05__withheld_signed__block11.json",
+      "sha256": "482fc0d7beae61621a4c9e06e44bdf63f0934aef751957fc72bb3b4483375da2"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__triton__g05__positive__block11.json",
+      "sha256": "72dfce0db6fe43881a3c51ebc62645fec7bd3de0be46b0e94977f426c6da6f7f"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_a__withheld_signed__block11.json",
+      "sha256": "0191f8f58d37001e32e62bc22abcd13a73f55dd6ecb5d8b88b5c27a4e5440ae7"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__tilelang__g05__withheld_signed__block12.json",
+      "sha256": "5d754683de25ee3fe26ec5640f36f61075249ee741f690b47e7233b993748ad5"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__triton__g05__withheld_signed__block12.json",
+      "sha256": "f0a6f019b5a264175671886b9928df6b9cd3a5a84202eb03697be30bf3497942"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_b__withheld_signed__block12.json",
+      "sha256": "bad8473032ab934e7235b3a4f2486a41c093815732f4233f9dc9056b078e6b87"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_a__positive__block12.json",
+      "sha256": "61342098c93e89bd598c6f79286e919ab4f5e7fe8c72615dfa1b09222a3726c5"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__tilelang__g05__positive__block12.json",
+      "sha256": "510dc81d51b30a02d928c43b4843fb0e96e58608723eb2311c73f549b5c3b414"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_b__positive__block12.json",
+      "sha256": "cc7a024dfacc78c2b86fec8906a0bc73076deddc5cfade330ca32a068ea1b534"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_a__withheld_signed__block12.json",
+      "sha256": "5f6d6aa8458215190e6d4f30417a21d61ea1bca3f913993d47c734c3876e7a89"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__triton__g05__positive__block12.json",
+      "sha256": "5e03c0813f8e419638cfecdf2eef643dfef47609714813821306b1f073d41056"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__tilelang__g05__positive__block13.json",
+      "sha256": "d6a73d58cf2a20577c4448ae21195775e0a26fc0ff4fba4f5eb849cb23a18096"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__triton__g05__withheld_signed__block13.json",
+      "sha256": "1e362724e86995dfab548bbaaa1f52164b0b3ee7d299309d138ae2d73423e546"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_a__withheld_signed__block13.json",
+      "sha256": "54820bf02ca9a73b0cf3cba0493e5c6922f47ade6335d6674d5623d1ba75ba9e"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_a__positive__block13.json",
+      "sha256": "88dda1fda7ce1e990f432a1c909e8d837202484490f535d121c2745ea430c558"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_b__withheld_signed__block13.json",
+      "sha256": "cf62ab1e0ac595ce34ec93a948057f87738ed941d5ace8be5c5f9c49874c7bee"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_b__positive__block13.json",
+      "sha256": "9e61dd6f3651299de9e5b0c5b72605b36aeeb02547df9c97f80406fc12b6d837"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__tilelang__g05__withheld_signed__block13.json",
+      "sha256": "6855f91f23cabe2c44fceef2dc3455ab3923f579ed473a90b10b5f437ba1a1ef"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__triton__g05__positive__block13.json",
+      "sha256": "b7ad4f529e37866b5766ba0f41a6cf24c8c0b2cec2835d6c8ab4177edc2a8d29"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_b__withheld_signed__block14.json",
+      "sha256": "3121f3d8c0dcffac1458820ebc521500caa14538157798343fe91a91d4acbb1d"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__triton__g05__positive__block14.json",
+      "sha256": "30daeb13ba136817423cae59537b4b33f56f369e18108a4c2d132e52c6c1b371"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_b__positive__block14.json",
+      "sha256": "f6604ef375e7ab718561e71fb120efc17bc61bba6e072f953be3d633f1720bd1"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__tilelang__g05__positive__block14.json",
+      "sha256": "d05c20af2f64ed6a43202305e2f5eb313d5165a6286b95f10f31ecc1eab1c3fb"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__triton__g05__withheld_signed__block14.json",
+      "sha256": "199fa9d06b0268ce27db51a11a3b4df6da1fb9e2c08c61f7acef48d92d21531c"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/register_fused__tilelang__g05__withheld_signed__block14.json",
+      "sha256": "f4bf1ebecd796d965e78f60eb6055dd4f948b0598afef9bdab3ce452d2516282"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_a__positive__block14.json",
+      "sha256": "7c794e1ea332d2a73902af727a0f54c529bf5ece2eb82a1c155baf52671ec62f"
+    },
+    {
+      "path": "ako_runs/controlled_followup/finite_frontier_ada_v6/results/terminal_confirm/raw/sham_a__withheld_signed__block14.json",
+      "sha256": "2ff476d73bc4a1aec52fe3591cea789c147719092296ab1778806428407430c2"
+    }
+  ],
+  "record_type": "finite_frontier_ada_final_summary",
+  "schema_version": 1,
+  "selection_binding_sha256": "68be5a946558bf467272bb9c74ae85377e4034e2b648945ac97e8710fdcb6bcd",
+  "sham": {
+    "intervals": {
+      "positive": {
+        "ci_hi": 1.0073710228322366,
+        "ci_lo": 0.9986621971488446,
+        "coverage": 0.96484375,
+        "median": 1.0006693491541812,
+        "meets_95": true,
+        "n": 15,
+        "order_k": 4
+      },
+      "withheld_signed": {
+        "ci_hi": 1.013360077492011,
+        "ci_lo": 0.9967072519268901,
+        "coverage": 0.96484375,
+        "median": 1.0006600710279459,
+        "meets_95": true,
+        "n": 15,
+        "order_k": 4
+      }
+    },
+    "resolution_floor_log_ratio": 0.01327161866360405,
+    "source_config_implementation_sha256": "fdc96ede2b4be3cf308b47427eb543627c454d5517035a728b26c3ee6032bc76"
+  },
+  "source_selection_lock_sha256": "29981c45c2e1542e0d71e3918a5ab9ce8ec6fb7170133ee8ed1607078d652e85",
+  "winners": {
+    "tilelang": "register_fused.tilelang.g05",
+    "triton": "register_fused.triton.g05"
+  },
+  "withheld_signed_interpretation": "generalization test for the positive-selected pair; not a signed-distribution frontier"
+}

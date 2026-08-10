@@ -1,0 +1,20 @@
+{
+  "campaign_id": "finite-frontier-ada-v6",
+  "complete": true,
+  "expected_records": 120,
+  "gpu_idle_postflight": {
+    "checked_at_unix": 1786383599.0293343,
+    "compute_processes": [],
+    "foreign_compute_processes": [],
+    "idle_except_self": true,
+    "phase": "stage_post",
+    "returncode": 0,
+    "self_pid": 38613,
+    "stderr": ""
+  },
+  "launch_receipt_sha256": "618d8085cdd9baf066a67062f8133f31b8513262ee8ff036b3d5143c7654cca5",
+  "observed_records": 120,
+  "record_type": "finite_frontier_ada_run_status",
+  "schema_version": 1,
+  "stage": "terminal_confirm"
+}
