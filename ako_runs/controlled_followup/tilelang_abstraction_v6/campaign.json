@@ -1,0 +1,93 @@
+{
+  "campaign_id": "tilelang-abstraction-v6-ada",
+  "schema_version": 1,
+  "state": "draft_not_frozen",
+  "hardware": {
+    "compute_capability": "8.9",
+    "product_name": "NVIDIA RTX 6000 Ada Generation",
+    "timing_gpu": 0
+  },
+  "inference": {
+    "confirmation_blocks": 15,
+    "delta_hw_log_ratio": 0.03,
+    "distributions": [
+      "positive",
+      "withheld_signed"
+    ],
+    "equivalence_log_ratio": 0.05,
+    "primary_trial_start": 60,
+    "primary_trial_stop": 100,
+    "randomization_seed": 2026080604,
+    "trials": 100,
+    "warmup_seconds": 2.0
+  },
+  "predecessor": {
+    "campaign_id": "tilelang-abstraction-v5-ada",
+    "controlling": false,
+    "reason": "correctness complete but NCU runtime side effects and a nested toolchain probe prevented admission completion"
+  },
+  "pairs": [
+    {
+      "family": "fused_softmax",
+      "gate": {
+        "available": true,
+        "gate_ids": [
+          "conformance_mixed",
+          "semantic_mixed"
+        ],
+        "manifest_material_id": "fused_v2_manifest",
+        "spec_material_id": "fused_v2_gate"
+      },
+      "high": {
+        "level": "TL-H",
+        "set": "x_soft_only=1,x_wcache=cached",
+        "variant": "F1"
+      },
+      "input_contract": {
+        "gelu": "exact_erf",
+        "operand_dtype": "fp16",
+        "output_dtype": "fp32",
+        "probability_dtype": "fp32"
+      },
+      "match": {
+        "algorithm": "row_softmax_single_exp_per_element",
+        "dtype": "fp32_softmax",
+        "instruction_family": "FP32_SFU",
+        "logical_work": {
+          "exp_evaluations": 8388608,
+          "output_elements": 8388608,
+          "row_max_elements": 8388608,
+          "row_sum_elements": 8388608
+        },
+        "pipeline_depth": 1,
+        "profile_equal_fields": [
+          "n_algo_kernels",
+          "grid",
+          "block"
+        ],
+        "threads": 256,
+        "tile": [
+          1,
+          8192
+        ]
+      },
+      "pair_id": "fused_softmax_f1_f4c",
+      "shape": {
+        "K": 8192,
+        "M": 1024,
+        "N": 8192
+      },
+      "low": {
+        "level": "TL-M",
+        "set": "x_soft_only=1,x_wcache=cached",
+        "variant": "F4c"
+      }
+    }
+  ],
+  "scope_policy": {
+    "cross_family_claim_requires_families": 3,
+    "cross_family_claim_requires_shapes_per_family": 3,
+    "current_claim_scope": "local_pair_only",
+    "legacy_results_controlling": false
+  }
+}
