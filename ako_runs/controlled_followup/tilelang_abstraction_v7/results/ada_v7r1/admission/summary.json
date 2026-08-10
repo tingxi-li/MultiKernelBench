@@ -1,0 +1,140 @@
+{
+  "campaign_id": "tilelang-abstraction-v7-ada",
+  "campaign_lock_sha256": "8cf8549b572c195a33c6b503804cf6a0a0fc9db8b63b4bb1716f560224877649",
+  "census": {
+    "current_gate_unavailable": 0,
+    "excluded": 0,
+    "requested_pairs": 1,
+    "timing_eligible": 1
+  },
+  "claim_scope": "local_pair_only",
+  "complete": true,
+  "dependency_bundle_sha256": "cddc5dccecdedc11fb9837bd95f7c1a0cbee8039048d16aa3556b18871649431",
+  "evidence_bundle_sha256": "2b93b762a8b767e0a92cb90044eea7a78553e7620affa033c98b09858c901421",
+  "evidence_sha256": {
+    "ako_runs/controlled_followup/tilelang_abstraction_v7/results/ada_v7r1/admission/fused_softmax_f1_f4c__high.gate.jsonl": "0a826f6e158a3a56ada424f3e2b1273c686be08a96df4bde3f0e2a21cdc7f6da",
+    "ako_runs/controlled_followup/tilelang_abstraction_v7/results/ada_v7r1/admission/fused_softmax_f1_f4c__high.json": "c6d62fd63348e3edd0aab06acc031df1b2175a16161efbd2c496b6a6387aa176",
+    "ako_runs/controlled_followup/tilelang_abstraction_v7/results/ada_v7r1/admission/fused_softmax_f1_f4c__high.profile.json": "257f3c5e96f6026662506e4a862a1215f2158b6f0b63c8ad8b2f705415c86239",
+    "ako_runs/controlled_followup/tilelang_abstraction_v7/results/ada_v7r1/admission/fused_softmax_f1_f4c__high.profile.load.json": "25f8166c45f181386451a8606054571e8570426112e69929b5962fa1f3d9bf4b",
+    "ako_runs/controlled_followup/tilelang_abstraction_v7/results/ada_v7r1/admission/fused_softmax_f1_f4c__high.profile.raw.json": "47c9cba7b0cbe35fbb28bed27b96e8726ff6f8b94fbde267d313715a7ef69677",
+    "ako_runs/controlled_followup/tilelang_abstraction_v7/results/ada_v7r1/admission/fused_softmax_f1_f4c__high_artifact/cache/tilelang/0.1.11-x86_64/frontend/13925dd0e1eb166ed38a7b26cabd8ff3fe026f25543dc9438a8f8f12d1395f0c.json": "8546c9b56d6b020053e74f271af7fba9bb51b05bb9491663fcd7d8db53477fd2",
+    "ako_runs/controlled_followup/tilelang_abstraction_v7/results/ada_v7r1/admission/fused_softmax_f1_f4c__high_artifact/cache/tilelang/0.1.11-x86_64/frontend/b99b4b29b6aac24d9a91bfb41567cad2e43e368d3164e753aa5a54ceb327b6a7.json": "25f54a097e68645fe4200f6ff02f4314aceb37a4b8bb1dec143f64239354669a",
+    "ako_runs/controlled_followup/tilelang_abstraction_v7/results/ada_v7r1/admission/fused_softmax_f1_f4c__high_artifact/cache/tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/device_kernel.cu": "20ab268ebd77d380afcbde457e4d6cb040f9bd376fc1644955fb8fcdc1d3b45f",
+    "ako_runs/controlled_followup/tilelang_abstraction_v7/results/ada_v7r1/admission/fused_softmax_f1_f4c__high_artifact/cache/tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/executable.so": "1ef371bb583c91b63819b23d9594aab5e534e820bae7503a244f86a633a7ea17",
+    "ako_runs/controlled_followup/tilelang_abstraction_v7/results/ada_v7r1/admission/fused_softmax_f1_f4c__high_artifact/cache/tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/host_kernel.cu": "f593a773c5c2df30198579f0e340fd8768c123a2577bfb255d1e28da4023c494",
+    "ako_runs/controlled_followup/tilelang_abstraction_v7/results/ada_v7r1/admission/fused_softmax_f1_f4c__high_artifact/cache/tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/params.pkl": "d381d8ac3f09dce4567aaa0d48e640df5ead50bef1da2b08e504694eddea17c5",
+    "ako_runs/controlled_followup/tilelang_abstraction_v7/results/ada_v7r1/admission/fused_softmax_f1_f4c__high_artifact/cache/tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/prim_func.pkl": "52f1c37fb143ac3542aad6cea01120984c783c4bb82dda27a26ac9d37b64208f",
+    "ako_runs/controlled_followup/tilelang_abstraction_v7/results/ada_v7r1/admission/fused_softmax_f1_f4c__high_artifact/cache/tilelang/0.1.11-x86_64/kernels/ed0ec284b216695ffb0bd372fa302b832c7c02145017b42a469547e6ce79f5ed/device_kernel.cu": "456d6b96858e26ec77b1d00e1cb452b3ab60a4e56ccea97d4335e29fa7785968",
+    "ako_runs/controlled_followup/tilelang_abstraction_v7/results/ada_v7r1/admission/fused_softmax_f1_f4c__high_artifact/cache/tilelang/0.1.11-x86_64/kernels/ed0ec284b216695ffb0bd372fa302b832c7c02145017b42a469547e6ce79f5ed/executable.so": "de05000d0a0133f66b675b0e132625b3c0f5e40adff1639692c5643105d2b873",
+    "ako_runs/controlled_followup/tilelang_abstraction_v7/results/ada_v7r1/admission/fused_softmax_f1_f4c__high_artifact/cache/tilelang/0.1.11-x86_64/kernels/ed0ec284b216695ffb0bd372fa302b832c7c02145017b42a469547e6ce79f5ed/host_kernel.cu": "162771de599cb2a8edf8751e3d34439b8113603b740b304d95859460383b6b0c",
+    "ako_runs/controlled_followup/tilelang_abstraction_v7/results/ada_v7r1/admission/fused_softmax_f1_f4c__high_artifact/cache/tilelang/0.1.11-x86_64/kernels/ed0ec284b216695ffb0bd372fa302b832c7c02145017b42a469547e6ce79f5ed/params.pkl": "2d3f7b607199ad2d30072dad5ccce15dbe7ead8ceb4f7d509268dbe1be2dfb5b",
+    "ako_runs/controlled_followup/tilelang_abstraction_v7/results/ada_v7r1/admission/fused_softmax_f1_f4c__high_artifact/cache/tilelang/0.1.11-x86_64/kernels/ed0ec284b216695ffb0bd372fa302b832c7c02145017b42a469547e6ce79f5ed/prim_func.pkl": "edf62b84956143106588dc8948cb3d4517a3d392f7454667fc10f6f087ea4893",
+    "ako_runs/controlled_followup/tilelang_abstraction_v7/results/ada_v7r1/admission/fused_softmax_f1_f4c__low.gate.jsonl": "aed1ad6621fda55915dba26ee7a054b77e44f385480415d98e8ec38fc4af3101",
+    "ako_runs/controlled_followup/tilelang_abstraction_v7/results/ada_v7r1/admission/fused_softmax_f1_f4c__low.json": "42c7e7aff92ffbeab5c0600e1132ff3c8848dac54e40a5c301e99d67843e8f45",
+    "ako_runs/controlled_followup/tilelang_abstraction_v7/results/ada_v7r1/admission/fused_softmax_f1_f4c__low.profile.json": "d78995a2b17fb752d5a2fcabc467a9057bfe6acaf5dd3165bb632860e3f80f08",
+    "ako_runs/controlled_followup/tilelang_abstraction_v7/results/ada_v7r1/admission/fused_softmax_f1_f4c__low.profile.load.json": "589ceb61e7a9665655d45b35261eba5c6c3c3837d788b8e42238424286eb0f1c",
+    "ako_runs/controlled_followup/tilelang_abstraction_v7/results/ada_v7r1/admission/fused_softmax_f1_f4c__low.profile.raw.json": "042da5c316a0634dd426a64a4a5b9083ca7d691c0d24bd8b3d689732f32625fb",
+    "ako_runs/controlled_followup/tilelang_abstraction_v7/results/ada_v7r1/admission/fused_softmax_f1_f4c__low_artifact/cache/tilelang/0.1.11-x86_64/frontend/6e7f0b45cd19eab394b975a10022071bef18f2d7d1294bbd63fbf9c1a82f7185.json": "fb2f3e59bcc1ff77fbf9df328b0e7b845e300a34d4a9af00a66627467eaca287",
+    "ako_runs/controlled_followup/tilelang_abstraction_v7/results/ada_v7r1/admission/fused_softmax_f1_f4c__low_artifact/cache/tilelang/0.1.11-x86_64/frontend/b99b4b29b6aac24d9a91bfb41567cad2e43e368d3164e753aa5a54ceb327b6a7.json": "25f54a097e68645fe4200f6ff02f4314aceb37a4b8bb1dec143f64239354669a",
+    "ako_runs/controlled_followup/tilelang_abstraction_v7/results/ada_v7r1/admission/fused_softmax_f1_f4c__low_artifact/cache/tilelang/0.1.11-x86_64/kernels/39f8557a6cadcc58b9ce777dd853f45003e288057547491f809369463bb8a0d9/device_kernel.cu": "f3491f74f3e740ac4c4aed364a000570768ca50c5572a9ababc9579957ff6302",
+    "ako_runs/controlled_followup/tilelang_abstraction_v7/results/ada_v7r1/admission/fused_softmax_f1_f4c__low_artifact/cache/tilelang/0.1.11-x86_64/kernels/39f8557a6cadcc58b9ce777dd853f45003e288057547491f809369463bb8a0d9/executable.so": "8d0f79eed6a77aa11e5c1f3201aa1aa45f4583ca7131c0a59fcd30b4861d62d8",
+    "ako_runs/controlled_followup/tilelang_abstraction_v7/results/ada_v7r1/admission/fused_softmax_f1_f4c__low_artifact/cache/tilelang/0.1.11-x86_64/kernels/39f8557a6cadcc58b9ce777dd853f45003e288057547491f809369463bb8a0d9/host_kernel.cu": "b99a138ba355de2c8a84e31367c6fc6f64f0fc35f0264b75a8e5456c52526c7e",
+    "ako_runs/controlled_followup/tilelang_abstraction_v7/results/ada_v7r1/admission/fused_softmax_f1_f4c__low_artifact/cache/tilelang/0.1.11-x86_64/kernels/39f8557a6cadcc58b9ce777dd853f45003e288057547491f809369463bb8a0d9/params.pkl": "2d3f7b607199ad2d30072dad5ccce15dbe7ead8ceb4f7d509268dbe1be2dfb5b",
+    "ako_runs/controlled_followup/tilelang_abstraction_v7/results/ada_v7r1/admission/fused_softmax_f1_f4c__low_artifact/cache/tilelang/0.1.11-x86_64/kernels/39f8557a6cadcc58b9ce777dd853f45003e288057547491f809369463bb8a0d9/prim_func.pkl": "8a10d154f328a7167cd0bbf6ac978e06a0419edb8bc386cfbeede0fb786eb0b1",
+    "ako_runs/controlled_followup/tilelang_abstraction_v7/results/ada_v7r1/admission/fused_softmax_f1_f4c__low_artifact/cache/tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/device_kernel.cu": "20ab268ebd77d380afcbde457e4d6cb040f9bd376fc1644955fb8fcdc1d3b45f",
+    "ako_runs/controlled_followup/tilelang_abstraction_v7/results/ada_v7r1/admission/fused_softmax_f1_f4c__low_artifact/cache/tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/executable.so": "4fb68f49e09b8680a1ce3a6cdccde331414886d590858933ebc8b581281be379",
+    "ako_runs/controlled_followup/tilelang_abstraction_v7/results/ada_v7r1/admission/fused_softmax_f1_f4c__low_artifact/cache/tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/host_kernel.cu": "f593a773c5c2df30198579f0e340fd8768c123a2577bfb255d1e28da4023c494",
+    "ako_runs/controlled_followup/tilelang_abstraction_v7/results/ada_v7r1/admission/fused_softmax_f1_f4c__low_artifact/cache/tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/params.pkl": "d381d8ac3f09dce4567aaa0d48e640df5ead50bef1da2b08e504694eddea17c5",
+    "ako_runs/controlled_followup/tilelang_abstraction_v7/results/ada_v7r1/admission/fused_softmax_f1_f4c__low_artifact/cache/tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/prim_func.pkl": "52f1c37fb143ac3542aad6cea01120984c783c4bb82dda27a26ac9d37b64208f",
+    "ako_runs/controlled_followup/tilelang_abstraction_v7/results/ada_v7r1/admission/launch_receipt.json": "6dadc3d2375e1097ec36f122cc96f963481ff433100e9aac4a1add20c90a8faa",
+    "ako_runs/controlled_followup/tilelang_abstraction_v7/results/ada_v7r1/admission/run_status.json": "6fe47e9dc006c7fa286d8d1d76fac93e19dbac235e8475d0549866445e9930dd"
+  },
+  "generalization_design_ready": false,
+  "launch_receipt_path": "ako_runs/controlled_followup/tilelang_abstraction_v7/results/ada_v7r1/admission/launch_receipt.json",
+  "launch_receipt_sha256": "6dadc3d2375e1097ec36f122cc96f963481ff433100e9aac4a1add20c90a8faa",
+  "material_receipts_verified": true,
+  "pairs": [
+    {
+      "arm_receipts": {
+        "high": {
+          "admission_path": "ako_runs/controlled_followup/tilelang_abstraction_v7/results/ada_v7r1/admission/fused_softmax_f1_f4c__high.json",
+          "admission_sha256": "c6d62fd63348e3edd0aab06acc031df1b2175a16161efbd2c496b6a6387aa176",
+          "profile_path": "ako_runs/controlled_followup/tilelang_abstraction_v7/results/ada_v7r1/admission/fused_softmax_f1_f4c__high.profile.json",
+          "profile_sha256": "257f3c5e96f6026662506e4a862a1215f2158b6f0b63c8ad8b2f705415c86239"
+        },
+        "low": {
+          "admission_path": "ako_runs/controlled_followup/tilelang_abstraction_v7/results/ada_v7r1/admission/fused_softmax_f1_f4c__low.json",
+          "admission_sha256": "42c7e7aff92ffbeab5c0600e1132ff3c8848dac54e40a5c301e99d67843e8f45",
+          "profile_path": "ako_runs/controlled_followup/tilelang_abstraction_v7/results/ada_v7r1/admission/fused_softmax_f1_f4c__low.profile.json",
+          "profile_sha256": "d78995a2b17fb752d5a2fcabc467a9057bfe6acaf5dd3165bb632860e3f80f08"
+        }
+      },
+      "artifact_identity_sha256": {
+        "high": "f1f8ac3d8a8dee7ba7d3faaad2c82021ec72a15f831f87e6ec141b555f2d63d0",
+        "low": "9ddaa666507bb54dd7403d71c1df2412fc313d74446d8b9ca0a4e5c82f598748"
+      },
+      "classification": "runtime_estimand",
+      "family": "fused_softmax",
+      "gate_available": true,
+      "measured_match_audit": {
+        "classification": "runtime_estimand",
+        "included_in_runtime_estimand": true,
+        "mismatch_fields": [],
+        "observed_dynamic_work": {
+          "high": {
+            "block": [
+              256.0
+            ],
+            "grid": [
+              1024.0
+            ],
+            "n_algo_kernels": 1
+          },
+          "low": {
+            "block": [
+              256.0
+            ],
+            "grid": [
+              1024.0
+            ],
+            "n_algo_kernels": 1
+          }
+        },
+        "pair_id": "fused_softmax_f1_f4c",
+        "preregistered_design_assumptions_not_empirically_verified": {
+          "algorithm": "row_softmax_single_exp_per_element",
+          "dtype": "fp32_softmax",
+          "instruction_family": "FP32_SFU",
+          "logical_work": {
+            "exp_evaluations": 8388608,
+            "output_elements": 8388608,
+            "row_max_elements": 8388608,
+            "row_sum_elements": 8388608
+          },
+          "pipeline_depth": 1,
+          "tile": [
+            1,
+            8192
+          ]
+        },
+        "verified_fields": [
+          "full_current_gate",
+          "same_arm_exact_admitted_executable_load",
+          "distinct_treatment_artifacts",
+          "dynamic_work",
+          "launch_geometry"
+        ]
+      },
+      "pair_id": "fused_softmax_f1_f4c",
+      "reasons": [],
+      "timing_eligible": true
+    }
+  ],
+  "record_type": "tilelang_abstraction_v7_admission_summary",
+  "run_status_path": "ako_runs/controlled_followup/tilelang_abstraction_v7/results/ada_v7r1/admission/run_status.json",
+  "run_status_sha256": "6fe47e9dc006c7fa286d8d1d76fac93e19dbac235e8475d0549866445e9930dd",
+  "schema_version": 1,
+  "timing_eligible_pair_ids": [
+    "fused_softmax_f1_f4c"
+  ]
+}

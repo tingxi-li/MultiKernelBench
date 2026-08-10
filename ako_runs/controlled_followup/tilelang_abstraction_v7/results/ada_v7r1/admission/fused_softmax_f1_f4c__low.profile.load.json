@@ -1,0 +1,231 @@
+{
+  "admitted_cache_sha256": "9ddaa666507bb54dd7403d71c1df2412fc313d74446d8b9ca0a4e5c82f598748",
+  "cache_after": {
+    "file_count": 12,
+    "files": [
+      {
+        "bytes": 82,
+        "path": "tilelang/0.1.11-x86_64/frontend/6e7f0b45cd19eab394b975a10022071bef18f2d7d1294bbd63fbf9c1a82f7185.json",
+        "sha256": "fb2f3e59bcc1ff77fbf9df328b0e7b845e300a34d4a9af00a66627467eaca287"
+      },
+      {
+        "bytes": 82,
+        "path": "tilelang/0.1.11-x86_64/frontend/b99b4b29b6aac24d9a91bfb41567cad2e43e368d3164e753aa5a54ceb327b6a7.json",
+        "sha256": "25f54a097e68645fe4200f6ff02f4314aceb37a4b8bb1dec143f64239354669a"
+      },
+      {
+        "bytes": 3273,
+        "path": "tilelang/0.1.11-x86_64/kernels/39f8557a6cadcc58b9ce777dd853f45003e288057547491f809369463bb8a0d9/device_kernel.cu",
+        "sha256": "f3491f74f3e740ac4c4aed364a000570768ca50c5572a9ababc9579957ff6302"
+      },
+      {
+        "bytes": 65864,
+        "path": "tilelang/0.1.11-x86_64/kernels/39f8557a6cadcc58b9ce777dd853f45003e288057547491f809369463bb8a0d9/executable.so",
+        "sha256": "8d0f79eed6a77aa11e5c1f3201aa1aa45f4583ca7131c0a59fcd30b4861d62d8"
+      },
+      {
+        "bytes": 13959,
+        "path": "tilelang/0.1.11-x86_64/kernels/39f8557a6cadcc58b9ce777dd853f45003e288057547491f809369463bb8a0d9/host_kernel.cu",
+        "sha256": "b99a138ba355de2c8a84e31367c6fc6f64f0fc35f0264b75a8e5456c52526c7e"
+      },
+      {
+        "bytes": 297,
+        "path": "tilelang/0.1.11-x86_64/kernels/39f8557a6cadcc58b9ce777dd853f45003e288057547491f809369463bb8a0d9/params.pkl",
+        "sha256": "2d3f7b607199ad2d30072dad5ccce15dbe7ead8ceb4f7d509268dbe1be2dfb5b"
+      },
+      {
+        "bytes": 34393,
+        "path": "tilelang/0.1.11-x86_64/kernels/39f8557a6cadcc58b9ce777dd853f45003e288057547491f809369463bb8a0d9/prim_func.pkl",
+        "sha256": "8a10d154f328a7167cd0bbf6ac978e06a0419edb8bc386cfbeede0fb786eb0b1"
+      },
+      {
+        "bytes": 11625,
+        "path": "tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/device_kernel.cu",
+        "sha256": "20ab268ebd77d380afcbde457e4d6cb040f9bd376fc1644955fb8fcdc1d3b45f"
+      },
+      {
+        "bytes": 307528,
+        "path": "tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/executable.so",
+        "sha256": "4fb68f49e09b8680a1ce3a6cdccde331414886d590858933ebc8b581281be379"
+      },
+      {
+        "bytes": 23732,
+        "path": "tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/host_kernel.cu",
+        "sha256": "f593a773c5c2df30198579f0e340fd8768c123a2577bfb255d1e28da4023c494"
+      },
+      {
+        "bytes": 421,
+        "path": "tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/params.pkl",
+        "sha256": "d381d8ac3f09dce4567aaa0d48e640df5ead50bef1da2b08e504694eddea17c5"
+      },
+      {
+        "bytes": 28506,
+        "path": "tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/prim_func.pkl",
+        "sha256": "52f1c37fb143ac3542aad6cea01120984c783c4bb82dda27a26ac9d37b64208f"
+      }
+    ],
+    "files_sha256": "9ddaa666507bb54dd7403d71c1df2412fc313d74446d8b9ca0a4e5c82f598748",
+    "generated_sources": [
+      {
+        "bytes": 3273,
+        "path": "tilelang/0.1.11-x86_64/kernels/39f8557a6cadcc58b9ce777dd853f45003e288057547491f809369463bb8a0d9/device_kernel.cu",
+        "sha256": "f3491f74f3e740ac4c4aed364a000570768ca50c5572a9ababc9579957ff6302"
+      },
+      {
+        "bytes": 13959,
+        "path": "tilelang/0.1.11-x86_64/kernels/39f8557a6cadcc58b9ce777dd853f45003e288057547491f809369463bb8a0d9/host_kernel.cu",
+        "sha256": "b99a138ba355de2c8a84e31367c6fc6f64f0fc35f0264b75a8e5456c52526c7e"
+      },
+      {
+        "bytes": 11625,
+        "path": "tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/device_kernel.cu",
+        "sha256": "20ab268ebd77d380afcbde457e4d6cb040f9bd376fc1644955fb8fcdc1d3b45f"
+      },
+      {
+        "bytes": 23732,
+        "path": "tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/host_kernel.cu",
+        "sha256": "f593a773c5c2df30198579f0e340fd8768c123a2577bfb255d1e28da4023c494"
+      }
+    ],
+    "loadable_code_objects": [
+      {
+        "bytes": 65864,
+        "path": "tilelang/0.1.11-x86_64/kernels/39f8557a6cadcc58b9ce777dd853f45003e288057547491f809369463bb8a0d9/executable.so",
+        "sha256": "8d0f79eed6a77aa11e5c1f3201aa1aa45f4583ca7131c0a59fcd30b4861d62d8"
+      },
+      {
+        "bytes": 307528,
+        "path": "tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/executable.so",
+        "sha256": "4fb68f49e09b8680a1ce3a6cdccde331414886d590858933ebc8b581281be379"
+      }
+    ],
+    "root": "ako_runs/controlled_followup/tilelang_abstraction_v7/results/ada_v7r1/admission/fused_softmax_f1_f4c__low_artifact/cache"
+  },
+  "cache_before": {
+    "file_count": 12,
+    "files": [
+      {
+        "bytes": 82,
+        "path": "tilelang/0.1.11-x86_64/frontend/6e7f0b45cd19eab394b975a10022071bef18f2d7d1294bbd63fbf9c1a82f7185.json",
+        "sha256": "fb2f3e59bcc1ff77fbf9df328b0e7b845e300a34d4a9af00a66627467eaca287"
+      },
+      {
+        "bytes": 82,
+        "path": "tilelang/0.1.11-x86_64/frontend/b99b4b29b6aac24d9a91bfb41567cad2e43e368d3164e753aa5a54ceb327b6a7.json",
+        "sha256": "25f54a097e68645fe4200f6ff02f4314aceb37a4b8bb1dec143f64239354669a"
+      },
+      {
+        "bytes": 3273,
+        "path": "tilelang/0.1.11-x86_64/kernels/39f8557a6cadcc58b9ce777dd853f45003e288057547491f809369463bb8a0d9/device_kernel.cu",
+        "sha256": "f3491f74f3e740ac4c4aed364a000570768ca50c5572a9ababc9579957ff6302"
+      },
+      {
+        "bytes": 65864,
+        "path": "tilelang/0.1.11-x86_64/kernels/39f8557a6cadcc58b9ce777dd853f45003e288057547491f809369463bb8a0d9/executable.so",
+        "sha256": "8d0f79eed6a77aa11e5c1f3201aa1aa45f4583ca7131c0a59fcd30b4861d62d8"
+      },
+      {
+        "bytes": 13959,
+        "path": "tilelang/0.1.11-x86_64/kernels/39f8557a6cadcc58b9ce777dd853f45003e288057547491f809369463bb8a0d9/host_kernel.cu",
+        "sha256": "b99a138ba355de2c8a84e31367c6fc6f64f0fc35f0264b75a8e5456c52526c7e"
+      },
+      {
+        "bytes": 297,
+        "path": "tilelang/0.1.11-x86_64/kernels/39f8557a6cadcc58b9ce777dd853f45003e288057547491f809369463bb8a0d9/params.pkl",
+        "sha256": "2d3f7b607199ad2d30072dad5ccce15dbe7ead8ceb4f7d509268dbe1be2dfb5b"
+      },
+      {
+        "bytes": 34393,
+        "path": "tilelang/0.1.11-x86_64/kernels/39f8557a6cadcc58b9ce777dd853f45003e288057547491f809369463bb8a0d9/prim_func.pkl",
+        "sha256": "8a10d154f328a7167cd0bbf6ac978e06a0419edb8bc386cfbeede0fb786eb0b1"
+      },
+      {
+        "bytes": 11625,
+        "path": "tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/device_kernel.cu",
+        "sha256": "20ab268ebd77d380afcbde457e4d6cb040f9bd376fc1644955fb8fcdc1d3b45f"
+      },
+      {
+        "bytes": 307528,
+        "path": "tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/executable.so",
+        "sha256": "4fb68f49e09b8680a1ce3a6cdccde331414886d590858933ebc8b581281be379"
+      },
+      {
+        "bytes": 23732,
+        "path": "tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/host_kernel.cu",
+        "sha256": "f593a773c5c2df30198579f0e340fd8768c123a2577bfb255d1e28da4023c494"
+      },
+      {
+        "bytes": 421,
+        "path": "tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/params.pkl",
+        "sha256": "d381d8ac3f09dce4567aaa0d48e640df5ead50bef1da2b08e504694eddea17c5"
+      },
+      {
+        "bytes": 28506,
+        "path": "tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/prim_func.pkl",
+        "sha256": "52f1c37fb143ac3542aad6cea01120984c783c4bb82dda27a26ac9d37b64208f"
+      }
+    ],
+    "files_sha256": "9ddaa666507bb54dd7403d71c1df2412fc313d74446d8b9ca0a4e5c82f598748",
+    "generated_sources": [
+      {
+        "bytes": 3273,
+        "path": "tilelang/0.1.11-x86_64/kernels/39f8557a6cadcc58b9ce777dd853f45003e288057547491f809369463bb8a0d9/device_kernel.cu",
+        "sha256": "f3491f74f3e740ac4c4aed364a000570768ca50c5572a9ababc9579957ff6302"
+      },
+      {
+        "bytes": 13959,
+        "path": "tilelang/0.1.11-x86_64/kernels/39f8557a6cadcc58b9ce777dd853f45003e288057547491f809369463bb8a0d9/host_kernel.cu",
+        "sha256": "b99a138ba355de2c8a84e31367c6fc6f64f0fc35f0264b75a8e5456c52526c7e"
+      },
+      {
+        "bytes": 11625,
+        "path": "tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/device_kernel.cu",
+        "sha256": "20ab268ebd77d380afcbde457e4d6cb040f9bd376fc1644955fb8fcdc1d3b45f"
+      },
+      {
+        "bytes": 23732,
+        "path": "tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/host_kernel.cu",
+        "sha256": "f593a773c5c2df30198579f0e340fd8768c123a2577bfb255d1e28da4023c494"
+      }
+    ],
+    "loadable_code_objects": [
+      {
+        "bytes": 65864,
+        "path": "tilelang/0.1.11-x86_64/kernels/39f8557a6cadcc58b9ce777dd853f45003e288057547491f809369463bb8a0d9/executable.so",
+        "sha256": "8d0f79eed6a77aa11e5c1f3201aa1aa45f4583ca7131c0a59fcd30b4861d62d8"
+      },
+      {
+        "bytes": 307528,
+        "path": "tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/executable.so",
+        "sha256": "4fb68f49e09b8680a1ce3a6cdccde331414886d590858933ebc8b581281be379"
+      }
+    ],
+    "root": "ako_runs/controlled_followup/tilelang_abstraction_v7/results/ada_v7r1/admission/fused_softmax_f1_f4c__low_artifact/cache"
+  },
+  "campaign_id": "tilelang-abstraction-v7-ada",
+  "campaign_lock_sha256": "8cf8549b572c195a33c6b503804cf6a0a0fc9db8b63b4bb1716f560224877649",
+  "load_evidence": {
+    "mode": "load_only",
+    "tilelang_cache_hits": [
+      {
+        "cache_path": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/tilelang_abstraction_v7/results/ada_v7r1/admission/fused_softmax_f1_f4c__low_artifact/cache/tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b",
+        "code_object": {
+          "bytes": 307528,
+          "path": "tilelang/0.1.11-x86_64/kernels/c282c2ee6344238f1dc7ce66b9a2de05c8dc51cbad43b32609c64048b3b2f06b/executable.so",
+          "sha256": "4fb68f49e09b8680a1ce3a6cdccde331414886d590858933ebc8b581281be379"
+        }
+      },
+      {
+        "cache_path": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/tilelang_abstraction_v7/results/ada_v7r1/admission/fused_softmax_f1_f4c__low_artifact/cache/tilelang/0.1.11-x86_64/kernels/39f8557a6cadcc58b9ce777dd853f45003e288057547491f809369463bb8a0d9",
+        "code_object": {
+          "bytes": 65864,
+          "path": "tilelang/0.1.11-x86_64/kernels/39f8557a6cadcc58b9ce777dd853f45003e288057547491f809369463bb8a0d9/executable.so",
+          "sha256": "8d0f79eed6a77aa11e5c1f3201aa1aa45f4583ca7131c0a59fcd30b4861d62d8"
+        }
+      }
+    ]
+  },
+  "pair_id": "fused_softmax_f1_f4c",
+  "schema_version": 1,
+  "side": "low"
+}
