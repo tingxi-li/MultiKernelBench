@@ -1,0 +1,384 @@
+{
+  "admitted_artifact_identity_sha256": "1f09a9d1d4fd7c348ae6f8947ab6935c84871e07c6f022fb462408b16b3a7b71",
+  "admitted_artifact_sha256": "21ef4b5906cba3a84a15f59cca3c8c0477cd804de8abb7fd598f9097c2718d85",
+  "admitted_entry_path": "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/artifacts/register_fused__triton__g01/entry.json",
+  "admitted_entry_sha256": "fe6dc55560934a505d78a46757a06ae002fd787fa87415c78f91c0bdc30e4cfd",
+  "artifact_admission_closure_sha256": "05f189f884bc8dc7b033ae8d6d1ee93a7fa21c06d98b5c39985768656df12382",
+  "artifact_admission_manifest_path": "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/artifact_admission/manifest.json",
+  "artifact_admission_manifest_sha256": "58ada6f882a6d717014b0b870817d16e68d0ff4b4b2078e388289f99f6bbb1c0",
+  "artifact_identity_sha256": "1f09a9d1d4fd7c348ae6f8947ab6935c84871e07c6f022fb462408b16b3a7b71",
+  "artifact_identity_sha256_expected": "1f09a9d1d4fd7c348ae6f8947ab6935c84871e07c6f022fb462408b16b3a7b71",
+  "block": 12,
+  "block_position": 7,
+  "build_metadata": {
+    "artifact_identity_sha256": "1f09a9d1d4fd7c348ae6f8947ab6935c84871e07c6f022fb462408b16b3a7b71",
+    "n_kernels": 2,
+    "predecessor_implementation_sha256_observed": "99451b9fed6ff4054dfa20075de3dc8609827f921870fe4683feee8b331d79bd"
+  },
+  "campaign_id": "native-trajectory-replication-ada-v3",
+  "cell_id": "register_fused.triton.g01",
+  "cell_sha256": "40af58232001ce63a105786baee65134970b9cfda17775e6d9a0e7a0c57adb3b",
+  "cell_sha256_expected": "40af58232001ce63a105786baee65134970b9cfda17775e6d9a0e7a0c57adb3b",
+  "compile_s": 0.42682561699984944,
+  "compute_pids_postflight": [
+    209277
+  ],
+  "compute_pids_preflight": [],
+  "distribution": "positive",
+  "execution_lock_sha256": "458f35e312ec3b1c0dc7582dfdded55b466618d16fef8a05c35bb9ba9d1e479a",
+  "full_median_ms": 1.696768045425415,
+  "global_position": 343,
+  "gpu_postflight": {
+    "compute_cap": "8.9",
+    "driver_version": "610.43.02",
+    "index": "0",
+    "name": "NVIDIA RTX 6000 Ada Generation",
+    "uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae"
+  },
+  "gpu_preflight": {
+    "compute_cap": "8.9",
+    "driver_version": "610.43.02",
+    "index": "0",
+    "name": "NVIDIA RTX 6000 Ada Generation",
+    "uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae"
+  },
+  "label": "register_fused.triton.g01",
+  "live_correctness": {
+    "budget_mean": 0.00010001220703127959,
+    "err_q100": 1.5253317542374134e-07,
+    "err_q50": 3.179593477398157e-09,
+    "err_q90": 1.1918018572032452e-08,
+    "err_q99": 2.713932190090418e-08,
+    "err_q999": 4.5649358071386814e-08,
+    "gate_pass": true,
+    "max_abs_err": 1.5253317542374134e-07,
+    "mean_abs_err": 5.038480035968185e-09,
+    "pct_elems_failing_gate": 0.0,
+    "ref_abs_mean": 0.00012207031279582326,
+    "signed_mean_err": -8.141230745106753e-14
+  },
+  "load_evidence": {
+    "diagnostic_side_compile_skips": [],
+    "mode": "load_only",
+    "tilelang_cache_hits": [],
+    "torch_extension_loads": [],
+    "triton_cache_hits": [
+      [
+        {
+          "path": "triton/AE2VY3L7DPT44BXSE6QQZ7H5TCPFZ62WY33GMPHIV3QHCZYAUDZA/_fused_gemm_kernel.source",
+          "sha256": "3bb1ce44f3bf5387cb7acb2afff10080885dc6b105cb676c622e37bd39c9200b",
+          "size": 29012
+        },
+        {
+          "path": "triton/AE2VY3L7DPT44BXSE6QQZ7H5TCPFZ62WY33GMPHIV3QHCZYAUDZA/_fused_gemm_kernel.ttir",
+          "sha256": "01209e4b21b71d686e6fdf279a279c81fe58309c28379f8bd330fa9f1c15d502",
+          "size": 13418
+        },
+        {
+          "path": "triton/AE2VY3L7DPT44BXSE6QQZ7H5TCPFZ62WY33GMPHIV3QHCZYAUDZA/_fused_gemm_kernel.ttgir",
+          "sha256": "921b7916ae0159e2dda68e5cbdad2ef162a78be1517926f73494c09b32acd2f3",
+          "size": 24432
+        },
+        {
+          "path": "triton/AE2VY3L7DPT44BXSE6QQZ7H5TCPFZ62WY33GMPHIV3QHCZYAUDZA/_fused_gemm_kernel.llir",
+          "sha256": "cab7e295b2992cd05d5b526116052a5874b5828222d9a0dbb4972e8f05c6c2ce",
+          "size": 465737
+        },
+        {
+          "path": "triton/AE2VY3L7DPT44BXSE6QQZ7H5TCPFZ62WY33GMPHIV3QHCZYAUDZA/_fused_gemm_kernel.ptx",
+          "sha256": "2376e99b709b300f773bb29bf41519d306159d49ca6d548cea3138f64b9f5269",
+          "size": 159993
+        },
+        {
+          "path": "triton/AE2VY3L7DPT44BXSE6QQZ7H5TCPFZ62WY33GMPHIV3QHCZYAUDZA/_fused_gemm_kernel.cubin",
+          "sha256": "41146b2140c667f114e56a72bdb94d804a2afce336c1fd9e8e87890112bbea97",
+          "size": 195504
+        },
+        {
+          "path": "triton/AE2VY3L7DPT44BXSE6QQZ7H5TCPFZ62WY33GMPHIV3QHCZYAUDZA/_fused_gemm_kernel.json",
+          "sha256": "0fe8928ff53ea0a7b69edb99c6b6951ab2f5eb2156b8d0f35d9d56faecdd6bda",
+          "size": 1110
+        }
+      ],
+      [
+        {
+          "path": "triton/AWV65CFK4VSINHFP5TBTHUU6AFF32WKZOM65KNT4W3JCSCYCOBSQ/_softmax_kernel.source",
+          "sha256": "672f252fde9fbc42041ac9b9cbd541723ff674a7bc7662bbb8f595cca71d4f01",
+          "size": 8997
+        },
+        {
+          "path": "triton/AWV65CFK4VSINHFP5TBTHUU6AFF32WKZOM65KNT4W3JCSCYCOBSQ/_softmax_kernel.ttir",
+          "sha256": "7347f181a9057b2ea711e813b2c9d05a7466ee52d55bc16b6b7418c0e54f2256",
+          "size": 4861
+        },
+        {
+          "path": "triton/AWV65CFK4VSINHFP5TBTHUU6AFF32WKZOM65KNT4W3JCSCYCOBSQ/_softmax_kernel.ttgir",
+          "sha256": "f3a9f48905fc27396a9e6aec9affec76046155860cefd5c5597e7fb4e9862045",
+          "size": 5247
+        },
+        {
+          "path": "triton/AWV65CFK4VSINHFP5TBTHUU6AFF32WKZOM65KNT4W3JCSCYCOBSQ/_softmax_kernel.llir",
+          "sha256": "52b2ef7c201e0e612f50b6121ae8f00b978f0a7bc5049a2df9b8553bfbbff5ff",
+          "size": 31641
+        },
+        {
+          "path": "triton/AWV65CFK4VSINHFP5TBTHUU6AFF32WKZOM65KNT4W3JCSCYCOBSQ/_softmax_kernel.ptx",
+          "sha256": "3f6dacc616135fff2c4355772d511c565f3822920a472ffa5f97ced81ddc27d4",
+          "size": 26639
+        },
+        {
+          "path": "triton/AWV65CFK4VSINHFP5TBTHUU6AFF32WKZOM65KNT4W3JCSCYCOBSQ/_softmax_kernel.cubin",
+          "sha256": "779d5f5f7f1c6231db31e41765d17c42e3b946d39359d61e31affb2ddf15680a",
+          "size": 25696
+        },
+        {
+          "path": "triton/AWV65CFK4VSINHFP5TBTHUU6AFF32WKZOM65KNT4W3JCSCYCOBSQ/_softmax_kernel.json",
+          "sha256": "75d489a669ca5f824bf75f986e9df67732147c092b1ed23d9371bec3918d8b46",
+          "size": 1104
+        }
+      ]
+    ],
+    "triton_kernel_loads": [
+      [
+        {
+          "path": "triton/AE2VY3L7DPT44BXSE6QQZ7H5TCPFZ62WY33GMPHIV3QHCZYAUDZA/_fused_gemm_kernel.cubin",
+          "sha256": "41146b2140c667f114e56a72bdb94d804a2afce336c1fd9e8e87890112bbea97",
+          "size": 195504
+        }
+      ],
+      [
+        {
+          "path": "triton/AWV65CFK4VSINHFP5TBTHUU6AFF32WKZOM65KNT4W3JCSCYCOBSQ/_softmax_kernel.cubin",
+          "sha256": "779d5f5f7f1c6231db31e41765d17c42e3b946d39359d61e31affb2ddf15680a",
+          "size": 25696
+        }
+      ]
+    ]
+  },
+  "manifest_row_sha256": "8e420a7e4e52a6c54b10c20dfa31f9810889ea08e12c96877fbdd051f1850fd2",
+  "manifest_sha256": "62cc5081086e77a7e880e866ba47ceef2566e52bbcabe02021e71d3a36f523b2",
+  "ok": true,
+  "physical_gpu": 0,
+  "predecessor_implementation_sha256_expected": "99451b9fed6ff4054dfa20075de3dc8609827f921870fe4683feee8b331d79bd",
+  "primary_tail_median_ms": 1.6952320337295532,
+  "process_pid": 209277,
+  "record_kind": "cell",
+  "record_type": "native_trajectory_replication_ada_v3_timing_record",
+  "row_id": "9a9b4341746aa7b6d127c6581ac3dad667b90c32f9d2d6226b480b3c66d728f5",
+  "schema_version": 1,
+  "source_bundle_sha256": "d48071950f727d7c5e348e0dd47447280e5a5ca3d170112adbf711d021361af5",
+  "t_end_unix_ns": 1786059964100560196,
+  "t_start_unix_ns": 1786059961006389790,
+  "times_ms": [
+    1.8012160062789917,
+    1.8001919984817505,
+    1.8001919984817505,
+    1.7991679906845093,
+    1.798143982887268,
+    1.7991679906845093,
+    1.8001919984817505,
+    1.8001919984817505,
+    1.7991679906845093,
+    1.7530879974365234,
+    1.7469439506530762,
+    1.7469439506530762,
+    1.745919942855835,
+    1.7469439506530762,
+    1.7469439506530762,
+    1.745919942855835,
+    1.745919942855835,
+    1.745919942855835,
+    1.745919942855835,
+    1.7469439506530762,
+    1.745919942855835,
+    1.745919942855835,
+    1.745919942855835,
+    1.745919942855835,
+    1.745919942855835,
+    1.745919942855835,
+    1.745919942855835,
+    1.7469439506530762,
+    1.7469439506530762,
+    1.745919942855835,
+    1.7469439506530762,
+    1.7192959785461426,
+    1.7203199863433838,
+    1.721343994140625,
+    1.721343994140625,
+    1.721343994140625,
+    1.7203199863433838,
+    1.7192959785461426,
+    1.7223680019378662,
+    1.721343994140625,
+    1.7203199863433838,
+    1.7049599885940552,
+    1.6957440376281738,
+    1.6957440376281738,
+    1.6947200298309326,
+    1.696768045425415,
+    1.6957440376281738,
+    1.6947200298309326,
+    1.6947200298309326,
+    1.6977920532226562,
+    1.6957440376281738,
+    1.696768045425415,
+    1.6957440376281738,
+    1.6947200298309326,
+    1.6957440376281738,
+    1.6957440376281738,
+    1.696768045425415,
+    1.6947200298309326,
+    1.696768045425415,
+    1.6957440376281738,
+    1.6947200298309326,
+    1.6957440376281738,
+    1.696768045425415,
+    1.6957440376281738,
+    1.6947200298309326,
+    1.696768045425415,
+    1.6957440376281738,
+    1.6957440376281738,
+    1.6957440376281738,
+    1.6947200298309326,
+    1.6947200298309326,
+    1.6957440376281738,
+    1.6957440376281738,
+    1.6957440376281738,
+    1.6977920532226562,
+    1.6957440376281738,
+    1.696768045425415,
+    1.696768045425415,
+    1.6957440376281738,
+    1.6957440376281738,
+    1.6947200298309326,
+    1.6957440376281738,
+    1.696768045425415,
+    1.696768045425415,
+    1.696768045425415,
+    1.6783360242843628,
+    1.6721919775009155,
+    1.6732159852981567,
+    1.670143961906433,
+    1.6711679697036743,
+    1.6721919775009155,
+    1.670143961906433,
+    1.6711679697036743,
+    1.6721919775009155,
+    1.6732159852981567,
+    1.6711679697036743,
+    1.6711679697036743,
+    1.6721919775009155,
+    1.6711679697036743,
+    1.6711679697036743
+  ],
+  "toolchain": {
+    "instrument_dependency_sha256": {
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v1/core.py": "538feecd1e88f90f711ee2a112a4fc28d027684169b7f64b596d96e74899dbcf",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v1/recovery_v1r1/audit.py": "5b7edc232e51ef5601c02be004a101903a49c61289df1705e30daa9da74641ba",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/final_summary.json": "98552e48aa67411ba738e160d454e5c387e1c33cb1c543aa53a20198e4c0a70d",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v1/results/crossed_v1r1/reanalysis_tail_v1.json": "e7296ce10585169e7dcf1f0d66c6bc59bf079d367d30491c46f42a8b3d03d1e5",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v1/tilelang_smem.py": "93c7fe29ecab64a2ad9a1fe1cf28093d8bc4945419741f7da32bc30b048febaf",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v2/INCIDENT_CROSSED_V2R1_20260801.json": "fbd6998ac02df84633ed5707e13f1ed476ec535a38cfc17a51ab1f76adbf9b04",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v2/INCIDENT_CROSSED_V2R2_20260801.json": "61b5c53e97b9ee621059df575242a62c705649eb1a6eea79fd561e11fde1b012",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v2/INCIDENT_CROSSED_V2_20260801.json": "4a385b3b45544069f13a54f78df8fc12b6f74919b76c87e83bd1d91463247eb7",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/audit/receipts/shard00.json": "a5a3dd6ac9e13a7d2e42eca9932ff5e87eaaed0f31f7ae116ab986832bcd1f29",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/audit/receipts/shard01.json": "001716a9841b1a432a7b3616c4fb36852988c486e0b2de59a03b2736c6fb6a90",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/audit/receipts/shard02.json": "1efe91e6f53e5adb81a3471a0cf740ec1665f30e8156532b93f9f44eb92b7f17",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2/audit/receipts/shard03.json": "3862f4917e043b7315fb7c28e6b3d44df80401ef778a8fc0186e48b364b36d8f",
+      "ako_runs/controlled_followup/fused_grid/jobs/fused_gbgs_grid.json": "70bfb1219395c4b231dc41d7e6e5661f6a5fd66a5c5cc26cee53283125e006e3",
+      "ako_runs/controlled_followup/fused_grid/manifest.json": "3ca4395603ed60d0f54caf5fc213d245790be84eb29ba36f638c866a48720439",
+      "ako_runs/controlled_followup/fused_grid/robust_adapter.py": "688d9b29673d9314f50a3e8f6a8fc217b8497b27fb3eac13a5234cd9b7a29502",
+      "ako_runs/controlled_followup/fused_grid/robust_adapter_manifest.json": "81e3478b61800e09147a6cb213ba1786b200c137a728a5a9c258241c0a6004ba",
+      "ako_runs/controlled_followup/legacy_cuda_harness_fix/checked_cuda_launch.h": "e6b6712ae55a2673566e02c08aa1d6350e96f885954a1391c61d14d355ee51aa",
+      "ako_runs/controlled_followup/robust_gate/calibration/gate_spec_fused_v2.json": "b6c3afaadf61f5d380a97c6c541828a1ecacd1a89a00b73b66207fe22d765e2e",
+      "ako_runs/controlled_followup/robust_gate/manifest.json": "28d51cd4f1730bd190e63c7cad60670c37b67784393270e63e859a1685fc8a62",
+      "ako_runs/phase1_matmul/common.py": "7753fcc00891d475db8675423ca7e48fbc0aa0431ac1e1dd4319e6c2900fd0a7",
+      "ako_runs/phase1_matmul/variants/__init__.py": "0ac322f46ab46fe0bf6d9eb6241c7eacf6b9844f5f6d927dbccfc81a1005a585",
+      "ako_runs/phase1_matmul/variants/cuda_noptx_gemm.py": "b3935c4e9516304cbbe0b3ab8e32e1fadc1264f48f26ee00fe52aede6e032217",
+      "ako_runs/phase1_matmul/variants/cuda_unlimited_gemm.py": "c9629300ce871476eb95cdecc5337229c43d3206e674c35d86a7f65d20a87ad5",
+      "ako_runs/phase1_matmul/variants/tilelang_gemm.py": "07d40bb5fee951ecec7ad1a7ca1815b5fae6761b3bb42e81f81c15ef806af268",
+      "ako_runs/phase1_matmul/variants/triton_gemm.py": "8c9cc3d60d549eb941dcb68a0ee7b0a6173b849a368eb55c75ec91c68612e108",
+      "ako_runs/phase2_fused_sdpa/common2.py": "0293cb15fc3285df199daa58281a1a35147a78b9cbccda8b8f88418eecb39c64",
+      "ako_runs/phase2_fused_sdpa/runner2.py": "d1ade4461bff35058a3c6e967532960f5cc509f5d6a46c69bded78fbd0aac31e",
+      "ako_runs/phase2_fused_sdpa/variants2/__init__.py": "2afc778f25db9abe2d05299bbd47fa2ad43b7912eee8633936095e6b92662045",
+      "ako_runs/phase2_fused_sdpa/variants2/cuda_fused_common.py": "c047985e84428246a455a20107cd5309d63528a593374ed2a4418e531c915c36",
+      "ako_runs/phase2_fused_sdpa/variants2/fused_cuda_noptx.py": "6abbea8ea28d5d6623da90385e417ec279fd5a022cf2144a56ae8fab684e2058",
+      "ako_runs/phase2_fused_sdpa/variants2/fused_tilelang.py": "c2a0704d81bdb4b2f78377870a1bc45c6945db77bccc8e89b2a0fd4b46511684",
+      "ako_runs/phase2_fused_sdpa/variants2/fused_triton.py": "20c4f27fdc9145beec6b4cdb99ed8e9d57cbdbede87bace51319d782f378272e"
+    },
+    "instrument_source_sha256": {
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v2/README.md": "37814ad6219ca19c3cb07085f6ba0ba633908048dd01808abed27308b74f6480",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v2/__init__.py": "fb48d3337adb472cc5daf24558faa62ba949eaa52070b339c3c6a5a3860caf88",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v2/analyze.py": "ac5cd372f7622f94847d098f82844b99b06eccf6493c52138ea9ef4090379f96",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v2/campaign.json": "84ec8c1503f120ece3d140e6beee66ed55a7546c6e0cee7f387cca08f6c64b2a",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v2/campaign_runner.py": "d72331ebcc2e275a471f9da0a2c8f0c9aff8e70dc8d1be23104cf4a21df40783",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v2/candidates.py": "9e35ed7972b69595ea76fc4f6b43947d40d24a00ca3b50500e742c872fb55f5d",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v2/capture_evidence.py": "26cd0c2eb5e522abbfed2324dc40a4825da27a90f3869e30ea2b7f111ab8d8ce",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v2/core.py": "aa4e9825ace458a5b7dc8d0eb988f2e98c9e5a336678774c05ebb475c6b5c3e4",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v2/cuda_noptx_register.py": "eaaf6ee5828a17a1c93e7ba0b8e577b857ed0930c8591d36ae2b9e6115dc420e",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v2/cuda_unlimited.py": "6f0cac21f4daaa741d46f0223c31404a2ec718423867bebb988355ddc2f617d7",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v2/freeze.py": "351b98fb955fc565a5924ec60edda0fe6ae9d90ac7189da3bf305f6e7e820589",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v2/make_manifest.py": "5d5b703f32d7759036a03cf2a34420df9d011a7c865f73ef1a176a446e93c4bc",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v2/postprocess.py": "a3b70d7a405df799b188f9db8100d1457ddd8f9b7735c59fed068794179b0ce6",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v2/resolve_support.py": "2ba7eac3383d7d596ab873a1d5b39bf77f26e87a358b30aa9142107f35c7798a",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v2/support_probes.py": "6938edb3c17fa33a5969a8ae9f2c37ba3d638e536f3f1c9654c5bc36e51ff8a5",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v2/support_resolution.json": "db3aa3bfa6610c907c851ced726ffdc1e9906cb9175f10c5d1031db67ed1d020",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v2/tests/__init__.py": "fc2858863a06f469da41e21372eece8dffaab6ef87d887b9f9730c7ea989110e",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v2/tests/test_builders.py": "1a6f345f15c353d0d73ec4df26573597a8687263ba85d807dcd9214e30c0c0fa",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v2/tests/test_protocol.py": "bdb946ed7f1b6fe184331947880fe18321f3947023e503b9a2906218f54b0067",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v2/triton_smem.py": "eb4a0ef2a93cb85f63acc0896204d999a8d7349ce06ce757b5595a4323847a8f",
+      "ako_runs/controlled_followup/fused_epilogue_crossed_v2/validate.py": "718cb81159811bf06e6187613a8eb65e785881b9049196b38887dee2ff21c4fa"
+    },
+    "module_files": {
+      "common": {
+        "path": "/home/lxt230026/MultiKernelBench/ako_runs/phase1_matmul/common.py",
+        "sha256": "7753fcc00891d475db8675423ca7e48fbc0aa0431ac1e1dd4319e6c2900fd0a7"
+      },
+      "common2": {
+        "path": "/home/lxt230026/MultiKernelBench/ako_runs/phase2_fused_sdpa/common2.py",
+        "sha256": "0293cb15fc3285df199daa58281a1a35147a78b9cbccda8b8f88418eecb39c64"
+      },
+      "crossed_candidates": {
+        "path": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/fused_epilogue_crossed_v2/candidates.py",
+        "sha256": "9e35ed7972b69595ea76fc4f6b43947d40d24a00ca3b50500e742c872fb55f5d"
+      },
+      "crossed_core": {
+        "path": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/fused_epilogue_crossed_v2/core.py",
+        "sha256": "aa4e9825ace458a5b7dc8d0eb988f2e98c9e5a336678774c05ebb475c6b5c3e4"
+      },
+      "runner2": {
+        "path": "/home/lxt230026/MultiKernelBench/ako_runs/phase2_fused_sdpa/runner2.py",
+        "sha256": "d1ade4461bff35058a3c6e967532960f5cc509f5d6a46c69bded78fbd0aac31e"
+      },
+      "tilelang": {
+        "path": "/home/lxt230026/miniconda3/lib/python3.13/site-packages/tilelang/__init__.py",
+        "sha256": "216c868c8010f149974a8ac04ddfeb107b6edf82f9f6cf710ffd144b122ebd8b"
+      },
+      "torch": {
+        "path": "/home/lxt230026/miniconda3/lib/python3.13/site-packages/torch/__init__.py",
+        "sha256": "d6388b1e3b16c1f9a22a87898e5f205fa13a97bd65c163f4829a157e0d9d602f"
+      },
+      "triton": {
+        "path": "/home/lxt230026/miniconda3/lib/python3.13/site-packages/triton/__init__.py",
+        "sha256": "96e68192cab5dd11fa30d5dc95d56c29ceecda53477fc3af8f37bee026b7a021"
+      }
+    },
+    "nvcc": {
+      "path": "/usr/local/cuda-13.1/bin/nvcc",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2025 NVIDIA Corporation\nBuilt on Tue_Dec_16_07:23:41_PM_PST_2025\nCuda compilation tools, release 13.1, V13.1.115\nBuild cuda_13.1.r13.1/compiler.37061995_0"
+    },
+    "python_executable": "/home/lxt230026/miniconda3/bin/python3.13",
+    "python_executable_sha256": "73bb21a7bd68a5ad09bef6fa8587bd7df33734784cc5248d112926536117e115",
+    "python_implementation": "CPython",
+    "python_version": "3.13.5",
+    "tilelang_version": "0.1.11",
+    "torch_cuda_version": "12.8",
+    "torch_version": "2.10.0+cu128",
+    "triton_version": "3.6.0"
+  },
+  "trials": 100,
+  "warmup_iterations_actual": 1204,
+  "warmup_s": 2.0
+}

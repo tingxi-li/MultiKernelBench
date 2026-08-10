@@ -1,0 +1,21 @@
+{
+  "campaign_id": "native-trajectory-replication-ada-v3",
+  "child_completed_unix_ns": 1786060288335823215,
+  "child_launched_unix_ns": 1786060278056046899,
+  "compute_pids_after_child": [],
+  "global_position": 374,
+  "gpu_idle_after_child": {
+    "compute_cap": "8.9",
+    "driver_version": "610.43.02",
+    "index": "0",
+    "name": "NVIDIA RTX 6000 Ada Generation",
+    "uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae"
+  },
+  "gpu_postflight_error": null,
+  "raw_path": "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/raw/position374__b5d321b20e4af38a.json",
+  "raw_sha256": "7da3abe65378951c16f7e166c753dd7d52f0be17b082a72fdd6eeaec72aa17a3",
+  "record_type": "native_trajectory_replication_ada_v3_position_receipt",
+  "returncode": 0,
+  "row_id": "b5d321b20e4af38aa6a0fcf03f48ed515c050229eee190d2b2c06a1c116fc29f",
+  "schema_version": 1
+}
