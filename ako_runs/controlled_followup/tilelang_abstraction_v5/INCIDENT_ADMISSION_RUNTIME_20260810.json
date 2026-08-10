@@ -1,0 +1,80 @@
+{
+  "artifact_closure": {
+    "algorithm": "sha256(canonical_json(sorted([{path,sha256,size}])))",
+    "excluded_runtime_files": [],
+    "file_count": 36,
+    "root": "ako_runs/controlled_followup/tilelang_abstraction_v5/results/ada_v5r1",
+    "sha256": "46c4d3191c32fcd37fbd0282a6cde375532349c6e19abf923977d8c35b6c1427",
+    "total_bytes": 8173328
+  },
+  "campaign_id": "tilelang-abstraction-v5-ada",
+  "classification": "NON_CONTROLLING_NCU_RUNTIME_ADMISSION_INCIDENT",
+  "created_utc": "2026-08-10",
+  "failure": {
+    "failed_stage": "admission_final_census",
+    "mechanism": "The high-arm exact-executable profile succeeded, but NCU inherited the admitted artifact root as its temporary directory and retained two Nsight lock files outside the admitted cache. The low-arm profile target recursively called the live NCU toolchain probe while already running under NCU and timed out before writing its load receipt. The final exact census therefore rejected the attempt.",
+    "root_causes": {
+      "artifact_census": "The parent NCU process inherited TMPDIR, TMP, and TEMP inside the high-arm artifact root and retained runtime_tmp/nvidia/nsight_compute/lock plus its GPU-UUID-specific lock sibling.",
+      "profile_target": "profile_target requested check_gpu=True, which re-ran live_toolchain and traced ncu --version from inside an NCU target; that nested profiler invocation timed out after 30 seconds."
+    },
+    "scientific_effect": "Both arms completed all frozen correctness gates, but admission did not complete. No performance timing was authorized, no F1/F4c efficiency conclusion is controlling, and no v5 artifact or result may be reused by a successor."
+  },
+  "parent_bindings": {
+    "campaign_lock_sha256": "6a03600469d7d9b0ffe5ada927bf4a46ad479ad900b0dbd5f53d3ece1bb71fae",
+    "campaign_sha256": "211f8acbb68829b83068ea9ce0c89b8d05f64e72a8c06da840c00fe69382c196",
+    "high_admission_sha256": "e782181a4377e600f0c7e8676056f85b753d664f9bdf286d1e01b226179a842f",
+    "high_profile_sha256": "61c1f8f0987d0e884421e76c23c63ce19cd20023fe62039675ac7e48b373bb96",
+    "launch_receipt_sha256": "b72d4021c174aba5cbcb950488ca459dd9cca533730f69b41e319862468bd0f8",
+    "low_admission_sha256": "8418f7fd4cf9219879fef15fb5086aa7c5c55110dc0644766c7f9d5cfb9ecce1",
+    "low_profile_sha256": "7f51f7bbc54442812f1c434438e27df0adcdee34db03c6c0cebe40c5402e6dad",
+    "materials_sha256": "7bc4910d9e201c5cfbb931c6bdd5872d576fa04c4fd18a3f675d4ca7acf2c4fd",
+    "result_commit": "5dedf6eb1bebb9d4afa5267ec8b30a81935c2d24",
+    "source_commit": "e6a40204df55dd8da60a4453f18c918de2788367"
+  },
+  "policy": {
+    "continuation_authorized": false,
+    "performance_timing_authorized": false,
+    "post_hoc_overlay_authorized": false,
+    "reuse_authorized": false,
+    "successor_requires_external_ncu_temporary_directory": true,
+    "successor_requires_fresh_artifacts": true,
+    "successor_requires_new_lock": true,
+    "successor_requires_parent_only_live_toolchain_preflight": true
+  },
+  "profile_census": {
+    "high": {
+      "artifact_identity_match": true,
+      "ncu_returncode": 0,
+      "profile_ok": true,
+      "unexpected_artifact_files": [
+        "runtime_tmp/nvidia/nsight_compute/lock",
+        "runtime_tmp/nvidia/nsight_compute/lock.45af34ad-0c74-74d0-ef3a-652090d837ae"
+      ]
+    },
+    "low": {
+      "artifact_identity_match": false,
+      "load_receipt_written": false,
+      "ncu_returncode": 1,
+      "profile_ok": false,
+      "terminal_error": "nested ncu --version timed out after 30 seconds"
+    }
+  },
+  "record_type": "tilelang_abstraction_v5_admission_runtime_incident",
+  "result_state": "correctness_complete_profile_runtime_failed_noncontrolling",
+  "schema_version": 1,
+  "sealed_census": {
+    "admission_run_status_retained": false,
+    "admission_summary_retained": false,
+    "correctness_gate_expected_records": 1024,
+    "correctness_gate_failed_records": 0,
+    "correctness_gate_observed_records": 1024,
+    "expected_timing_records_if_admitted": 120,
+    "profile_attempted_records": 2,
+    "profile_successful_records": 1,
+    "retained_timing_records": 0
+  },
+  "successor": {
+    "corrective_campaign_id": "tilelang-abstraction-v6-ada",
+    "requirement": "Bind this incident and its complete v5 closure, route the parent NCU process temporary directory outside admitted artifact roots, avoid live NCU probing inside the profiler target, freshly admit both arms, and retain all exact-executable and fail-closed checks."
+  }
+}
