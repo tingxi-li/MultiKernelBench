@@ -1,0 +1,45 @@
+{
+  "active_s": 12.309798158001286,
+  "attempt_index": 3,
+  "authorization_sha256": "f9df11457be8b1153386dba6b66e9a98ed64babe45df18a35f181217bb9daa2b",
+  "cache_isolation": {
+    "directory_environment": {
+      "CUDA_CACHE_PATH": "cuda",
+      "NUMBA_CACHE_DIR": "numba",
+      "TILELANG_CACHE_DIR": "tilelang",
+      "TORCHINDUCTOR_CACHE_DIR": "torchinductor",
+      "TORCH_EXTENSIONS_DIR": "torch_extensions",
+      "TRITON_CACHE_DIR": "triton",
+      "TVM_CACHE_DIR": "tvm",
+      "XDG_CACHE_HOME": "xdg"
+    },
+    "mode": "fresh_empty_root_per_trajectory_attempt",
+    "phase2_tl_cache": "0",
+    "scope_sha256": "13631dbaadcf61a5743add70560401b88e4c77b797dfe66ea1a171147beecf50"
+  },
+  "campaign_id": "decision-complexity-ada-v2-pilot",
+  "candidate_cell_id": "register_fused.tilelang.g09",
+  "child_pid": 540941,
+  "error": "ProtocolError: candidate implementation artifacts drift",
+  "execution_lock_sha256": "07839a323a4fe93ddcd4f4f57599b8f669b394a7f1b5e2212af6f0d7552a4e1e",
+  "gpu_lock_paths": [
+    "/tmp/multikernelbench-GPU-45af34ad-0c74-74d0-ef3a-652090d837ae-timing.lock"
+  ],
+  "gpu_slot": 0,
+  "gpu_uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae",
+  "manifest_sha256": "128a83d272b04ffb8e066bf2b57bbe481bb5e7abc695290f537006bf2ab206bc",
+  "parent_pid": 540414,
+  "physical_gpu_preflight": {
+    "compute_cap": "8.9",
+    "driver_version": "610.43.02",
+    "index": "0",
+    "name": "NVIDIA RTX 6000 Ada Generation",
+    "uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae"
+  },
+  "record_type": "decision_complexity_ada_v2_attempt",
+  "schema_version": 1,
+  "terminal_status": "AUDIT_FAILED",
+  "toolchain_sha256": "82defeb42c201eab8d00d9b7260dbd54b8cfc8f6cb2cbaa365212b995ce8285f",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/decision_complexity_ada_v2/runner.py\", line 889, in attempt\n    _validate_built_material(label, built, material)\n    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/decision_complexity_ada_v2/runner.py\", line 802, in _validate_built_material\n    raise protocol.ProtocolError(f\"{label} implementation artifacts drift\")\nako_runs.controlled_followup.decision_complexity_ada_v2.protocol.ProtocolError: candidate implementation artifacts drift\n",
+  "trajectory_id": "1d3027b5fe248e2fca647d35833458cd7edfd13fd06bb23f7202a1227f26b9f7"
+}

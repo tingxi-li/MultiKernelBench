@@ -1,0 +1,73 @@
+{
+  "attempt_index": 17,
+  "authorization": {
+    "attempt_index": 17,
+    "authorization_nonce": "02247e2e98a9a555ec374f31ef0adc377413212b7af9be9c1d4d966a1e3e7959",
+    "authorized_unix_ns": 1786393469823953139,
+    "campaign_id": "decision-complexity-ada-v2-pilot",
+    "candidate_cell_id": "register_fused.tilelang.g17",
+    "canonical_output": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/decision_complexity_ada_v2/results/trajectories/1558541e9b848161caf507fd6e1a6b2dbf7247f7f623d7ec05bce04b507bd0fd/attempts/attempt17.json",
+    "child_pid": 539771,
+    "execution_lock_sha256": "07839a323a4fe93ddcd4f4f57599b8f669b394a7f1b5e2212af6f0d7552a4e1e",
+    "gpu_lock_paths": [
+      "/tmp/multikernelbench-GPU-45af34ad-0c74-74d0-ef3a-652090d837ae-timing.lock"
+    ],
+    "gpu_slot": 0,
+    "gpu_uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae",
+    "launch_receipt_sha256": "13454e0179a9b0ee9ab0cd2c733efdac05c9a1bf508b5ddcc926ffd278e84c91",
+    "manifest_sha256": "128a83d272b04ffb8e066bf2b57bbe481bb5e7abc695290f537006bf2ab206bc",
+    "parent_pid": 535961,
+    "scope": "attempt",
+    "spawn_requested_unix_ns": 1786393469823651160,
+    "staging_output": "/home/lxt230026/tmp/decision-complexity-gpu0-attempt17-djtrogjo/attempt.json",
+    "trajectory_authorization_sha256": "857ef8ef5c4d230b0696505c6207425a72d487b41dbdca4ac1657fbd0b446d9a",
+    "trajectory_id": "1558541e9b848161caf507fd6e1a6b2dbf7247f7f623d7ec05bce04b507bd0fd"
+  },
+  "authorization_sha256": "0e8e125a0c87fcbafbada31267c9a9b709a55fd8a467396c6127841f0384ef03",
+  "campaign_id": "decision-complexity-ada-v2-pilot",
+  "candidate_cell_id": "register_fused.tilelang.g17",
+  "child_authorized_unix_ns": 1786393469823953139,
+  "child_completed_unix_ns": 1786393483408503047,
+  "child_launched_unix_ns": 1786393469823651160,
+  "child_pid": 539771,
+  "gpu_postflight": {
+    "gpu": {
+      "compute_cap": "8.9",
+      "driver_version": "610.43.02",
+      "index": "0",
+      "name": "NVIDIA RTX 6000 Ada Generation",
+      "uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae"
+    },
+    "occupancy": {
+      "compute_apps": [],
+      "query_completed_unix_ns": 1786393483440554069,
+      "query_started_unix_ns": 1786393483426137647,
+      "returncode": 0
+    }
+  },
+  "gpu_preflight": {
+    "gpu": {
+      "compute_cap": "8.9",
+      "driver_version": "610.43.02",
+      "index": "0",
+      "name": "NVIDIA RTX 6000 Ada Generation",
+      "uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae"
+    },
+    "occupancy": {
+      "compute_apps": [],
+      "query_completed_unix_ns": 1786393469823348989,
+      "query_started_unix_ns": 1786393469808860568,
+      "returncode": 0
+    }
+  },
+  "gpu_slot": 0,
+  "gpu_uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae",
+  "parent_pid": 535961,
+  "raw_path": "ako_runs/controlled_followup/decision_complexity_ada_v2/results/trajectories/1558541e9b848161caf507fd6e1a6b2dbf7247f7f623d7ec05bce04b507bd0fd/attempts/attempt17.json",
+  "raw_sha256": "42b265032c1bb559ed7c125184468307da7931165cea4603c2f0ee1520760e5d",
+  "record_type": "decision_complexity_ada_v2_attempt_parent_receipt",
+  "returncode": 0,
+  "schema_version": 1,
+  "trajectory_authorization_sha256": "857ef8ef5c4d230b0696505c6207425a72d487b41dbdca4ac1657fbd0b446d9a",
+  "trajectory_id": "1558541e9b848161caf507fd6e1a6b2dbf7247f7f623d7ec05bce04b507bd0fd"
+}

@@ -1,0 +1,172 @@
+{
+  "active_s": 239.65602696199858,
+  "arm": "c2_open_4",
+  "attempt_receipts": [
+    {
+      "parent_path": "ako_runs/controlled_followup/decision_complexity_ada_v2/results/trajectories/74c7822f206e0ef21680d4fa896c31223e359dd14487b3b93d182f2a60de1308/attempt_parent_receipts/attempt01.json",
+      "parent_sha256": "bda78a2f03b166823808f5b394f47eae200c6f653929a9cde88fa26b6f971ac7",
+      "path": "ako_runs/controlled_followup/decision_complexity_ada_v2/results/trajectories/74c7822f206e0ef21680d4fa896c31223e359dd14487b3b93d182f2a60de1308/attempts/attempt01.json",
+      "sha256": "a79ceaeb1a3dcd37509db7dfd0101d4b82b23e1f47230d972f1487e56dff17a9"
+    },
+    {
+      "parent_path": "ako_runs/controlled_followup/decision_complexity_ada_v2/results/trajectories/74c7822f206e0ef21680d4fa896c31223e359dd14487b3b93d182f2a60de1308/attempt_parent_receipts/attempt02.json",
+      "parent_sha256": "05ae575e6deb4818171ba9878d0ae4cedb1af8a6016561f9be828a2b2c2ac28a",
+      "path": "ako_runs/controlled_followup/decision_complexity_ada_v2/results/trajectories/74c7822f206e0ef21680d4fa896c31223e359dd14487b3b93d182f2a60de1308/attempts/attempt02.json",
+      "sha256": "81a7bfcc2c9294b97f073e56111893ffb72fedecce2ee5f4022042ff1e00953f"
+    },
+    {
+      "parent_path": "ako_runs/controlled_followup/decision_complexity_ada_v2/results/trajectories/74c7822f206e0ef21680d4fa896c31223e359dd14487b3b93d182f2a60de1308/attempt_parent_receipts/attempt03.json",
+      "parent_sha256": "d82b4cd1531d35985c1509f2ab5216cfdbca0ad72e78c5b07c26920069b7e67d",
+      "path": "ako_runs/controlled_followup/decision_complexity_ada_v2/results/trajectories/74c7822f206e0ef21680d4fa896c31223e359dd14487b3b93d182f2a60de1308/attempts/attempt03.json",
+      "sha256": "ebb3b0bd3af24cc9e36de20bba2258dd68dcf69a574f8bfa9ac8bbfe01daa528"
+    },
+    {
+      "parent_path": "ako_runs/controlled_followup/decision_complexity_ada_v2/results/trajectories/74c7822f206e0ef21680d4fa896c31223e359dd14487b3b93d182f2a60de1308/attempt_parent_receipts/attempt04.json",
+      "parent_sha256": "14ddc6e9ae6c1afc6e5289e728645a5495e9f872183cdd149518aba8a42c8ec6",
+      "path": "ako_runs/controlled_followup/decision_complexity_ada_v2/results/trajectories/74c7822f206e0ef21680d4fa896c31223e359dd14487b3b93d182f2a60de1308/attempts/attempt04.json",
+      "sha256": "6ea0dbdfe1b268127c8eccd7ccb5c06d55605c5c1d5d92c12b0ed58284422c65"
+    },
+    {
+      "parent_path": "ako_runs/controlled_followup/decision_complexity_ada_v2/results/trajectories/74c7822f206e0ef21680d4fa896c31223e359dd14487b3b93d182f2a60de1308/attempt_parent_receipts/attempt05.json",
+      "parent_sha256": "cd6723c3809dc30a482b4194cded05c196a18a732d7774c20e42ac82c37b94ff",
+      "path": "ako_runs/controlled_followup/decision_complexity_ada_v2/results/trajectories/74c7822f206e0ef21680d4fa896c31223e359dd14487b3b93d182f2a60de1308/attempts/attempt05.json",
+      "sha256": "b1046a8ab132d386c191c828861745230b1f0ce3c9aff3de1153cd376eb4f315"
+    },
+    {
+      "parent_path": "ako_runs/controlled_followup/decision_complexity_ada_v2/results/trajectories/74c7822f206e0ef21680d4fa896c31223e359dd14487b3b93d182f2a60de1308/attempt_parent_receipts/attempt06.json",
+      "parent_sha256": "cd46c0d075c6283d1656004cf408c3df62c462b6094d51c8281da731303fb22c",
+      "path": "ako_runs/controlled_followup/decision_complexity_ada_v2/results/trajectories/74c7822f206e0ef21680d4fa896c31223e359dd14487b3b93d182f2a60de1308/attempts/attempt06.json",
+      "sha256": "7628f3cd1e0e044bedd86b23ff722f5db1abb8538bacb5e867ec39896104a9f8"
+    },
+    {
+      "parent_path": "ako_runs/controlled_followup/decision_complexity_ada_v2/results/trajectories/74c7822f206e0ef21680d4fa896c31223e359dd14487b3b93d182f2a60de1308/attempt_parent_receipts/attempt07.json",
+      "parent_sha256": "f81af87963657ae38ebac90eddd1a04fe2fbf2861a68e3eec2f3bad78b64925e",
+      "path": "ako_runs/controlled_followup/decision_complexity_ada_v2/results/trajectories/74c7822f206e0ef21680d4fa896c31223e359dd14487b3b93d182f2a60de1308/attempts/attempt07.json",
+      "sha256": "d372df37b47221a8f70f01a8fc972bdd77b0f40a1c5edb1f89d575d80ffdc643"
+    },
+    {
+      "parent_path": "ako_runs/controlled_followup/decision_complexity_ada_v2/results/trajectories/74c7822f206e0ef21680d4fa896c31223e359dd14487b3b93d182f2a60de1308/attempt_parent_receipts/attempt08.json",
+      "parent_sha256": "2bb8ec0e581e5f15262a8cc3144e19ac0568a970993f2ca6ddfc494dde83f68d",
+      "path": "ako_runs/controlled_followup/decision_complexity_ada_v2/results/trajectories/74c7822f206e0ef21680d4fa896c31223e359dd14487b3b93d182f2a60de1308/attempts/attempt08.json",
+      "sha256": "3dd2c1d980f1e8084a45c8953ac34fa6ff0f6a08b1a1ac628c7d4bc1dca90b2e"
+    },
+    {
+      "parent_path": "ako_runs/controlled_followup/decision_complexity_ada_v2/results/trajectories/74c7822f206e0ef21680d4fa896c31223e359dd14487b3b93d182f2a60de1308/attempt_parent_receipts/attempt09.json",
+      "parent_sha256": "e7589a9f585aac07900ad812609615bb148550f050a570069de63cbc6d6a70f9",
+      "path": "ako_runs/controlled_followup/decision_complexity_ada_v2/results/trajectories/74c7822f206e0ef21680d4fa896c31223e359dd14487b3b93d182f2a60de1308/attempts/attempt09.json",
+      "sha256": "fde2d038991f79a230cb0fbabf0f255ca4f9c55dde5187843e81e2487ee8300a"
+    },
+    {
+      "parent_path": "ako_runs/controlled_followup/decision_complexity_ada_v2/results/trajectories/74c7822f206e0ef21680d4fa896c31223e359dd14487b3b93d182f2a60de1308/attempt_parent_receipts/attempt10.json",
+      "parent_sha256": "0c7e8a25aa114c4e5372fbdbb7c362b63b39e281fc1e7a0504c7f9191b2d80f2",
+      "path": "ako_runs/controlled_followup/decision_complexity_ada_v2/results/trajectories/74c7822f206e0ef21680d4fa896c31223e359dd14487b3b93d182f2a60de1308/attempts/attempt10.json",
+      "sha256": "49bf7f2f0cb9cd113ab6036a57e0840c8e85709efaa0a01b1b69974790d4368b"
+    },
+    {
+      "parent_path": "ako_runs/controlled_followup/decision_complexity_ada_v2/results/trajectories/74c7822f206e0ef21680d4fa896c31223e359dd14487b3b93d182f2a60de1308/attempt_parent_receipts/attempt11.json",
+      "parent_sha256": "8c18a842ef23ff0843d8ae38713ddd3650dc9afeff6c4dbffd5bd2b2675e0108",
+      "path": "ako_runs/controlled_followup/decision_complexity_ada_v2/results/trajectories/74c7822f206e0ef21680d4fa896c31223e359dd14487b3b93d182f2a60de1308/attempts/attempt11.json",
+      "sha256": "c4164bca5e486502c8668c4614cecfc11072761100f68c578bcd3d6f9b376f3e"
+    },
+    {
+      "parent_path": "ako_runs/controlled_followup/decision_complexity_ada_v2/results/trajectories/74c7822f206e0ef21680d4fa896c31223e359dd14487b3b93d182f2a60de1308/attempt_parent_receipts/attempt12.json",
+      "parent_sha256": "b0e9d3c3faace274db32f09808d90276b2b2aab12a6cb86319debc8c1b3439b7",
+      "path": "ako_runs/controlled_followup/decision_complexity_ada_v2/results/trajectories/74c7822f206e0ef21680d4fa896c31223e359dd14487b3b93d182f2a60de1308/attempts/attempt12.json",
+      "sha256": "6917cf4ae259e38fb54bf711703a838cf5b3c91c60258e0d57666a63cdef820c"
+    },
+    {
+      "parent_path": "ako_runs/controlled_followup/decision_complexity_ada_v2/results/trajectories/74c7822f206e0ef21680d4fa896c31223e359dd14487b3b93d182f2a60de1308/attempt_parent_receipts/attempt13.json",
+      "parent_sha256": "f1a4b9436c09930ab3edb4df0d1a3291af0bd060ce7ded0a0016bb885f0f05b4",
+      "path": "ako_runs/controlled_followup/decision_complexity_ada_v2/results/trajectories/74c7822f206e0ef21680d4fa896c31223e359dd14487b3b93d182f2a60de1308/attempts/attempt13.json",
+      "sha256": "1e2716149f29943ce0533dbc29a56edbaeead3791178f6e53f5b3a5627850a90"
+    },
+    {
+      "parent_path": "ako_runs/controlled_followup/decision_complexity_ada_v2/results/trajectories/74c7822f206e0ef21680d4fa896c31223e359dd14487b3b93d182f2a60de1308/attempt_parent_receipts/attempt14.json",
+      "parent_sha256": "0cc255735e3effb828353d61aae033975599018e8e0d39e6198adce2e392ad8c",
+      "path": "ako_runs/controlled_followup/decision_complexity_ada_v2/results/trajectories/74c7822f206e0ef21680d4fa896c31223e359dd14487b3b93d182f2a60de1308/attempts/attempt14.json",
+      "sha256": "9432088643d9e213eec1bc32891922115d6daa5431f16577196c439d7fc5e8f2"
+    },
+    {
+      "parent_path": "ako_runs/controlled_followup/decision_complexity_ada_v2/results/trajectories/74c7822f206e0ef21680d4fa896c31223e359dd14487b3b93d182f2a60de1308/attempt_parent_receipts/attempt15.json",
+      "parent_sha256": "99eccaa50e53eb2cd85411157bf0f9fec4dd75029f845b9ef68807a2cbe61106",
+      "path": "ako_runs/controlled_followup/decision_complexity_ada_v2/results/trajectories/74c7822f206e0ef21680d4fa896c31223e359dd14487b3b93d182f2a60de1308/attempts/attempt15.json",
+      "sha256": "39c4e00c147fee1e52fb2135bac2f1bd0238840c83ed520f0e96ae7693a5f813"
+    },
+    {
+      "parent_path": "ako_runs/controlled_followup/decision_complexity_ada_v2/results/trajectories/74c7822f206e0ef21680d4fa896c31223e359dd14487b3b93d182f2a60de1308/attempt_parent_receipts/attempt16.json",
+      "parent_sha256": "3395afbe0318b1ceef8718075775f3013a5634f42f53c0eb0c78455f4ce65d39",
+      "path": "ako_runs/controlled_followup/decision_complexity_ada_v2/results/trajectories/74c7822f206e0ef21680d4fa896c31223e359dd14487b3b93d182f2a60de1308/attempts/attempt16.json",
+      "sha256": "12d9c98e623915ccce747d7d696b72e0c640231e1da1f889aef3d1157ac2aa4b"
+    },
+    {
+      "parent_path": "ako_runs/controlled_followup/decision_complexity_ada_v2/results/trajectories/74c7822f206e0ef21680d4fa896c31223e359dd14487b3b93d182f2a60de1308/attempt_parent_receipts/attempt17.json",
+      "parent_sha256": "2059167e5a2073242f0a1b7a636f1f5a65d4e4e99cd01d54ee95425b7cb6927a",
+      "path": "ako_runs/controlled_followup/decision_complexity_ada_v2/results/trajectories/74c7822f206e0ef21680d4fa896c31223e359dd14487b3b93d182f2a60de1308/attempts/attempt17.json",
+      "sha256": "aefecc1acc2f25b7fe6ec8c9161564a2e9cc06c4bff481ab1779b9db4aeb0821"
+    },
+    {
+      "parent_path": "ako_runs/controlled_followup/decision_complexity_ada_v2/results/trajectories/74c7822f206e0ef21680d4fa896c31223e359dd14487b3b93d182f2a60de1308/attempt_parent_receipts/attempt18.json",
+      "parent_sha256": "32a4e1049e7335bdc6a8d34cf4dc21186bff0619124abad99f8857613a89fa3b",
+      "path": "ako_runs/controlled_followup/decision_complexity_ada_v2/results/trajectories/74c7822f206e0ef21680d4fa896c31223e359dd14487b3b93d182f2a60de1308/attempts/attempt18.json",
+      "sha256": "98dd8beb410ca37a50130a2103305cf7240d051b58789c0d433ceb4467fdfd6e"
+    },
+    {
+      "parent_path": "ako_runs/controlled_followup/decision_complexity_ada_v2/results/trajectories/74c7822f206e0ef21680d4fa896c31223e359dd14487b3b93d182f2a60de1308/attempt_parent_receipts/attempt19.json",
+      "parent_sha256": "c4bccc31e41859199ed4619a4819e3f1daf3b811e62101f30949eb05723ebb3c",
+      "path": "ako_runs/controlled_followup/decision_complexity_ada_v2/results/trajectories/74c7822f206e0ef21680d4fa896c31223e359dd14487b3b93d182f2a60de1308/attempts/attempt19.json",
+      "sha256": "cb46c675e66e6ad985aa583e63c81d92911489e1ddd5176c60d0e4a34e17d09a"
+    }
+  ],
+  "attempts_consumed": 19,
+  "event_observed": false,
+  "first_event_attempt": null,
+  "gpu_slot": 0,
+  "launch_receipt_sha256": "13454e0179a9b0ee9ab0cd2c733efdac05c9a1bf508b5ddcc926ffd278e84c91",
+  "manifest_row_sha256": "c30552c855a1b85c5250251ab57b77e1d5efd5b84037421a96e21478781daa5e",
+  "previous_completion": {
+    "path": "ako_runs/controlled_followup/decision_complexity_ada_v2/results/trajectories/c116e4e8133e5a928ca065ad73565f9e1149e8430b33622149465618039abf47/completion.json",
+    "sha256": "7b0192edee42bf98afd54559555038495e5407423d58f6d4d92da8a550b5dcc8",
+    "trajectory_ended_unix_ns": 1786393990504151275,
+    "trajectory_id": "c116e4e8133e5a928ca065ad73565f9e1149e8430b33622149465618039abf47"
+  },
+  "record_type": "decision_complexity_ada_v2_trajectory_completion",
+  "replicate": 1,
+  "schema_version": 1,
+  "toolchain_sha256": "82defeb42c201eab8d00d9b7260dbd54b8cfc8f6cb2cbaa365212b995ce8285f",
+  "trajectory_authorization_sha256": "5db6273ef61cc194cd4c15e963752d6e7b34b195d40188e73b9805bd53a8d066",
+  "trajectory_child_pid": 548493,
+  "trajectory_ended_unix_ns": 1786394255714730014,
+  "trajectory_gpu_postflight": {
+    "gpu": {
+      "compute_cap": "8.9",
+      "driver_version": "610.43.02",
+      "index": "0",
+      "name": "NVIDIA RTX 6000 Ada Generation",
+      "uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae"
+    },
+    "occupancy": {
+      "compute_apps": [],
+      "query_completed_unix_ns": 1786394255714724576,
+      "query_started_unix_ns": 1786394255700036946,
+      "returncode": 0
+    }
+  },
+  "trajectory_gpu_preflight": {
+    "gpu": {
+      "compute_cap": "8.9",
+      "driver_version": "610.43.02",
+      "index": "0",
+      "name": "NVIDIA RTX 6000 Ada Generation",
+      "uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae"
+    },
+    "occupancy": {
+      "compute_apps": [],
+      "query_completed_unix_ns": 1786393991625196955,
+      "query_started_unix_ns": 1786393991610057620,
+      "returncode": 0
+    }
+  },
+  "trajectory_id": "74c7822f206e0ef21680d4fa896c31223e359dd14487b3b93d182f2a60de1308",
+  "trajectory_parent_pid": 534156,
+  "trajectory_started_unix_ns": 1786393991591873705
+}

@@ -1,0 +1,82 @@
+{
+  "campaign_id": "decision-complexity-ada-v2-pilot",
+  "created_utc": "2026-08-10T20:18:12.180840+00:00",
+  "execution_lock_sha256": "07839a323a4fe93ddcd4f4f57599b8f669b394a7f1b5e2212af6f0d7552a4e1e",
+  "git_commit": "837dd764f8a7bc595ea9eb32a9827bbf7f5561bc",
+  "git_upstream": "origin/cross-dsl-6op-ncu-redo",
+  "git_upstream_commit": "837dd764f8a7bc595ea9eb32a9827bbf7f5561bc",
+  "gpu_lock_paths": [
+    "/tmp/multikernelbench-GPU-45af34ad-0c74-74d0-ef3a-652090d837ae-timing.lock"
+  ],
+  "gpu_preflights": [
+    {
+      "gpu": {
+        "compute_cap": "8.9",
+        "driver_version": "610.43.02",
+        "index": "0",
+        "name": "NVIDIA RTX 6000 Ada Generation",
+        "uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae"
+      },
+      "occupancy": {
+        "compute_apps": [],
+        "query_completed_unix_ns": 1786393092177137990,
+        "query_started_unix_ns": 1786393092162191954,
+        "returncode": 0
+      }
+    }
+  ],
+  "gpus": [
+    {
+      "compute_cap": "8.9",
+      "driver_version": "610.43.02",
+      "index": "0",
+      "name": "NVIDIA RTX 6000 Ada Generation",
+      "uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae"
+    }
+  ],
+  "host": "cs265655.utdallas.edu",
+  "live_remote_commit": "837dd764f8a7bc595ea9eb32a9827bbf7f5561bc",
+  "live_remote_name": "origin",
+  "live_remote_ref": "refs/heads/cross-dsl-6op-ncu-redo",
+  "record_type": "decision_complexity_ada_v2_prelaunch_provenance",
+  "remote_push_verified": true,
+  "schema_version": 1,
+  "source_bundle_sha256": "e77929eac640c9dac9d0c0a6a8ae491096e53758dacb015dc3cdb4c17461b9f6",
+  "toolchain": {
+    "cuda": {
+      "home": "/usr/local/cuda-13.1",
+      "nvcc": {
+        "path": "/usr/local/cuda-13.1/bin/nvcc",
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2025 NVIDIA Corporation\nBuilt on Tue_Dec_16_07:23:41_PM_PST_2025\nCuda compilation tools, release 13.1, V13.1.115\nBuild cuda_13.1.r13.1/compiler.37061995_0"
+      }
+    },
+    "packages": {
+      "tilelang": {
+        "distribution_version": "0.1.11",
+        "module_path": "/home/lxt230026/miniconda3/lib/python3.13/site-packages/tilelang/__init__.py",
+        "runtime_version": "0.1.11",
+        "runtime_version_source": "installed_distribution_metadata_without_import_to_preserve_cold_cache"
+      },
+      "torch": {
+        "compiled_cuda_version": "12.8",
+        "distribution_version": "2.10.0",
+        "module_path": "/home/lxt230026/miniconda3/lib/python3.13/site-packages/torch/__init__.py",
+        "runtime_version": "2.10.0+cu128"
+      },
+      "triton": {
+        "distribution_version": "3.6.0",
+        "module_path": "/home/lxt230026/miniconda3/lib/python3.13/site-packages/triton/__init__.py",
+        "runtime_version": "3.6.0",
+        "runtime_version_source": "installed_distribution_metadata_without_import_to_preserve_cold_cache"
+      }
+    },
+    "python": {
+      "executable": "/home/lxt230026/miniconda3/bin/python3.13",
+      "implementation": "CPython",
+      "version": "3.13.5"
+    }
+  },
+  "toolchain_sha256": "82defeb42c201eab8d00d9b7260dbd54b8cfc8f6cb2cbaa365212b995ce8285f"
+}

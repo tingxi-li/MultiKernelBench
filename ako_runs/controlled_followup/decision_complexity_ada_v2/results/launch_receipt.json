@@ -1,0 +1,32 @@
+{
+  "campaign_gpu_preflight": [
+    {
+      "gpu": {
+        "compute_cap": "8.9",
+        "driver_version": "610.43.02",
+        "index": "0",
+        "name": "NVIDIA RTX 6000 Ada Generation",
+        "uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae"
+      },
+      "occupancy": {
+        "compute_apps": [],
+        "query_completed_unix_ns": 1786393159698149982,
+        "query_started_unix_ns": 1786393159682837365,
+        "returncode": 0
+      }
+    }
+  ],
+  "campaign_id": "decision-complexity-ada-v2-pilot",
+  "created_utc": "2026-08-10T20:19:19.698317+00:00",
+  "execution_lock_sha256": "07839a323a4fe93ddcd4f4f57599b8f669b394a7f1b5e2212af6f0d7552a4e1e",
+  "gpu_lock_paths": [
+    "/tmp/multikernelbench-GPU-45af34ad-0c74-74d0-ef3a-652090d837ae-timing.lock"
+  ],
+  "launcher_pid": 534156,
+  "manifest_sha256": "128a83d272b04ffb8e066bf2b57bbe481bb5e7abc695290f537006bf2ab206bc",
+  "prelaunch_provenance_sha256": "5330383ae1e1b6b7b04eb90735debcf18890584d8b1fc6eabb727d46fdaacd53",
+  "record_type": "decision_complexity_ada_v2_launch_receipt",
+  "requested_trajectories": 24,
+  "schema_version": 1,
+  "toolchain_sha256": "82defeb42c201eab8d00d9b7260dbd54b8cfc8f6cb2cbaa365212b995ce8285f"
+}

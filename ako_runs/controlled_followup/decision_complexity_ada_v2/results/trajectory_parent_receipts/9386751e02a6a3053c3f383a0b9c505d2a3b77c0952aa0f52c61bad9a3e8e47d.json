@@ -1,0 +1,82 @@
+{
+  "authorization": {
+    "authorization_nonce": "12d22b8805ec8b589d2df5096765c4cc78afc8f63022d5c572fde93debfc5504",
+    "authorized_unix_ns": 1786394555188372069,
+    "campaign_id": "decision-complexity-ada-v2-pilot",
+    "child_pid": 558071,
+    "execution_lock_sha256": "07839a323a4fe93ddcd4f4f57599b8f669b394a7f1b5e2212af6f0d7552a4e1e",
+    "gpu_lock_paths": [
+      "/tmp/multikernelbench-GPU-45af34ad-0c74-74d0-ef3a-652090d837ae-timing.lock"
+    ],
+    "gpu_slot": 0,
+    "gpu_uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae",
+    "launch_receipt_sha256": "13454e0179a9b0ee9ab0cd2c733efdac05c9a1bf508b5ddcc926ffd278e84c91",
+    "launch_sequence": 12,
+    "manifest_sha256": "128a83d272b04ffb8e066bf2b57bbe481bb5e7abc695290f537006bf2ab206bc",
+    "parent_pid": 534156,
+    "previous_completion": {
+      "path": "ako_runs/controlled_followup/decision_complexity_ada_v2/results/trajectories/877cf561859d8015f2d8e5cf30c5156c2917d17daf76d726851bca70449d78db/completion.json",
+      "sha256": "f8ffc83337618601a68b685e57482d9f1a3f57101ca9e794ac6c4e2d0ccab644",
+      "trajectory_ended_unix_ns": 1786394554916660621,
+      "trajectory_id": "877cf561859d8015f2d8e5cf30c5156c2917d17daf76d726851bca70449d78db"
+    },
+    "scope": "trajectory",
+    "spawn_requested_unix_ns": 1786394555188073500,
+    "trajectory_id": "9386751e02a6a3053c3f383a0b9c505d2a3b77c0952aa0f52c61bad9a3e8e47d"
+  },
+  "authorization_sha256": "f61e391316d3409a0af8db2ca1c132232630c4e570eab6c6fd9226949b432961",
+  "campaign_id": "decision-complexity-ada-v2-pilot",
+  "child_authorized_unix_ns": 1786394555188372069,
+  "child_completed_unix_ns": 1786394820100545023,
+  "child_launched_unix_ns": 1786394555188073500,
+  "child_pid": 558071,
+  "completion_path": "ako_runs/controlled_followup/decision_complexity_ada_v2/results/trajectories/9386751e02a6a3053c3f383a0b9c505d2a3b77c0952aa0f52c61bad9a3e8e47d/completion.json",
+  "completion_sha256": "0e65edfc0fc4e9fa8b6c6aa967d396d29b3a344dddb59dcef5c841fab9d0a1f0",
+  "gpu_postflight": {
+    "gpu": {
+      "compute_cap": "8.9",
+      "driver_version": "610.43.02",
+      "index": "0",
+      "name": "NVIDIA RTX 6000 Ada Generation",
+      "uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae"
+    },
+    "occupancy": {
+      "compute_apps": [],
+      "query_completed_unix_ns": 1786394820132863008,
+      "query_started_unix_ns": 1786394820118075891,
+      "returncode": 0
+    }
+  },
+  "gpu_preflight": {
+    "gpu": {
+      "compute_cap": "8.9",
+      "driver_version": "610.43.02",
+      "index": "0",
+      "name": "NVIDIA RTX 6000 Ada Generation",
+      "uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae"
+    },
+    "occupancy": {
+      "compute_apps": [],
+      "query_completed_unix_ns": 1786394555187966256,
+      "query_started_unix_ns": 1786394555173417423,
+      "returncode": 0
+    }
+  },
+  "gpu_slot": 0,
+  "gpu_uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae",
+  "launch_receipt_sha256": "13454e0179a9b0ee9ab0cd2c733efdac05c9a1bf508b5ddcc926ffd278e84c91",
+  "launch_sequence": 12,
+  "parent_pid": 534156,
+  "previous_completion": {
+    "path": "ako_runs/controlled_followup/decision_complexity_ada_v2/results/trajectories/877cf561859d8015f2d8e5cf30c5156c2917d17daf76d726851bca70449d78db/completion.json",
+    "sha256": "f8ffc83337618601a68b685e57482d9f1a3f57101ca9e794ac6c4e2d0ccab644",
+    "trajectory_ended_unix_ns": 1786394554916660621,
+    "trajectory_id": "877cf561859d8015f2d8e5cf30c5156c2917d17daf76d726851bca70449d78db"
+  },
+  "record_type": "decision_complexity_ada_v2_trajectory_parent_receipt",
+  "returncode": 0,
+  "schema_version": 1,
+  "trajectory_ended_unix_ns": 1786394819894553600,
+  "trajectory_id": "9386751e02a6a3053c3f383a0b9c505d2a3b77c0952aa0f52c61bad9a3e8e47d",
+  "trajectory_started_unix_ns": 1786394556000332072
+}

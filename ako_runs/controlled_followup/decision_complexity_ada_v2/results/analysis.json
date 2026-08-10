@@ -1,0 +1,598 @@
+{
+  "active_time_survival": {
+    "common_observed_support": 38.34035293600027,
+    "duration_unit": "seconds",
+    "effective_tau": 38.34035293600027,
+    "groups": {
+      "c2_open_1": {
+        "events": 0,
+        "kaplan_meier": [
+          {
+            "at_risk": 4,
+            "censored": 0,
+            "duration": 0.0,
+            "events": 0,
+            "survival": 1.0
+          },
+          {
+            "at_risk": 4,
+            "censored": 1,
+            "duration": 38.128352441999596,
+            "events": 0,
+            "survival": 1.0
+          },
+          {
+            "at_risk": 3,
+            "censored": 1,
+            "duration": 38.198500399001205,
+            "events": 0,
+            "survival": 1.0
+          },
+          {
+            "at_risk": 2,
+            "censored": 1,
+            "duration": 38.31671226400067,
+            "events": 0,
+            "survival": 1.0
+          },
+          {
+            "at_risk": 1,
+            "censored": 1,
+            "duration": 38.34035293600027,
+            "events": 0,
+            "survival": 1.0
+          }
+        ],
+        "n": 4,
+        "right_censored": 4,
+        "rmst": 38.34035293600027
+      },
+      "c2_open_2": {
+        "events": 0,
+        "kaplan_meier": [
+          {
+            "at_risk": 4,
+            "censored": 0,
+            "duration": 0.0,
+            "events": 0,
+            "survival": 1.0
+          },
+          {
+            "at_risk": 4,
+            "censored": 1,
+            "duration": 76.18393828099943,
+            "events": 0,
+            "survival": 1.0
+          },
+          {
+            "at_risk": 3,
+            "censored": 1,
+            "duration": 76.4301386469997,
+            "events": 0,
+            "survival": 1.0
+          },
+          {
+            "at_risk": 2,
+            "censored": 1,
+            "duration": 76.57930485700308,
+            "events": 0,
+            "survival": 1.0
+          },
+          {
+            "at_risk": 1,
+            "censored": 1,
+            "duration": 76.82697878600084,
+            "events": 0,
+            "survival": 1.0
+          }
+        ],
+        "n": 4,
+        "right_censored": 4,
+        "rmst": 38.34035293600027
+      },
+      "c2_open_4": {
+        "events": 0,
+        "kaplan_meier": [
+          {
+            "at_risk": 4,
+            "censored": 0,
+            "duration": 0.0,
+            "events": 0,
+            "survival": 1.0
+          },
+          {
+            "at_risk": 4,
+            "censored": 1,
+            "duration": 239.65602696199858,
+            "events": 0,
+            "survival": 1.0
+          },
+          {
+            "at_risk": 3,
+            "censored": 1,
+            "duration": 239.8135274829947,
+            "events": 0,
+            "survival": 1.0
+          },
+          {
+            "at_risk": 2,
+            "censored": 1,
+            "duration": 239.9821125510025,
+            "events": 0,
+            "survival": 1.0
+          },
+          {
+            "at_risk": 1,
+            "censored": 1,
+            "duration": 240.303959476998,
+            "events": 0,
+            "survival": 1.0
+          }
+        ],
+        "n": 4,
+        "right_censored": 4,
+        "rmst": 38.34035293600027
+      },
+      "label_sham_a": {
+        "events": 0,
+        "kaplan_meier": [
+          {
+            "at_risk": 4,
+            "censored": 0,
+            "duration": 0.0,
+            "events": 0,
+            "survival": 1.0
+          },
+          {
+            "at_risk": 4,
+            "censored": 1,
+            "duration": 76.26283781799793,
+            "events": 0,
+            "survival": 1.0
+          },
+          {
+            "at_risk": 3,
+            "censored": 1,
+            "duration": 76.40724092500022,
+            "events": 0,
+            "survival": 1.0
+          },
+          {
+            "at_risk": 2,
+            "censored": 1,
+            "duration": 76.42226837399903,
+            "events": 0,
+            "survival": 1.0
+          },
+          {
+            "at_risk": 1,
+            "censored": 1,
+            "duration": 76.88082113700148,
+            "events": 0,
+            "survival": 1.0
+          }
+        ],
+        "n": 4,
+        "right_censored": 4,
+        "rmst": 38.34035293600027
+      },
+      "label_sham_b": {
+        "events": 0,
+        "kaplan_meier": [
+          {
+            "at_risk": 4,
+            "censored": 0,
+            "duration": 0.0,
+            "events": 0,
+            "survival": 1.0
+          },
+          {
+            "at_risk": 4,
+            "censored": 1,
+            "duration": 76.2815085860002,
+            "events": 0,
+            "survival": 1.0
+          },
+          {
+            "at_risk": 3,
+            "censored": 1,
+            "duration": 76.50321363299918,
+            "events": 0,
+            "survival": 1.0
+          },
+          {
+            "at_risk": 2,
+            "censored": 1,
+            "duration": 76.52371634400151,
+            "events": 0,
+            "survival": 1.0
+          },
+          {
+            "at_risk": 1,
+            "censored": 1,
+            "duration": 76.59812107500147,
+            "events": 0,
+            "survival": 1.0
+          }
+        ],
+        "n": 4,
+        "right_censored": 4,
+        "rmst": 38.34035293600027
+      },
+      "sensitivity_target_hint": {
+        "events": 0,
+        "kaplan_meier": [
+          {
+            "at_risk": 4,
+            "censored": 0,
+            "duration": 0.0,
+            "events": 0,
+            "survival": 1.0
+          },
+          {
+            "at_risk": 4,
+            "censored": 1,
+            "duration": 239.39540250200116,
+            "events": 0,
+            "survival": 1.0
+          },
+          {
+            "at_risk": 3,
+            "censored": 1,
+            "duration": 239.86163696099538,
+            "events": 0,
+            "survival": 1.0
+          },
+          {
+            "at_risk": 2,
+            "censored": 1,
+            "duration": 239.88239654900462,
+            "events": 0,
+            "survival": 1.0
+          },
+          {
+            "at_risk": 1,
+            "censored": 1,
+            "duration": 240.3872356580032,
+            "events": 0,
+            "survival": 1.0
+          }
+        ],
+        "n": 4,
+        "right_censored": 4,
+        "rmst": 38.34035293600027
+      }
+    },
+    "preregistered_tau": 2700.0,
+    "rmst_extrapolated": false,
+    "support_policy": "min_preregistered_tau_and_common_observed_support"
+  },
+  "arm_summaries": {
+    "c2_open_1": {
+      "active_s_mean": 38.245979510250436,
+      "active_s_variance": 0.009999953043718658,
+      "attempt_mean": 3.0,
+      "attempt_variance": 0.0,
+      "candidate_cap": 3,
+      "events": 0,
+      "rmst_attempts": 3.0,
+      "rmst_attempts_tau": 3.0
+    },
+    "c2_open_2": {
+      "active_s_mean": 76.50509014275076,
+      "active_s_variance": 0.07262545582886583,
+      "attempt_mean": 6.0,
+      "attempt_variance": 0.0,
+      "candidate_cap": 6,
+      "events": 0,
+      "rmst_attempts": 6.0,
+      "rmst_attempts_tau": 6.0
+    },
+    "c2_open_4": {
+      "active_s_mean": 239.93890661824844,
+      "active_s_variance": 0.07695705659446189,
+      "attempt_mean": 19.0,
+      "attempt_variance": 0.0,
+      "candidate_cap": 19,
+      "events": 0,
+      "rmst_attempts": 19.0,
+      "rmst_attempts_tau": 19.0
+    },
+    "label_sham_a": {
+      "active_s_mean": 76.49329206349967,
+      "active_s_variance": 0.07191236832875891,
+      "attempt_mean": 6.0,
+      "attempt_variance": 0.0,
+      "candidate_cap": 6,
+      "events": 0,
+      "rmst_attempts": 6.0,
+      "rmst_attempts_tau": 6.0
+    },
+    "label_sham_b": {
+      "active_s_mean": 76.47663990950059,
+      "active_s_variance": 0.018585420149455262,
+      "attempt_mean": 6.0,
+      "attempt_variance": 0.0,
+      "candidate_cap": 6,
+      "events": 0,
+      "rmst_attempts": 6.0,
+      "rmst_attempts_tau": 6.0
+    },
+    "sensitivity_target_hint": {
+      "active_s_mean": 239.8816679175011,
+      "active_s_variance": 0.1641515215567068,
+      "attempt_mean": 19.0,
+      "attempt_variance": 0.0,
+      "candidate_cap": 19,
+      "events": 0,
+      "rmst_attempts": 19.0,
+      "rmst_attempts_tau": 19.0
+    }
+  },
+  "attempt_survival": {
+    "common_observed_support": 3.0,
+    "duration_unit": "attempts",
+    "effective_tau": 3.0,
+    "groups": {
+      "c2_open_1": {
+        "events": 0,
+        "kaplan_meier": [
+          {
+            "at_risk": 4,
+            "censored": 0,
+            "duration": 0.0,
+            "events": 0,
+            "survival": 1.0
+          },
+          {
+            "at_risk": 4,
+            "censored": 4,
+            "duration": 3.0,
+            "events": 0,
+            "survival": 1.0
+          }
+        ],
+        "n": 4,
+        "right_censored": 4,
+        "rmst": 3.0
+      },
+      "c2_open_2": {
+        "events": 0,
+        "kaplan_meier": [
+          {
+            "at_risk": 4,
+            "censored": 0,
+            "duration": 0.0,
+            "events": 0,
+            "survival": 1.0
+          },
+          {
+            "at_risk": 4,
+            "censored": 4,
+            "duration": 6.0,
+            "events": 0,
+            "survival": 1.0
+          }
+        ],
+        "n": 4,
+        "right_censored": 4,
+        "rmst": 3.0
+      },
+      "c2_open_4": {
+        "events": 0,
+        "kaplan_meier": [
+          {
+            "at_risk": 4,
+            "censored": 0,
+            "duration": 0.0,
+            "events": 0,
+            "survival": 1.0
+          },
+          {
+            "at_risk": 4,
+            "censored": 4,
+            "duration": 19.0,
+            "events": 0,
+            "survival": 1.0
+          }
+        ],
+        "n": 4,
+        "right_censored": 4,
+        "rmst": 3.0
+      },
+      "label_sham_a": {
+        "events": 0,
+        "kaplan_meier": [
+          {
+            "at_risk": 4,
+            "censored": 0,
+            "duration": 0.0,
+            "events": 0,
+            "survival": 1.0
+          },
+          {
+            "at_risk": 4,
+            "censored": 4,
+            "duration": 6.0,
+            "events": 0,
+            "survival": 1.0
+          }
+        ],
+        "n": 4,
+        "right_censored": 4,
+        "rmst": 3.0
+      },
+      "label_sham_b": {
+        "events": 0,
+        "kaplan_meier": [
+          {
+            "at_risk": 4,
+            "censored": 0,
+            "duration": 0.0,
+            "events": 0,
+            "survival": 1.0
+          },
+          {
+            "at_risk": 4,
+            "censored": 4,
+            "duration": 6.0,
+            "events": 0,
+            "survival": 1.0
+          }
+        ],
+        "n": 4,
+        "right_censored": 4,
+        "rmst": 3.0
+      },
+      "sensitivity_target_hint": {
+        "events": 0,
+        "kaplan_meier": [
+          {
+            "at_risk": 4,
+            "censored": 0,
+            "duration": 0.0,
+            "events": 0,
+            "survival": 1.0
+          },
+          {
+            "at_risk": 4,
+            "censored": 4,
+            "duration": 19.0,
+            "events": 0,
+            "survival": 1.0
+          }
+        ],
+        "n": 4,
+        "right_censored": 4,
+        "rmst": 3.0
+      }
+    },
+    "preregistered_tau": 3.0,
+    "rmst_extrapolated": false,
+    "support_policy": "min_preregistered_tau_and_common_observed_support"
+  },
+  "campaign_id": "decision-complexity-ada-v2-pilot",
+  "claim_policy": "invalid pilot because a preregistered control failed; no treatment interpretation is permitted",
+  "complete": true,
+  "control_validation": {
+    "label_sham_passed": true,
+    "passed": false,
+    "preregistered_checks": {
+      "label_sham": {
+        "exact_match_fields_within_replicate": [
+          "attempts_consumed",
+          "event_observed",
+          "first_event_attempt"
+        ]
+      },
+      "target_hint": {
+        "event_at_first_attempt_required_replicates": 4
+      }
+    },
+    "replicates": [
+      {
+        "label_sham_b_minus_a_active_s": -0.35710479299996223,
+        "label_sham_b_minus_a_attempts": 0,
+        "label_sham_exact_match": true,
+        "replicate": 0,
+        "target_hint_event_at_first_attempt": false
+      },
+      {
+        "label_sham_b_minus_a_active_s": -0.1407597879988316,
+        "label_sham_b_minus_a_attempts": 0,
+        "label_sham_exact_match": true,
+        "replicate": 1,
+        "target_hint_event_at_first_attempt": false
+      },
+      {
+        "label_sham_b_minus_a_active_s": 0.1908801500012487,
+        "label_sham_b_minus_a_attempts": 0,
+        "label_sham_exact_match": true,
+        "replicate": 2,
+        "target_hint_event_at_first_attempt": false
+      },
+      {
+        "label_sham_b_minus_a_active_s": 0.2403758150012436,
+        "label_sham_b_minus_a_attempts": 0,
+        "label_sham_exact_match": true,
+        "replicate": 3,
+        "target_hint_event_at_first_attempt": false
+      }
+    ],
+    "target_hint_passed": false
+  },
+  "controlling": false,
+  "interpretation_valid": false,
+  "multiplicity": "holm_across_all_four_planned_paired_tests",
+  "paired_test": "exact_two_sided_sign_flip_of_mean_difference",
+  "paired_treatment_contrasts": {
+    "c2_open_2_minus_c2_open_1": {
+      "left_arm": "c2_open_1",
+      "outcomes": {
+        "active_s": {
+          "differences_by_replicate": [
+            38.08978571099942,
+            38.26259259300241,
+            38.05558583899983,
+            38.62847838699963
+          ],
+          "holm_adjusted_p_value": 0.5,
+          "mean_difference": 38.259110632500324,
+          "median_difference": 38.176189152000916,
+          "n_paired_replicates": 4,
+          "two_sided_exact_p_value": 0.125
+        },
+        "attempts_consumed": {
+          "differences_by_replicate": [
+            3.0,
+            3.0,
+            3.0,
+            3.0
+          ],
+          "holm_adjusted_p_value": 0.5,
+          "mean_difference": 3.0,
+          "median_difference": 3.0,
+          "n_paired_replicates": 4,
+          "two_sided_exact_p_value": 0.125
+        }
+      },
+      "right_arm": "c2_open_2"
+    },
+    "c2_open_4_minus_c2_open_2": {
+      "left_arm": "c2_open_2",
+      "outcomes": {
+        "active_s": {
+          "differences_by_replicate": [
+            163.8738208299983,
+            163.0767221049955,
+            163.79817427000307,
+            162.98654869699385
+          ],
+          "holm_adjusted_p_value": 0.5,
+          "mean_difference": 163.43381647549768,
+          "median_difference": 163.43744818749929,
+          "n_paired_replicates": 4,
+          "two_sided_exact_p_value": 0.125
+        },
+        "attempts_consumed": {
+          "differences_by_replicate": [
+            13.0,
+            13.0,
+            13.0,
+            13.0
+          ],
+          "holm_adjusted_p_value": 0.5,
+          "mean_difference": 13.0,
+          "median_difference": 13.0,
+          "n_paired_replicates": 4,
+          "two_sided_exact_p_value": 0.125
+        }
+      },
+      "right_arm": "c2_open_4"
+    }
+  },
+  "pilot_valid": false,
+  "record_type": "decision_complexity_ada_v2_pilot_analysis",
+  "schema_version": 1,
+  "trajectory_count": 24
+}
