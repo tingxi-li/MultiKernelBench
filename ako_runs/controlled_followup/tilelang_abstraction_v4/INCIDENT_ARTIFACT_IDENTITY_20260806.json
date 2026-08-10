@@ -1,0 +1,68 @@
+{
+  "artifact_closure": {
+    "algorithm": "sha256(canonical_json(sorted([{path,sha256,size}])))",
+    "excluded_runtime_files": [],
+    "file_count": 24,
+    "root": "ako_runs/controlled_followup/tilelang_abstraction_v4/results/ada_v4r1",
+    "sha256": "95243e210eaecb9aab67d07a0c82ffc1fbe3d0764b987d960fb3dc87544dd53e",
+    "total_bytes": 8486469
+  },
+  "campaign_id": "tilelang-abstraction-v4-ada",
+  "classification": "NON_CONTROLLING_RAW_ARTIFACT_IDENTITY_INCIDENT",
+  "created_utc": "2026-08-06",
+  "failure": {
+    "failed_stage": "artifact_profile_identity_admission",
+    "mechanism": "Both arms reproduced byte-identical generated CUDA source, but admission compiled after TileLang had initialized against CUDA 13.3 while the profiler process compiled with the frozen CUDA 13.1 toolchain. Raw PTX and SASS also embed compiler-version, temporary-source-path, internal-symbol, and debug metadata, so recompilation cannot establish executable identity by byte equality.",
+    "root_cause": "campaign_runner loaded the live toolchain, including TileLang, before _configure_gpu set CUDA_HOME and PATH; profile and timing then rebuilt instead of loading the admitted executable bytes.",
+    "scientific_effect": "The pair was excluded before timing. The 1,024 passing gate records establish correctness only; they do not authorize a performance conclusion, and no v4 executable, profile, or result may be reused by a successor."
+  },
+  "identity_census": {
+    "high": {
+      "admission_cuda_release": "13.3",
+      "admission_identity_sha256": "0ac7cc0a5f27f0370f659fe37c60cd99039941b4dee639761fdd8f83e37a4d55",
+      "cuda_source_sha256_equal": true,
+      "profile_cuda_release": "13.1",
+      "profile_identity_sha256": "42a7f136c19bd69803ad443c4772502a3a9829b42a1a639e001a04a515c22ebc"
+    },
+    "low": {
+      "admission_cuda_release": "13.3",
+      "admission_identity_sha256": "a4d39026d973fc316755c1071888270ea297479cf9db4cd4cd150f2115f76f14",
+      "cuda_source_sha256_equal": true,
+      "profile_cuda_release": "13.1",
+      "profile_identity_sha256": "5c6bcd87b61734cbee157d1272271bf6931ad47374a4df3e6bf5be900d0e9164"
+    }
+  },
+  "parent_bindings": {
+    "campaign_lock_sha256": "be32135011f206c38ad76ab26875e519e9668cbf36431c0fc0e28e3d4a270759",
+    "campaign_sha256": "8c2981d20dd4c905f5d6cd22e1b8e45b5038ebb9c55841d7c094894723c53e26",
+    "result_commit": "cfe8a85ec5a348cab4ca480109524973fdc7e7cb",
+    "run_status_sha256": "41cad6f1997a7af8f77b049715373bc405c32d59e3653c245e0201a72b388433",
+    "summary_sha256": "678f3eb0421486e1ca813f2e3ea1e2ea7e24403233dda99bf1d81e5acaf05dca",
+    "timing_manifest_sha256": "080890f96481159952d3f1edd86f0b7cb8e6eb0d4245a26f17242cf3e86e359e"
+  },
+  "policy": {
+    "continuation_authorized": false,
+    "performance_timing_authorized": false,
+    "post_hoc_overlay_authorized": false,
+    "reuse_authorized": false,
+    "successor_requires_deterministic_preimport_toolchain_initialization": true,
+    "successor_requires_exact_admitted_executable_loading": true,
+    "successor_requires_fresh_artifacts": true,
+    "successor_requires_new_lock": true
+  },
+  "record_type": "tilelang_abstraction_v4_artifact_identity_incident",
+  "result_state": "correctness_complete_profile_identity_failed_noncontrolling",
+  "schema_version": 1,
+  "sealed_census": {
+    "correctness_gate_expected_records": 1024,
+    "correctness_gate_failed_records": 0,
+    "correctness_gate_observed_records": 1024,
+    "expected_timing_records_if_admitted": 120,
+    "projected_timing_manifest_rows": 0,
+    "retained_timing_records": 0
+  },
+  "successor": {
+    "corrective_campaign_id": "tilelang-abstraction-v5-ada",
+    "requirement": "Bind this incident and its complete v4 closure, initialize CUDA 13.1 before importing TileLang, freshly admit each arm into an isolated content-addressed cache, and make profile and timing load only the exact admitted executable/code-object bytes with compilation, cache writes, and cache mutation rejected."
+  }
+}
