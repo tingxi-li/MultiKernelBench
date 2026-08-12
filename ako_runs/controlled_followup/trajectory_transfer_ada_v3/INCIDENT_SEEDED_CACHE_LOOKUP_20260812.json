@@ -1,0 +1,211 @@
+{
+  "artifact_closure": {
+    "algorithm": "sha256(canonical_json(sorted([{path,sha256,size}])))",
+    "excluded_files": [],
+    "file_count": 502,
+    "included_roots": [
+      "ako_runs/controlled_followup/trajectory_transfer_ada_v3/prelaunch_provenance.json",
+      "ako_runs/controlled_followup/trajectory_transfer_ada_v3/results/ada_v3r1"
+    ],
+    "prelaunch_files": 1,
+    "result_files": 501,
+    "sha256": "8621d0f67c21741f87902e81d0d8f18b47565091d691168a8a40e99888ab7d53",
+    "special_files": 0,
+    "symlinks": 0,
+    "total_bytes": 133558566,
+    "zero_byte_files": 0
+  },
+  "campaign_id": "trajectory-transfer-ada-v3",
+  "classification": "NON_CONTROLLING_SEEDED_TILELANG_FRONTEND_CACHE_LOOKUP_INCIDENT",
+  "created_utc": "2026-08-12T21:34:47+00:00",
+  "failed_result_tag": "ada_v3r1",
+  "failure": {
+    "common_exception": "AdapterError: seeded TileLang GEMM cache missed; fallback lowering is forbidden",
+    "common_traceback_sha256": "d8333c1544a6871def0d26e34eb6a4d82fa25c688a46ca5b6491169e6c8bfde5",
+    "failed_stage": "tilelang_on_artifact_build_seeded_gemm_load",
+    "mechanism": "Every TileLang mechanism-on build reached JITImpl.compile for _kernel_gemm. The frozen compile guard therefore retained BUILD_FAILED and proved that TileLang's frontend lookup had returned no kernel before any fallback lowering. Each on root still contained the exact copied five-file paired off-arm GEMM entry and its one frontend alias, and all six seeded rows remained byte-identical to pair_seed.json after the failed lookup.",
+    "root_cause": "V3 treated a previously observed TileLang frontend-cache key as a stable constant. TileLang actually derives that key from the live JIT frontend description together with target, backend, output indices, pass configuration, and compile flags. The hard-coded alias did not name the key requested by the fresh v3 on-arm JIT instance, so the exact kernel seed was present but unreachable through JITImpl.__call__. The v3 CPU regression checked the synthetic cache layout and byte closure but never exercised a fresh-process real frontend lookup.",
+    "scientific_effect": "No TileLang on artifact was admitted, so v3 cannot form any TileLang off/on treatment pair or authorize screening, selection, confirmation, analysis, or a transfer-performance claim. The 20 correct off artifacts do not repair the missing treatment arms. V3 is preserved as non-controlling evidence of a source/protocol defect rather than interpreted as primitive absence or destination performance loss.",
+    "validator": "implementations._record_tilelang_pair_compile"
+  },
+  "failure_evidence": {
+    "all_tilelang_on_rows": {
+      "adaptation_grid_census": {
+        "bounded_retune_g00_through_g18": 19,
+        "donor_fixed_g01": 1
+      },
+      "build_failed_entries": 20,
+      "common_error_count": 20,
+      "common_traceback_count": 20,
+      "frontend_alias_key_written": "1d235cf3822da9d102b701386baf97d77cf3ef8ec464fca44bff26eaabda4d49",
+      "manifest_positions_one_based": [
+        21,
+        40
+      ],
+      "pair_seed_receipts": 20,
+      "seeded_cache_files_per_entry": 6,
+      "seeded_files_changed_after_lookup_failure": 0,
+      "unexpected_build_records": 0,
+      "unexpected_gate_records": 0,
+      "unexpected_verify_records": 0
+    },
+    "g04": {
+      "device_source_sha256": "c0abdad69bcb0d1b4258efbded0fc6d99fb77ff168621a3f2598b5356d1e3a85",
+      "executable_sha256": "8210e25cc157534a55f3ecfbacb40d6faefd8bb9fafb6b2dfbdd9a6ec5a8043e",
+      "host_source_sha256": "11fb80cda72ef994e9d97d4cb33a4b77730e8b400e4ff2a8301c9436957418b3",
+      "kernel_key": "823c1051ec25d05417bf8da4754583b315dce31d0c34f2448eda04dc7393e158",
+      "off_build_record_sha256": "a3ad0c92f5761da916a978a1c64ead904718325363a44b0710253e4dcac611b0",
+      "off_entry_id": "tt3_01a68e729adf43555bcabb1c",
+      "off_verify_record_sha256": "856944187d2947ce041c9dc86e061da032bdaa6615327682bc0cf498a45d344c",
+      "on_entry_id": "tt3_bc4559ca096347066216ea6b",
+      "on_failure_record_sha256": "8d0741c3933d7505f4c4377f26aa12888f38a7b9ce5d9b7b47561418caa3950d",
+      "on_pair_seed_sha256": "52068506790a2f111c130a4315be98a6bf39784a7d8cc61a438952589380eece"
+    },
+    "g05": {
+      "device_source_sha256": "3dfa787a37c369b52841ff087ea5c3f69b15bb74b1854c7afa87777969bd3117",
+      "executable_sha256": "9b42a54314f855c8e4ea97af9844dd2398e1c91f9984c2e9f6a46723a6a9c706",
+      "host_source_sha256": "a335e71bdc523ecf2aa90655c4f27a224f0e7b70a0bf6d688806ce74a8d594f8",
+      "kernel_key": "a1d42b0989ca43804dd4e36d38a3b549a6cefe7c95f5c6e494c91f36540be3a2",
+      "off_build_record_sha256": "e3fd22a4ad60429a184795c3373ea5885f4388171dc00bb2e42badd64eaa3557",
+      "off_entry_id": "tt3_eaccf876ee708a221ed67601",
+      "off_verify_record_sha256": "e3c4cb795382d77d631f5429a7b53c3ac796e940e0b075f073811a7eabdaccd9",
+      "on_entry_id": "tt3_8f444faf9b4e2789dc0353ee",
+      "on_failure_record_sha256": "6419e594bcf8c128b2ff0bcb33878aa1a6901f97e74dd7a82efb0a50728c4217",
+      "on_pair_seed_sha256": "e679f20736dbc24e43864d0348ed202ce7827eba9e6606aeb8cbb87c7b6bed99"
+    },
+    "lookup_contract": {
+      "frozen_f1_frontend_key": "e72e5b6e242e38fb606305aca9d87f28b4409998ea36facc9d24bdfab0fcfec8",
+      "frozen_off_frontend_key": "b99b4b29b6aac24d9a91bfb41567cad2e43e368d3164e753aa5a54ceb327b6a7",
+      "frontend_key_inputs": [
+        "frontend_key_data",
+        "out_idx",
+        "target",
+        "target_host",
+        "execution_backend",
+        "pass_configs",
+        "compile_flags"
+      ],
+      "tilelang_cache_api_sha256": "3367bedef9b5d82cd4bd88e3778eaf6971bbce18c119ad309d0a3541d6687106",
+      "tilelang_jit_api_sha256": "ad513576ffb0773128e3804145e15767cf1acab26ee48f66173b03f5bf5c5638"
+    }
+  },
+  "git_bindings": {
+    "campaign_lock_blob_oid": "1aaaa7a1a2b90b4840c8b1ea6894d5d2a9d2a7d0",
+    "launch_receipt_blob_oid": "4fcae87ebe1715dc054a34361bbcb17a30922a04",
+    "live_remote_ref": "origin/cross-dsl-6op-ncu-redo",
+    "live_remote_ref_commit_at_seal": "c9a34ded2a8e6b1b88fb1046b4e9cf525a7e2139",
+    "prelaunch_provenance_blob_oid": "d623b4368a22c3f9a9e304bfc2324808095283b8",
+    "result_campaign_subtree_oid": "9aebd92b6b9af02acdcc3402bf071a8b7c0834d6",
+    "result_commit": "c9a34ded2a8e6b1b88fb1046b4e9cf525a7e2139",
+    "result_commit_parent": "a8a7c5270a3e780371c60c1c6d1f8b965803cf30",
+    "result_commit_tree_oid": "be939a4527870518c4e0b1fb147906ccb07dfc53",
+    "result_tag_subtree_oid": "f98d2d8b3682dd5d79933af158895be659353df5",
+    "source_commit": "a8a7c5270a3e780371c60c1c6d1f8b965803cf30",
+    "source_commit_is_direct_parent_of_result_commit": true,
+    "source_commit_parent": "8ad750db1a691cc68febbd2d6574d48921edc123",
+    "source_commit_tree_oid": "ab096cb160db6002489196016de3666ddd3a867e",
+    "source_subtree_oid": "7769cb50157541752fc933fb740fd0224566a4cf",
+    "working_evidence_matches_result_commit": true
+  },
+  "parent_bindings": {
+    "admission_manifest_file_sha256": "0d831ec948f5a35b7e756357ca53a5216e7724edd8ed8869637dec343c573653",
+    "admission_manifest_semantic_sha256": "e8094177cc6b80d41374e2816d85c2f9bf09bfd3e11c5ecbd5d044f5557764d1",
+    "campaign_file_sha256": "4c28539c6aaf2fbea7071937a08c89abc30f519324855a6ff2e55a2b7e8e8822",
+    "campaign_lock_declared_lock_sha256": "bd9a942b96398f69191ba088eadeb8d6b9a3e5e818eaa7257dbdd05e052a37ae",
+    "campaign_lock_file_sha256": "83d709f7bc5f6bdad977a9df8a9194849bfbb80ab2cbe86d7dd37e7e7317651e",
+    "launch_receipt_sha256": "bbadd3be4587ffd15860620472291099cc30f308b2f10a44f8cc58f6c3e06acb",
+    "materials_file_sha256": "1a7dab7774a4a935f3fad9f49133447041e50b1ecb3aaf58d365b23e94535345",
+    "prelaunch_provenance_sha256": "0c2ad19dfc9b55004d5bf6f47dca25ec7a29de5439e774eb0989fcace7fe2594",
+    "source_bundle_sha256": "0da89468de6976e129629470ecca6857b3963147ee5269690f44a0ebd5c47717"
+  },
+  "policy": {
+    "analysis_authorized": false,
+    "confirmation_authorized": false,
+    "continuation_authorized": false,
+    "performance_timing_authorized": false,
+    "post_hoc_overlay_authorized": false,
+    "post_hoc_relabeling_authorized": false,
+    "resume_authorized": false,
+    "reuse_authorized": false,
+    "screening_authorized": false,
+    "selection_authorized": false,
+    "successor_requires_fresh_artifacts": true,
+    "successor_requires_full_160_entry_admission": true,
+    "successor_requires_live_frontend_key_derivation": true,
+    "successor_requires_new_campaign_version": true,
+    "successor_requires_new_lock": true,
+    "successor_requires_new_result_tag": true,
+    "successor_requires_real_fresh_process_cache_hit_regression": true
+  },
+  "record_type": "trajectory_transfer_ada_v3_seeded_cache_lookup_incident",
+  "result_artifact_closure": {
+    "algorithm": "sha256(canonical_json(sorted([{path,sha256,size}])))",
+    "directory_count_excluding_root": 502,
+    "excluded_files": [],
+    "file_count": 501,
+    "root": "ako_runs/controlled_followup/trajectory_transfer_ada_v3/results/ada_v3r1",
+    "sha256": "024cf9725d8b8dc2d069f48257b0bb51988dd17072fdccd4077541ec9e26c70e",
+    "special_files": 0,
+    "symlinks": 0,
+    "total_bytes": 133542827,
+    "zero_byte_files": 0
+  },
+  "result_state": "admission_interrupted_after_systematic_seeded_frontend_lookup_miss_noncontrolling",
+  "schema_version": 1,
+  "sealed_census": {
+    "admission": {
+      "absent_entries": 120,
+      "build_complete_entries": 20,
+      "build_failed_entries": 20,
+      "dynamic_audit_event_name_census": {
+        "main_kernel,common_postprocess_kernel(float const*, float const*, float*)": 20
+      },
+      "dynamic_audits_with_exactly_two_cuda_device_events": 20,
+      "expected_entries": 160,
+      "failure_record_entries": 20,
+      "gate_contract_sha256_census": {
+        "1105bb66109ff753d3b2de543d54cd153c8eb42a3db455b09cb2ad06e5bc3b9b": 10240
+      },
+      "gate_failed_records": 0,
+      "gate_jsonl_files": 20,
+      "gate_passed_records": 10240,
+      "launch_receipts": 1,
+      "pair_seed_receipts": 20,
+      "partial_entries": 0,
+      "passed_entries": 20,
+      "retained_entry_directories": 40,
+      "run_status_records": 0,
+      "terminal_entries": 40,
+      "verify_complete_entries": 20
+    },
+    "execution_stop": {
+      "active_gpu_children_after_stop": 0,
+      "next_unstarted_manifest_position_one_based": 41,
+      "parent_interrupted_deliberately": true,
+      "reason": "The first 20 of 20 TileLang on rows produced the same seeded frontend lookup miss; continuing into other destinations could not repair the frozen TileLang source defect or authorize the campaign.",
+      "run_status_absent_by_design": true
+    },
+    "timing": {
+      "analysis_records": 0,
+      "confirmation_manifests": 0,
+      "confirmation_records": 0,
+      "performance_observations_in_admission_records": 0,
+      "screen_manifests": 0,
+      "screen_records": 0,
+      "selection_records": 0,
+      "timing_records": 0
+    }
+  },
+  "successor": {
+    "corrective_campaign_id": "trajectory-transfer-ada-v4",
+    "predecessor_validation_requirements": [
+      "Bind this receipt, its exact SHA-256, the 502-file prelaunch-plus-result closure, the 501-file result closure, and the source/result Git ancestry in the v4 material and freeze closure.",
+      "Recompute both canonical path/hash/size digests and reject every missing, extra, changed, symlink, special, or zero-byte predecessor file.",
+      "Semantically rederive the exact 20-pass plus 20-BUILD_FAILED prefix, all 10,240 passing gate rows, all 20 duration-free two-event audits, all 20 intact six-file pair seeds, the common failure/traceback census, and the absence of run status and every performance phase.",
+      "Derive or capture the TileLang frontend key from the exact live v4 JIT instance and its target/backend/options. Demonstrate a real fresh-process cache hit for the paired GEMM before the 160-row run; synthetic cache-census tests alone are insufficient. Keep fallback compilation forbidden.",
+      "Create a new source version, campaign ID, lock, result tag, prelaunch receipt, and 160 fresh admission artifacts. Never resume ada_v3r1 or copy, load, relabel, or overlay any v3 artifact byte.",
+      "Preserve the frozen question, routes, grid, correctness gate, two-kernel dynamic audit, timing estimands, sham design, and inference rules except for the frontend-key lookup correction."
+    ],
+    "requirement": "Bind and validate the complete non-controlling v3 incident, freeze v4, prove the actual live TileLang frontend lookup reaches a freshly seeded v4 off-arm GEMM in a fresh on-arm process without fallback, and rerun all 160 admissions from new artifacts before any timing."
+  }
+}
