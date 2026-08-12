@@ -1,0 +1,21 @@
+{
+  "campaign_id": "trajectory-transfer-ada-v3",
+  "campaign_lock_sha256": "83d709f7bc5f6bdad977a9df8a9194849bfbb80ab2cbe86d7dd37e7e7317651e",
+  "expected_entries": 160,
+  "gpu_preflight": {
+    "checked_unix_ns": 1786566638113854904,
+    "compute_pids": [],
+    "gpu": {
+      "compute_capability": "8.9",
+      "driver_version": "610.43.02",
+      "index": "0",
+      "name": "NVIDIA RTX 6000 Ada Generation",
+      "uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae"
+    }
+  },
+  "manifest_sha256": "e8094177cc6b80d41374e2816d85c2f9bf09bfd3e11c5ecbd5d044f5557764d1",
+  "prelaunch_provenance_path": "ako_runs/controlled_followup/trajectory_transfer_ada_v3/prelaunch_provenance.json",
+  "prelaunch_provenance_sha256": "0c2ad19dfc9b55004d5bf6f47dca25ec7a29de5439e774eb0989fcace7fe2594",
+  "record_type": "trajectory_transfer_ada_v3_admission_launch",
+  "schema_version": 1
+}

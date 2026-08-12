@@ -1,0 +1,547 @@
+{
+  "admission_row": {
+    "adaptation": "bounded_retune",
+    "attempt_index": 8,
+    "config_id": "g07",
+    "coordinate_cell_id": "register_common_postprocess.tilelang.g07",
+    "destination": "tilelang",
+    "donor_step_id": "register_common_to_register_fused",
+    "entry_id": "tt3_e33917187480d8ce3ac0d7c1",
+    "grid_id": "g07",
+    "implementation_id": "register_common_postprocess.tilelang.g07",
+    "mechanism_enabled": false,
+    "mechanism_state": "off",
+    "origin_id": "triton_native_softmax_g01",
+    "origin_job": {
+      "dsl": "tilelang",
+      "geom": "fused",
+      "grid_id": "g07",
+      "grid_index": 7,
+      "job_id": "tilelang.g07",
+      "set": "BM=128,BN=256,BK=32,threads=256,stages=4,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=smem",
+      "variant": "GBGS"
+    },
+    "primitive_absence_receipt": null,
+    "primitive_absence_receipt_sha256": null,
+    "primitive_graph_sha256": "29e023af8f1485aa56fdc59a725411a53925389b08dd76532b47efe6b8d28674",
+    "route": "direct_primitive_mapping",
+    "row_id": "tt3_e33917187480d8ce3ac0d7c1",
+    "spec": {
+      "config_id": "g07",
+      "coordinate_cell_id": "register_common_postprocess.tilelang.g07",
+      "destination": "tilelang",
+      "donor_step_id": "register_common_to_register_fused",
+      "grid_id": "g07",
+      "implementation_id": "register_common_postprocess.tilelang.g07",
+      "origin_id": "triton_native_softmax_g01",
+      "origin_job": {
+        "dsl": "tilelang",
+        "geom": "fused",
+        "grid_id": "g07",
+        "grid_index": 7,
+        "job_id": "tilelang.g07",
+        "set": "BM=128,BN=256,BK=32,threads=256,stages=4,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=smem",
+        "variant": "GBGS"
+      },
+      "primitive_absence_receipt": null,
+      "primitive_absence_receipt_sha256": null,
+      "primitive_graph_sha256": "29e023af8f1485aa56fdc59a725411a53925389b08dd76532b47efe6b8d28674",
+      "route": "direct_primitive_mapping"
+    }
+  },
+  "admission_row_sha256": "181f41ff8c383eff3e8b79da7bfb75d6ebe2c4c2563e8f38b585d04b9c0fc131",
+  "artifact_identity_sha256": "f5da29f5afd39127ba478acc5c40baba80a307b393d15743bba9f54e4a310f74",
+  "cache": {
+    "cache_root": "ako_runs/controlled_followup/trajectory_transfer_ada_v3/results/ada_v3r1/admission/artifacts/tt3_e33917187480d8ce3ac0d7c1/cache",
+    "file_count": 14,
+    "files": [
+      {
+        "path": "tilelang/0.1.11-x86_64/frontend/b99b4b29b6aac24d9a91bfb41567cad2e43e368d3164e753aa5a54ceb327b6a7.json",
+        "sha256": "6b5c353b18b368697236f7555044f9e1327e9cfce304fd5e5b2c4f246dcef7f1",
+        "size": 82
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/cc9a27805b6fa13c019dbaaba7f2c197c4931242901bb2bdc8f48c1fff0a48b3/device_kernel.cu",
+        "sha256": "93dcfb7bdb1cdf81addbb34661be0c71581b12b04287d5d9d7d45c1b30dee3a5",
+        "size": 14509
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/cc9a27805b6fa13c019dbaaba7f2c197c4931242901bb2bdc8f48c1fff0a48b3/executable.so",
+        "sha256": "6738643c6ba28a5da42e21648ef0c95f1375698d9048fd30a9769631c67d3510",
+        "size": 368968
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/cc9a27805b6fa13c019dbaaba7f2c197c4931242901bb2bdc8f48c1fff0a48b3/host_kernel.cu",
+        "sha256": "1d60f08e766ed7b9f585ade6149897818c4749c9dc36d1b3b501c2295c7d88b2",
+        "size": 23732
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/cc9a27805b6fa13c019dbaaba7f2c197c4931242901bb2bdc8f48c1fff0a48b3/params.pkl",
+        "sha256": "d381d8ac3f09dce4567aaa0d48e640df5ead50bef1da2b08e504694eddea17c5",
+        "size": 421
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/cc9a27805b6fa13c019dbaaba7f2c197c4931242901bb2bdc8f48c1fff0a48b3/prim_func.pkl",
+        "sha256": "31efbe4c9a32bf39c4699c29a74eb4e035de00699f65e8ef215018b204a0361f",
+        "size": 28506
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/.ninja_deps",
+        "sha256": "78eabae884b0398b2c41907e45077e2159c9a2cac47c753fcbdc352544ebd34a",
+        "size": 630492
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/.ninja_log",
+        "sha256": "ba6c4754a0c4146ad6ef3f5c3bbe73e0c520376b0763263e703ec7ebfcf377d6",
+        "size": 208
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/build.ninja",
+        "sha256": "a19f1ec766c40909cf65c8e2c051cbe8e2be4d639793ea106d27f95803b55dc0",
+        "size": 2490
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/cuda.cu",
+        "sha256": "4c33965e833e1bb724a1e0a031ebacc23c5e1601ad440c7f38f5f11f454847d0",
+        "size": 3665
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/cuda.cuda.o",
+        "sha256": "7e43aaf3cefc15f71eda55c4f180195cb43b3b25ff34af4b2acfe89ef0470559",
+        "size": 216944
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/fused_crossed_v2_pp_c03d2e32b61d.so",
+        "sha256": "e9bed96d8fccefac7a2ecb37b13f4305c2274668a169ef55eec06995ae4ba83b",
+        "size": 1351176
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/main.cpp",
+        "sha256": "70fda7e9ebc6feb970681bfd6fdd9814aef02d2d31c1659f88bd825bb5c821a1",
+        "size": 277
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/main.o",
+        "sha256": "5f72645122f1144e1984e77bb9f8534af5e541a51e270cc84ab2e073b04b8e21",
+        "size": 2152608
+      }
+    ],
+    "files_sha256": "aa9664037632e43118f4198dc35cff7850ca91fabb16768b97165b66fc24666c",
+    "generated_sources": [
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/cc9a27805b6fa13c019dbaaba7f2c197c4931242901bb2bdc8f48c1fff0a48b3/device_kernel.cu",
+        "sha256": "93dcfb7bdb1cdf81addbb34661be0c71581b12b04287d5d9d7d45c1b30dee3a5",
+        "size": 14509
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/cc9a27805b6fa13c019dbaaba7f2c197c4931242901bb2bdc8f48c1fff0a48b3/host_kernel.cu",
+        "sha256": "1d60f08e766ed7b9f585ade6149897818c4749c9dc36d1b3b501c2295c7d88b2",
+        "size": 23732
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/cuda.cu",
+        "sha256": "4c33965e833e1bb724a1e0a031ebacc23c5e1601ad440c7f38f5f11f454847d0",
+        "size": 3665
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/main.cpp",
+        "sha256": "70fda7e9ebc6feb970681bfd6fdd9814aef02d2d31c1659f88bd825bb5c821a1",
+        "size": 277
+      }
+    ],
+    "loadable_code_objects": [
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/cc9a27805b6fa13c019dbaaba7f2c197c4931242901bb2bdc8f48c1fff0a48b3/executable.so",
+        "sha256": "6738643c6ba28a5da42e21648ef0c95f1375698d9048fd30a9769631c67d3510",
+        "size": 368968
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/fused_crossed_v2_pp_c03d2e32b61d.so",
+        "sha256": "e9bed96d8fccefac7a2ecb37b13f4305c2274668a169ef55eec06995ae4ba83b",
+        "size": 1351176
+      }
+    ]
+  },
+  "campaign_id": "trajectory-transfer-ada-v3",
+  "config": {
+    "BK": 32,
+    "BM": 128,
+    "BN": 256,
+    "K": 8192,
+    "M": 1024,
+    "N": 8192,
+    "arith": "fp16",
+    "cast": "precast",
+    "dsl": "tilelang",
+    "extra": {
+      "epilogue": "regs",
+      "wcache": "cached"
+    },
+    "input_dtype": "torch.float16",
+    "kc": 2048,
+    "stages": 4,
+    "threads": 256,
+    "variant": "GBG"
+  },
+  "dynamic_work_audit": {
+    "cuda_device_event_names": [
+      "main_kernel",
+      "common_postprocess_kernel(float const*, float const*, float*)"
+    ],
+    "cuda_device_event_names_sha256": "660abfc15983f035b0a5892f9da10ee2e791147eb90f330f224fd2c95180b6b8",
+    "expected_cuda_device_event_count": 2,
+    "input": {
+      "distribution": "positive",
+      "seed": 0
+    },
+    "method": "torch_profiler_cuda_activity_v1",
+    "observed_cuda_device_event_count": 2,
+    "output": {
+      "all_finite": true,
+      "dtype": "torch.float32",
+      "shape": [
+        1024,
+        8192
+      ]
+    },
+    "passed": true,
+    "performance_observations": [],
+    "profiled_calls": 1,
+    "schema_version": 1
+  },
+  "entry_id": "tt3_e33917187480d8ce3ac0d7c1",
+  "gate_jsonl_path": "ako_runs/controlled_followup/trajectory_transfer_ada_v3/results/ada_v3r1/admission/artifacts/tt3_e33917187480d8ce3ac0d7c1/gate.jsonl",
+  "gate_jsonl_sha256": "7ee74e2d0003c21c3c6df59088803dddbe3527f3a70fec77b541a37fae2d8985",
+  "gate_summary": {
+    "complete": true,
+    "expected_records": 512,
+    "failed_records": 0,
+    "full_gate_pass": true,
+    "max_over_threshold_ratio": 0.9633653546003984,
+    "max_over_threshold_ratio_by_metric": {
+      "conformance_mixed/max_abs_err": 0.2884864807128906,
+      "conformance_mixed/nrmse": 0.4252176393522083,
+      "conformance_mixed/row_sum_error_max": 0.9633653546003984,
+      "conformance_mixed/scaled_max_abs_err": 0.19746902555798526,
+      "conformance_mixed/sqrt_js_max": 0.21692588526674558,
+      "conformance_mixed/tv_max": 0.2888564036901409,
+      "semantic_mixed/max_abs_err": 0.37844748787867477,
+      "semantic_mixed/nrmse": 0.446346721228331,
+      "semantic_mixed/row_sum_error_max": 0.9633653546003984,
+      "semantic_mixed/scaled_max_abs_err": 0.533779464248654,
+      "semantic_mixed/sqrt_js_max": 0.7250454120354177,
+      "semantic_mixed/tv_max": 0.3796545615401497
+    },
+    "minimum_headroom_fraction": 0.036634645399601595,
+    "observed_records": 512,
+    "zero_threshold_max_observed_by_metric": {
+      "conformance_mixed/negative_count": 0.0,
+      "conformance_mixed/nonfinite_count": 0.0,
+      "semantic_mixed/negative_count": 0.0,
+      "semantic_mixed/nonfinite_count": 0.0
+    },
+    "zero_threshold_violation_records_by_metric": {}
+  },
+  "n_kernels": 2,
+  "performance_observations": [],
+  "provenance": {
+    "gpu_postflight": {
+      "checked_unix_ns": 1786568132291698438,
+      "compute_pids": [
+        1007302
+      ],
+      "gpu": {
+        "compute_capability": "8.9",
+        "driver_version": "610.43.02",
+        "index": "0",
+        "name": "NVIDIA RTX 6000 Ada Generation",
+        "uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae"
+      }
+    },
+    "gpu_preflight": {
+      "checked_unix_ns": 1786567970469037464,
+      "compute_pids": [],
+      "gpu": {
+        "compute_capability": "8.9",
+        "driver_version": "610.43.02",
+        "index": "0",
+        "name": "NVIDIA RTX 6000 Ada Generation",
+        "uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae"
+      }
+    },
+    "prelaunch_provenance_path": "ako_runs/controlled_followup/trajectory_transfer_ada_v3/prelaunch_provenance.json",
+    "prelaunch_provenance_sha256": "0c2ad19dfc9b55004d5bf6f47dca25ec7a29de5439e774eb0989fcace7fe2594",
+    "process_pid": 1007302,
+    "runtime_modules": {
+      "common": {
+        "path": "ako_runs/phase1_matmul/common.py",
+        "sha256": "7753fcc00891d475db8675423ca7e48fbc0aa0431ac1e1dd4319e6c2900fd0a7"
+      },
+      "common2": {
+        "path": "ako_runs/phase2_fused_sdpa/common2.py",
+        "sha256": "0293cb15fc3285df199daa58281a1a35147a78b9cbccda8b8f88418eecb39c64"
+      },
+      "runner2": {
+        "path": "ako_runs/phase2_fused_sdpa/runner2.py",
+        "sha256": "d1ade4461bff35058a3c6e967532960f5cc509f5d6a46c69bded78fbd0aac31e"
+      }
+    },
+    "t_end_unix_ns": 1786568132291700171,
+    "t_start_unix_ns": 1786567970439568337
+  },
+  "record_type": "trajectory_transfer_ada_v3_artifact_build_record",
+  "runtime_tmp": {
+    "root": "ako_runs/controlled_followup/trajectory_transfer_ada_v3/results/ada_v3r1/admission/artifacts/tt3_e33917187480d8ce3ac0d7c1/runtime_tmp",
+    "rows": [
+      {
+        "kind": "directory",
+        "path": "tilelang"
+      }
+    ],
+    "rows_sha256": "07fb75a8dc0ac20824fb54b3fa4e2322676d3f6c467818ed116c561cc4c1b5f4"
+  },
+  "schema_version": 1,
+  "source_build_metadata": {
+    "adapter_dispatch_sha256": "f11d5c41cde61e8436c47d7de587b5210f8a59bbe64348099d6f3a99d66e25dd",
+    "adapter_module_sha256": "39dbfd1d258ac3394bada297feca7b2036fc8a1f5b65f790b5aaec798b69744f",
+    "artifacts": {
+      "lane_gbg": {
+        "b_global_dtype": "float16",
+        "backend_detail": "T.gemm(fp16 smem -> fp32 fragment) kc=2048 T.Pipelined(num_stages=4); epilogue bias=True gelu=True (T.erf, exact form)",
+        "block": [
+          256,
+          1,
+          1
+        ],
+        "cuda_source": "#if defined(_MSC_VER) && !defined(__clang__) && _MSC_VER < 1940\n#define _tl_orig_alignas alignas\n#define alignas(N) _tl_orig_alignas((N) <= 64 ? (N) : 64)\n#include <cuda.h>\n#undef alignas\n#define alignas _tl_orig_alignas\n#endif\n#include <tl_templates/cuda/instruction/mma.h>\n#include <tl_templates/cuda/gemm.h>\n#include <tl_templates/cuda/copy.h>\n#include <tl_templates/cuda/reduce.h>\n#include <tl_templates/cuda/scan.h>\n#include <tl_templates/cuda/ldsm.h>\n#include <tl_templates/cuda/threadblock_swizzle.h>\n#include <tl_templates/cuda/debug.h>\n#ifdef ENABLE_BF16\n#include <tl_templates/cuda/cuda_bf16_fallbacks.cuh>\n#endif\n\nextern \"C\" __global__ void main_kernel(const half_t* __restrict__ A, const half_t* __restrict__ B, const float* __restrict__ Bias, float* __restrict__ C);\nextern \"C\" __global__ void __launch_bounds__(256, 1) main_kernel(const half_t* __restrict__ A, const half_t* __restrict__ B, const float* __restrict__ Bias, float* __restrict__ C) {\n  extern __shared__ __align__(1024) uchar buf_dyn_shmem[];\n  void* Bs = ((void*)((char*)buf_dyn_shmem + 0));\n  void* As = ((void*)((char*)buf_dyn_shmem + 65536));\n  float Cacc[128];\n  float Cchunk[128];\n  #pragma unroll\n  for (int i = 0; i < 32; ++i) {\n    float broadcast_var = 0x0p+0f/*0.000000e+00*/;\n    *(float4*)(Cacc + (i * 4)) = make_float4(broadcast_var, broadcast_var, broadcast_var, broadcast_var);\n  }\n  for (int c = 0; c < 4; ++c) {\n    #pragma unroll\n    for (int i_1 = 0; i_1 < 32; ++i_1) {\n      float broadcast_var_1 = 0x0p+0f/*0.000000e+00*/;\n      *(float4*)(Cchunk + (i_1 * 4)) = make_float4(broadcast_var_1, broadcast_var_1, broadcast_var_1, broadcast_var_1);\n    }\n    __syncthreads();\n    #pragma unroll\n    for (int i_2 = 0; i_2 < 2; ++i_2) {\n      tl::cp_async_gs<16>((&(((half_t*)As)[((((i_2 * 2048) + ((((int)threadIdx.x) >> 2) * 32)) + (((((((int)threadIdx.x) & 31) >> 4) + ((((int)threadIdx.x) & 3) >> 1)) & 1) * 16)) + (((((((int)threadIdx.x) & 15) >> 3) + (((int)threadIdx.x) & 1)) & 1) * 8))])), (&(A[(((((((int)blockIdx.y) * 1048576) + (i_2 * 524288)) + ((((int)threadIdx.x) >> 2) * 8192)) + (c * 2048)) + ((((int)threadIdx.x) & 3) * 8))])));\n    }\n    #pragma unroll\n    for (int i_3 = 0; i_3 < 4; ++i_3) {\n      tl::cp_async_gs<16>((&(((half_t*)Bs)[((((((((((int)threadIdx.x) & 31) >> 3) * 2048) + (i_3 * 512)) + ((((int)threadIdx.x) >> 5) * 64)) + ((((((int)threadIdx.x) >> 7) + ((((int)threadIdx.x) & 7) >> 2)) & 1) * 32)) + (((((((int)threadIdx.x) & 127) >> 6) + ((((int)threadIdx.x) & 3) >> 1)) & 1) * 16)) + (((((((int)threadIdx.x) & 63) >> 5) + (((int)threadIdx.x) & 1)) & 1) * 8))])), (&(B[(((((c * 16777216) + (i_3 * 65536)) + ((((int)threadIdx.x) >> 5) * 8192)) + (((int)blockIdx.x) * 256)) + ((((int)threadIdx.x) & 31) * 8))])));\n    }\n    tl::cp_async_commit();\n    #pragma unroll\n    for (int i_4 = 0; i_4 < 2; ++i_4) {\n      tl::cp_async_gs<16>((&(((half_t*)As)[(((((i_4 * 2048) + ((((int)threadIdx.x) >> 2) * 32)) + (((((((int)threadIdx.x) & 31) >> 4) + ((((int)threadIdx.x) & 3) >> 1)) & 1) * 16)) + (((((((int)threadIdx.x) & 15) >> 3) + (((int)threadIdx.x) & 1)) & 1) * 8)) + 4096)])), (&(A[((((((((int)blockIdx.y) * 1048576) + (i_4 * 524288)) + ((((int)threadIdx.x) >> 2) * 8192)) + (c * 2048)) + ((((int)threadIdx.x) & 3) * 8)) + 32)])));\n    }\n    #pragma unroll\n    for (int i_5 = 0; i_5 < 4; ++i_5) {\n      tl::cp_async_gs<16>((&(((half_t*)Bs)[(((((((((((int)threadIdx.x) & 31) >> 3) * 2048) + (i_5 * 512)) + ((((int)threadIdx.x) >> 5) * 64)) + ((((((int)threadIdx.x) >> 7) + ((((int)threadIdx.x) & 7) >> 2)) & 1) * 32)) + (((((((int)threadIdx.x) & 127) >> 6) + ((((int)threadIdx.x) & 3) >> 1)) & 1) * 16)) + (((((((int)threadIdx.x) & 63) >> 5) + (((int)threadIdx.x) & 1)) & 1) * 8)) + 8192)])), (&(B[((((((c * 16777216) + (i_5 * 65536)) + ((((int)threadIdx.x) >> 5) * 8192)) + (((int)blockIdx.x) * 256)) + ((((int)threadIdx.x) & 31) * 8)) + 262144)])));\n    }\n    tl::cp_async_commit();\n    #pragma unroll\n    for (int i_6 = 0; i_6 < 2; ++i_6) {\n      tl::cp_async_gs<16>((&(((half_t*)As)[(((((i_6 * 2048) + ((((int)threadIdx.x) >> 2) * 32)) + (((((((int)threadIdx.x) & 31) >> 4) + ((((int)threadIdx.x) & 3) >> 1)) & 1) * 16)) + (((((((int)threadIdx.x) & 15) >> 3) + (((int)threadIdx.x) & 1)) & 1) * 8)) + 8192)])), (&(A[((((((((int)blockIdx.y) * 1048576) + (i_6 * 524288)) + ((((int)threadIdx.x) >> 2) * 8192)) + (c * 2048)) + ((((int)threadIdx.x) & 3) * 8)) + 64)])));\n    }\n    #pragma unroll\n    for (int i_7 = 0; i_7 < 4; ++i_7) {\n      tl::cp_async_gs<16>((&(((half_t*)Bs)[(((((((((((int)threadIdx.x) & 31) >> 3) * 2048) + (i_7 * 512)) + ((((int)threadIdx.x) >> 5) * 64)) + ((((((int)threadIdx.x) >> 7) + ((((int)threadIdx.x) & 7) >> 2)) & 1) * 32)) + (((((((int)threadIdx.x) & 127) >> 6) + ((((int)threadIdx.x) & 3) >> 1)) & 1) * 16)) + (((((((int)threadIdx.x) & 63) >> 5) + (((int)threadIdx.x) & 1)) & 1) * 8)) + 16384)])), (&(B[((((((c * 16777216) + (i_7 * 65536)) + ((((int)threadIdx.x) >> 5) * 8192)) + (((int)blockIdx.x) * 256)) + ((((int)threadIdx.x) & 31) * 8)) + 524288)])));\n    }\n    tl::cp_async_commit();\n    for (int ko = 0; ko < 61; ++ko) {\n      __syncthreads();\n      #pragma unroll\n      for (int i_8 = 0; i_8 < 2; ++i_8) {\n        tl::cp_async_gs<16>((&(((half_t*)As)[(((((((ko + 3) & 3) * 4096) + (i_8 * 2048)) + ((((int)threadIdx.x) >> 2) * 32)) + (((((((int)threadIdx.x) & 31) >> 4) + ((((int)threadIdx.x) & 3) >> 1)) & 1) * 16)) + (((((((int)threadIdx.x) & 15) >> 3) + (((int)threadIdx.x) & 1)) & 1) * 8))])), (&(A[(((((((((int)blockIdx.y) * 1048576) + (i_8 * 524288)) + ((((int)threadIdx.x) >> 2) * 8192)) + (c * 2048)) + (ko * 32)) + ((((int)threadIdx.x) & 3) * 8)) + 96)])));\n      }\n      #pragma unroll\n      for (int i_9 = 0; i_9 < 4; ++i_9) {\n        tl::cp_async_gs<16>((&(((half_t*)Bs)[(((((((((ko + 3) & 3) * 8192) + (((((int)threadIdx.x) & 31) >> 3) * 2048)) + (i_9 * 512)) + ((((int)threadIdx.x) >> 5) * 64)) + ((((((int)threadIdx.x) >> 7) + ((((int)threadIdx.x) & 7) >> 2)) & 1) * 32)) + (((((((int)threadIdx.x) & 127) >> 6) + ((((int)threadIdx.x) & 3) >> 1)) & 1) * 16)) + (((((((int)threadIdx.x) & 63) >> 5) + (((int)threadIdx.x) & 1)) & 1) * 8))])), (&(B[(((((((c * 16777216) + (ko * 262144)) + (i_9 * 65536)) + ((((int)threadIdx.x) >> 5) * 8192)) + (((int)blockIdx.x) * 256)) + ((((int)threadIdx.x) & 31) * 8)) + 786432)])));\n      }\n      tl::cp_async_commit();\n      tl::cp_async_wait<3>();\n      __syncthreads();\n      {\n        half_t A_local[32];\n        half_t B_local[32];\n        for (int ki = 0; ki < 2; ++ki) {\n          for (int i_10 = 0; i_10 < 4; ++i_10) {\n            tl::ptx_ldmatrix_x4((&(((half_t*)As)[(((((((ko & 3) * 4096) + (((((int)threadIdx.x) & 63) >> 5) * 2048)) + (i_10 * 512)) + ((((int)threadIdx.x) & 15) * 32)) + (((((((int)threadIdx.x) & 7) >> 2) + ki) & 1) * 16)) + (((((((int)threadIdx.x) & 31) >> 4) + ((((int)threadIdx.x) & 3) >> 1)) & 1) * 8))])), (&(A_local[(i_10 * 8)])));\n          }\n          for (int i_11 = 0; i_11 < 4; ++i_11) {\n            tl::ptx_ldmatrix_x4_trans((&(((half_t*)Bs)[((((((ko & 3) * 8192) + ((((int)threadIdx.x) >> 6) * 2048)) + (ki * 1024)) + (((((int)threadIdx.x) & 15) >> 3) * 512)) + ((((((((int)threadIdx.x) & 15) * 64) + (((((((int)threadIdx.x) & 7) >> 2) + (i_11 >> 1)) & 1) * 32)) + (((((((int)threadIdx.x) & 3) >> 1) + (i_11 & 1)) & 1) * 16)) + (((((((int)threadIdx.x) & 31) >> 4) + (((int)threadIdx.x) & 1)) & 1) * 8)) & 511))])), (&(B_local[(i_11 * 8)])));\n          }\n          for (int i_12 = 0; i_12 < 4; ++i_12) {\n            for (int j = 0; j < 4; ++j) {\n              tl::mma_sync<tl::DataType::kFloat16, tl::DataType::kFloat16, tl::DataType::kFloat32, 16, 8, 16, false, true>(reinterpret_cast<float*>(Cchunk + ((i_12 * 32) + (j * 8))), reinterpret_cast<const unsigned*>(A_local + (i_12 * 8)), reinterpret_cast<const unsigned*>(B_local + (j * 8)));\n              tl::mma_sync<tl::DataType::kFloat16, tl::DataType::kFloat16, tl::DataType::kFloat32, 16, 8, 16, false, true>(reinterpret_cast<float*>(Cchunk + (((i_12 * 32) + (j * 8)) + 4)), reinterpret_cast<const unsigned*>(A_local + (i_12 * 8)), reinterpret_cast<const unsigned*>(B_local + ((j * 8) + 4)));\n            }\n          }\n        }\n      }\n    }\n    tl::cp_async_wait<2>();\n    __syncthreads();\n    {\n      half_t A_local_1[32];\n      half_t B_local_1[32];\n      for (int ki_1 = 0; ki_1 < 2; ++ki_1) {\n        for (int i_13 = 0; i_13 < 4; ++i_13) {\n          tl::ptx_ldmatrix_x4((&(((half_t*)As)[((((((((((int)threadIdx.x) & 63) >> 5) * 2048) + (i_13 * 512)) + ((((int)threadIdx.x) & 15) * 32)) + (((((((int)threadIdx.x) & 7) >> 2) + ki_1) & 1) * 16)) + (((((((int)threadIdx.x) & 31) >> 4) + ((((int)threadIdx.x) & 3) >> 1)) & 1) * 8)) + 4096)])), (&(A_local_1[(i_13 * 8)])));\n        }\n        for (int i_14 = 0; i_14 < 4; ++i_14) {\n          tl::ptx_ldmatrix_x4_trans((&(((half_t*)Bs)[((((((((int)threadIdx.x) >> 6) * 2048) + (ki_1 * 1024)) + (((((int)threadIdx.x) & 15) >> 3) * 512)) + ((((((((int)threadIdx.x) & 15) * 64) + (((((((int)threadIdx.x) & 7) >> 2) + (i_14 >> 1)) & 1) * 32)) + (((((((int)threadIdx.x) & 3) >> 1) + (i_14 & 1)) & 1) * 16)) + (((((((int)threadIdx.x) & 31) >> 4) + (((int)threadIdx.x) & 1)) & 1) * 8)) & 511)) + 8192)])), (&(B_local_1[(i_14 * 8)])));\n        }\n        for (int i_15 = 0; i_15 < 4; ++i_15) {\n          for (int j_1 = 0; j_1 < 4; ++j_1) {\n            tl::mma_sync<tl::DataType::kFloat16, tl::DataType::kFloat16, tl::DataType::kFloat32, 16, 8, 16, false, true>(reinterpret_cast<float*>(Cchunk + ((i_15 * 32) + (j_1 * 8))), reinterpret_cast<const unsigned*>(A_local_1 + (i_15 * 8)), reinterpret_cast<const unsigned*>(B_local_1 + (j_1 * 8)));\n            tl::mma_sync<tl::DataType::kFloat16, tl::DataType::kFloat16, tl::DataType::kFloat32, 16, 8, 16, false, true>(reinterpret_cast<float*>(Cchunk + (((i_15 * 32) + (j_1 * 8)) + 4)), reinterpret_cast<const unsigned*>(A_local_1 + (i_15 * 8)), reinterpret_cast<const unsigned*>(B_local_1 + ((j_1 * 8) + 4)));\n          }\n        }\n      }\n    }\n    tl::cp_async_wait<1>();\n    __syncthreads();\n    {\n      half_t A_local_2[32];\n      half_t B_local_2[32];\n      for (int ki_2 = 0; ki_2 < 2; ++ki_2) {\n        for (int i_16 = 0; i_16 < 4; ++i_16) {\n          tl::ptx_ldmatrix_x4((&(((half_t*)As)[((((((((((int)threadIdx.x) & 63) >> 5) * 2048) + (i_16 * 512)) + ((((int)threadIdx.x) & 15) * 32)) + (((((((int)threadIdx.x) & 7) >> 2) + ki_2) & 1) * 16)) + (((((((int)threadIdx.x) & 31) >> 4) + ((((int)threadIdx.x) & 3) >> 1)) & 1) * 8)) + 8192)])), (&(A_local_2[(i_16 * 8)])));\n        }\n        for (int i_17 = 0; i_17 < 4; ++i_17) {\n          tl::ptx_ldmatrix_x4_trans((&(((half_t*)Bs)[((((((((int)threadIdx.x) >> 6) * 2048) + (ki_2 * 1024)) + (((((int)threadIdx.x) & 15) >> 3) * 512)) + ((((((((int)threadIdx.x) & 15) * 64) + (((((((int)threadIdx.x) & 7) >> 2) + (i_17 >> 1)) & 1) * 32)) + (((((((int)threadIdx.x) & 3) >> 1) + (i_17 & 1)) & 1) * 16)) + (((((((int)threadIdx.x) & 31) >> 4) + (((int)threadIdx.x) & 1)) & 1) * 8)) & 511)) + 16384)])), (&(B_local_2[(i_17 * 8)])));\n        }\n        for (int i_18 = 0; i_18 < 4; ++i_18) {\n          for (int j_2 = 0; j_2 < 4; ++j_2) {\n            tl::mma_sync<tl::DataType::kFloat16, tl::DataType::kFloat16, tl::DataType::kFloat32, 16, 8, 16, false, true>(reinterpret_cast<float*>(Cchunk + ((i_18 * 32) + (j_2 * 8))), reinterpret_cast<const unsigned*>(A_local_2 + (i_18 * 8)), reinterpret_cast<const unsigned*>(B_local_2 + (j_2 * 8)));\n            tl::mma_sync<tl::DataType::kFloat16, tl::DataType::kFloat16, tl::DataType::kFloat32, 16, 8, 16, false, true>(reinterpret_cast<float*>(Cchunk + (((i_18 * 32) + (j_2 * 8)) + 4)), reinterpret_cast<const unsigned*>(A_local_2 + (i_18 * 8)), reinterpret_cast<const unsigned*>(B_local_2 + ((j_2 * 8) + 4)));\n          }\n        }\n      }\n    }\n    tl::cp_async_wait<0>();\n    __syncthreads();\n    {\n      half_t A_local_3[32];\n      half_t B_local_3[32];\n      for (int ki_3 = 0; ki_3 < 2; ++ki_3) {\n        for (int i_19 = 0; i_19 < 4; ++i_19) {\n          tl::ptx_ldmatrix_x4((&(((half_t*)As)[((((((((((int)threadIdx.x) & 63) >> 5) * 2048) + (i_19 * 512)) + ((((int)threadIdx.x) & 15) * 32)) + (((((((int)threadIdx.x) & 7) >> 2) + ki_3) & 1) * 16)) + (((((((int)threadIdx.x) & 31) >> 4) + ((((int)threadIdx.x) & 3) >> 1)) & 1) * 8)) + 12288)])), (&(A_local_3[(i_19 * 8)])));\n        }\n        for (int i_20 = 0; i_20 < 4; ++i_20) {\n          tl::ptx_ldmatrix_x4_trans((&(((half_t*)Bs)[((((((((int)threadIdx.x) >> 6) * 2048) + (ki_3 * 1024)) + (((((int)threadIdx.x) & 15) >> 3) * 512)) + ((((((((int)threadIdx.x) & 15) * 64) + (((((((int)threadIdx.x) & 7) >> 2) + (i_20 >> 1)) & 1) * 32)) + (((((((int)threadIdx.x) & 3) >> 1) + (i_20 & 1)) & 1) * 16)) + (((((((int)threadIdx.x) & 31) >> 4) + (((int)threadIdx.x) & 1)) & 1) * 8)) & 511)) + 24576)])), (&(B_local_3[(i_20 * 8)])));\n        }\n        for (int i_21 = 0; i_21 < 4; ++i_21) {\n          for (int j_3 = 0; j_3 < 4; ++j_3) {\n            tl::mma_sync<tl::DataType::kFloat16, tl::DataType::kFloat16, tl::DataType::kFloat32, 16, 8, 16, false, true>(reinterpret_cast<float*>(Cchunk + ((i_21 * 32) + (j_3 * 8))), reinterpret_cast<const unsigned*>(A_local_3 + (i_21 * 8)), reinterpret_cast<const unsigned*>(B_local_3 + (j_3 * 8)));\n            tl::mma_sync<tl::DataType::kFloat16, tl::DataType::kFloat16, tl::DataType::kFloat32, 16, 8, 16, false, true>(reinterpret_cast<float*>(Cchunk + (((i_21 * 32) + (j_3 * 8)) + 4)), reinterpret_cast<const unsigned*>(A_local_3 + (i_21 * 8)), reinterpret_cast<const unsigned*>(B_local_3 + ((j_3 * 8) + 4)));\n          }\n        }\n      }\n    }\n    #pragma unroll\n    for (int i_22 = 0; i_22 < 128; ++i_22) {\n      Cacc[i_22] = (Cacc[i_22] + Cchunk[i_22]);\n    }\n  }\n  #pragma unroll\n  for (int i_23 = 0; i_23 < 64; ++i_23) {\n    for (int vec_s = 0; vec_s < 2; ++vec_s) {\n      float v = (Cacc[((i_23 * 2) + vec_s)] + Bias[(((((((int)blockIdx.x) * 256) + ((((int)threadIdx.x) >> 6) * 64)) + (((i_23 & 15) >> 1) * 8)) + ((((int)threadIdx.x) & 3) * 2)) + vec_s)]);\n      Cacc[((i_23 * 2) + vec_s)] = ((v * 0x1p-1f/*5.000000e-01*/) * (0x1p+0f/*1.000000e+00*/ + erff((v * 0x1.6a09e667f3bcdp-1f/*7.071068e-01*/))));\n    }\n  }\n  #pragma unroll\n  for (int i_24 = 0; i_24 < 64; ++i_24) {\n    *(float2*)(C + (((((((((((int)blockIdx.y) * 1048576) + (((((int)threadIdx.x) & 63) >> 5) * 524288)) + ((i_24 >> 4) * 131072)) + ((i_24 & 1) * 65536)) + (((((int)threadIdx.x) & 31) >> 2) * 8192)) + (((int)blockIdx.x) * 256)) + ((((int)threadIdx.x) >> 6) * 64)) + (((i_24 & 15) >> 1) * 8)) + ((((int)threadIdx.x) & 3) * 2))) = *(float2*)(Cacc + (i_24 * 2));\n  }\n}\n\n",
+        "dynamic_smem_bytes": null,
+        "epilogue_tile_bytes": 0,
+        "grid": [
+          32,
+          8,
+          1
+        ],
+        "n_kernels": 1,
+        "operand_smem_bytes": null,
+        "shared_bytes": null,
+        "tilelang_disk_cache": true,
+        "tilelang_version": "0.1.11",
+        "total_dynamic_shared_bytes": null,
+        "total_dynamic_smem_bytes": null,
+        "transpose_b": false,
+        "wcache": "cached"
+      },
+      "postprocess": {
+        "backend_detail": "common CUDA compile-time bias/GELU plus row-softmax",
+        "block": [
+          256,
+          1,
+          1
+        ],
+        "cuda_source_sha256": "c03d2e32b61d48d4da5df401aaf5767b9b99762e1a275e96e2d3f5266d1279bb",
+        "epilogue_tile_bytes": 0,
+        "grid": [
+          1024,
+          1,
+          1
+        ],
+        "has_bias": false,
+        "has_gelu": false,
+        "n_kernels": 1,
+        "operand_smem_bytes": 0,
+        "shared_bytes": 0,
+        "softmax_source_sha256": "758a6ad3dc8f4635cd1146dd9c6fd102b590410ce4f710c10c72f470d2bbf96f",
+        "total_dynamic_shared_bytes": 0
+      },
+      "strategy": "register_common_postprocess"
+    },
+    "build_wall_s": 36.516928934986936,
+    "builder": "crossed-v2:tilelang:GBG-regs+common-softmax",
+    "common_softmax_source_sha256": "758a6ad3dc8f4635cd1146dd9c6fd102b590410ce4f710c10c72f470d2bbf96f",
+    "config_sha256": "1c5a73a3f66a464d756d6643c78d3a9b139da97e99ee709ebc09c3e0e4d78273",
+    "coordinate_cell_id": "register_common_postprocess.tilelang.g07",
+    "coordinate_cell_sha256": "d257a494873429d704a5c6fab9dd15a5de360a6735a38e4a1bf84debdc04a99e",
+    "destination": "tilelang",
+    "donor_step_id": "register_common_to_register_fused",
+    "epilogue_request": "regs",
+    "generated_source_bindings": [
+      {
+        "path": "lane_gbg.cuda_source",
+        "sha256": "93dcfb7bdb1cdf81addbb34661be0c71581b12b04287d5d9d7d45c1b30dee3a5"
+      },
+      {
+        "path": "postprocess.cuda_source_sha256",
+        "sha256": "c03d2e32b61d48d4da5df401aaf5767b9b99762e1a275e96e2d3f5266d1279bb"
+      },
+      {
+        "path": "postprocess.softmax_source_sha256",
+        "sha256": "758a6ad3dc8f4635cd1146dd9c6fd102b590410ce4f710c10c72f470d2bbf96f"
+      }
+    ],
+    "generated_source_sha256": "5793b594fcc1b71b2955c4cdc9c637d3a0349272c82cbd1d51fe89f27c7fb39a",
+    "held_gemm_cache_binding": {
+      "cache_namespace": "0.1.11-x86_64",
+      "device_source_sha256": "93dcfb7bdb1cdf81addbb34661be0c71581b12b04287d5d9d7d45c1b30dee3a5",
+      "executable_sha256": "6738643c6ba28a5da42e21648ef0c95f1375698d9048fd30a9769631c67d3510",
+      "files": [
+        {
+          "path": "device_kernel.cu",
+          "sha256": "93dcfb7bdb1cdf81addbb34661be0c71581b12b04287d5d9d7d45c1b30dee3a5",
+          "size": 14509
+        },
+        {
+          "path": "executable.so",
+          "sha256": "6738643c6ba28a5da42e21648ef0c95f1375698d9048fd30a9769631c67d3510",
+          "size": 368968
+        },
+        {
+          "path": "host_kernel.cu",
+          "sha256": "1d60f08e766ed7b9f585ade6149897818c4749c9dc36d1b3b501c2295c7d88b2",
+          "size": 23732
+        },
+        {
+          "path": "params.pkl",
+          "sha256": "d381d8ac3f09dce4567aaa0d48e640df5ead50bef1da2b08e504694eddea17c5",
+          "size": 421
+        },
+        {
+          "path": "prim_func.pkl",
+          "sha256": "31efbe4c9a32bf39c4699c29a74eb4e035de00699f65e8ef215018b204a0361f",
+          "size": 28506
+        }
+      ],
+      "files_sha256": "18cd7e5e67ddbd5c6eb2554703baa8bc2c12578592a8a58dde29219607cc981f",
+      "host_source_sha256": "1d60f08e766ed7b9f585ade6149897818c4749c9dc36d1b3b501c2295c7d88b2",
+      "kernel_key": "cc9a27805b6fa13c019dbaaba7f2c197c4931242901bb2bdc8f48c1fff0a48b3",
+      "schema_version": 1
+    },
+    "held_gemm_source_binding": {
+      "kind": "generated_tilelang_cuda_gemm",
+      "schedule": {
+        "BK": 32,
+        "BM": 128,
+        "BN": 256,
+        "K": 8192,
+        "M": 1024,
+        "N": 8192,
+        "arith": "fp16",
+        "cast": "precast",
+        "extra": {
+          "epilogue": "regs",
+          "wcache": "cached"
+        },
+        "input_dtype": "torch.float16",
+        "kc": 2048,
+        "stages": 4,
+        "threads": 256
+      },
+      "source_sha256": "93dcfb7bdb1cdf81addbb34661be0c71581b12b04287d5d9d7d45c1b30dee3a5"
+    },
+    "held_gemm_source_sha256": "11e8b0342cd0892e0edfa93629eeefd318b721f22731211378794d8f3cfc9202",
+    "implementation_id": "register_common_postprocess.tilelang.g07",
+    "implementation_sha256": "69ca0aea76d0ef57d753e0016ca87107b2218707513c2562e49adf2b254e80ad",
+    "isolated_artifact_root": "/tmp/fused_epilogue_crossed_v2/pid1007302/register_common_postprocess.tilelang.g07",
+    "mechanism_enabled": false,
+    "n_kernels": 2,
+    "notes": "lane-native register bias+exact-GELU followed by byte-identical common softmax",
+    "origin_id": "triton_native_softmax_g01",
+    "paired_config_sha256": "1b122df36efd59b13d7575cfcf0f489bb0109d69d9cabf1e755098a59ecf3803",
+    "primitive_graph_sha256": "29e023af8f1485aa56fdc59a725411a53925389b08dd76532b47efe6b8d28674",
+    "primitive_mapping": {
+      "destination_recipe": {
+        "direct_primitive_mapping": {
+          "off_coordinate_cell_id": "register_common_postprocess.tilelang.g01",
+          "off_implementation_id": "register_common_postprocess.tilelang.g01",
+          "on_coordinate_cell_id": "register_fused.tilelang.g01",
+          "on_implementation_id": "tilelang_abstraction.F1.g01",
+          "recipe": {
+            "adapter_entrypoint": "ako_runs.controlled_followup.trajectory_transfer_ada_v3.implementations.tilelang.build",
+            "authorized_change": "common CUDA softmax -> TileLang F1 using T.reduce_max and T.reduce_sum",
+            "kind": "direct_existing_destination_primitive_mapping",
+            "new_destination_kernel_authored": false,
+            "primitive_calls": [
+              "T.reduce_max",
+              "T.reduce_sum"
+            ],
+            "source_review_sha256": "18d5c4821af7e3a66a1d56e112a2ee59458f20fb51d0e4f1ac09a6b8ddc3bc47",
+            "unchanged_controls": "register GBG, two kernels, paired grid configuration, precision, shape, cached weight, gate"
+          },
+          "status": "ELIGIBLE"
+        },
+        "manual_reconstruction": {
+          "primitive_absence_receipt_sha256": null,
+          "reason": "TileLang exposes T.reduce_max and T.reduce_sum; the preexisting F1 implementation is the direct route",
+          "status": "NOT_APPLICABLE"
+        },
+        "programming_model_unit": "tilelang",
+        "review": {
+          "off_gate_record_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/records/register_common_postprocess__tilelang__g01.json",
+          "off_gate_record_sha256": "4813257f513f03798d73144c85f97428c0cb569b9e55354fdc9a38b65997013a",
+          "on_gate_record_kind": "tilelang_abstraction_v7_f1_softmax_correctness_gate",
+          "on_gate_record_path": "ako_runs/controlled_followup/tilelang_abstraction_v7/results/ada_v7r1/admission/fused_softmax_f1_f4c__high.json",
+          "on_gate_record_sha256": "c6d62fd63348e3edd0aab06acc031df1b2175a16161efbd2c496b6a6387aa176",
+          "source_path": "ako_runs/phase2_fused_sdpa/variants2/fused_tilelang_abstraction.py",
+          "source_sha256": "ac0cbbbba5046d2ffcfd4b21b4d9aadcdaad5728d3a742dee1f77696178a724f"
+        },
+        "route": "direct_primitive_mapping"
+      },
+      "destination_recipe_sha256": "1627f27c749316e5615a94277a6b9f77867cc91d658302f15854e6506adaf1f8",
+      "primitive_map_sha256": "0d01a5a1e5cdbebe156358220eb227a491cb8879196851fa50e108625f6f3268",
+      "reviewed_source_path": "ako_runs/phase2_fused_sdpa/variants2/fused_tilelang_abstraction.py",
+      "reviewed_source_sha256": "ac0cbbbba5046d2ffcfd4b21b4d9aadcdaad5728d3a742dee1f77696178a724f"
+    },
+    "protocol_route": "direct_primitive_mapping",
+    "route": "direct_primitive_mapping"
+  },
+  "tilelang_pair_postcondition": null,
+  "tilelang_pair_seed": null,
+  "torch_inline_requests": [
+    {
+      "module": {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/fused_crossed_v2_pp_c03d2e32b61d.so",
+        "sha256": "e9bed96d8fccefac7a2ecb37b13f4305c2274668a169ef55eec06995ae4ba83b",
+        "size": 1351176
+      },
+      "request": {
+        "compile_options": {
+          "extra_cflags": null,
+          "extra_cuda_cflags": [
+            "-O3",
+            "-std=c++17",
+            "-Xptxas=-v",
+            "-gencode=arch=compute_89,code=sm_89"
+          ],
+          "extra_include_paths": [
+            "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/legacy_cuda_harness_fix"
+          ],
+          "extra_ldflags": null,
+          "extra_sycl_cflags": null,
+          "is_python_module": true,
+          "keep_intermediates": true,
+          "no_implicit_headers": false,
+          "use_pch": false,
+          "with_cuda": true,
+          "with_pytorch_error_handling": true,
+          "with_sycl": null
+        },
+        "cpp_sources": [
+          {
+            "sha256": "4191a213326b6ae0d2a79f3d17e6ba22980bf82f6e0b2fae9bbceeec5939b806",
+            "size": 103
+          }
+        ],
+        "cuda_sources": [
+          {
+            "sha256": "c03d2e32b61d48d4da5df401aaf5767b9b99762e1a275e96e2d3f5266d1279bb",
+            "size": 3596
+          }
+        ],
+        "functions": [
+          "common_postprocess"
+        ],
+        "name": "fused_crossed_v2_pp_c03d2e32b61d",
+        "sycl_sources": []
+      }
+    }
+  ]
+}
