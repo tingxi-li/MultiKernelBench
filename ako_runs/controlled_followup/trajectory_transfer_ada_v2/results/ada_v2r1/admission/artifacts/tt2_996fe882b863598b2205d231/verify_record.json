@@ -1,0 +1,256 @@
+{
+  "admission_row_sha256": "270cda6f369d2596b3f89e25f518634aa3b23eb43c13af91e69cbff7fc01c9ba",
+  "artifact_identity_sha256": "a94196217509c10536dee88b8dd33ef597bba0b08bc3caa64637fff0c58a785b",
+  "build_gate_jsonl_sha256": "df6ce3bdfda963acac81ddde129af4700bf4533a39754c58f1440c6662754867",
+  "build_record_sha256": "bc97378d60119fa3b8056cbd79a322650b710ef35181e0ab708f2db6a7a91c84",
+  "cache": {
+    "cache_root": "ako_runs/controlled_followup/trajectory_transfer_ada_v2/results/ada_v2r1/admission/artifacts/tt2_996fe882b863598b2205d231/cache",
+    "file_count": 12,
+    "files": [
+      {
+        "path": "tilelang/0.1.11-x86_64/frontend/1d235cf3822da9d102b701386baf97d77cf3ef8ec464fca44bff26eaabda4d49.json",
+        "sha256": "b3e0ae258d518da4e8f464bb75bfca535b3aa59f007d31ab20469a7adfbf3043",
+        "size": 82
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/frontend/e72e5b6e242e38fb606305aca9d87f28b4409998ea36facc9d24bdfab0fcfec8.json",
+        "sha256": "8546c9b56d6b020053e74f271af7fba9bb51b05bb9491663fcd7d8db53477fd2",
+        "size": 82
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/bbb6caf5dfb2578d1e9df70dcd19578899312880d1f3667df48e780ee00292fc/device_kernel.cu",
+        "sha256": "79ea0511c5fd44de787d0a9c10284b8404f396a2d4fe458e62610ce76c8ccf5e",
+        "size": 9090
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/bbb6caf5dfb2578d1e9df70dcd19578899312880d1f3667df48e780ee00292fc/executable.so",
+        "sha256": "1ca9f0ac53b2fd89002968502e46ca8e1ba6a8d287864b9c530cb74ece8f3128",
+        "size": 307528
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/bbb6caf5dfb2578d1e9df70dcd19578899312880d1f3667df48e780ee00292fc/host_kernel.cu",
+        "sha256": "463ad1b7d5a9a4b88333d12309548883a823b3b7391eb90a8ba7ea960f2cfde2",
+        "size": 23732
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/bbb6caf5dfb2578d1e9df70dcd19578899312880d1f3667df48e780ee00292fc/params.pkl",
+        "sha256": "d381d8ac3f09dce4567aaa0d48e640df5ead50bef1da2b08e504694eddea17c5",
+        "size": 421
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/bbb6caf5dfb2578d1e9df70dcd19578899312880d1f3667df48e780ee00292fc/prim_func.pkl",
+        "sha256": "5cfcaec64afc7cf110ec4be7eaf15dbb3e1211a51c8d395046c2236ea574df29",
+        "size": 28506
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/ed0ec284b216695ffb0bd372fa302b832c7c02145017b42a469547e6ce79f5ed/device_kernel.cu",
+        "sha256": "456d6b96858e26ec77b1d00e1cb452b3ab60a4e56ccea97d4335e29fa7785968",
+        "size": 2211
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/ed0ec284b216695ffb0bd372fa302b832c7c02145017b42a469547e6ce79f5ed/executable.so",
+        "sha256": "f99fe631672d047b0c27c76742de90f046925bb41d511c63896ef1dc2e8b02aa",
+        "size": 74056
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/ed0ec284b216695ffb0bd372fa302b832c7c02145017b42a469547e6ce79f5ed/host_kernel.cu",
+        "sha256": "162771de599cb2a8edf8751e3d34439b8113603b740b304d95859460383b6b0c",
+        "size": 13961
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/ed0ec284b216695ffb0bd372fa302b832c7c02145017b42a469547e6ce79f5ed/params.pkl",
+        "sha256": "2d3f7b607199ad2d30072dad5ccce15dbe7ead8ceb4f7d509268dbe1be2dfb5b",
+        "size": 297
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/ed0ec284b216695ffb0bd372fa302b832c7c02145017b42a469547e6ce79f5ed/prim_func.pkl",
+        "sha256": "edf62b84956143106588dc8948cb3d4517a3d392f7454667fc10f6f087ea4893",
+        "size": 17400
+      }
+    ],
+    "files_sha256": "887a331b103c45de2e9ef2bef0c9ae78a0438b122b297fcbc7e4ffb678fe02fe",
+    "generated_sources": [
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/bbb6caf5dfb2578d1e9df70dcd19578899312880d1f3667df48e780ee00292fc/device_kernel.cu",
+        "sha256": "79ea0511c5fd44de787d0a9c10284b8404f396a2d4fe458e62610ce76c8ccf5e",
+        "size": 9090
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/bbb6caf5dfb2578d1e9df70dcd19578899312880d1f3667df48e780ee00292fc/host_kernel.cu",
+        "sha256": "463ad1b7d5a9a4b88333d12309548883a823b3b7391eb90a8ba7ea960f2cfde2",
+        "size": 23732
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/ed0ec284b216695ffb0bd372fa302b832c7c02145017b42a469547e6ce79f5ed/device_kernel.cu",
+        "sha256": "456d6b96858e26ec77b1d00e1cb452b3ab60a4e56ccea97d4335e29fa7785968",
+        "size": 2211
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/ed0ec284b216695ffb0bd372fa302b832c7c02145017b42a469547e6ce79f5ed/host_kernel.cu",
+        "sha256": "162771de599cb2a8edf8751e3d34439b8113603b740b304d95859460383b6b0c",
+        "size": 13961
+      }
+    ],
+    "loadable_code_objects": [
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/bbb6caf5dfb2578d1e9df70dcd19578899312880d1f3667df48e780ee00292fc/executable.so",
+        "sha256": "1ca9f0ac53b2fd89002968502e46ca8e1ba6a8d287864b9c530cb74ece8f3128",
+        "size": 307528
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/ed0ec284b216695ffb0bd372fa302b832c7c02145017b42a469547e6ce79f5ed/executable.so",
+        "sha256": "f99fe631672d047b0c27c76742de90f046925bb41d511c63896ef1dc2e8b02aa",
+        "size": 74056
+      }
+    ]
+  },
+  "campaign_id": "trajectory-transfer-ada-v2",
+  "config": {
+    "BK": 64,
+    "BM": 128,
+    "BN": 128,
+    "K": 8192,
+    "M": 1024,
+    "N": 8192,
+    "arith": "fp16",
+    "cast": "precast",
+    "dsl": "tilelang_abs",
+    "extra": {
+      "epilogue": "regs",
+      "wcache": "cached"
+    },
+    "input_dtype": "torch.float16",
+    "kc": 2048,
+    "stages": 2,
+    "threads": 256,
+    "variant": "F1"
+  },
+  "dynamic_work_audit": {
+    "cuda_device_event_names": [
+      "main_kernel",
+      "main_kernel"
+    ],
+    "cuda_device_event_names_sha256": "532642300ed8e681fb7233966079c647fa9669d8758f125972b291cd3740eb6c",
+    "expected_cuda_device_event_count": 2,
+    "input": {
+      "distribution": "positive",
+      "seed": 0
+    },
+    "method": "torch_profiler_cuda_activity_v1",
+    "observed_cuda_device_event_count": 2,
+    "output": {
+      "all_finite": true,
+      "dtype": "torch.float32",
+      "shape": [
+        1024,
+        8192
+      ]
+    },
+    "passed": true,
+    "performance_observations": [],
+    "profiled_calls": 1,
+    "schema_version": 1
+  },
+  "entry_id": "tt2_996fe882b863598b2205d231",
+  "live_gate": {
+    "budget_mean": 0.00010001220703127959,
+    "err_q100": 1.525913830846548e-07,
+    "err_q50": 3.179593477398157e-09,
+    "err_q90": 1.1918018572032452e-08,
+    "err_q99": 2.7153873816132545e-08,
+    "err_q999": 4.5649358071386814e-08,
+    "gate_pass": true,
+    "max_abs_err": 1.525913830846548e-07,
+    "mean_abs_err": 5.038478084404274e-09,
+    "pct_elems_failing_gate": 0.0,
+    "ref_abs_mean": 0.00012207031279582326,
+    "signed_mean_err": -2.4853383240319715e-14
+  },
+  "load_evidence": {
+    "diagnostic_side_compile_skips": [],
+    "mode": "load_only",
+    "tilelang_cache_hits": [
+      {
+        "cache_path": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/trajectory_transfer_ada_v2/results/ada_v2r1/admission/artifacts/tt2_996fe882b863598b2205d231/cache/tilelang/0.1.11-x86_64/kernels/bbb6caf5dfb2578d1e9df70dcd19578899312880d1f3667df48e780ee00292fc",
+        "loadable_code_objects": [
+          {
+            "path": "tilelang/0.1.11-x86_64/kernels/bbb6caf5dfb2578d1e9df70dcd19578899312880d1f3667df48e780ee00292fc/executable.so",
+            "sha256": "1ca9f0ac53b2fd89002968502e46ca8e1ba6a8d287864b9c530cb74ece8f3128",
+            "size": 307528
+          }
+        ],
+        "requested_out_idx": [
+          -1
+        ],
+        "resolved_out_idx": [
+          3
+        ]
+      },
+      {
+        "cache_path": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/trajectory_transfer_ada_v2/results/ada_v2r1/admission/artifacts/tt2_996fe882b863598b2205d231/cache/tilelang/0.1.11-x86_64/kernels/ed0ec284b216695ffb0bd372fa302b832c7c02145017b42a469547e6ce79f5ed",
+        "loadable_code_objects": [
+          {
+            "path": "tilelang/0.1.11-x86_64/kernels/ed0ec284b216695ffb0bd372fa302b832c7c02145017b42a469547e6ce79f5ed/executable.so",
+            "sha256": "f99fe631672d047b0c27c76742de90f046925bb41d511c63896ef1dc2e8b02aa",
+            "size": 74056
+          }
+        ],
+        "requested_out_idx": [
+          -1
+        ],
+        "resolved_out_idx": [
+          1
+        ]
+      }
+    ],
+    "torch_extension_loads": [],
+    "triton_cache_hits": [],
+    "triton_kernel_loads": []
+  },
+  "n_kernels": 2,
+  "performance_observations": [],
+  "provenance": {
+    "gpu_preflight": {
+      "checked_unix_ns": 1786563793336302570,
+      "compute_pids": [
+        971270
+      ],
+      "gpu": {
+        "compute_capability": "8.9",
+        "driver_version": "610.43.02",
+        "index": "0",
+        "name": "NVIDIA RTX 6000 Ada Generation",
+        "uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae"
+      }
+    },
+    "prelaunch_provenance_path": "ako_runs/controlled_followup/trajectory_transfer_ada_v2/prelaunch_provenance.json",
+    "prelaunch_provenance_sha256": "3e2355768c33720b916a9485494b4fe98c14c7f9a9016064bb7dee57e7e2d5a8",
+    "process_pid": 971270,
+    "runtime_modules": {
+      "common": {
+        "path": "ako_runs/phase1_matmul/common.py",
+        "sha256": "7753fcc00891d475db8675423ca7e48fbc0aa0431ac1e1dd4319e6c2900fd0a7"
+      },
+      "common2": {
+        "path": "ako_runs/phase2_fused_sdpa/common2.py",
+        "sha256": "0293cb15fc3285df199daa58281a1a35147a78b9cbccda8b8f88418eecb39c64"
+      },
+      "runner2": {
+        "path": "ako_runs/phase2_fused_sdpa/runner2.py",
+        "sha256": "d1ade4461bff35058a3c6e967532960f5cc509f5d6a46c69bded78fbd0aac31e"
+      }
+    }
+  },
+  "record_type": "trajectory_transfer_ada_v2_artifact_verify_record",
+  "runtime_tmp": {
+    "root": "ako_runs/controlled_followup/trajectory_transfer_ada_v2/results/ada_v2r1/admission/artifacts/tt2_996fe882b863598b2205d231/runtime_tmp",
+    "rows": [
+      {
+        "kind": "directory",
+        "path": "tilelang"
+      }
+    ],
+    "rows_sha256": "07fb75a8dc0ac20824fb54b3fa4e2322676d3f6c467818ed116c561cc4c1b5f4"
+  },
+  "schema_version": 1
+}

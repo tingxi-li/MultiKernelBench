@@ -1,0 +1,39 @@
+ninja_required_version = 1.3
+cxx = c++
+nvcc = /usr/local/cuda-13.1/bin/nvcc
+
+cflags = -DTORCH_EXTENSION_NAME=fused_crossed_v2_pp_c03d2e32b61d -DTORCH_API_INCLUDE_EXTENSION_H -I/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/legacy_cuda_harness_fix -isystem /home/lxt230026/miniconda3/lib/python3.13/site-packages/torch/include -isystem /home/lxt230026/miniconda3/lib/python3.13/site-packages/torch/include/torch/csrc/api/include -isystem /usr/local/cuda-13.1/include -isystem /home/lxt230026/miniconda3/include/python3.13 -fPIC -std=c++17
+post_cflags = 
+cuda_cflags = -DTORCH_EXTENSION_NAME=fused_crossed_v2_pp_c03d2e32b61d -DTORCH_API_INCLUDE_EXTENSION_H -I/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/legacy_cuda_harness_fix -isystem /home/lxt230026/miniconda3/lib/python3.13/site-packages/torch/include -isystem /home/lxt230026/miniconda3/lib/python3.13/site-packages/torch/include/torch/csrc/api/include -isystem /usr/local/cuda-13.1/include -isystem /home/lxt230026/miniconda3/include/python3.13 -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options '-fPIC' -O3 -std=c++17 -Xptxas=-v -gencode=arch=compute_89,code=sm_89
+cuda_post_cflags = 
+cuda_dlink_post_cflags = 
+sycl_dlink_post_cflags = 
+ldflags = -shared -L/home/lxt230026/miniconda3/lib/python3.13/site-packages/torch/lib -lc10 -lc10_cuda -ltorch_cpu -ltorch_cuda -ltorch -ltorch_python -L/usr/local/cuda-13.1/lib64 -lcudart
+
+rule compile
+  command = $cxx -MMD -MF $out.d $cflags -c $in -o $out $post_cflags
+  depfile = $out.d
+  deps = gcc
+
+rule cuda_compile
+  depfile = $out.d
+  deps = gcc
+  command = $nvcc --generate-dependencies-with-compile --dependency-output $out.d $cuda_cflags -c $in -o $out $cuda_post_cflags
+
+
+
+
+
+rule link
+  command = $cxx $in $ldflags -o $out
+
+build main.o: compile /home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/trajectory_transfer_ada_v2/results/ada_v2r1/admission/artifacts/tt2_4a9adaf2f9c37ca09ef60c6e/cache/torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/main.cpp
+build cuda.cuda.o: cuda_compile /home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/trajectory_transfer_ada_v2/results/ada_v2r1/admission/artifacts/tt2_4a9adaf2f9c37ca09ef60c6e/cache/torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/cuda.cu
+
+
+
+
+
+build fused_crossed_v2_pp_c03d2e32b61d.so: link main.o cuda.cuda.o
+
+default fused_crossed_v2_pp_c03d2e32b61d.so

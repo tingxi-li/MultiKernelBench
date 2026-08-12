@@ -1,0 +1,298 @@
+{
+  "admission_row_sha256": "ceb2d0bc61f65cea69df9ef0e57f9ddf73a879fa64b8b8ef096a2650d91f43de",
+  "artifact_identity_sha256": "1f8536010e75fdc6cfab0f6c3713dfbde6d140598fdd8f4419f83729196c9b4e",
+  "build_gate_jsonl_sha256": "73e78e1aa38557d5b87cee2e69103224fcdc9ca26de65ff3ffad33232a43256d",
+  "build_record_sha256": "f9de8f96326e4a100c0899689d7adf1fc9ade651b90652d4327e2b7385fa5758",
+  "cache": {
+    "cache_root": "ako_runs/controlled_followup/trajectory_transfer_ada_v2/results/ada_v2r1/admission/artifacts/tt2_991b78d1c939282d0af7cae1/cache",
+    "file_count": 14,
+    "files": [
+      {
+        "path": "tilelang/0.1.11-x86_64/frontend/b99b4b29b6aac24d9a91bfb41567cad2e43e368d3164e753aa5a54ceb327b6a7.json",
+        "sha256": "8555f661579afd8eec1000aac095e407d25af95bf0b43126757f5b7cee78752b",
+        "size": 82
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/065302de299cd8e8aade601aa7a9a3b0426fc1ababc18e0e97a20e8ca3b4fd6d/device_kernel.cu",
+        "sha256": "48fe3e17c0cc2b9ac13574d06a107bb449fed128ef30ecf309cf5d1f5b71b16d",
+        "size": 8569
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/065302de299cd8e8aade601aa7a9a3b0426fc1ababc18e0e97a20e8ca3b4fd6d/executable.so",
+        "sha256": "6157ac06d0b0706e312ca3df7513578caa48727282af0e528c77290d095558df",
+        "size": 196936
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/065302de299cd8e8aade601aa7a9a3b0426fc1ababc18e0e97a20e8ca3b4fd6d/host_kernel.cu",
+        "sha256": "9f37a756844e61a647292565383a1a64908a0f8c81d74df465df3086b8055d80",
+        "size": 23733
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/065302de299cd8e8aade601aa7a9a3b0426fc1ababc18e0e97a20e8ca3b4fd6d/params.pkl",
+        "sha256": "d381d8ac3f09dce4567aaa0d48e640df5ead50bef1da2b08e504694eddea17c5",
+        "size": 421
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/065302de299cd8e8aade601aa7a9a3b0426fc1ababc18e0e97a20e8ca3b4fd6d/prim_func.pkl",
+        "sha256": "69fe6eafe81904d08eb1e983da0a933fcab80d784830363702956ddc5dee7296",
+        "size": 28496
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/.ninja_deps",
+        "sha256": "ff6ee6511d6372677b060ac5f244a7d7d1ed1b4bb7807f68b1ca34a9393e11c5",
+        "size": 630492
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/.ninja_log",
+        "sha256": "7fa2540ac44c44f5144d44db201e268b939b550981f0935740084c1f299f865c",
+        "size": 208
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/build.ninja",
+        "sha256": "4c0afd40dd6aa2850733fdf8f425b1a09854a7c67ba7a0eaba9883bcb4e6c1a8",
+        "size": 2490
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/cuda.cu",
+        "sha256": "4c33965e833e1bb724a1e0a031ebacc23c5e1601ad440c7f38f5f11f454847d0",
+        "size": 3665
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/cuda.cuda.o",
+        "sha256": "ed1c1dd48330f0a1f44f5acdaaae053df8bdeda09a47b5fac646465131527eed",
+        "size": 216944
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/fused_crossed_v2_pp_c03d2e32b61d.so",
+        "sha256": "31c9b9584e90d62c48b7f7a36e820b3ceb8e1bd236416851f02cdbbcfd67c456",
+        "size": 1351176
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/main.cpp",
+        "sha256": "70fda7e9ebc6feb970681bfd6fdd9814aef02d2d31c1659f88bd825bb5c821a1",
+        "size": 277
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/main.o",
+        "sha256": "5f72645122f1144e1984e77bb9f8534af5e541a51e270cc84ab2e073b04b8e21",
+        "size": 2152608
+      }
+    ],
+    "files_sha256": "8f4674abbac9fd824e84b390bd29c587a936fbfde7ea95fb997fd8d57e648bc4",
+    "generated_sources": [
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/065302de299cd8e8aade601aa7a9a3b0426fc1ababc18e0e97a20e8ca3b4fd6d/device_kernel.cu",
+        "sha256": "48fe3e17c0cc2b9ac13574d06a107bb449fed128ef30ecf309cf5d1f5b71b16d",
+        "size": 8569
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/065302de299cd8e8aade601aa7a9a3b0426fc1ababc18e0e97a20e8ca3b4fd6d/host_kernel.cu",
+        "sha256": "9f37a756844e61a647292565383a1a64908a0f8c81d74df465df3086b8055d80",
+        "size": 23733
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/cuda.cu",
+        "sha256": "4c33965e833e1bb724a1e0a031ebacc23c5e1601ad440c7f38f5f11f454847d0",
+        "size": 3665
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/main.cpp",
+        "sha256": "70fda7e9ebc6feb970681bfd6fdd9814aef02d2d31c1659f88bd825bb5c821a1",
+        "size": 277
+      }
+    ],
+    "loadable_code_objects": [
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/065302de299cd8e8aade601aa7a9a3b0426fc1ababc18e0e97a20e8ca3b4fd6d/executable.so",
+        "sha256": "6157ac06d0b0706e312ca3df7513578caa48727282af0e528c77290d095558df",
+        "size": 196936
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/fused_crossed_v2_pp_c03d2e32b61d.so",
+        "sha256": "31c9b9584e90d62c48b7f7a36e820b3ceb8e1bd236416851f02cdbbcfd67c456",
+        "size": 1351176
+      }
+    ]
+  },
+  "campaign_id": "trajectory-transfer-ada-v2",
+  "config": {
+    "BK": 64,
+    "BM": 128,
+    "BN": 64,
+    "K": 8192,
+    "M": 1024,
+    "N": 8192,
+    "arith": "fp16",
+    "cast": "precast",
+    "dsl": "tilelang",
+    "extra": {
+      "epilogue": "regs",
+      "wcache": "cached"
+    },
+    "input_dtype": "torch.float16",
+    "kc": 2048,
+    "stages": 2,
+    "threads": 256,
+    "variant": "GBG"
+  },
+  "dynamic_work_audit": {
+    "cuda_device_event_names": [
+      "main_kernel",
+      "common_postprocess_kernel(float const*, float const*, float*)"
+    ],
+    "cuda_device_event_names_sha256": "660abfc15983f035b0a5892f9da10ee2e791147eb90f330f224fd2c95180b6b8",
+    "expected_cuda_device_event_count": 2,
+    "input": {
+      "distribution": "positive",
+      "seed": 0
+    },
+    "method": "torch_profiler_cuda_activity_v1",
+    "observed_cuda_device_event_count": 2,
+    "output": {
+      "all_finite": true,
+      "dtype": "torch.float32",
+      "shape": [
+        1024,
+        8192
+      ]
+    },
+    "passed": true,
+    "performance_observations": [],
+    "profiled_calls": 1,
+    "schema_version": 1
+  },
+  "entry_id": "tt2_991b78d1c939282d0af7cae1",
+  "live_gate": {
+    "budget_mean": 0.00010001220703127959,
+    "err_q100": 1.525913830846548e-07,
+    "err_q50": 3.179593477398157e-09,
+    "err_q90": 1.1918018572032452e-08,
+    "err_q99": 2.713932190090418e-08,
+    "err_q999": 4.5649358071386814e-08,
+    "gate_pass": true,
+    "max_abs_err": 1.525913830846548e-07,
+    "mean_abs_err": 5.038479120034189e-09,
+    "pct_elems_failing_gate": 0.0,
+    "ref_abs_mean": 0.00012207031279582326,
+    "signed_mean_err": -1.4300366446562407e-13
+  },
+  "load_evidence": {
+    "diagnostic_side_compile_skips": [],
+    "mode": "load_only",
+    "tilelang_cache_hits": [
+      {
+        "cache_path": "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/trajectory_transfer_ada_v2/results/ada_v2r1/admission/artifacts/tt2_991b78d1c939282d0af7cae1/cache/tilelang/0.1.11-x86_64/kernels/065302de299cd8e8aade601aa7a9a3b0426fc1ababc18e0e97a20e8ca3b4fd6d",
+        "loadable_code_objects": [
+          {
+            "path": "tilelang/0.1.11-x86_64/kernels/065302de299cd8e8aade601aa7a9a3b0426fc1ababc18e0e97a20e8ca3b4fd6d/executable.so",
+            "sha256": "6157ac06d0b0706e312ca3df7513578caa48727282af0e528c77290d095558df",
+            "size": 196936
+          }
+        ],
+        "requested_out_idx": [
+          -1
+        ],
+        "resolved_out_idx": [
+          3
+        ]
+      }
+    ],
+    "torch_extension_loads": [
+      {
+        "module": {
+          "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/fused_crossed_v2_pp_c03d2e32b61d.so",
+          "sha256": "31c9b9584e90d62c48b7f7a36e820b3ceb8e1bd236416851f02cdbbcfd67c456",
+          "size": 1351176
+        },
+        "request": {
+          "compile_options": {
+            "extra_cflags": null,
+            "extra_cuda_cflags": [
+              "-O3",
+              "-std=c++17",
+              "-Xptxas=-v",
+              "-gencode=arch=compute_89,code=sm_89"
+            ],
+            "extra_include_paths": [
+              "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/legacy_cuda_harness_fix"
+            ],
+            "extra_ldflags": null,
+            "extra_sycl_cflags": null,
+            "is_python_module": true,
+            "keep_intermediates": true,
+            "no_implicit_headers": false,
+            "use_pch": false,
+            "with_cuda": true,
+            "with_pytorch_error_handling": true,
+            "with_sycl": null
+          },
+          "cpp_sources": [
+            {
+              "sha256": "4191a213326b6ae0d2a79f3d17e6ba22980bf82f6e0b2fae9bbceeec5939b806",
+              "size": 103
+            }
+          ],
+          "cuda_sources": [
+            {
+              "sha256": "c03d2e32b61d48d4da5df401aaf5767b9b99762e1a275e96e2d3f5266d1279bb",
+              "size": 3596
+            }
+          ],
+          "functions": [
+            "common_postprocess"
+          ],
+          "name": "fused_crossed_v2_pp_c03d2e32b61d",
+          "sycl_sources": []
+        }
+      }
+    ],
+    "triton_cache_hits": [],
+    "triton_kernel_loads": []
+  },
+  "n_kernels": 2,
+  "performance_observations": [],
+  "provenance": {
+    "gpu_preflight": {
+      "checked_unix_ns": 1786562773618558603,
+      "compute_pids": [
+        967258
+      ],
+      "gpu": {
+        "compute_capability": "8.9",
+        "driver_version": "610.43.02",
+        "index": "0",
+        "name": "NVIDIA RTX 6000 Ada Generation",
+        "uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae"
+      }
+    },
+    "prelaunch_provenance_path": "ako_runs/controlled_followup/trajectory_transfer_ada_v2/prelaunch_provenance.json",
+    "prelaunch_provenance_sha256": "3e2355768c33720b916a9485494b4fe98c14c7f9a9016064bb7dee57e7e2d5a8",
+    "process_pid": 967258,
+    "runtime_modules": {
+      "common": {
+        "path": "ako_runs/phase1_matmul/common.py",
+        "sha256": "7753fcc00891d475db8675423ca7e48fbc0aa0431ac1e1dd4319e6c2900fd0a7"
+      },
+      "common2": {
+        "path": "ako_runs/phase2_fused_sdpa/common2.py",
+        "sha256": "0293cb15fc3285df199daa58281a1a35147a78b9cbccda8b8f88418eecb39c64"
+      },
+      "runner2": {
+        "path": "ako_runs/phase2_fused_sdpa/runner2.py",
+        "sha256": "d1ade4461bff35058a3c6e967532960f5cc509f5d6a46c69bded78fbd0aac31e"
+      }
+    }
+  },
+  "record_type": "trajectory_transfer_ada_v2_artifact_verify_record",
+  "runtime_tmp": {
+    "root": "ako_runs/controlled_followup/trajectory_transfer_ada_v2/results/ada_v2r1/admission/artifacts/tt2_991b78d1c939282d0af7cae1/runtime_tmp",
+    "rows": [
+      {
+        "kind": "directory",
+        "path": "tilelang"
+      }
+    ],
+    "rows_sha256": "07fb75a8dc0ac20824fb54b3fa4e2322676d3f6c467818ed116c561cc4c1b5f4"
+  },
+  "schema_version": 1
+}

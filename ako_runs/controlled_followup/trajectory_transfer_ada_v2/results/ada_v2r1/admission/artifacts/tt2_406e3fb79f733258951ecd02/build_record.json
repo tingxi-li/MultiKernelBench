@@ -1,0 +1,509 @@
+{
+  "admission_row": {
+    "adaptation": "bounded_retune",
+    "attempt_index": 6,
+    "config_id": "g05",
+    "coordinate_cell_id": "register_common_postprocess.tilelang.g05",
+    "destination": "tilelang",
+    "donor_step_id": "register_common_to_register_fused",
+    "entry_id": "tt2_406e3fb79f733258951ecd02",
+    "grid_id": "g05",
+    "implementation_id": "register_common_postprocess.tilelang.g05",
+    "mechanism_enabled": false,
+    "mechanism_state": "off",
+    "origin_id": "triton_native_softmax_g01",
+    "origin_job": {
+      "dsl": "tilelang",
+      "geom": "fused",
+      "grid_id": "g05",
+      "grid_index": 5,
+      "job_id": "tilelang.g05",
+      "set": "BM=128,BN=256,BK=32,threads=256,stages=2,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=smem",
+      "variant": "GBGS"
+    },
+    "primitive_absence_receipt": null,
+    "primitive_absence_receipt_sha256": null,
+    "primitive_graph_sha256": "29e023af8f1485aa56fdc59a725411a53925389b08dd76532b47efe6b8d28674",
+    "route": "direct_primitive_mapping",
+    "row_id": "tt2_406e3fb79f733258951ecd02",
+    "spec": {
+      "config_id": "g05",
+      "coordinate_cell_id": "register_common_postprocess.tilelang.g05",
+      "destination": "tilelang",
+      "donor_step_id": "register_common_to_register_fused",
+      "grid_id": "g05",
+      "implementation_id": "register_common_postprocess.tilelang.g05",
+      "origin_id": "triton_native_softmax_g01",
+      "origin_job": {
+        "dsl": "tilelang",
+        "geom": "fused",
+        "grid_id": "g05",
+        "grid_index": 5,
+        "job_id": "tilelang.g05",
+        "set": "BM=128,BN=256,BK=32,threads=256,stages=2,kc=2048,arith=fp16,cast=precast,x_wcache=cached,x_epilogue=smem",
+        "variant": "GBGS"
+      },
+      "primitive_absence_receipt": null,
+      "primitive_absence_receipt_sha256": null,
+      "primitive_graph_sha256": "29e023af8f1485aa56fdc59a725411a53925389b08dd76532b47efe6b8d28674",
+      "route": "direct_primitive_mapping"
+    }
+  },
+  "admission_row_sha256": "9e3433501c90cc5cf65b456ad4d35f474c302bd9f141621fedcd3940a05554ca",
+  "artifact_identity_sha256": "e1885f118eaa8356f82509eda6428cf1ab3940424c48db329b7e7421b134c600",
+  "cache": {
+    "cache_root": "ako_runs/controlled_followup/trajectory_transfer_ada_v2/results/ada_v2r1/admission/artifacts/tt2_406e3fb79f733258951ecd02/cache",
+    "file_count": 14,
+    "files": [
+      {
+        "path": "tilelang/0.1.11-x86_64/frontend/b99b4b29b6aac24d9a91bfb41567cad2e43e368d3164e753aa5a54ceb327b6a7.json",
+        "sha256": "8a86152cc9adf76adcce3da3a2e62e0f98a98f7d30b4a190a028ab6a70865a89",
+        "size": 82
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/a1d42b0989ca43804dd4e36d38a3b549a6cefe7c95f5c6e494c91f36540be3a2/device_kernel.cu",
+        "sha256": "3dfa787a37c369b52841ff087ea5c3f69b15bb74b1854c7afa87777969bd3117",
+        "size": 8638
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/a1d42b0989ca43804dd4e36d38a3b549a6cefe7c95f5c6e494c91f36540be3a2/executable.so",
+        "sha256": "185f1d8c7cb4bb621499ab3949cc251b13a0b29264fb7b8eafba48223a382245",
+        "size": 332104
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/a1d42b0989ca43804dd4e36d38a3b549a6cefe7c95f5c6e494c91f36540be3a2/host_kernel.cu",
+        "sha256": "a335e71bdc523ecf2aa90655c4f27a224f0e7b70a0bf6d688806ce74a8d594f8",
+        "size": 23732
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/a1d42b0989ca43804dd4e36d38a3b549a6cefe7c95f5c6e494c91f36540be3a2/params.pkl",
+        "sha256": "d381d8ac3f09dce4567aaa0d48e640df5ead50bef1da2b08e504694eddea17c5",
+        "size": 421
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/a1d42b0989ca43804dd4e36d38a3b549a6cefe7c95f5c6e494c91f36540be3a2/prim_func.pkl",
+        "sha256": "25d7a9bf18216aa9de8e02a7c25e0f48c5fc992e470cf4fe48c85f860ffa24d4",
+        "size": 28506
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/.ninja_deps",
+        "sha256": "2c1982e1dad99724fc21520a8271a1d9890fe59d22f86fce109697dd09132f9e",
+        "size": 630492
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/.ninja_log",
+        "sha256": "3dab309549a6f1b68672bf8cd6a3811aa4469bd41400242178374595ae6afde5",
+        "size": 208
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/build.ninja",
+        "sha256": "045a586d45d767bbb3473b91e7a01b01305231fd82d75651600324c6d42cd1d9",
+        "size": 2490
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/cuda.cu",
+        "sha256": "4c33965e833e1bb724a1e0a031ebacc23c5e1601ad440c7f38f5f11f454847d0",
+        "size": 3665
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/cuda.cuda.o",
+        "sha256": "59c55d69cc497d943e131c054bc5e540a727c67adbf79cfd911b57d92ad6218d",
+        "size": 216944
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/fused_crossed_v2_pp_c03d2e32b61d.so",
+        "sha256": "8542eb00e541a5a1afef1e9ee3af74e6b0a7adb3444285759c8ca548e9c5f575",
+        "size": 1351176
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/main.cpp",
+        "sha256": "70fda7e9ebc6feb970681bfd6fdd9814aef02d2d31c1659f88bd825bb5c821a1",
+        "size": 277
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/main.o",
+        "sha256": "5f72645122f1144e1984e77bb9f8534af5e541a51e270cc84ab2e073b04b8e21",
+        "size": 2152608
+      }
+    ],
+    "files_sha256": "c73a260a675d87d4ab8b71bab561d215133fab7c25c9faab363039743fe8c66f",
+    "generated_sources": [
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/a1d42b0989ca43804dd4e36d38a3b549a6cefe7c95f5c6e494c91f36540be3a2/device_kernel.cu",
+        "sha256": "3dfa787a37c369b52841ff087ea5c3f69b15bb74b1854c7afa87777969bd3117",
+        "size": 8638
+      },
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/a1d42b0989ca43804dd4e36d38a3b549a6cefe7c95f5c6e494c91f36540be3a2/host_kernel.cu",
+        "sha256": "a335e71bdc523ecf2aa90655c4f27a224f0e7b70a0bf6d688806ce74a8d594f8",
+        "size": 23732
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/cuda.cu",
+        "sha256": "4c33965e833e1bb724a1e0a031ebacc23c5e1601ad440c7f38f5f11f454847d0",
+        "size": 3665
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/main.cpp",
+        "sha256": "70fda7e9ebc6feb970681bfd6fdd9814aef02d2d31c1659f88bd825bb5c821a1",
+        "size": 277
+      }
+    ],
+    "loadable_code_objects": [
+      {
+        "path": "tilelang/0.1.11-x86_64/kernels/a1d42b0989ca43804dd4e36d38a3b549a6cefe7c95f5c6e494c91f36540be3a2/executable.so",
+        "sha256": "185f1d8c7cb4bb621499ab3949cc251b13a0b29264fb7b8eafba48223a382245",
+        "size": 332104
+      },
+      {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/fused_crossed_v2_pp_c03d2e32b61d.so",
+        "sha256": "8542eb00e541a5a1afef1e9ee3af74e6b0a7adb3444285759c8ca548e9c5f575",
+        "size": 1351176
+      }
+    ]
+  },
+  "campaign_id": "trajectory-transfer-ada-v2",
+  "config": {
+    "BK": 32,
+    "BM": 128,
+    "BN": 256,
+    "K": 8192,
+    "M": 1024,
+    "N": 8192,
+    "arith": "fp16",
+    "cast": "precast",
+    "dsl": "tilelang",
+    "extra": {
+      "epilogue": "regs",
+      "wcache": "cached"
+    },
+    "input_dtype": "torch.float16",
+    "kc": 2048,
+    "stages": 2,
+    "threads": 256,
+    "variant": "GBG"
+  },
+  "dynamic_work_audit": {
+    "cuda_device_event_names": [
+      "main_kernel",
+      "common_postprocess_kernel(float const*, float const*, float*)"
+    ],
+    "cuda_device_event_names_sha256": "660abfc15983f035b0a5892f9da10ee2e791147eb90f330f224fd2c95180b6b8",
+    "expected_cuda_device_event_count": 2,
+    "input": {
+      "distribution": "positive",
+      "seed": 0
+    },
+    "method": "torch_profiler_cuda_activity_v1",
+    "observed_cuda_device_event_count": 2,
+    "output": {
+      "all_finite": true,
+      "dtype": "torch.float32",
+      "shape": [
+        1024,
+        8192
+      ]
+    },
+    "passed": true,
+    "performance_observations": [],
+    "profiled_calls": 1,
+    "schema_version": 1
+  },
+  "entry_id": "tt2_406e3fb79f733258951ecd02",
+  "gate_jsonl_path": "ako_runs/controlled_followup/trajectory_transfer_ada_v2/results/ada_v2r1/admission/artifacts/tt2_406e3fb79f733258951ecd02/gate.jsonl",
+  "gate_jsonl_sha256": "313f26082c50fc6eec2c6876fcd370a764151c8118e5e742e3b3f26142eaf3d4",
+  "gate_summary": {
+    "complete": true,
+    "expected_records": 512,
+    "failed_records": 0,
+    "full_gate_pass": true,
+    "max_over_threshold_ratio": 0.9633653546003984,
+    "max_over_threshold_ratio_by_metric": {
+      "conformance_mixed/max_abs_err": 0.2884864807128906,
+      "conformance_mixed/nrmse": 0.4252176393522083,
+      "conformance_mixed/row_sum_error_max": 0.9633653546003984,
+      "conformance_mixed/scaled_max_abs_err": 0.19746902555798526,
+      "conformance_mixed/sqrt_js_max": 0.21692588526674558,
+      "conformance_mixed/tv_max": 0.2888564036901409,
+      "semantic_mixed/max_abs_err": 0.37844748787867477,
+      "semantic_mixed/nrmse": 0.446346721228331,
+      "semantic_mixed/row_sum_error_max": 0.9633653546003984,
+      "semantic_mixed/scaled_max_abs_err": 0.533779464248654,
+      "semantic_mixed/sqrt_js_max": 0.7250454120354177,
+      "semantic_mixed/tv_max": 0.3796545615401497
+    },
+    "minimum_headroom_fraction": 0.036634645399601595,
+    "observed_records": 512,
+    "zero_threshold_max_observed_by_metric": {
+      "conformance_mixed/negative_count": 0.0,
+      "conformance_mixed/nonfinite_count": 0.0,
+      "semantic_mixed/negative_count": 0.0,
+      "semantic_mixed/nonfinite_count": 0.0
+    },
+    "zero_threshold_violation_records_by_metric": {}
+  },
+  "n_kernels": 2,
+  "performance_observations": [],
+  "provenance": {
+    "gpu_postflight": {
+      "checked_unix_ns": 1786560954697098422,
+      "compute_pids": [
+        960326
+      ],
+      "gpu": {
+        "compute_capability": "8.9",
+        "driver_version": "610.43.02",
+        "index": "0",
+        "name": "NVIDIA RTX 6000 Ada Generation",
+        "uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae"
+      }
+    },
+    "gpu_preflight": {
+      "checked_unix_ns": 1786560794210519038,
+      "compute_pids": [],
+      "gpu": {
+        "compute_capability": "8.9",
+        "driver_version": "610.43.02",
+        "index": "0",
+        "name": "NVIDIA RTX 6000 Ada Generation",
+        "uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae"
+      }
+    },
+    "prelaunch_provenance_path": "ako_runs/controlled_followup/trajectory_transfer_ada_v2/prelaunch_provenance.json",
+    "prelaunch_provenance_sha256": "3e2355768c33720b916a9485494b4fe98c14c7f9a9016064bb7dee57e7e2d5a8",
+    "process_pid": 960326,
+    "runtime_modules": {
+      "common": {
+        "path": "ako_runs/phase1_matmul/common.py",
+        "sha256": "7753fcc00891d475db8675423ca7e48fbc0aa0431ac1e1dd4319e6c2900fd0a7"
+      },
+      "common2": {
+        "path": "ako_runs/phase2_fused_sdpa/common2.py",
+        "sha256": "0293cb15fc3285df199daa58281a1a35147a78b9cbccda8b8f88418eecb39c64"
+      },
+      "runner2": {
+        "path": "ako_runs/phase2_fused_sdpa/runner2.py",
+        "sha256": "d1ade4461bff35058a3c6e967532960f5cc509f5d6a46c69bded78fbd0aac31e"
+      }
+    },
+    "t_end_unix_ns": 1786560954697099991,
+    "t_start_unix_ns": 1786560794180835771
+  },
+  "record_type": "trajectory_transfer_ada_v2_artifact_build_record",
+  "runtime_tmp": {
+    "root": "ako_runs/controlled_followup/trajectory_transfer_ada_v2/results/ada_v2r1/admission/artifacts/tt2_406e3fb79f733258951ecd02/runtime_tmp",
+    "rows": [
+      {
+        "kind": "directory",
+        "path": "tilelang"
+      }
+    ],
+    "rows_sha256": "07fb75a8dc0ac20824fb54b3fa4e2322676d3f6c467818ed116c561cc4c1b5f4"
+  },
+  "schema_version": 1,
+  "source_build_metadata": {
+    "adapter_dispatch_sha256": "b283b05c4945d151dd91826589ea8fb8c66d1f5c9a9bfa330dd58eae16f140b0",
+    "adapter_module_sha256": "39dbfd1d258ac3394bada297feca7b2036fc8a1f5b65f790b5aaec798b69744f",
+    "artifacts": {
+      "lane_gbg": {
+        "b_global_dtype": "float16",
+        "backend_detail": "T.gemm(fp16 smem -> fp32 fragment) kc=2048 T.Pipelined(num_stages=2); epilogue bias=True gelu=True (T.erf, exact form)",
+        "block": [
+          256,
+          1,
+          1
+        ],
+        "cuda_source": "#if defined(_MSC_VER) && !defined(__clang__) && _MSC_VER < 1940\n#define _tl_orig_alignas alignas\n#define alignas(N) _tl_orig_alignas((N) <= 64 ? (N) : 64)\n#include <cuda.h>\n#undef alignas\n#define alignas _tl_orig_alignas\n#endif\n#include <tl_templates/cuda/instruction/mma.h>\n#include <tl_templates/cuda/gemm.h>\n#include <tl_templates/cuda/copy.h>\n#include <tl_templates/cuda/reduce.h>\n#include <tl_templates/cuda/scan.h>\n#include <tl_templates/cuda/ldsm.h>\n#include <tl_templates/cuda/threadblock_swizzle.h>\n#include <tl_templates/cuda/debug.h>\n#ifdef ENABLE_BF16\n#include <tl_templates/cuda/cuda_bf16_fallbacks.cuh>\n#endif\n\nextern \"C\" __global__ void main_kernel(const half_t* __restrict__ A, const half_t* __restrict__ B, const float* __restrict__ Bias, float* __restrict__ C);\nextern \"C\" __global__ void __launch_bounds__(256, 1) main_kernel(const half_t* __restrict__ A, const half_t* __restrict__ B, const float* __restrict__ Bias, float* __restrict__ C) {\n  extern __shared__ __align__(1024) uchar buf_dyn_shmem[];\n  void* Bs = ((void*)((char*)buf_dyn_shmem + 0));\n  void* As = ((void*)((char*)buf_dyn_shmem + 32768));\n  float Cacc[128];\n  float Cchunk[128];\n  #pragma unroll\n  for (int i = 0; i < 32; ++i) {\n    float broadcast_var = 0x0p+0f/*0.000000e+00*/;\n    *(float4*)(Cacc + (i * 4)) = make_float4(broadcast_var, broadcast_var, broadcast_var, broadcast_var);\n  }\n  for (int c = 0; c < 4; ++c) {\n    #pragma unroll\n    for (int i_1 = 0; i_1 < 32; ++i_1) {\n      float broadcast_var_1 = 0x0p+0f/*0.000000e+00*/;\n      *(float4*)(Cchunk + (i_1 * 4)) = make_float4(broadcast_var_1, broadcast_var_1, broadcast_var_1, broadcast_var_1);\n    }\n    __syncthreads();\n    #pragma unroll\n    for (int i_2 = 0; i_2 < 2; ++i_2) {\n      tl::cp_async_gs<16>((&(((half_t*)As)[((((i_2 * 2048) + ((((int)threadIdx.x) >> 2) * 32)) + (((((((int)threadIdx.x) & 31) >> 4) + ((((int)threadIdx.x) & 3) >> 1)) & 1) * 16)) + (((((((int)threadIdx.x) & 15) >> 3) + (((int)threadIdx.x) & 1)) & 1) * 8))])), (&(A[(((((((int)blockIdx.y) * 1048576) + (i_2 * 524288)) + ((((int)threadIdx.x) >> 2) * 8192)) + (c * 2048)) + ((((int)threadIdx.x) & 3) * 8))])));\n    }\n    #pragma unroll\n    for (int i_3 = 0; i_3 < 4; ++i_3) {\n      tl::cp_async_gs<16>((&(((half_t*)Bs)[((((((((((int)threadIdx.x) & 31) >> 3) * 2048) + (i_3 * 512)) + ((((int)threadIdx.x) >> 5) * 64)) + ((((((int)threadIdx.x) >> 7) + ((((int)threadIdx.x) & 7) >> 2)) & 1) * 32)) + (((((((int)threadIdx.x) & 127) >> 6) + ((((int)threadIdx.x) & 3) >> 1)) & 1) * 16)) + (((((((int)threadIdx.x) & 63) >> 5) + (((int)threadIdx.x) & 1)) & 1) * 8))])), (&(B[(((((c * 16777216) + (i_3 * 65536)) + ((((int)threadIdx.x) >> 5) * 8192)) + (((int)blockIdx.x) * 256)) + ((((int)threadIdx.x) & 31) * 8))])));\n    }\n    tl::cp_async_commit();\n    for (int ko = 0; ko < 63; ++ko) {\n      __syncthreads();\n      #pragma unroll\n      for (int i_4 = 0; i_4 < 2; ++i_4) {\n        tl::cp_async_gs<16>((&(((half_t*)As)[(((((((ko + 1) & 1) * 4096) + (i_4 * 2048)) + ((((int)threadIdx.x) >> 2) * 32)) + (((((((int)threadIdx.x) & 31) >> 4) + ((((int)threadIdx.x) & 3) >> 1)) & 1) * 16)) + (((((((int)threadIdx.x) & 15) >> 3) + (((int)threadIdx.x) & 1)) & 1) * 8))])), (&(A[(((((((((int)blockIdx.y) * 1048576) + (i_4 * 524288)) + ((((int)threadIdx.x) >> 2) * 8192)) + (c * 2048)) + (ko * 32)) + ((((int)threadIdx.x) & 3) * 8)) + 32)])));\n      }\n      #pragma unroll\n      for (int i_5 = 0; i_5 < 4; ++i_5) {\n        tl::cp_async_gs<16>((&(((half_t*)Bs)[(((((((((ko + 1) & 1) * 8192) + (((((int)threadIdx.x) & 31) >> 3) * 2048)) + (i_5 * 512)) + ((((int)threadIdx.x) >> 5) * 64)) + ((((((int)threadIdx.x) >> 7) + ((((int)threadIdx.x) & 7) >> 2)) & 1) * 32)) + (((((((int)threadIdx.x) & 127) >> 6) + ((((int)threadIdx.x) & 3) >> 1)) & 1) * 16)) + (((((((int)threadIdx.x) & 63) >> 5) + (((int)threadIdx.x) & 1)) & 1) * 8))])), (&(B[(((((((c * 16777216) + (ko * 262144)) + (i_5 * 65536)) + ((((int)threadIdx.x) >> 5) * 8192)) + (((int)blockIdx.x) * 256)) + ((((int)threadIdx.x) & 31) * 8)) + 262144)])));\n      }\n      tl::cp_async_commit();\n      tl::cp_async_wait<1>();\n      __syncthreads();\n      {\n        half_t A_local[32];\n        half_t B_local[32];\n        for (int ki = 0; ki < 2; ++ki) {\n          for (int i_6 = 0; i_6 < 4; ++i_6) {\n            tl::ptx_ldmatrix_x4((&(((half_t*)As)[(((((((ko & 1) * 4096) + (((((int)threadIdx.x) & 63) >> 5) * 2048)) + (i_6 * 512)) + ((((int)threadIdx.x) & 15) * 32)) + (((((((int)threadIdx.x) & 7) >> 2) + ki) & 1) * 16)) + (((((((int)threadIdx.x) & 31) >> 4) + ((((int)threadIdx.x) & 3) >> 1)) & 1) * 8))])), (&(A_local[(i_6 * 8)])));\n          }\n          for (int i_7 = 0; i_7 < 4; ++i_7) {\n            tl::ptx_ldmatrix_x4_trans((&(((half_t*)Bs)[((((((ko & 1) * 8192) + ((((int)threadIdx.x) >> 6) * 2048)) + (ki * 1024)) + (((((int)threadIdx.x) & 15) >> 3) * 512)) + ((((((((int)threadIdx.x) & 15) * 64) + (((((((int)threadIdx.x) & 7) >> 2) + (i_7 >> 1)) & 1) * 32)) + (((((((int)threadIdx.x) & 3) >> 1) + (i_7 & 1)) & 1) * 16)) + (((((((int)threadIdx.x) & 31) >> 4) + (((int)threadIdx.x) & 1)) & 1) * 8)) & 511))])), (&(B_local[(i_7 * 8)])));\n          }\n          for (int i_8 = 0; i_8 < 4; ++i_8) {\n            for (int j = 0; j < 4; ++j) {\n              tl::mma_sync<tl::DataType::kFloat16, tl::DataType::kFloat16, tl::DataType::kFloat32, 16, 8, 16, false, true>(reinterpret_cast<float*>(Cchunk + ((i_8 * 32) + (j * 8))), reinterpret_cast<const unsigned*>(A_local + (i_8 * 8)), reinterpret_cast<const unsigned*>(B_local + (j * 8)));\n              tl::mma_sync<tl::DataType::kFloat16, tl::DataType::kFloat16, tl::DataType::kFloat32, 16, 8, 16, false, true>(reinterpret_cast<float*>(Cchunk + (((i_8 * 32) + (j * 8)) + 4)), reinterpret_cast<const unsigned*>(A_local + (i_8 * 8)), reinterpret_cast<const unsigned*>(B_local + ((j * 8) + 4)));\n            }\n          }\n        }\n      }\n    }\n    tl::cp_async_wait<0>();\n    __syncthreads();\n    {\n      half_t A_local_1[32];\n      half_t B_local_1[32];\n      for (int ki_1 = 0; ki_1 < 2; ++ki_1) {\n        for (int i_9 = 0; i_9 < 4; ++i_9) {\n          tl::ptx_ldmatrix_x4((&(((half_t*)As)[((((((((((int)threadIdx.x) & 63) >> 5) * 2048) + (i_9 * 512)) + ((((int)threadIdx.x) & 15) * 32)) + (((((((int)threadIdx.x) & 7) >> 2) + ki_1) & 1) * 16)) + (((((((int)threadIdx.x) & 31) >> 4) + ((((int)threadIdx.x) & 3) >> 1)) & 1) * 8)) + 4096)])), (&(A_local_1[(i_9 * 8)])));\n        }\n        for (int i_10 = 0; i_10 < 4; ++i_10) {\n          tl::ptx_ldmatrix_x4_trans((&(((half_t*)Bs)[((((((((int)threadIdx.x) >> 6) * 2048) + (ki_1 * 1024)) + (((((int)threadIdx.x) & 15) >> 3) * 512)) + ((((((((int)threadIdx.x) & 15) * 64) + (((((((int)threadIdx.x) & 7) >> 2) + (i_10 >> 1)) & 1) * 32)) + (((((((int)threadIdx.x) & 3) >> 1) + (i_10 & 1)) & 1) * 16)) + (((((((int)threadIdx.x) & 31) >> 4) + (((int)threadIdx.x) & 1)) & 1) * 8)) & 511)) + 8192)])), (&(B_local_1[(i_10 * 8)])));\n        }\n        for (int i_11 = 0; i_11 < 4; ++i_11) {\n          for (int j_1 = 0; j_1 < 4; ++j_1) {\n            tl::mma_sync<tl::DataType::kFloat16, tl::DataType::kFloat16, tl::DataType::kFloat32, 16, 8, 16, false, true>(reinterpret_cast<float*>(Cchunk + ((i_11 * 32) + (j_1 * 8))), reinterpret_cast<const unsigned*>(A_local_1 + (i_11 * 8)), reinterpret_cast<const unsigned*>(B_local_1 + (j_1 * 8)));\n            tl::mma_sync<tl::DataType::kFloat16, tl::DataType::kFloat16, tl::DataType::kFloat32, 16, 8, 16, false, true>(reinterpret_cast<float*>(Cchunk + (((i_11 * 32) + (j_1 * 8)) + 4)), reinterpret_cast<const unsigned*>(A_local_1 + (i_11 * 8)), reinterpret_cast<const unsigned*>(B_local_1 + ((j_1 * 8) + 4)));\n          }\n        }\n      }\n    }\n    #pragma unroll\n    for (int i_12 = 0; i_12 < 128; ++i_12) {\n      Cacc[i_12] = (Cacc[i_12] + Cchunk[i_12]);\n    }\n  }\n  #pragma unroll\n  for (int i_13 = 0; i_13 < 64; ++i_13) {\n    for (int vec_s = 0; vec_s < 2; ++vec_s) {\n      float v = (Cacc[((i_13 * 2) + vec_s)] + Bias[(((((((int)blockIdx.x) * 256) + ((((int)threadIdx.x) >> 6) * 64)) + (((i_13 & 15) >> 1) * 8)) + ((((int)threadIdx.x) & 3) * 2)) + vec_s)]);\n      Cacc[((i_13 * 2) + vec_s)] = ((v * 0x1p-1f/*5.000000e-01*/) * (0x1p+0f/*1.000000e+00*/ + erff((v * 0x1.6a09e667f3bcdp-1f/*7.071068e-01*/))));\n    }\n  }\n  #pragma unroll\n  for (int i_14 = 0; i_14 < 64; ++i_14) {\n    *(float2*)(C + (((((((((((int)blockIdx.y) * 1048576) + (((((int)threadIdx.x) & 63) >> 5) * 524288)) + ((i_14 >> 4) * 131072)) + ((i_14 & 1) * 65536)) + (((((int)threadIdx.x) & 31) >> 2) * 8192)) + (((int)blockIdx.x) * 256)) + ((((int)threadIdx.x) >> 6) * 64)) + (((i_14 & 15) >> 1) * 8)) + ((((int)threadIdx.x) & 3) * 2))) = *(float2*)(Cacc + (i_14 * 2));\n  }\n}\n\n",
+        "dynamic_smem_bytes": null,
+        "epilogue_tile_bytes": 0,
+        "grid": [
+          32,
+          8,
+          1
+        ],
+        "n_kernels": 1,
+        "operand_smem_bytes": null,
+        "shared_bytes": null,
+        "tilelang_disk_cache": true,
+        "tilelang_version": "0.1.11",
+        "total_dynamic_shared_bytes": null,
+        "total_dynamic_smem_bytes": null,
+        "transpose_b": false,
+        "wcache": "cached"
+      },
+      "postprocess": {
+        "backend_detail": "common CUDA compile-time bias/GELU plus row-softmax",
+        "block": [
+          256,
+          1,
+          1
+        ],
+        "cuda_source_sha256": "c03d2e32b61d48d4da5df401aaf5767b9b99762e1a275e96e2d3f5266d1279bb",
+        "epilogue_tile_bytes": 0,
+        "grid": [
+          1024,
+          1,
+          1
+        ],
+        "has_bias": false,
+        "has_gelu": false,
+        "n_kernels": 1,
+        "operand_smem_bytes": 0,
+        "shared_bytes": 0,
+        "softmax_source_sha256": "758a6ad3dc8f4635cd1146dd9c6fd102b590410ce4f710c10c72f470d2bbf96f",
+        "total_dynamic_shared_bytes": 0
+      },
+      "strategy": "register_common_postprocess"
+    },
+    "build_wall_s": 35.81693918100791,
+    "builder": "crossed-v2:tilelang:GBG-regs+common-softmax",
+    "common_softmax_source_sha256": "758a6ad3dc8f4635cd1146dd9c6fd102b590410ce4f710c10c72f470d2bbf96f",
+    "config_sha256": "180c5082f4df2198e850751ba377b9bb3ceecb01902ee11f5962727f84b09e2c",
+    "coordinate_cell_id": "register_common_postprocess.tilelang.g05",
+    "coordinate_cell_sha256": "8ee37208cd07603bd0f4acf2a143e9bedc2d6bb18b775742eb891d675e76ff79",
+    "destination": "tilelang",
+    "donor_step_id": "register_common_to_register_fused",
+    "epilogue_request": "regs",
+    "generated_source_bindings": [
+      {
+        "path": "lane_gbg.cuda_source",
+        "sha256": "3dfa787a37c369b52841ff087ea5c3f69b15bb74b1854c7afa87777969bd3117"
+      },
+      {
+        "path": "postprocess.cuda_source_sha256",
+        "sha256": "c03d2e32b61d48d4da5df401aaf5767b9b99762e1a275e96e2d3f5266d1279bb"
+      },
+      {
+        "path": "postprocess.softmax_source_sha256",
+        "sha256": "758a6ad3dc8f4635cd1146dd9c6fd102b590410ce4f710c10c72f470d2bbf96f"
+      }
+    ],
+    "generated_source_sha256": "df908cab6c21da98627add5addd73388ff802c97e8a3e1f09670cc0799c5752d",
+    "held_gemm_source_binding": {
+      "kind": "generated_tilelang_cuda_gemm",
+      "schedule": {
+        "BK": 32,
+        "BM": 128,
+        "BN": 256,
+        "K": 8192,
+        "M": 1024,
+        "N": 8192,
+        "arith": "fp16",
+        "cast": "precast",
+        "extra": {
+          "epilogue": "regs",
+          "wcache": "cached"
+        },
+        "input_dtype": "torch.float16",
+        "kc": 2048,
+        "stages": 2,
+        "threads": 256
+      },
+      "source_sha256": "3dfa787a37c369b52841ff087ea5c3f69b15bb74b1854c7afa87777969bd3117"
+    },
+    "held_gemm_source_sha256": "e112bb023ca255bf618da7410032ace000955d3b93ea24d49b76b2c2d1326d3b",
+    "implementation_id": "register_common_postprocess.tilelang.g05",
+    "implementation_sha256": "48bf3f700b0df6b77e0b17cc93322900fd61da42e8c3b47cdd9cb054dfd2151f",
+    "isolated_artifact_root": "/tmp/fused_epilogue_crossed_v2/pid960326/register_common_postprocess.tilelang.g05",
+    "mechanism_enabled": false,
+    "n_kernels": 2,
+    "notes": "lane-native register bias+exact-GELU followed by byte-identical common softmax",
+    "origin_id": "triton_native_softmax_g01",
+    "paired_config_sha256": "ca47b2abe2600c61dd4b1a893d27fba8fbc23463d117ed8410f2c414cee2d8f2",
+    "primitive_graph_sha256": "29e023af8f1485aa56fdc59a725411a53925389b08dd76532b47efe6b8d28674",
+    "primitive_mapping": {
+      "destination_recipe": {
+        "direct_primitive_mapping": {
+          "off_coordinate_cell_id": "register_common_postprocess.tilelang.g01",
+          "off_implementation_id": "register_common_postprocess.tilelang.g01",
+          "on_coordinate_cell_id": "register_fused.tilelang.g01",
+          "on_implementation_id": "tilelang_abstraction.F1.g01",
+          "recipe": {
+            "adapter_entrypoint": "ako_runs.controlled_followup.trajectory_transfer_ada_v2.implementations.tilelang.build",
+            "authorized_change": "common CUDA softmax -> TileLang F1 using T.reduce_max and T.reduce_sum",
+            "kind": "direct_existing_destination_primitive_mapping",
+            "new_destination_kernel_authored": false,
+            "primitive_calls": [
+              "T.reduce_max",
+              "T.reduce_sum"
+            ],
+            "source_review_sha256": "18d5c4821af7e3a66a1d56e112a2ee59458f20fb51d0e4f1ac09a6b8ddc3bc47",
+            "unchanged_controls": "register GBG, two kernels, paired grid configuration, precision, shape, cached weight, gate"
+          },
+          "status": "ELIGIBLE"
+        },
+        "manual_reconstruction": {
+          "primitive_absence_receipt_sha256": null,
+          "reason": "TileLang exposes T.reduce_max and T.reduce_sum; the preexisting F1 implementation is the direct route",
+          "status": "NOT_APPLICABLE"
+        },
+        "programming_model_unit": "tilelang",
+        "review": {
+          "off_gate_record_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/records/register_common_postprocess__tilelang__g01.json",
+          "off_gate_record_sha256": "4813257f513f03798d73144c85f97428c0cb569b9e55354fdc9a38b65997013a",
+          "on_gate_record_kind": "tilelang_abstraction_v7_f1_softmax_correctness_gate",
+          "on_gate_record_path": "ako_runs/controlled_followup/tilelang_abstraction_v7/results/ada_v7r1/admission/fused_softmax_f1_f4c__high.json",
+          "on_gate_record_sha256": "c6d62fd63348e3edd0aab06acc031df1b2175a16161efbd2c496b6a6387aa176",
+          "source_path": "ako_runs/phase2_fused_sdpa/variants2/fused_tilelang_abstraction.py",
+          "source_sha256": "ac0cbbbba5046d2ffcfd4b21b4d9aadcdaad5728d3a742dee1f77696178a724f"
+        },
+        "route": "direct_primitive_mapping"
+      },
+      "destination_recipe_sha256": "2979663347218a84c27d4ceb58392ea7a106584facfa993a8d03bbb0144e47be",
+      "primitive_map_sha256": "0df792b776f58c5fdc0932059b073e42225a25e6e99e57800f7b576403ce91a8",
+      "reviewed_source_path": "ako_runs/phase2_fused_sdpa/variants2/fused_tilelang_abstraction.py",
+      "reviewed_source_sha256": "ac0cbbbba5046d2ffcfd4b21b4d9aadcdaad5728d3a742dee1f77696178a724f"
+    },
+    "protocol_route": "direct_primitive_mapping",
+    "route": "direct_primitive_mapping"
+  },
+  "torch_inline_requests": [
+    {
+      "module": {
+        "path": "torch_extensions/fused_crossed_v2_pp_c03d2e32b61d/fused_crossed_v2_pp_c03d2e32b61d.so",
+        "sha256": "8542eb00e541a5a1afef1e9ee3af74e6b0a7adb3444285759c8ca548e9c5f575",
+        "size": 1351176
+      },
+      "request": {
+        "compile_options": {
+          "extra_cflags": null,
+          "extra_cuda_cflags": [
+            "-O3",
+            "-std=c++17",
+            "-Xptxas=-v",
+            "-gencode=arch=compute_89,code=sm_89"
+          ],
+          "extra_include_paths": [
+            "/home/lxt230026/MultiKernelBench/ako_runs/controlled_followup/legacy_cuda_harness_fix"
+          ],
+          "extra_ldflags": null,
+          "extra_sycl_cflags": null,
+          "is_python_module": true,
+          "keep_intermediates": true,
+          "no_implicit_headers": false,
+          "use_pch": false,
+          "with_cuda": true,
+          "with_pytorch_error_handling": true,
+          "with_sycl": null
+        },
+        "cpp_sources": [
+          {
+            "sha256": "4191a213326b6ae0d2a79f3d17e6ba22980bf82f6e0b2fae9bbceeec5939b806",
+            "size": 103
+          }
+        ],
+        "cuda_sources": [
+          {
+            "sha256": "c03d2e32b61d48d4da5df401aaf5767b9b99762e1a275e96e2d3f5266d1279bb",
+            "size": 3596
+          }
+        ],
+        "functions": [
+          "common_postprocess"
+        ],
+        "name": "fused_crossed_v2_pp_c03d2e32b61d",
+        "sycl_sources": []
+      }
+    }
+  ]
+}
