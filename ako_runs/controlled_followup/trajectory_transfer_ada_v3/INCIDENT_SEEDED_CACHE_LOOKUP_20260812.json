@@ -131,7 +131,7 @@
     "selection_authorized": false,
     "successor_requires_fresh_artifacts": true,
     "successor_requires_full_160_entry_admission": true,
-    "successor_requires_live_frontend_key_derivation": true,
+    "successor_requires_exact_kernel_key_load": true,
     "successor_requires_new_campaign_version": true,
     "successor_requires_new_lock": true,
     "successor_requires_new_result_tag": true,
@@ -202,10 +202,10 @@
       "Bind this receipt, its exact SHA-256, the 502-file prelaunch-plus-result closure, the 501-file result closure, and the source/result Git ancestry in the v4 material and freeze closure.",
       "Recompute both canonical path/hash/size digests and reject every missing, extra, changed, symlink, special, or zero-byte predecessor file.",
       "Semantically rederive the exact 20-pass plus 20-BUILD_FAILED prefix, all 10,240 passing gate rows, all 20 duration-free two-event audits, all 20 intact six-file pair seeds, the common failure/traceback census, and the absence of run status and every performance phase.",
-      "Derive or capture the TileLang frontend key from the exact live v4 JIT instance and its target/backend/options. Demonstrate a real fresh-process cache hit for the paired GEMM before the 160-row run; synthetic cache-census tests alone are insufficient. Keep fallback compilation forbidden.",
+      "Bypass the unstable TileLang frontend alias and load the seeded paired GEMM through the frozen cache backend by its exact kernel key and artifact path. Demonstrate that exact load in a real fresh process before the 160-row run; synthetic cache-census tests alone are insufficient. Keep fallback compilation and re-lowering forbidden.",
       "Create a new source version, campaign ID, lock, result tag, prelaunch receipt, and 160 fresh admission artifacts. Never resume ada_v3r1 or copy, load, relabel, or overlay any v3 artifact byte.",
-      "Preserve the frozen question, routes, grid, correctness gate, two-kernel dynamic audit, timing estimands, sham design, and inference rules except for the frontend-key lookup correction."
+      "Preserve the frozen question, routes, grid, correctness gate, two-kernel dynamic audit, timing estimands, sham design, and inference rules except for replacing the unstable frontend-alias lookup with exact kernel-key loading."
     ],
-    "requirement": "Bind and validate the complete non-controlling v3 incident, freeze v4, prove the actual live TileLang frontend lookup reaches a freshly seeded v4 off-arm GEMM in a fresh on-arm process without fallback, and rerun all 160 admissions from new artifacts before any timing."
+    "requirement": "Bind and validate the complete non-controlling v3 incident, freeze v4, prove the frozen TileLang cache backend loads a freshly seeded v4 off-arm GEMM by its exact kernel key and path in a fresh on-arm process without frontend lookup or fallback, and rerun all 160 admissions from new artifacts before any timing."
   }
 }
