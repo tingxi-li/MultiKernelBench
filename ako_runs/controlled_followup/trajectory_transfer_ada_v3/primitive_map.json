@@ -1,0 +1,194 @@
+{
+  "campaign_id": "trajectory-transfer-ada-v3",
+  "destinations": {
+    "cuda_noptx": {
+      "direct_primitive_mapping": {
+        "primitive_absence_receipt_sha256": "edb83b777edb4aadc3b7232353f281c66b4ecded7c25b12680c2491cc2304ef6",
+        "status": "PRIMITIVE_ABSENT"
+      },
+      "manual_reconstruction": {
+        "off_coordinate_cell_id": "register_common_postprocess.cuda_noptx.g01",
+        "off_implementation_id": "register_common_postprocess.cuda_noptx.g01",
+        "on_coordinate_cell_id": "register_fused.cuda_noptx.g01",
+        "on_implementation_id": "register_fused.cuda_noptx.g01",
+        "primitive_absence_receipt_sha256": "edb83b777edb4aadc3b7232353f281c66b4ecded7c25b12680c2491cc2304ef6",
+        "recipe": {
+          "adapter_entrypoint": "ako_runs.controlled_followup.trajectory_transfer_ada_v3.implementations.cuda_noptx.build",
+          "authorized_change": "common CUDA softmax -> the pre-reviewed hand-written CUDA shuffle/shared-memory row softmax",
+          "implementation_origin": "preexisting hand-written CUDA kernel reused without post-performance modification",
+          "kind": "manual_reconstruction_from_lower_level_primitives",
+          "manual_source_path": "ako_runs/phase2_fused_sdpa/variants2/cuda_fused_common.py",
+          "manual_source_sha256": "c047985e84428246a455a20107cd5309d63528a593374ed2a4418e531c915c36",
+          "shared_manual_recipe_id": "cuda_cpp_shuffle_shared_row_softmax_v1",
+          "source_review_sha256": "b8d8884c4bcb58f9a20f24dc58473a40d8b71c019f88b219405a2c1f72d9094a",
+          "unchanged_controls": "register GBG, two kernels, paired grid configuration, precision, shape, cached weight, gate"
+        },
+        "status": "ELIGIBLE"
+      },
+      "programming_model_unit": "cuda_cpp",
+      "review": {
+        "off_gate_record_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/records/register_common_postprocess__cuda_noptx__g01.json",
+        "off_gate_record_sha256": "9796ed461c5fdde03b483751dc62b4d69899e6b5735c6ba9ddb36787235dd8b5",
+        "on_gate_record_kind": "crossed_v2r3_g01",
+        "on_gate_record_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/records/register_fused__cuda_noptx__g01.json",
+        "on_gate_record_sha256": "11aee742ea18b64612133afb393ff839b87f9071a398a858411963a135760931",
+        "source_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/cuda_noptx_register.py",
+        "source_sha256": "eaaf6ee5828a17a1c93e7ba0b8e577b857ed0930c8591d36ae2b9e6115dc420e"
+      },
+      "route": "manual_reconstruction"
+    },
+    "cuda_unlimited": {
+      "direct_primitive_mapping": {
+        "primitive_absence_receipt_sha256": "edb83b777edb4aadc3b7232353f281c66b4ecded7c25b12680c2491cc2304ef6",
+        "status": "PRIMITIVE_ABSENT"
+      },
+      "manual_reconstruction": {
+        "off_coordinate_cell_id": "register_common_postprocess.cuda_unlimited.g01",
+        "off_implementation_id": "register_common_postprocess.cuda_unlimited.g01",
+        "on_coordinate_cell_id": "register_fused.cuda_unlimited.g01",
+        "on_implementation_id": "register_fused.cuda_unlimited.g01",
+        "primitive_absence_receipt_sha256": "edb83b777edb4aadc3b7232353f281c66b4ecded7c25b12680c2491cc2304ef6",
+        "recipe": {
+          "adapter_entrypoint": "ako_runs.controlled_followup.trajectory_transfer_ada_v3.implementations.cuda_unlimited.build",
+          "authorized_change": "common CUDA softmax -> the pre-reviewed hand-written CUDA shuffle/shared-memory row softmax",
+          "implementation_origin": "preexisting hand-written CUDA kernel reused without post-performance modification",
+          "kind": "manual_reconstruction_from_lower_level_primitives",
+          "manual_source_path": "ako_runs/phase2_fused_sdpa/variants2/cuda_fused_common.py",
+          "manual_source_sha256": "c047985e84428246a455a20107cd5309d63528a593374ed2a4418e531c915c36",
+          "shared_manual_recipe_id": "cuda_cpp_shuffle_shared_row_softmax_v1",
+          "source_review_sha256": "f50e6c736f5de204ac5c506738ed9b61457cbe3e0de60892c05eca6bd83e69af",
+          "unchanged_controls": "register GBG, two kernels, paired grid configuration, precision, shape, cached weight, gate"
+        },
+        "status": "ELIGIBLE"
+      },
+      "programming_model_unit": "cuda_cpp",
+      "review": {
+        "off_gate_record_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/records/register_common_postprocess__cuda_unlimited__g01.json",
+        "off_gate_record_sha256": "9df69dfaba7da82a5e4c0228edb0ef3d7e2e1a47e43562ef397eca48917ce058",
+        "on_gate_record_kind": "crossed_v2r3_g01",
+        "on_gate_record_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/records/register_fused__cuda_unlimited__g01.json",
+        "on_gate_record_sha256": "00a17d8528fc857ef0c0a5d43e194eafdf10dfca6bc9a73760a342950c47ea54",
+        "source_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/cuda_unlimited.py",
+        "source_sha256": "6f0cac21f4daaa741d46f0223c31404a2ec718423867bebb988355ddc2f617d7"
+      },
+      "route": "manual_reconstruction"
+    },
+    "tilelang": {
+      "direct_primitive_mapping": {
+        "off_coordinate_cell_id": "register_common_postprocess.tilelang.g01",
+        "off_implementation_id": "register_common_postprocess.tilelang.g01",
+        "on_coordinate_cell_id": "register_fused.tilelang.g01",
+        "on_implementation_id": "tilelang_abstraction.F1.g01",
+        "recipe": {
+          "adapter_entrypoint": "ako_runs.controlled_followup.trajectory_transfer_ada_v3.implementations.tilelang.build",
+          "authorized_change": "common CUDA softmax -> TileLang F1 using T.reduce_max and T.reduce_sum",
+          "kind": "direct_existing_destination_primitive_mapping",
+          "new_destination_kernel_authored": false,
+          "primitive_calls": [
+            "T.reduce_max",
+            "T.reduce_sum"
+          ],
+          "source_review_sha256": "18d5c4821af7e3a66a1d56e112a2ee59458f20fb51d0e4f1ac09a6b8ddc3bc47",
+          "unchanged_controls": "register GBG, two kernels, paired grid configuration, precision, shape, cached weight, gate"
+        },
+        "status": "ELIGIBLE"
+      },
+      "manual_reconstruction": {
+        "primitive_absence_receipt_sha256": null,
+        "reason": "TileLang exposes T.reduce_max and T.reduce_sum; the preexisting F1 implementation is the direct route",
+        "status": "NOT_APPLICABLE"
+      },
+      "programming_model_unit": "tilelang",
+      "review": {
+        "off_gate_record_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/records/register_common_postprocess__tilelang__g01.json",
+        "off_gate_record_sha256": "4813257f513f03798d73144c85f97428c0cb569b9e55354fdc9a38b65997013a",
+        "on_gate_record_kind": "tilelang_abstraction_v7_f1_softmax_correctness_gate",
+        "on_gate_record_path": "ako_runs/controlled_followup/tilelang_abstraction_v7/results/ada_v7r1/admission/fused_softmax_f1_f4c__high.json",
+        "on_gate_record_sha256": "c6d62fd63348e3edd0aab06acc031df1b2175a16161efbd2c496b6a6387aa176",
+        "source_path": "ako_runs/phase2_fused_sdpa/variants2/fused_tilelang_abstraction.py",
+        "source_sha256": "ac0cbbbba5046d2ffcfd4b21b4d9aadcdaad5728d3a742dee1f77696178a724f"
+      },
+      "route": "direct_primitive_mapping"
+    },
+    "triton": {
+      "direct_primitive_mapping": {
+        "off_coordinate_cell_id": "register_common_postprocess.triton.g01",
+        "off_implementation_id": "register_common_postprocess.triton.g01",
+        "on_coordinate_cell_id": "register_fused.triton.g01",
+        "on_implementation_id": "register_fused.triton.g01",
+        "recipe": {
+          "adapter_entrypoint": "ako_runs.controlled_followup.trajectory_transfer_ada_v3.implementations.triton.build",
+          "authorized_change": "common CUDA softmax -> Triton softmax using tl.max and tl.sum",
+          "kind": "direct_existing_destination_primitive_mapping",
+          "new_destination_kernel_authored": false,
+          "primitive_calls": [
+            "tl.max",
+            "tl.sum"
+          ],
+          "source_review_sha256": "29a5042d3c902ed17d52a77c43c168cabc2bd06f3a8a2761edaf649a48b1c4c4",
+          "unchanged_controls": "register GBG, two kernels, paired grid configuration, precision, shape, cached weight, gate"
+        },
+        "status": "ELIGIBLE"
+      },
+      "manual_reconstruction": {
+        "primitive_absence_receipt_sha256": null,
+        "reason": "Triton exposes tl.max and tl.sum; no manual reconstruction is admissible",
+        "status": "NOT_APPLICABLE"
+      },
+      "programming_model_unit": "triton",
+      "review": {
+        "off_gate_record_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/records/register_common_postprocess__triton__g01.json",
+        "off_gate_record_sha256": "797838ecc8aa42d983c23efb9d40b8f460779167deb41dae615245b97323cf0f",
+        "on_gate_record_kind": "crossed_v2r3_g01",
+        "on_gate_record_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/results/crossed_v2r3/audit/records/register_fused__triton__g01.json",
+        "on_gate_record_sha256": "fa55708fd1b6eb2a248c6036a11069c0afade75844219880b0c2b505ac95b785",
+        "source_path": "ako_runs/phase2_fused_sdpa/variants2/fused_triton.py",
+        "source_sha256": "20c4f27fdc9145beec6b4cdb99ed8e9d57cbdbede87bace51319d782f378272e"
+      },
+      "route": "direct_primitive_mapping"
+    }
+  },
+  "programming_model_units": {
+    "cuda_cpp": {
+      "destination_lanes": [
+        "cuda_noptx",
+        "cuda_unlimited"
+      ],
+      "independence_note": "compiler-policy lanes of one CUDA C++ programming model; not independent model replications"
+    },
+    "tilelang": {
+      "destination_lanes": [
+        "tilelang"
+      ]
+    },
+    "triton": {
+      "destination_lanes": [
+        "triton"
+      ]
+    }
+  },
+  "record_type": "trajectory_transfer_ada_v3_primitive_map",
+  "review_kind": "pre_performance_source_review_plus_gate_receipt_binding",
+  "schema_version": 1,
+  "shared_receipts": {
+    "cuda_cpp_row_reduction_primitive_absence": {
+      "available_lower_level_mechanisms": [
+        "__shfl_down_sync",
+        "shared_memory",
+        "__syncthreads"
+      ],
+      "baseline_source_path": "ako_runs/controlled_followup/fused_epilogue_crossed_v2/postprocess.py",
+      "baseline_source_sha256": "a3b70d7a405df799b188f9db8100d1457ddd8f9b7735c59fed068794179b0ce6",
+      "finding": "PRIMITIVE_ABSENT",
+      "manual_recipe_source_path": "ako_runs/phase2_fused_sdpa/variants2/cuda_fused_common.py",
+      "manual_recipe_source_sha256": "c047985e84428246a455a20107cd5309d63528a593374ed2a4418e531c915c36",
+      "programming_model": "CUDA C++ core language, runtime, and intrinsics used by the two frozen CUDA compiler-policy lanes",
+      "receipt_id": "cuda_cpp_core_row_reduction_primitive_absence_v1",
+      "reconstruction_statement": "manual reconstruction and integration of a preexisting, algorithmically equivalent lower-level row-softmax recipe; not evidence of a newly available destination primitive",
+      "required_correspondence": "one destination-level row-max and row-sum reduction operator analogous to tl.max/tl.sum or T.reduce_max/T.reduce_sum",
+      "review_kind": "pre_performance_source_and_surface_review",
+      "reviewed_before_campaign_freeze": true,
+      "scope_limit": "External libraries such as CUB and Thrust are outside the frozen lane surface; this is not a global CUDA-ecosystem absence claim."
+    }
+  }
+}
