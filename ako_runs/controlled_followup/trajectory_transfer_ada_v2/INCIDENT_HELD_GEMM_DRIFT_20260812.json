@@ -1,0 +1,240 @@
+{
+  "artifact_closure": {
+    "algorithm": "sha256(canonical_json(sorted([{path,sha256,size}])))",
+    "excluded_files": [],
+    "file_count": 446,
+    "included_roots": [
+      "ako_runs/controlled_followup/trajectory_transfer_ada_v2/prelaunch_provenance.json",
+      "ako_runs/controlled_followup/trajectory_transfer_ada_v2/results/ada_v2r1"
+    ],
+    "prelaunch_files": 1,
+    "result_files": 445,
+    "sha256": "f1ec40e255f6a233802d3eabd7050e5b236df9d8b9f929b4e982442236711313",
+    "special_files": 0,
+    "symlinks": 0,
+    "total_bytes": 140716805,
+    "zero_byte_files": 0
+  },
+  "campaign_id": "trajectory-transfer-ada-v2",
+  "classification": "NON_CONTROLLING_HELD_GEMM_SOURCE_DRIFT_ADMISSION_INCIDENT",
+  "created_utc": "2026-08-12T19:52:54+00:00",
+  "failed_result_tag": "ada_v2r1",
+  "failure": {
+    "detected_at": {
+      "adaptation": "bounded_retune",
+      "destination": "tilelang",
+      "grid_id": "g04",
+      "mechanism_state": "on",
+      "on_entry_id": "tt2_fb7a72f827e098d220075197"
+    },
+    "exception": "ProtocolError: off/on structural controls differ: tilelang/bounded_retune/g04",
+    "failed_stage": "admission_off_on_structural_control_validation",
+    "mechanism": "The off and on TileLang g04 rows invoked the same fused_tilelang._kernel_gemm helper with identical arguments and schedule and produced the same TileLang GEMM cache key, but their isolated compilations retained different lowered device CUDA and executable objects. The on F1 compilation moved __syncthreads() from after the B-side asynchronous-copy loop and tl::cp_async_commit() to between the A-side and B-side asynchronous-copy loops. The frozen exact held-GEMM-source validator correctly rejected the pair.",
+    "root_cause": "TileLang lowering/code generation was not deterministic across the two isolated compilations: the same helper, arguments, schedule, and cache key produced different device source and executable bytes while producing byte-identical host source. Separate compilation therefore cannot implement the frozen held-GEMM control even though the source construction path is shared.",
+    "scientific_effect": "The g04 off/on contrast does not isolate the destination softmax primitive: synchronization in the held GEMM also changes. Therefore ada_v2r1 cannot support a causal performance-gain claim for transfer, cannot authorize selection or timing, and is non-controlling. The retained correctness and two-kernel checks do not repair this factor-control violation.",
+    "validator": "runner._validate_treatment_pairs"
+  },
+  "failure_evidence": {
+    "g04": {
+      "common_tilelang_gemm_cache_key": "823c1051ec25d05417bf8da4754583b315dce31d0c34f2448eda04dc7393e158",
+      "construction_path": {
+        "arguments_equal": true,
+        "helper": "fused_tilelang._kernel_gemm",
+        "helper_equal": true,
+        "schedule_equal": true,
+        "tilelang_gemm_cache_key_equal": true
+      },
+      "exact_generated_cuda_diff": {
+        "bytes": 135,
+        "off_line": 47,
+        "off_location": "after B-side cp_async loop and tl::cp_async_commit()",
+        "on_line": 42,
+        "on_location": "after A-side cp_async loop and before B-side cp_async loop",
+        "sha256": "5b4a3e4d0ae430d6be06055ed70004a20f50c71934344c25ffe17b35ceebe3c1",
+        "statement": "    __syncthreads();",
+        "unified_diff": "--- off_g04_generated_gemm.cu\n+++ on_g04_generated_gemm.cu\n@@ -41,0 +42 @@\n+    __syncthreads();\n@@ -47 +47,0 @@\n-    __syncthreads();\n"
+      },
+      "off": {
+        "artifact_identity_sha256": "9873dab1ddf5585a3d0f58950b68a7b37ad32b451ca0831eed30c77fe47b5ea6",
+        "build_record_sha256": "89e5cb53e099bcdc87b04d4abd5456129ab1f09de7f561621582175c063915fc",
+        "entry_id": "tt2_dad6697cf1751dedbf2af0c6",
+        "gate_jsonl_sha256": "2b712deadc4544f2e2fcbc8da94187de4b465410096e60495da80de9a6d3b1b7",
+        "generated_gemm_cuda_bytes": 12237,
+        "generated_gemm_cuda_sha256": "7723221de83f3b4239aa2214b31d059dc5eb385b870b9517f94bfcf892fa4eae",
+        "generated_gemm_executable_bytes": 323912,
+        "generated_gemm_executable_sha256": "1c689df9d4ad273220d70de68dae0f5f39c28aa734feddbb29ed6865ff00d63c",
+        "generated_gemm_host_cuda_bytes": 23732,
+        "generated_gemm_host_cuda_sha256": "11fb80cda72ef994e9d97d4cb33a4b77730e8b400e4ff2a8301c9436957418b3",
+        "held_gemm_source_sha256": "a6d8f80191d096650962a12fa2ee5bc45fc1efdbc5143113477f27a4514386f7",
+        "verify_record_sha256": "2f0d85f5c67cd5ce78a3abfc6f17a48a5ddd118b408301bf97bee4bb3108c370"
+      },
+      "on": {
+        "artifact_identity_sha256": "e985a96c98cd46e781cb4dd283dda83dc96391c68e1b872b15001525e4d56dc4",
+        "build_record_sha256": "0ecc3241189b45434922c4a65a85ebf1ff402b99f0efb7cf581cae8425b25b7a",
+        "entry_id": "tt2_fb7a72f827e098d220075197",
+        "gate_jsonl_sha256": "7c4b2d4dcb2b1f8e67c836d1a8a08867d19fa38c850e249b235d3f33fc948cf9",
+        "generated_gemm_cuda_bytes": 12237,
+        "generated_gemm_cuda_sha256": "c0abdad69bcb0d1b4258efbded0fc6d99fb77ff168621a3f2598b5356d1e3a85",
+        "generated_gemm_executable_bytes": 323912,
+        "generated_gemm_executable_sha256": "a6e8f65151bdb0ba6c2788b1acc10fd490e734e82b5586aab8a9ade42331d7f3",
+        "generated_gemm_host_cuda_bytes": 23732,
+        "generated_gemm_host_cuda_sha256": "11fb80cda72ef994e9d97d4cb33a4b77730e8b400e4ff2a8301c9436957418b3",
+        "held_gemm_source_sha256": "41ee7735c35544d29971cf253d9bfc4680cfbfc57ac22e751fc0594c5fa2e19f",
+        "verify_record_sha256": "8d840af938b6feab356ee2f899749e4f3ef5b1a3ffe8e06b8f98f42522f03126"
+      },
+      "paired_config_equal": true,
+      "paired_config_sha256": "515a68c1618dc3521cc1abfb88d3d2a3f500cb26e1407531009f7b12ca39dccd"
+    },
+    "g05_partial_corroboration": {
+      "exact_generated_cuda_diff_sha256": "97f4e6153c7b5309a4a08f658f655407b8185e028019702237c5ed513e521d89",
+      "off_entry_id": "tt2_406e3fb79f733258951ecd02",
+      "off_generated_gemm_cuda_sha256": "3dfa787a37c369b52841ff087ea5c3f69b15bb74b1854c7afa87777969bd3117",
+      "off_held_gemm_source_sha256": "e112bb023ca255bf618da7410032ace000955d3b93ea24d49b76b2c2d1326d3b",
+      "on_entry_id": "tt2_e0f1d9775d35588db9a8280d",
+      "on_generated_gemm_cuda_sha256": "2b7e146dcf65a708cb63f60269daaa17d9e6597307e809cda73d5881d69f73b4",
+      "on_held_gemm_source_sha256": "2de9021af142f3d06d59a5863eb37dcd9b004c3903e60fbbc4e7d061ea44070a",
+      "paired_config_equal": true,
+      "paired_config_sha256": "ca47b2abe2600c61dd4b1a893d27fba8fbc23463d117ed8410f2c414cee2d8f2"
+    }
+  },
+  "git_bindings": {
+    "campaign_lock_blob_oid": "cf09e279d0045b26c400176481e8cc5a01413819",
+    "live_remote_ref": "origin/cross-dsl-6op-ncu-redo",
+    "live_remote_ref_commit_at_seal": "7d36bc5b48bd550783b40b68248d2ee8aa67615d",
+    "prelaunch_provenance_blob_oid": "49b9806ca7e73d808a4f68f665032369e0f08dbd",
+    "result_commit": "7d36bc5b48bd550783b40b68248d2ee8aa67615d",
+    "result_commit_parent": "03255586ce0d7d0c8649d466d398ba05a97757d2",
+    "result_commit_tree_oid": "a6f922acbc60897f1558efa6b1bf99cd267da268",
+    "result_tree_oid": "9fe4fce7fd18defe408270f03df4c9e3207b33e3",
+    "source_commit": "03255586ce0d7d0c8649d466d398ba05a97757d2",
+    "source_commit_is_direct_parent_of_result_commit": true,
+    "source_commit_parent": "7d5302ba7661860bb212e608d537ffc34281fad6",
+    "source_commit_tree_oid": "234e042c1a51f27604f4bbd4f8aaadb4c689fad3",
+    "source_subtree_oid": "11a33adde3c5ebcb5a80ecbace9fbfa0cf5bad57"
+  },
+  "parent_bindings": {
+    "admission_manifest_file_sha256": "b58e8cbb53d76de4bb10b2041cb9261772a2a16425c18319d2c107fe9c32d219",
+    "admission_manifest_semantic_sha256": "15c205fc1092abf5ea20e4b75844cf770b8385b547508374860dae54ca2c43c8",
+    "campaign_lock_declared_lock_sha256": "28afd055bb9047d148c078fe8160acc48040c735ab4d9d3fd0c366cbe634bf72",
+    "campaign_lock_file_sha256": "049918dd40e2cf2d86d82d3a8db480cbb9884d4193a2d3c0d61a033459856bbf",
+    "campaign_sha256": "e6e38e507497bfbb983ba6c993100121b94d6002faa4b47c203ffb88c4a52ba5",
+    "launch_receipt_sha256": "8474e38d7d3b570cf1683848a97d06a4e5e48e8659c1b1848c14555eb6b58009",
+    "materials_sha256": "8b9e509c4e43813cc355df836d454f36a1943204d496e89414d2bcc0d3ca0fde",
+    "prelaunch_provenance_sha256": "3e2355768c33720b916a9485494b4fe98c14c7f9a9016064bb7dee57e7e2d5a8",
+    "source_bundle_sha256": "e9db9eed0ee5d3f4218ecad5f28e303ee50f6084978f1763f5dad8d52feb9744"
+  },
+  "policy": {
+    "analysis_authorized": false,
+    "confirmation_authorized": false,
+    "continuation_authorized": false,
+    "performance_timing_authorized": false,
+    "post_hoc_overlay_authorized": false,
+    "post_hoc_relabeling_authorized": false,
+    "resume_authorized": false,
+    "reuse_authorized": false,
+    "screening_authorized": false,
+    "selection_authorized": false,
+    "successor_requires_fresh_artifacts": true,
+    "successor_requires_full_160_entry_admission": true,
+    "successor_requires_intra_v3_pair_cache_seeding": true,
+    "successor_requires_new_campaign_version": true,
+    "successor_requires_new_lock": true,
+    "successor_requires_new_result_tag": true
+  },
+  "record_type": "trajectory_transfer_ada_v2_held_gemm_drift_incident",
+  "result_artifact_closure": {
+    "algorithm": "sha256(canonical_json(sorted([{path,sha256,size}])))",
+    "directory_count_excluding_root": 319,
+    "excluded_files": [],
+    "file_count": 445,
+    "root": "ako_runs/controlled_followup/trajectory_transfer_ada_v2/results/ada_v2r1",
+    "sha256": "0eb4066467173a5795daf315ac52f51315d1e6b3a28195ffdece152c98a09b31",
+    "special_files": 0,
+    "symlinks": 0,
+    "total_bytes": 140701066,
+    "zero_byte_files": 0
+  },
+  "result_state": "admission_stopped_after_held_gemm_control_drift_noncontrolling",
+  "schema_version": 1,
+  "sealed_census": {
+    "admission": {
+      "absent_entries": 133,
+      "build_complete_entries": 27,
+      "dynamic_audit_event_name_census": {
+        "main_kernel,common_postprocess_kernel(float const*, float const*, float*)": 20,
+        "main_kernel,main_kernel": 7
+      },
+      "dynamic_audits_with_exactly_two_cuda_device_events": 27,
+      "expected_entries": 160,
+      "failed_entries": 0,
+      "gate_failed_records": 0,
+      "gate_jsonl_files": 27,
+      "gate_passed_records": 13824,
+      "gate_record_census": {
+        "conformance_mixed": 6912,
+        "semantic_mixed": 6912
+      },
+      "launch_receipts": 1,
+      "partial_entries": 1,
+      "passed_entries": 26,
+      "retained_entry_directories": 27,
+      "run_status_records": 0,
+      "terminal_entries": 26,
+      "verify_complete_entries": 26
+    },
+    "partial_entry_27": {
+      "artifact_identity_sha256": "f69ba5cdd6d98cf06cd6e2bd81b09df0a36fc5420046cc8b41e0de02fc3de261",
+      "build_record_retained": true,
+      "build_record_sha256": "7e1bd3d2f70113e163d46bdea29387197523e2f410d9ccee175cb3fa164d4593",
+      "direct_children": [
+        "build_record.json",
+        "cache",
+        "gate.jsonl",
+        "runtime_tmp"
+      ],
+      "dynamic_audit_cuda_device_event_names": [
+        "main_kernel",
+        "main_kernel"
+      ],
+      "dynamic_audit_passed": true,
+      "entry_id": "tt2_e0f1d9775d35588db9a8280d",
+      "failure_record_retained": false,
+      "file_count": 14,
+      "gate_failed_records": 0,
+      "gate_jsonl_sha256": "22d92916f034ec21cf421eccb3e8a395279948bb8a70c023b3e7788561ed54ef",
+      "gate_observed_records": 512,
+      "gate_passed": true,
+      "grid_id": "g05",
+      "manifest_index_zero_based": 26,
+      "manifest_position_one_based": 27,
+      "mechanism_state": "on",
+      "performance_observations": 0,
+      "retained_bytes": 2080902,
+      "verify_record_retained": false
+    },
+    "timing": {
+      "analysis_records": 0,
+      "confirmation_manifests": 0,
+      "confirmation_records": 0,
+      "screen_manifests": 0,
+      "screen_records": 0,
+      "selection_records": 0,
+      "timing_observations_in_admission_records": 0,
+      "timing_records": 0
+    }
+  },
+  "successor": {
+    "corrective_campaign_id": "trajectory-transfer-ada-v3",
+    "first_result_tag": "ada_v3r1",
+    "predecessor_validation_requirements": [
+      "Bind this incident receipt, its exact SHA-256, the 446-file combined closure, the 445-file result closure, and the source/result commit ancestry in the v3 material and freeze closure.",
+      "Recompute both canonical path/hash/size digests and reject every missing, extra, changed, symlink, special, or zero-byte predecessor file.",
+      "Semantically rederive the exact 26-pass plus one-partial admission census, including all 13,824 passing gate rows, all 27 two-event duration-free dynamic audits, and the absence of every timing, screen, selection, confirmation, analysis, and run-status record.",
+      "For each TileLang v3 off/on pair, freshly compile the off arm, then seed the on arm from the exact paired fresh-v3 off GEMM cache entry. Bind and require equality of the cache key, device source, host source, executable object, and complete held-GEMM cache-file census. Permit fresh compilation only for the on-arm F1 softmax kernel, and reject every held-GEMM cache miss, fallback, recompilation, re-lowering, write, or mutation. Add explicit g04 and g05 regressions and reject schedule-only or cache-key-only equality.",
+      "Create a new source version, campaign ID, lock, result tag, prelaunch provenance receipt, and 160 fresh admission artifacts; never resume ada_v2r1 or load, copy, relabel, or overlay any v2 artifact.",
+      "Interpret fresh artifacts as no reuse from v2 or any older campaign. Controlled sharing of the newly compiled v3 off-arm GEMM cache bytes with its paired v3 on arm is mandatory and is the experimental control, not predecessor artifact reuse.",
+      "Preserve the frozen question, routes, grid, correctness gate, dynamic two-kernel audit, timing estimands, sham design, and inference rules except for the fresh-v3 intra-pair held-GEMM cache-seeding correction."
+    ],
+    "requirement": "Bind and validate the complete non-controlling v2r1 incident, freeze a new v3 campaign, freshly compile each v3 TileLang off-arm GEMM, require its paired on arm to load the exact off-arm GEMM cache bytes without fallback or re-lowering while freshly compiling only F1, and rerun all admission from artifacts that reuse no v2 bytes before any performance phase."
+  }
+}
