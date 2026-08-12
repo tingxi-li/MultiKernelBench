@@ -1,0 +1,48 @@
+{
+  "admission_manifest_sha256": "dda102402ea5365afd1d61aac09c2cd579ad67dab3a401e55775d5db0fe70899",
+  "campaign_id": "trajectory-transfer-ada-v4",
+  "gpu_binding": {
+    "compute_capability": "8.9",
+    "driver_version": "610.43.02",
+    "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+    "gpu_uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae",
+    "physical_gpu": 0
+  },
+  "lock_sha256": "0dbf66ba3e3eeba51fc6aa8b65149c968687fcbace6a711e232aa4c0ea465c0c",
+  "material_projection": {
+    "campaign_id": "trajectory-transfer-ada-v4",
+    "documents": {
+      "campaign.json": "edc40efa3be36b664920d300f123d2ef5a2fafbf72ca1bf7ba91a2f15ac92388",
+      "materials.json": "fa58b40f71151d85b49bdfcecaaf233866c423745b93dccc385dbdea2551e457",
+      "mechanism_card.json": "d3e56790650cef1fc358512b0dfcc7e823d0864ea736e5f8c7d2dd8d35a94d44",
+      "primitive_map.json": "2a9d4da97c2ce5ef58bd93e315b007cbcf97e8f802e86d303ebe4126e188537c"
+    },
+    "materials_sha256": "fa58b40f71151d85b49bdfcecaaf233866c423745b93dccc385dbdea2551e457",
+    "record_type": "trajectory_transfer_ada_v4_material_projection",
+    "schema_version": 1
+  },
+  "record_type": "trajectory_transfer_ada_v4_campaign_lock",
+  "schema_version": 1,
+  "source_bundle_sha256": "8e642edba40aeb8cdc97a68465a80ccaa1c0f7079a2769d2466a3c36d95f5e5c",
+  "source_sha256": {
+    ".gitignore": "d6ad147e7d5383ca6458458b76bed8ba6a927cc7bfd1d292ccf235e5bc83555b",
+    "README.md": "0e817973091606691fcbe8144807e942d158e248e211a1d62d0686f1b03450ff",
+    "__init__.py": "2d2a6005b69c00477f86ed60563ac62e60ff9dbe2b4c15cae3b095072aaf44dd",
+    "analyze.py": "8fa2a2f7733ea6fbf7c8890eb98cb41a25f90f8a34cf8928a7fa05634386000e",
+    "artifacts.py": "23928b26effe8e8d30fffcda24587bca41d4779c6c238902724ff2128de7b47d",
+    "campaign.json": "edc40efa3be36b664920d300f123d2ef5a2fafbf72ca1bf7ba91a2f15ac92388",
+    "implementations/__init__.py": "49c42e5652977ccc3311e96f1bffc2b3fbafec398e38f7ab7f757ebd2ddec9c9",
+    "implementations/cuda_noptx.py": "f9d68c9e25860a8ffa462e41bbffbd8500eecee8731c8ab174eaf033e12b4cb3",
+    "implementations/cuda_unlimited.py": "5c82ea15e48b1334a2c79b61d48f430693c4180654b28e9791b6c475fcfa2c62",
+    "implementations/tilelang.py": "39dbfd1d258ac3394bada297feca7b2036fc8a1f5b65f790b5aaec798b69744f",
+    "implementations/triton.py": "1785bcba97265952e1e298f7a3ce853938f144da61c5429c24a83d1aa0aafaa0",
+    "materials.json": "fa58b40f71151d85b49bdfcecaaf233866c423745b93dccc385dbdea2551e457",
+    "mechanism_card.json": "d3e56790650cef1fc358512b0dfcc7e823d0864ea736e5f8c7d2dd8d35a94d44",
+    "primitive_map.json": "2a9d4da97c2ce5ef58bd93e315b007cbcf97e8f802e86d303ebe4126e188537c",
+    "protocol.py": "501461a56fa84553d1c0b323973296997d3bcbd78abb0e4a8f22018589a55682",
+    "runner.py": "666246871b4e66a02cc2500455ecfb0d6ed21f383a2014c78dac02309238e477",
+    "test_artifacts.py": "1700ef7f6b512995460f83ae04eb71ee95275a3af454c2ddd8a4fec427170b5c",
+    "test_execution.py": "1fd83c3402651954aed950b5e7d012097436582ff9cef6cf914de809a43cc55f",
+    "test_protocol_contract.py": "d7a991363e9df1cf48a7d5826cd0aeda9592aa4354c60ff987d8409decfbe671"
+  }
+}

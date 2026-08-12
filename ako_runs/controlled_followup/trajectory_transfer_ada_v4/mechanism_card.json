@@ -1,0 +1,57 @@
+{
+  "campaign_id": "trajectory-transfer-ada-v4",
+  "controls": {
+    "held_fixed": [
+      "matmul shape and fp16/precast arithmetic",
+      "register-resident bias plus exact-GELU GBG path",
+      "two-kernel decomposition",
+      "grid configuration within each paired comparison",
+      "cached weight and correctness gate"
+    ],
+    "paired_states": {
+      "off": "lane-native register GBG followed by the byte-identical common CUDA softmax",
+      "on": "lane-native register GBG followed by a destination realization of the donor softmax: direct high-level reduction primitives in TileLang/Triton or the pre-reviewed manual CUDA reconstruction"
+    },
+    "treatment": "replace the common CUDA softmax with the destination-native softmax"
+  },
+  "donor_selection": {
+    "analysis_path": "ako_runs/controlled_followup/native_trajectory_replication_ada_v3/results/analysis.json",
+    "analysis_sha256": "f2f6ff6bf1624551bab240d92132e7957a65c348d55181b5981abee2ad931ca9",
+    "distributions": {
+      "positive": "speedup",
+      "withheld_signed": "speedup"
+    },
+    "lane": "triton",
+    "rule": "select a native destination whose complete interval clears the global sham floor in the speedup direction on both distributions",
+    "step": "register_common_to_register_fused_native_strategy_contrast"
+  },
+  "excluded_claims": [
+    "generic kernel fusion",
+    "optimization-order portability",
+    "all mechanisms or operators",
+    "translator independence",
+    "cross-architecture transfer",
+    "the two CUDA compiler-policy lanes as independent programming-model replications",
+    "absence of a corresponding primitive from the whole CUDA ecosystem, including excluded external libraries"
+  ],
+  "mechanism_id": "common_cuda_to_destination_native_softmax",
+  "route_classification": {
+    "direct_primitive_mapping": {
+      "destinations": [
+        "tilelang",
+        "triton"
+      ],
+      "meaning": "the destination exposes row reduction operators and the adapter uses those operators"
+    },
+    "manual_reconstruction": {
+      "destinations": [
+        "cuda_noptx",
+        "cuda_unlimited"
+      ],
+      "meaning": "the frozen CUDA C++ core surface lacks a corresponding row-reduction operator, so the destination path composes shuffle, shared-memory, and synchronization mechanisms by hand",
+      "shared_recipe": true
+    }
+  },
+  "record_type": "trajectory_transfer_ada_v4_mechanism_card",
+  "schema_version": 1
+}

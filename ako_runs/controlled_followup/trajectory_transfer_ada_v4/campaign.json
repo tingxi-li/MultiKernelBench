@@ -1,0 +1,200 @@
+{
+  "adaptations": [
+    "donor_fixed",
+    "bounded_retune"
+  ],
+  "campaign_id": "trajectory-transfer-ada-v4",
+  "claim_scope": "one Triton-selected lane-native-softmax substitution transferred by direct-primitive or manual-reconstruction routes to four lanes spanning three programming models at fused g01 and one Ada GPU",
+  "controlling": true,
+  "destinations": [
+    "tilelang",
+    "triton",
+    "cuda_noptx",
+    "cuda_unlimited"
+  ],
+  "distributions": [
+    "positive",
+    "withheld_signed"
+  ],
+  "donor": {
+    "config_id": "g01",
+    "donor_step_id": "register_common_to_register_fused",
+    "from_strategy": "register_common_postprocess",
+    "origin_dsl": "triton",
+    "origin_id": "triton_native_softmax_g01",
+    "to_strategy": "register_fused"
+  },
+  "failure_taxonomy": [
+    "PRIMITIVE_ABSENT",
+    "TRANSLATION_FAILED",
+    "AUDIT_FAILED",
+    "UNSUPPORTED",
+    "BUILD_FAILED",
+    "LAUNCH_FAILED",
+    "GATE_FAILED",
+    "GATE_PASSED"
+  ],
+  "gates": {
+    "correctness_gate": "ako_runs/controlled_followup/robust_gate/calibration/gate_spec_fused_v2.json",
+    "dynamic_work_audit": {
+      "expected_cuda_device_event_count": 2,
+      "fresh_per_artifact": true,
+      "method": "torch_profiler_cuda_activity_v1",
+      "performance_observations_forbidden": true,
+      "profiled_calls": 1,
+      "retain_all_cuda_device_events": true
+    },
+    "generated_source_binding_required": true,
+    "load_only_verification_required": true,
+    "treatment_integrity": {
+      "field": "held_gemm_source_sha256",
+      "off_on_equality_required": true,
+      "projection": "generated first-kernel GEMM body and schedule, excluding the second softmax kernel and arm label",
+      "sha256_required": true
+    },
+    "tilelang_pair_cache_control": {
+      "canary_failure_burns_tag": true,
+      "canary_performance_observations_forbidden": true,
+      "exact_load_canary_required_before_remaining_entries": 158,
+      "fixed_donor_pair_executes_first": true,
+      "fresh_off_compile_required": true,
+      "held_cache_files": [
+        "device_kernel.cu",
+        "executable.so",
+        "host_kernel.cu",
+        "params.pkl",
+        "prim_func.pkl"
+      ],
+      "held_gemm_frontend_lookup_allowed": false,
+      "held_gemm_load_method": "tilelang_tvm_ffi_exact_kernel_key_v1",
+      "no_fallback_lowering": true,
+      "on_f1_frontend_entries": 1,
+      "on_f1_softmax_fresh_compile_required": true,
+      "off_gemm_frontend_key": "b99b4b29b6aac24d9a91bfb41567cad2e43e368d3164e753aa5a54ceb327b6a7",
+      "seed_scope": "paired fresh-v4 off arm to on arm only"
+    }
+  },
+  "hardware": {
+    "compute_capability": "8.9",
+    "driver_version": "610.43.02",
+    "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+    "gpu_uuid": "GPU-45af34ad-0c74-74d0-ef3a-652090d837ae",
+    "physical_gpu": 0
+  },
+  "inference": {
+    "aggregate_rule": "all donor/destination intervals clear the global sham floor on both distributions and all destination speedup sign tests survive Holm correction",
+    "alpha": 0.05,
+    "classification_rule": "fresh donor reference; otherwise destination and donor both speed up on both distributions, any destination slowdown, or unresolved transfer benefit",
+    "controlling_trials": [
+      60,
+      100
+    ],
+    "destination_minus_donor_estimand": "destination_log_gain_minus_donor_log_gain",
+    "effect_orientation": "log(off_primary_tail_median_ms/on_primary_tail_median_ms)",
+    "interval": "exact_distribution_free_median_ratio_95",
+    "interval_endpoint_rule": "speedup only when ci_lo > sham_floor; slowdown only when ci_hi < -sham_floor; equality is unresolved",
+    "median_interval_order_rule": "reuse bound fused_epilogue_crossed_v1.core.exact_median_interval: choose maximum k with two-sided sign coverage >=0.95; endpoints ordered[k-1] and ordered[n-k], else k=1/full range",
+    "multiplicity": "Holm within each adaptation and distribution across destinations",
+    "primary_estimands": {
+      "bounded_retune": "separately_optimized_mechanism_gain_under_equal_search_budgets",
+      "donor_fixed": "transfer_mechanism_gain_at_donor_fixed_configuration"
+    },
+    "route_comparison_forbidden": true,
+    "secondary_estimands": [
+      "total_transferred_and_tuned_gain",
+      "incremental_tuning_after_transfer",
+      "generic_search_control"
+    ],
+    "sham_orientation": "same_artifact_sham_a_primary_tail_median_ms/same_artifact_sham_b_primary_tail_median_ms",
+    "sham_floor": "maximum absolute log endpoint across every destination-distribution byte-identical sham interval",
+    "sign_test": "exact one-sided sign test at global sham floor; block log-ratio <= floor counts nonpositive"
+  },
+  "mechanism_states": [
+    "off",
+    "on"
+  ],
+  "predecessor": {
+    "incident_path": "ako_runs/controlled_followup/trajectory_transfer_ada_v3/INCIDENT_SEEDED_CACHE_LOOKUP_20260812.json",
+    "incident_receipt_commit": "c404784d6ac9bd839fe2a986530f8fc5dad61f28",
+    "incident_sha256": "7ef45c6d7f1318ae8c633366746de898f727c6676ec90c0a131f82882c08ca43",
+    "result_commit": "c9a34ded2a8e6b1b88fb1046b4e9cf525a7e2139",
+    "source_commit": "a8a7c5270a3e780371c60c1c6d1f8b965803cf30",
+    "status": "non_controlling_seeded_cache_lookup"
+  },
+  "record_type": "trajectory_transfer_ada_v4_campaign",
+  "retuning": {
+    "attempts_per_destination_and_state": 19,
+    "build_failures_consume_attempts": true,
+    "grid_ids": [
+      "g00",
+      "g01",
+      "g02",
+      "g03",
+      "g04",
+      "g05",
+      "g06",
+      "g07",
+      "g08",
+      "g09",
+      "g10",
+      "g11",
+      "g12",
+      "g13",
+      "g14",
+      "g15",
+      "g16",
+      "g17",
+      "g18"
+    ],
+    "origin_bound": true,
+    "screen_processes_per_gate_legal_artifact": 2,
+    "screen_distribution": "positive",
+    "selection": "minimum median positive-screen time independently by destination and mechanism state; ties by config_id; the selected config is then reused unchanged on both confirmation distributions",
+    "withheld_distribution_may_influence_selection": false
+  },
+  "routes": [
+    "direct_primitive_mapping",
+    "manual_reconstruction"
+  ],
+  "route_by_destination": {
+    "cuda_noptx": "manual_reconstruction",
+    "cuda_unlimited": "manual_reconstruction",
+    "tilelang": "direct_primitive_mapping",
+    "triton": "direct_primitive_mapping"
+  },
+  "sequencing": {
+    "fixed_and_retuned_are_required_estimands": true,
+    "outcome_contingent_branching": false,
+    "retuned_confirmation_requires_fixed_failure": false
+  },
+  "schema_version": 1,
+  "sham": {
+    "labels": [
+      "same_artifact_sham_a",
+      "same_artifact_sham_b"
+    ],
+    "one_byte_identical_pair_per_destination": true
+  },
+  "timing": {
+    "blocks": 15,
+    "flush_l2": true,
+    "fresh_process_per_record": true,
+    "primary_trials": {
+      "start_inclusive": 60,
+      "stop_exclusive": 100
+    },
+    "randomization": "sha256_ranked_complete_blocks",
+    "randomization_seed": 2026081201,
+    "trials": 100,
+    "warmup_s": 2.0
+  },
+  "workload": {
+    "K": 8192,
+    "M": 1024,
+    "N": 8192,
+    "arithmetic": "fp16",
+    "cast": "precast",
+    "operator": "fused_matmul_bias_exact_gelu_softmax",
+    "weight_cache": "cached"
+  }
+}
